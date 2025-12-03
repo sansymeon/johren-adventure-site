@@ -1,1 +1,136 @@
-.txt
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johren Adventure</title>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .crest {
+      width: 120px;
+      height: auto;
+      margin: 0 auto 20px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    .sections {
+      width: 90%;
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 25px 20px;
+      text-align: left;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-top: 0;
+      color: var(--text-main);
+    }
+
+    .card p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: var(--accent);
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <img src="img/crest_black.png" alt="Johren Crest" class="crest" />
+    <h1>Johren Adventure</h1>
+    <div class="tagline">Discover Japan through simple, joyful digital experiences.</div>
+  </header>
+
+  <main class="sections">
+
+    <!-- Johren Discovery Spots -->
+    <div class="card">
+      <h2>Johren Discovery Spots</h2>
+      <p>
+        Unlock local treasures across towns, stations, and landmarks.  
+        Scan a QR code, earn a stamp, and learn something new at each stop.
+      </p>
+      <a href="/jds/index.html">Enter JDS →</a>
+    </div>
+
+    <!-- Johren Business Spot -->
+    <div class="card">
+      <h2>Johren Business Spot</h2>
+      <p>
+        A gentle on-ramp for shops and cafés to join the Johren ecosystem.  
+        QR-based promotions, cultural goodwill, and community traffic—without pressure.
+      </p>
+      <a href="/jbs/index.html">Enter JBS →</a>
+    </div>
+
+    <!-- Johren Kids Safety -->
+    <div class="card">
+      <h2>Johren Kids Safety</h2>
+      <p>
+        Peace of mind for families. Children tap their phone at registered school or station QR checkpoints, notifying parents instantly.
+      </p>
+      <a href="/jks/index.html">Enter JKS →</a>
+    </div>
+
+  </main>
+
+  <footer>
+    © Johren Adventure — A SanSymeon Project
+  </footer>
+
+</body>
+</html>
