@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Johren Adventure</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <title>Johren Adventure – English</title>
+  <link rel="stylesheet" href="../css/style.css" />
 
   <style>
     body {
@@ -13,6 +13,19 @@
       color: var(--text-main);
       margin: 0;
       padding: 0;
+    }
+
+    /* Language switch (top-right) */
+    .lang-switch {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 0.9rem;
+    }
+    .lang-switch a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: bold;
     }
 
     header {
@@ -89,8 +102,13 @@
 
 <body>
 
+  <!-- Language Switch -->
+  <div class="lang-switch">
+    <a href="../index.html">日本語</a>
+  </div>
+
   <header>
-    <img src="img/crest_black.png" alt="Johren Crest" class="crest" />
+    <img src="../img/crest_black.png" alt="Johren Crest" class="crest" />
     <h1>Johren Adventure</h1>
     <div class="tagline">Discover Japan through simple, joyful digital experiences.</div>
   </header>
@@ -101,29 +119,29 @@
     <div class="card">
       <h2>Johren Discovery Spots</h2>
       <p>
-        Unlock local treasures across towns, stations, and landmarks.  
-        Scan a QR code, earn a stamp, and learn something new at each stop.
+        Visit towns, stations, and local landmarks.  
+        Scan the QR tag, earn a stamp, and learn something new at each stop.
       </p>
-      <a href="/jds/index.html">Enter JDS →</a>
+      <a href="/jds/en/index.html">Enter JDS →</a>
     </div>
 
     <!-- Johren Business Spot -->
     <div class="card">
       <h2>Johren Business Spot</h2>
       <p>
-        A gentle on-ramp for shops and cafés to join the Johren ecosystem.  
-        QR-based promotions, cultural goodwill, and community traffic—without pressure.
+        A simple and gentle way for local shops to participate.  
+        QR-based promotions, cultural storytelling, and foot traffic—without pressure.
       </p>
-      <a href="/jbs/index.html">Enter JBS →</a>
+      <a href="/jbs/en/index.html">Enter JBS →</a>
     </div>
 
     <!-- Johren Kids Safety -->
     <div class="card">
       <h2>Johren Kids Safety</h2>
       <p>
-        Peace of mind for families. Children tap their phone at registered school or station QR checkpoints, notifying parents instantly.
+        Peace of mind for families. Children tap their phone at school or station checkpoints to notify parents instantly.
       </p>
-      <a href="/jks/index.html">Enter JKS →</a>
+      <a href="/jks/en/index.html">Enter JKS →</a>
     </div>
 
   </main>
