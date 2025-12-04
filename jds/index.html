@@ -17,12 +17,7 @@
 
     header {
       text-align: center;
-      padding: 50px 20px 30px;
-    }
-
-    .crest {
-      width: 90px;
-      margin-bottom: 15px;
+      padding: 40px 20px 10px;
     }
 
     h1 {
@@ -30,14 +25,42 @@
       margin: 0;
     }
 
-    .intro {
+    .intro-wrapper {
+      position: relative;
       width: 90%;
       max-width: 800px;
       margin: 25px auto 50px;
+    }
+
+    .intro {
       font-size: 1rem;
       line-height: 1.8;
       color: var(--text-muted);
+      background: var(--surface);
+      padding: 25px 20px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
       text-align: center;
+    }
+
+    /* Tanukicoon placement (Option B) */
+    .tanuki {
+      position: absolute;
+      right: -10px;
+      bottom: -10px;
+      width: 120px;
+      max-width: 35vw;
+      opacity: 0.96;
+      pointer-events: none;
+    }
+
+    @media (max-width: 500px) {
+      .tanuki {
+        width: 90px;
+        right: -5px;
+        bottom: -5px;
+      }
     }
 
     .areas {
@@ -100,15 +123,20 @@
 <body>
 
 <header>
-  <img src="../img/crest_black.png" alt="Johren Crest" class="crest" />
+  <!-- Crest removed as requested -->
   <h1>Johren Discovery Spots</h1>
 </header>
 
-<div class="intro">
-  Johren Discovery Spots（JDS）は、町や駅、名所に設置されたQRコードを読み取り、  
-  **「旅のしるし」＝スタンプ** を集めながら地域文化を再発見するプロジェクトです。<br><br>
-  小さな発見を積み重ね、ゆるやかに日本を旅する——  
-  そんなシンプルで楽しい仕組みを目指しています。
+<div class="intro-wrapper">
+  <div class="intro">
+    Johren Discovery Spots（JDS）は、町や駅、名所に設置されたQRコードを読み取り、  
+    <strong>「旅のしるし」＝スタンプ</strong> を集めながら地域文化を再発見するプロジェクトです。<br><br>
+    小さな発見を積み重ね、ゆるやかに日本を旅する——  
+    そんなシンプルで楽しい仕組みを目指しています。
+  </div>
+
+  <!-- Tanukicoon mascot -->
+  <img src="../img/tanukicoon.png" class="tanuki" alt="Tanukicoon mascot" />
 </div>
 
 <main class="areas">
