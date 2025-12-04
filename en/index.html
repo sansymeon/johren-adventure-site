@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Johren Discovery Spots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../../css/style.css" />
+  <title>Johren Discovery Spots</title>
+  <link rel="stylesheet" href="../css/style.css" />
 
   <style>
     body {
@@ -23,54 +23,83 @@
     h1 {
       font-size: 1.9rem;
       margin: 0;
-      font-weight: 700;
-      letter-spacing: 0.02em;
     }
 
-    .subtitle {
-      margin-top: 8px;
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
-
-    .intro-box {
+    .intro {
       width: 90%;
-      max-width: 900px;
+      max-width: 800px;
+      margin: 25px auto 50px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
       background: var(--surface);
-      border-radius: 18px;
-      margin: 40px auto 50px;
-      padding: 40px 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-      text-align: center;
+      padding: 25px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
       position: relative;
     }
 
-    .intro-box p {
-      font-size: 1.15rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      margin: 0;
+    .intro img {
+      position: absolute;
+      right: 20px;
+      bottom: -10px;
+      width: 90px;
+      height: auto;
     }
 
-    .tanuki {
-      width: 105px;
-      position: absolute;
-      right: 25px;
-      bottom: -18px;
+    .areas {
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .area-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+      transition: box-shadow 0.2s;
+    }
+
+    .area-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .area-card h2 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      color: var(--text-main);
+    }
+
+    .area-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .area-card a {
+      display: inline-block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .disabled {
+      opacity: 0.45;
+      pointer-events: none;
     }
 
     footer {
-      margin-top: 60px;
-      padding: 20px;
+      margin-top: 50px;
       text-align: center;
-      font-size: 0.9rem;
+      padding: 20px;
       color: var(--text-muted);
-    }
-
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
     }
   </style>
 </head>
@@ -79,23 +108,46 @@
 
 <header>
   <h1>Johren Discovery Spots</h1>
-  <div class="subtitle">A gentle way to explore Japan</div>
 </header>
 
-<div class="intro-box">
-  <p>
-    Johren Discovery Spots (JDS) is a simple QR-based exploration project that lets you  
-    rediscover towns, stations, and local landmarks through small, joyful “Journey Mark” stamps.
-    <br><br>
-    Scan a code, collect a stamp, and enjoy Japan through quiet moments of curiosity and delight.
-  </p>
+<div class="intro">
+  Johren Discovery Spots (JDS) is a gentle exploration project using QR codes
+  placed around towns, stations, and local landmarks.<br><br>
 
-  <img src="../../img/tanuki.png" alt="Tanukikun" class="tanuki">
+  Scan a code, collect a <strong>“Journey Mark”</strong> stamp, and rediscover Japan
+  through small moments of curiosity and delight.
+
+  <img src="../../img/tanukicoon.png" alt="Tanukicoon" />
 </div>
 
+<main class="areas">
+
+  <!-- Active Area -->
+  <div class="area-card">
+    <h2>Itoshima Area</h2>
+    <p>Beautiful coastline, mountains, and cultural spots. This is our first JDS model region.</p>
+    <a href="/jds/ito/index.html">▶ Start Exploring</a>
+  </div>
+
+  <!-- Coming Soon Areas -->
+  <div class="area-card disabled">
+    <h2>Fukuoka Area</h2>
+    <p>Coming soon — spot selection in progress.</p>
+  </div>
+
+  <div class="area-card disabled">
+    <h2>Oita Area</h2>
+    <p>Coming soon — famous for nature and hot springs.</p>
+  </div>
+
+  <div class="area-card disabled">
+    <h2>Kumamoto Area</h2>
+    <p>Coming soon — rich in history and local culture.</p>
+  </div>
+
+</main>
+
 <footer>
-  <a href="/jds/">日本語ページへ</a>
-  <br><br>
   © Johren Adventure — A SanSymeon Project
 </footer>
 
