@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johren Discovery Spot 001</title>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text-main);
+      text-align: center;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+    .lang-switch a {
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-left: 6px;
+    }
+    .lang-switch a:hover {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+
+    img.qr {
+      width: 260px;
+      margin: 25px 0;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    .jds-id {
+      margin-top: 10px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Manual language override -->
+  <div class="lang-switch">
+    <a href="?lang=ja">日本語</a> |
+    <a href="?lang=en">EN</a>
+  </div>
+
+  <div class="container" id="content-ja">
+    <h1>ジョウーレン・ディスカバリー・スポット</h1>
+    <div class="jds-id">スポット番号：ITO001</div>
+
+    <p>QRコードを読み取ってスタンプを獲得しましょう。</p>
+
+    <img src="/jds/qr/img/ito001.jpg" alt="QR Code" class="qr" />
+
+    <p>糸島の魅力をゆっくり発見していきましょう。</p>
+  </div>
+
+  <div class="container" id="content-en" style="display:none;">
+    <h1>Johren Discovery Spot</h1>
+    <div class="jds-id">Spot ID: ITO001</div>
+
+    <p>Scan the QR code to collect your stamp.</p>
+
+    <img src="/jds/qr/img/ito001.jpg" alt="QR Code" class="qr" />
+
+    <p>Enjoy discovering Itoshima at your own pace.</p>
+  </div>
+
+  <script>
+    function getParam(name) {
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    const langParam = getParam("lang");
+    const userLang = navigator.language || navigator.userLanguage;
+
+    function showJapanese() {
+      document.getElementById("content-ja").style.display = "block";
+      document.getElementById("content-en").style.display = "none";
+    }
+
+    function showEnglish() {
+      document.getElementById("content-ja").style.display = "none";
+      document.getElementById("content-en").style.display = "block";
+    }
+
+    // Priority:
+    // 1. Manual override
+    // 2. Browser language
+    if (langParam === "ja") {
+      showJapanese();
+    } else if (langParam === "en") {
+      showEnglish();
+    } else {
+      // Auto detect
+      if (userLang.startsWith("ja")) {
+        showJapanese();
+      } else {
+        showEnglish();
+      }
+    }
+  </script>
+
+</body>
+</html>
