@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Johren Adventure</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #222;
+      --muted: #666;
+      --accent: #c79b3b;
+      --surface: #ffffff;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+                   "Yu Gothic", Helvetica, Arial, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .card {
+      background: var(--surface);
+      padding: 2.4rem 2rem;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.02em;
+    }
+    p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 1.6rem;
+      line-height: 1.65;
+    }
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-top: 1.4rem;
+    }
+    a {
+      display: block;
+      padding: 0.7rem 1rem;
+      border-radius: 12px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    a:hover {
+      opacity: 0.85;
+    }
+    .lang-switch {
+      margin-top: 1.9rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .lang-switch a {
+      background: none;
+      padding: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .private-note {
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #999;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+
+    <h1>Johren Adventure</h1>
+
+    <p>
+      ジョウーレン・アドベンチャーへようこそ。<br>
+      駅・お店・地域スポットの QR を読み取りながら、<br>
+      ふだんの町を “小さな冒険” に変えるサービスです。
+      <br><br>
+      Welcome to Johren Adventure — a simple, app-free way to<br>
+      explore stations, shops, and hidden gems through<br>
+      Johren QR Discovery Spots.
+    </p>
+
+    <div class="links">
+      <a href="/jds/">JDS – Johren Discovery Spots</a>
+    </div>
+
+    <div class="lang-switch">
+      <a href="/en/">English</a>
+    </div>
+
+    <div class="private-note">
+      This is where the magic happens!
+    </div>
+
+  </div>
+</body>
+</html>
