@@ -44,24 +44,24 @@
       text-align: center;
     }
 
-    /* Tanukicoon placement (Option B) */
-    .tanuki {
-      position: absolute;
-      right: -10px;
-      bottom: -10px;
-      width: 120px;
-      max-width: 35vw;
-      opacity: 0.96;
-      pointer-events: none;
-    }
+    /* --- Tanukicoon safe placement --- */
+.tanuki {
+  display: block;
+  margin: 0 auto;
+  margin-top: -10px;     /* 少しだけイントロに寄せる（完全に装飾扱い） */
+  width: 120px;
+  max-width: 35vw;
+  pointer-events: none;
+  opacity: 0.96;
+}
 
-    @media (max-width: 500px) {
-      .tanuki {
-        width: 90px;
-        right: -5px;
-        bottom: -5px;
-      }
-    }
+@media (max-width: 500px) {
+  .tanuki {
+    width: 90px;
+    margin-top: -6px;
+  }
+}
+
 
     .areas {
       width: 90%;
@@ -134,10 +134,11 @@
     小さな発見を積み重ね、ゆるやかに日本を旅する——  
     そんなシンプルで楽しい仕組みを目指しています。
   </div>
-
-  <!-- Tanukicoon mascot -->
-  <img src="../img/tanukicoon.png" class="tanuki" alt="Tanukicoon mascot" />
 </div>
+
+<!-- Tanuki OUTSIDE the intro box -->
+<img src="../img/tanukicoon.png" class="tanuki" alt="Tanukicoon mascot" />
+
 
 <main class="areas">
 
