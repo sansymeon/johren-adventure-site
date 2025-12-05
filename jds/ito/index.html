@@ -294,17 +294,20 @@
     /* Footer */
 
     .site-footer {
-      background: #111;
-      color: #bbb;
-      font-size: 0.8rem;
-      padding: 1.2rem 0;
-    }
+  background: #111;
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 0.6rem 0;     /* smaller top/bottom padding */
+}
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
 
     @media(max-width: 768px) {
       .nav { display: none; }
