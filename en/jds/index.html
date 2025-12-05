@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta-name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Johren Discovery Spots</title>
-  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="../css/style.css" />
 
   <style>
     body {
@@ -15,27 +15,9 @@
       padding: 0;
     }
 
-    /* Language Switch */
-    .lang-switch {
-      position: absolute;
-      top: 15px;
-      right: 20px;
-      font-size: 0.9rem;
-    }
-    .lang-switch a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: bold;
-    }
-
     header {
       text-align: center;
       padding: 50px 20px 30px;
-    }
-
-    .crest {
-      width: 90px;
-      margin-bottom: 15px;
     }
 
     h1 {
@@ -47,10 +29,22 @@
       width: 90%;
       max-width: 800px;
       margin: 25px auto 50px;
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.8;
       color: var(--text-muted);
-      text-align: center;
+      background: var(--surface);
+      padding: 25px 20px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .intro img {
+      position: absolute;
+      right: 20px;
+      bottom: -10px;
+      width: 90px;
+      height: auto;
     }
 
     .areas {
@@ -112,54 +106,50 @@
 
 <body>
 
-  <!-- Language Switch -->
-  <div class="lang-switch">
-    <a href="../index.html">日本語</a>
+<header>
+  <h1>Johren Discovery Spots</h1>
+</header>
+
+<div class="intro">
+  Johren Discovery Spots (JDS) is a gentle exploration project using QR codes
+  placed around towns, stations, and local landmarks.<br><br>
+
+  Scan a code, collect a <strong>“Journey Mark”</strong> stamp, and rediscover Japan
+  through small moments of curiosity and delight.
+
+  <img src="../../img/tanukicoon.png" alt="Tanukicoon" />
+</div>
+
+<main class="areas">
+
+  <!-- Active Area -->
+  <div class="area-card">
+    <h2>Itoshima Area</h2>
+    <p>Beautiful coastline, mountains, and cultural spots. This is our first JDS model region.</p>
+    <a href="/jds/ito/index.html">▶ Start Exploring</a>
   </div>
 
-  <header>
-    <img src="../../img/crest_black.png" alt="Johren Crest" class="crest" />
-    <h1>Johren Discovery Spots</h1>
-  </header>
-
-  <div class="intro">
-    Johren Discovery Spots (JDS) is a simple cultural exploration system.  
-    Scan QR tags placed at towns, stations, and local landmarks to earn  
-    **digital stamps** while discovering the charm of Japan’s regions.<br><br>
-    Small discoveries, gentle travel — a uniquely Japanese way to explore.
+  <!-- Coming Soon Areas -->
+  <div class="area-card disabled">
+    <h2>Fukuoka Area</h2>
+    <p>Coming soon — spot selection in progress.</p>
   </div>
 
-  <main class="areas">
+  <div class="area-card disabled">
+    <h2>Oita Area</h2>
+    <p>Coming soon — famous for nature and hot springs.</p>
+  </div>
 
-    <!-- Active Area -->
-    <div class="area-card">
-      <h2>Itoshima Area</h2>
-      <p>Coastlines, mountains, cafés, shrines — Itoshima is our first model region.</p>
-      <a href="/en/jds/ito/index.html">▶ Start Exploring</a>
-    </div>
+  <div class="area-card disabled">
+    <h2>Kumamoto Area</h2>
+    <p>Coming soon — rich in history and local culture.</p>
+  </div>
 
-    <!-- Coming Soon Areas -->
-    <div class="area-card disabled">
-      <h2>Fukuoka Area</h2>
-      <p>Coming soon — key spots currently being selected.</p>
-    </div>
+</main>
 
-    <div class="area-card disabled">
-      <h2>Oita Area</h2>
-      <p>Coming soon — onsen towns and nature trails planned.</p>
-    </div>
-
-    <div class="area-card disabled">
-      <h2>Kumamoto Area</h2>
-      <p>Coming soon — rich history and iconic landmarks ahead.</p>
-    </div>
-
-  </main>
-
-  <footer>
-    © Johren Adventure — A SanSymeon Project
-  </footer>
+<footer>
+  © Johren Adventure — A SanSymeon Project
+</footer>
 
 </body>
 </html>
-
