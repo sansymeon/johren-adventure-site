@@ -2,10 +2,369 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Johren Adventure – Itoshima Route</title>
+  <title>Johren Adventure | Discover the Chikuhi Line</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="../../../css/style.css" />
-  <meta name="description" content="Johren Adventure – Discover local culture on the Meinohama → Karatsu line through simple QR discovery spots." />
+  <meta name="description" content="Johren Adventure – A local discovery journey from Meinohama to Karatsu. Scan QR codes at each station to unlock small stories and stamp your journey." />
+  
+  <!-- SAME STYLES AS THE JAPANESE VERSION -->
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
+      --border: #e0e0e0;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --accent: #c79b3b;
+      --accent-soft: #f2e3b8;
+      --nav-height: 64px;
+      --max-width: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      height: var(--nav-height);
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-mark {
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav a:hover::after { width: 100%; }
+
+    .nav-toggle { display: none; }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - var(--nav-height));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #ffffff;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("img/itoshima_banner.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.65);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1.5rem 5rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4vw, 3.1rem);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      max-width: 34rem;
+      margin: 0.5rem auto 1.8rem;
+      opacity: 0.95;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.4rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #2b1d05;
+    }
+
+    .btn-primary:hover {
+      background: #d3aa4b;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Sections */
+
+    section { padding: 4rem 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .section--surface { background: var(--surface); }
+    .section--soft { background: var(--surface-soft); }
+    .section--accent-soft { background: var(--accent-soft); }
+
+    .about-text {
+      max-width: 42rem;
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pill {
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    /* Route bg */
+
+    .route-section {
+      position: relative;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .route-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("img/nokonoshima_spring.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.55);
+    }
+
+    .route-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1.5rem;
+    }
+
+    .chip {
+      background: rgba(255,255,255,0.8);
+      border-radius: 999px;
+      padding: 0.45rem 0.9rem;
+      font-size: 0.8rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+    }
+
+    .route-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    /* Spots */
+
+    .spot {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .spot--reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .spot-image {
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 260px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 38px rgba(15,23,42,0.18);
+    }
+
+    .spot-tag {
+      background: rgba(199,155,59,0.12);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #7a5a16;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .spot-body h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .spot-body p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("img/kyudai_tsutaya_night.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.4);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1.5rem;
+    }
+
+    .cta-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
+    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.7rem; }
+
+    /* Footer */
+
+    .site-footer {
+      background: #111;
+      color: #bbb;
+      font-size: 0.8rem;
+      padding: 1.2rem 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    @media(max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
+      .spot, .spot--reverse { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
@@ -14,7 +373,7 @@
   <div class="container site-header-inner">
     <div class="logo-block">
       <span class="logo-mark">JOHREN ADVENTURE</span>
-      <span class="logo-sub">Discovery Spots</span>
+      <span class="logo-sub">ジョウレン・アドベンチャー</span>
     </div>
 
     <nav class="nav">
@@ -22,230 +381,251 @@
       <a href="#route">Route</a>
       <a href="#spots">Spots</a>
       <a href="#how">How It Works</a>
-      <a href="#why">Why</a>
-      <a href="../index.html" style="margin-left:1rem; color:var(--accent);">日本語</a>
+      <a href="#why">Why Johren</a>
     </nav>
 
-    <button class="nav-toggle" aria-label="Menu">☰</button>
+    <button class="nav-toggle">☰</button>
   </div>
 </header>
 
 <main>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div class="hero-kicker">Meinohama → Karatsu</div>
-      <h1 class="hero-title">Itoshima & Karatsu Discovery Route</h1>
-      <p class="hero-subtitle">
-        A gentle digital stamp journey across stations, towns, and landscapes.
-      </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Meinohama → Karatsu</div>
 
-      <div class="hero-buttons">
-        <a href="#route" class="btn btn-primary">View Route</a>
-        <a href="#how" class="btn btn-ghost">How It Works</a>
+    <h1 class="hero-title">Johren Adventure</h1>
+
+    <p class="hero-subtitle">
+      A simple local adventure along the Chikuhi Line.<br>
+      Scan QR markers at stations and discover small stories hidden in daily life.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#route">See Today's Route</a>
+      <a class="btn btn-ghost" href="#how">How It Works</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section--surface" id="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What is Johren?</h2>
+      <p>A discovery system made for Japan.</p>
+    </div>
+
+    <div class="about-text">
+      Johren Adventure is a local discovery system where you<br>
+      <strong>visit stations, shops, viewpoints, and small cultural spots</strong><br>
+      and collect stamps as you go.<br><br>
+      No app. No registration.<br>
+      Just your everyday commute or walk becoming a small personal journey.
+    </div>
+
+    <div class="pill-row">
+      <div class="pill">QR stamps at each station</div>
+      <div class="pill">Unlock mini stories & local insights</div>
+      <div class="pill">No app and no signup needed</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROUTE -->
+<section class="route-section" id="route">
+  <div class="route-inner">
+    <h2>Today's Featured Course</h2>
+    <p>Explore the Chikuhi Line — from Meinohama to Karatsu.<br>Each station has its own Johren Spot.</p>
+
+    <div class="route-chips">
+      <div class="chip">Nokonoshima View</div>
+      <div class="chip">Kyudai Bookstore</div>
+      <div class="chip">Futamigaura</div>
+      <div class="chip">Itoshima Morning</div>
+      <div class="chip">Matsubara Pines</div>
+      <div class="chip">Karatsu Castle</div>
+      <div class="chip">Karatsu Kunchi Floats</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTS -->
+<section class="section--soft" id="spots">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Spots on the Line</h2>
+      <p>Highlights along the Chikuhi Line.</p>
+    </div>
+
+    <!-- Spot 1 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/nokonoshima_view.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">START SPOT</div>
+        <h3>Nokonoshima View</h3>
+        <p>Bright spring colors overlooking the sea. Scanning the QR reveals your “first step“ stamp.</p>
+      </div>
+    </article>
+
+    <!-- Spot 2 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/kyudai_tsutaya_night.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">NEIGHBORHOOD</div>
+        <h3>Kyudai Bookstore</h3>
+        <p>A warm night-time landmark where students and locals cross paths.</p>
+      </div>
+    </article>
+
+    <!-- Spot 3 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/futamigaura.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">COASTLINE</div>
+        <h3>Futamigaura (Meoto Iwa)</h3>
+        <p>One of Itoshima’s iconic seaside destinations, changing color with every season.</p>
+      </div>
+    </article>
+
+    <!-- Spot 4 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/itoshima_sunrise.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">LOCAL VIEW</div>
+        <h3>Itoshima Morning</h3>
+        <p>A quiet sunrise behind fields and mountains — the soft start of a journey.</p>
+      </div>
+    </article>
+
+    <!-- Spot 5 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/maebaru_ekipiano.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">STATION SPOT</div>
+        <h3>Chikuhi Line Station Piano</h3>
+        <p>A street piano anyone can play — a small reminder of the slow pace of the Chikuhi Line.</p>
+      </div>
+    </article>
+
+    <!-- Spot 6 -->
+    <article class="spot spot--reverse">
+      <div class="spot-body">
+        <div class="spot-tag">QUIET WALK</div>
+        <h3>Matsubara Pine Forest</h3>
+        <p>One of Japan’s Three Great Pine Forests. A long sandy road shaded by bending pine branches.</p>
+      </div>
+      <div class="spot-image" style="background-image:url('img/matsubara_pines.jpg')"></div>
+    </article>
+
+    <!-- Spot 7 -->
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('img/karatsu_castle.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">HISTORY</div>
+        <h3>Karatsu Castle</h3>
+        <p>A sweeping view of the sea and town. The QR unlocks a short local history story.</p>
+      </div>
+    </article>
+
+    <!-- Spot 8 -->
+    <article class="spot spot--reverse">
+      <div class="spot-body">
+        <div class="spot-tag">FESTIVAL</div>
+        <h3>Karatsu Kunchi Floats</h3>
+        <p>Gigantic festival floats racing through the streets every November. The QR reveals a mini-guide.</p>
+      </div>
+      <div class="spot-image" style="background-image:url('img/karatsu_kunchi.jpg')"></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section--surface" id="how">
+  <div class="container">
+    <div class="section-heading">
+      <h2>How Johren Works</h2>
+      <p>Simple. No app required.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-title">Find the QR Marker</div>
+        <p>Each station from Meinohama to Karatsu has a Johren Spot QR plate.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-title">Scan with Your Phone</div>
+        <p>Use your camera or browser. No login or app required.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-title">Unlock a Stamp</div>
+        <p>You gain a new stamp and a small story about the place.</p>
       </div>
     </div>
-  </section>
 
-  <!-- ABOUT -->
-  <section class="section--surface" id="about">
-    <div class="container">
-      <div class="section-heading">
-        <h2>What is Johren Adventure?</h2>
-        <p>A simple QR-based discovery system.</p>
+  </div>
+</section>
+
+<!-- WHY JOHREN -->
+<section class="section--accent-soft" id="why">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Why Johren?</h2>
+      <p>Designed for Japan’s cultural logic.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Built on Familiar Japanese Systems</h3>
+        <p>Stamp rallies, goshuin, and point cards — Johren uses what people already love.</p>
       </div>
 
-      <div class="about-text">
-        Johren Adventure is a Japan-style “local discovery stamp rally.”  
-        Scan a QR placed at stations, shops, and viewpoints to unlock  
-        stories, photos, and a small stamp for your journey.  
-        No app, no signup — just explore.
+      <div class="why-card">
+        <h3>Experience, Not Money</h3>
+        <p>No discounts or redemptions in Phase 1. The joy is in walking, seeing, and discovering.</p>
       </div>
 
-      <div class="pill-row">
-        <div class="pill">QR stamp at each station</div>
-        <div class="pill">Local culture & small stories</div>
-        <div class="pill">No app required</div>
+      <div class="why-card">
+        <h3>Easy for Shops to Join</h3>
+        <p>No setup cost. A single QR plate brings visitors without adding workload.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FEATURED ROUTE -->
-  <section class="route-section" id="route">
-    <div class="route-inner">
-      <h2>Today's Route</h2>
-      <p>QR plates are placed at selected stations and viewpoints.</p>
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Begin your adventure at the next station.</h2>
+    <p>Start from anywhere — Meinohama, Karatsu, or in between.  
+       If you see a Johren Spot QR, your journey begins there.</p>
 
-      <div class="route-chips">
-        <div class="chip">Nokonoshima View</div>
-        <div class="chip">Kyudai Bookstore</div>
-        <div class="chip">Futamigaura</div>
-        <div class="chip">Itoshima Morning</div>
-        <div class="chip">Matsubara Pines</div>
-        <div class="chip">Karatsu Castle</div>
-        <div class="chip">Kunchi Floats</div>
-      </div>
+    <div class="hero-buttons">
+      <a class="btn btn-primary" href="#route">View the Route</a>
+      <a class="btn btn-ghost" href="#about">About Johren</a>
     </div>
-  </section>
-
-  <!-- SPOTS -->
-  <section class="section--soft" id="spots">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Discovery Spots</h2>
-      </div>
-
-      <!-- Nokonoshima -->
-      <article class="spot">
-        <div class="spot-image spot-image--nokonoshima"></div>
-        <div class="spot-body">
-          <div class="spot-tag">START</div>
-          <h3>Nokonoshima View</h3>
-          <p>A bright coastal scene of cherry blossoms, yellow fields, and the island across the water.</p>
-        </div>
-      </article>
-
-      <!-- Kyudai Bookstore -->
-      <article class="spot">
-        <div class="spot-image spot-image--kyudai-bookstore"></div>
-        <div class="spot-body">
-          <div class="spot-tag">NEIGHBORHOOD</div>
-          <h3>Kyudai Bookstore</h3>
-          <p>A calm evening landmark of the Gakken City area — warm light, students, and quiet streets.</p>
-        </div>
-      </article>
-
-      <!-- Futamigaura -->
-      <article class="spot">
-        <div class="spot-image spot-image--futamigaura"></div>
-        <div class="spot-body">
-          <div class="spot-tag">COASTLINE</div>
-          <h3>Futamigaura</h3>
-          <p>The iconic Itoshima seascape — the married rocks, white torii gate, and shifting seasonal colors.</p>
-        </div>
-      </article>
-
-      <!-- Itoshima Morning -->
-      <article class="spot">
-        <div class="spot-image spot-image--itoshima-sunrise"></div>
-        <div class="spot-body">
-          <div class="spot-tag">LOCAL VIEW</div>
-          <h3>Itoshima Sunrise</h3>
-          <p>A quiet rural sunrise with rice fields and mountain silhouettes.</p>
-        </div>
-      </article>
-
-      <!-- Eki Piano -->
-      <article class="spot">
-        <div class="spot-image spot-image--ekipiano"></div>
-        <div class="spot-body">
-          <div class="spot-tag">STATION SPOT</div>
-          <h3>Chikuhi Line Station Piano</h3>
-          <p>A public piano that anyone may play — a slow, local rhythm unique to this line.</p>
-        </div>
-      </article>
-
-      <!-- Matsubara -->
-      <article class="spot spot--reverse">
-        <div class="spot-body">
-          <div class="spot-tag">QUIET WALK</div>
-          <h3>Matsubara Pine Forest</h3>
-          <p>A long coastal pine corridor — one of Japan’s three great pine groves.</p>
-        </div>
-        <div class="spot-image spot-image--matsubara"></div>
-      </article>
-
-      <!-- Karatsu Castle -->
-      <article class="spot">
-        <div class="spot-image spot-image--karatsu-castle"></div>
-        <div class="spot-body">
-          <div class="spot-tag">HISTORY</div>
-          <h3>Karatsu Castle</h3>
-          <p>A full seaside view of the castle tower and the port town below.</p>
-        </div>
-      </article>
-
-      <!-- Kunchi -->
-      <article class="spot spot--reverse">
-        <div class="spot-body">
-          <div class="spot-tag">FESTIVAL</div>
-          <h3>Kunchi Floats</h3>
-          <p>Gigantic festival floats rushing through November streets — power and tradition together.</p>
-        </div>
-        <div class="spot-image spot-image--kunchi"></div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="section--surface" id="how">
-    <div class="container">
-      <div class="section-heading">
-        <h2>How It Works</h2>
-      </div>
-
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-title">Find a QR</div>
-          <p>Small Johren QR plates are placed at selected stations and spots.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-title">Scan</div>
-          <p>No app, no login — just use your camera.</p>
-        </div>
-
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-title">Unlock</div>
-          <p>Receive a stamp and a short story unique to that place.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY -->
-  <section class="section--accent-soft" id="why">
-    <div class="container">
-      <div class="section-heading">
-        <h2>Why Johren?</h2>
-      </div>
-
-      <div class="why-grid">
-        <div class="why-card">
-          <h3>Designed for Japanese culture</h3>
-          <p>Built on the logic of stamp rallies, goshuin, and point cards.</p>
-        </div>
-
-        <div class="why-card">
-          <h3>Experience-first</h3>
-          <p>No discounts or redemptions in the first phase — just discovery.</p>
-        </div>
-
-        <div class="why-card">
-          <h3>Gentle for businesses</h3>
-          <p>Shops can join with a single QR — zero installation cost.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div>© Johren Adventure / SanSymeon</div>
+    <div>© SanSymeon / Johren Adventure</div>
     <div class="footer-links">
-      <a href="../index.html">日本語</a>
-      <a href="#top">Top</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="/index.html">日本語</a>
     </div>
   </div>
 </footer>
 
 </body>
 </html>
-
