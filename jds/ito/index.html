@@ -376,6 +376,34 @@
     max-height: 320px;
   }
 }
+/* Chromebook hard limits */
+@media (min-width: 769px) {
+
+  /* Reduce the grid width even more */
+  .spot {
+    max-width: 780px;      /* tighter than before */
+    margin-left: auto;
+    margin-right: auto;
+    gap: 1.8rem;           /* reduce spacing */
+  }
+
+  /* Shrink the image container */
+  .spot-image {
+    height: 240px !important;   /* FORCE a fixed height */
+    max-height: 240px !important;
+    min-height: 0 !important;   /* override your default 260px */
+  }
+
+  /* Shrink text column width on large screens */
+  .spot-body h3 {
+    font-size: 1.15rem;
+  }
+
+  .spot-body p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
 
   </style>
 </head>
