@@ -376,6 +376,19 @@
       .nav-toggle { display: block; }
       .spot, .spot--reverse { grid-template-columns: 1fr; }
     }
+    /* Desktop safety limits for Chromebook */
+@media (min-width: 769px) {
+  .spot {
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spot-image {
+    max-height: 320px;
+  }
+}
+
   </style>
 </head>
 
