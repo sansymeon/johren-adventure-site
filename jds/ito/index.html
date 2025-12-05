@@ -109,60 +109,35 @@
 
     /* Hero */
 
-    .hero {
-      position: relative;
-      min-height: 260px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #ffffff;
-      overflow: hidden;
-    }
+    /* Compact hero section */
+.hero-section {
+  padding: 40px 20px;   /* was probably 100+ */
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("img/itoshima_banner.jpg");
-      background-size: cover;
-      background-position: center;
-      filter: brightness(0.65);
-    }
+.hero-section h1 {
+  margin-bottom: 10px;  /* tighten */
+}
 
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-      padding: 4rem 1.5rem 5rem;
-    }
+.hero-section p {
+  margin-top: 0;
+  margin-bottom: 15px;  /* tighten spacing */
+  line-height: 1.5;
+}
 
-    .hero-kicker {
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.8rem;
-      opacity: 0.9;
-    }
+.hero-buttons {
+  margin-top: 20px;   /* reduce from ~60px */
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-    .hero-title {
-      font-size: clamp(2.4rem, 4vw, 3.1rem);
-      font-weight: 700;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      max-width: 34rem;
-      margin: 0.5rem auto 1.8rem;
-      opacity: 0.95;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+.hero-buttons .btn {
+  padding: 10px 18px;
+  font-size: 14px;
+}
 
     .btn {
       padding: 0.75rem 1.4rem;
