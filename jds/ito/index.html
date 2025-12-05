@@ -297,8 +297,8 @@
   background: #111;
   color: #bbb;
   font-size: 0.75rem;
-  padding: 0.3rem 0;         /* very tight top/bottom */
-  line-height: 1.2;          /* prevents extra vertical expansion */
+  padding: 6px 0;     /* Tight top/bottom */
+  line-height: 1.2;   /* Prevents inherited tall spacing */
 }
 
 .footer-inner {
@@ -307,7 +307,12 @@
   align-items: center;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 1rem;           /* horizontal only */
+  padding: 0 1rem;    /* Horizontal only */
+}
+
+.site-footer div {
+  margin: 0;          /* Remove any default spacing */
+  padding: 0;
 }
 
 .footer-links a {
