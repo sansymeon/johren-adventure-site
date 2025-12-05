@@ -293,11 +293,12 @@
 
     /* Footer */
 
-    .site-footer {
+ .site-footer {
   background: #111;
   color: #bbb;
   font-size: 0.75rem;
-  padding: 0.6rem 0;     /* smaller top/bottom padding */
+  padding: 0.3rem 0;         /* very tight top/bottom */
+  line-height: 1.2;          /* prevents extra vertical expansion */
 }
 
 .footer-inner {
@@ -306,8 +307,18 @@
   align-items: center;
   max-width: 1080px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1rem;           /* horizontal only */
 }
+
+.footer-links a {
+  margin-left: 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+
 
     @media(max-width: 768px) {
       .nav { display: none; }
