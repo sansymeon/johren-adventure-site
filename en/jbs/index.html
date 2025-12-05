@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Johren Business Spots</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui; margin: 0; background: #f7f7f7; }
+    .hero {
+      background: url('/img/placeholder_business.jpg') center/cover no-repeat;
+      height: 38vh; min-height: 200px; position: relative;
+    }
+    .hero::before {
+      content:""; inset:0; position:absolute; background:rgba(0,0,0,0.45);
+    }
+    .hero-inner {
+      position:absolute; inset:0;
+      display:flex; flex-direction:column; justify-content:center;
+      align-items:center; color:#fff; text-align:center;
+    }
+    .container { max-width:900px; margin: 2rem auto; padding:0 1.2rem; }
+    h1 { text-align:center; margin-bottom:1rem; }
+    p { text-align:center; line-height:1.7; color:#444; }
+    .coming {
+      margin-top:2rem; padding:1rem;
+      background:#fff; border-radius:12px;
+      text-align:center; border:1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Johren Business Spots</h1>
+    <p>Coming Soon</p>
+  </div>
+</section>
+
+<div class="container">
+  <h1>What Are Johren Business Spots?</h1>
+  <p>
+    Johren Business Spots allow cafés, shops, and small local businesses  
+    to <strong>join the Johren Discovery System with a simple QR plate</strong>.  
+    Visitors scan, discover, and explore your location naturally.
+  </p>
+
+  <div class="coming">
+    <strong>Full business information is coming soon.</strong><br>
+    Merchant onboarding and details will be available shortly.
+  </div>
+</div>
+
+</body>
+</html>
