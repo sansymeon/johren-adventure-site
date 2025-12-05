@@ -1,1 +1,84 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spot Test</title>
+
+<style>
+
+:root {
+  --max-width: 1080px;
+}
+
+/* Base */
+body {
+  font-family: system-ui, sans-serif;
+  background: #f6f6f6;
+  padding: 2rem;
+}
+
+/* Spot wrapper */
+.spot {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+/* Image test block */
+.spot-image {
+  background-image: url("https://via.placeholder.com/800x800/ff4444/ffffff?text=TEST+IMAGE");
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+  min-height: 260px; /* default */
+}
+
+/* Desktop override — hard limit */
+@media (min-width: 769px) {
+
+  .spot {
+    max-width: 780px;
+  }
+
+  .spot-image {
+    height: 240px !important;
+    max-height: 240px !important;
+    min-height: 0 !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .spot {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Spot Image Test</h1>
+<p>On desktop width, the red image box should be EXACTLY 240px tall.</p>
+
+<div class="spot">
+  <div class="spot-image"></div>
+
+  <div class="spot-body">
+    <h2>Test Spot Title</h2>
+    <p>This is a simple test block to confirm whether the Chromebook applies the CSS limits.</p>
+  </div>
+</div>
+
+</body>
+</html>
