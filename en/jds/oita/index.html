@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Johren Adventure | Discover Oita, Yufuin & Beppu</title>
+  <title>Johren Adventure | Discover Yufuin, Beppu & Oita</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Johren Adventure – A local discovery journey from Meinohama to Karatsu. Scan QR codes at each station to unlock small stories and stamp your journey." />
+  <meta name="description" content="Johren Adventure – A local discovery journey through Yufuin, Beppu & Oita. Scan QR codes at each station to unlock small stories and stamp your journey." />
   
   <style>
     :root {
@@ -178,7 +178,7 @@
 
     /* Sections */
 
-    section { padding: 2.5rem 0; }
+    section { padding: 2rem 0; }
 
     .section-heading {
       text-align: center;
@@ -276,7 +276,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background-image: url("/img/kyudai_tsutaya_night.jpg");
+      background-image: url("/img/kinrin_lake.jpg");
       background-size: cover;
       background-position: center;
       filter: blur(4px) brightness(0.4);
@@ -293,102 +293,35 @@
 
     /* Footer */
 
- .site-footer {
-  background: #111;
-  color: #bbb;
-  font-size: 0.75rem;
-  padding: 6px 0;     /* Tight top/bottom */
-  line-height: 1.2;   /* Prevents inherited tall spacing */
-}
+    .site-footer {
+      background: #111;
+      color: #bbb;
+      font-size: 0.75rem;
+      padding: 6px 0;
+      line-height: 1.2;
+    }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 1rem;    /* Horizontal only */
-}
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-.site-footer div {
-  margin: 0;          /* Remove any default spacing */
-  padding: 0;
-}
+    .footer-links a {
+      margin-left: 1rem;
+      color: #ccc;
+    }
 
-.footer-links a {
-  margin-left: 1rem;
-  color: #ccc;
-  text-decoration: none;
-}
-.footer-links a:hover {
-  color: #fff;
-}
-
+    .footer-links a:hover { color: #fff; }
 
     @media(max-width: 768px) {
       .nav { display: none; }
       .nav-toggle { display: block; }
       .spot, .spot--reverse { grid-template-columns: 1fr; }
     }
-/* TIGHTER SECTIONS */
-section {
-  padding: 2rem 0 !important;      /* from 4rem → 2rem */
-}
-
-/* TIGHTEN THE ABOUT SECTION */
-#about .section-heading h2 {
-  margin-bottom: 0.4rem !important;
-}
-
-#about .section-heading p {
-  margin-bottom: 1rem !important;
-}
-
-#about .about-text {
-  margin-top: 0.5rem !important;
-  line-height: 1.55 !important;
-}
-
-#about .pill-row {
-  margin-top: 1.5rem !important;
-}
-
-/* Optional: reduce large white space between ABOUT and SPOTS */
-.section--surface {
-  padding-bottom: 2rem !important;
-}
-.section--soft {
-  padding-top: 2rem !important;
-}
-/* Center the HOW IT WORKS section */
-#how .steps {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Center each step */
-#how .step {
-  margin-bottom: 2rem;
-}
-
-#how .step-number {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-#how .step-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-#how p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-}
 
   </style>
 </head>
@@ -404,7 +337,6 @@ section {
 
     <nav class="nav">
       <a href="#about">About</a>
-      <a href="#route">Route</a>
       <a href="#spots">Spots</a>
       <a href="#how">How It Works</a>
       <a href="#why">Why Johren</a>
@@ -440,17 +372,16 @@ section {
     </div>
 
     <div class="about-text">
-      Johren Adventure is a local discovery system where you<br>
-      <strong>visit stations, shops, viewpoints, and small cultural spots</strong><br>
-      and collect stamps as you go.<br><br>
+      Johren Adventure lets visitors and locals<br>
+      <strong>explore Yufuin, Beppu, and Oita through stations, walks, and scenic points</strong>.<br><br>
       No app. No registration.<br>
-      Just your everyday commute or walk becoming a small personal journey.
+      Just small discoveries hidden in everyday places.
     </div>
 
     <div class="pill-row">
       <div class="pill">QR stamps at each station</div>
-      <div class="pill">Unlock mini stories & local insights</div>
-      <div class="pill">No app and no signup needed</div>
+      <div class="pill">Unlock mini stories</div>
+      <div class="pill">Walk, explore, collect</div>
     </div>
   </div>
 </section>
@@ -459,81 +390,40 @@ section {
 <section class="section--soft" id="spots">
   <div class="container">
     <div class="section-heading">
-      <h2>Spots on the Line</h2>
-      <p>Highlights along the Chikuhi Line.</p>
+      <h2>Spots Around Yufuin</h2>
+      <p>Local highlights you can discover along the way.</p>
     </div>
 
+    <!-- 1. Yufuin Station -->
     <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/nokonoshima_view.jpg')"></div>
+      <div class="spot-image" style="background-image:url('/img/yufuin_station.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">START SPOT</div>
-        <h3>Nokonoshima View</h3>
-        <p>Bright spring colors overlooking the sea. Scanning the QR reveals your “first step“ stamp.</p>
+        <div class="spot-tag">STATION</div>
+        <h3>Yufuin Station</h3>
+        <p>A wooden station framed by Mt. Yufu. Scanning the QR reveals your first Yufuin stamp.</p>
       </div>
     </article>
 
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/kyudai_tsutaya_night.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">NEIGHBORHOOD</div>
-        <h3>Kyudai Bookstore</h3>
-        <p>A warm night-time landmark where students and locals cross paths.</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/futamigaura.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">COASTLINE</div>
-        <h3>Futamigaura (Meoto Iwa)</h3>
-        <p>One of Itoshima’s iconic seaside destinations, changing color with every season.</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/itoshima_sunrise.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">LOCAL VIEW</div>
-        <h3>Itoshima Morning</h3>
-        <p>A quiet sunrise behind fields and mountains — the soft start of a journey.</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/maebaru_ekipiano.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">STATION SPOT</div>
-        <h3>Chikuhi Line Station Piano</h3>
-        <p>A street piano anyone can play — a small reminder of the slow pace of the Chikuhi Line.</p>
-      </div>
-    </article>
-
+    <!-- 2. Yunotsubo Street -->
     <article class="spot spot--reverse">
       <div class="spot-body">
-        <div class="spot-tag">QUIET WALK</div>
-        <h3>Matsubara Pine Forest</h3>
-        <p>One of Japan’s Three Great Pine Forests. A long sandy road shaded by bending pine branches.</p>
+        <div class="spot-tag">TOWN WALK</div>
+        <h3>Yunotsubo Street</h3>
+        <p>A gentle walk through Yufuin’s most iconic pathway — small shops, cafes, and mountain views.</p>
       </div>
-      <div class="spot-image" style="background-image:url('/img/matsubara_pines.jpg')"></div>
+      <div class="spot-image" style="background-image:url('/img/yunotsubo_street.jpg')"></div>
     </article>
 
+    <!-- 3. Kinrin Lake -->
     <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/karatsu_castle.jpg')"></div>
+      <div class="spot-image" style="background-image:url('/img/kinrin_lake.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">HISTORY</div>
-        <h3>Karatsu Castle</h3>
-        <p>A sweeping view of the sea and town. The QR unlocks a short local history story.</p>
+        <div class="spot-tag">NATURE</div>
+        <h3>Kinrin Lake</h3>
+        <p>Misty mornings and quiet reflections. A peaceful Yufuin landmark with changing seasonal colors.</p>
       </div>
     </article>
 
-    <article class="spot spot--reverse">
-      <div class="spot-body">
-        <div class="spot-tag">FESTIVAL</div>
-        <h3>Karatsu Kunchi Floats</h3>
-        <p>Gigantic festival floats racing through the streets every November. The QR reveals a mini-guide.</p>
-      </div>
-      <div class="spot-image" style="background-image:url('/img/karatsu_kunchi.jpg')"></div>
-    </article>
   </div>
 </section>
 
@@ -545,24 +435,24 @@ section {
       <p>Simple. No app required.</p>
     </div>
 
-<div class="steps">
+    <div class="steps">
 
-  <div class="step">
-    <div class="step-line"><strong>1. Find the QR Marker</strong></div>
-    <p>Each station from Meinohama to Karatsu has a Johren Spot QR plate.</p>
-  </div>
+      <div class="step">
+        <div class="step-line"><strong>1. Find the QR Marker</strong></div>
+        <p>Each participating station has a Johren Spot QR plate.</p>
+      </div>
 
-  <div class="step">
-    <div class="step-line"><strong>2. Scan with Your Phone</strong></div>
-    <p>Use your camera or browser. No login or app required.</p>
-  </div>
+      <div class="step">
+        <div class="step-line"><strong>2. Scan with Your Phone</strong></div>
+        <p>Use your camera or browser — no login needed.</p>
+      </div>
 
-  <div class="step">
-    <div class="step-line"><strong>3. Unlock a Stamp</strong></div>
-    <p>You gain a new stamp and a small story about the place.</p>
-  </div>
-</div>
+      <div class="step">
+        <div class="step-line"><strong>3. Unlock a Stamp</strong></div>
+        <p>A small story appears, along with your new stamp.</p>
+      </div>
 
+    </div>
   </div>
 </section>
 
@@ -575,20 +465,22 @@ section {
     </div>
 
     <div class="why-grid">
+
       <div class="why-card">
-        <h3>Built on Familiar Japanese Systems</h3>
-        <p>Stamp rallies, goshuin, and point cards — Johren uses what people already love.</p>
+        <h3>Created for Local Exploration</h3>
+        <p>Small places, light walking, and easy discoveries — a very Yufuin rhythm.</p>
       </div>
 
       <div class="why-card">
-        <h3>Experience, Not Money</h3>
-        <p>No discounts or redemptions in Phase 1. The joy is in walking, seeing, and discovering.</p>
+        <h3>Experience, Not Discounts</h3>
+        <p>The joy is in the scenery, history, and atmosphere — not transactions.</p>
       </div>
 
       <div class="why-card">
-        <h3>Easy for Shops to Join</h3>
-        <p>No setup cost. A single QR plate brings visitors without adding workload.</p>
+        <h3>No Burden for Shops</h3>
+        <p>No setup cost. No registration. A single QR plate is all they need.</p>
       </div>
+
     </div>
   </div>
 </section>
@@ -597,10 +489,8 @@ section {
 <section class="cta">
   <div class="cta-inner">
     <h2>Begin your adventure at the next station.</h2>
-    <p>Start from anywhere — Meinohama, Karatsu, or in between.  
+    <p>Start from anywhere — Yufuin, Beppu, or Oita.<br>
        If you see a Johren Spot QR, your journey begins there.</p>
-
-  
   </div>
 </section>
 
