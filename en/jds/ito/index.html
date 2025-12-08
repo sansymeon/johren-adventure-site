@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Itoshima Digital Regional Directory | Johren Adventure</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Itoshima Digital Regional Directory – A free map-based guide to stations, shrines, temples, churches, castles, museums, cafés, restaurants and more in the Itoshima area. No app required – just scan a QR code.">
+  <meta name="description" content="Itoshima Digital Regional Directory – A free -based guide to stations, shrines, temples, churches, castles, museums, cafés, restaurants and more in the Itoshima area. No app required – just scan a QR code.">
   <style>
     :root {
       --bg: #f7f7f7;
@@ -248,7 +248,16 @@
         padding: 1.8rem 2rem 1.8rem;
       }
     }
+    #map {
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
   </style>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
 </head>
 <body>
   <header>
@@ -289,18 +298,23 @@
       </div>
     </section>
 
-    <section id="map">
-      <h2>Itoshima Map</h2>
-      <div class="map-container">
-        <div class="map-placeholder">
-          Place your Itoshima map component here.<br>
-          (Example: Leaflet / Google Maps / static image overlay etc.)
-        </div>
-        <div class="map-note">
-          Tap a pin on the map to open the detail page for that station, shrine, church, museum, café, restaurant, or shop.
-        </div>
-      </div>
-    </section>
+    <section id="map-section">
+      <section id="map-section">
+  <h2>Itoshima Map</h2>
+
+  <div class="map-container">
+
+    <!-- The REAL Leaflet map container -->
+    <div id="map"></div>
+
+    <div class="map-note">
+      Tap a pin on the map to open the detail page for that station, shrine,
+      church, museum, café, restaurant, or shop.
+    </div>
+
+  </div>
+</section>
+
 
     <section>
       <h2>Categories & Icons</h2>
@@ -416,5 +430,23 @@
     Itoshima Digital Regional Directory | Johren Adventure<br>
     Content may be updated or changed without prior notice.
   </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  // Create the map centered on Itoshima KouKoumae Station (adjust if needed)
+  const map = L.map('map').setView([33.5826, 130.2260], 14);
+
+  // Add OpenStreetMap tile layer
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Add a basic marker
+  L.marker([33.5826, 130.2260])
+    .addTo(map)
+    .bindPopup("<b>Ito Station</b><br>Start your Johren Journey!");
+</script>
+
 </body>
 </html>
