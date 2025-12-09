@@ -44,6 +44,7 @@ const icons = {
   museum: makeIcon('museum.png'),
   restaurant: makeIcon('restaurant.png'),
   convenience: makeIcon('combini.png'),
+  noodles: makeIcon('noodles.png'),
   playground: makeIcon('playground.png'),
   park: makeIcon('park.png')
   // Add more anytime — ALL handled automatically
@@ -84,6 +85,7 @@ loadCategory("churches", "church");
 loadCategory("museums", "museum");
 loadCategory("combini", "convenience");
 loadCategory("restaurants", "restaurant");
+loadCategory("noodles", "noodles");
 loadCategory("playgrounds", "playground");
 loadCategory("parks", "park");
 
