@@ -14,16 +14,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // -------------------------------
-// STATIONS (loaded from map-data.js)
+// CUSTOM ICON
 // -------------------------------
-window.stations.forEach(st => {
-  L.marker([st.lat, st.lng], { icon: stationIcon })
-    .addTo(map)
-    .bindPopup(st.name);
-  });
-} else {
-  console.error("stations[] not loaded!");
-}
 const stationIcon = L.icon({
   iconUrl: '../../../img/map/station.png',
   iconSize: [36, 36],
@@ -31,3 +23,15 @@ const stationIcon = L.icon({
   popupAnchor: [0, -30]
 });
 
+// -------------------------------
+// STATIONS (loaded from map-data.js)
+// -------------------------------
+if (window.stations && window.stations.length > 0) {
+  window.stations.forEach(st => {
+    L.marker([st.lat, st.lng], { icon: stationIcon })
+      .addTo(map)
+      .bindPopup(st.name);
+  });
+} else {
+  console.error("stations[] not loaded!");
+}
