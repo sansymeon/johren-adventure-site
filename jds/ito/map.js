@@ -25,3 +25,9 @@ if (window.stations && window.stations.length > 0) {
 } else {
   console.error("stations[] not loaded!");
 }
+const stationIcon = L.icon({
+  iconUrl: '../../../img/station.png',
+  iconSize: [36, 36],
+  iconAnchor: [18, 36],
+  popupAnchor: [0, -30]
+});
