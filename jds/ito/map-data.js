@@ -22,20 +22,11 @@ window.stations = [
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 }
 ];
 window.bookstores = [
-  { 
-    name: "TSUTAYA 九大伊都ラボ", 
-    lat: 33.594148,  lng: 130.229617 
-  }
+  { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594148,  lng: 130.229617 }
 ];
 window.coffeeshops = [
-  { 
-    name: "Starbucks 九大伊都ラボ", 
-    lat: 33.594266,  lng: 130.229810 
-  }
+  { name: "Starbucks 九大伊都ラボ", lat: 33.594266,  lng: 130.229810 }
 ];
 window.churches = [
-  { 
-    name: "Itoshima Catholic Church", 
-    lat: 33.584095,  lng: 130.189016 
-  }
+  { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 }
 ];
