@@ -48,6 +48,7 @@ const icons = {
   artisan: makeIcon('artisan.png'),
   library: makeIcon('library.png'),
   clinic: makeIcon('clinic.png'),
+  supermarket: makeIcon('supermarket.png'),
   playground: makeIcon('playground.png'),
   park: makeIcon('park.png')
   // Add more anytime — ALL handled automatically
