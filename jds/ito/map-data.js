@@ -34,7 +34,8 @@ window.noodles = [
 window.restaurants = [
   { name: "カレント Current Restaurant", lat: 33.608696, lng: 130.161656 },
   { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 },
-  { name: "風の丘 Yakiniku Restaurant", lat: 33.552282, lng: 130.192580 } 
+  { name: "風の丘 Yakiniku Restaurant", lat: 33.552282, lng: 130.192580 },
+  { name: "MacDonalds Maebaru", lat: 33.561406, lng: 130.210648 } 
 ];
 window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 }
