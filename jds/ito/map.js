@@ -16,11 +16,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // -------------------------------
 // STATIONS (loaded from map-data.js)
 // -------------------------------
-if (window.stations && window.stations.length > 0) {
-  window.stations.forEach(st => {
-    L.marker([st.lat, st.lng])
-      .addTo(map)
-      .bindPopup(st.name);
+window.stations.forEach(st => {
+  L.marker([st.lat, st.lng], { icon: stationIcon })
+    .addTo(map)
+    .bindPopup(st.name);
   });
 } else {
   console.error("stations[] not loaded!");
