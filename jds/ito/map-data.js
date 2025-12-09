@@ -27,3 +27,9 @@ window.bookstores = [
     lat: 33.594148,  lng: 130.229617 
   }
 ];
+window.coffeeshops = [
+  { 
+    name: "Starbucks 九大伊都ラボ", 
+    lat: 33.594266,  lng: 130.229810 
+  }
+];
