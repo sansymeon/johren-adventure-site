@@ -21,3 +21,9 @@ window.stations = [
   { name: "唐津駅", lat: 33.446223, lng: 129.967587 },
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 }
 ];
+window.bookstores = [
+  { 
+    name: "TSUTAYA 前原店", 
+    lat: 33.593850405231905, lng: 130.2295746797708 
+  }
+];
