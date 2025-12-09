@@ -30,7 +30,7 @@ window.coffeeshops = [
 window.restaurants = [
   { name: "カレント Current Restaurant", lat: 33.608696, lng: 130.161656 }
   { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 } 
-]1 
+];
 window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 }
 ];
