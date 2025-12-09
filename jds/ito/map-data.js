@@ -27,6 +27,9 @@ window.bookstores = [
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.594266,  lng: 130.229810 }
 ];
+window.noodles = [
+  { name: "Nagahama Ramen Riki 力", lat: 33.563060, lng: 130.217424 }
+];
 window.restaurants = [
   { name: "カレント Current Restaurant", lat: 33.608696, lng: 130.161656 },
   { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 },
