@@ -5,6 +5,7 @@ const map = L.map('map', {
   zoomControl: true
 }).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
 
+
 // -------------------------------
 // TILE LAYER
 // -------------------------------
@@ -13,60 +14,77 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// -------------------------------
-// CUSTOM ICONS
-// -------------------------------
-const stationIcon = L.icon({
-  iconUrl: '../../../img/map/station.png',
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -30]
-});
-
-const bookstoreIcon = L.icon({
-  iconUrl: '../../../img/map/bookstore.png',
-  iconSize: [36, 36],       // WIDTH, HEIGHT
-  iconAnchor: [24, 72],     // half width, full height
-  popupAnchor: [0, -65]     // raises popup above the icon
-});
-
-const coffeeIcon = L.icon({
-  iconUrl: '../../../img/map/coffee.png',
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -30]
-});
 
 // -------------------------------
-// STATIONS (loaded from map-data.js)
+// ICON FACTORY (cleaner)
 // -------------------------------
-if (window.stations && window.stations.length > 0) {
-  window.stations.forEach(st => {
-    L.marker([st.lat, st.lng], { icon: stationIcon })
-      .addTo(map)
-      .bindPopup(st.name);
-  });
-} else {
-  console.error("stations[] not loaded!");
-}
-
-// -------------------------------
-// BOOKSTORES
-// -------------------------------
-if (window.bookstores && window.bookstores.length > 0) {
-  window.bookstores.forEach(store => {
-    L.marker([store.lat, store.lng], { icon: bookstoreIcon })
-      .addTo(map)
-      .bindPopup(store.name);
+function makeIcon(file) {
+  return L.icon({
+    iconUrl: `../../../img/map/${file}`,
+    iconSize: [36, 36],
+    iconAnchor: [18, 36],
+    popupAnchor: [0, -30]
   });
 }
+
 // -------------------------------
-// COFFEESHOPS
+// ALL ICONS
 // -------------------------------
-if (window.coffeeshops && window.coffeeshops.length > 0) {
-  window.coffeeshops.forEach(store => {
-    L.marker([store.lat, store.lng], { icon: coffeeIcon })
-      .addTo(map)
-      .bindPopup(store.name);
-  });
+const icons = {
+  station: makeIcon('station.png'),
+  bookstore: makeIcon('bookstore.png'),
+  coffee: makeIcon('coffee.png'),
+  bakery: makeIcon('bakery.png'),
+  clinic: makeIcon('clinic.png'),
+  barbershop: makeIcon('barber.png'),
+  beauty: makeIcon('beauty.png'),
+  shrine: makeIcon('shrine.png'),
+  temple: makeIcon('temple.png'),
+  church: makeIcon('church.png'),
+  museum: makeIcon('museum.png'),
+  convenience: makeIcon('combini.png'),
+  playground: makeIcon('playground.png'),
+  park: makeIcon('park.png')
+  // Add more anytime — ALL handled automatically
+};
+
+
+// -------------------------------
+// GENERIC CATEGORY LOADER
+// -------------------------------
+function loadCategory(categoryName, iconName) {
+  const list = window[categoryName];
+  const icon = icons[iconName];
+
+  if (list && list.length > 0 && icon) {
+    list.forEach(item => {
+      L.marker([item.lat, item.lng], { icon })
+        .addTo(map)
+        .bindPopup(item.name);
+    });
+  }
 }
+
+
+// -------------------------------
+// LOAD ALL CATEGORIES
+// (Add or remove freely — no extra JS edits needed)
+// -------------------------------
+loadCategory("stations", "station");
+loadCategory("bookstores", "bookstore");
+loadCategory("coffeeshops", "coffee");
+loadCategory("bakeries", "bakery");
+loadCategory("clinics", "clinic");
+loadCategory("barbershops", "barbershop");
+loadCategory("beautyshops", "beauty");
+loadCategory("shrines", "shrine");
+loadCategory("temples", "temple");
+loadCategory("churches", "church");
+loadCategory("museums", "museum");
+loadCategory("combini", "convenience");
+loadCategory("playgrounds", "playground");
+loadCategory("parks", "park");
+
+// Add new categories anytime — only 2 steps:
+// 1) put your icon → /img/map/
+// 2) add "window.xxx = [...]" in map-data.js
