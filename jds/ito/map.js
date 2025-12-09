@@ -26,8 +26,9 @@ if (window.stations && window.stations.length > 0) {
   console.error("stations[] not loaded!");
 }
 const stationIcon = L.icon({
-  iconUrl: '../../../img/station.png',
+  iconUrl: '../../../img/map/station.png',
   iconSize: [36, 36],
   iconAnchor: [18, 36],
   popupAnchor: [0, -30]
 });
+
