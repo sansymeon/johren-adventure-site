@@ -14,7 +14,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // -------------------------------
-// CUSTOM ICON
+// CUSTOM ICONS
 // -------------------------------
 const stationIcon = L.icon({
   iconUrl: '../../../img/map/station.png',
@@ -22,6 +22,7 @@ const stationIcon = L.icon({
   iconAnchor: [18, 36],
   popupAnchor: [0, -30]
 });
+
 const bookstoreIcon = L.icon({
   iconUrl: '../../../img/map/bookstore.png',
   iconSize: [36, 36],
@@ -41,7 +42,11 @@ if (window.stations && window.stations.length > 0) {
 } else {
   console.error("stations[] not loaded!");
 }
-if (window.bookstores) {
+
+// -------------------------------
+// BOOKSTORES
+// -------------------------------
+if (window.bookstores && window.bookstores.length > 0) {
   window.bookstores.forEach(store => {
     L.marker([store.lat, store.lng], { icon: bookstoreIcon })
       .addTo(map)
