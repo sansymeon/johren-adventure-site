@@ -1,15 +1,28 @@
-// Create map centered on Chikuhi Line
-const map = L.map('map').setView([33.557, 130.199], 11);
+// -------------------------------
+// FORCE MAP CENTER & ZOOM
+// -------------------------------
+const map = L.map('map', {
+  zoomControl: true
+}).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru area
+                                            // <<< THIS IS KEY !!!
 
-// Load OpenStreetMap tiles (correct URL)
+// -------------------------------
+// TILE LAYER
+// -------------------------------
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 18,
+  maxZoom: 19,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-// Add station markers
-window.stations.forEach(st => {
-  L.marker([st.lat, st.lng])
-    .addTo(map)
-    .bindPopup(st.name);
-});
+// -------------------------------
+// STATIONS (loaded from map-data.js)
+// -------------------------------
+if (window.stations && window.stations.length > 0) {
+  window.stations.forEach(st => {
+    L.marker([st.lat, st.lng])
+      .addTo(map)
+      .bindPopup(st.name);
+  });
+} else {
+  console.error("stations[] not loaded!");
+}
