@@ -42,6 +42,9 @@ window.restaurants = [
 window.supermarkets = [
   { name: "Sunny Supermaket", lat: 33.561620, lng: 130.212912 }
 ];
+window.clinics = [
+  { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 }
+];
 window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 }
 ];
