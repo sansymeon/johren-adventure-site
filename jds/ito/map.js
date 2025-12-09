@@ -41,3 +41,10 @@ if (window.stations && window.stations.length > 0) {
 } else {
   console.error("stations[] not loaded!");
 }
+if (window.bookstores) {
+  window.bookstores.forEach(store => {
+    L.marker([store.lat, store.lng], { icon: bookstoreIcon })
+      .addTo(map)
+      .bindPopup(store.name);
+  });
+}
