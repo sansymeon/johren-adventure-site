@@ -25,9 +25,9 @@ const stationIcon = L.icon({
 
 const bookstoreIcon = L.icon({
   iconUrl: '../../../img/map/bookstore.png',
-  iconSize: [36, 36],
-  iconAnchor: [18, 36],
-  popupAnchor: [0, -30]
+  iconSize: [48, 72],       // WIDTH, HEIGHT
+  iconAnchor: [24, 72],     // half width, full height
+  popupAnchor: [0, -65]     // raises popup above the icon
 });
 
 const coffeeIcon = L.icon({
