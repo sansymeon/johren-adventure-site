@@ -22,6 +22,12 @@ const stationIcon = L.icon({
   iconAnchor: [18, 36],
   popupAnchor: [0, -30]
 });
+const bookstoreIcon = L.icon({
+  iconUrl: '../../../img/map/bookstore.png',
+  iconSize: [36, 36],
+  iconAnchor: [18, 36],
+  popupAnchor: [0, -30]
+});
 
 // -------------------------------
 // STATIONS (loaded from map-data.js)
