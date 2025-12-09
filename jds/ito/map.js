@@ -30,6 +30,13 @@ const bookstoreIcon = L.icon({
   popupAnchor: [0, -30]
 });
 
+const coffeeIcon = L.icon({
+  iconUrl: '../../../img/map/coffee.png',
+  iconSize: [36, 36],
+  iconAnchor: [18, 36],
+  popupAnchor: [0, -30]
+});
+
 // -------------------------------
 // STATIONS (loaded from map-data.js)
 // -------------------------------
@@ -49,6 +56,16 @@ if (window.stations && window.stations.length > 0) {
 if (window.bookstores && window.bookstores.length > 0) {
   window.bookstores.forEach(store => {
     L.marker([store.lat, store.lng], { icon: bookstoreIcon })
+      .addTo(map)
+      .bindPopup(store.name);
+  });
+}
+// -------------------------------
+// COFFEESHOPS
+// -------------------------------
+if (window.coffeeshops && window.coffeeshops.length > 0) {
+  window.coffeeshops.forEach(store => {
+    L.marker([store.lat, store.lng], { icon: coffeeIcon })
       .addTo(map)
       .bindPopup(store.name);
   });
