@@ -24,6 +24,6 @@ window.stations = [
 window.bookstores = [
   { 
     name: "TSUTAYA 九大伊都ラボ", 
-    lat: 33.593850405231905, lng: 130.2295746797708 
+    lat: 33.594148,  lng: 130.229617 
   }
 ];
