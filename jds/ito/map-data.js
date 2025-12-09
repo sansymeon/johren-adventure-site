@@ -33,7 +33,7 @@ window.coffeeshops = [
     lat: 33.594266,  lng: 130.229810 
   }
 ];
-window.church = [
+window.churches = [
   { 
     name: "Itoshima Catholic Church", 
     lat: 33.584095,  lng: 130.189016 
