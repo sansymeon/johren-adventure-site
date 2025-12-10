@@ -31,7 +31,7 @@ window.coffeeshops = [
   { name: "Starbucks Omichi Oita Bypass", lat: 33.212474, lng: 131.596578 },
   { name: "Starbucks Nakakasuga Oita", lat: 33.23985440134827, lng: 131.59493664576107 },
   { name: "Witch Coffee Stand 中央町 ", lat: 33.23863304641898, lng: 131.607084223584 },
-  { name: "Witch Coffee Mare", lat: 33.24802817257983, lng: 131.5833951776591 }
+  { name: "Witch Coffee Mare", lat: 33.24802817257983, lng: 131.5833951776591 },
   { name: "Witch Coffee 南大分", lat: 33.21177823071886, lng: 131.5916415244462 }
 ];
 
