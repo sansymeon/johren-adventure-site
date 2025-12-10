@@ -3,7 +3,8 @@
 // -------------------------------
 const map = L.map('map', {
   zoomControl: true
-}).setView([33.232336, , 131.605796, 12);   // Oita center
+}).setView([33.232336, 131.605796], 12);   // Oita center
+
 
 
 // -------------------------------
@@ -35,7 +36,6 @@ const icons = {
   bookstore: makeIcon('bookstore.png'),
   coffee: makeIcon('coffee.png'),
   bakery: makeIcon('bakery.png'),
-  clinic: makeIcon('clinic.png'),
   barbershop: makeIcon('barber.png'),
   beauty: makeIcon('beauty.png'),
   shrine: makeIcon('shrine.png'),
@@ -81,7 +81,6 @@ loadCategory("stations", "station");
 loadCategory("bookstores", "bookstore");
 loadCategory("coffeeshops", "coffee");
 loadCategory("bakeries", "bakery");
-loadCategory("clinics", "clinic");
 loadCategory("barbershops", "barbershop");
 loadCategory("beautyshops", "beauty");
 loadCategory("shrines", "shrine");
