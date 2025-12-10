@@ -96,7 +96,7 @@ loadCategory("artisans", "artisan");
 loadCategory("clinics", "clinic");
 loadCategory("libraries", "library");
 loadCategory("playgrounds", "playground");
-loadCategory("baths", "bath");
+loadCategory("bath", "bath");
 loadCategory("parks", "park");
 
 // Add new categories anytime — only 2 steps:
