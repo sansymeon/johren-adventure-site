@@ -3,6 +3,9 @@ window.stations = [
   { name: "西大分駅", lat: 33.24522482617123, lng: 131.58285137901504 },
   { name: "東別府駅", lat: 33.2677076187008, lng: 131.51050697420135 }
 ];
+window.therapy = [
+  { name: "Studio Pataka",  lat: 33.221392, lng: 131.586237, }
+];
 window.bookstores = [
   { name: "TSUTAYA Mitsuyoshiten",  lat: 33.199082,   lng: 131.605068, }
 ];
