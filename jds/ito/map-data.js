@@ -24,6 +24,9 @@ window.stations = [
 window.bookstores = [
   { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594159,   lng: 130.229052 }
 ];
+window.shrines = [
+  { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 }
+];
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
   { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
