@@ -40,7 +40,7 @@ window.restaurants = [
   { name: "風の丘 Yakiniku Restaurant", lat: 33.552282, lng: 130.192580 },
   { name: "マックドナルド MacDonalds Maebaru", lat: 33.561406, lng: 130.210648 },
   { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 },
-  { name: "喜八荘", lat: 33.50248408443177, lng: 130.07149698798466 },
+  { name: "喜八荘", lat: 33.502444517182056,  lng: 130.0713461092523 },
   { name: "サンセットビーチ Beach Cafe Sunset", lat: 33.641949, lng: 130.201588 }
 ];
 window.supermarkets = [
