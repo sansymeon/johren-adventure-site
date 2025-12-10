@@ -50,7 +50,7 @@ const icons = {
   clinic: makeIcon('clinic.png'),
   supermarket: makeIcon('supermarket.png'),
   playground: makeIcon('playground.png'),
-  baths: makeIcon('bath.png'),
+  bath: makeIcon('bath.png'),
   park: makeIcon('park.png')
   // Add more anytime — ALL handled automatically
 };
