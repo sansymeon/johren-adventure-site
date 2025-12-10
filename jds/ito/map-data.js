@@ -22,7 +22,7 @@ window.stations = [
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 }
 ];
 window.bookstores = [
-  { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594148,  lng: 130.229617 }
+  { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594159,   lng: 130.229052 }
 ];
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593786, lng: 130.230228 },
