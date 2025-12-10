@@ -31,6 +31,10 @@ window.coffeeshops = [
 ];
 window.artisans = [
   { name: "ろうそく工房クレアーレ Candle Artisan", lat: 33.583231,   lng: 130.195634 },
+  { name: "ガラス工房DAICHI", lat: 33.546517126200385, lng: 130.1660542259566 },
+  { name: "Antique House Perla", lat: 33.548387106215266, lng: 130.16542390442925 },
+  { name: "アトリエ·エトルリア Stained Glass", lat: 33.619045,  lng: 130.1937628211 },
+  { name: "Swing Art グラス", lat: 33.56212691996682,  lng: 130.21855634038954 }
 ];
 window.noodles = [
   { name: "Nagahama Ramen Riki 力", lat: 33.563060, lng: 130.217424 }
