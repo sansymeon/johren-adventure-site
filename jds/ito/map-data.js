@@ -25,6 +25,7 @@ window.bookstores = [
   { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594159,   lng: 130.229052 }
 ];
 window.shrines = [
+  { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 }
 ];
 window.coffeeshops = [
