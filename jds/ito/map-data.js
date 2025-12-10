@@ -26,7 +26,7 @@ window.bookstores = [
 ];
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
-  { name: "カフェ・ショパン Care Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
+  { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
   { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
 ];
 window.artisans = [
