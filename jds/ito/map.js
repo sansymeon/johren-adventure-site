@@ -51,6 +51,7 @@ const icons = {
   supermarket: makeIcon('supermarket.png'),
   playground: makeIcon('playground.png'),
   bath: makeIcon('bath.png'),
+  temple: makeIcon('temple.png'),
   park: makeIcon('park.png')
   // Add more anytime — ALL handled automatically
 };
@@ -97,6 +98,7 @@ loadCategory("clinics", "clinic");
 loadCategory("libraries", "library");
 loadCategory("playgrounds", "playground");
 loadCategory("bath", "bath");
+loadCategory("temples", "temple");
 loadCategory("parks", "park");
 
 // Add new categories anytime — only 2 steps:
