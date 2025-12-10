@@ -362,6 +362,56 @@
     padding-top: 110px !important;
   }
 }
+/* -----------------------------------------
+   MOBILE FIXES FOR OITA PAGE
+------------------------------------------*/
+
+/* Improve readability on hero image */
+.hero::before {
+  background: rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Mobile layout fixes */
+@media (max-width: 480px) {
+
+  /* Ensure hero section sits BELOW header */
+  .hero {
+    padding-top: calc(120px + env(safe-area-inset-top)) !important;
+    padding-bottom: 40px !important;
+    height: auto !important;
+  }
+
+  /* Prevent absolute centering on mobile */
+  .hero-content {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    padding: 0 16px; /* slight horizontal padding for text */
+  }
+
+  /* Buttons stack vertically for better tapping */
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 10px !important;
+  }
+
+  /* Extra spacing so the next section starts cleanly */
+  .section {
+    padding-top: 50px !important;
+  }
+}
 
   </style>
 </head>
