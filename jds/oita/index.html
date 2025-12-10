@@ -2,9 +2,9 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜大分の発見旅</title>
+  <title>ジョウレン・アドベンチャー｜大分の発見マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ジョウレン・アドベンチャー ― 大分発見旅。駅に設置されたQRを読み取り、小さな物語やスタンプを集めて進む新しい散策体験。" />
+  <meta name="description" content="ジョウレン・アドベンチャー 大分版。駅・カフェ・クリニックなどにQRを設置し、まち歩きをゆるくつなぐローカル発見システム。アプリ不要・会員登録不要。" />
   
   <style>
     :root {
@@ -109,7 +109,8 @@
     /* HERO */
 
     .hero {
-      background: url('/img/nokonoshima_view.jpg') center/cover no-repeat;
+      /* TODO: 差し替えたいときは大分の写真に変更 */
+      background: url('/img/yufuin_station.jpg') center/cover no-repeat;
       color: #fff;
       position: relative;
       display: flex;
@@ -178,11 +179,11 @@
 
     /* Sections */
 
-    section { padding: 2.5rem 0; }
+    section { padding: 2rem 0; }
 
     .section-heading {
       text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1.6rem;
     }
 
     .section-heading h2 {
@@ -211,7 +212,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
     }
 
     .pill {
@@ -223,45 +224,61 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.04);
     }
 
-    /* Spots */
-
-    .spot {
+    .two-column {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-      margin-bottom: 3rem;
+      gap: 2rem;
+      align-items: start;
       max-width: 780px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
 
-    .spot--reverse {
-      grid-template-columns: 1fr 1.1fr;
+    .two-column p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
-    .spot-image {
-      border-radius: 18px;
-      overflow: hidden;
-      min-height: 240px;
-      max-height: 240px;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 18px 38px rgba(15,23,42,0.18);
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
     }
 
-    .spot-tag {
-      background: rgba(199,155,59,0.12);
-      padding: 0.2rem 0.6rem;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      color: #7a5a16;
-      margin-bottom: 0.4rem;
-      display: inline-block;
+    .bullet-list li::before {
+      content: "・";
+      margin-right: 0.25rem;
     }
 
-    .spot-body h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
-    .spot-body p { font-size: 0.95rem; color: var(--text-muted); }
+    /* HOW section */
+
+    #how .steps {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #how .step {
+      margin-bottom: 1.6rem;
+    }
+
+    #how .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    #how .step-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    #how p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
 
     /* CTA */
 
@@ -285,111 +302,47 @@
     .cta-inner {
       position: relative;
       z-index: 1;
-      padding: 4rem 1.5rem;
+      padding: 3rem 1.5rem;
     }
 
     .cta-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
-    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.7rem; }
+    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.2rem; }
 
     /* Footer */
 
- .site-footer {
-  background: #111;
-  color: #bbb;
-  font-size: 0.75rem;
-  padding: 6px 0;     /* Tight top/bottom */
-  line-height: 1.2;   /* Prevents inherited tall spacing */
-}
+    .site-footer {
+      background: #111;
+      color: #bbb;
+      font-size: 0.75rem;
+      padding: 6px 0;
+      line-height: 1.2;
+    }
 
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 1rem;    /* Horizontal only */
-}
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-.site-footer div {
-  margin: 0;          /* Remove any default spacing */
-  padding: 0;
-}
-
-.footer-links a {
-  margin-left: 1rem;
-  color: #ccc;
-  text-decoration: none;
-}
-.footer-links a:hover {
-  color: #fff;
-}
-
+    .footer-links a {
+      margin-left: 1rem;
+      color: #ccc;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
 
     @media(max-width: 768px) {
       .nav { display: none; }
       .nav-toggle { display: block; }
-      .spot, .spot--reverse { grid-template-columns: 1fr; }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
     }
-/* TIGHTER SECTIONS */
-section {
-  padding: 2rem 0 !important;      /* from 4rem → 2rem */
-}
-
-/* TIGHTEN THE ABOUT SECTION */
-#about .section-heading h2 {
-  margin-bottom: 0.4rem !important;
-}
-
-#about .section-heading p {
-  margin-bottom: 1rem !important;
-}
-
-#about .about-text {
-  margin-top: 0.5rem !important;
-  line-height: 1.55 !important;
-}
-
-#about .pill-row {
-  margin-top: 1.5rem !important;
-}
-
-/* Optional: reduce large white space between ABOUT and SPOTS */
-.section--surface {
-  padding-bottom: 2rem !important;
-}
-.section--soft {
-  padding-top: 2rem !important;
-}
-/* Center the HOW IT WORKS section */
-#how .steps {
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Center each step */
-#how .step {
-  margin-bottom: 2rem;
-}
-
-#how .step-number {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-#how .step-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 0.3rem;
-}
-
-#how p {
-  font-size: 0.95rem;
-  color: #444;
-  line-height: 1.5;
-}
-
   </style>
 </head>
 
@@ -399,15 +352,14 @@ section {
   <div class="container site-header-inner">
     <div class="logo-block">
       <span class="logo-mark">JOHREN ADVENTURE</span>
-      <span class="logo-sub">ジョウレン・アドベンチャー</span>
+      <span class="logo-sub">ジョウレン・アドベンチャー 大分版</span>
     </div>
 
     <nav class="nav">
       <a href="#about">ジョウレンとは</a>
-      <a href="#route">ルート</a>
-      <a href="#spots">スポット</a>
+      <a href="#area">大分エリア</a>
       <a href="#how">使い方</a>
-      <a href="#why">特徴</a>
+      <a href="#future">今後のイメージ</a>
     </nav>
 
     <button class="nav-toggle">☰</button>
@@ -416,195 +368,132 @@ section {
 
 <main>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-kicker">姪浜 → 唐津</div>
-    <h1 class="hero-title">ジョウレン・アドベンチャー</h1>
-    <p class="hero-subtitle">
-      大分に沿って進むシンプルなローカル冒険。<br>
-      駅にあるQRマーカーを読み取り、日常に隠れた小さな物語を発見していきます。
-    </p>
-    <div class="hero-buttons">
-  <a class="btn" href="#how">使い方を見る</a>
-  <a class="btn" href="map.html">地図を見る</a>
-</div>
-
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section--surface" id="about">
-  <div class="container">
-    <div class="section-heading">
-      <h2>ジョウレンとは？</h2>
-      <p>日本のために作られたローカル発見システム。</p>
-    </div>
-
-    <div class="about-text">
-      ジョウレン・アドベンチャーは、<br>
-      <strong>駅・お店・景観スポット・小さな文化地点</strong>を巡り、<br>
-      スタンプを集めながら進むローカル発見システムです。<br><br>
-
-      アプリ不要。登録不要。<br>
-      いつもの通勤や散歩が、ちょっとした「旅」になります。
-    </div>
-
-    <div class="pill-row">
-      <div class="pill">駅ごとにQRスタンプ</div>
-      <div class="pill">小さな物語 & ローカルの豆知識</div>
-      <div class="pill">アプリ・ログイン不要</div>
-    </div>
-  </div>
-</section>
-
-<!-- SPOTS -->
-<section class="section--soft" id="spots">
-  <div class="container">
-    <div class="section-heading">
-      <h2>筑肥線のスポット</h2>
-      <p>沿線の見どころを少しだけ紹介。</p>
-    </div>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/nokonoshima_view.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">スタートスポット</div>
-        <h3>能古島ビュー</h3>
-        <p>海を望む春の色彩。QRを読むと「最初の一歩」スタンプが手に入ります。</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/kyudai_tsutaya_night.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">ご近所スポット</div>
-        <h3>九大蔦屋</h3>
-        <p>学生と地元の人が行き交う、あたたかい夜のランドマーク。</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/futamigaura.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">海沿い</div>
-        <h3>二見ヶ浦（夫婦岩）</h3>
-        <p>糸島を象徴する海辺の景色。季節ごとに表情が変わります。</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/itoshima_sunrise.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">ローカルビュー</div>
-        <h3>糸島の朝</h3>
-        <p>田畑と山の向こうに昇る静かな朝日 ― ゆっくり始まる一日の景色。</p>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/maebaru_ekipiano.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">駅スポット</div>
-        <h3>筑肥線 駅ピアノ</h3>
-        <p>誰でも弾けるストリートピアノ。筑肥線のゆったりした空気を思い出させてくれる場所。</p>
-      </div>
-    </article>
-
-    <article class="spot spot--reverse">
-      <div class="spot-body">
-        <div class="spot-tag">静かな道</div>
-        <h3>虹の松原</h3>
-        <p>日本三大松原のひとつ。曲がりくねる松に囲まれた長い砂道。</p>
-      </div>
-      <div class="spot-image" style="background-image:url('/img/matsubara_pines.jpg')"></div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-image" style="background-image:url('/img/karatsu_castle.jpg')"></div>
-      <div class="spot-body">
-        <div class="spot-tag">歴史</div>
-        <h3>唐津城</h3>
-        <p>海と町を一望できる名所。QRを読むと短い歴史ストーリーが開きます。</p>
-      </div>
-    </article>
-
-    <article class="spot spot--reverse">
-      <div class="spot-body">
-        <div class="spot-tag">祭り</div>
-        <h3>唐津くんち</h3>
-        <p>毎年11月に巨大な曳山が町を駆ける唐津の大祭。QRではミニガイドが開きます。</p>
-      </div>
-      <div class="spot-image" style="background-image:url('/img/karatsu_kunchi.jpg')"></div>
-    </article>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="section--surface" id="how">
-  <div class="container">
-    <div class="section-heading">
-      <h2>使い方</h2>
-      <p>とてもシンプル。アプリ不要。</p>
-    </div>
-
-<div class="steps">
-
-  <div class="step">
-    <div class="step-line"><strong>1. QRマーカーを見つける</strong></div>
-    <p>姪浜〜唐津の各駅にはジョウレンQRプレートがあります。</p>
-  </div>
-
-  <div class="step">
-    <div class="step-line"><strong>2. スマホで読み取る</strong></div>
-    <p>カメラまたはブラウザでOK。ログインやアプリは必要ありません。</p>
-  </div>
-
-  <div class="step">
-    <div class="step-line"><strong>3. スタンプを獲得</strong></div>
-    <p>その場所に合わせたスタンプと小さな物語が開きます。</p>
-  </div>
-
-</div>
-
-  </div>
-</section>
-
-<!-- WHY JOHREN -->
-<section class="section--accent-soft" id="why">
-  <div class="container">
-    <div class="section-heading">
-      <h2>ジョウレンの特徴</h2>
-      <p>日本の文化的ロジックに合わせて設計。</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <h3>日本で馴染みのある仕組み</h3>
-        <p>スタンプラリー、御朱印、ポイントカード ― すでに人々が好きな文化を活かしています。</p>
-      </div>
-
-      <div class="why-card">
-        <h3>お金ではなく「体験」</h3>
-        <p>フェーズ1では割引や交換はありません。歩く・見る・気づく楽しさを重視。</p>
-      </div>
-
-      <div class="why-card">
-        <h3>お店も気軽に参加できる</h3>
-        <p>設置費ゼロ。QRプレートひとつで、手間なく来訪者が増えます。</p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">大分・別府エリア</div>
+      <h1 class="hero-title">ジョウレン・アドベンチャー 大分</h1>
+      <p class="hero-subtitle">
+        駅・カフェ・クリニック・ショップなどに小さなQRマーカーを設置し、<br>
+        まち歩きとローカル情報をゆるくつなぐ仕組みです。<br>
+        アプリも会員登録も不要。QRを読み取るだけでOK。
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#how">使い方を見る</a>
+        <a class="btn" href="map.html">大分マップを開く</a>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- CTA -->
-<section class="cta">
-  <div class="cta-inner">
-    <h2>次の駅から冒険を始めよう。</h2>
-    <p>姪浜でも、唐津でも、その途中でも。  
-       ジョウレンQRを見つけたら、そこが旅のスタートです。</p>
-  </div>
-</section>
+  <!-- ABOUT -->
+  <section class="section--surface" id="about">
+    <div class="container">
+      <div class="section-heading">
+        <h2>ジョウレンとは？</h2>
+        <p>「駅スタンプ」「御朱印」「ポイントカード」の発想から生まれたローカル発見システム。</p>
+      </div>
+
+      <div class="about-text">
+        ジョウレン・アドベンチャーは、<br>
+        <strong>駅・お店・景観スポット・クリニック</strong>などに設置したQRを手がかりに、<br>
+        まちの点と点をゆるく結んでいく仕組みです。<br><br>
+        まずは大分駅周辺からスタートし、別府・湯のまち・山あいのエリアへと<br>
+        少しずつ広げていく実験版として公開しています。
+      </div>
+
+      <div class="pill-row">
+        <div class="pill">アプリ不要・ログイン不要</div>
+        <div class="pill">QRプレートを置くだけで参加可能</div>
+        <div class="pill">観光客にも地元の方にも使いやすい設計</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section--soft" id="area">
+    <div class="container">
+      <div class="section-heading">
+        <h2>大分版でできること</h2>
+        <p>まずはシンプルな「地図＋スポット表示」からスタートします。</p>
+      </div>
+
+      <div class="two-column">
+        <p>
+          現在の大分マップには、<br>
+          <strong>大分駅・西大分駅・東別府駅</strong> と、いくつかの<br>
+          カフェ・書店・セラピースタジオ・教会などが登録されています。<br><br>
+          それぞれのピンをタップすると、名前と場所をシンプルに確認できます。<br>
+          将来的には、ここに<strong>短いストーリー</strong>や<strong>スタンプ</strong>を追加し、<br>
+          「歩きたくなる理由」を少しずつ増やしていく予定です。
+        </p>
+
+        <ul class="bullet-list">
+          <li>駅：大分・西大分・東別府</li>
+          <li>カフェ：スターバックスなど数件</li>
+          <li>ショップ：大分メイドショップ など</li>
+          <li>セラピー／スタジオ：Pilates & Therapy スタジオ</li>
+          <li>教会：フランシスコ・ザビエル記念聖堂 ほか</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section--surface" id="how">
+    <div class="container">
+      <div class="section-heading">
+        <h2>使い方（テスト版）</h2>
+        <p>とてもシンプル。QRとスマホだけで始められます。</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">QRプレートを見つける</div>
+          <p>大分駅周辺の店舗や施設に、ジョウレンの小さなQRプレートが設置されます。</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">スマホで読み取る</div>
+          <p>カメラやブラウザからQRを読み取るだけ。アプリのインストールやログインは不要です。</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">マップとスポットを確認</div>
+          <p>現在地周辺の駅・カフェ・クリニックなどの場所を確認しながら、自由にまち歩きを楽しめます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE / WHY -->
+  <section class="section--accent-soft" id="future">
+    <div class="container">
+      <div class="section-heading">
+        <h2>今後のイメージ</h2>
+        <p>本番前の「プロトタイプ」として、大分で試運転中です。</p>
+      </div>
+
+      <div class="about-text">
+        この大分版は、<strong>「どんなことができるか」</strong>をイメージしてもらうためのテストサイトです。<br><br>
+        今後は、<strong>別府・湯布院・九重</strong>などのエリアも含めて、<br>
+        さまざまなローカルスポットをゆるくつなぎ、<br>
+        「もう一駅先まで行ってみようかな」と思ってもらえる仕組みを目指します。
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>まずは大分マップから。</h2>
+      <p>「大分でこういうことができそうだな」というイメージを見るためのデモです。<br>
+         ピンの数は少しずつ増えていきます。</p>
+      <a class="btn" href="map.html" style="background:#fff;color:#222;border-radius:999px;padding:10px 18px;font-weight:600;">大分マップを開く</a>
+    </div>
+  </section>
 
 </main>
 
