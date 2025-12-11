@@ -28,10 +28,30 @@ window.shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 }
 ];
+window.drugstores = [
+  { name: "Drug Store Mori Urashi", lat: 33.55959824540431, lng: 130.21227299570643},
+  { name: "Cosmos Urashi", lat: 33.56266588620052,  lng: 130.21097361361203 }
+];
+window.hotels = [
+  { name: "Glocal Hotel Itoshima", lat: 33.58398734228711,  lng: 130.21374198567526 },
+  { name: "AZ Hotel 福岡糸島", lat: 33.561399656066335,  lng: 130.2142046816784 }
+];
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
+   { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
   { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
   { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
+];
+window.convenience = [
+  { name: "7-11 Itonomori", lat: 33.55982085693245,  lng: 130.21178627322553 },
+  { name: "7-11 Arita", lat: 33.54841242658414, lng: 130.2124361059176 },
+  { name: "7-11 元浜", lat: 33.5909784895695, lng: 130.22379108651617 },
+  { name: "7-11 泊", lat: 33.584500539943, lng: 130.2135658717259 },
+  { name: "Lawson Arita", lat: 33.54762202143682, lng: 130.21241581513144 },
+  { name: "Lawson 糸島農協前共同出張所", lat: 33.561315555916,  lng: 130.2085728982 },
+  { name: "Family Mart 波多江駅北", lat: 33.56418086878, lng: 130.22258475806444 },
+  { name: "Family Mart 元岡", lat: 33.593901561573446, lng: 130.22838073741727 },
+  { name: "Lawson 元岡", lat: 33.59158084138807,  lng: 130.23186347268907 }
 ];
 window.artisans = [
   { name: "ろうそく工房クレアーレ Candle Artisan", lat: 33.583231,   lng: 130.195634 },
@@ -48,6 +68,8 @@ window.restaurants = [
   { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 },
   { name: "風の丘 Yakiniku Restaurant", lat: 33.552282, lng: 130.192580 },
   { name: "マックドナルド MacDonalds Maebaru", lat: 33.561406, lng: 130.210648 },
+  { name: "マックドナルド 九大学研都市店", lat: 33.578508599783994, lng: 130.25301490872266 },
+  { name: "Bikkuri Donkey 九大学研都市店", lat: 33.57863261959046, lng: 130.25335738941635 },
   { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 },
   { name: "喜八荘", lat: 33.502444517182056,  lng: 130.0713461092523 },
   { name: "サンセットビーチ Beach Cafe Sunset", lat: 33.641949, lng: 130.201588 }
