@@ -31,30 +31,31 @@ function makeIcon(file) {
 // ALL ICONS
 // -------------------------------
 const icons = {
-  station: makeIcon('station.png'),
-  bookstore: makeIcon('bookstore.png'),
-  coffee: makeIcon('coffee.png'),
-  bakery: makeIcon('bakery.png'),
-  clinic: makeIcon('clinic.png'),
-  barbershop: makeIcon('barber.png'),
-  beauty: makeIcon('beauty.png'),
-  shrine: makeIcon('shrine.png'),
-  temple: makeIcon('temple.png'),
-  church: makeIcon('church.png'),
-  museum: makeIcon('museum.png'),
-  restaurant: makeIcon('restaurant.png'),
-  convenience: makeIcon('combini.png'),
-  noodles: makeIcon('noodles.png'),
   artisan: makeIcon('artisan.png'),
-  library: makeIcon('library.png'),
-  clinic: makeIcon('clinic.png'),
-  supermarket: makeIcon('supermarket.png'),
-  playground: makeIcon('playground.png'),
+  bakery: makeIcon('bakery.png'),
+  barbershop: makeIcon('barber.png'),
   bath: makeIcon('bath.png'),
-  park: makeIcon('park.png')
+  beauty: makeIcon('beauty.png'),
+  bookstore: makeIcon('bookstore.png'),
+  church: makeIcon('church.png'),
+  clinic: makeIcon('clinic.png'),
+  coffee: makeIcon('coffee.png'),
+  convenience: makeIcon('combini.png'),
+  drugstore: makeIcon('drugs.png'),
+  hotel: makeIcon('hotel.png'),
+  library: makeIcon('library.png'),
+  museum: makeIcon('museum.png'),
+  noodles: makeIcon('noodles.png'),
+  park: makeIcon('park.png'),
+  playground: makeIcon('playground.png'),
+  restaurant: makeIcon('restaurant.png'),
+  shrine: makeIcon('shrine.png'),
+  station: makeIcon('station.png'),
+  supermarket: makeIcon('supermarket.png'),
+  temple: makeIcon('temple.png')
+  
   // Add more anytime — ALL handled automatically
 };
-
 
 // -------------------------------
 // GENERIC CATEGORY LOADER
@@ -72,32 +73,32 @@ function loadCategory(categoryName, iconName) {
   }
 }
 
-
 // -------------------------------
 // LOAD ALL CATEGORIES
 // (Add or remove freely — no extra JS edits needed)
 // -------------------------------
-loadCategory("stations", "station");
-loadCategory("bookstores", "bookstore");
-loadCategory("coffeeshops", "coffee");
-loadCategory("bakeries", "bakery");
-loadCategory("clinics", "clinic");
-loadCategory("barbershops", "barbershop");
-loadCategory("beautyshops", "beauty");
-loadCategory("shrines", "shrine");
-loadCategory("temples", "temple");
-loadCategory("churches", "church");
-loadCategory("museums", "museum");
-loadCategory("combini", "convenience");
-loadCategory("restaurants", "restaurant");
-loadCategory("noodles", "noodles");
-loadCategory("supermarkets", "supermarket");
+
 loadCategory("artisans", "artisan");
-loadCategory("clinics", "clinic");
-loadCategory("libraries", "library");
-loadCategory("playgrounds", "playground");
+loadCategory("bakeries", "bakery");
 loadCategory("bath", "bath");
+loadCategory("beautyshops", "beauty");
+loadCategory("bookstores", "bookstore");
+loadCategory("churches", "church");
+loadCategory("clinics", "clinic");
+loadCategory("coffeeshops", "coffee");
+loadCategory("combini", "convenience");
+loadCategory("drugstores", "drugstore");
+loadCategory("hotels", "hotel");
+loadCategory("libraries", "library");
+loadCategory("museums", "museum");
+loadCategory("noodles", "noodles");
 loadCategory("parks", "park");
+loadCategory("playgrounds", "playground");
+loadCategory("restaurants", "restaurant");
+loadCategory("shrines", "shrine");
+loadCategory("stations", "station");
+loadCategory("supermarkets", "supermarket");
+loadCategory("temples", "temple");
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
