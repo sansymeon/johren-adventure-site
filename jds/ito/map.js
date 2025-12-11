@@ -40,7 +40,7 @@ const icons = {
   church: makeIcon('church.png'),
   clinic: makeIcon('clinic.png'),
   coffee: makeIcon('coffee.png'),
-  convenience: makeIcon('combini.png'),
+  combini: makeIcon('combini.png'),
   drugstore: makeIcon('drugs.png'),
   hotel: makeIcon('hotel.png'),
   library: makeIcon('library.png'),
@@ -86,7 +86,7 @@ loadCategory("bookstores", "bookstore");
 loadCategory("churches", "church");
 loadCategory("clinics", "clinic");
 loadCategory("coffeeshops", "coffee");
-loadCategory("combini", "convenience");
+loadCategory("combini", "combini");
 loadCategory("drugstores", "drugstore");
 loadCategory("hotels", "hotel");
 loadCategory("libraries", "library");
