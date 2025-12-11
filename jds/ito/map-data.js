@@ -24,7 +24,7 @@ window.churches = [
 ];
 window.clinics = [
   { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 },
-  { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 }
+  { name: "みんなのクリニック", lat: 33.55933842851171,  lng: 130.21208042527257 }
 ];
 window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
