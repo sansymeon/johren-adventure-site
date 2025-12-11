@@ -23,7 +23,10 @@ window.coffeeshops = [
   { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
 ];
 window.churches = [
-  { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 }
+  { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 },
+  { name: "Baptist Church 福岡西部バプテスト教会", lat: 33.56349797391542, lng: 130.20519427279035 },
+  { name: "Maebaru Christian Church 日本基督教団 前原教会", lat: 33.55976434044294, lng: 130.19648464789108 },
+  { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774,  lng: 130.20782879949556 }
 ];
 window.clinics = [
   { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 }
