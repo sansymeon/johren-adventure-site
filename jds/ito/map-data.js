@@ -55,7 +55,7 @@ window.hotels = [
   { name: "AZ Hotel 福岡糸島", lat: 33.561399656066335,  lng: 130.2142046816784 }
 ];
 window.museum = [
-  { name: "Ito Art Museum", lat: 33.56063278048929,   lng: 130.20447283810256 
+  { name: "Ito Art Museum", lat: 33.56063278048929,   lng: 130.20447283810256 },
   { name: "Ito-koku History Museum", lat: 33.53641274192818,   lng: 130.25185578816215 },
   { name: "Hikiyama Exhibition Hall", lat: 33.445946414612074,  lng: 129.96991124129468 },
   { name: "Hikiyama Exhibition Hall", lat: 33.445946414612074,  lng: 129.96991124129468 },
