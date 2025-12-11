@@ -16,12 +16,6 @@ window.bath = [
 window.bookstores = [
   { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594159,   lng: 130.229052 }
 ];
-window.coffeeshops = [
-  { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
-   { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
-  { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
-  { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
-];
 window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 },
   { name: "Baptist Church 福岡西部バプテスト教会", lat: 33.56349797391542, lng: 130.20519427279035 },
@@ -29,7 +23,14 @@ window.churches = [
   { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774,  lng: 130.20782879949556 }
 ];
 window.clinics = [
+  { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 },
   { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 }
+];
+window.coffeeshops = [
+  { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
+   { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
+  { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
+  { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
 ];
 window.combini = [
   { name: "7-11 Itonomori", lat: 33.55982085693245,  lng: 130.21178627322553 },
@@ -48,7 +49,18 @@ window.drugstores = [
 ];
 window.hotels = [
   { name: "Glocal Hotel Itoshima", lat: 33.58398734228711,  lng: 130.21374198567526 },
+  { name: "Karatsu Seaside Hotel", lat: 33.448514368504696,   lng: 129.99012564665264 },
+  { name: "Karatsu Daiichi Hotel Riviere", lat: 33.44339040982554,   lng: 129.98427119640402 },
+  { name: "Mercure Saga Karatsu Resort", lat: 33.447834269377836,    lng: 129.98748956578044 },
   { name: "AZ Hotel 福岡糸島", lat: 33.561399656066335,  lng: 130.2142046816784 }
+];
+window.museum = [
+  { name: "Ito Art Museum", lat: 33.56063278048929,   lng: 130.20447283810256 
+  { name: "Ito-koku History Museum", lat: 33.53641274192818,   lng: 130.25185578816215 },
+  { name: "Hikiyama Exhibition Hall", lat: 33.445946414612074,  lng: 129.96991124129468 },
+  { name: "Hikiyama Exhibition Hall", lat: 33.445946414612074,  lng: 129.96991124129468 },
+  { name: "Matsurokan Museum", lat: 33.44858034806565,  lng: 129.9577636994955 },
+  { name: "Karatsu Castle", lat: 33.45345765716856,   lng: 129.9782080418245 }
 ];
 window.noodles = [
   { name: "Nagahama Ramen Riki 力", lat: 33.563060, lng: 130.217424 }
@@ -66,7 +78,8 @@ window.restaurants = [
 ];
 window.shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
-  { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 }
+  { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 },
+  { name: "Karatsu Shrine　唐津神社", lat: 33.45227410257489,  lng: 129.96948404957564 }
 ];
 window.stations = [
   { name: "姪浜駅", lat: 33.58370, lng: 130.32501 },
@@ -92,7 +105,8 @@ window.stations = [
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 }
 ];
 window.supermarkets = [
-  { name: "Sunny Supermaket", lat: 33.561620, lng: 130.212912 }
+  { name: "Sunny Supermaket", lat: 33.561620, lng: 130.212912 },
+  { name: "ITOSAISAI Farmer's Market", lat: 33.555881770215,  lng: 130.22828993782352 }
 ];
 window.temples = [
   { name: "雷山千如寺 大悲王院", lat: 33.49445385812953,  lng: 130.22869414812786 },
