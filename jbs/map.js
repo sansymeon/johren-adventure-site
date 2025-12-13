@@ -12,7 +12,7 @@ const map = L.map('map', {
 // TILE LAYER
 // -------------------------------
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 10,
+  maxZoom: 8,
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
@@ -33,26 +33,18 @@ function makeIcon(file) {
 // ALL ICONS
 // -------------------------------
 const icons = {
-  station: makeIcon('station.png'),
   bookstore: makeIcon('bookstore.png'),
   coffee: makeIcon('coffee.png'),
   bakery: makeIcon('bakery.png'),
   barbershop: makeIcon('barber.png'),
   beauty: makeIcon('beauty.png'),
-  shrine: makeIcon('shrine.png'),
-  temple: makeIcon('temple.png'),
-  church: makeIcon('church.png'),
-  museum: makeIcon('museum.png'),
   restaurant: makeIcon('restaurant.png'),
   convenience: makeIcon('combini.png'),
   noodles: makeIcon('noodles.png'),
   artisan: makeIcon('artisan.png'),
-  library: makeIcon('library.png'),
   therapy: makeIcon('therapy.png'),
   clinic: makeIcon('clinic.png'),
   supermarket: makeIcon('supermarket.png'),
-  playground: makeIcon('playground.png'),
-  park: makeIcon('park.png')
   // Add more anytime — ALL handled automatically
 };
 
