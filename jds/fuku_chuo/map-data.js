@@ -8,8 +8,8 @@ window.coffeeshops = [
   { name: "Akasaka Starbucks", lat: 33.58879978026981, lng: 130.3909728170642  },
 ];
 window.combini = [
-  { name: "Family Mart Tohjinmachi", lat: 33.59044977349158, lng: 130.37056854175228 },
-  { name: "Family Mart Tohjinmachi", lat: 33.590268632238384,  lng: 130.36960065339431 }
+  { name: "Family Mart Tohjinmachi 1", lat: 33.59044977349158, lng: 130.37056854175228 },
+  { name: "Family Mart Tohjinmachi 2", lat: 33.590268632238384,  lng: 130.36960065339431 }
 ];
 window.hotels = [
   { name: "Hilton Fukuoka Sea Hawk Hotel", lat: 33.59444118909713,   lng: 130.35979729462397 },
@@ -32,7 +32,7 @@ window.shrines = [
 window.stations = [
   { name: "Nakasukawabata Station", lat: 33.59505492445377,  lng: 130.40667693824517 },
   { name: "Tenjin Station", lat: 33.5913469503287,   lng: 130.39891098113026 },
-  { name: "Akasaka Station"  lat: 33.58906127661953,   lng: 130.3906207746017 },
+  { name: "Akasaka Station",  lat: 33.58906127661953,   lng: 130.3906207746017 },
   { name: "Ohori Park Station", lat: 33.59012812434707,  lng: 130.3788320713684 },
   { name: "Tohjinmachi Station", lat: 33.590145613562676,  lng: 130.36996167573926 }
 ];
