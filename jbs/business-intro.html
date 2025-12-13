@@ -186,6 +186,24 @@
       background: var(--border);
       margin: 14px 0;
     }
+    .line-qr-link {
+  display: block;
+  max-width: 360px;
+  margin: 12px auto 0;
+}
+
+.line-qr-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .line-qr-link {
+    max-width: 240px;
+  }
+}
+
   </style>
 </head>
 
@@ -227,9 +245,20 @@
 
         <p class="muted">フォローしている間だけ、事業者向けの地図（JBS）に表示されます。</p>
 
-        <div class="cta">
-          <a class="btn primary" href="https://lin.ee/mvNQuY4" target="_blank" rel="noopener">Johren LINE をフォローする</a>
-        </div>
+        <p class="line-instruction">
+  下の画像をタップ（またはQRコードを読み取り）して、JohrenのLINEをフォローしてください。
+</p>
+
+<a
+  href="https://lin.ee/mvNQuY4"
+  target="_blank"
+  rel="noopener"
+  class="line-qr-link"
+>
+  <img
+    src="https://qr-official.line.me/gs/M_066ywqza_GW.png?oat_content=qr"
+    alt="Johren LINE QR code">
+</a>
 
         <div class="hr"></div>
 
