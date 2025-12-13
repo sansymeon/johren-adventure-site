@@ -109,7 +109,7 @@
     /* HERO */
 
     .hero {
-      background: url('/img/nokonoshima_view.jpg') center/cover no-repeat;
+      background: url('/img/paypay_dome.jpg') center/cover no-repeat;
       color: #fff;
       position: relative;
       display: flex;
@@ -175,6 +175,10 @@
     .hero-buttons .btn:hover {
       background: #fff;
     }
+    .hero-buttons {
+  margin-top: 1.8rem;
+}
+
 
     /* Sections */
 
@@ -323,6 +327,11 @@
 .footer-links a:hover {
   color: #fff;
 }
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+}
 
 
     @media(max-width: 768px) {
@@ -388,6 +397,17 @@ section {
   font-size: 0.95rem;
   color: #444;
   line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
+  .hero-title {
+    margin-top: 0.5rem;
+  }
 }
 
   </style>
