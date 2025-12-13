@@ -36,6 +36,3 @@ window.stations = [
   { name: "Ohori Park Station", lat: 33.59012812434707,  lng: 130.3788320713684 },
   { name: "Tohjinmachi Station", lat: 33.590145613562676,  lng: 130.36996167573926 }
 ];
-window.temples = [
- { name: "Tohjinmachi Station", lat: 33.59721906343702, lng: 130.4144012841537}
-];
