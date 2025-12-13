@@ -26,6 +26,33 @@
       background:#fff; border-radius:12px;
       text-align:center; border:1px solid #ddd;
     }
+
+  .actions {
+    display: grid;
+    gap: 1rem;
+    margin: 2.5rem auto;
+    max-width: 420px;
+  }
+  .btn {
+    display: block;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #222;
+  }
+  .btn.primary {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+  }
+  .btn:hover {
+    opacity: 0.9;
+  }
+
   </style>
 </head>
 
@@ -49,7 +76,16 @@
   <div class="coming">
     <strong>正式リリース準備中</strong><br>
     ビジネス向け詳細説明・申込ページは現在準備中です。
-  </div>
+  </div><div class="actions">
+  <a class="btn" href="/jbs/map/index.html">
+    JDS Player（お客様画面を見る）
+  </a>
+
+  <a class="btn primary" href="/jbs/business-intro.html">
+    ビジネスの方はこちら
+  </a>
+</div>
+
 </div>
 
 </body>
