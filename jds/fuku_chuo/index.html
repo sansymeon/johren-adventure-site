@@ -176,6 +176,10 @@
     .hero-buttons .btn:hover {
       background: #fff;
     }
+    .hero-buttons {
+  margin-top: 1.8rem;
+}
+
 
     /* Sections */
 
@@ -389,6 +393,17 @@ section {
   font-size: 0.95rem;
   color: #444;
   line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
+  .hero-title {
+    margin-top: 0.5rem;
+  }
 }
 
   </style>
