@@ -35,16 +35,15 @@ function makeIcon(file) {
 const icons = {
   bookstore: makeIcon('bookstore.png'),
   coffee: makeIcon('coffee.png'),
-  bakery: makeIcon('bakery.png'),
-  barbershop: makeIcon('barber.png'),
-  beauty: makeIcon('beauty.png'),
-  restaurant: makeIcon('restaurant.png'),
-  convenience: makeIcon('combini.png'),
-  noodles: makeIcon('noodles.png'),
-  artisan: makeIcon('artisan.png'),
-  therapy: makeIcon('therapy.png'),
-  clinic: makeIcon('clinic.png'),
-  supermarket: makeIcon('supermarket.png'),
+  bakery: makeIcon('bakery_jbs.png'),
+  barbershop: makeIcon('barber_jbs.png'),
+  beauty: makeIcon('beauty_jbs.png'),
+  restaurant: makeIcon('restaurant_jbs.png'),
+  convenience: makeIcon('combini_jbs.png'),
+  noodles: makeIcon('noodles_jbs.png'),
+  artisan: makeIcon('artisan_jbs.png'),
+  therapy: makeIcon('therapy_jbs.png'),
+  supermarket: makeIcon('supermarket_jbs.png'),
   // Add more anytime — ALL handled automatically
 };
 
@@ -70,18 +69,18 @@ function loadCategory(categoryName, iconName) {
 // LOAD ALL CATEGORIES
 // (Add or remove freely — no extra JS edits needed)
 // -------------------------------
-loadCategory("bookstores", "bookstore");
-loadCategory("coffeeshops", "coffee");
+loadCategory("artisans", "artisan");
 loadCategory("bakeries", "bakery");
 loadCategory("barbershops", "barbershop");
 loadCategory("beautyshops", "beauty");
+loadCategory("bookstores", "bookstore");
+loadCategory("coffeeshops", "coffee");
 loadCategory("combini", "convenience");
-loadCategory("restaurants", "restaurant");
 loadCategory("noodles", "noodles");
+loadCategory("restaurants", "restaurant");
 loadCategory("supermarkets", "supermarket");
-loadCategory("artisans", "artisan");
 loadCategory("therapies", "therapy");
-loadCategory("clinics", "clinic");
+
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
