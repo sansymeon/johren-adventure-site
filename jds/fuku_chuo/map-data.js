@@ -1,9 +1,3 @@
-window.artisans = [
-];
-window.baths = [
-];
-window.bookstores = [
-];
 window.churches = [
   { name: "Daimyo Catholic Church", lat: 33.59028689597394,  lng: 130.39490595063134 },
 ];
@@ -16,8 +10,6 @@ window.coffeeshops = [
 window.combini = [
   { name: "Family Mart Tohjinmachi", lat: 33.59044977349158, lng: 130.37056854175228 },
   { name: "Family Mart Tohjinmachi", lat: 33.590268632238384,  lng: 130.36960065339431 }
-];
-window.drugstores = [
 ];
 window.hotels = [
   { name: "Hilton Fukuoka Sea Hawk Hotel", lat: 33.59444118909713,   lng: 130.35979729462397 },
@@ -35,17 +27,15 @@ window.restaurants = [
 ];
 window.shrines = [
   { name: "Terumo Shrine 光雲神社", lat: 33.597145537533365, lng: 130.37643231206792 },
-  { name: "Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社", lat: 33.581715227750095, lng: 130.38203472165034 }
+  { name: "Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社", lat: 33.581715227750, lng: 130.38203472165 }
 ];
 window.stations = [
   { name: "Nakasukawabata Station", lat: 33.59505492445377,  lng: 130.40667693824517 },
   { name: "Tenjin Station", lat: 33.5913469503287,   lng: 130.39891098113026 },
   { name: "Akasaka Station"  lat: 33.58906127661953,   lng: 130.3906207746017 },
   { name: "Ohori Park Station", lat: 33.59012812434707,  lng: 130.3788320713684 },
-  { name: "Tohjinmachi Station", lat: 33.590145613562676,  lng: 130.36996167573926 },
-];
-window.supermarkets = [
+  { name: "Tohjinmachi Station", lat: 33.590145613562676,  lng: 130.36996167573926 }
 ];
 window.temples = [
- { name: "Tohjinmachi Station", lat: 33.59721906343702, lng: 130.4144012841537},
+ { name: "Tohjinmachi Station", lat: 33.59721906343702, lng: 130.4144012841537}
 ];
