@@ -1,1 +1,592 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ジョウレン・アドベンチャー｜大分の発見マップ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ジョウレン・アドベンチャー 大分版。駅・カフェ・クリニックなどにQRを設置し、まち歩きをゆるくつなぐローカル発見システム。アプリ不要・会員登録不要。" />
+  
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
+      --border: #e0e0e0;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --accent: #c79b3b;
+      --accent-soft: #f2e3b8;
+      --nav-height: 64px;
+      --max-width: 1080px;
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      height: var(--nav-height);
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .logo-mark {
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+
+    .logo-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav a:hover::after { width: 100%; }
+
+    .nav-toggle { display: none; }
+
+    /* HERO */
+
+    .hero {
+      /* TODO: 差し替えたいときは大分の写真に変更 */
+      background: url('/img/yufuin_station.jpg') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      height: 50vh;
+      max-height: 420px;
+      min-height: 260px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      opacity: 0.92;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+      background: rgba(255,255,255,0.85);
+      color: #222;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero-buttons .btn:hover {
+      background: #fff;
+    }
+
+    /* Sections */
+
+    section { padding: 2rem 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .section--surface { background: var(--surface); }
+    .section--soft { background: var(--surface-soft); }
+    .section--accent-soft { background: var(--accent-soft); }
+
+    .about-text {
+      max-width: 42rem;
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .pill {
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .two-column p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list li::before {
+      content: "・";
+      margin-right: 0.25rem;
+    }
+
+    /* HOW section */
+
+    #how .steps {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #how .step {
+      margin-bottom: 1.6rem;
+    }
+
+    #how .step-number {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    #how .step-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    #how p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/img/kyudai_tsutaya_night.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.4);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 1.5rem;
+    }
+
+    .cta-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
+    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.2rem; }
+
+    /* Footer */
+
+    .site-footer {
+      background: #111;
+      color: #bbb;
+      font-size: 0.75rem;
+      padding: 6px 0;
+      line-height: 1.2;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .footer-links a {
+      margin-left: 1rem;
+      color: #ccc;
+      text-decoration: none;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    @media(max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.92); /* Slightly stronger */
+    font-size: 15px;
+    padding: 12px 18px;
+  }
+}
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 110px !important;
+  }
+}
+/* -----------------------------------------
+   MOBILE FIXES FOR OITA PAGE
+------------------------------------------*/
+
+/* Improve readability on hero image */
+.hero::before {
+  background: rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Mobile layout fixes */
+@media (max-width: 480px) {
+
+  /* Ensure hero section sits BELOW header */
+  .hero {
+    padding-top: calc(120px + env(safe-area-inset-top)) !important;
+    padding-bottom: 40px !important;
+    height: auto !important;
+  }
+
+  /* Prevent absolute centering on mobile */
+  .hero-content {
+    position: relative !important;
+    top: auto !important;
+    transform: none !important;
+    margin-top: 0 !important;
+    padding: 0 16px; /* slight horizontal padding for text */
+  }
+
+  /* Buttons stack vertically for better tapping */
+  .hero-buttons {
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 18px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 10px !important;
+  }
+
+  /* Extra spacing so the next section starts cleanly */
+  .section {
+    padding-top: 50px !important;
+  }
+}
+/* Fix overlapping hero buttons on mobile */
+@media (max-width: 600px) {
+  .hero {
+    padding-bottom: 120px !important;   /* more breathing room */
+  }
+
+  .hero-inner {
+    margin-bottom: 60px !important;     /* pushes text upward slightly */
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <div class="logo-block">
+      <span class="logo-mark">JOHREN ADVENTURE</span>
+      <span class="logo-sub">ジョウレン・アドベンチャー 大分版</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#about">ジョウレンとは</a>
+      <a href="#area">大分エリア</a>
+      <a href="#how">使い方</a>
+      <a href="#future">今後のイメージ</a>
+    </nav>
+
+    <button class="nav-toggle">☰</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-kicker">大分・別府エリア</div>
+      <h1 class="hero-title">ジョウレン・アドベンチャー 大分</h1>
+      <p class="hero-subtitle">
+        駅・カフェ・クリニック・ショップなどに小さなQRマーカーを設置し、<br>
+        まち歩きとローカル情報をゆるくつなぐ仕組みです。<br>
+        アプリも会員登録も不要。QRを読み取るだけでOK。
+      </p>
+      <div class="hero-buttons">
+        <a class="btn" href="#how">使い方を見る</a>
+        <a class="btn" href="map.html">大分マップを開く</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section--surface" id="about">
+    <div class="container">
+      <div class="section-heading">
+        <h2>ジョウレンとは？</h2>
+        <p>「駅スタンプ」「御朱印」「ポイントカード」の発想から生まれたローカル発見システム。</p>
+      </div>
+
+      <div class="about-text">
+        ジョウレン・アドベンチャーは、<br>
+        <strong>駅・お店・景観スポット・クリニック</strong>などに設置したQRを手がかりに、<br>
+        まちの点と点をゆるく結んでいく仕組みです。<br><br>
+        まずは大分駅周辺からスタートし、別府・湯のまち・山あいのエリアへと<br>
+        少しずつ広げていく実験版として公開しています。
+      </div>
+
+      <div class="pill-row">
+        <div class="pill">アプリ不要・ログイン不要</div>
+        <div class="pill">QRプレートを置くだけで参加可能</div>
+        <div class="pill">観光客にも地元の方にも使いやすい設計</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREA -->
+  <section class="section--soft" id="area">
+    <div class="container">
+      <div class="section-heading">
+        <h2>大分版でできること</h2>
+        <p>まずはシンプルな「地図＋スポット表示」からスタートします。</p>
+      </div>
+
+      <div class="two-column">
+        <p>
+          現在の大分マップには、<br>
+          <strong>大分駅・西大分駅・東別府駅</strong> と、いくつかの<br>
+          カフェ・書店・セラピースタジオ・教会などが登録されています。<br><br>
+          それぞれのピンをタップすると、名前と場所をシンプルに確認できます。<br>
+          将来的には、ここに<strong>短いストーリー</strong>や<strong>スタンプ</strong>を追加し、<br>
+          「歩きたくなる理由」を少しずつ増やしていく予定です。
+        </p>
+
+        <ul class="bullet-list">
+          <li>駅：大分・西大分・東別府</li>
+          <li>カフェ：スターバックスなど数件</li>
+          <li>ショップ：大分メイドショップ など</li>
+          <li>セラピー／スタジオ：Pilates & Therapy スタジオ</li>
+          <li>教会：フランシスコ・ザビエル記念聖堂 ほか</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section--surface" id="how">
+    <div class="container">
+      <div class="section-heading">
+        <h2>使い方（テスト版）</h2>
+        <p>とてもシンプル。QRとスマホだけで始められます。</p>
+      </div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-title">QRプレートを見つける</div>
+          <p>大分駅周辺の店舗や施設に、ジョウレンの小さなQRプレートが設置されます。</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-title">スマホで読み取る</div>
+          <p>カメラやブラウザからQRを読み取るだけ。アプリのインストールやログインは不要です。</p>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-title">マップとスポットを確認</div>
+          <p>現在地周辺の駅・カフェ・クリニックなどの場所を確認しながら、自由にまち歩きを楽しめます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE / WHY -->
+  <section class="section--accent-soft" id="future">
+    <div class="container">
+      <div class="section-heading">
+        <h2>今後のイメージ</h2>
+        <p>本番前の「プロトタイプ」として、大分で試運転中です。</p>
+      </div>
+
+      <div class="about-text">
+        この大分版は、<strong>「どんなことができるか」</strong>をイメージしてもらうためのテストサイトです。<br><br>
+        今後は、<strong>別府・湯布院・九重</strong>などのエリアも含めて、<br>
+        さまざまなローカルスポットをゆるくつなぎ、<br>
+        「もう一駅先まで行ってみようかな」と思ってもらえる仕組みを目指します。
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="cta-inner">
+      <h2>まずは大分マップから。</h2>
+      <p>「大分でこういうことができそうだな」というイメージを見るためのデモです。<br>
+         ピンの数は少しずつ増えていきます。</p>
+      <a class="btn" href="map.html" style="background:#fff;color:#222;border-radius:999px;padding:10px 18px;font-weight:600;">大分マップを開く</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© SanSymeon / ジョウレン・アドベンチャー</div>
+    <div class="footer-links">
+      <a href="#">利用規約</a>
+      <a href="#">お問い合わせ</a>
+      <a href="/en/index.html">English</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
