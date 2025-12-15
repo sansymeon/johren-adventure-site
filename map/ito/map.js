@@ -5,6 +5,14 @@ const map = L.map('map', {
   zoomControl: true
 }).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
 
+const map = L.map('map', {
+  zoomControl: false
+});
+
+L.control.zoom({
+  position: 'topright'
+}).addTo(map);
+
 
 // -------------------------------
 // TILE LAYER
