@@ -2,131 +2,125 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johren Adventure｜ジョウレン・アドヴェンチャー</title>
-  <link rel="stylesheet" href="css/style.css">
+  <title>Johren（ジョウレン）</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Johren は、駅を起点に地域を歩いて発見するための、静かなデジタル案内です。登録や購入は必要ありません。">
+
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f8f8f8;
       margin: 0;
-      padding: 0;
-      line-height: 1.7;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f7f7;
       color: #222;
+      line-height: 1.7;
     }
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-    .crest {
-      width: 120px;
-      margin: 0 auto 10px;
-      display: block;
-    }
-    nav {
-      text-align: right;
-      padding: 10px 20px;
-      font-size: 14px;
-    }
-    nav a {
-      color: #555;
-      text-decoration: none;
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 20px 64px;
     }
     h1 {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 32px;
-      font-weight: bold;
-      color: #333;
+      font-size: 1.6rem;
+      margin-bottom: 0.6em;
     }
-    .intro {
-      max-width: 750px;
-      margin: 30px auto;
-      padding: 0 20px;
-      font-size: 18px;
-      text-align: center;
-    }
-    .program-grid {
-      max-width: 900px;
-      margin: 40px auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 20px;
-    }
-    @media (min-width: 700px) {
-      .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    p {
+      color: #555;
+      margin-bottom: 1.2em;
     }
     .card {
-      background: #fff;
+      background: #ffffff;
+      border: 1px solid #ddd;
       border-radius: 14px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      padding: 24px;
+      margin: 24px 0;
     }
     .card h2 {
+      font-size: 1.15rem;
       margin-top: 0;
-      font-size: 22px;
-      color: #333;
+      margin-bottom: 0.4em;
     }
     .card p {
-      font-size: 15px;
-      color: #555;
-      min-height: 60px;
+      margin-bottom: 0;
     }
-    .card a {
+    .button {
       display: inline-block;
-      margin-top: 14px;
-      padding: 10px 22px;
-      border-radius: 8px;
-      background: #c79b3b;
-      color: white;
+      margin-top: 16px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #c79a3b;
+      color: #fff;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 0.95rem;
+    }
+    .button.secondary {
+      background: #eee;
+      color: #333;
+    }
+    footer {
+      margin-top: 56px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    a {
+      color: inherit;
     }
   </style>
 </head>
+
 <body>
+  <div class="wrap">
 
-<nav>
-  <a href="en/index.html">English</a>
-</nav>
+    <h1>Johren（ジョウレン）</h1>
 
-<header>
-  <img src="img/johren_crest_gold.png" class="crest" alt="Johren Crest">
-  <h1>Johren Adventure</h1>
-</header>
+    <p>
+      Johren は、駅を起点に地域を歩いて発見するための、<br>
+      <strong>静かなデジタル案内</strong>です。
+    </p>
 
-<div class="intro">
-  Johren Adventure は、日本の「旅・生活・地域の魅力」をデジタルでつなぐ<br>
-  新しいスタンプ・体験プラットフォームです。<br><br>
-  観光スポット、地域のお店、そして子ども見守りシステムまで。<br>
-  「安全」×「発見」×「地域活性」を一つにつなぎます。
-</div>
+    <p>
+      登録・購入・説明は必要ありません。
+    </p>
 
-<div class="program-grid">
+    <p>
+      今日は、どのように使いますか？
+    </p>
 
-  <div class="card">
-    <h2>Johren Discovery Spots</h2>
-    <p>駅・名所・お店で QR を読み取り、スタンプを集める体験サービス。</p>
-    <a href="jds/index.html">開く</a>
+    <div class="card">
+      <h2>近くを探索する</h2>
+      <p>
+        駅を中心に、周辺の場所や<br>
+        小さな物語を見てみる
+      </p>
+      <a href="/start/" class="button">開く</a>
+    </div>
+
+    <div class="card">
+      <h2>お店・場所の方へ</h2>
+      <p>
+        Johren について簡単に知る<br>
+        （登録や準備は不要）
+      </p>
+      <a href="/business/" class="button secondary">詳しく見る</a>
+    </div>
+
+    <div class="card">
+      <h2>Johrenについて</h2>
+      <p>
+        考え方・プライバシー・<br>
+        使い方について
+      </p>
+      <a href="/about/" class="button secondary">読む</a>
+    </div>
+
+    <footer>
+      <p>
+        Johren は、勧誘・宣伝・利用者の追跡を目的としたサービスではありません。
+      </p>
+      <p>
+        <a href="/share/">QRコードの共有について</a>
+      </p>
+    </footer>
+
   </div>
-
-  <div class="card">
-    <h2>Johren Business Spot</h2>
-    <p>地域のお店が参加できる、来客促進・ローカル連携プラットフォーム。</p>
-    <a href="jbs/index.html">開く</a>
-  </div>
-
-  <div class="card">
-    <h2>Johren Kids Safety</h2>
-    <p>学校や地域の施設で QR 読み取りによる<br>子どもの見守り・到着通知システム。</p>
-    <a href="jks/index.html">開く</a>
-  </div>
-
-</div>
-
 </body>
 </html>
