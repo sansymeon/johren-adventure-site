@@ -2,7 +2,7 @@
 // INITIALIZE MAP
 // -------------------------------
 const map = L.map('map', {
-  zoomControl: true
+  zoomControl: false
 }).setView([33.58991001997297, 130.37561142635025], 12);   // Chuo-ku Ohori Park center
 
 L.control.zoom({
