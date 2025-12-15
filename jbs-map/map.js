@@ -105,14 +105,13 @@ loadCategory("shrines", "shrine");
 loadCategory("stations", "station");
 loadCategory("supermarkets", "supermarket");
 loadCategory("temples", "temple");
-loadCategory("samples", "sample");
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
 // 2) add "window.xxx = [...]" in map-data.js
 
 window.samples.forEach(s => {
-  L.marker([s.lat, s.lng], { icon: sampleIcon })
+  L.marker([s.lat, s.lng], { icon: icons.sample })
     .addTo(map)
     .on('click', () => {
       window.location.href = s.url;
