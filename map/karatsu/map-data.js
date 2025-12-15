@@ -4,13 +4,14 @@ window.artisans = [
   { name: "唐津焼協同組合", lat: 33.446085853762725,   lng: 129.96992649049395 }
 ];
 window.baths = [
-  { name: "伊都の湯どころ", lat: 33.585778162100404, lng: 130.21362045229455 },
+  { name: "ななのゆ（七山温泉）", lat: 33.442961078432944,  lng: 130.12060902345107 },
+  { name: "Yasuragiso 野田の湯 やすらぎ荘", lat: 33.42948868438811,   lng: 130.05087462866575 }  
 ];
 window.bookstores = [
   { name: "TSUTAYA Karatsu",  lat: 33.44566953458822,  lng: 129.97892386762854 }
 ];
 window.churches = [
-  { name: "Karatsu Catholic Church", lat: 33.45252801155086,   lng: 129.9614152412968 },
+  { name: "Karatsu Catholic Church", lat: 33.45252801155086,   lng: 129.9614152412968 }
 ];
 window.clinics = [
   { name: "Karatsu Red Cross Hospital", lat: 33.43432478021864,   lng: 129.97425619461512 }
@@ -19,7 +20,7 @@ window.coffeeshops = [
   { name: "Starbuck Coffee Karatsu", lat: 33.43058947340648,  lng: 129.98207856577943 }
 ];
 window.combini = [
-  { name: "Lawson 元岡", lat: 33.59158084138807,  lng: 130.23186347268907 }
+  { name: "7-11 Karatsu Bypass", lat: 33.43870757541276,   lng: 130.03349820077764 }
 ];
 window.drugstores = [
   { name: "Cosmos Urashi", lat: 33.56266588620052,  lng: 130.21097361361203 }
