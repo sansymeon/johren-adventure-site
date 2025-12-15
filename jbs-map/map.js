@@ -110,3 +110,12 @@ loadCategory("samples", "sample");
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
 // 2) add "window.xxx = [...]" in map-data.js
+
+window.samples.forEach(s => {
+  L.marker([s.lat, s.lng], { icon: sampleIcon })
+    .addTo(map)
+    .on('click', () => {
+      window.location.href = s.url;
+    });
+});
+
