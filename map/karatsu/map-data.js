@@ -1,7 +1,7 @@
 window.artisans = [
   { name: "Studio 1156", lat: 33.58623782331185,  lng:  130.40771483554366 },
   { name: "Gallery Ichibankan 一番舘", lat: 33.447991376558846,  lng:  129.9688294112202 },
-  { name: "唐津焼協同組合", lat: 33.446085853762725,   lng: 129.96992649049395 }
+  { name: "Karatsu Pottery Shop 唐津焼協同組合", lat: 33.446085853762725,   lng: 129.96992649049395 }
 ];
 window.baths = [
   { name: "ななのゆ（七山温泉）", lat: 33.442961078432944,  lng: 130.12060902345107 },
@@ -23,7 +23,7 @@ window.combini = [
   { name: "7-11 Karatsu Bypass", lat: 33.43870757541276,   lng: 130.03349820077764 }
 ];
 window.drugstores = [
-  { name: "Cosmos Urashi", lat: 33.56266588620052,  lng: 130.21097361361203 }
+  { name: "Drug Store Mori ドラッグストアモリ 浜玉店", lat: 33.43905754361915,  lng: 130.0361180520558 }
 ];
 window.hotels = [
   { name: "Karatsu Seaside Hotel", lat: 33.448514368504696,   lng: 129.99012564665264 },
@@ -32,16 +32,19 @@ window.hotels = [
 ];
 window.museums = [
   { name: "Hikiyama Exhibition Hall", lat: 33.445946414612074,  lng: 129.96991124129468 },
-  { name: "Karatsu Castle", lat: 33.45345765716856,   lng: 129.9782080418245 }
+  { name: "Karatsu Castle", lat: 33.45345765716856,   lng: 129.9782080418245 },
+  { name: "Former Takatori Residence 旧高取邸", lat: 33.45437629769318,  lng: 129.97209266442803 }
 ];
 window.noodles = [
-  { name: "Nagahama Ramen Riki 力", lat: 33.563060, lng: 130.217424 }
+  { name: "Ramen Shop ラーメン専門 竜里", lat: 33.45304456985656,  lng: 129.95901714109837 }
 ];
 window.restaurants = [
-  { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 }
+  { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 },
+  { name: "Matsuri Daiko レストラン祭太鼓 和多田店", lat: 33.43539716044631,  lng: 129.98064887336713 },   
 ];
 window.shrines = [
-  { name: "Karatsu Shrine　唐津神社", lat: 33.45227410257489,  lng: 129.96948404957564 }
+  { name: "Karatsu Shrine　唐津神社", lat: 33.45227410257489,  lng: 129.96948404957564 },
+  { name: "Myoken Shrine　妙見神社", lat: 33.46854559781762,  lng: 129.95317852240166 }
 ];
 window.stations = [
   { name: "筑前前原駅", lat: 33.557082, lng: 130.199305 },
@@ -60,8 +63,8 @@ window.stations = [
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 }
 ];
 window.supermarkets = [
-  { name: "ITOSAISAI Farmer's Market", lat: 33.555881770215,  lng: 130.22828993782352 }
+  { name: "Morinaga スーパーモリナガ 唐津店", lat: 33.44317132659846, lng: 129.95718955591028 }
 ];
 window.temples = [
-  { name: "龍国寺", lat: 33.50827262081622,  lng: 130.17230018275862 }
+  { name: "Gonshoji Temple 近松寺", lat: 33.449901908390125,   lng: 129.96520797775324 }
 ];
