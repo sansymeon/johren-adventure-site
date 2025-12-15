@@ -2,16 +2,13 @@
 // INITIALIZE MAP
 // -------------------------------
 const map = L.map('map', {
-  zoomControl: true
-}).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
-
-const map = L.map('map', {
   zoomControl: false
-});
+}).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
 
 L.control.zoom({
   position: 'topright'
 }).addTo(map);
+
 
 
 // -------------------------------
