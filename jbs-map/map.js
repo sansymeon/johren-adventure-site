@@ -57,7 +57,8 @@ const icons = {
   shrine: makeIcon('shrine.png'),
   station: makeIcon('station.png'),
   supermarket: makeIcon('supermarket.png'),
-  temple: makeIcon('temple.png')
+  temple: makeIcon('temple.png'),
+  sample: makeIcon('sample.png')
   
   // Add more anytime — ALL handled automatically
 };
@@ -104,6 +105,7 @@ loadCategory("shrines", "shrine");
 loadCategory("stations", "station");
 loadCategory("supermarkets", "supermarket");
 loadCategory("temples", "temple");
+loadCategory("samples", "sample");
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
