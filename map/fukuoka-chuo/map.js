@@ -83,7 +83,7 @@ function loadCategory(categoryName, iconName) {
 
 loadCategory("artisans", "artisan");
 loadCategory("bakeries", "bakery");
-loadCategory("bath", "bath");
+loadCategory("baths", "bath");
 loadCategory("beautyshops", "beauty");
 loadCategory("bookstores", "bookstore");
 loadCategory("churches", "church");
