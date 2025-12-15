@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Johren | はじめに</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Johren は、駅を起点に地域を歩いて発見するための、静かなデジタル案内です。登録や購入は不要です。">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.5em;
+    }
+    p {
+      color: #555;
+      margin-bottom: 1.2em;
+    }
+    .qr-box {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .qr-placeholder {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 12px;
+      border: 2px dashed #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+    .intent {
+      display: grid;
+      gap: 16px;
+    }
+    .intent a {
+      display: block;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 18px 20px;
+      text-decoration: none;
+      color: #222;
+      transition: background 0.15s ease;
+    }
+    .intent a:hover {
+      background: #f0f0f0;
+    }
+    .intent-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 0.85rem;
+      color: #777;
+    }
+    footer a {
+      color: #777;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <h1>Johren（ジョウレン）</h1>
+    <p>
+      Johren は、駅を起点に地域を歩いて発見するための、静かなデジタル案内です。<br>
+      登録・購入・説明は必要ありません。
+    </p>
+
+    <div class="qr-box">
+      <div class="qr-placeholder">
+        QRコード<br>（後で差し替え）
+      </div>
+      <p style="font-size:0.9rem; color:#666;">
+        このQRコードは、誰でも自由に共有できます。
+      </p>
+    </div>
+
+    <div class="intent">
+
+      <a href="/map/">
+        <div class="intent-title">近くを探索する</div>
+        <div>駅を中心に、周辺の場所や物語を見てみる</div>
+      </a>
+
+      <a href="/business/">
+        <div class="intent-title">お店・場所の方へ</div>
+        <div>Johren について簡単に知る（登録不要）</div>
+      </a>
+
+      <a href="/about/">
+        <div class="intent-title">Johrenについて</div>
+        <div>考え方・プライバシー・使い方</div>
+      </a>
+
+    </div>
+
+    <footer>
+      <p>
+        Johren は、個人を特定する情報を収集しません。<br>
+        QRコードの設置・管理は Johren が行います。
+      </p>
+      <p>
+        <a href="/share/">共有について（プレイヤー向け）</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
