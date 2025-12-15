@@ -3,7 +3,7 @@
 // -------------------------------
 const map = L.map('map', {
   zoomControl: false
-}).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
+}).setView([33.45331378372394, 129.97819731325137], 12);   // Karatsu Castle center
 
 L.control.zoom({
   position: 'topright'
