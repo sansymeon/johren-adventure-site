@@ -62,7 +62,7 @@ window.stations = [
   { name: "Karatsu 唐津駅", lat: 33.446223, lng: 129.967587 },
   { name: "Nishi Karatsu 西唐津駅", lat: 33.461434, lng: 129.957480 },
   { name: "Yamamoto 山本駅", lat: 33.39278208271683,  lng: 129.98118155167737 },
-  { name: Ouchi "相知駅", lat: 33.34699039849446, lng: 130.01952634118035  },
+  { name: "Ouchi 相知駅", lat: 33.34699039849446, lng: 130.01952634118035  },
   { name: "Iwaya 岩屋駅", lat: 33.33076505677805,  lng: 130.03827683163834 }
 ];
 window.supermarkets = [
