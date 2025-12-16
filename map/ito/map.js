@@ -1,4 +1,31 @@
 // -------------------------------
+// LOCAL STORAGE KEYS
+// -------------------------------
+const STORAGE_KEY = "johren_station_checkin";
+const EMERGED_KEY = "johren_emerged_category";
+
+function getCheckedInStation() {
+  return localStorage.getItem(STORAGE_KEY);
+}
+
+function setCheckedInStation(stationName) {
+  localStorage.setItem(STORAGE_KEY, stationName);
+}
+
+function getEmergedCategory() {
+  return localStorage.getItem(EMERGED_KEY);
+}
+
+function setEmergedCategory(cat) {
+  localStorage.setItem(EMERGED_KEY, cat);
+}
+
+function resetJohrenState() {
+  localStorage.removeItem(STORAGE_KEY);
+  localStorage.removeItem(EMERGED_KEY);
+}
+
+// -------------------------------
 // INITIALIZE MAP
 // -------------------------------
 const map = L.map('map', {
@@ -61,50 +88,98 @@ const icons = {
   
   // Add more anytime — ALL handled automatically
 };
+function triggerEmergence(station) {
+  if (getEmergedCategory()) return;
+
+  // VERY intentional choice — one category only
+  let categoryToReveal = "coffeeshops";
+
+  // You can get fancy later (distance, station type, etc.)
+
+  setEmergedCategory(categoryToReveal);
+  revealCategory(categoryToReveal);
+}
+function revealCategory(categoryName) {
+  const list = window[categoryName];
+  if (!list) return;
+
+  list.forEach(item => {
+    if (item._marker) {
+      item._marker
+        .addTo(map)
+        .bindPopup(item.name);
+    }
+  });
+}
+
 
 // -------------------------------
 // GENERIC CATEGORY LOADER
 // -------------------------------
-function loadCategory(categoryName, iconName) {
+function loadCategory(categoryName, iconName, options = {}) {
   const list = window[categoryName];
   const icon = icons[iconName];
 
-  if (list && list.length > 0 && icon) {
-    list.forEach(item => {
-      L.marker([item.lat, item.lng], { icon })
-        .addTo(map)
-        .bindPopup(item.name);
-    });
-  }
+  if (!list || !icon) return;
+
+  list.forEach(item => {
+    const marker = L.marker([item.lat, item.lng], { icon });
+
+    if (options.onClick) {
+      marker.on("click", () => options.onClick(item, marker));
+    }
+
+    if (!options.hidden) {
+      marker.addTo(map);
+    }
+
+    item._marker = marker; // store reference
+  });
 }
+loadCategory("stations", "station", {
+  onClick: (station) => {
+    if (!getCheckedInStation()) {
+      setCheckedInStation(station.name);
+      triggerEmergence(station);
+    }
+  }
+});
+
 
 // -------------------------------
 // LOAD ALL CATEGORIES
 // (Add or remove freely — no extra JS edits needed)
 // -------------------------------
 
-loadCategory("artisans", "artisan");
-loadCategory("bakeries", "bakery");
-loadCategory("baths", "bath");
-loadCategory("beautyshops", "beauty");
-loadCategory("bookstores", "bookstore");
-loadCategory("churches", "church");
-loadCategory("clinics", "clinic");
-loadCategory("coffeeshops", "coffee");
-loadCategory("combini", "combini");
-loadCategory("drugstores", "drugstore");
-loadCategory("hotels", "hotel");
-loadCategory("libraries", "library");
-loadCategory("museums", "museum");
-loadCategory("noodles", "noodles");
-loadCategory("parks", "park");
-loadCategory("playgrounds", "playground");
-loadCategory("restaurants", "restaurant");
-loadCategory("shrines", "shrine");
-loadCategory("stations", "station");
-loadCategory("supermarkets", "supermarket");
-loadCategory("temples", "temple");
+loadCategory("artisans", "artisan" { hidden: true });
+loadCategory("bakeries", "bakery" { hidden: true });
+loadCategory("baths", "bath" { hidden: true });
+loadCategory("beautyshops", "beauty" { hidden: true });
+loadCategory("bookstores", "bookstore" { hidden: true });
+loadCategory("churches", "church" { hidden: true });
+loadCategory("clinics", "clinic" { hidden: true });
+loadCategory("coffeeshops", "coffee" { hidden: true });
+loadCategory("combini", "combini" { hidden: true });
+loadCategory("drugstores", "drugstore" { hidden: true });
+loadCategory("hotels", "hotel" { hidden: true });
+loadCategory("libraries", "library" { hidden: true });
+loadCategory("museums", "museum" { hidden: true });
+loadCategory("noodles", "noodles" { hidden: true });
+loadCategory("parks", "park" { hidden: true });
+loadCategory("playgrounds", "playground" { hidden: true });
+loadCategory("restaurants", "restaurant" { hidden: true });
+loadCategory("shrines", "shrine" { hidden: true });
+loadCategory("stations", "station" { hidden: true });
+loadCategory("supermarkets", "supermarket" { hidden: true });
+loadCategory("temples", "temple" { hidden: true });
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
 // 2) add "window.xxx = [...]" in map-data.js
+
+const emerged = getEmergedCategory();
+if (emerged) {
+  revealCategory(emerged);
+}
+
+
