@@ -166,7 +166,7 @@ function distanceKm(a, b) {
   const x = Math.sin(dLat/2)**2 +
             Math.sin(dLng/2)**2 * Math.cos(lat1) * Math.cos(lat2);
   return 2 * R * Math.asin(Math.sqrt(x));
-
+}
 
 
 // -------------------------------
