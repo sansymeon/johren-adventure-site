@@ -167,6 +167,11 @@ function distanceKm(a, b) {
             Math.sin(dLng/2)**2 * Math.cos(lat1) * Math.cos(lat2);
   return 2 * R * Math.asin(Math.sqrt(x));
 }
+marker.on("click", () => {
+  if (getCheckedInStation()) return;
+  marker.setOpacity(0.6); // subtle “checked-in” cue
+  options.onClick(item, marker);
+});
 
 
 // -------------------------------
