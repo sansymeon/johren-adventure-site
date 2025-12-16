@@ -151,27 +151,26 @@ loadCategory("stations", "station", {
 // (Add or remove freely — no extra JS edits needed)
 // -------------------------------
 
-loadCategory("artisans", "artisan" { hidden: true });
-loadCategory("bakeries", "bakery" { hidden: true });
-loadCategory("baths", "bath" { hidden: true });
-loadCategory("beautyshops", "beauty" { hidden: true });
-loadCategory("bookstores", "bookstore" { hidden: true });
-loadCategory("churches", "church" { hidden: true });
-loadCategory("clinics", "clinic" { hidden: true });
-loadCategory("coffeeshops", "coffee" { hidden: true });
-loadCategory("combini", "combini" { hidden: true });
-loadCategory("drugstores", "drugstore" { hidden: true });
-loadCategory("hotels", "hotel" { hidden: true });
-loadCategory("libraries", "library" { hidden: true });
-loadCategory("museums", "museum" { hidden: true });
-loadCategory("noodles", "noodles" { hidden: true });
-loadCategory("parks", "park" { hidden: true });
-loadCategory("playgrounds", "playground" { hidden: true });
-loadCategory("restaurants", "restaurant" { hidden: true });
-loadCategory("shrines", "shrine" { hidden: true });
-loadCategory("stations", "station" { hidden: true });
-loadCategory("supermarkets", "supermarket" { hidden: true });
-loadCategory("temples", "temple" { hidden: true });
+loadCategory("artisans", "artisan" ,{ hidden: true });
+loadCategory("bakeries", "bakery" ,{ hidden: true });
+loadCategory("baths", "bath" ,{ hidden: true });
+loadCategory("beautyshops", "beauty" ,{ hidden: true });
+loadCategory("bookstores", "bookstore" ,{ hidden: true });
+loadCategory("churches", "church" ,{ hidden: true });
+loadCategory("clinics", "clinic" ,{ hidden: true });
+loadCategory("coffeeshops", "coffee", { hidden: true });
+loadCategory("combini", "combini" ,{ hidden: true });
+loadCategory("drugstores", "drugstore" ,{ hidden: true });
+loadCategory("hotels", "hotel" ,{ hidden: true });
+loadCategory("libraries", "library" ,{ hidden: true });
+loadCategory("museums", "museum" ,{ hidden: true });
+loadCategory("noodles", "noodles" ,{ hidden: true });
+loadCategory("parks", "park" ,{ hidden: true });
+loadCategory("playgrounds", "playground" ,{ hidden: true });
+loadCategory("restaurants", "restaurant" ,{ hidden: true });
+loadCategory("shrines", "shrine" ,{ hidden: true });
+loadCategory("supermarkets", "supermarket", { hidden: true });
+loadCategory("temples", "temple" ,{ hidden: true });
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
