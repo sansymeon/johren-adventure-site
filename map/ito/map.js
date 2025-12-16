@@ -8,9 +8,17 @@ function getCheckedInStation() {
   return localStorage.getItem(STORAGE_KEY);
 }
 
-function setCheckedInStation(stationName) {
-  localStorage.setItem(STORAGE_KEY, stationName);
+function setCheckedInStation(station) {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      name: station.name,
+      lat: station.lat,
+      lng: station.lng
+    })
+  );
 }
+
 
 function getEmergedCategory() {
   return localStorage.getItem(EMERGED_KEY);
