@@ -88,26 +88,24 @@ const icons = {
   
   // Add more anytime — ALL handled automatically
 };
+
 function triggerEmergence(station) {
   if (getEmergedCategory()) return;
 
-  // VERY intentional choice — one category only
+  console.log("Station check-in:", station.name);
+
   let categoryToReveal = "coffeeshops";
-
-  // You can get fancy later (distance, station type, etc.)
-
   setEmergedCategory(categoryToReveal);
   revealCategory(categoryToReveal);
 }
+
 function revealCategory(categoryName) {
   const list = window[categoryName];
   if (!list) return;
 
   list.forEach(item => {
     if (item._marker) {
-      item._marker
-        .addTo(map)
-        .bindPopup(item.name);
+      item._marker.addTo(map).bindPopup(item.name);
     }
   });
 }
@@ -144,6 +142,7 @@ loadCategory("stations", "station", {
     }
   }
 });
+
 
 
 // -------------------------------
