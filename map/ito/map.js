@@ -5,8 +5,10 @@ const STORAGE_KEY = "johren_station_checkin";
 const EMERGED_KEY = "johren_emerged_category";
 
 function getCheckedInStation() {
-  return localStorage.getItem(STORAGE_KEY);
+  const raw = localStorage.getItem(STORAGE_KEY);
+  return raw ? JSON.parse(raw) : null;
 }
+
 
 function setCheckedInStation(station) {
   localStorage.setItem(
@@ -148,7 +150,7 @@ function loadCategory(categoryName, iconName, options = {}) {
 loadCategory("stations", "station", {
   onClick: (station) => {
     if (!getCheckedInStation()) {
-      setCheckedInStation(station.name);
+      setCheckedInStation(station);
       triggerEmergence(station);
     }
   }
@@ -198,8 +200,11 @@ loadCategory("temples", "temple" ,{ hidden: true });
 // 2) add "window.xxx = [...]" in map-data.js
 
 const emerged = getEmergedCategory();
-if (emerged) {
-  revealCategory(emerged);
+const station = getCheckedInStation();
+
+if (emerged && station) {
+  revealCategory(emerged, station);
 }
+
 
 
