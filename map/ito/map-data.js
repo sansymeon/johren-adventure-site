@@ -28,7 +28,15 @@ window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
    { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
   { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
-  { name: "Hoshino Coffee", lat: 33.563034, lng: 130.215636 }
+  { name: "FORESTOVE CAFE", lat: 33.508383905922116, lng: 130.16699548859498  },
+  { name: "CAFE UNIDOS", lat: 33.56186975217275,  lng: 130.21118821763673 },
+  { name: "nodocafe", lat: 33.56030359525417,  lng: 130.2017167320733 },
+  { name: "COFFEE SAZANAMI", lat: 33.56045978813148,  lng: 130.2015195988862 },
+  { name: "喫茶 サントス", lat: 33.56142898963246,  lng: 130.20947980849982 },
+  { name: "kojun coffee", lat: 33.558566924292705,  lng: 130.20199429145725 },
+  { name: "Aroma Coffee", lat: 33.54806189671011,  lng: 130.20960020491108 },
+  { name: "儂カフェ糸島", lat: 33.549330423097764,  lng: 130.16292795533846 },
+  { name: "bleuchat coffee", lat: 33.57026967849584,   lng: 130.23483962557478 }
 ];
 window.combini = [
   { name: "7-11 Itonomori", lat: 33.55982085693245,  lng: 130.21178627322553 },
