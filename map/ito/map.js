@@ -62,12 +62,19 @@ const restaurantLayer = L.layerGroup();
 let selectedStation = null;
 
 // -------------------------------
-// LOAD STATIONS (always visible)
+// LOAD STATIONS (always visible, name on interaction)
 // -------------------------------
 window.stations.forEach(station => {
   const marker = L.marker([station.lat, station.lng], {
     icon: icons.station
   }).addTo(map);
+
+  // lightweight label on hover / tap
+  marker.bindTooltip(station.name, {
+    direction: 'top',
+    offset: [0, -28],
+    opacity: 0.9
+  });
 
   marker.on("click", () => {
     selectedStation = station;
@@ -75,6 +82,7 @@ window.stations.forEach(station => {
     marker.bindPopup(`基準駅：${station.name}`).openPopup();
   });
 });
+
 
 // -------------------------------
 // LOAD COFFEE SHOPS
