@@ -1,4 +1,11 @@
-window.coffeeshops = [
+window.samples = [
+  {
+    name: "Johren サンプル・スポット",
+    lat: 33.55857973584153,
+    lng: 130.21385183358143,
+    url: "/merchant/sample/index.html"
+  }
+];window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
    { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
   { name: "カフェ・ショパン Cafe Chopin", lat: 33.559759752030715, lng: 130.204327352293 },
