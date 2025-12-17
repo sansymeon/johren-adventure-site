@@ -74,7 +74,7 @@ window.noodles = [
 window.restaurants = [
   { name: "カレント Current Restaurant", lat: 33.608696, lng: 130.161656 },
   { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 },
-  { name: "風の丘 Yakiniku Restaurant", lat: 33.552282, lng: 130.192580 },
+  { name: "ステーキガーデン 糸島風の邱", lat: 33.552282, lng: 130.192580 },
   { name: "マックドナルド MacDonalds Maebaru", lat: 33.561406, lng: 130.210648 },
   { name: "マックドナルド 九大学研都市店", lat: 33.578508599783994, lng: 130.25301490872266 },
   { name: "Bikkuri Donkey 九大学研都市店", lat: 33.57863261959046, lng: 130.25335738941635 },
