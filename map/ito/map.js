@@ -62,14 +62,16 @@ const restaurantLayer = L.layerGroup();
 let selectedStation = null;
 
 // -------------------------------
-// LOAD STATIONS (always visible, name on interaction)
+// LOAD STATIONS (mobile: first tap = name, second tap = base station)
 // -------------------------------
+let lastTappedStation = null;
+
 window.stations.forEach(station => {
   const marker = L.marker([station.lat, station.lng], {
     icon: icons.station
   }).addTo(map);
 
-  // lightweight label on hover / tap
+  // tooltip (station name)
   marker.bindTooltip(station.name, {
     direction: 'top',
     offset: [0, -28],
@@ -77,11 +79,22 @@ window.stations.forEach(station => {
   });
 
   marker.on("click", () => {
+    // FIRST TAP: show name only
+    if (lastTappedStation !== station) {
+      lastTappedStation = station;
+      marker.openTooltip();
+      return;
+    }
+
+    // SECOND TAP: set as base station
     selectedStation = station;
     updateDistances();
-    marker.bindPopup(`基準駅：${station.name}`).openPopup();
+    marker
+      .bindPopup(`基準駅：${station.name}`)
+      .openPopup();
   });
 });
+
 
 
 // -------------------------------
