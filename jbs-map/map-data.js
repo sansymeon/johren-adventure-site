@@ -33,9 +33,7 @@ window.stations = [
     { name: "Yoshizuka 吉塚駅",  lat: 33.60690081236377,  lng: 130.42364803927666 },
     { name: "Hakozaki 箱崎駅",     lat: 33.12069695808658,  lng: 131.64941536040405 },
     { name: "Chihaya 千早駅",     lat: 33.12069695808658,  lng: 131.64941536040405 },
-    { name: "犬飼駅",     },
    { name: "箱崎駅 Hakata-Hakozaki Station",  lat: 33.12069695808658,  lng: 131.64941536040405 }
-
 { name: "千早駅 Chihaya Station" ,  lat: 33.649212142148514, lng: 130.44060779462708  },
 { name: "香椎駅 Kashii Station" ,  lat: 33.65957167882258, lng:  130.44408393753503  },
 { name: "九産大前駅 Kyūsan-daimae Station",  lat: 33.673528072200114,  lng:  130.44126918185134  },
@@ -61,6 +59,8 @@ window.stations = [
 { name: "戸畑駅 Tobata Station",  lat: 33.89691234250908,  lng: 130.8203713491716  },
 { name: "九州工大前駅 Kyūshū-Kōdai-Mae Station", lat: 33.900411168201266,   lng: 130.84002577929928 },
 
+{ name: "犬飼駅", lat:  33.077999545388494, lng: 131.63645657200593 },
+  
   // KYUDAI MAIN LINE (Ōita → Yufuin)
   { name: "南大分駅",     lat: 33.21406265499788, lng: 131.58629379060434 },
   { name: "古国府駅",     lat: 33.22065690479467, lng: 131.60749091301474 },
