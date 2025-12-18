@@ -36,7 +36,16 @@ window.coffeeshops = [
   { name: "kojun coffee", lat: 33.558566924292705,  lng: 130.20199429145725 },
   { name: "Aroma Coffee", lat: 33.54806189671011,  lng: 130.20960020491108 },
   { name: "儂カフェ糸島", lat: 33.549330423097764,  lng: 130.16292795533846 },
-  { name: "bleuchat coffee", lat: 33.57026967849584,   lng: 130.23483962557478 }
+  { name: "Tombo coffee", lat: 33.55677843617489,   lng: 130.1996147826434  },
+ { name: "Laudry Cafe Itoshima Uru", lat: 33.56359845011681,  lng: 130.21936677091227 },
+ { name: "1117 coffee", lat: 33.55732993167449,   lng: 130.1997009121242 },
+  { name: "Friends", lat: 33.567055104766034,    lng: 130.22185923278596 },
+  { name: "珈琲リズム", lat: 33.54656246393641, lng:  130.17307020816872  },
+  { name: "Kafuwa Coffee", lat: 33.55783111096489,   lng: 130.19393066630604 },
+  { name: "Cafe Hachi Itoshima", lat: 33.57861280386843,    lng: 130.18770499987386 },
+   { name: "Itoshimacco", lat: 33.55789881643236,    lng:  130.19915156429164 }, 
+  { name: "Cafe Hachi Itoshima", lat: 33.57861280386843,    lng: 130.18770499987386 }
+  
 ];
 window.combini = [
   { name: "7-11 Itonomori", lat: 33.55982085693245,  lng: 130.21178627322553 },
@@ -80,7 +89,8 @@ window.restaurants = [
   { name: "Bikkuri Donkey 九大学研都市店", lat: 33.57863261959046, lng: 130.25335738941635 },
   { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 },
   { name: "喜八荘", lat: 33.502444517182056,  lng: 130.0713461092523 },
-  { name: "サンセットビーチ Beach Cafe Sunset", lat: 33.641949, lng: 130.201588 }
+  { name: "サンセットビーチ Beach Cafe Sunset", lat: 33.641949, lng: 130.201588 },
+   { name: "Kadoya 角屋食堂", lat: 33.559488724701865, lng: 130.19959185416067 }
 ];
 window.shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
