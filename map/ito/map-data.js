@@ -9,7 +9,7 @@ window.baths = [
   { name: "伊都の湯どころ", lat: 33.585778162100404, lng: 130.21362045229455 },
   { name: "きららの湯", lat: 33.52004990493861,  lng: 130.13966841526832 },
   { name: "まむし温泉", lat: 33.489391789689044,  lng: 130.07483899898003 },
-  { name: "喜八荘", lat: 33.50242258141895,  lng: 130.07111490263992 },
+  { name: "喜八荘", lat: 33.50242258141895,  lng: 130.07111490263992 }
 ];
 window.bookstores = [
   { name: "TSUTAYA 九大伊都ラボ",  lat: 33.594159,   lng: 130.229052 }
@@ -18,7 +18,7 @@ window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 },
   { name: "Baptist Church 福岡西部バプテスト教会", lat: 33.56349797391542, lng: 130.20519427279035 },
   { name: "Maebaru Christian Church 日本基督教団 前原教会", lat: 33.55976434044294, lng: 130.19648464789108 },
-  { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774,  lng: 130.20782879949556 }
+  { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774, lng: 130.20782879949556 }
 ];
 window.clinics = [
   { name: "Hirano 内科", lat: 33.563737, lng: 130.217697 },
@@ -29,6 +29,7 @@ window.coffeeshops = [
   { name: "Aroma Coffee", lat: 33.54806189671011,  lng: 130.20960020491108 },
   { name: "Cafe Chopin・カフェ・ショパン", lat: 33.559759752030715, lng: 130.204327352293 },
   { name: "Cafe Hachi Itoshima", lat: 33.57861280386843,    lng: 130.18770499987386 },
+   { name: "Cafe Suzu", lat: 33.56416673330811,  lng: 130.23143132345783  },
   { name: "CAFE UNIDOS", lat: 33.56186975217275,  lng: 130.21118821763673 },
   { name: "COFFEE SAZANAMI", lat: 33.56045978813148,  lng: 130.2015195988862 },
   { name: "FORESTOVE CAFE", lat: 33.508383905922116, lng: 130.16699548859498  },
@@ -43,7 +44,7 @@ window.coffeeshops = [
   { name: "Starbucks 九大伊都ラボ", lat: 33.593384, lng: 130.231027 },
   { name: "Starbucks 周船寺", lat: 33.5789063067578, lng: 130.25371607017433 },
   { name: "Tombo coffee", lat: 33.55677843617489,   lng: 130.1996147826434  },
-  { name: "Washi Cafe 儂カフェ糸島", lat: 33.549330423097764,  lng: 130.16292795533846 },   
+  { name: "Washi Cafe 儂カフェ糸島", lat: 33.549330423097764,  lng: 130.16292795533846 } 
 ];
 window.combini = [
   { name: "7-11 Itonomori", lat: 33.55982085693245,  lng: 130.21178627322553 },
@@ -79,16 +80,17 @@ window.noodles = [
   { name: "Nagahama Ramen Riki 力", lat: 33.563060, lng: 130.217424 }
 ];
 window.restaurants = [
-  { name: "カレント Current Restaurant", lat: 33.608696, lng: 130.161656 },
-  { name: "清香園 Korean Restaurant", lat: 33.563883, lng: 130.217202 },
-  { name: "ステーキガーデン 糸島風の邱", lat: 33.552282, lng: 130.192580 },
-  { name: "マックドナルド MacDonalds Maebaru", lat: 33.561406, lng: 130.210648 },
-  { name: "マックドナルド 九大学研都市店", lat: 33.578508599783994, lng: 130.25301490872266 },
   { name: "Bikkuri Donkey 九大学研都市店", lat: 33.57863261959046, lng: 130.25335738941635 },
-  { name: "鉢 Hachi Steak House", lat: 33.448528, lng: 130.045132 },
-  { name: "喜八荘", lat: 33.502444517182056,  lng: 130.0713461092523 },
-  { name: "サンセットビーチ Beach Cafe Sunset", lat: 33.641949, lng: 130.201588 },
-   { name: "Kadoya 角屋食堂", lat: 33.559488724701865, lng: 130.19959185416067 }
+  { name: "Current Restaurant カレント Current Restaurant", lat: 33.608696, lng: 130.161656 },
+  { name: "Kadoya 角屋食堂", lat: 33.559488724701865, lng: 130.19959185416067 },
+  { name: "Karibu ステーキ&ハンバーグ 加里部", lat: 33.57398224130364,  lng: 130.24659951569143 },
+  { name: "Kihachiso 喜八荘", lat: 33.502444517182056,  lng: 130.0713461092523 },
+  { name: "Korean Restaurant 清香園 ", lat: 33.563883, lng: 130.217202 },
+  { name: "MacDonalds Maebaru マックドナルド ", lat: 33.561406, lng: 130.210648 },
+  { name: "MacDonalds Susenji マックドナルド 九大学研都市店", lat: 33.578508599783994, lng: 130.25301490872266 },
+  { name: "Steak Garden ステーキガーデン 糸島風の邱", lat: 33.552282, lng: 130.192580 },
+  { name: "Sunset Beach Cafe サンセットビーチ", lat: 33.641949, lng: 130.201588 },
+  { name: "Yakiniku 焼肉イトーシマ子無限ハンバーグ ", lat: 33.571050209211876,  lng: 130.23823102403344 },
 ];
 window.shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
