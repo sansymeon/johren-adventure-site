@@ -105,6 +105,7 @@ loadCategory("shrines", "shrine");
 loadCategory("stations", "station");
 loadCategory("supermarkets", "supermarket");
 loadCategory("temples", "temple");
+loadCategory("samples", "sample");
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
