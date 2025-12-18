@@ -30,22 +30,22 @@ window.stations = [
   { name: "西唐津駅", lat: 33.461434, lng: 129.957480 },
 
   // KAGOSHIMA LINE
-    { name: "Yoshizuka 吉塚駅",  lat: 33.60690081236377,  lng: 130.42364803927666 },
+    { name: "Yoshizuka 吉塚駅",    lat: 33.60690081236377,  lng: 130.42364803927666 },
     { name: "Hakozaki 箱崎駅",     lat: 33.12069695808658,  lng: 131.64941536040405 },
-    { name: "Chihaya 千早駅",     lat: 33.12069695808658,  lng: 131.64941536040405 },
-   { name: "箱崎駅 Hakata-Hakozaki Station",  lat: 33.12069695808658,  lng: 131.64941536040405 }
+    { name: "Chihaya 千早駅",      lat: 33.12069695808658,  lng: 131.64941536040405 },
+   { name: "箱崎駅 Hakata-Hakozaki Station",  lat: 33.12069695808658,  lng: 131.64941536040405 },
 { name: "千早駅 Chihaya Station" ,  lat: 33.649212142148514, lng: 130.44060779462708  },
 { name: "香椎駅 Kashii Station" ,  lat: 33.65957167882258, lng:  130.44408393753503  },
 { name: "九産大前駅 Kyūsan-daimae Station",  lat: 33.673528072200114,  lng:  130.44126918185134  },
 { name: "福工大前駅 Fukkōdai-mae Station",  lat: 33.69840228441997,  lng:  130.4401530057084,  },
 { name: "新宮中央駅 Shingū-chūō Station" ,  lat: 33.7251508732909,   lng: 135.9940290774413 },
 { name: "ししぶ駅 Shishibu Station",  lat: 33.72166328413928,  lng: 130.4582904081248   },
-{ name: "古賀駅 Koga Station" ,  lat: 33.732413088801486, lng:  130.466493063948 },
-{ name: "千鳥駅 Chidori Station" ,  lat: 33.74863479338904,   lng: 130.47608614139565 },
-{ name: "福間駅 Fukuma Station" ,  lat: 33.76344491188212,  lng:  130.48680252531722 },
+{ name: "古賀駅 Koga Station" ,      lat: 33.732413088801486, lng:  130.466493063948 },
+{ name: "千鳥駅 Chidori Station" ,   lat: 33.74863479338904,   lng: 130.47608614139565 },
+{ name: "福間駅 Fukuma Station" ,    lat: 33.76344491188212,  lng:  130.48680252531722 },
 { name: "東福間駅 Higashi-Fukuma Station" ,  lat: 34.495260557838556,  lng: 133.4054485100167 },
-{ name: "東郷駅 Tōgō Station" ,  lat: 33.79465900183122,  lng: 130.5288475279176 },
-{ name: "赤間駅 Akama Station" ,  lat: 33.80852420948639,  lng: 130.56998936154793  },
+{ name: "東郷駅 Tōgō Station" ,      lat: 33.79465900183122,  lng: 130.5288475279176 },
+{ name: "赤間駅 Akama Station" ,     lat: 33.80852420948639,  lng: 130.56998936154793  },
 { name: "教育大前駅 Kyōikudai-mae Station" ,  lat: 33.80838881182614,  lng: 130.5912502438203 },
 { name: "海老津駅 Ebitsu Station" ,  lat: 33.84011816193234,  lng: 130.6238064927896 },
 { name: "遠賀川駅 Ongagawa Station" ,  lat: 33.846829647570566,   lng: 130.67341776395446 },
@@ -58,8 +58,7 @@ window.stations = [
 { name: "枝光駅 Edamitsu Station" ,  lat: 33.87942438673168,   lng: 130.8131340216272 },
 { name: "戸畑駅 Tobata Station",  lat: 33.89691234250908,  lng: 130.8203713491716  },
 { name: "九州工大前駅 Kyūshū-Kōdai-Mae Station", lat: 33.900411168201266,   lng: 130.84002577929928 },
-
-{ name: "犬飼駅", lat:  33.077999545388494, lng: 131.63645657200593 },
+{ name: "Inukai 犬飼駅", lat:  33.077999545388494, lng: 131.63645657200593 },
   
   // KYUDAI MAIN LINE (Ōita → Yufuin)
   { name: "南大分駅",     lat: 33.21406265499788, lng: 131.58629379060434 },
@@ -136,8 +135,8 @@ window.stations = [
    { name: "Bungo-Toyooka Station 豊後豊岡駅", lat:33.36198360096928, lng: 131.5014435934539 },
    { name: "亀川駅",       lat: 33.3312027734460,  lng: 131.493079650432 },
   { name: "Beppu Daigaku 別府大学駅", lat:33.31322823458146,  lng: 131.49923883194245   },
-　{ name: "東別府駅",     lat: 33.2677076187008,  lng: 131.51050697420135 },
-  { name: "西大分駅",     lat: 33.24522482617123, lng: 131.58285137901504 },
-  { name: "大分駅",       lat: 33.23232801877058, lng: 131.6057111319828 }
+　{ name: "Higashi Beppu 東別府駅",     lat: 33.2677076187008,  lng: 131.51050697420135 },
+  { name: "Nishi Oita 西大分駅",     lat: 33.24522482617123, lng: 131.58285137901504 },
+  { name: "Oita 大分駅",       lat: 33.23232801877058, lng: 131.6057111319828 }
 ];
 
