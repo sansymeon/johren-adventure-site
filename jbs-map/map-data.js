@@ -58,9 +58,26 @@ window.stations = [
 { name: "枝光駅 Edamitsu Station" ,  lat: 33.87942438673168,   lng: 130.8131340216272 },
 { name: "戸畑駅 Tobata Station",  lat: 33.89691234250908,  lng: 130.8203713491716  },
 { name: "九州工大前駅 Kyūshū-Kōdai-Mae Station", lat: 33.900411168201266,   lng: 130.84002577929928 },
-{ name: "Inukai 犬飼駅", lat:  33.077999545388494, lng: 131.63645657200593 },
+{ name: "枝光駅 Edamitsu Station" ,  lat: 33.87942438673168,   lng: 130.8131340216272 },
+  { name: "竹下駅 Takeshita Station" ,  lat: 33.56849573613747,    lng: 130.43164655229342 },
+  { name: "笹原駅 Sasabaru Station" ,  lat: 33.553058384770026,   lng: 130.44879613695093  },
+  { name: "南福岡駅 Minami Fukuoka Station" ,  lat: 33.542163553775744, lng: 130.46021186208918  },
+  { name: "春日駅 Kasuga Station" ,  lat: 33.53529947256879, lng:  130.46867364064622 },
+  { name: "小野城駅 Onojo Station" ,  lat: 33.5253792894224,   lng: 130.47958965229117 },
+  { name: "水城駅 Mizuki Station" ,  lat: 33.51786779427131,  lng: 130.49037586578433  },
+  { name: "都府楼南駅 Tofuro-Minami Station" ,  lat: 33.50318575856443,   lng: 130.5067412657835 },
+  { name: "二日市駅 Futsukaichi Station" ,  lat: 33.49495843766686,  lng: 130.5186506946185  },
+  { name: "天拝山駅 Tenpaizan Station" ,  lat: 33.482364009446464, lng: 130.53028418918038  },
+   { name: "原田駅 Haruda Station" ,  lat: 33.45124515845744,   lng: 130.53927943509697 },
+   { name: "けやき台駅 Keyakidai Station" ,  lat: 33.43428082036915,   lng: 130.53342965663265  },
+   { name: "基山駅 Kiyama Station" ,  lat: 33.42084768028258,   lng: 130.53235059831076 },
+   { name: "弥生が丘駅 Yayoigaoka Station" ,  lat: 33.40242009111166,   lng: 130.5285342559807 },
+   { name: "田代駅 Tashiro Station" ,  lat: 33.38399137342495, 7  lng: 130.5245568811187 },
+   { name: "鳥栖駅 Tosu Station" ,  lat: 33.373763757705504,   lng: 130.519306321599 },
+  { name: "肥前旭駅 Hizen-Asahi Station" ,  lat: 33.350225811365895, lng:  130.49605852529416  },
+  { name: "久留米駅 Kurume Station" ,  lat: 33.320482138584595,   lng: 130.50115484858333 },
   
-  // KYUDAI MAIN LINE (Ōita → Yufuin)
+  // K YUDAI MAIN LINE (Ōita → Yufuin)
   { name: "南大分駅",     lat: 33.21406265499788, lng: 131.58629379060434 },
   { name: "古国府駅",     lat: 33.22065690479467, lng: 131.60749091301474 },
   { name: "賀来駅",       lat: 33.21323569734439, lng: 131.5626648657675 },
@@ -83,8 +100,8 @@ window.stations = [
   { name: "中判田駅",  lat: 33.16447006646251,  lng: 131.63879511909792 },
   { name: "菅尾駅",    lat: 33.01444709049888,  lng: 131.61642285204695 },
   { name: "竹中駅",     lat: 33.12069695808658,  lng: 131.64940976576244 },
-  { name: "犬飼駅",     lat: 33.12069695808658,  lng: 131.64941536040405 },
-
+{ name: "Inukai 犬飼駅", lat:  33.077999545388494, lng: 131.63645657200593 },
+  
  // Fukuoka Subway Airport LINE (Airport-Muromi)
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
   { name: "Higashi-Hie 東比恵駅 Station", lat: 33.589754713543435,   lng: 130.43123418620593 },
