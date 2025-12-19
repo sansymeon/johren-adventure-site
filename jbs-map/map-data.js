@@ -183,4 +183,4 @@ window.stations.forEach(st => {
   }
 });
 
-  { name: "Arita 有田駅", lat: 33.183696197108546,   lng: 129.88170132776435  }, 
+ 
