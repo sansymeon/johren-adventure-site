@@ -118,4 +118,11 @@ window.samples.forEach(s => {
       window.location.href = s.url;
     });
 });
+stations
+  .filter(st => st.visible !== false)
+  .forEach(st => {
+    L.marker([st.lat, st.lng], { icon: stationIcon })
+      .addTo(map)
+      .bindTooltip(st.name, { direction: "top" });
+  });
 
