@@ -102,7 +102,6 @@ loadCategory("parks", "park");
 loadCategory("playgrounds", "playground");
 loadCategory("restaurants", "restaurant");
 loadCategory("shrines", "shrine");
-loadCategory("stations", "station");
 loadCategory("supermarkets", "supermarket");
 loadCategory("temples", "temple");
 loadCategory("samples", "sample");
