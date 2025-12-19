@@ -61,7 +61,7 @@ window.stations = [
   { name: "笹原駅 Sasabaru Station" ,  lat: 33.553058384770026,   lng: 130.44879613695093, visible: false  },
   { name: "南福岡駅 Minami Fukuoka Station" ,  lat: 33.542163553775744, lng: 130.46021186208918, visible: false  },
   { name: "春日駅 Kasuga Station" ,  lat: 33.53529947256879, lng:  130.46867364064622, visible: false },
-  { name: "小野城駅 Onojo Station" ,  lat: 33.5253792894224,   lng: 130.47958965229117, visible: false },
+  { name: "小野城駅 Onojo Station" ,  lat: 33.5253792894224,   lng: 130.47958965229117 },
   { name: "水城駅 Mizuki Station" ,  lat: 33.51786779427131,  lng: 130.49037586578433, visible: false  },
   { name: "都府楼南駅 Tofuro-Minami Station" ,  lat: 33.50318575856443,   lng: 130.5067412657835, visible: false },
   { name: "二日市駅 Futsukaichi Station" ,  lat: 33.49495843766686,  lng: 130.5186506946185  },
