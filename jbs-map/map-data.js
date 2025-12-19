@@ -170,6 +170,7 @@ window.stations = [
   { name: "Bungo-Mori 豊後森駅", lat: 33.28267636111276,   lng: 131.15544586295107 }, 
 
   { name: "Aso 阿蘇駅", lat: 32.937228239599264,   lng: 131.08020325245215 }, 
+  { name: "Bungo-Taketa 豊後竹田駅", lat: 32.97071556513112,   lng: 131.08020325245215 }, 
 
   // NIPPO LINE Ōita urban segment
   { name: "Maki 牧駅",  lat: 33.23710163129472,  lng: 131.6377864657687, visible: false },
