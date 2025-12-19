@@ -29,7 +29,7 @@ window.shrines = [
   { name: "Terumo Shrine 光雲神社", lat: 33.597145537533365, lng: 130.37643231206792 },
   { name: "Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社", lat: 33.581715227750, lng: 130.38203472165 }
 ];
-// Fukuoka Subway Airport LINE (Airport-Muromi)
+window.stations = [
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
   { name: "Higashi-Hie 東比恵駅 Station", lat: 33.589754713543435,   lng: 130.43123418620593 },
   { name: "Hakata 博多駅", lat: 33.589580007114,  lng: 130.42049136024366 },
