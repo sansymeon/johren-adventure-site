@@ -143,7 +143,9 @@ window.stations = [
   { name: "Nishi Oita 西大分駅", lat: 33.24522482617123, lng: 131.58285137901504 },
   { name: "Oita 大分駅", lat: 33.23232801877058, lng: 131.6057111319828 },
 
-   { name: "Hita 日田駅", lat: 33.31699411830382,  lng: 130.93871101241635 },
+  { name: "Ukiha うきは駅", lat: 33.33479713952632,  lng: 130.78917334413924 }, 
+  { name: "Hita 日田駅", lat: 33.31699411830382,  lng: 130.93871101241635 },
+  { name: "Bungo-Mori 豊後森駅", lat: 33.28267636111276,   lng: 131.15544586295107 }, 
   
   // NIPPO LINE Ōita urban segment
   { name: "Maki 牧駅",  lat: 33.23710163129472,  lng: 131.6377864657687, visible: false },
