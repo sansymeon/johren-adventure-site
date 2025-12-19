@@ -8,6 +8,7 @@ L.control.zoom({
   position: 'topright'
 }).addTo(map);
 
+
 // -------------------------------
 // TILE LAYER
 // -------------------------------
@@ -16,9 +17,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-
 // -------------------------------
-// ICON FACTORY (cleaner)
+// ICON FACTORY
 // -------------------------------
 function makeIcon(file) {
   return L.icon({
@@ -30,172 +30,131 @@ function makeIcon(file) {
 }
 
 // -------------------------------
-// ALL ICONS
+// ICONS
 // -------------------------------
 const icons = {
-  artisan: makeIcon('artisan.png'),
-  bakery: makeIcon('bakery.png'),
-  barbershop: makeIcon('barber.png'),
-  bath: makeIcon('bath.png'),
-  beauty: makeIcon('beauty.png'),
-  bookstore: makeIcon('bookstore.png'),
-  church: makeIcon('church.png'),
-  clinic: makeIcon('clinic.png'),
-  coffee: makeIcon('coffee.png'),
-  combini: makeIcon('combini.png'),
-  drugstore: makeIcon('drugs.png'),
-  hotel: makeIcon('hotel.png'),
-  library: makeIcon('library.png'),
-  museum: makeIcon('museum.png'),
-  noodles: makeIcon('noodles.png'),
-  park: makeIcon('park.png'),
-  playground: makeIcon('playground.png'),
-  restaurant: makeIcon('restaurant.png'),
-  shrine: makeIcon('shrine.png'),
   station: makeIcon('station.png'),
-  supermarket: makeIcon('supermarket.png'),
-  temple: makeIcon('temple.png')
-  
-  // Add more anytime — ALL handled automatically
+  coffee: makeIcon('coffee.png'),
+  restaurant: makeIcon('restaurant.png')
 };
 
 // -------------------------------
-// GENERIC CATEGORY LOADER
+// DISTANCE (km)
 // -------------------------------
-function loadCategory(categoryName, iconName) {
-  const list = window[categoryName];
-  const icon = icons[iconName];
+function distanceKm(a, b) {
+  const R = 6371;
+  const dLat = (b.lat - a.lat) * Math.PI / 180;
+  const dLng = (b.lng - a.lng) * Math.PI / 180;
+  const lat1 = a.lat * Math.PI / 180;
+  const lat2 = b.lat * Math.PI / 180;
 
-  if (list && list.length > 0 && icon) {
-    list.forEach(item => {
-      L.marker([item.lat, item.lng], { icon })
-        .addTo(map)
-        .bindPopup(item.name);
-    });
-  }
+  const x =
+    Math.sin(dLat / 2) ** 2 +
+    Math.sin(dLng / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
+
+  return 2 * R * Math.asin(Math.sqrt(x));
 }
 
 // -------------------------------
-// LOAD ALL CATEGORIES
-// (Add or remove freely — no extra JS edits needed)
+// MARKER GROUPS
 // -------------------------------
+const coffeeLayer = L.layerGroup();
+const restaurantLayer = L.layerGroup();
 
-loadCategory("artisans", "artisan");
-loadCategory("bakeries", "bakery");
-loadCategory("baths", "bath");
-loadCategory("beautyshops", "beauty");
-loadCategory("bookstores", "bookstore");
-loadCategory("churches", "church");
-loadCategory("clinics", "clinic");
-loadCategory("coffeeshops", "coffee");
-loadCategory("combini", "combini");
-loadCategory("drugstores", "drugstore");
-loadCategory("hotels", "hotel");
-loadCategory("libraries", "library");
-loadCategory("museums", "museum");
-loadCategory("noodles", "noodles");
-loadCategory("parks", "park");
-loadCategory("playgrounds", "playground");
-loadCategory("restaurants", "restaurant");
-loadCategory("shrines", "shrine");
-loadCategory("stations", "station");
-loadCategory("supermarkets", "supermarket");
-loadCategory("temples", "temple");
-
-// Add new categories anytime — only 2 steps:
-// 1) put your icon → /img/map/
-// 2) add "window.xxx = [...]" in map-data.js
-// -------------------------------
-// TILE LAYER
-// -------------------------------
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  maxZoom: 19,
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
+let selectedStation = null;
 
 // -------------------------------
-// ICON FACTORY (cleaner)
+// LOAD STATIONS (mobile: first tap = name, second tap = base station)
 // -------------------------------
-function makeIcon(file) {
-  return L.icon({
-    iconUrl: `../../../img/map/${file}`,
-    iconSize: [36, 36],
-    iconAnchor: [18, 36],
-    popupAnchor: [0, -30]
+let lastTappedStation = null;
+
+window.stations.forEach(station => {
+  const marker = L.marker([station.lat, station.lng], {
+    icon: icons.station
+  }).addTo(map);
+
+  // tooltip (station name)
+  marker.bindTooltip(station.name, {
+    direction: 'top',
+    offset: [0, -28],
+    opacity: 0.9
+  });
+
+  marker.on("click", () => {
+    // FIRST TAP: show name only
+    if (lastTappedStation !== station) {
+      lastTappedStation = station;
+      marker.openTooltip();
+      return;
+    }
+
+    // SECOND TAP: set as base station
+    selectedStation = station;
+    updateDistances();
+    marker
+      .bindPopup(`基準駅：${station.name}`)
+      .openPopup();
+  });
+});
+
+
+
+// -------------------------------
+// LOAD COFFEE SHOPS
+// -------------------------------
+window.coffeeshops.forEach(shop => {
+  const marker = L.marker([shop.lat, shop.lng], {
+    icon: icons.coffee
+  });
+  shop._marker = marker;
+  coffeeLayer.addLayer(marker);
+});
+
+// -------------------------------
+// LOAD RESTAURANTS
+// -------------------------------
+window.restaurants.forEach(place => {
+  const marker = L.marker([place.lat, place.lng], {
+    icon: icons.restaurant
+  });
+  place._marker = marker;
+  restaurantLayer.addLayer(marker);
+});
+
+// -------------------------------
+// UPDATE DISTANCES FROM SELECTED STATION
+// -------------------------------
+function updateDistances() {
+  if (!selectedStation) return;
+
+  [...window.coffeeshops, ...window.restaurants].forEach(item => {
+    const d = distanceKm(selectedStation, item).toFixed(1);
+    item._marker.bindPopup(
+      `${item.name}<br>駅から約 ${d} km`
+    );
   });
 }
 
 // -------------------------------
-// ALL ICONS
+// CATEGORY TOGGLES (simple version)
 // -------------------------------
-const icons = {
-  station: makeIcon('station.png'),
-  bookstore: makeIcon('bookstore.png'),
-  coffee: makeIcon('coffee.png'),
-  bakery: makeIcon('bakery.png'),
-  barbershop: makeIcon('barber.png'),
-  beauty: makeIcon('beauty.png'),
-  shrine: makeIcon('shrine.png'),
-  temple: makeIcon('temple.png'),
-  church: makeIcon('church.png'),
-  museum: makeIcon('museum.png'),
-  restaurant: makeIcon('restaurant.png'),
-  convenience: makeIcon('combini.png'),
-  noodles: makeIcon('noodles.png'),
-  artisan: makeIcon('artisan.png'),
-  library: makeIcon('library.png'),
-  therapy: makeIcon('therapy.png'),
-  clinic: makeIcon('clinic.png'),
-  supermarket: makeIcon('supermarket.png'),
-  playground: makeIcon('playground.png'),
-  park: makeIcon('park.png')
-  // Add more anytime — ALL handled automatically
-};
-
-
-// -------------------------------
-// GENERIC CATEGORY LOADER
-// -------------------------------
-function loadCategory(categoryName, iconName) {
-  const list = window[categoryName];
-  const icon = icons[iconName];
-
-  if (list && list.length > 0 && icon) {
-    list.forEach(item => {
-      L.marker([item.lat, item.lng], { icon })
-        .addTo(map)
-        .bindPopup(item.name);
-    });
-  }
+function showCoffee() {
+  map.addLayer(coffeeLayer);
+  map.removeLayer(restaurantLayer);
 }
 
+function showRestaurants() {
+  map.addLayer(restaurantLayer);
+  map.removeLayer(coffeeLayer);
+}
 
-// -------------------------------
-// LOAD ALL CATEGORIES
-// (Add or remove freely — no extra JS edits needed)
-// -------------------------------
-loadCategory("stations", "station");
-loadCategory("bookstores", "bookstore");
-loadCategory("coffeeshops", "coffee");
-loadCategory("bakeries", "bakery");
-loadCategory("barbershops", "barbershop");
-loadCategory("beautyshops", "beauty");
-loadCategory("shrines", "shrine");
-loadCategory("temples", "temple");
-loadCategory("churches", "church");
-loadCategory("museums", "museum");
-loadCategory("combini", "convenience");
-loadCategory("restaurants", "restaurant");
-loadCategory("noodles", "noodles");
-loadCategory("supermarkets", "supermarket");
-loadCategory("artisans", "artisan");
-loadCategory("therapies", "therapy");
-loadCategory("clinics", "clinic");
-loadCategory("libraries", "library");
-loadCategory("playgrounds", "playground");
-loadCategory("parks", "park");
+function showBoth() {
+  map.addLayer(coffeeLayer);
+  map.addLayer(restaurantLayer);
+}
 
-// Add new categories anytime — only 2 steps:
-// 1) put your icon → /img/map/
-// 2) add "window.xxx = [...]" in map-data.js
+// Default view
+showBoth();
+
+
+
