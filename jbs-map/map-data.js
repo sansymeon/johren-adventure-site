@@ -45,7 +45,10 @@ window.stations = [
   { name: "Kawatana 川棚駅", lat: 33.068486779692165,   lng: 129.8634278238975   }, 
   { name: "Shin-Omura 新大村駅", lat: 32.932626750179075,   lng: 129.95722857374489   }, 
   { name: "Isahaya 諫早駅", lat: 32.85203767364156,   lng: 130.0412546541023  }, 
-  { name: "Nagasaki 長崎駅", lat: 32.752447043746166,   lng:  129.86892703690688  }, 
+  { name: "Nagasaki 長崎駅", lat: 32.752447043746166,   lng:  129.86892703690688  },
+  { name: "Aino 愛野駅", lat: 32.81895137075822,    lng:  130.15604553458053  },
+  { name: "Shimabara 島原駅", lat: 32.79027786498945, lng:   130.370631075974   },
+  
   
   // Fukuoka Subway Airport LINE (Airport-Muromi)
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
