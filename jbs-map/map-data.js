@@ -151,3 +151,9 @@ window.stations = [
   { name: "Sakanoichi 坂ノ市駅", lat: 33.23677047348398, lng: 131.75156050809792, visible: false },
   { name: "Kōzaki 幸崎駅", lat: 33.23665381485215,  lng: 131.75160342343978, visible: false },
 ];
+window.stations.forEach(st => {
+  if (st.lng > 132 || st.lat < 32) {
+    console.warn("Suspicious station location:", st.name, st.lat, st.lng);
+  }
+});
+
