@@ -38,6 +38,9 @@ window.stations = [
   { name: "Arita 有田駅", lat: 33.183696197108546,   lng: 129.88170132776435  }, 
   { name: "Takeo-Onsen 武雄温泉駅", lat: 33.196404826617716,   lng: 130.0232388569217  }, 
   { name: "Saga 佐賀駅", lat: 33.26418348559751,  lng: 130.29725684813994  }, 
+
+  { name: "Isahaya 諫早駅", lat: 32.85203767364156,   lng: 130.0412546541023  }, 
+  { name: "Nagasaki 長崎駅", lat: 32.752447043746166,   lng:  129.86892703690688  }, 
   
   // Fukuoka Subway Airport LINE (Airport-Muromi)
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
@@ -180,3 +183,4 @@ window.stations.forEach(st => {
   }
 });
 
+  { name: "Arita 有田駅", lat: 33.183696197108546,   lng: 129.88170132776435  }, 
