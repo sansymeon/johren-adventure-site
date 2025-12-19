@@ -193,6 +193,7 @@ window.stations = [
   { name: "Nishitetsu-Yanagawa 西鉄柳川駅", lat: 33.16483308770013,   lng: 130.41975360291633 },
   { name: "Nishitetsu-Omuta 西鉄大牟田駅", lat: 33.02990295665634,  lng: 130.44320628992418  },
 
+  { name: "Shin-Yatsushiro 新八代駅", lat: 32.518019644933354,   lng: 130.63461495221995  },
   { name: "Hitoyoshi 人吉駅", lat: 32.21605623447905,  lng: 130.75371869454892   },
   { name: "Miyazaki 宮崎駅", lat: 31.915539598715622,  lng: 131.43198524061467   },
   { name: "Kagoshima 鹿児島駅", lat: 31.601404041487406,   lng: 130.56299002617163  },
