@@ -165,6 +165,9 @@ window.stations = [
   { name: "Ōzai 大在駅", lat: 33.24388399586119,  lng: 131.7203999412276, visible: false },
   { name: "Sakanoichi 坂ノ市駅", lat: 33.23677047348398, lng: 131.75156050809792, visible: false },
   { name: "Kōzaki 幸崎駅", lat: 33.23665381485215,  lng: 131.75160342343978, visible: false },
+
+  { name: "Nishitetsu-Yanagawa 西鉄柳川駅", lat: 33.16483308770013,   lng: 130.41975360291633 },
+  { name: "Nishitetsu-Omuta 西鉄大牟田駅", lat: 33.02990295665634,  lng: 130.44320628992418  },
 ];
 window.stations.forEach(st => {
   if (st.lng > 132 || st.lat < 32) {
