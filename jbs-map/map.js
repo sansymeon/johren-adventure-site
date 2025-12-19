@@ -104,7 +104,6 @@ loadCategory("restaurants", "restaurant");
 loadCategory("shrines", "shrine");
 loadCategory("supermarkets", "supermarket");
 loadCategory("temples", "temple");
-loadCategory("samples", "sample");
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
@@ -120,7 +119,8 @@ window.samples.forEach(s => {
 stations
   .filter(st => st.visible !== false)
   .forEach(st => {
-    L.marker([st.lat, st.lng], { icon: stationIcon })
+    L.marker([st.lat, st.lng], { icon: icons.station }
+ })
       .addTo(map)
       .bindTooltip(st.name, { direction: "top" });
   });
