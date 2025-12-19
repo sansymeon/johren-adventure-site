@@ -57,7 +57,7 @@ window.stations = [
   { name: "戸畑駅 Tobata Station",  lat: 33.89691234250908,  lng: 130.8203713491716  },
   { name: "九州工大前駅 Kyūshū-Kōdai-Mae Station", lat: 33.900411168201266,   lng: 130.84002577929928 },
   { name: "枝光駅 Edamitsu Station" ,  lat: 33.87942438673168,   lng: 130.8131340216272 },
-  { name: "竹下駅 Takeshita Station" ,  lat: 33.56849573613747,    lng: 130.43164655229342 },
+  { name: "竹下駅 Takeshita Station" ,  lat: 33.56849573613747,    lng: 130.43164655229342, visible: false },
   { name: "笹原駅 Sasabaru Station" ,  lat: 33.553058384770026,   lng: 130.44879613695093, visible: false  },
   { name: "南福岡駅 Minami Fukuoka Station" ,  lat: 33.542163553775744, lng: 130.46021186208918, visible: false  },
   { name: "春日駅 Kasuga Station" ,  lat: 33.53529947256879, lng:  130.46867364064622, visible: false },
