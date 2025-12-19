@@ -44,12 +44,12 @@ window.stations = [
   
   // KAGOSHIMA LINE
   { name: "Yoshizuka 吉塚駅",    lat: 33.60690081236377,  lng: 130.42364803927666  },
-  { name: "Hakozaki 箱崎駅",     lat: 33.12069695808658,  lng: 131.64941536040405, visible: false  },
+  { name: "Hakozaki 箱崎駅",     lat: 33.61817780491143,  lng: 130.4269867278585, visible: false  },
   { name: "Chihaya 千早駅",  lat: 33.649212142148514, lng: 130.44060779462708   },
   { name: "Kashii 香椎駅",  lat: 33.65957167882258, lng:  130.44408393753503  },
   { name: "Kyusan-daimae 九産大前駅",  lat: 33.673528072200114,  lng:  130.44126918185134  },
   { name: "Fuukodai-mae 福工大前駅",  lat: 33.69840228441997,  lng:  130.4401530057084,  },
-  { name: "Shingu-chuo 新宮中央駅",lat: 33.7251508732909,   lng: 135.9940290774413 },
+  { name: "Shingu-chuo 新宮中央駅",lat: 33.711624844956056,    lng: 130.44918646394683 },
   { name: "Shishibu ししぶ駅", lat: 33.72166328413928,  lng: 130.4582904081248, visible: false   },
   { name: "Koga 古賀駅", lat: 33.732413088801486, lng:  130.466493063948 },
   { name: "Chidori 千鳥駅", lat: 33.74863479338904,   lng: 130.47608614139565, visible: false },
@@ -62,7 +62,7 @@ window.stations = [
   { name: "Ongagawa 遠賀川駅", lat: 33.846829647570566,   lng: 130.67341776395446, visible: false },
   { name: "Mizumaki 水巻駅", lat: 33.85242282341066,   lng: 130.69554009833485, visible: false },
   { name: "Orio 折尾駅", lat: 33.86438043149877,  lng: 130.71225182162638 },
-  { name: "Jinnohara 陣原駅", lat: 33.12069695808658,  lng: 131.64941536040405, visible: false  },
+  { name: "Jinnohara 陣原駅", lat: 33.86815576484634,   lng: 130.74280493327194, visible: false  },
   { name: "Kurosaki 黒崎駅", lat: 33.866787526976914,   lng: 130.76652121099508 },
   { name: "Yahata 八幡駅", lat: 33.86924172009082, lng: 130.79549716269443, visible: false  },
   { name: "Space World スペースワールド駅", lat: 33.87135687616503,  lng: 130.8066169702724 },
