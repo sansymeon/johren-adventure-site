@@ -29,6 +29,13 @@ window.stations = [
   { name: "Karatsu 唐津駅", romanized: "Karatsu", line: "Chikuhi Line", lat: 33.446223, lng: 129.967587 },
   { name: "Nishi Karatsu 西唐津駅", romanized: "Nishi Karatsu", line: "Chikuhi Line", lat: 33.461434, lng: 129.957480 },
 
+  { name: "Ureshino-Onsen 嬉野駅", lat: 33.10673489243643,   lng: 129.9990303397883 }, 
+  { name: "Sasebo 佐世保駅", lat: 33.16392652960352,  lng:  129.7257186464349 }, 
+  { name: "Haiki 早岐駅", lat: 33.1338407612025, lng:  129.79914191926892   }, 
+  { name: "Arita 有田駅", lat: 33.183696197108546,   lng: 129.88170132776435  }, 
+  { name: "Takeo-Onsen 武雄温泉駅", lat: 33.196404826617716,   lng: 130.0232388569217  }, 
+  { name: "Saga 佐賀駅", lat: 33.26418348559751,  lng: 130.29725684813994  }, 
+  
   // Fukuoka Subway Airport LINE (Airport-Muromi)
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
   { name: "Higashi-Hie 東比恵駅 Station", lat: 33.589754713543435,   lng: 130.43123418620593 },
