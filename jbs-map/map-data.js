@@ -132,7 +132,7 @@ window.stations = [
   { name: "Nishi-Yashiki 西屋敷駅", lat:33.50458909253967,  lng: 131.42960429088293, visible: false },
   { name: "Tateishi 立石駅", lat:33.48210214846414,   lng: 131.47712682186602, visible: false },
   { name: "Nakayamaga 中山香駅", lat:33.44856004734432,    lng: 131.50569158238858, visible: false },
-  { name: "Kitsuki　杵築駅", lat:33.41099860926826,  lng: 131.5756072029127 },
+  { name: "Kitsuki 杵築駅", lat:33.41099860926826,  lng: 131.5756072029127 },
   { name: "Oga 大神駅", lat:33.3834711693283,  lng: 131.57502507073127, visible: false },
   { name: "Hiji 日出駅", lat:33.36902355193287,  lng: 131.54235582614015  },
   { name: "Yokoku 暘谷駅", lat:33.37009310782217,   lng: 131.53062004632423, visible: false  },
