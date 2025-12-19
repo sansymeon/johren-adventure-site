@@ -116,12 +116,12 @@ window.samples.forEach(s => {
       window.location.href = s.url;
     });
 });
-stations
+window.stations
   .filter(st => st.visible !== false)
   .forEach(st => {
-    L.marker([st.lat, st.lng], { icon: icons.station }
- })
+    L.marker([st.lat, st.lng], { icon: icons.station })
       .addTo(map)
       .bindTooltip(st.name, { direction: "top" });
   });
+
 
