@@ -94,7 +94,7 @@ window.stations = [
   { name: "Tenjin-Yama 天神山駅", lat: 33.186959358136164, lng: 131.43886043693058, visible: false },
   { name: "Onoya 小野屋駅", lat: 33.18509931488385, lng: 131.4528201313089, visible: false },
   { name: "Onigase 鬼瀬駅",  lat: 33.19563483964115, lng: 131.48543738110843, visible: false },
-  { name: "Minami Yufuin 南由布駅", lat: 33.242215107613,  lng: 131.33365115227534 visible: false },
+  { name: "Minami Yufuin 南由布駅", lat: 33.242215107613,  lng: 131.33365115227534, visible: false },
   { name: "Yunohira 湯平駅",  lat: 33.1973714290547, lng: 131.35408359460197, visible: false  },
   { name: "Yufuin 由布院駅",     lat: 33.26269658669704, lng: 131.35526192713755 },
   { name: "Takio 滝尾駅", lat: 33.2093348203975,    lng: 131.6231774657672, visible: false },
