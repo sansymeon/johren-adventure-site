@@ -142,6 +142,8 @@ window.stations = [
   { name: "Higashi Beppu 東別府駅", lat: 33.2677076187008, lng: 131.51050697420135 },
   { name: "Nishi Oita 西大分駅", lat: 33.24522482617123, lng: 131.58285137901504 },
   { name: "Oita 大分駅", lat: 33.23232801877058, lng: 131.6057111319828 },
+
+   { name: "Hita 日田駅", lat: 33.31699411830382,  lng: 130.93871101241635 },
   
   // NIPPO LINE Ōita urban segment
   { name: "Maki 牧駅",  lat: 33.23710163129472,  lng: 131.6377864657687, visible: false },
