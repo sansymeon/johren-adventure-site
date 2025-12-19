@@ -29,6 +29,8 @@ window.stations = [
   { name: "Karatsu 唐津駅", romanized: "Karatsu", line: "Chikuhi Line", lat: 33.446223, lng: 129.967587 },
   { name: "Nishi Karatsu 西唐津駅", romanized: "Nishi Karatsu", line: "Chikuhi Line", lat: 33.461434, lng: 129.957480 },
 
+  { name: "Imari 伊万里駅", lat: 33.2718816435999,   lng:  129.87629789460615 }, 
+  { name: "Takeo-Onsen 武雄温泉駅", lat: 33.19635315980435,   lng: 130.0231733771491  }, 
   { name: "Ureshino-Onsen 嬉野駅", lat: 33.10673489243643,   lng: 129.9990303397883 }, 
   { name: "Sasebo 佐世保駅", lat: 33.16392652960352,  lng:  129.7257186464349 }, 
   { name: "Haiki 早岐駅", lat: 33.1338407612025, lng:  129.79914191926892   }, 
