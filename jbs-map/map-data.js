@@ -27,7 +27,7 @@ window.stations = [
   { name: "HIgashi Karatsu 東唐津駅", romanized: "Higashi Karatsu", line: "Chikuhi Line", lat: 33.439393, lng: 129.996837, visible: true  },
   { name: "Watada 和多田駅", romanized: "Watada", line: "Chikuhi Line", lat: 33.436933, lng: 129.980768, visible: true  },
   { name: "Karatsu 唐津駅", romanized: "Karatsu", line: "Chikuhi Line", lat: 33.446223, lng: 129.967587, visible: true  },
-  { name: "Nishi Karatsu 西唐津駅", romanized: "Nishi Karatsu, line: "Chikuhi Line", lat: 33.461434, lng: 129.957480, visible: true },
+  { name: "Nishi Karatsu 西唐津駅", romanized: "Nishi Karatsu", line: "Chikuhi Line", lat: 33.461434, lng: 129.957480, visible: true },
   
   // KAGOSHIMA LINE
   { name: "Yoshizuka 吉塚駅",    lat: 33.60690081236377,  lng: 130.42364803927666, visible: true  },
