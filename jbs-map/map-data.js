@@ -181,6 +181,9 @@ window.stations = [
   { name: "Sakanoichi 坂ノ市駅", lat: 33.23677047348398, lng: 131.75156050809792, visible: false },
   { name: "Kōzaki 幸崎駅", lat: 33.23665381485215,  lng: 131.75160342343978, visible: false },
 
+  { name: "Tsukumi 津久見駅", lat: 33.07282371539287,   lng: 131.8637773348949 },
+  { name: "Saiki 佐伯駅", lat: 32.97229737280921,  lng: 131.90190023876704 },
+
   { name: "Nishi-Omuta 西大牟田駅", lat: 33.24609650022158,   lng: 130.5008872072392 }, 
   { name: "Shin-Omuta 新大牟田駅", lat: 33.071373125359564,   lng: 130.48852330511616 },
   { name: "Shin-Tamana 新玉名駅", lat: 32.94222586477316,  lng: 130.5734146996767  },
