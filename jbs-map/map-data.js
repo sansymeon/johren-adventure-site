@@ -1,3 +1,7 @@
+// JBS policy:
+// Only listings with `visible: true` are shown.
+// Others are pre-registered but unpublished.
+
 window.samples = [
   {
     name: "Johren サンプル・スポット",
