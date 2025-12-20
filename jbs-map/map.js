@@ -1,14 +1,23 @@
 // -------------------------------
 // INITIALIZE MAP
 // -------------------------------
-const map = L.map('map', {
-  zoomControl: false
-}).setView([33.557082, 130.199305], 12);   // Chikuzen-Maebaru center
+const params = new URLSearchParams(window.location.search);
 
-L.control.zoom({
-  position: 'topright'
-}).addTo(map);
+const lat  = parseFloat(params.get('lat'));
+const lng  = parseFloat(params.get('lng'));
+const zoom = parseInt(params.get('zoom')) || 12;
 
+// fallback if link has no params
+const defaultCenter = [33.557082, 130.199305]; // Itoshima
+const defaultZoom = 12;
+
+const hasValidCoords = !isNaN(lat) && !isNaN(lng);
+
+const map = L.map('map', { zoomControl: false })
+  .setView(
+    hasValidCoords ? [lat, lng] : defaultCenter,
+    hasValidCoords ? zoom : defaultZoom
+  );
 
 
 // -------------------------------
