@@ -42,42 +42,37 @@ const icons = {
   bath: makeIcon('bath.png'),
   beauty: makeIcon('beauty.png'),
   bookstore: makeIcon('bookstore.png'),
-  church: makeIcon('church.png'),
-  clinic: makeIcon('clinic.png'),
   coffee: makeIcon('coffee.png'),
   combini: makeIcon('combini.png'),
   drugstore: makeIcon('drugs.png'),
   hotel: makeIcon('hotel.png'),
-  library: makeIcon('library.png'),
-  museum: makeIcon('museum.png'),
   noodles: makeIcon('noodles.png'),
-  park: makeIcon('park.png'),
-  playground: makeIcon('playground.png'),
   restaurant: makeIcon('restaurant.png'),
-  shrine: makeIcon('shrine.png'),
-  station: makeIcon('station.png'),
   supermarket: makeIcon('supermarket.png'),
-  temple: makeIcon('temple.png'),
   sample: makeIcon('sample.png')
   
   // Add more anytime — ALL handled automatically
 };
 
 // -------------------------------
-// GENERIC CATEGORY LOADER
+// GENERIC CATEGORY LOADER (JBS)
+// Only shows items with explicit permission
 // -------------------------------
 function loadCategory(categoryName, iconName) {
   const list = window[categoryName];
   const icon = icons[iconName];
 
-  if (list && list.length > 0 && icon) {
-    list.forEach(item => {
+  if (!list || !icon) return;
+
+  list
+    .filter(item => item.visible === true)
+    .forEach(item => {
       L.marker([item.lat, item.lng], { icon })
         .addTo(map)
         .bindPopup(item.name);
     });
-  }
 }
+
 
 // -------------------------------
 // LOAD ALL CATEGORIES
@@ -89,21 +84,15 @@ loadCategory("bakeries", "bakery");
 loadCategory("baths", "bath");
 loadCategory("beautyshops", "beauty");
 loadCategory("bookstores", "bookstore");
-loadCategory("churches", "church");
-loadCategory("clinics", "clinic");
 loadCategory("coffeeshops", "coffee");
 loadCategory("combini", "combini");
 loadCategory("drugstores", "drugstore");
 loadCategory("hotels", "hotel");
-loadCategory("libraries", "library");
-loadCategory("museums", "museum");
 loadCategory("noodles", "noodles");
-loadCategory("parks", "park");
 loadCategory("playgrounds", "playground");
 loadCategory("restaurants", "restaurant");
-loadCategory("shrines", "shrine");
 loadCategory("supermarkets", "supermarket");
-loadCategory("temples", "temple");
+
 
 // Add new categories anytime — only 2 steps:
 // 1) put your icon → /img/map/
@@ -116,12 +105,5 @@ window.samples.forEach(s => {
       window.location.href = s.url;
     });
 });
-window.stations
-  .filter(st => st.visible !== false)
-  .forEach(st => {
-    L.marker([st.lat, st.lng], { icon: icons.station })
-      .addTo(map)
-      .bindTooltip(st.name, { direction: "top" });
-  });
 
 
