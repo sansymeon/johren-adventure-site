@@ -1,9 +1,8 @@
 // -------------------------------
-// INITIALIZE MAP
+// INITIALIZE MAP (JDS – Itoshima)
 // -------------------------------
-const map = L.map('map', {
-  zoomControl: false
-}).setView([33.557082, 130.199305], 12);
+const map = L.map('map', { zoomControl: false })
+  .setView([33.557082, 130.199305], 12);
 
 L.control.zoom({ position: 'topright' }).addTo(map);
 
@@ -28,12 +27,15 @@ function makeIcon(file) {
 }
 
 // -------------------------------
-// ICONS
+// ICONS (JDS)
 // -------------------------------
 const icons = {
+  church: makeIcon('church.png'),
+  museum: makeIcon('museum.png'),
   station: makeIcon('station.png'),
-  coffee: makeIcon('coffee.png'),
-  restaurant: makeIcon('restaurant.png')
+  shrine: makeIcon('shrine.png'),
+  temple: makeIcon('temple.png'),
+  park: makeIcon('park.png')
 };
 
 // -------------------------------
@@ -54,106 +56,90 @@ function distanceKm(a, b) {
 }
 
 // -------------------------------
-// MARKER GROUPS
+// LAYERS (JDS)
 // -------------------------------
-const coffeeLayer = L.layerGroup();
-const restaurantLayer = L.layerGroup();
+const churchLayer  = L.layerGroup().addTo(map);
+const museumLayer  = L.layerGroup().addTo(map);
+const shrineLayer  = L.layerGroup().addTo(map);
+const templeLayer  = L.layerGroup().addTo(map);
+const parkLayer    = L.layerGroup().addTo(map);
+const stationLayer = L.layerGroup().addTo(map);
 
 let selectedStation = null;
-
-// -------------------------------
-// LOAD STATIONS (mobile: first tap = name, second tap = base station)
-// -------------------------------
 let lastTappedStation = null;
 
+// -------------------------------
+// LOAD STATIONS
+// Mobile UX:
+// 1st tap → name
+// 2nd tap → set base station
+// -------------------------------
 window.stations.forEach(station => {
   const marker = L.marker([station.lat, station.lng], {
     icon: icons.station
-  }).addTo(map);
+  }).addTo(stationLayer);
 
-  // tooltip (station name)
   marker.bindTooltip(station.name, {
     direction: 'top',
     offset: [0, -28],
     opacity: 0.9
   });
 
-  marker.on("click", () => {
-    // FIRST TAP: show name only
+  marker.on('click', () => {
     if (lastTappedStation !== station) {
       lastTappedStation = station;
       marker.openTooltip();
       return;
     }
 
-    // SECOND TAP: set as base station
     selectedStation = station;
     updateDistances();
-    marker
-      .bindPopup(`基準駅：${station.name}`)
-      .openPopup();
+    marker.bindPopup(`基準駅：${station.name}`).openPopup();
   });
 });
 
-
-
 // -------------------------------
-// LOAD COFFEE SHOPS
+// LOAD LANDMARK CATEGORIES
 // -------------------------------
-window.coffeeshops.forEach(shop => {
-  const marker = L.marker([shop.lat, shop.lng], {
-    icon: icons.coffee
+function loadCategory(list, layer, icon) {
+  if (!list) return;
+
+  list.forEach(item => {
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(item.name);
+
+    item._marker = marker;
   });
-  shop._marker = marker;
-  coffeeLayer.addLayer(marker);
-});
+}
 
-// -------------------------------
-// LOAD RESTAURANTS
-// -------------------------------
-window.restaurants.forEach(place => {
-  const marker = L.marker([place.lat, place.lng], {
-    icon: icons.restaurant
-  });
-  place._marker = marker;
-  restaurantLayer.addLayer(marker);
-});
+loadCategory(window.churches,  churchLayer, icons.church);
+loadCategory(window.museums,  museumLayer, icons.museum);
+loadCategory(window.shrines,  shrineLayer, icons.shrine);
+loadCategory(window.temples,  templeLayer, icons.temple);
+loadCategory(window.parks,    parkLayer,   icons.park);
 
 // -------------------------------
 // UPDATE DISTANCES FROM SELECTED STATION
+// (Applies to all landmarks)
 // -------------------------------
 function updateDistances() {
   if (!selectedStation) return;
 
-  [...window.coffeeshops, ...window.restaurants].forEach(item => {
+  const allItems = [
+    ...(window.churches || []),
+    ...(window.museums || []),
+    ...(window.shrines || []),
+    ...(window.temples || []),
+    ...(window.parks || [])
+  ];
+
+  allItems.forEach(item => {
+    if (!item._marker) return;
+
     const d = distanceKm(selectedStation, item).toFixed(1);
     item._marker.bindPopup(
       `${item.name}<br>駅から約 ${d} km`
     );
   });
 }
-
-// -------------------------------
-// CATEGORY TOGGLES (simple version)
-// -------------------------------
-function showCoffee() {
-  map.addLayer(coffeeLayer);
-  map.removeLayer(restaurantLayer);
-}
-
-function showRestaurants() {
-  map.addLayer(restaurantLayer);
-  map.removeLayer(coffeeLayer);
-}
-
-function showBoth() {
-  map.addLayer(coffeeLayer);
-  map.addLayer(restaurantLayer);
-}
-
-// Default view
-showBoth();
-
-
-
-
