@@ -6,7 +6,7 @@ window.samples = [
     url: "/merchant/sample/index.html"
   }
 ];
-.txt
+
 window.artisans = [
   { name: "ろうそく工房クレアーレ Candle Artisan", lat: 33.583231,   lng: 130.195634, visible: false
  },
