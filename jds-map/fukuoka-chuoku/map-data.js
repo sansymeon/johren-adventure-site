@@ -5,7 +5,7 @@ window.museums = [
 ];
 window.shrines = [
   { name: "Terumo Shrine 光雲神社", lat: 33.597145537533365, lng: 130.37643231206792 },
-  { name: "Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社", lat: 33.581715227750, lng: 130.38203472165 }
+  { name: "Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社", lat: 33.581715227750, lng: 130.38203472165 },
 ];
 window.stations = [
   { name: "Airpot 福岡空港駅", lat: 33.59719916364836,  lng: 130.44822439462428  },
