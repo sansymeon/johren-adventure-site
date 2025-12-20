@@ -226,12 +226,13 @@ window.stations = [
   { name: "Ebino エビの駅", lat: 32.042539399497805, lng: 130.81529070477754   },
   { name: "Miyakonojo 都城駅", lat: 31.736378618376378,  lng: 131.07474138097672  },
   { name: "Miyazaki 宮崎駅", lat: 31.915539598715622,  lng: 131.43198524061467   },
-  { name: "Kagoshima 鹿児島駅", lat: 31.601404041487406,   lng: 130.56299002617163  },
+  { name: "Kagoshima 鹿児島駅", lat: 31.601404041487406,   lng: 130.56299002617163  }
 ];
 window.stations.forEach(st => {
   if (st.lng > 132 || st.lat < 32) {
     console.warn("Suspicious station location:", st.name, st.lat, st.lng);
   }
+  
 });
 
  
