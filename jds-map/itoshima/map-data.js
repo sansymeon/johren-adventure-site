@@ -1,3 +1,6 @@
+// JDS = community discovery map
+// No businesses, no permissions, no monetization logic
+
 window.churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 },
   { name: "Baptist Church 福岡西部バプテスト教会", lat: 33.56349797391542, lng: 130.20519427279035 },
