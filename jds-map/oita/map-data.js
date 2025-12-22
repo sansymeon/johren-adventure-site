@@ -43,7 +43,7 @@ window.churches = [
 ];
 
 // ----------------------
-// MUSEUMAS
+// MUSEUMS
 // ----------------------
 window.museums = [
   { name: "Oita Prefectural Art Museum 大分県立美術館", lat: 33.239287020978125,  lng: 131.60132878355515 },
