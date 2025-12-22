@@ -13,18 +13,13 @@
     #map { height: 100vh; width: 100vw; }
 
     .back-link {
-      position: absolute;
-      z-index: 9999;
-      top: 10px;
-      left: 10px;
-      background: white;
-      padding: 8px 14px;
-      border-radius: 999px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      font-size: 14px;
-      text-decoration: none;
-      color: #333;
-    }
+  display: block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
     .jbs-label {
   position: sticky;
   top: 64px;          /* sits BELOW the site header */
@@ -41,6 +36,16 @@
   background: #f7f7f7;
   padding: 0.45rem 0.6rem;
   border-bottom: 1px solid #e0e0e0;
+}
+@media (max-width: 768px) {
+  .jbs-label {
+    top: 56px;        /* slightly smaller mobile header */
+    font-size: 0.72rem;
+  }
+
+  .back-link {
+    margin-top: 0.6rem;
+  }
 }
 
   </style>
