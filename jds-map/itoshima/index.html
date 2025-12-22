@@ -63,22 +63,24 @@
     }
 
     .logo-block {
-      display: flex;
-      flex-direction: column;
-      gap: 0.1rem;
-    }
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
 
     .logo-mark {
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-    }
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+}
 
-    .logo-sub {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+.logo-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
 
     .nav {
       display: flex;
@@ -434,6 +436,14 @@ section {
 
   .hero-subtitle {
     font-size: 1.05rem;
+  }
+}
+@media (max-width: 480px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    white-space: normal;
   }
 }
 
