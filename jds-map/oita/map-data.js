@@ -34,9 +34,20 @@
   { name: "竹中駅",     lat: 33.12069695808658,  lng: 131.64940976576244 },
   { name: "犬飼駅",     lat: 33.12069695808658,  lng: 131.64941536040405 }
 ];
+
 // ----------------------
 // CHURCHES
 // ----------------------
 window.churches = [
   { name: "St. Francis Xavier Cathedral", lat: 33.238665, lng: 131.604509 }
 ];
+
+// ----------------------
+// MUSEUMAS
+// ----------------------
+window.museums = [
+  { name: "Oita Prefectural Art Museum 大分県立美術館", lat: 33.239287020978125,  lng: 131.60132878355515 },
+  { name: "Oita Art Museum 大分県立美術館", lat: 33.2236041959884,  lng: 131.60224131267063 },
+ { name: "Oita History Museum 大分市歴史資料館", lat: 33.19532098362192,   lng: 131.55263643430152 }
+];
+
