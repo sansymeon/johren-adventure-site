@@ -9,55 +9,73 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
-    body { margin: 0; }
-    #map { height: 100vh; width: 100vw; }
-
-    .back-link {
-  display: block;
-  margin-top: 0.5rem;
-  padding: 0.4rem 0;
-  text-align: center;
-  font-size: 0.85rem;
+    body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-    .jbs-label {
-  position: sticky;
-  top: 64px;          /* sits BELOW the site header */
-  z-index: 400;
-}
-
-    .jbs-label {
+/* JBS HEADER (label + back link grouped) */
+.jbs-header {
   position: sticky;
   top: 0;
-  z-index: 500;
+  z-index: 600;
+  background: #f7f7f7;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* Label */
+.jbs-label {
   text-align: center;
   font-size: 0.75rem;
   color: #666;
-  background: #f7f7f7;
-  padding: 0.45rem 0.6rem;
-  border-bottom: 1px solid #e0e0e0;
+  padding: 0.45rem 0.6rem 0.2rem;
 }
+
+/* Back link */
+.back-link {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  padding: 0.3rem 0 0.5rem;
+  color: #444;
+  text-decoration: none;
+}
+
+/* Map fills remaining space */
+#map {
+  height: calc(100vh - 64px); /* header height */
+  width: 100vw;
+}
+
+/* Mobile tuning */
 @media (max-width: 768px) {
   .jbs-label {
-    top: 56px;        /* slightly smaller mobile header */
     font-size: 0.72rem;
   }
 
   .back-link {
-    margin-top: 0.6rem;
+    font-size: 0.82rem;
+  }
+
+  #map {
+    height: calc(100vh - 72px); /* slightly taller header on mobile */
   }
 }
+
 
   </style>
 </head>
 
 <body>
+
+<!-- JBS MAP HEADER -->
+<div class="jbs-header">
   <div class="jbs-label">
- 事業者向け参考マップ（一般公開用ではありません）
+    事業者向け参考マップ（一般公開用ではありません）
+  </div>
+  <a class="back-link" href="index.html">← 戻る</a>
 </div>
 
-
-<a class="back-link" href="index.html">← 戻る</a>
 <div id="map"></div>
 
 <!-- Leaflet JS -->
@@ -68,4 +86,5 @@
 <script src="map.js"></script>
 
 </body>
+
 </html>
