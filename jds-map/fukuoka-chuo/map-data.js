@@ -1,5 +1,6 @@
 window.churches = [
-  { name: "Daimyo Catholic Church", lat: 33.59028689597394, lng: 130.39490595063134 }
+  { name: "Daimyo Catholic Church", lat: 33.59028689597394, lng: 130.39490595063134 },
+  { name: "Fukuoka Orthodox Church 福岡ハリストス正教会", lat: 33.59896586241692,  lng: 130.4576968779313 }
 ];
 
 window.museums = [
