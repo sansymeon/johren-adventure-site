@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ジョウレン・アドベンチャー｜筑肥線のローカル発見旅</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ジョウレン・アドベンチャー ― 姪浜から唐津までのローカル</br>発見旅。駅に設置されたQRを読み取り、小さな物語やスタンプを集めて進む新しい散策体験。" />
+  
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
+      --border: #e0e0e0;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --accent: #c79b3b;
+      --accent-soft: #f2e3b8;
+      --nav-height: 64px;
+      --max-width: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Header */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+      height: var(--nav-height);
+    }
+
+    .site-header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+    }
+
+    .logo-block {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  white-space: nowrap;
+}
+
+
+    .logo-mark {
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.9rem;
+}
+
+.logo-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+
+    .nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav a:hover::after { width: 100%; }
+
+    .nav-toggle { display: none; }
+
+    /* HERO */
+
+    .hero {
+      background: url('/img/futamigaura.jpg') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      height: 50vh;
+      max-height: 420px;
+      min-height: 260px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      opacity: 0.92;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+      background: rgba(255,255,255,0.85);
+      color: #222;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero-buttons .btn:hover {
+      background: #fff;
+    }
+    .hero-buttons {
+  margin-top: 1.8rem;
+}
+
+
+    /* Sections */
+
+    section { padding: 2.5rem 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .section--surface { background: var(--surface); }
+    .section--soft { background: var(--surface-soft); }
+    .section--accent-soft { background: var(--accent-soft); }
+
+    .about-text {
+      max-width: 42rem;
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pill {
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    /* Spots */
+
+    .spot {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spot--reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .spot-image {
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 240px;
+      max-height: 240px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 38px rgba(15,23,42,0.18);
+    }
+
+    .spot-tag {
+      background: rgba(199,155,59,0.12);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #7a5a16;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .spot-body h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .spot-body p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/img/kyudai_tsutaya_night.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.4);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1.5rem;
+    }
+
+    .cta-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
+    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.7rem; }
+
+    /* Footer */
+
+ .site-footer {
+  background: #111;
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 6px 0;     /* Tight top/bottom */
+  line-height: 1.2;   /* Prevents inherited tall spacing */
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;    /* Horizontal only */
+}
+
+.site-footer div {
+  margin: 0;          /* Remove any default spacing */
+  padding: 0;
+}
+
+.footer-links a {
+  margin-left: 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+}
+
+
+    @media(max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
+      .spot, .spot--reverse { grid-template-columns: 1fr; }
+    }
+/* TIGHTER SECTIONS */
+section {
+  padding: 2rem 0 !important;      /* from 4rem → 2rem */
+}
+
+/* TIGHTEN THE ABOUT SECTION */
+#about .section-heading h2 {
+  margin-bottom: 0.4rem !important;
+}
+
+#about .section-heading p {
+  margin-bottom: 1rem !important;
+}
+
+#about .about-text {
+  margin-top: 0.5rem !important;
+  line-height: 1.55 !important;
+}
+
+#about .pill-row {
+  margin-top: 1.5rem !important;
+}
+
+/* Optional: reduce large white space between ABOUT and SPOTS */
+.section--surface {
+  padding-bottom: 2rem !important;
+}
+.section--soft {
+  padding-top: 2rem !important;
+}
+/* Center the HOW IT WORKS section */
+#how .steps {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Center each step */
+#how .step {
+  margin-bottom: 2rem;
+}
+
+#how .step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#how .step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+#how p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
+  .hero-title {
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-top: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-kicker {
+    display: block;
+    margin-bottom: 0.6rem;
+    opacity: 0.85;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 480px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    white-space: normal;
+  }
+}
+
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="container site-header-inner">
+    <div class="logo-block">
+      <span class="logo-mark">JOHREN ADVENTURE</span>
+      <span class="logo-sub">ジョウレン・アドベンチャー</span>
+    </div>
+
+    <nav class="nav">
+      <a href="#about">ジョウレンとは</a>
+      <a href="#route">ルート</a>
+      <a href="#spots">スポット</a>
+      <a href="#how">使い方</a>
+      <a href="#why">特徴</a>
+    </nav>
+
+    <button class="nav-toggle">☰</button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">糸島地域</div>
+    <h1 class="hero-title">ジョウレンアドベンチャー</h1>
+    <p class="hero-subtitle">
+      筑肥線に沿って進むシンプルなローカル冒険。<br>
+      駅にあるQRマーカーを読み取り、日常に隠れた小さな物語を発見していきます。
+    </p>
+    <div class="hero-buttons">
+  <a class="btn" href="#how">使い方を見る</a>
+  <a class="btn" href="map.html">地図を見る</a>
+</div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section--surface" id="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2>ジョウレンとは？</h2>
+      <p>日本のために作られたローカル発見システム。</p>
+    </div>
+
+    <div class="about-text">
+      ジョウレン・アドベンチャーは、<br>
+      <strong>駅・お店・景観スポット・小さな文化地点</strong>を巡り、<br>
+      スタンプを集めながら進むローカル発見システムです。<br><br>
+
+      アプリ不要。登録不要。<br>
+      いつもの通勤や散歩が、ちょっとした「旅」になります。
+    </div>
+
+    <div class="pill-row">
+      <div class="pill">駅ごとにQRスタンプ</div>
+      <div class="pill">小さな物語 & ローカルの豆知識</div>
+      <div class="pill">アプリ・ログイン不要</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTS -->
+<section class="section--soft" id="spots">
+  <div class="container">
+    <div class="section-heading">
+      <h2>筑肥線のスポット</h2>
+      <p>沿線の見どころを少しだけ紹介。</p>
+    </div>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/nokonoshima_view.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">スタートスポット</div>
+        <h3>能古島ビュー</h3>
+        <p>海を望む春の色彩。QRを読むと「最初の一歩」スタンプが手に入ります。</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/kyudai_tsutaya_night.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">ご近所スポット</div>
+        <h3>九大蔦屋</h3>
+        <p>学生と地元の人が行き交う、あたたかい夜のランドマーク。</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/futamigaura.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">海沿い</div>
+        <h3>二見ヶ浦（夫婦岩）</h3>
+        <p>糸島を象徴する海辺の景色。季節ごとに表情が変わります。</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/itoshima_sunrise.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">ローカルビュー</div>
+        <h3>糸島の朝</h3>
+        <p>田畑と山の向こうに昇る静かな朝日 ― ゆっくり始まる一日の景色。</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/maebaru_ekipiano.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">駅スポット</div>
+        <h3>筑肥線 駅ピアノ</h3>
+        <p>誰でも弾けるストリートピアノ。筑肥線のゆったりした空気を思い出させてくれる場所。</p>
+      </div>
+    </article>
+
+    <article class="spot spot--reverse">
+      <div class="spot-body">
+        <div class="spot-tag">静かな道</div>
+        <h3>虹の松原</h3>
+        <p>日本三大松原のひとつ。曲がりくねる松に囲まれた長い砂道。</p>
+      </div>
+      <div class="spot-image" style="background-image:url('/img/matsubara_pines.jpg')"></div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/karatsu_castle.jpg')"></div>
+      <div class="spot-body">
+        <div class="spot-tag">歴史</div>
+        <h3>唐津城</h3>
+        <p>海と町を一望できる名所。QRを読むと短い歴史ストーリーが開きます。</p>
+      </div>
+    </article>
+
+    <article class="spot spot--reverse">
+      <div class="spot-body">
+        <div class="spot-tag">祭り</div>
+        <h3>唐津くんち</h3>
+        <p>毎年11月に巨大な曳山が町を駆ける唐津の大祭。QRではミニガイドが開きます。</p>
+      </div>
+      <div class="spot-image" style="background-image:url('/img/karatsu_kunchi.jpg')"></div>
+    </article>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section--surface" id="how">
+  <div class="container">
+    <div class="section-heading">
+      <h2>使い方</h2>
+      <p>とてもシンプル。アプリ不要。</p>
+    </div>
+
+<div class="steps">
+
+  <div class="step">
+    <div class="step-line"><strong>1. QRマーカーを見つける</strong></div>
+    <p>姪浜〜唐津の各駅にはジョウレンQRプレートがあります。</p>
+  </div>
+
+  <div class="step">
+    <div class="step-line"><strong>2. スマホで読み取る</strong></div>
+    <p>カメラまたはブラウザでOK。ログインやアプリは必要ありません。</p>
+  </div>
+
+  <div class="step">
+    <div class="step-line"><strong>3. スタンプを獲得</strong></div>
+    <p>その場所に合わせたスタンプと小さな物語が開きます。</p>
+  </div>
+
+</div>
+
+  </div>
+</section>
+
+<!-- WHY JOHREN -->
+<section class="section--accent-soft" id="why">
+  <div class="container">
+    <div class="section-heading">
+      <h2>ジョウレンの特徴</h2>
+      <p>日本の文化的ロジックに合わせて設計。</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>日本で馴染みのある仕組み</h3>
+        <p>スタンプラリー、御朱印、ポイントカード ― すでに人々が好きな文化を活かしています。</p>
+      </div>
+
+      <div class="why-card">
+        <h3>お金ではなく「体験」</h3>
+        <p>フェーズ1では割引や交換はありません。歩く・見る・気づく楽しさを重視。</p>
+      </div>
+
+      <div class="why-card">
+        <h3>お店も気軽に参加できる</h3>
+        <p>設置費ゼロ。QRプレートひとつで、手間なく来訪者が増えます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>次の駅から、冒険を始めよう。</h2>
+<p>姪浜でも、唐津でも、その途中でも。  
+   ジョウレンQRを見つけたら、そこが冒険のスタートです。</p>
+  </div>
+  <p style="margin-top:2rem;text-align:center;font-size:0.75rem;color:#888;">
+  ※ 本サイトに掲載されているスポットは、特定の事業者・施設との提携や推薦を示すものではありません。
+</p>
+
+</section>
+
+</main>
+<!-- BUSINESS MAP LINK (quiet, optional) -->
+<section style="padding: 1.5rem 0; text-align: center; font-size: 0.85rem; color: #666;">
+  ※ <a href="/jbs-map/" style="text-decoration: underline;">
+    事業者向けの内部参考マップはこちら（一般公開用ではありません）
+  </a>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© SanSymeon / ジョウレン・アドベンチャー</div>
+    <div class="footer-links">
+      <a href="#">利用規約</a>
+      <a href="#">お問い合わせ</a>
+      <a href="/en/index.html">English</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+  </html>
