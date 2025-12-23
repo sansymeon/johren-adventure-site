@@ -63,6 +63,11 @@
       align-items: center;
       height: 100%;
     }
+.site-header {
+  position: sticky;
+  top: env(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
 
     .logo-block {
       display: flex;
@@ -340,6 +345,12 @@
     margin-top: 0.5rem;
   }
 }
+     @media (max-width: 768px) {
+  .hero {
+    margin-top: 64px; /* same as header height */
+  }
+}
+
 @media (max-width: 768px) {
   .hero-inner {
     padding-top: 2.5rem;
