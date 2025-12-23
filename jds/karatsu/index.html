@@ -328,17 +328,51 @@
   color: #fff;
 }
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
   .hero-title {
-    font-size: 1.9rem;
+    margin-top: 0.5rem;
   }
 }
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-top: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-kicker {
+    display: block;
+    margin-bottom: 0.6rem;
+    opacity: 0.85;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
 
-
-    @media(max-width: 768px) {
-      .nav { display: none; }
-      .nav-toggle { display: block; }
-      .spot, .spot--reverse { grid-template-columns: 1fr; }
-    }
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 480px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    white-space: normal;
+  }
+}
 /* TIGHTER SECTIONS */
 section {
   padding: 2rem 0 !important;      /* from 4rem → 2rem */
@@ -596,11 +630,6 @@ section {
 </section>
 
 </main>
-<!-- BUSINESS MAP LINK (quiet, optional) --> 
-  <section style="padding: 1.5rem 0; text-align: center; font-size: 0.85rem; color: #666;"> 
-    ※ <a href="/jbs/map/?lat=33.44973729276236&lng=129.96801192244578&zoom=14"
-  style="text-decoration: underline;"> 事業者向けの内部参考マップはこちら（一般公開用ではありません） 
-</a> </section>
 
 <footer class="site-footer">
   <div class="container footer-inner">
