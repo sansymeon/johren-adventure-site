@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>ジョウレン・アドベンチャー｜福岡市・「大濠・帰り道」空港線発見旅</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="widtnavh=device-width, initial-scale=1" />
   <meta name="description" content="大濠公園沿いを歩きながら出会う、小さな『ふるさと』。高層ビルのすぐそばに残る静かな時間と物語を、QRでそっと辿る体験。">
 
 
@@ -47,15 +47,7 @@
 
     /* Header */
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      height: var(--nav-height);
-    }
+    
 
     .site-header-inner {
       display: flex;
@@ -63,11 +55,7 @@
       align-items: center;
       height: 100%;
     }
-.site-header {
-  position: sticky;
-  top: env(safe-area-inset-top);
-  padding-top: env(safe-area-inset-top);
-}
+
 
     .logo-block {
       display: flex;
@@ -335,21 +323,19 @@
   color: #fff;
 }
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 120px;   /* was effectively ~80px */
-    height: 60vh;         /* give image more presence */
-    min-height: 360px;
-  }
+.hero {
+  padding: 80px 20px;
+  height: 50vh;
+  max-height: 420px;
+  min-height: 260px;
+}
+
 
   .hero-title {
     margin-top: 0.5rem;
   }
 }
-     @media (max-width: 768px) {
-  .hero {
-    margin-top: 64px; /* same as header height */
-  }
-}
+
 
 @media (max-width: 768px) {
   .hero-inner {
@@ -487,25 +473,6 @@ section {
 </head>
 
 <body>
-
-<header class="site-header">
-  <div class="container site-header-inner">
-    <div class="logo-block">
-      <span class="logo-mark">JOHREN ADVENTURE</span>
-      <span class="logo-sub">ジョウレン・アドベンチャー</span>
-    </div>
-
-    <nav class="nav">
-      <a href="#about">ジョウレンとは</a>
-      <a href="#route">ルート</a>
-      <a href="#spots">スポット</a>
-      <a href="#how">使い方</a>
-      <a href="#why">特徴</a>
-    </nav>
-
-    <button class="nav-toggle">☰</button>
-  </div>
-</header>
 
 <main>
 
