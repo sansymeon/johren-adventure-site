@@ -43,71 +43,6 @@
       padding: 0 1.5rem;
     }
 
-    /* Header */
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0,0,0,0.04);
-      height: var(--nav-height);
-    }
-
-    .site-header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 100%;
-    }
-
-    .logo-block {
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  white-space: nowrap;
-}
-
-
-    .logo-mark {
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  font-size: 0.9rem;
-}
-
-.logo-sub {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-
-    .nav {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .nav a {
-      position: relative;
-      padding-bottom: 0.15rem;
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.2s ease-out;
-    }
-
-    .nav a:hover::after { width: 100%; }
-
-    .nav-toggle { display: none; }
-
     /* HERO */
 
     .hero {
@@ -451,25 +386,6 @@ section {
 </head>
 
 <body>
-
-<header class="site-header">
-  <div class="container site-header-inner">
-    <div class="logo-block">
-      <span class="logo-mark">JOHREN ADVENTURE</span>
-      <span class="logo-sub">ジョウレン・アドベンチャー</span>
-    </div>
-
-    <nav class="nav">
-      <a href="#about">ジョウレンとは</a>
-      <a href="#route">ルート</a>
-      <a href="#spots">スポット</a>
-      <a href="#how">使い方</a>
-      <a href="#why">特徴</a>
-    </nav>
-
-    <button class="nav-toggle">☰</button>
-  </div>
-</header>
 
 <main>
 
