@@ -349,13 +349,25 @@
 /* Fix overlapping hero buttons on mobile */
 @media (max-width: 600px) {
   .hero {
-    padding-bottom: 120px !important;   /* more breathing room */
+    padding-top: calc(120px + env(safe-area-inset-top)) !important;
+    padding-bottom: 120px !important;
+    height: auto !important;
   }
 
   .hero-inner {
-    margin-bottom: 60px !important;     /* pushes text upward slightly */
+    margin-bottom: 60px !important;
+    padding: 0 16px;
+  }
+
+  .hero-buttons .btn {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 15px;
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-radius: 10px !important;
   }
 }
+
 
   </style>
 </head>
@@ -368,10 +380,10 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-kicker">大分・別府エリア</div>
-      <h1 class="hero-title">ジョウレン・アドベンチャー 大分</h1>
-      <p class="hero-subtitle">駅のそば、カフェの前、いつもの通り道。<br>
-  気づけば、まちとつながっている。<br>何も登録せず、ただ読み取るだけ。
-</p>
+      <h1 class="hero-title">ジョウレン・アドベンチャー</h1>
+      <p class="hero-subtitle">駅のそば、日常の場所に。<br>
+  歩く中で、そっと物語が現れる。<br>読み取るだけ。ほかはいらない。
+      </p>
 
       <div class="hero-buttons">
         <a class="btn" href="#how">使い方を見る</a>
