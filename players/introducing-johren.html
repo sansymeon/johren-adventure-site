@@ -61,6 +61,59 @@
       font-size: 12px;
       color: #777;
     }
+    /* QR placeholder */
+    .qr{
+      width: 180px;
+      height: 180px;
+      border: 1px dashed #bbb;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #fff;
+      color: #888;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    footer{
+      margin-top:16px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    a{ color: var(--link); }
+    .hr{
+      height:1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+    .line-qr-link {
+  display: block;
+  max-width: 240px;
+  margin: 12px auto 0;
+}
+
+.line-qr-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .line-qr-link {
+    max-width: 240px;
+  }
+}
+.qr-center {
+  text-align: center;
+}
+
+.line-qr-small {
+  width: 120px;
+  max-width: 100%;
+  display: inline-block;
+}
   </style>
 </head>
 
