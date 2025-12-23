@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <title>Johren Adventure | A Quiet Local Journey Along the Chikuhi Line</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Johren Adventure — a quiet local journey along the Chikuhi Line, from Meinohama to Karatsu. Scan QR markers at stations and everyday places to discover small stories and collect journey marks." />
 
-  <style>
-    /* SAME CSS AS JAPANESE VERSION */
-    /* (no changes needed — reuse exactly) */
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Johren Adventure — a quiet local journey along the Chikuhi Line, from Meinohama to Karatsu. Scan QR markers at stations and everyday places to discover small stories and collect journey marks." />
+
+  <!-- Shared Johren styles -->
+  <link rel="stylesheet" href="/css/johren-base.css" />
+  <link rel="stylesheet" href="/css/johren-ito.css" />
 </head>
 
 <body>
@@ -20,12 +21,15 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-kicker">Itoshima Area</div>
+
     <h1 class="hero-title">Johren Adventure</h1>
+
     <p class="hero-subtitle">
       A simple local journey along the Chikuhi Line.<br>
       Scan QR markers at stations and everyday places to discover
       small stories hidden in daily life.
     </p>
+
     <div class="hero-buttons">
       <a class="btn" href="#how">How it works</a>
       <a class="btn" href="map.html">View map</a>
@@ -34,7 +38,7 @@
 </section>
 
 <!-- ABOUT -->
-<section class="section--surface" id="about">
+<section class="section section--surface" id="about">
   <div class="container">
     <div class="section-heading">
       <h2>What is Johren?</h2>
@@ -44,7 +48,7 @@
     <div class="about-text">
       Johren Adventure is a quiet exploration system that connects
       <strong>stations, shops, scenic views, and small cultural places</strong>
-      along your everyday routes.<br><br>
+      along everyday routes.<br><br>
 
       No app required. No registration.<br>
       Your usual commute or walk becomes a small journey.
@@ -59,7 +63,7 @@
 </section>
 
 <!-- SPOTS -->
-<section class="section--soft" id="spots">
+<section class="section section--soft" id="spots">
   <div class="container">
     <div class="section-heading">
       <h2>Spots Along the Chikuhi Line</h2>
@@ -69,71 +73,53 @@
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/nokonoshima_view.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Starting point</div>
+        <span class="spot-tag">Starting point</span>
         <h3>Nokonoshima View</h3>
-        <p>
-          Spring colors overlooking the sea.
-          Scanning here gives you your first “journey mark.”
-        </p>
+        <p>Spring colors overlooking the sea. Scanning here gives your first journey mark.</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/kyudai_tsutaya_night.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Everyday place</div>
+        <span class="spot-tag">Everyday place</span>
         <h3>Kyudai Tsutaya</h3>
-        <p>
-          A warm local landmark where students and neighbors cross paths,
-          especially in the evening.
-        </p>
+        <p>A warm local landmark where students and neighbors cross paths.</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/futamigaura.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">By the sea</div>
+        <span class="spot-tag">By the sea</span>
         <h3>Futamigaura (Meoto Iwa)</h3>
-        <p>
-          One of Itoshima’s most recognizable coastal views,
-          changing quietly with the seasons.
-        </p>
+        <p>A recognizable coastal view that changes quietly with the seasons.</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/itoshima_sunrise.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Local view</div>
+        <span class="spot-tag">Local view</span>
         <h3>Morning in Itoshima</h3>
-        <p>
-          A calm sunrise over fields and mountains —
-          a slow beginning to the day.
-        </p>
+        <p>A calm sunrise over fields and mountains — a slow beginning to the day.</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/maebaru_ekipiano.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Station spot</div>
-        <h3>Chikuhi Line Station Piano</h3>
-        <p>
-          A public piano anyone can play,
-          reflecting the relaxed rhythm of the line.
-        </p>
+        <span class="spot-tag">Station spot</span>
+        <h3>Station Piano</h3>
+        <p>A public piano anyone can play, reflecting the relaxed rhythm of the line.</p>
       </div>
     </article>
 
     <article class="spot spot--reverse">
       <div class="spot-body">
-        <div class="spot-tag">Quiet path</div>
+        <span class="spot-tag">Quiet path</span>
         <h3>Niji-no-Matsubara</h3>
-        <p>
-          One of Japan’s three great pine groves —
-          a long sandy path surrounded by twisted trees.
-        </p>
+        <p>A long sandy path through twisted pines, one of Japan’s great pine groves.</p>
       </div>
       <div class="spot-image" style="background-image:url('/img/matsubara_pines.jpg')"></div>
     </article>
@@ -141,23 +127,17 @@
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/karatsu_castle.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">History</div>
+        <span class="spot-tag">History</span>
         <h3>Karatsu Castle</h3>
-        <p>
-          A hilltop view over the town and sea.
-          Scanning here opens a short historical story.
-        </p>
+        <p>A hilltop view over the town and sea, with a short historical story.</p>
       </div>
     </article>
 
     <article class="spot spot--reverse">
       <div class="spot-body">
-        <div class="spot-tag">Festival</div>
+        <span class="spot-tag">Festival</span>
         <h3>Karatsu Kunchi</h3>
-        <p>
-          A major autumn festival where giant floats race through the town.
-          The QR opens a small local guide.
-        </p>
+        <p>An autumn festival where giant floats race through the streets.</p>
       </div>
       <div class="spot-image" style="background-image:url('/img/karatsu_kunchi.jpg')"></div>
     </article>
@@ -165,7 +145,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section--surface" id="how">
+<section class="section section--surface" id="how">
   <div class="container">
     <div class="section-heading">
       <h2>How It Works</h2>
@@ -191,49 +171,16 @@
   </div>
 </section>
 
-<!-- WHY JOHREN -->
-<section class="section--accent-soft" id="why">
-  <div class="container">
-    <div class="section-heading">
-      <h2>Why Johren?</h2>
-      <p>Designed to fit Japanese cultural logic.</p>
-    </div>
-
-    <div class="why-grid">
-      <div class="why-card">
-        <h3>Familiar cultural patterns</h3>
-        <p>Stamp rallies, goshuin, point cards — Johren builds on things people already enjoy.</p>
-      </div>
-
-      <div class="why-card">
-        <h3>Experience over rewards</h3>
-        <p>Phase one focuses on walking, noticing, and remembering — not discounts or exchanges.</p>
-      </div>
-
-      <div class="why-card">
-        <h3>Easy for local places</h3>
-        <p>No setup costs. A single QR plate allows visitors to discover places naturally.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CTA -->
 <section class="cta">
   <div class="cta-inner">
     <h2>Start with the Itoshima map.</h2>
-    <p>
-      This is a demonstration area to show what is possible.
-      New pins will be added gradually.
-    </p>
-    <a class="btn" href="map.html"
-       style="background:#fff;color:#222;border-radius:999px;padding:10px 18px;font-weight:600;">
-      Open Itoshima map
-    </a>
+    <p>This area is a demonstration. New pins will be added gradually.</p>
+    <a class="btn" href="map.html">Open Itoshima map</a>
   </div>
 
-  <p style="margin-top:2rem;text-align:center;font-size:0.75rem;color:#888;">
-    * Places shown on this site do not indicate partnerships or endorsements.
+  <p class="disclaimer">
+    * Places shown do not indicate partnerships or endorsements.
   </p>
 </section>
 
@@ -250,6 +197,10 @@
   </div>
 </footer>
 
+<!-- SCRIPTS -->
+<script src="/script/config.js"></script>
+<script src="/script/smooth-scroll.js"></script>
+<script src="/script/johren-core.js"></script>
+
 </body>
 </html>
-
