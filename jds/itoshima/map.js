@@ -99,9 +99,13 @@ let lastTappedStation = null;
 // 2nd tap → set base station
 // -------------------------------
 window.stations.forEach(station => {
-  const marker = L.marker([station.lat, station.lng], {
-    icon: icons.station
-  }).addTo(stationLayer);
+  const visitedStations = getVisitedStations();
+const isVisited = !!visitedStations[station.id];
+
+const marker = L.marker([station.lat, station.lng], {
+  icon: isVisited ? icons.stationVisited : icons.stationDefault
+}).addTo(stationLayer);
+
 
  marker.bindTooltip(formatStationLabel(station), {
   direction: 'top',
