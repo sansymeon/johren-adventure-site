@@ -37,6 +37,12 @@ const icons = {
   temple: makeIcon('temple.png'),
   park: makeIcon('park.png')
 };
+function formatStationLabel(station) {
+  if (station.nameEn) {
+    return `${station.name}\n${station.nameEn}`;
+  }
+  return station.name;
+}
 
 // -------------------------------
 // DISTANCE (km)
