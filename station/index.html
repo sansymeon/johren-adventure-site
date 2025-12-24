@@ -1,0 +1,8 @@
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const stationId = params.get('id');
+
+  if (stationId) {
+    markStationVisited(stationId);
+  }
+</script>
