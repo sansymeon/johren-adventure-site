@@ -1,3 +1,19 @@
+<style>
+  .station-tooltip {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.station-tooltip .jp {
+  font-weight: 600;
+}
+
+.station-tooltip .en {
+  font-size: 11px;
+  opacity: 0.7;
+}
+  </style>  
+
 // -------------------------------
 // INITIALIZE MAP (JDS – Itoshima)
 // -------------------------------
@@ -39,9 +55,14 @@ const icons = {
 };
 function formatStationLabel(station) {
   if (station.nameEn) {
-    return `${station.name}\n${station.nameEn}`;
+    return `
+      <div class="station-label">
+        <div class="jp">${station.name}</div>
+        <div class="en">${station.nameEn}</div>
+      </div>
+    `;
   }
-  return station.name;
+  return `<div class="station-label"><div class="jp">${station.name}</div></div>`;
 }
 
 // -------------------------------
@@ -151,17 +172,3 @@ function updateDistances() {
     );
   });
 }
-.station-tooltip {
-  font-size: 13px;
-  line-height: 1.2;
-}
-
-.station-tooltip .jp {
-  font-weight: 600;
-}
-
-.station-tooltip .en {
-  font-size: 11px;
-  opacity: 0.7;
-}
-
