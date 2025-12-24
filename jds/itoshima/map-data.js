@@ -28,7 +28,7 @@ window.stations = [
   { id: "jr-chikuhi-JK09", name: "美咲が丘", nameEn: "Misakigaoka",  lat: 33.549959, lng: 130.185515 },
   { id: "jr-chikuhi-JK010", name: "加布里", nameEn: "Kafuri",  lat: 33.543150, lng: 130.176150 },
   { id: "jr-chikuhi-JK011", name: "一貴山", nameEn: "Ikisan",  lat: 33.534295, lng: 130.168242 },
-  { id: "jr-chikuhi-JK012", name: "筑前深江" nameEn: "Fukae", lat: 33.514949, lng: 130.139429 },
+  { id: "jr-chikuhi-JK012", name: "筑前深江", nameEn: "Fukae", lat: 33.514949, lng: 130.139429 },
   { id: "jr-chikuhi-JK013", name: "大入", nameEn: "Dainyu",  lat: 33.508855, lng: 130.106038 },
   { id: "jr-chikuhi-JK014", name: "福吉", nameEn: "Fukuyoshi",  lat: 33.501554, lng: 130.079523 },
   { id: "jr-chikuhi-JK015", name: "鹿家", nameEn: "Shikaka",  lat: 33.484259, lng: 130.047476 },
