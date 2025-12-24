@@ -85,7 +85,8 @@ window.stations.forEach(station => {
     icon: icons.station
   }).addTo(stationLayer);
 
-  marker.bindTooltip(station.name, {
+  marker.bindTooltip(formatStationLabel(station));
+ {
     direction: 'top',
     offset: [0, -28],
     opacity: 0.9
