@@ -1,3 +1,5 @@
+console.log('[Johren] map.js loaded');
+
 // -------------------------------
 // INITIALIZE MAP (JDS – Itoshima)
 // -------------------------------
