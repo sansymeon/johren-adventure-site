@@ -7,6 +7,14 @@ const map = L.map('map', { zoomControl: false })
   .setView([33.557082, 130.199305], 12);
 
 L.control.zoom({ position: 'topright' }).addTo(map);
+function getVisitedStations() {
+  try {
+    const data = JSON.parse(localStorage.getItem('johren'));
+    return data?.stations?.visited || {};
+  } catch {
+    return {};
+  }
+}
 
 // -------------------------------
 // TILE LAYER
@@ -34,11 +42,14 @@ function makeIcon(file) {
 const icons = {
   church: makeIcon('church.png'),
   museum: makeIcon('museum.png'),
-  station: makeIcon('station.png'),
   shrine: makeIcon('shrine.png'),
   temple: makeIcon('temple.png'),
-  park: makeIcon('park.png')
+  park: makeIcon('park.png'),
+
+  stationDefault: makeIcon('station.png'),
+  stationVisited: makeIcon('station-visited.png')
 };
+
 function formatStationLabel(station) {
   if (station.nameEn) {
     return `
