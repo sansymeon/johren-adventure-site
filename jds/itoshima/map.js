@@ -47,7 +47,7 @@ const icons = {
   park: makeIcon('park.png'),
 
   stationDefault: makeIcon('station.png'),
-  stationVisited: makeIcon('station-visited.png')
+  stationVisited: makeIcon('station_visited.png')
 };
 
 function formatStationLabel(station) {
