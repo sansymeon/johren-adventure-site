@@ -85,12 +85,13 @@ window.stations.forEach(station => {
     icon: icons.station
   }).addTo(stationLayer);
 
-  marker.bindTooltip(formatStationLabel(station));
- {
-    direction: 'top',
-    offset: [0, -28],
-    opacity: 0.9
-  });
+ marker.bindTooltip(formatStationLabel(station), {
+  direction: 'top',
+  offset: [0, -28],
+  opacity: 0.95,
+  sticky: true,
+  className: 'station-tooltip'
+});
 
   marker.on('click', () => {
     if (lastTappedStation !== station) {
@@ -150,3 +151,17 @@ function updateDistances() {
     );
   });
 }
+.station-tooltip {
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.station-tooltip .jp {
+  font-weight: 600;
+}
+
+.station-tooltip .en {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
