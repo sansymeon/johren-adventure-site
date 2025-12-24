@@ -1,19 +1,3 @@
-<style>
-  .station-tooltip {
-  font-size: 13px;
-  line-height: 1.2;
-}
-
-.station-tooltip .jp {
-  font-weight: 600;
-}
-
-.station-tooltip .en {
-  font-size: 11px;
-  opacity: 0.7;
-}
-  </style>  
-
 // -------------------------------
 // INITIALIZE MAP (JDS – Itoshima)
 // -------------------------------
