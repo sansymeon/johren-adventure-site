@@ -193,5 +193,6 @@ function updateDistances() {
   }
 })();
 
+const storageKey = `johren:${window.AREA_KEY || 'unknown'}`;
 
 
