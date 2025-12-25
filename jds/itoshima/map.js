@@ -103,21 +103,18 @@ const visitedStations = getVisitedStations().map(String);
 
 window.stations.forEach(station => {
   const isVisited = visitedStations.includes(String(station.id));
-  ...
-});
 
   const marker = L.marker([station.lat, station.lng], {
     icon: isVisited ? icons.stationVisited : icons.stationDefault
   }).addTo(stationLayer);
 
-
- marker.bindTooltip(formatStationLabel(station), {
-  direction: 'top',
-  offset: [0, -28],
-  opacity: 0.95,
-  sticky: true,
-  className: 'station-tooltip'
-});
+  marker.bindTooltip(formatStationLabel(station), {
+    direction: 'top',
+    offset: [0, -28],
+    opacity: 0.95,
+    sticky: true,
+    className: 'station-tooltip'
+  });
 
   marker.on('click', () => {
     if (lastTappedStation !== station) {
@@ -131,6 +128,7 @@ window.stations.forEach(station => {
     marker.bindPopup(`基準駅：${station.name}`).openPopup();
   });
 });
+
 
 // -------------------------------
 // LOAD LANDMARK CATEGORIES
