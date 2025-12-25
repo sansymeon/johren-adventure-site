@@ -1,3 +1,10 @@
+window.MAP_CONFIG = {
+  areaKey: 'karatsu',
+  center: [33.xxx, 129.xxx],
+  zoom: 12,
+  stations: [...]
+};
+
 window.churches = [
   { name: "Karatsu Catholic Church", lat: 33.45252801155086,   lng: 129.9614152412968 }
 ];
