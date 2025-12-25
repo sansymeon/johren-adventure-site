@@ -10,11 +10,12 @@ L.control.zoom({ position: 'topright' }).addTo(map);
 function getVisitedStations() {
   try {
     const data = JSON.parse(localStorage.getItem('johren'));
-    return data?.stations?.visited || {};
+    return data?.visitedStations || [];
   } catch {
-    return {};
+    return [];
   }
 }
+
 
 // -------------------------------
 // TILE LAYER
@@ -98,13 +99,16 @@ let lastTappedStation = null;
 // 1st tap → name
 // 2nd tap → set base station
 // -------------------------------
-window.stations.forEach(station => {
-  const visitedStations = getVisitedStations();
-const isVisited = !!visitedStations[station.id];
+const visitedStations = getVisitedStations().map(String);
 
-const marker = L.marker([station.lat, station.lng], {
-  icon: isVisited ? icons.stationVisited : icons.stationDefault
-}).addTo(stationLayer);
+window.stations.forEach(station => {
+  const isVisited = visitedStations.includes(String(station.id));
+  ...
+});
+
+  const marker = L.marker([station.lat, station.lng], {
+    icon: isVisited ? icons.stationVisited : icons.stationDefault
+  }).addTo(stationLayer);
 
 
  marker.bindTooltip(formatStationLabel(station), {
@@ -173,14 +177,4 @@ function updateDistances() {
     );
   });
 }
-const data = JSON.parse(localStorage.getItem('johren')) || { visitedStations: [] };
 
-stations.forEach(station => {
-  const visited = data.visitedStations.includes(station.id);
-
-  const icon = visited
-    ? visitedIcon
-    : normalIcon;
-
-  L.marker(station.latlng, { icon }).addTo(map);
-});
