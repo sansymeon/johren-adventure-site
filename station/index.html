@@ -45,14 +45,8 @@
     <p>周囲を少し歩いて、街を感じてみてください。</p>
   </div>
 
-  <script src="/js/johren.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const stationId = params.get('id');
+  <script src="/js/storage.js"></script>
+<script src="/js/checkin.js"></script>
 
-    if (stationId && typeof markStationVisited === 'function') {
-      markStationVisited(stationId);
-    }
-  </script>
 </body>
 </html>
