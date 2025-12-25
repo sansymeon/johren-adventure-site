@@ -1,3 +1,12 @@
+/*
+Johren Map Contract (DO NOT BREAK):
+- localStorage key: "johren"
+- data.visitedStations = array of station IDs (strings)
+- station.id must be globally unique across all regions
+- map.js is universal
+- map-data.js is locale-specific
+*/
+
 console.log('[Johren] map.js loaded');
 
 // -------------------------------
