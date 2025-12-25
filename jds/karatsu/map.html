@@ -25,38 +25,35 @@
       text-decoration: none;
       color: #333;
     }
+
     .about-link {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  z-index: 900;
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      z-index: 900;
+      font-size: 12px;
+      color: #555;
+      text-decoration: none;
+      background: rgba(255,255,255,0.85);
+      padding: 6px 10px;
+      border-radius: 8px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+    }
 
-  font-size: 12px;
-  color: #555;
-  text-decoration: none;
-
-  background: rgba(255,255,255,0.85);
-  padding: 6px 10px;
-  border-radius: 8px;
-
-  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
-}
-
-.about-link:hover {
-  background: rgba(255,255,255,1);
-}
-
+    .about-link:hover {
+      background: rgba(255,255,255,1);
+    }
   </style>
 </head>
 
 <body>
 
 <a class="back-link" href="/jds/">← 戻る</a>
+
 <div id="progress" style="
   position: absolute;
-  top: 96px;   /* clears the + / − buttons */
+  top: 96px;
   right: 16px;
-
   background: rgba(255,255,255,0.95);
   padding: 6px 10px;
   border-radius: 999px;
@@ -72,9 +69,17 @@
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- Your data + logic -->
+<!-- Map data (Karatsu-specific) -->
 <script src="map-data.js"></script>
+
+<!-- ✅ AREA DECLARATION (THIS IS THE KEY PART) -->
+<script>
+  const AREA_KEY = 'karatsu';
+</script>
+
+<!-- Shared logic -->
 <script src="map.js"></script>
+
 <a href="/jds/karatsu/about-map.html" class="about-link">
   この地図について
 </a>
