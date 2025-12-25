@@ -6,54 +6,124 @@ window.MAP_CONFIG = {
 
   stations: [
     {
-      id: 'maebaru', 
+      id: 'jr-chikuhi-JK08', 
       name: '筑前前原', 
       nameEn: 'Maebaru', 
       lat: 33.557082, 
       lng: 130.199305 
       },
     { 
-      id: 'misakigaoka', 
+      id: 'jr-chikuhi-JK09', 
       name: '美咲が丘', 
       nameEn: 'Misakigaoka', 
       lat: 33.549959, 
       lng: 130.185515 
     },
     { 
-      id: 'kafuri', 
+      id: 'jr-chikuhi-JK10', 
       name: '加布里', 
       nameEn: 'Kafuri', 
       lat: 33.543150, 
       lng: 130.176150 
     },
     { 
-      id: 'ikisan', 
+      id: 'jr-chikuhi-JK11', 
       name: '一貴山', 
       nameEn: 'Ikisan', 
       lat: 33.534295, 
       lng: 130.168242 
     },
     { 
-      id: 'fukae', 
+      id: 'jr-chikuhi-JK12', 
       name: '筑前深江', 
       nameEn: 'Fukae', 
       lat: 33.514949, 
       lng: 130.139429 
     },
     { 
-      id: 'dainyu', 
-      name: '大入駅', nameEn: 'Dainyu', lat: 33.508855, lng: 130.106038 },
-    { id: 'fukuyoshi', name: '福吉駅', nameEn: 'Fukuyoshi', lat: 33.501554, lng: 130.079523 },
-    { id: 'shika', name: '鹿家駅', nameEn: 'Shika', lat: 33.484259, lng: 130.047476 },
-    { id: 'hamasaki', name: '浜崎駅', nameEn: 'Hamasaki', lat: 33.446720, lng: 130.036798 },
-    { id: 'nijinomatsubara', name: '虹の松原駅', nameEn: 'Nijinomatsubara', lat: 33.441033, lng: 130.016195 },
-    { id: 'higashikaratsu', name: '東唐津駅', nameEn: 'Higashi Karatsu', lat: 33.439393, lng: 129.996837 },
-    { id: 'watada', name: '和多田駅', nameEn: 'Watada', lat: 33.436933, lng: 129.980768 },
-    { id: 'karatsu', name: '唐津駅', nameEn: 'Karatsu', lat: 33.446223, lng: 129.967587 },
-    { id: 'nishikaratsu', name: '西唐津駅', nameEn: 'Nishi Karatsu', lat: 33.461434, lng: 129.957480 },
-    { id: 'yamamoto', name: '山本駅', nameEn: 'Yamamoto', lat: 33.39278208271683, lng: 129.98118155167737 },
-    { id: 'ouchi', name: '相知駅', nameEn: 'Ouchi', lat: 33.34699039849446, lng: 130.01952634118035 },
-    { id: 'iwaya', name: '岩屋駅', nameEn: 'Iwaya', lat: 33.33076505677805, lng: 130.03827683163834 }
+      id: 'jr-chikuhi-JK13', 
+      name: '大入', 
+      nameEn: 'Dainyu', 
+      lat: 33.508855, 
+      lng: 130.106038 
+    },
+    { 
+      id: 'jr-chikuhi-JK14', 
+     name: '福吉', 
+     nameEn: 'Fukuyoshi', 
+      lat: 33.501554, 
+      lng: 130.079523 
+    },
+    { 
+      id: 'jr-chikuhi-JK15', 
+     name: '鹿家', 
+     nameEn: 'Shika', 
+      lat: 33.484259, 
+      lng: 130.047476 
+    },
+    { 
+      id: 'jr-chikuhi-JK16', 
+     name: '浜崎', 
+     nameEn: 'Hamasaki', 
+      lat: 33.446720, 
+      lng: 130.036798 
+    },
+    { 
+      id: 'jr-chikuhi-JK17', 
+     name: '虹の松原', 
+     nameEn: 'Nijinomatsubara', 
+     lat: 33.441033, 
+     lng: 130.01619
+    },
+    { 
+      id: 'jr-chikuhi-JK18', 
+     name: '東唐津', 
+     nameEn: 'Higashi Karatsu', 
+     lat: 33.439393, 
+      lng: 129.996837 
+    },
+    { 
+      id: 'jr-chikuhi-JK19', 
+      name: '和多田', 
+      nameEn: 'Watada', 
+      lat: 33.436933, 
+      lng: 129.980768 
+    },
+    { 
+      id: 'jr-chikuhi-JK20', 
+      name: '唐津', 
+      nameEn: 'Karatsu', 
+      lat: 33.446223, 
+      lng: 129.967587 
+    },
+    { 
+      id: 'jr-chikuhi-JK21', 
+     name: '西唐津', 
+     nameEn: 'Nishi Karatsu', 
+      lat: 33.461434, 
+      lng: 129.957480 
+    },
+    { 
+      id: 'jr-karatsu-yamamoto', 
+      name: '山本', 
+      nameEn: 'Yamamoto', 
+      lat: 33.39278208271683, 
+      lng: 129.98118155167737 
+    },
+    { 
+      id: 'jr-karatsu-ouchi', 
+      name: '相知', 
+      nameEn: 'Ouchi', 
+      lat: 33.34699039849446, 
+      lng: 130.01952634118035 
+    },
+    { 
+      id: 'jr-karatsu-iwaya', 
+      name: '岩屋', 
+      nameEn: 'Iwaya', 
+      lat: 33.33076505677805, 
+      lng: 130.03827683163834 
+    }
   ],
 
   churches: [
