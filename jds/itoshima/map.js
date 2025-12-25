@@ -173,3 +173,14 @@ function updateDistances() {
     );
   });
 }
+const data = JSON.parse(localStorage.getItem('johren')) || { visitedStations: [] };
+
+stations.forEach(station => {
+  const visited = data.visitedStations.includes(station.id);
+
+  const icon = visited
+    ? visitedIcon
+    : normalIcon;
+
+  L.marker(station.latlng, { icon }).addTo(map);
+});
