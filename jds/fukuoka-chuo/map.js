@@ -6,6 +6,15 @@ const map = L.map('map', { zoomControl: false })
   .setView([33.586328357755235, 130.3764680450183], 12);
 
 L.control.zoom({ position: 'topright' }).addTo(map);
+function getVisitedStations() {
+  try {
+    const data = JSON.parse(localStorage.getItem('johren'));
+    return data?.visitedStations || [];
+  } catch {
+    return [];
+  }
+}
+
 
 // -------------------------------
 // TILE LAYER
@@ -20,7 +29,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // -------------------------------
 function makeIcon(file) {
   return L.icon({
-    iconUrl: `../../../img/map/${file}`,
+    iconUrl: `/img/map/${file}`,
     iconSize: [36, 36],
     iconAnchor: [18, 36],
     popupAnchor: [0, -30]
@@ -33,11 +42,25 @@ function makeIcon(file) {
 const icons = {
   church: makeIcon('church.png'),
   museum: makeIcon('museum.png'),
-  station: makeIcon('station.png'),
   shrine: makeIcon('shrine.png'),
   temple: makeIcon('temple.png'),
-  park: makeIcon('park.png')
+  park: makeIcon('park.png'),
+
+  stationDefault: makeIcon('station.png'),
+  stationVisited: makeIcon('station_visited.png')
 };
+
+function formatStationLabel(station) {
+  if (station.nameEn) {
+    return `
+      <div class="station-label">
+        <div class="jp">${station.name}</div>
+        <div class="en">${station.nameEn}</div>
+      </div>
+    `;
+  }
+  return `<div class="station-label"><div class="jp">${station.name}</div></div>`;
+}
 
 // -------------------------------
 // DISTANCE (km)
@@ -75,15 +98,21 @@ let lastTappedStation = null;
 // 1st tap → name
 // 2nd tap → set base station
 // -------------------------------
+const visitedStations = getVisitedStations().map(String);
+
 window.stations.forEach(station => {
+  const isVisited = visitedStations.includes(String(station.id));
+
   const marker = L.marker([station.lat, station.lng], {
-    icon: icons.station
+    icon: isVisited ? icons.stationVisited : icons.stationDefault
   }).addTo(stationLayer);
 
-  marker.bindTooltip(station.name, {
+  marker.bindTooltip(formatStationLabel(station), {
     direction: 'top',
     offset: [0, -28],
-    opacity: 0.9
+    opacity: 0.95,
+    sticky: true,
+    className: 'station-tooltip'
   });
 
   marker.on('click', () => {
@@ -98,6 +127,7 @@ window.stations.forEach(station => {
     marker.bindPopup(`基準駅：${station.name}`).openPopup();
   });
 });
+
 
 // -------------------------------
 // LOAD LANDMARK CATEGORIES
@@ -144,3 +174,25 @@ function updateDistances() {
     );
   });
 }
+(function updateProgressCount() {
+  try {
+    const data = JSON.parse(localStorage.getItem('johren')) || {};
+    const visited = Array.isArray(data.visitedStations)
+      ? data.visitedStations.length
+      : 0;
+
+    const total = Array.isArray(window.stations)
+      ? window.stations.length
+      : 0;
+
+    const el = document.getElementById('progress');
+    if (el) {
+      el.textContent = `進捗 ${visited} / ${total}`;
+    }
+  } catch (e) {
+    // fail silently — never break the map
+  }
+})();
+
+
+
