@@ -175,4 +175,24 @@ function updateDistances() {
     );
   });
 }
+(function updateProgressCount() {
+  try {
+    const data = JSON.parse(localStorage.getItem('johren')) || {};
+    const visited = Array.isArray(data.visitedStations)
+      ? data.visitedStations.length
+      : 0;
+
+    const total = Array.isArray(window.stations)
+      ? window.stations.length
+      : 0;
+
+    const el = document.getElementById('progress');
+    if (el) {
+      el.textContent = `進捗 ${visited} / ${total}`;
+    }
+  } catch (e) {
+    // fail silently — never break the map
+  }
+})();
+
 
