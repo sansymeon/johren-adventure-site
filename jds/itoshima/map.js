@@ -8,6 +8,16 @@ Johren Map Contract (DO NOT BREAK):
 */
 
 console.log('[Johren] map.js loaded');
+// -------------------------------
+// RESOLVE ACTIVE AREA CONFIG
+// -------------------------------
+const areaKey = window.AREA_KEY;
+const area = window.MAP_CONFIG?.[areaKey];
+
+if (!area) {
+  console.error('[Johren] AREA_KEY invalid or missing:', areaKey);
+  throw new Error('MAP_CONFIG area not found');
+}
 
 // -------------------------------
 // INITIALIZE MAP (JDS – Itoshima)
