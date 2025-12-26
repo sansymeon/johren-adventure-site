@@ -6,22 +6,22 @@
 // JDS = community discovery map
 // No businesses, no permissions, no monetization logic
 
-window.churches = [
+churches = [
   { name: "Itoshima Catholic Church", lat: 33.584095,  lng: 130.189016 },
   { name: "Baptist Church 福岡西部バプテスト教会", lat: 33.56349797391542, lng: 130.20519427279035 },
   { name: "West Fukuoka Hope Christian Church 西福岡のぞみキリスト教会", lat: 33.548273234052175,  lng: 130.2120380977682 },
   { name: "Maebaru Christian Church 日本基督教団 前原教会", lat: 33.55976434044294, lng: 130.19648464789108 },
   { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774,  lng: 130.20782879949556 }
 ];
-window.museums = [
+museums = [
   { name: "Ito Art Museum", lat: 33.56063278048929,   lng: 130.20447283810256 },
   { name: "Ito-koku History Museum", lat: 33.53641274192818,   lng: 130.25185578816215 },
 ];
-window.shrines = [
+shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 },
 ];
-window.stations = [
+stations = [
   { id: "jr-chikuhi-JK01", name: "姪浜", nameEn: "Meinohama", lat: 33.58370, lng: 130.32501 },
   { id: "jr-chikuhi-JK02", name: "下山門", nameEn: "Shimoyamato",  lat: 33.581882, lng: 130.308038 },
   { id: "jr-chikuhi-JK03", name: "今宿", nameEn: "Imajuku",  lat: 33.579257, lng: 130.273519 },
@@ -44,7 +44,7 @@ window.stations = [
   { id: "jr-chikuhi-JK20", name: "唐津", nameEn: "Karatsu",  lat: 33.446223, lng: 129.967587 },
   { id: "jr-chikuhi-JK21", name: "西唐津", nameEn: "Nishi Karatsu",  lat: 33.461434, lng: 129.957480 }
 ];
-window.temples = [
+temples = [
   { name: "雷山千如寺 大悲王院", lat: 33.49445385812953,  lng: 130.22869414812786 },
   { name: "妙休寺", lat: 33.5209311307555,  lng: 130.1898939676296 },
   { name: "専念寺", lat: 33.57650344350396,  lng: 130.14364458366722 },
@@ -54,3 +54,6 @@ window.temples = [
   { name: "安楽寺", lat: 33.586188427432035,  lng: 130.16151165164985 },
   { name: "龍国寺", lat: 33.50827262081622,  lng: 130.17230018275862 }
 ];
+]
+  }
+};
