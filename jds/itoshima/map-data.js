@@ -12,15 +12,22 @@ churches = [
   { name: "West Fukuoka Hope Christian Church 西福岡のぞみキリスト教会", lat: 33.548273234052175,  lng: 130.2120380977682 },
   { name: "Maebaru Christian Church 日本基督教団 前原教会", lat: 33.55976434044294, lng: 130.19648464789108 },
   { name: "LDS Church 末日聖徒イエス・キリスト教会 糸島ワード", lat: 33.564099560006774,  lng: 130.20782879949556 }
-];
+]
 museums = [
-  { name: "Ito Art Museum", lat: 33.56063278048929,   lng: 130.20447283810256 },
-  { name: "Ito-koku History Museum", lat: 33.53641274192818,   lng: 130.25185578816215 },
-];
+  { name: "Ito Art Museum", 
+   lat: 33.56063278048929,   
+   lng: 130.20447283810256 
+  },
+  { 
+    name: "Ito-koku History Museum", 
+   lat: 33.53641274192818,   
+   lng: 130.25185578816215 
+  },
+]
 shrines = [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 },
-];
+]
 stations = [
   { id: "jr-chikuhi-JK01", name: "姪浜", nameEn: "Meinohama", lat: 33.58370, lng: 130.32501 },
   { id: "jr-chikuhi-JK02", name: "下山門", nameEn: "Shimoyamato",  lat: 33.581882, lng: 130.308038 },
@@ -43,7 +50,7 @@ stations = [
   { id: "jr-chikuhi-JK019", name: "和多田", nameEn: "Watada",  lat: 33.436933, lng: 129.980768 },
   { id: "jr-chikuhi-JK20", name: "唐津", nameEn: "Karatsu",  lat: 33.446223, lng: 129.967587 },
   { id: "jr-chikuhi-JK21", name: "西唐津", nameEn: "Nishi Karatsu",  lat: 33.461434, lng: 129.957480 }
-];
+]
 temples = [
   { name: "雷山千如寺 大悲王院", lat: 33.49445385812953,  lng: 130.22869414812786 },
   { name: "妙休寺", lat: 33.5209311307555,  lng: 130.1898939676296 },
@@ -53,7 +60,8 @@ temples = [
   { name: "法正寺", lat: 33.55732121011789,  lng: 130.12926826562833 },
   { name: "安楽寺", lat: 33.586188427432035,  lng: 130.16151165164985 },
   { name: "龍国寺", lat: 33.50827262081622,  lng: 130.17230018275862 }
-];
 ]
   }
 };
+
+
