@@ -29,9 +29,18 @@ shrines = [
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 },
 ]
 stations = [
-  { id: "jr-chikuhi-JK01", name: "姪浜", nameEn: "Meinohama", lat: 33.58370, lng: 130.32501 },
-  { id: "jr-chikuhi-JK02", name: "下山門", nameEn: "Shimoyamato",  lat: 33.581882, lng: 130.308038 },
-  { id: "jr-chikuhi-JK03", name: "今宿", nameEn: "Imajuku",  lat: 33.579257, lng: 130.273519 },
+  { 
+    id: "jr-chikuhi-JK01", 
+    name: "姪浜", 
+    nameEn: "Meinohama", 
+    lat: 33.58370, 
+    lng: 130.32501 
+  },
+    { 
+    id: "jr-chikuhi-JK02", name: "下山門", nameEn: "Shimoyamato",  lat: 33.581882, lng: 130.308038 
+    },
+  { id: "jr-chikuhi-JK03", name: "今宿", nameEn: "Imajuku",  lat: 33.579257, lng: 130.273519 
+  },
   { id: "jr-chikuhi-JK04", name: "九大学研都市", nameEn: "Kyudai Gakken",  lat: 33.578150, lng: 130.259861 },
   { id: "jr-chikuhi-JK05", name: "周船寺", nameEn: "Susenji",  lat: 33.570792, lng: 130.246136 },
   { id: "jr-chikuhi-JK06", name: "波多江", nameEn: "Hatae",  lat: 33.563944, lng: 130.226822 },
