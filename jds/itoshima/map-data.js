@@ -3,7 +3,7 @@ window.MAP_CONFIG = {
     center: [33.557, 130.199],
     zoom: 12,
 
-  museums = [
+  museums: [
   { name: "Ito Art Museum", 
    lat: 33.56063278048929,   
    lng: 130.20447283810256 
@@ -125,19 +125,14 @@ window.MAP_CONFIG = {
       }
     ],
   
-  museums: [
-    { name: 'Hikiyama Exhibition Hall', lat: 33.445946414612074, lng: 129.96991124129468 },
-    { name: 'Karatsu Castle', lat: 33.45345765716856, lng: 129.9782080418245 },
-    { name: 'Former Takatori Residence 旧高取邸', lat: 33.45437629769318, lng: 129.97209266442803 }
-  ],
 
-  shrines = [
+  shrines:  [
   { name: "Futamigaura 二見ヶ浦 海中大鳥居", lat: 33.6393416472,  lng: 130.1971275794},
   { name: "Sakurai Shrine　櫻井神社", lat: 33.6281710061135, lng: 130.191945877441 
   }
 ],
 
-  temples = [
+  temples:  [
   { name: "雷山千如寺 大悲王院", lat: 33.49445385812953,  lng: 130.22869414812786 },
   { name: "妙休寺", lat: 33.5209311307555,  lng: 130.1898939676296 },
   { name: "専念寺", lat: 33.57650344350396,  lng: 130.14364458366722 },
@@ -149,7 +144,7 @@ window.MAP_CONFIG = {
    }
   ],
 
-stations = [
+stations:  [
   { 
     id: "jr-chikuhi-JK01", 
     name: "姪浜", 
