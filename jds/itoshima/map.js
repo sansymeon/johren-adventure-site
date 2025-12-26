@@ -110,7 +110,7 @@ let lastTappedStation = null;
 // -------------------------------
 const visitedStations = getVisitedStations().map(String);
 
-window.stations.forEach(station => {
+area.stations.forEach(station => {
   const isVisited = visitedStations.includes(String(station.id));
 
   const marker = L.marker([station.lat, station.lng], {
@@ -154,11 +154,12 @@ function loadCategory(list, layer, icon) {
   });
 }
 
-loadCategory(window.churches,  churchLayer, icons.church);
-loadCategory(window.museums,  museumLayer, icons.museum);
-loadCategory(window.shrines,  shrineLayer, icons.shrine);
-loadCategory(window.temples,  templeLayer, icons.temple);
-loadCategory(window.parks,    parkLayer,   icons.park);
+loadCategory(area.churches,  churchLayer, icons.church);
+loadCategory(area.museums,  museumLayer, icons.museum);
+loadCategory(area.shrines,  shrineLayer, icons.shrine);
+loadCategory(area.temples,  templeLayer, icons.temple);
+loadCategory(area.parks,    parkLayer,   icons.park);
+
 
 // -------------------------------
 // UPDATE DISTANCES FROM SELECTED STATION
@@ -168,11 +169,11 @@ function updateDistances() {
   if (!selectedStation) return;
 
   const allItems = [
-    ...(window.churches || []),
-    ...(window.museums || []),
-    ...(window.shrines || []),
-    ...(window.temples || []),
-    ...(window.parks || [])
+    ...(area.churches || []),
+    ...(area.museums || []),
+    ...(area.shrines || []),
+    ...(area.temples || []),
+    ...(area.parks || [])
   ];
 
   allItems.forEach(item => {
@@ -191,8 +192,8 @@ function updateDistances() {
       ? data.visitedStations.length
       : 0;
 
-    const total = Array.isArray(window.stations)
-      ? window.stations.length
+    const total = Array.isArray(area.stations)
+      ? area.stations.length
       : 0;
 
     const el = document.getElementById('progress');
