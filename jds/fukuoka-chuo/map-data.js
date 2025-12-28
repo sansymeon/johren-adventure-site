@@ -15,15 +15,15 @@ window.MAP_CONFIG = {
         id: 'K07-akasaka',
         name: '赤坂',
         nameEn: 'Akasaka',
-        lat: 33.588670997721565,
-        lng: 130.40265554434566
+        lat: 33.589112760371975, 
+        lng: 130.3905781504464
       },
       {
         id: 'K06-ohorikoen',
         name: '大濠公園',
         nameEn: 'Ohorikoen',
-        lat: 33.588670997721565,
-        lng: 130.40265554434566
+        lat: 33.59014125983869, 
+        lng: 130.37884327558552
       },
       {
         id: 'fukuoka-tenjin-minami',
