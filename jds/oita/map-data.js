@@ -1,19 +1,34 @@
-// ----------------------
-// STATIONS
-// ----------------------
- stations: [
-  { name: "大分駅",       lat: 33.23232801877058, lng: 131.6057111319828 },
-  { name: "西大分駅",     lat: 33.24522482617123, lng: 131.58285137901504 },
-  { name: "東別府駅",     lat: 33.2677076187008,  lng: 131.51050697420135 },
-  { name: "別府駅",       lat: 33.27962926018525, lng: 131.50055717746778 },
+window.MAP_CONFIG = {
+  oita: {
+    center: [33.232606218244186, 131.6058935221856],
+    zoom: 12,
+
+    stations: [
+  { 
+   id: 'nippo-oita',
+        name: '大分',
+        nameEn: 'Oita',      
+        lat: 33.23232801877058, 
+        lng: 131.6057111319828 
+  },
+  { 
+    id: 'nippo-beppu',
+    name: '別府',
+    nameEn: 'Beppu',       
+    lat: 33.27962926018525, 
+    lng: 131.50055717746778 
+  },
 
   // KYUDAI MAIN LINE (Ōita → Yufuin)
-  { name: "南大分駅",     lat: 33.21406265499788, lng: 131.58629379060434 }
+   { 
+    id: 'kyudai-minami-oita',
+    name: '南大分',
+    nameEn: 'Minami Oita',
+    lat: 33.21406265499788, 
+    lng: 131.58629379060434 
+   }
 ];
 
-// ----------------------
-// CHURCHES
-// ----------------------
-churches: [
-  { name: "St. Francis Xavier Cathedral", lat: 33.238665, lng: 131.604509 }
+   churches: [
+  {  name: "St. Francis Xavier Cathedral", lat: 33.238665, lng: 131.604509 }
 ];
