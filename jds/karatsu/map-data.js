@@ -1,5 +1,5 @@
-window.MAP_CONFIG = {
-  areaKey: 'karatsu',
+window.MAP_CONFIG[AREA_KEY]
+
 
   center: [33.4533, 129.9782], // Karatsu Castle area
   zoom: 12,
