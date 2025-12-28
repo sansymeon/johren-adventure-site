@@ -72,16 +72,19 @@
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-<!-- Map data (Oita-specific) -->
-<script src="map-data.js"></script>
-
-<!-- ✅ AREA DECLARATION (THIS IS THE KEY PART) -->
+<!-- ✅ AREA DECLARATION (FIRST) -->
 <script>
-  const AREA_KEY = 'oita';
+  window.AREA_KEY = 'oita';
 </script>
 
-<!-- Shared logic -->
-<script src="map.js"></script>
+<!-- Map data (locale-specific) -->
+<script src="map-data.js"></script>
+
+<!-- Universal map engine -->
+<script src="/js/map/map.js"></script>
+
+</script>
+
 <a href="/jds/oita/about-map.html" class="about-link">
   この地図について
 </a>
