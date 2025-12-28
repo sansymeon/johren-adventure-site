@@ -1,6 +1,15 @@
-window.MAP_CONFIG[AREA_KEY]
+window.MAP_CONFIG = window.MAP_CONFIG || {};
 
-
+window.MAP_CONFIG.karatsu = {
+  center: [/* lat, lng */],
+  zoom: 13,
+  stations: [ ... ],
+  churches: [ ... ],
+  museums: [ ... ],
+  shrines: [ ... ],
+  temples: [ ... ],
+  parks: [ ... ]
+};
   center: [33.4533, 129.9782], // Karatsu Castle area
   zoom: 12,
 
