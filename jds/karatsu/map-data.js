@@ -4,62 +4,6 @@ window.MAP_CONFIG = {
   zoom: 12,
 
   stations: [
-    {
-      id: 'jr-chikuhi-JK08', 
-      name: '筑前前原', 
-      nameEn: 'Maebaru', 
-      lat: 33.557082, 
-      lng: 130.199305 
-      },
-    { 
-      id: 'jr-chikuhi-JK09', 
-      name: '美咲が丘', 
-      nameEn: 'Misakigaoka', 
-      lat: 33.549959, 
-      lng: 130.185515 
-    },
-    { 
-      id: 'jr-chikuhi-JK10', 
-      name: '加布里', 
-      nameEn: 'Kafuri', 
-      lat: 33.543150, 
-      lng: 130.176150 
-    },
-    { 
-      id: 'jr-chikuhi-JK11', 
-      name: '一貴山', 
-      nameEn: 'Ikisan', 
-      lat: 33.534295, 
-      lng: 130.168242 
-    },
-    { 
-      id: 'jr-chikuhi-JK12', 
-      name: '筑前深江', 
-      nameEn: 'Fukae', 
-      lat: 33.514949, 
-      lng: 130.139429 
-    },
-    { 
-      id: 'jr-chikuhi-JK13', 
-      name: '大入', 
-      nameEn: 'Dainyu', 
-      lat: 33.508855, 
-      lng: 130.106038 
-    },
-    { 
-      id: 'jr-chikuhi-JK14', 
-     name: '福吉', 
-     nameEn: 'Fukuyoshi', 
-      lat: 33.501554, 
-      lng: 130.079523 
-    },
-    { 
-      id: 'jr-chikuhi-JK15', 
-     name: '鹿家', 
-     nameEn: 'Shika', 
-      lat: 33.484259, 
-      lng: 130.047476 
-    },
     { 
       id: 'jr-chikuhi-JK16', 
      name: '浜崎', 
