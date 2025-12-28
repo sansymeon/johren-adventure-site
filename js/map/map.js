@@ -9,8 +9,19 @@
     return;
   }
 
+  const AREA_KEY = window.AREA_KEY;
+  if (!AREA_KEY) {
+    console.error('AREA_KEY missing');
+    return;
+  }
+
+  const area = window.MAP_CONFIG[AREA_KEY];
+  if (!area) {
+    console.error('Invalid AREA_KEY:', AREA_KEY);
+    return;
+  }
+
   const {
-    areaKey,
     center,
     zoom,
     stations = [],
@@ -19,9 +30,11 @@
     shrines = [],
     temples = [],
     parks = []
-  } = window.MAP_CONFIG;
+  } = area;
 
-  const storageKey = `johren:${areaKey}`;
+  // ✅ AREA-SCOPED STORAGE
+  const storageKey = `johren:${AREA_KEY}`;
+
 
   // -------------------------------
   // MAP INITIALIZATION
