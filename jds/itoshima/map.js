@@ -153,9 +153,18 @@ area.stations.forEach(station => {
 // LOAD LANDMARK CATEGORIES
 // -------------------------------
 function loadCategory(list, layer, icon) {
-  if (!list) return;
+  if (!Array.isArray(list)) return;
 
   list.forEach(item => {
+    if (
+      !item ||
+      typeof item.lat !== 'number' ||
+      typeof item.lng !== 'number'
+    ) {
+      console.warn('[Johren] Skipping invalid item:', item);
+      return;
+    }
+
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
       .bindPopup(item.name);
@@ -163,6 +172,7 @@ function loadCategory(list, layer, icon) {
     item._marker = marker;
   });
 }
+
 
 loadCategory(area.churches,  churchLayer, icons.church);
 loadCategory(area.museums,  museumLayer, icons.museum);
