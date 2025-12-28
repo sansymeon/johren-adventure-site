@@ -144,5 +144,7 @@ window.MAP_CONFIG = {
     { name: 'Gonshoji Temple 近松寺', lat: 33.449901908390125, lng: 129.96520797775324 }
   ],
 
-  parks: []
+    parks: []
+  }
 };
+
