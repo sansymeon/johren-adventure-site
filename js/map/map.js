@@ -139,49 +139,64 @@
   }
 
   stations.forEach(station => {
-    const isVisited = visitedStations.includes(String(station.id));
+  if (
+    !station ||
+    typeof station.lat !== 'number' ||
+    typeof station.lng !== 'number'
+  ) {
+    console.warn('[Johren] Invalid station:', station);
+    return;
+  }
 
-    const marker = L.marker([station.lat, station.lng], {
-      icon: isVisited ? icons.stationVisited : icons.stationDefault
-    }).addTo(stationLayer);
+  const isVisited = visitedStations.includes(String(station.id));
 
-    marker.bindTooltip(formatStationLabel(station), {
-      direction: 'top',
-      offset: [0, -28],
-      sticky: true,
-      className: 'station-tooltip'
-    });
+  const marker = L.marker([station.lat, station.lng], {
+    icon: isVisited ? icons.stationVisited : icons.stationDefault
+  }).addTo(stationLayer);
 
-    marker.on('click', () => {
-      if (lastTappedStation !== station) {
-        lastTappedStation = station;
-        marker.openTooltip();
-        return;
-      }
-
-      selectedStation = station;
-      marker.bindPopup(`基準駅：${station.name}`).openPopup();
-      updateDistances();
-    });
+  marker.bindTooltip(formatStationLabel(station), {
+    direction: 'top',
+    offset: [0, -28],
+    sticky: true,
+    className: 'station-tooltip'
   });
+
+  marker.on('click', () => {
+    if (lastTappedStation !== station) {
+      lastTappedStation = station;
+      marker.openTooltip();
+      return;
+    }
+
+    selectedStation = station;
+    marker.bindPopup(`基準駅：${station.name}`).openPopup();
+    updateDistances();
+  });
+});
 
   // -------------------------------
   // LANDMARKS
   // -------------------------------
-  function loadCategory(list, layer, icon) {
-    list.forEach(item => {
-      const marker = L.marker([item.lat, item.lng], { icon })
-        .addTo(layer)
-        .bindPopup(item.name);
-      item._marker = marker;
-    });
-  }
+ function loadCategory(list, layer, icon) {
+  if (!Array.isArray(list)) return;
 
-  loadCategory(churches, churchLayer, icons.church);
-  loadCategory(museums, museumLayer, icons.museum);
-  loadCategory(shrines, shrineLayer, icons.shrine);
-  loadCategory(temples, templeLayer, icons.temple);
-  loadCategory(parks, parkLayer, icons.park);
+  list.forEach(item => {
+    if (
+      !item ||
+      typeof item.lat !== 'number' ||
+      typeof item.lng !== 'number'
+    ) {
+      console.warn('[Johren] Invalid landmark:', item);
+      return;
+    }
+
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(item.name);
+
+    item._marker = marker;
+  });
+}
 
   // -------------------------------
   // DISTANCE UPDATE
