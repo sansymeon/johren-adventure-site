@@ -10,13 +10,6 @@ window.MAP_CONFIG = {
         nameEn: 'Oita',
         lat: 33.23232801877058,
         lng: 131.6057111319828
-      },
-      {
-        id: 'minami-oita',
-        name: '南大分',
-        nameEn: 'Minami Oita',
-        lat: 33.21406265499788,
-        lng: 131.58629379060434
       }
     ],
 
@@ -28,7 +21,13 @@ window.MAP_CONFIG = {
       }
     ],
 
-    museums: [],
+    museums: [ 
+      {
+        name: 'Oita Pref. Art Museum 大分県立美術館',
+        lat: 33.23950622291895, 
+        lng: 131.6013320325027
+      }
+    ],
     shrines: [],
     temples: [],
     parks: []
