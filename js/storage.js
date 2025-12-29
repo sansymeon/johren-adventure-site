@@ -19,3 +19,5 @@ function markStationVisited(stationId) {
   }
 }
 
+// expose for checkin.js
+window.markStationVisited = markStationVisited;
