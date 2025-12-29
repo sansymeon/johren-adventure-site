@@ -87,22 +87,10 @@
   <div class="history-whisper"></div>
 
   <script src="/js/storage.js"></script>
-  <script src="/js/checkin.js"></script>
-    <script>
-    function hashString(str) {
-      let hash = 0;
-      for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-      }
-      return Math.abs(hash);
-    }
+<script src="/js/checkin.js"></script>
 
-    function shouldShowHistory(stationId) {
-      return hashString(stationId) % 4 === 0;
-    }
-      </script>
-  <script>
+<script>
+  // --- CSP-safe hash helpers ---
   function hashString(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -124,7 +112,7 @@
 
     if (!shouldShowHistory(stationId)) return;
 
-    // TEMP: single quiet line (area-level comes later)
+    // TEMP: single quiet line (area-level later)
     const line = "この土地は、思っているより長い時間を見てきました。";
 
     const container = document.querySelector(".history-whisper");
