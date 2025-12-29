@@ -1,14 +1,17 @@
-const STORAGE_KEY = 'johren';
+function getStorageKey() {
+  return window.AREA_KEY ? `johren:${AREA_KEY}` : 'johren';
+}
 
 function getJohrenData() {
-  return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
+  return JSON.parse(localStorage.getItem(getStorageKey())) || {
     visitedStations: []
   };
 }
 
 function saveJohrenData(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem(getStorageKey(), JSON.stringify(data));
 }
+
 
 function markStationVisited(stationId) {
   const data = getJohrenData();
