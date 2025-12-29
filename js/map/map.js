@@ -197,6 +197,14 @@
     item._marker = marker;
   });
 }
+// -------------------------------
+// LOAD LANDMARK CATEGORIES
+// -------------------------------
+loadCategory(churches, churchLayer, icons.church);
+loadCategory(museums, museumLayer, icons.museum);
+loadCategory(shrines, shrineLayer, icons.shrine);
+loadCategory(temples, templeLayer, icons.temple);
+loadCategory(parks, parkLayer, icons.park);
 
   // -------------------------------
   // DISTANCE UPDATE
