@@ -139,8 +139,9 @@ function hashString(str) {
   return Math.abs(hash);
 }
 
+  // Decide whether this station should show history (~25%)
 function shouldShowHistory(stationId) {
-  return true;
+  return hashString(stationId) % 4 === 0;
 }
 
 
