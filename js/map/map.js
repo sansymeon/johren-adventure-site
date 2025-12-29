@@ -139,10 +139,11 @@ function hashString(str) {
   return Math.abs(hash);
 }
 
-// Decide whether this station should show history (~25%)
 function shouldShowHistory(stationId) {
-  return hashString(stationId) % 4 === 0;
+  return true;
 }
+
+
 
 // Pick a stable history line from the area's pool
 function pickHistoryLine(stationId, pool) {
