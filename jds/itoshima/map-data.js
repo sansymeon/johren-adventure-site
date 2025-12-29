@@ -123,14 +123,6 @@ window.MAP_CONFIG = {
       lng: 130.047476
     }
   ],
-itoshima: {
-  center: [33.56069, 130.21354],
-  zoom: 12,
-
-  stations: [
-    { id: "dainyu", name: "大入駅", lat: ..., lng: ... },
-    { id: "kyudai", name: "九大学研都市", lat: ..., lng: ... }
-  ],
 
   // history_pool:
 // Area-level quiet context.
