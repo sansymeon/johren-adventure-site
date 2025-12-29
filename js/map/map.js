@@ -122,6 +122,49 @@
   const templeLayer  = L.layerGroup().addTo(map);
   const parkLayer    = L.layerGroup().addTo(map);
 
+  // ===============================
+// HISTORICAL WHISPER LAYER
+// Area-level quiet context
+// One line max. No explanations.
+// Absence is intentional.
+// ===============================
+
+// Simple deterministic hash (stable across reloads)
+function hashString(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0; // 32bit
+  }
+  return Math.abs(hash);
+}
+
+// Decide whether this station should show history (~25%)
+function shouldShowHistory(stationId) {
+  return hashString(stationId) % 4 === 0;
+}
+
+// Pick a stable history line from the area's pool
+function pickHistoryLine(stationId, pool) {
+  if (!pool || pool.length === 0) return null;
+  const index = hashString(stationId + "_history") % pool.length;
+  return pool[index];
+}
+
+// Render in ONE place only (bottom image / quiet zone)
+function renderHistoryLine(text) {
+  if (!text) return;
+
+  const container = document.querySelector(".history-whisper");
+  if (!container) return;
+
+  const p = document.createElement("p");
+  p.className = "history-line";
+  p.textContent = text;
+
+  container.appendChild(p);
+}
+
   // -------------------------------
   // STATIONS
   // -------------------------------
