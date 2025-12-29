@@ -123,6 +123,25 @@ window.MAP_CONFIG = {
       lng: 130.047476
     }
   ],
+itoshima: {
+  center: [33.56069, 130.21354],
+  zoom: 12,
+
+  stations: [
+    { id: "dainyu", name: "大入駅", lat: ..., lng: ... },
+    { id: "kyudai", name: "九大学研都市", lat: ..., lng: ... }
+  ],
+
+  // history_pool:
+// Area-level quiet context.
+// One line max. No explanations. Absence is intentional.
+
+  history_pool: [
+    "この地域には、6世紀に人が集まっていた痕跡があります。",
+    "この土地は、思っているより長い時間を見てきました。",
+    "このあたりには、文字になる前の記憶があります。"
+  ]
+}
 
   churches: [
       { name: "Itoshima Catholic Church", lat: 33.584095, lng: 130.189016 },
