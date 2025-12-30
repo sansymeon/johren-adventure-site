@@ -3,7 +3,8 @@ if (!window.STATION_ID) {
   return;
 }
 
-const STORAGE_KEY = "johren_itoshima";
+// 🔑 MUST match map.js exactly
+const STORAGE_KEY = "johren:itoshima";
 
 const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   visitedStations: []
