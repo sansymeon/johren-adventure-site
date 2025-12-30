@@ -79,7 +79,7 @@
     <p>周囲を少し歩いて、<br>街を感じてみてください。</p>
 
     <div class="map-link">
-      <a href="/jds/itoshima/map/">記録を地図で見る →</a>
+      <a id="mapLink" href="#">記録を地図で見る →</a>
     </div>
   </div>
 
@@ -103,6 +103,14 @@
         }
       }
     }
+  })();
+</script>
+<script>
+  (function () {
+    const link = document.getElementById("mapLink");
+    if (!link || !window.AREA_KEY) return;
+
+    link.href = `/jds/${window.AREA_KEY}/map/`;
   })();
 </script>
 
