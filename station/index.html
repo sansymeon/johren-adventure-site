@@ -80,47 +80,17 @@
 
 <a id="mapLink" href="/jds/itoshima/map/">記録を地図で見る →</a>
 
-<script src="../js/map-data.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  if (!window.MAP_CONFIG) {
-    console.error("MAP_CONFIG missing");
-    return;
-  }
-
-  const params = new URLSearchParams(window.location.search);
-  const stationId = params.get("id");
-  if (!stationId) return;
-
-  let areaKey = null;
-
-  for (const [key, area] of Object.entries(MAP_CONFIG)) {
-    if (Array.isArray(area.stations)) {
-      if (area.stations.some(s => String(s.id) === String(stationId))) {
-        areaKey = key;
-        break;
-      }
-    }
-  }
-
-  if (!areaKey) {
-    console.warn("Area not found for station:", stationId);
-    return;
-  }
-
-  // expose globally for storage / progress
-  window.AREA_KEY = areaKey;
-
-  const link = document.getElementById("mapLink");
-  if (link) {
-    link.href = `/jds/${areaKey}/map/`;
-  }
-});
-</script>
 
   <script src="/js/storage.js"></script>
-<script src="/js/checkin.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  window.STATION_ID = params.get("id");
+  if (!window.STATION_ID) {
+    console.warn("No station ID in URL");
+  }
+</script>
+
+    <script src="/js/checkin.js"></script>
 
 <script>
   // --- CSP-safe hash helpers ---
