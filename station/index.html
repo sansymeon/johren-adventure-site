@@ -84,9 +84,24 @@
   </div>
 
   <!-- History line injected here (or nothing at all) -->
-  <div class="history-whisper"></div>
 <script>
-  window.AREA_KEY = "itoshima";
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const stationId = params.get("id");
+    if (!stationId || !window.MAP_CONFIG) return;
+
+    for (const [areaKey, area] of Object.entries(MAP_CONFIG)) {
+      if (Array.isArray(area.stations)) {
+        const found = area.stations.some(
+          s => String(s.id) === String(stationId)
+        );
+        if (found) {
+          window.AREA_KEY = areaKey;
+          return;
+        }
+      }
+    }
+  })();
 </script>
 
   <script src="/js/storage.js"></script>
