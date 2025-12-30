@@ -1,5 +1,7 @@
 function getStorageKey() {
-  return window.AREA_KEY ? `johren:${AREA_KEY}` : 'johren';
+  return window.AREA_KEY
+    ? `johren:${window.AREA_KEY}`
+    : 'johren';
 }
 
 function getJohrenData() {
@@ -9,15 +11,18 @@ function getJohrenData() {
 }
 
 function saveJohrenData(data) {
-  localStorage.setItem(getStorageKey(), JSON.stringify(data));
+  localStorage.setItem(
+    getStorageKey(),
+    JSON.stringify(data)
+  );
 }
 
-
 function markStationVisited(stationId) {
+  const id = String(stationId);
   const data = getJohrenData();
 
-  if (!data.visitedStations.includes(stationId)) {
-    data.visitedStations.push(stationId);
+  if (!data.visitedStations.includes(id)) {
+    data.visitedStations.push(id);
     saveJohrenData(data);
   }
 }
