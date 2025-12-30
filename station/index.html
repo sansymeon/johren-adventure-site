@@ -79,7 +79,7 @@
     <p>周囲を少し歩いて、<br>街を感じてみてください。</p>
 
     <div class="map-link">
-      <a id="mapLink" href="#">記録を地図で見る →</a>
+      <a id="mapLink" href="/jds/">記録を地図で見る →</a>
     </div>
   </div>
 
@@ -88,7 +88,11 @@
   <!-- History line injected here (or nothing at all) -->
 <script>
 (function () {
-  if (!window.MAP_CONFIG) return;
+if (!window.MAP_CONFIG) {
+  console.error("MAP_CONFIG missing on station page");
+  return;
+}
+
 
   const params = new URLSearchParams(window.location.search);
   const stationId = params.get("id");
