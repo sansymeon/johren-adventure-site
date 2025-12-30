@@ -87,32 +87,37 @@
   
   <!-- History line injected here (or nothing at all) -->
 <script>
-  (function () {
-    const params = new URLSearchParams(window.location.search);
-    const stationId = params.get("id");
-    if (!stationId || !window.MAP_CONFIG) return;
+(function () {
+  if (!window.MAP_CONFIG) return;
 
-    for (const [areaKey, area] of Object.entries(MAP_CONFIG)) {
-      if (Array.isArray(area.stations)) {
-        const found = area.stations.some(
-          s => String(s.id) === String(stationId)
-        );
-        if (found) {
-          window.AREA_KEY = areaKey;
-          return;
-        }
+  const params = new URLSearchParams(window.location.search);
+  const stationId = params.get("id");
+  if (!stationId) return;
+
+  let areaKey = null;
+
+  for (const [key, area] of Object.entries(MAP_CONFIG)) {
+    if (Array.isArray(area.stations)) {
+      if (area.stations.some(s => String(s.id) === String(stationId))) {
+        areaKey = key;
+        break;
       }
     }
-  })();
-</script>
-<script>
-  (function () {
-    const link = document.getElementById("mapLink");
-    if (!link || !window.AREA_KEY) return;
+  }
 
-    link.href = `/jds/${window.AREA_KEY}/map/`;
-  })();
+  if (!areaKey) return;
+
+  // expose globally
+  window.AREA_KEY = areaKey;
+
+  // update map link
+  const link = document.getElementById("mapLink");
+  if (link) {
+    link.href = `/jds/${areaKey}/map/`;
+  }
+})();
 </script>
+
 
   <script src="/js/storage.js"></script>
 <script src="/js/checkin.js"></script>
