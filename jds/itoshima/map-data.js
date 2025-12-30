@@ -104,7 +104,7 @@ window.MAP_CONFIG = {
     { 
       id: "jr-chikuhi-jk15", 
      name: "鹿家", 
-     nameEn: "Shika", 
+     nameEn: "Shikaka", 
       lat: 33.484259, 
       lng: 130.047476
     }
