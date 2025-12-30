@@ -1,16 +1,17 @@
-if (!window.STATION_ID) {
-  console.warn("No station ID, skipping check-in");
-  return;
-}
+// ===============================
+// JOHREN CHECK-IN (STATION PAGE)
+// ===============================
 
-// 🔑 MUST match map.js exactly
-const STORAGE_KEY = "johren:itoshima";
+(function () {
+  if (!window.STATION_ID) {
+    console.warn('[Johren] No STATION_ID, skipping check-in');
+    return;
+  }
 
-const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
-  visitedStations: []
-};
+  if (typeof window.markStationVisited !== 'function') {
+    console.error('[Johren] markStationVisited not available');
+    return;
+  }
 
-if (!data.visitedStations.includes(window.STATION_ID)) {
-  data.visitedStations.push(window.STATION_ID);
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
+  window.markStationVisited(window.STATION_ID);
+})();
