@@ -104,8 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (!areaKey) return;
+  if (!areaKey) {
+    console.warn("Area not found for station:", stationId);
+    return;
+  }
 
+  // expose globally for storage / progress
   window.AREA_KEY = areaKey;
 
   const link = document.getElementById("mapLink");
