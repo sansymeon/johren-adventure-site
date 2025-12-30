@@ -1,8 +1,11 @@
 function getStorageKey() {
-  return window.AREA_KEY
-    ? `johren:${window.AREA_KEY}`
-    : 'johren';
+  if (!window.AREA_KEY) {
+    console.warn('[Johren] AREA_KEY missing, using global storage');
+    return 'johren';
+  }
+  return `johren:${window.AREA_KEY}`;
 }
+
 
 function getJohrenData() {
   return JSON.parse(localStorage.getItem(getStorageKey())) || {
