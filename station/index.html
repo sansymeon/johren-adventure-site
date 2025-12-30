@@ -78,21 +78,16 @@
     <p>この場所は、あなたの記録に<br>静かに残りました。</p>
     <p>周囲を少し歩いて、<br>街を感じてみてください。</p>
 
-    <div class="map-link">
-      <a id="mapLink" href="/jds/">記録を地図で見る →</a>
-    </div>
-  </div>
+    <a id="mapLink" href="/jds/">記録を地図で見る →</a>
 
-  <script src="/js/map-data.js"></script>
-  
-  <!-- History line injected here (or nothing at all) -->
+<script src="../js/map-data.js"></script>
+
 <script>
-(function () {
-if (!window.MAP_CONFIG) {
-  console.error("MAP_CONFIG missing on station page");
-  return;
-}
-
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.MAP_CONFIG) {
+    console.error("MAP_CONFIG missing");
+    return;
+  }
 
   const params = new URLSearchParams(window.location.search);
   const stationId = params.get("id");
@@ -111,8 +106,15 @@ if (!window.MAP_CONFIG) {
 
   if (!areaKey) return;
 
-  // expose globally
   window.AREA_KEY = areaKey;
+
+  const link = document.getElementById("mapLink");
+  if (link) {
+    link.href = `/jds/${areaKey}/map/`;
+  }
+});
+</script>
+
 
   // update map link
   const link = document.getElementById("mapLink");
