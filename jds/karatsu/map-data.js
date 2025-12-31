@@ -5,42 +5,42 @@ window.MAP_CONFIG = {
 
   stations: [
     { 
-      id: 'jr-chikuhi-JK16', 
+      id: 'jr-chikuhi-jk16', 
      name: '浜崎', 
      nameEn: 'Hamasaki', 
       lat: 33.446720, 
       lng: 130.036798 
     },
     { 
-      id: 'jr-chikuhi-JK17', 
+      id: 'jr-chikuhi-jk17', 
      name: '虹の松原', 
      nameEn: 'Nijinomatsubara', 
      lat: 33.441033, 
      lng: 130.01619
     },
     { 
-      id: 'jr-chikuhi-JK18', 
+      id: 'jr-chikuhi-jk18', 
      name: '東唐津', 
      nameEn: 'Higashi Karatsu', 
      lat: 33.439393, 
       lng: 129.996837 
     },
     { 
-      id: 'jr-chikuhi-JK19', 
+      id: 'jr-chikuhi-jk19', 
       name: '和多田', 
       nameEn: 'Watada', 
       lat: 33.436933, 
       lng: 129.980768 
     },
     { 
-      id: 'jr-chikuhi-JK20', 
+      id: 'jr-chikuhi-jk20', 
       name: '唐津', 
       nameEn: 'Karatsu', 
       lat: 33.446223, 
       lng: 129.967587 
     },
     { 
-      id: 'jr-chikuhi-JK21', 
+      id: 'jr-chikuhi-jk21', 
      name: '西唐津', 
      nameEn: 'Nishi Karatsu', 
       lat: 33.461434, 
