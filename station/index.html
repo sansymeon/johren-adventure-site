@@ -71,41 +71,50 @@
 </head>
 
 <body>
-<!-- ========================================= -->
-<!-- 🚨 LOOK HERE 🚨                          -->
-<!-- YOU MUST SET THESE FOR EACH STATION PAGE -->
-<!--                                          -->
-<!-- 1) AREA_KEY (controls storage + progress)-->
-<!-- 2) Map link URL (where user is sent)     -->
-<!--                                          -->
-<!-- If either is wrong, progress will break  -->
-<!-- silently.                                -->
-<!-- ========================================= -->
 
-<script>
-  // 🔧 CHANGE THIS PER AREA (itoshima / karatsu / etc)
-  window.AREA_KEY = 'itoshima';
-</script>
-
-  <div class="card">
-    <h1>ジョウレン・ステーション</h1>
-
-    <p>この場所は、あなたの記録に<br>静かに残りました。</p>
-    <p>周囲を少し歩いて、<br>街を感じてみてください。</p>
-
-<a id="mapLink" href="/jds/itoshima/map/">記録を地図で見る →</a>
-
-
-  <script src="/js/storage.js"></script>
+<!-- ===============================
+     STATION CONTEXT (ONCE)
+=============================== -->
+<script src="/js/data/station-area.js"></script>
 <script>
   const params = new URLSearchParams(window.location.search);
-  window.STATION_ID = params.get("id");
+  const stationId = params.get("id");
+
+  window.STATION_ID = stationId;
+  window.AREA_KEY = window.STATION_AREA_MAP?.[stationId];
+
   if (!window.STATION_ID) {
-    console.warn("No station ID in URL");
+    console.warn("[Johren] No station ID in URL");
+  }
+
+  if (!window.AREA_KEY) {
+    console.warn("[Johren] Unknown area for station:", stationId);
   }
 </script>
 
-    <script src="/js/checkin.js"></script>
+<!-- ===============================
+     STORAGE + CHECK-IN
+=============================== -->
+<script src="/js/storage.js"></script>
+<script src="/js/checkin.js"></script>
+
+<!-- ===============================
+     MAIN CARD
+=============================== -->
+<div class="card">
+  <h1>ジョウレン・ステーション</h1>
+
+  <p>この場所は、あなたの記録に<br>静かに残りました。</p>
+  <p>周囲を少し歩いて、<br>街を感じてみてください。</p>
+
+  <!-- Map link updated dynamically -->
+  <a id="mapLink" href="#">記録を地図で見る →</a>
+</div>
+
+<!-- ===============================
+     HISTORY WHISPER
+=============================== -->
+<div class="history-whisper"></div>
 
 <script>
   // --- CSP-safe hash helpers ---
@@ -122,15 +131,11 @@
     return hashString(stationId) % 4 === 0;
   }
 
-  // --- history rendering (station page) ---
+  // --- history rendering ---
   (function () {
-    const params = new URLSearchParams(window.location.search);
-    const stationId = params.get("id");
-    if (!stationId) return;
+    if (!window.STATION_ID) return;
+    if (!shouldShowHistory(window.STATION_ID)) return;
 
-    if (!shouldShowHistory(stationId)) return;
-
-    // TEMP: single quiet line (area-level later)
     const line = "この土地は、思っているより長い時間を見てきました。";
 
     const container = document.querySelector(".history-whisper");
@@ -142,7 +147,17 @@
     container.appendChild(p);
   })();
 </script>
-<div class="history-whisper"></div>
+
+<!-- ===============================
+     MAP LINK SETUP
+=============================== -->
+<script>
+  const link = document.getElementById("mapLink");
+  if (link && window.AREA_KEY) {
+    link.href = `/jds/${window.AREA_KEY}/map/`;
+  }
+</script>
 
 </body>
+
 </html>
