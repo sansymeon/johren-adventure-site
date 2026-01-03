@@ -142,9 +142,15 @@
     if (!container) return;
 
     const p = document.createElement("div");
-    p.className = "history-line";
-    p.textContent = line;
-    container.appendChild(p);
+
+    .history-line {
+  font-size: 13px;
+  line-height: 1.9;
+  font-weight: 600;              /* ← key change */
+  color: rgba(0, 0, 0, 0.7);      /* darker */
+  text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+}
+
   })();
 </script>
 
