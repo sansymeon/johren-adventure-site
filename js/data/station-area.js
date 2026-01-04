@@ -6,7 +6,14 @@ window.STATION_AREA_MAP = {
   "jr-chikuhi-jk01": "fukuoka-west",
   "jr-chikuhi-jk02": "fukuoka-west",
 
-  "k02"
+  "k02-muromi": "fukuoka-west",
+  "k03-fujisaki": "fukuoka-west",
+  "k04-nishijin": "fukuoka-west",
+
+  "k05-tohjinmachi": "fukuoka-chuo",
+  "k06-ohorikoen": "fukuoka-chuo",
+  "k07-akasaka": "fukuoka-chuo",
+  "k08-tenjin": "fukuoka-chuo",
 
   "jr-chikuhi-jk03": "itoshima",
   "jr-chikuhi-jk04": "itoshima",
