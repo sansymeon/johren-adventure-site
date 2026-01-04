@@ -87,6 +87,19 @@ window.MAP_CONFIG = {
   temples: [
     { name: 'Gonshoji Temple 近松寺', lat: 33.449901908390125, lng: 129.96520797775324 }
   ],
+    
+// history_pool:
+// Area-level quiet context.
+// One line max. No explanations. Absence is intentional.
+
+history_pool: [
+  "この土地は、海から来るものと陸に残るものを見分けてきました。",
+  "波の記憶と、人の営みが重なって残っています。",
+  "通り過ぎる者と、ここに留まった者の痕跡があります。",
+  "境であることが、長く続いてきた場所です。",
+  "名が変わっても、役割は静かに受け継がれてきました。",
+  "語られなかった時間が、このあたりに沈んでいます。"
+],
 
     parks: []
   }
