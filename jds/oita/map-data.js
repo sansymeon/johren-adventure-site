@@ -20,6 +20,19 @@ window.MAP_CONFIG = {
         lng: 131.604509
       }
     ],
+    
+// history_pool:
+// Area-level quiet context.
+// One line max. No explanations. Absence is intentional.
+
+history_pool: [
+  "川の流れと湯の気配が、町の形をつくってきました。",
+  "通過点であり、滞在の場所でもあった土地です。",
+  "人が集まり、ほどけ、また戻ってくる循環がありました。",
+  "山と海のあいだで、生活の重心が揺れてきました。",
+  "歩く速度と、留まる時間が重なってきた場所です。",
+  "地表の静けさの下に、長い往来の記憶があります。"
+],
 
     museums: [ 
       {
