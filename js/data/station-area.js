@@ -3,8 +3,10 @@
 // ==================================
 
 window.STATION_AREA_MAP = {
-  "jr-chikuhi-jk01": "fukuoka-nishi",
-  "jr-chikuhi-jk02": "fukuoka-nishi",
+  "jr-chikuhi-jk01": "fukuoka-west",
+  "jr-chikuhi-jk02": "fukuoka-west",
+
+  "k02"
 
   "jr-chikuhi-jk03": "itoshima",
   "jr-chikuhi-jk04": "itoshima",
