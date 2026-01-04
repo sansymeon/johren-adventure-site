@@ -61,6 +61,19 @@ window.MAP_CONFIG = {
         lng: 130.37958344698214
       }
     ],
+    
+// history_pool:
+// Area-level quiet context.
+// One line max. No explanations. Absence is intentional.
+
+history_pool: [
+  "かつて境界だった場所が、日常の通り道になりました。",
+  "見張るための高みが、憩いの場所に変わっています。",
+  "権力の気配と生活の音が、同じ地面に重なっています。",
+  "囲いと解放が、何度も書き換えられてきました。",
+  "人の流れが、役割を終えた土地をやわらかくしています。",
+  "静けさの中に、長く管理されてきた記憶があります。"
+],
 
     shrines: [
       {
