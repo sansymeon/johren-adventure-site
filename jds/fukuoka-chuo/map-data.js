@@ -5,21 +5,21 @@ window.MAP_CONFIG = {
 
     stations: [
       {
-        id: 'K08-tenjin',
+        id: 'k08-tenjin',
         name: '天神',
         nameEn: 'Tenjin',
         lat: 33.5913469503287,
         lng: 130.39891098113026
       },
       {
-        id: 'K07-akasaka',
+        id: 'k07-akasaka',
         name: '赤坂',
         nameEn: 'Akasaka',
         lat: 33.589112760371975, 
         lng: 130.3905781504464
       },
       {
-        id: 'K06-ohorikoen',
+        id: 'k06-ohorikoen',
         name: '大濠公園',
         nameEn: 'Ohorikoen',
         lat: 33.59014125983869, 
