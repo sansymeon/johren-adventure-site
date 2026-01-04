@@ -26,14 +26,14 @@ window.MAP_CONFIG = {
         lng: 130.34004725044602 
       },
       { 
-        id: "k02-fujisaki", 
+        id: "k03-fujisaki", 
         name: "藤崎", 
         nameEn: "Fujisaki",  
         lat: 33.58128480587064,  
         lng: 130.34811194647156 
       },
       { 
-        id: "k02-nishijin", 
+        id: "k04-nishijin", 
         name: "西新", 
         nameEn: "Nishijin",  
         lat: 33.58362772907049,  
