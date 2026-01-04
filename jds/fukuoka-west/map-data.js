@@ -4,74 +4,78 @@ window.MAP_CONFIG = {
     zoom: 12,
 
     stations: [
-      { 
-        id: "jr-chikuhi-jk02", 
-        name: "下山門", 
-        nameEn: "Shimoyamato",  
-        lat: 33.581928964095525,
-        lng: 130.30821717928148 
+      {
+        id: 'K08-tenjin',
+        name: '天神',
+        nameEn: 'Tenjin',
+        lat: 33.5913469503287,
+        lng: 130.39891098113026
       },
-      { 
-        id: "jr-chikuhi-jk01", 
-        name: "姪浜", 
-        nameEn: "Meinohama",  
-        lat: 33.58355982784518,  
-        lng: 130.32484060626882 
+      {
+        id: 'K07-akasaka',
+        name: '赤坂',
+        nameEn: 'Akasaka',
+        lat: 33.589112760371975, 
+        lng: 130.3905781504464
       },
-      { 
-        id: "k02-muromi", 
-        name: "室見", 
-        nameEn: "Muromi",  
-        lat: 33.58093333242043,  
-        lng: 130.34004725044602 
+      {
+        id: 'K06-ohorikoen',
+        name: '大濠公園',
+        nameEn: 'Ohorikoen',
+        lat: 33.59014125983869, 
+        lng: 130.37884327558552
       },
-      { 
-        id: "k02-fujisaki", 
-        name: "藤崎", 
-        nameEn: "Fujisaki",  
-        lat: 33.58128480587064,  
-        lng: 130.34811194647156 
+      {
+        id: 'fukuoka-tenjin-minami',
+        name: '天神南',
+        nameEn: 'Tenjin Minami',
+        lat: 33.588670997721565,
+        lng: 130.40265554434566
       },
-      { 
-        id: "k02-nishijin", 
-        name: "西新", 
-        nameEn: "Nishijin",  
-        lat: 33.58362772907049,  
-        lng: 130.35954911735814 
+      {
+        id: 'fukuoka-yakuin',
+        name: '薬院',
+        nameEn: 'Yakuin',
+        lat: 33.5817638907711,
+        lng: 130.40165000141508
       }
-    ],
-
-    history_pool: [
-      "このあたりには、古い埋葬の跡が点在しています。",
-      "伊都国と呼ばれた土地の記憶が、この地域に重なっています。",
-      "人が集まり、祈り、別れた痕跡が残る場所です。",
-      "文字になる前の時間が、静かに積み重なっています。",
-      "海と陸の境で、多くの往来があったと考えられています。",
-      "地面の下には、まだ語られていない記憶があります。"
     ],
 
     churches: [
       {
-        name: "Baptist Church 姪浜バプテスト教会",
-        lat: 33.584414790218574,
-        lng: 130.32510369901166
+        name: 'Daimyo Catholic Church',
+        lat: 33.59028689597394,
+        lng: 130.39490595063134
+      },
+      {
+        name: 'Fukuoka Orthodox Church 福岡ハリストス正教会',
+        lat: 33.59896586241692,
+        lng: 130.4576968779313
+      }
+    ],
+
+    museums: [
+      {
+        name: 'Fukuoka Art Museum',
+        lat: 33.58411652460625,
+        lng: 130.37958344698214
       }
     ],
 
     shrines: [
       {
-        name: "Atago 鷲尾愛宕神社",
-        lat: 33.586443725202805,
-        lng: 130.33472168452056
+        name: 'Terumo Shrine 光雲神社',
+        lat: 33.597145537533365,
+        lng: 130.37643231206792
+      },
+      {
+        name: 'Fukuoka Prefecture Gokoku Shrine 福岡縣護國神社',
+        lat: 33.58171522775,
+        lng: 130.38203472165
       }
     ],
 
-    temples: [
-      {
-        name: "Junkoji 順光寺",
-        lat: 33.59031331862292,
-        lng: 130.32182965079352
-      }
-    ]
+    temples: [],
+    parks: []
   }
 };
