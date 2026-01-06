@@ -2,6 +2,15 @@
 // Only listings with `visible: true` are shown.
 // Others are pre-registered but unpublished.
 
+window.OPT_IN_MAP = {
+  center: [33.557082, 130.199305], // Itoshima
+  zoom: 11,
+  places: [
+    // opt-in locations only
+  ]
+};
+
+
 window.samples = [
   { name: "Johren Itoshima サンプル・スポット", lat: 33.55857973584153, lng: 130.21385183358143, url: "/merchant/sample/index.html" },
   { name: "Johren Karatsu サンプル・スポット", lat: 33.44973729276236,  lng: 129.96801192244578, url: "/merchant/sample/index.html" },
