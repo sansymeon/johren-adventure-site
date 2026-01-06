@@ -1,4 +1,4 @@
-// JBS policy:
+// OPT-IN policy:
 // Only listings with `visible: true` are shown.
 // Others are pre-registered but unpublished.
 
