@@ -1,9 +1,9 @@
 /**
- * JOHREN JBS — VISIT & QR RULES (DO NOT SOFTEN)
+ * JOHREN OPT-IN — VISIT & QR RULES (DO NOT SOFTEN)
  *
- * • Generic JBS QR codes may share a target URL.
+ * • Generic Opt-in QR codes may share a target URL.
  * • QR identity is preserved internally (qr_id), never exposed in UI.
- * • Passive merchants use generic JBS QR codes.
+ * • Passive merchants use generic Opt-in QR codes.
  * • Active merchants use merchant-specific QR codes.
  *
  * VISITS:
