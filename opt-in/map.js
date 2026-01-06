@@ -53,10 +53,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // ===============================
 function makeIcon(file) {
   return L.icon({
-    iconUrl: `../../../img/map/${file}`,
+    iconUrl: `/img/map/${file}`,
     iconSize: [36, 36],
     iconAnchor: [18, 36],
     popupAnchor: [0, -30]
+  });
+}
+
   });
 }
 
