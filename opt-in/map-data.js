@@ -1,6 +1,7 @@
 // OPT-IN policy:
-// Only listings with `visible: true` are shown.
-// Others are pre-registered but unpublished.
+// Only locations explicitly marked as visible are rendered on the map.
+// Sample markers are shown separately for demonstration purposes.
+
 
 window.OPT_IN_MAP = {
   center: [33.557082, 130.199305], // Itoshima
