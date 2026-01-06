@@ -1,5 +1,15 @@
 // -------------------------------
-// INITIALIZE MAP
+// INITIALIZE MAP// ===============================
+// MAP CONTEXT DETECTION
+// ===============================
+
+const isOptInMap = !!window.OPT_IN_MAP;
+
+if (!isOptInMap && !window.AREA_KEY) {
+  console.error('AREA_KEY missing');
+  return;
+}
+
 // -------------------------------
 const params = new URLSearchParams(window.location.search);
 
