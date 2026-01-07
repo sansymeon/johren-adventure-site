@@ -10,9 +10,15 @@ window.MAP_CONFIG = {
         nameEn: 'Oita',
         lat: 33.23232801877058,
         lng: 131.6057111319828
+      },
+  { 
+      id:'beppu',
+      name: '別府',
+      nameEn: 'Beppu',
+      lat:33.27964, 
+      lng:131.50039
       }
     ],
-
     churches: [
       {
         name: 'St. Francis Xavier Cathedral',
