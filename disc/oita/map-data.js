@@ -17,7 +17,14 @@ window.MAP_CONFIG = {
       nameEn: 'Beppu',
       lat:33.27964, 
       lng:131.50039
-      }
+      },
+      { 
+        id: 'yufuin',
+        name:'由布院', 
+        nameEn: 'Yufuin', 
+        lat: 33.26269658669704, 
+        lng: 131.35526192713755 
+      },
     ],
     churches: [
       {
