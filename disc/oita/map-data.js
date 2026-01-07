@@ -19,8 +19,8 @@ window.MAP_CONFIG = {
          lng: 131.493079650432, 
         },
   { 
-      id:'beppu'
-      name: '別府'
+      id:'beppu',
+      name: '別府',
       nameEn: 'Beppu',
       lat:33.27964, 
       lng:131.50039,
@@ -28,12 +28,12 @@ window.MAP_CONFIG = {
    {  
      id:'beppu_daigaku',
      name: '別府大学', 
-     nameEn: 'Beppu Daigaku'       
+     nameEn: 'Beppu Daigaku',       
      lat:33.31322823458146,  
      lng: 131.49923883194245, 
    },
   { 
-    id: 'higashi_beppu'
+    id: 'higashi_beppu',
     name:'東別府', 
     nameEn: 'Higashi Beppu' 
     lat: 33.2677076187008, 
