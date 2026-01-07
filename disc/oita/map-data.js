@@ -10,42 +10,7 @@ window.MAP_CONFIG = {
         nameEn: 'Oita',
         lat: 33.23232801877058,
         lng: 131.6057111319828
-      },
-        { 
-          id: 'kamegawa', 
-         name: '亀川',
-         nameEn: 'Kamegawa', 
-         lat: 33.3312027734460,  
-         lng: 131.493079650432
-        },
-  { 
-      id:'beppu',
-      name: '別府',
-      nameEn: 'Beppu',
-      lat:33.27964, 
-      lng:131.50039
-      },
-   {  
-     id:'beppu_daigaku',
-     name: '別府大学', 
-     nameEn: 'Beppu Daigaku',       
-     lat:33.31322823458146,  
-     lng: 131.49923883194245
-   },
-  { 
-    id: 'higashi_beppu',
-    name:'東別府', 
-    nameEn: 'Higashi Beppu' 
-    lat: 33.2677076187008, 
-    lng: 131.51050697420135
-  },
-  { 
-    id: 'nishi_oita',
-    name: '西大分', 
-    nameEn: 'Nishi Oita', 
-    lat: 33.24522482617123, 
-    lng: 131.58285137901504 
-   }
+      }
     ],
 
     churches: [
