@@ -76,10 +76,24 @@
       それ以上の説明は、今はありません。
     </p>
 
-    <div class="footer-link">
-      <a href="/disc/itoshima/">糸島のジョウレンを見る</a>
-
+        <div class="footer-link">
+      <a id="back-to-area" href="/disc/itoshima/">ジョウレンを見る</a>
     </div>
   </div>
+
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const area = params.get("area");
+
+      if (area) {
+        const link = document.getElementById("back-to-area");
+        if (link) {
+          link.href = `/disc/${area}/`;
+          link.textContent = `${area}のジョウレンを見る`;
+        }
+      }
+    })();
+  </script>
 </body>
 </html>
