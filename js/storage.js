@@ -74,6 +74,28 @@ export function incrementOptInCountOncePerDay() {
   localStorage.setItem(OPTIN_LAST_DATE_KEY, todayString());
   return true;
 }
+// -------------------------------
+// OPT-IN GPS CONTEXT (OPTIONAL)
+// -------------------------------
+
+const OPTIN_GPS_KEY = "johren_optin_gps";
+
+export function saveOptInGPSContext({ lat, lng, acc }) {
+  localStorage.setItem(
+    OPTIN_GPS_KEY,
+    JSON.stringify({
+      lat,
+      lng,
+      acc,
+      t: Date.now()
+    })
+  );
+}
+
+export function getOptInGPSContext() {
+  const raw = localStorage.getItem(OPTIN_GPS_KEY);
+  return raw ? JSON.parse(raw) : null;
+}
 
 
 // expose for checkin.js
