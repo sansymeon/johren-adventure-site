@@ -38,8 +38,6 @@
       display:block;
       margin:0 auto;
     }
-
-    /* Make tap intent obvious but silent */
     .qr:active{
       transform: scale(0.98);
     }
@@ -51,7 +49,7 @@
     <h1>（店名）</h1>
 
     <div class="card">
-      <a href="/start/" aria-label="Johren を開く">
+      <a href="/start/" aria-label="Johren を開く" id="optin-link">
         <img
           src="/img/qr/merchant-qr.png"
           alt="Johren QRコード"
@@ -60,5 +58,18 @@
       </a>
     </div>
   </div>
+
+  <!-- ✅ Opt-In count logic lives here -->
+  <script type="module">
+    import { incrementOptInCount } from "/js/storage.js";
+
+    const link = document.getElementById("optin-link");
+    if (link) {
+      link.addEventListener("click", () => {
+        incrementOptInCount();
+      });
+    }
+  </script>
+
 </body>
 </html>
