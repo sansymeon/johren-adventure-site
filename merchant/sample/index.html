@@ -61,15 +61,17 @@
 
   <!-- ✅ Opt-In count logic lives here -->
   <script type="module">
-    import { incrementOptInCount } from "/js/storage.js";
+  import { incrementOptInCountOncePerDay } from "/js/storage.js";
 
-    const link = document.getElementById("optin-link");
-    if (link) {
-      link.addEventListener("click", () => {
-        incrementOptInCount();
-      });
-    }
-  </script>
+  const link = document.getElementById("optin-link");
+
+  if (link) {
+    link.addEventListener("click", () => {
+      incrementOptInCountOncePerDay();
+    });
+  }
+</script>
+
 
 </body>
 </html>
