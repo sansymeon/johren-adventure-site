@@ -37,15 +37,7 @@ export function getOptInId() {
   }
   return id;
 }
-export function getOptInCount() {
-  return parseInt(localStorage.getItem("johren_optin_count") || "0", 10);
-}
 
-export function incrementOptInCount() {
-  const next = getOptInCount() + 1;
-  localStorage.setItem("johren_optin_count", String(next));
-  return next;
-}
 const OPTIN_COUNT_KEY = "johren_optin_count";
 const OPTIN_LAST_DATE_KEY = "johren_optin_last_date";
 
@@ -96,6 +88,9 @@ export function getOptInGPSContext() {
   const raw = localStorage.getItem(OPTIN_GPS_KEY);
   return raw ? JSON.parse(raw) : null;
 }
+return JSON.parse(localStorage.getItem(getStorageKey())) || {
+  visitedStations: []
+};
 
 
 // expose for checkin.js
