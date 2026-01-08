@@ -2,15 +2,15 @@
   // ===============================
   // MAP CONTEXT DETECTION
   // ===============================
-  const isOptInMap = !!window.OPT_IN_MAP;
+  const isJoinMap = !!window.JOIN_MAP;
 
-  if (!isOptInMap && !window.AREA_KEY) {
+  if (!isJoinMap && !window.AREA_KEY) {
     console.error('AREA_KEY missing');
     return;
   }
 
-  const mapConfig = isOptInMap
-    ? window.OPT_IN_MAP
+  const mapConfig = isJoinMap
+    ? window.JOIN_MAP
     : window.MAP_CONFIG?.[window.AREA_KEY];
 
   if (!mapConfig) {
