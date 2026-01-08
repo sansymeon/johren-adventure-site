@@ -37,6 +37,15 @@ export function getOptInId() {
   }
   return id;
 }
+export function getOptInCount() {
+  return parseInt(localStorage.getItem("johren_optin_count") || "0", 10);
+}
+
+export function incrementOptInCount() {
+  const next = getOptInCount() + 1;
+  localStorage.setItem("johren_optin_count", String(next));
+  return next;
+}
 
 
 // expose for checkin.js
