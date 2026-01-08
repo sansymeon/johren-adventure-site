@@ -29,6 +29,15 @@ function markStationVisited(stationId) {
     saveJohrenData(data);
   }
 }
+export function getOptInId() {
+  let id = localStorage.getItem("johren_optin_id");
+  if (!id) {
+    id = crypto.randomUUID();
+    localStorage.setItem("johren_optin_id", id);
+  }
+  return id;
+}
+
 
 // expose for checkin.js
 window.markStationVisited = markStationVisited;
