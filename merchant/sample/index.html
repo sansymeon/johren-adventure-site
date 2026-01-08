@@ -59,54 +59,39 @@
     </div>
   </div>
 
-  <!-- ✅ Opt-In count logic lives here -->
+  <!-- ✅ Opt-In logic (count + optional GPS) -->
   <script type="module">
-  import { incrementOptInCountOncePerDay } from "/js/storage.js";
+    import {
+      incrementOptInCountOncePerDay,
+      saveOptInGPSContext
+    } from "/js/storage.js";
 
-  const link = document.getElementById("optin-link");
+    const link = document.getElementById("optin-link");
 
-  if (link) {
-    link.addEventListener("click", () => {
-      incrementOptInCountOncePerDay();
-    });
-  }
-</script>
-<script type="module">
-  import {
-    incrementOptInCountOncePerDay
-  } from "/js/storage.js";
+    if (link) {
+      link.addEventListener("click", () => {
+        const didCount = incrementOptInCountOncePerDay();
 
-  import {
-    saveOptInGPSContext
-  } from "/js/storage.js";
-
-  const link = document.getElementById("optin-link");
-
-  if (link) {
-    link.addEventListener("click", () => {
-      const didCount = incrementOptInCountOncePerDay();
-
-      if (didCount && navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-          (pos) => {
-            saveOptInGPSContext({
-              lat: pos.coords.latitude,
-              lng: pos.coords.longitude,
-              acc: pos.coords.accuracy
-            });
-          },
-          () => {},
-          {
-            enableHighAccuracy: false,
-            timeout: 3000,
-            maximumAge: 60000
-          }
-        );
-      }
-    });
-  }
-</script>
-
+        if (didCount && navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            (pos) => {
+              saveOptInGPSContext({
+                lat: pos.coords.latitude,
+                lng: pos.coords.longitude,
+                acc: pos.coords.accuracy
+              });
+            },
+            () => {},
+            {
+              enableHighAccuracy: false,
+              timeout: 3000,
+              maximumAge: 60000
+            }
+          );
+        }
+      });
+    }
+  </script>
 
 </body>
 </html>
