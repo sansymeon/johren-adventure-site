@@ -46,6 +46,34 @@ export function incrementOptInCount() {
   localStorage.setItem("johren_optin_count", String(next));
   return next;
 }
+const OPTIN_COUNT_KEY = "johren_optin_count";
+const OPTIN_LAST_DATE_KEY = "johren_optin_last_date";
+
+function todayString() {
+  // Local calendar day, not UTC
+  const d = new Date();
+  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+}
+
+export function getOptInCount() {
+  return parseInt(localStorage.getItem(OPTIN_COUNT_KEY) || "0", 10);
+}
+
+export function canIncrementOptInToday() {
+  const last = localStorage.getItem(OPTIN_LAST_DATE_KEY);
+  return last !== todayString();
+}
+
+export function incrementOptInCountOncePerDay() {
+  if (!canIncrementOptInToday()) {
+    return false; // already counted today
+  }
+
+  const next = getOptInCount() + 1;
+  localStorage.setItem(OPTIN_COUNT_KEY, String(next));
+  localStorage.setItem(OPTIN_LAST_DATE_KEY, todayString());
+  return true;
+}
 
 
 // expose for checkin.js
