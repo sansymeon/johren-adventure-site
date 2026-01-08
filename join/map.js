@@ -3,6 +3,11 @@
   // MAP CONTEXT DETECTION
   // ===============================
   const isJoinMap = !!window.JOIN_MAP;
+  
+  window.JOIN_MAP = {
+  center: [33.5, 130.5], // kyushu
+  zoom: 9
+};
 
   if (!isJoinMap && !window.AREA_KEY) {
     console.error('AREA_KEY missing');
@@ -96,7 +101,7 @@
         L.marker([item.lat, item.lng], { icon })
           .addTo(map)
           .bindPopup(item.name);
-      });t-
+      });
   }
 
   // ===============================
