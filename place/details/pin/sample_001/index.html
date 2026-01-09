@@ -93,15 +93,7 @@
       </div>
     </div>
   </div>
-  <script type="module">
-  import { getOptInCount } from "/js/storage.js";
-
-  const el = document.getElementById("visitCounter");
-  if (!el) return;
-
-  const count = getOptInCount();
-  el.textContent = count > 0 ? `回数：${count}` : "回数：—";
-</script>
+  
 
 </body>
 </html>
