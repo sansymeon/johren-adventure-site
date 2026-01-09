@@ -97,12 +97,10 @@
   import { getOptInCount } from "/js/storage.js";
 
   const el = document.getElementById("visitCounter");
-  if (el) {
-    const count = getOptInCount();
-    if (count > 0) {
-      el.textContent = `回数：${count}`;
-    }
-  }
+  if (!el) return;
+
+  const count = getOptInCount();
+  el.textContent = count > 0 ? `回数：${count}` : "回数：—";
 </script>
 
 </body>
