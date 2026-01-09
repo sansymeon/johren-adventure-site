@@ -70,23 +70,10 @@
 </div>
 
 
-      <div class="count" id="visit-count">
-        回数：—
-      </div>
+      
     </div>
   </div>
 
-  <!-- Optional: local opt-in count -->
-  <script type="module">
-    import { getOptInCount } from "/js/storage.js";
-
-    const el = document.getElementById("visit-count");
-    if (el) {
-      const count = getOptInCount();
-      if (!isNaN(count)) {
-        el.textContent = `回数：${count}`;
-      }
-    }
-  </script>
+  
 </body>
 </html>
