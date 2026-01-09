@@ -1,9 +1,9 @@
-// join policy:
+// place policy:
 // Only locations explicitly marked as visible are rendered on the map.
 // Sample markers are shown separately for demonstration purposes.
 
 
-window.JOIN_MAP = {
+window.PLACE_MAP = {
   center: [33.557082, 130.199305], // Itoshima
   zoom: 11,
   places: [
