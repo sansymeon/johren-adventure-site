@@ -93,5 +93,17 @@
       </div>
     </div>
   </div>
+  <script type="module">
+  import { getOptInCount } from "/js/storage.js";
+
+  const el = document.getElementById("visitCounter");
+  if (el) {
+    const count = getOptInCount();
+    if (count > 0) {
+      el.textContent = `回数：${count}`;
+    }
+  }
+</script>
+
 </body>
 </html>
