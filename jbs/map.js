@@ -2,12 +2,14 @@
   // ===============================
   // MAP CONTEXT DETECTION
   // ===============================
-  const isJBSMap = !!window.JBS_MAP;
-  
   window.JBS_MAP = {
-  center: [33.5, 130.5], // kyushu
+  center: [33.5, 130.5],// kyushu
   zoom: 9
 };
+
+const isJBSMap = true; // or !!window.JBS_MAP
+  
+
 
   if (!isJBSMap && !window.AREA_KEY) {
     console.error('AREA_KEY missing');
@@ -118,7 +120,7 @@
   loadCategory("hotels", "hotel");
   loadCategory("noodles", "noodles");
   loadCategory("playgrounds", "playground");
-  loadCategory("restaurants"plac, "restaurant");
+  loadCategory("restaurants", "restaurant");
   loadCategory("supermarkets", "supermarket");
 
   // ===============================
