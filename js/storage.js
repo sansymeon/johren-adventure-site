@@ -1,3 +1,6 @@
+// ===============================
+// STORAGE KEY (area-scoped)
+// ===============================
 function getStorageKey() {
   if (!window.AREA_KEY) {
     console.warn('[Johren] AREA_KEY missing, using global storage');
@@ -6,10 +9,13 @@ function getStorageKey() {
   return `johren:${window.AREA_KEY}`;
 }
 
-
+// ===============================
+// LOAD / SAVE
+// ===============================
 function getJohrenData() {
   return JSON.parse(localStorage.getItem(getStorageKey())) || {
-    visitedStations: []
+    visitedStations: [],
+    visitCounts: {}
   };
 }
 
@@ -20,6 +26,9 @@ function saveJohrenData(data) {
   );
 }
 
+// ===============================
+// STATIONS (existing behavior)
+// ===============================
 function markStationVisited(stationId) {
   const id = String(stationId);
   const data = getJohrenData();
@@ -29,69 +38,41 @@ function markStationVisited(stationId) {
     saveJohrenData(data);
   }
 }
-export function getOptInId() {
-  let id = localStorage.getItem("johren_optin_id");
-  if (!id) {
-    id = crypto.randomUUID();
-    localStorage.setItem("johren_optin_id", id);
-  }
-  return id;
-}
 
-const OPTIN_COUNT_KEY = "johren_optin_count";
-const OPTIN_LAST_DATE_KEY = "johren_optin_last_date";
+// ===============================
+// VISIT COUNT (NEW, SILENT)
+// ===============================
+function recordVisit(spotId) {
+  const id = String(spotId);
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+  const data = getJohrenData();
 
-function todayString() {
-  // Local calendar day, not UTC
-  const d = new Date();
-  return `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-}
-
-export function getOptInCount() {
-  return parseInt(localStorage.getItem(OPTIN_COUNT_KEY) || "0", 10);
-}
-
-export function canIncrementOptInToday() {
-  const last = localStorage.getItem(OPTIN_LAST_DATE_KEY);
-  return last !== todayString();
-}
-
-export function incrementOptInCountOncePerDay() {
-  if (!canIncrementOptInToday()) {
-    return false; // already counted today
+  if (!data.visitCounts[id]) {
+    data.visitCounts[id] = {
+      total: 0,
+      lastVisitDate: null
+    };
   }
 
-  const next = getOptInCount() + 1;
-  localStorage.setItem(OPTIN_COUNT_KEY, String(next));
-  localStorage.setItem(OPTIN_LAST_DATE_KEY, todayString());
-  return true;
-}
-// -------------------------------
-// OPT-IN GPS CONTEXT (OPTIONAL)
-// -------------------------------
-
-const OPTIN_GPS_KEY = "johren_optin_gps";
-
-export function saveOptInGPSContext({ lat, lng, acc }) {
-  localStorage.setItem(
-    OPTIN_GPS_KEY,
-    JSON.stringify({
-      lat,
-      lng,
-      acc,
-      t: Date.now()
-    })
-  );
+  // only increment once per day
+  if (data.visitCounts[id].lastVisitDate !== today) {
+    data.visitCounts[id].total += 1;
+    data.visitCounts[id].lastVisitDate = today;
+    saveJohrenData(data);
+  }
 }
 
-export function getOptInGPSContext() {
-  const raw = localStorage.getItem(OPTIN_GPS_KEY);
-  return raw ? JSON.parse(raw) : null;
+// ===============================
+// READ-ONLY ACCESS (DISPLAY LAYER)
+// ===============================
+function getVisitCount(spotId) {
+  const data = getJohrenData();
+  return data.visitCounts?.[String(spotId)]?.total || 0;
 }
-return JSON.parse(localStorage.getItem(getStorageKey())) || {
-  visitedStations: []
-};
 
-
-// expose for checkin.js
+// ===============================
+// EXPOSE
+// ===============================
 window.markStationVisited = markStationVisited;
+window.recordVisit = recordVisit;
+window.getVisitCount = getVisitCount;
