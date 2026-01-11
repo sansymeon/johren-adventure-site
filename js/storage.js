@@ -66,24 +66,24 @@ function markStationVisited(stationId) {
 }
 
 // ===============================
-// VISIT COUNT (NEW, SILENT)
+// VISIT COUNT (GENERIC, SILENT)
 // ===============================
-function recordVisit(spotId) {
-  const id = String(spotId);
+function recordVisit(key) {
+  const id = String(key);
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const data = getJohrenData();
 
   if (!data.visitCounts[id]) {
     data.visitCounts[id] = {
       total: 0,
-      lastVisitDate: null
+      lastDate: null
     };
   }
 
   // only increment once per day
-  if (data.visitCounts[id].lastVisitDate !== today) {
+  if (data.visitCounts[id].lastDate !== today) {
     data.visitCounts[id].total += 1;
-    data.visitCounts[id].lastVisitDate = today;
+    data.visitCounts[id].lastDate = today;
     saveJohrenData(data);
   }
 }
@@ -91,9 +91,9 @@ function recordVisit(spotId) {
 // ===============================
 // READ-ONLY ACCESS (DISPLAY LAYER)
 // ===============================
-function getVisitCount(spotId) {
+function getVisitCount(key) {
   const data = getJohrenData();
-  return data.visitCounts?.[String(spotId)]?.total || 0;
+  return data.visitCounts?.[String(key)]?.total || 0;
 }
 
 // ===============================
