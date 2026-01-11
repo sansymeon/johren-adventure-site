@@ -117,7 +117,13 @@
 <div class="history-whisper"></div>
 
 <!-- Load area data (gives us MAP_CONFIG + history_pool) -->
-<script src="/jds/map-data.js"></script>
+<script>
+  if (window.AREA_KEY) {
+    const s = document.createElement("script");
+    s.src = `/jds/${window.AREA_KEY}/map-data.js`;
+    document.head.appendChild(s);
+  }
+</script>
 
 <script>
   // ===============================
