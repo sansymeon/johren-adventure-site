@@ -38,11 +38,8 @@
   // -------------------------------
   // MAP INITIALIZATION
   // -------------------------------
-  const map = L.map('map', {
-  zoomControl: false,
-  attributionControl: false
-}).setView(center, zoom);
-;
+  const map = L.map('map', { zoomControl: false })
+  .setView(center, zoom);
 
   L.control.zoom({ position: 'topright' }).addTo(map);
 
