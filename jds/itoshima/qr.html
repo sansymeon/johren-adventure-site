@@ -162,6 +162,14 @@
 
   tryRenderHistory();
 </script>
+<script>
+  window.AREA_KEY = "itoshima";
+</script>
+<script>
+  const s = document.createElement("script");
+  s.src = `/jds/${window.AREA_KEY}/map-data.js`;
+  document.head.appendChild(s);
+</script>
 
   <script src="/js/storage.js"></script>
   <script>
