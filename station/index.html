@@ -142,7 +142,7 @@
   }
 
   function shouldShowHistory(key) {
-    return true; // FORCE ON FOR TESTING
+    return hashString(key) % 4 === 0;
   }
 
   function pickHistoryLine(key, pool) {
