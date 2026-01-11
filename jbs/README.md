@@ -1,11 +1,11 @@
-# /participant — Active participant Flow
+# /JBS — Active participant Flow
 
 Role: active
 
 Purpose:
-- Business-facing participant explanation
-- Entry point for participant map
-- Links to /participant/info/
+- Business-facing JBS explanation
+- Entry point for jbs map
+- Links to /jbs/info/
 
 Language:
 - Japanese only (for now)
