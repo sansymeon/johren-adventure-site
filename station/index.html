@@ -114,24 +114,12 @@
 </div>
 
 <!-- ===============================
-     HISTORY WHISPER
+     HISTORY WHISPER (STATION QR)
 =============================== -->
 <div class="history-whisper"></div>
 
-<!-- Load area data (gives us MAP_CONFIG + history_pool) -->
 <script>
-  if (window.AREA_KEY) {
-    const s = document.createElement("script");
-    s.src = `/jds/${window.AREA_KEY}/map-data.js`;
-    document.head.appendChild(s);
-  }
-</script>
-
-<script>
-  // ===============================
-  // HISTORY WHISPER (AREA-BASED)
-  // ===============================
-
+  // --- helpers ---
   function hashString(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -142,7 +130,8 @@
   }
 
   function shouldShowHistory(key) {
-    return hashString(key) % 4 === 0;
+    return true;
+
   }
 
   function pickHistoryLine(key, pool) {
@@ -151,14 +140,16 @@
     return pool[index];
   }
 
-  function tryRenderHistory(attempt = 0) {
-    // Give up after ~1 second (20 × 50ms)
-    if (attempt > 20) return;
+  // --- render ---
+  (function renderStationHistory(attempt = 0) {
+    if (attempt > 20) return; // fail quietly
 
-    if (!window.MAP_CONFIG || !window.AREA_KEY) {
-      setTimeout(() => tryRenderHistory(attempt + 1), 50);
+    if (!window.STATION_ID || !window.AREA_KEY || !window.MAP_CONFIG) {
+      setTimeout(() => renderStationHistory(attempt + 1), 50);
       return;
     }
+
+    if (!shouldShowHistory(window.STATION_ID)) return;
 
     const area = window.MAP_CONFIG[window.AREA_KEY];
     if (!area || !area.history_pool) return;
@@ -177,7 +168,9 @@
     p.textContent = line;
 
     container.appendChild(p);
-  }
+  })();
+</script>
+
 
   // Start waiting
   tryRenderHistory();
