@@ -130,7 +130,6 @@
   // HISTORY WHISPER (AREA-BASED)
   // ===============================
 
-  // Stable hash (CSP-safe)
   function hashString(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -140,24 +139,24 @@
     return Math.abs(hash);
   }
 
-  // Show history ~25% of the time
   function shouldShowHistory(key) {
-    return true;
+    return true; // FORCE ON FOR TESTING
   }
 
-  // Pick a stable line from the pool
   function pickHistoryLine(key, pool) {
     if (!Array.isArray(pool) || pool.length === 0) return null;
     const index = hashString(key + "_history") % pool.length;
     return pool[index];
   }
 
-  // Render history (once, quietly)
-  (function () {
-    if (!window.STATION_ID || !window.AREA_KEY) return;
-    if (!window.MAP_CONFIG) return;
+  function tryRenderHistory(attempt = 0) {
+    // Give up after ~1 second (20 × 50ms)
+    if (attempt > 20) return;
 
-    if (!shouldShowHistory(window.STATION_ID)) return;
+    if (!window.MAP_CONFIG || !window.AREA_KEY) {
+      setTimeout(() => tryRenderHistory(attempt + 1), 50);
+      return;
+    }
 
     const area = window.MAP_CONFIG[window.AREA_KEY];
     if (!area || !area.history_pool) return;
@@ -176,8 +175,12 @@
     p.textContent = line;
 
     container.appendChild(p);
-  })();
+  }
+
+  // Start waiting
+  tryRenderHistory();
 </script>
+
 
 <!-- ===============================
      MAP LINK SETUP
