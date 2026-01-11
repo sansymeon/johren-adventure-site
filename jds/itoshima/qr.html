@@ -1,3 +1,43 @@
+<!--
+====================================================
+AREA QR TEMPLATE — COPY CHECKLIST
+====================================================
+
+When copying this file for a NEW AREA, confirm ALL:
+
+1) AREA_KEY
+   - window.AREA_KEY = "itoshima"
+   - MUST match folder name and map-data.js
+
+2) map-data.js path
+   - /jds/{AREA_KEY}/map-data.js
+   - Confirm file exists and loads (no 404)
+
+3) recordVisit key
+   - recordVisit("jds:{AREA_KEY}")
+   - Do NOT leave previous area value
+
+4) History whisper
+   - Uses AREA history_pool (not station)
+   - shouldShowHistory() restored (NOT return true)
+
+5) Text / language
+   - Japanese title matches area
+   - English subtitle unchanged unless intentional
+
+6) Links
+   - Map link points to /disc/{AREA_KEY}/map/
+
+7) Console check (mobile + desktop)
+   - No AREA_KEY missing warnings
+   - No storage.js errors
+
+If ANY of the above are skipped,
+history, counts, or maps will silently break.
+
+====================================================
+-->
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
