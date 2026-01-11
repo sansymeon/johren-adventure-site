@@ -11,7 +11,7 @@
       margin:0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        url("/img/ui/cloud_background.jpg") center / cover no-repeat,
+        url("/img/qrlanding_page_image.jpg") center / cover no-repeat,
         #f6f6f4;
       color:#222;
       line-height:1.7;
@@ -68,6 +68,66 @@
       </div>
     </div>
   </div>
+<!-- ===============================
+     HISTORY WHISPER
+=============================== -->
+<div class="history-whisper"></div>
+
+<script>
+  // ===============================
+  // HISTORY WHISPER (JDS QR – AREA)
+  // ===============================
+
+  function hashString(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function shouldShowHistory(key) {
+    return true;
+  }
+
+  function pickHistoryLine(key, pool) {
+    if (!Array.isArray(pool) || pool.length === 0) return null;
+    const index = hashString(key + "_history") % pool.length;
+    return pool[index];
+  }
+
+  function tryRenderHistory(attempt = 0) {
+    if (attempt > 20) return; // ~1 second max wait
+
+    if (!window.AREA_KEY || !window.MAP_CONFIG) {
+      setTimeout(() => tryRenderHistory(attempt + 1), 50);
+      return;
+    }
+
+    if (!shouldShowHistory(window.AREA_KEY)) return;
+
+    const area = window.MAP_CONFIG[window.AREA_KEY];
+    if (!area || !area.history_pool) return;
+
+    const line = pickHistoryLine(
+      window.AREA_KEY,
+      area.history_pool
+    );
+    if (!line) return;
+
+    const container = document.querySelector(".history-whisper");
+    if (!container) return;
+
+    const p = document.createElement("p");
+    p.className = "history-line";
+    p.textContent = line;
+
+    container.appendChild(p);
+  }
+
+  tryRenderHistory();
+</script>
 
   <script src="/js/storage.js"></script>
   <script>
