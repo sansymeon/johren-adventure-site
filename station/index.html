@@ -116,8 +116,15 @@
 =============================== -->
 <div class="history-whisper"></div>
 
+<!-- Load area data (gives us MAP_CONFIG + history_pool) -->
+<script src="/jds/map-data.js"></script>
+
 <script>
-  // --- CSP-safe hash helpers ---
+  // ===============================
+  // HISTORY WHISPER (AREA-BASED)
+  // ===============================
+
+  // Stable hash (CSP-safe)
   function hashString(str) {
     let hash = 0;
     for (let i = 0; i < str.length; i++) {
@@ -127,30 +134,42 @@
     return Math.abs(hash);
   }
 
-  function shouldShowHistory(stationId) {
-    return hashString(stationId) % 4 === 0;
+  // Show history ~25% of the time
+  function shouldShowHistory(key) {
+    return true;
   }
 
-  // --- history rendering ---
+  // Pick a stable line from the pool
+  function pickHistoryLine(key, pool) {
+    if (!Array.isArray(pool) || pool.length === 0) return null;
+    const index = hashString(key + "_history") % pool.length;
+    return pool[index];
+  }
+
+  // Render history (once, quietly)
   (function () {
-    if (!window.STATION_ID) return;
+    if (!window.STATION_ID || !window.AREA_KEY) return;
+    if (!window.MAP_CONFIG) return;
+
     if (!shouldShowHistory(window.STATION_ID)) return;
 
-    const line = "この土地は、思っているより長い時間を見てきました。";
+    const area = window.MAP_CONFIG[window.AREA_KEY];
+    if (!area || !area.history_pool) return;
+
+    const line = pickHistoryLine(
+      window.STATION_ID,
+      area.history_pool
+    );
+    if (!line) return;
 
     const container = document.querySelector(".history-whisper");
     if (!container) return;
 
-    const p = document.createElement("div");
+    const p = document.createElement("p");
+    p.className = "history-line";
+    p.textContent = line;
 
-    .history-line {
-  font-size: 13px;
-  line-height: 1.9;
-  font-weight: 600;              /* ← key change */
-  color: rgba(0, 0, 0, 0.7);      /* darker */
-  text-shadow: 0 1px 3px rgba(255,255,255,0.6);
-}
-
+    container.appendChild(p);
   })();
 </script>
 
@@ -165,5 +184,5 @@
 </script>
 
 </body>
-
 </html>
+
