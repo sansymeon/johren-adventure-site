@@ -1,4 +1,10 @@
+<!--
+Johren QR visit — JBS Level 02
+In the script below, replace "sample_002" with the correct merchant ID.
+Do not display visit counts on this page.
+-->
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
@@ -50,15 +56,12 @@
       margin-bottom:12px;
     }
 
-    .count{
-      font-size:13px;
-      color:#777;
-    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
+    <h1>Welcome to Johren Adventures</h1><br>
     <h1>（参加者名）</h1>
 
     <div class="card">
@@ -68,11 +71,25 @@
     Thanks for stopping by.
   </span>
 </div>
+<div style="margin-top:24px; font-size:13px; color:#666;">
+  <a href="/jbs/map/" style="color:#666; text-decoration:underline;">
+    参加している場所を見る
+  </a>
+</div>
 
 
       
     </div>
   </div>
+
+</script>
+<script src="/js/storage.js"></script>
+<script>
+  // Johren QR visit — JBS Level 02 (merchant-specific)
+  if (window.recordVisit) {
+    window.recordVisit("jbs:level_02:sample_001");
+  }
+</script>
 
   
 </body>
