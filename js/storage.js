@@ -1,3 +1,29 @@
+/*
+JOHREN QR SYSTEM — DO NOT OPTIMIZE
+
+This code handles QR access for Johren.
+It is intentionally quiet and minimal.
+
+Rules (non-negotiable):
+- QR access is for presence, not engagement.
+- Users must NEVER see visit counts or progress.
+- No instant feedback, rewards, or explanations.
+- Any effects (if ever) must be delayed and subtle.
+- Johren does not issue incentives or manage rewards.
+
+If you are thinking about:
+- gamification
+- optimization
+- engagement metrics
+- progress indicators
+- “just one small improvement”
+
+Stop and read:
+  /jbs/qr/README.md
+
+Calm is a feature.
+*/
+
 // ===============================
 // STORAGE KEY (area-scoped)
 // ===============================
