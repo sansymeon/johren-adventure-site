@@ -268,9 +268,9 @@ loadCategory(parks, parkLayer, icons.park);
   // PROGRESS DISPLAY (AREA-SCOPED)
   // -------------------------------
   const progressEl = document.getElementById('progress');
-  if (progressEl) {
-    progressEl.textContent =
-      `進捗 ${visitedStations.length} / ${stations.length}`;
-  }
+if (progressEl) {
+  progressEl.textContent = `${visited} / ${total}`;
+}
+
 
 })();
