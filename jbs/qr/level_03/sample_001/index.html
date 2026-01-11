@@ -71,6 +71,7 @@
 
 <body>
   <div class="wrap">
+    <h1>Welcome to Johren Adventure</h1><br>
     <h1>（参加者名）</h1>
 
     <div class="card">
@@ -93,7 +94,14 @@ __
       </div>
     </div>
   </div>
-  
+</script>
+<script src="/js/storage.js"></script>
+<script>
+  // Johren QR visit — JBS Level 03 (merchant-specific)
+  if (window.recordVisit) {
+    window.recordVisit("jbs:level_03:sample_001");
+  }
+</script>
 
 </body>
-</html>
+</html>  
