@@ -65,13 +65,19 @@
     }
 
     .photo{
-      width: min(520px, 92%);
-      height: auto;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      display:block;
-      background: var(--soft);
-    }
+  width: 100%;
+  max-width: 420px;   /* ↓ reduced from ~520 */
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  display:block;
+  background: var(--soft);
+}
+@media (max-width: 480px){
+  .photo{
+    max-width: 360px;
+  }
+}
 
     h2{
       font-size: 16px;
