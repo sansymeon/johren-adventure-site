@@ -5,6 +5,43 @@
       margin: 0;
       padding: 0;
     }
+.sitebar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.sitebar-inner{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sitebar-brand{
+  text-decoration: none;
+  font-weight: 700;
+  color: inherit;
+  letter-spacing: 0.02em;
+}
+
+.sitebar-link{
+  text-decoration: none;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.6);
+}
+
+.sitebar-link:hover{
+  background: rgba(0,0,0,0.04);
+}
 
     header {
       text-align: center;
