@@ -64,15 +64,19 @@
       justify-content:center;
     }
 
-    .photo{
+  .photo {
   width: 80%;
-  max-width: 420px;   /* ↓ reduced from ~520 */
+  max-width: 420px;
   height: auto;
   border-radius: 14px;
   border: 1px solid var(--line);
-  display:block;
+  display: block;
+  /* ↓ これを追加 */
+  margin-left: auto;
+  margin-right: auto;
+  
   background: var(--soft);
-  transition: opacity 0.2s; /* タップ時のアニメーション用 */
+  transition: opacity 0.2s;
 }
     .image a {
   display: block;      /* リンクの範囲を画像全体に広げる */
