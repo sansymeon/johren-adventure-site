@@ -68,6 +68,13 @@
   color: rgba(0,0,0,0.7);
   text-shadow: 0 1px 3px rgba(255,255,255,0.6);
 }
+const info = document.getElementById("infoLink");
+if (info) {
+  // choose your real path:
+  // info.href = "/setsumei/eki/"; 
+  // or if you want to preserve context:
+  info.href = `/eki/setsumei/?id=${encodeURIComponent(window.STATION_ID || "")}`;
+}
 
   </style>
 </head>
@@ -112,7 +119,7 @@
   <!-- Map link updated dynamically -->
   <a id="mapLink" href="#">記録を地図で見る →</a>
 </div>
-<a id="/setsumei/eki.html" href="#" style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
+<a id="/infoLink" href="#" style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
   この仕組みについて（駅）→
 </a>
 
