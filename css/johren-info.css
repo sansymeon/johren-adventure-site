@@ -52,6 +52,15 @@
     margin-top: -6px;
   }
 }
+.card {
+  max-width: 92vw;
+  padding: 28px 22px;
+}
+
+.card p {
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
 
 
     .areas {
