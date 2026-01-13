@@ -72,6 +72,17 @@
   border: 1px solid var(--line);
   display:block;
   background: var(--soft);
+  transition: opacity 0.2s; /* タップ時のアニメーション用 */
+}
+    .image a {
+  display: block;      /* リンクの範囲を画像全体に広げる */
+  line-height: 0;     /* 下部の余計な隙間を削除 */
+  cursor: pointer;
+}
+
+/* モバイルでタップした瞬間に少し透明にする（フィードバック） */
+.image a:active {
+  opacity: 0.7;
 }
 @media (max-width: 480px){
   .photo{
@@ -149,11 +160,13 @@
 </div>
     <!-- Image -->
     <section class="image" aria-label="QRカード設置イメージ">
-      <img
-        class="photo"
-        src="/img/cashier_qrcode.jpg"
-        alt="受付・会計付近に設置されたQRカードのイメージ">
-    </section>
+  <a href="/">
+    <img
+      class="photo"
+      src="/img/cashier_qrcode.jpg"
+      alt="受付・会計付近に設置されたQRカードのイメージ">
+  </a>
+</section>
 
     <p class="para">
       この取り組みは、糸島のまちの中にある場所が、<br>
