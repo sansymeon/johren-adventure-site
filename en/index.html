@@ -53,7 +53,17 @@
       grid-template-columns: 1fr;
       gap: 20px;
       padding: 0 20px;
-    }
+      
+    }.program-grid{
+  display: flex;
+  gap: 20px;
+  justify-content: center;   /* centers the row */
+  flex-wrap: wrap;           /* allows wrap on small screens */
+  max-width: 980px;          /* optional: keeps it from stretching too wide */
+  margin: 0 auto;            /* centers the container itself */
+  padding: 0 16px;           /* breathing room on mobile */
+}
+
     @media (min-width: 700px) {
       .program-grid {
         grid-template-columns: repeat(3, 1fr);
