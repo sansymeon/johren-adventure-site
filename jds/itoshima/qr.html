@@ -128,6 +128,13 @@ history, counts, or maps will silently break.
   line-height: 1.6;
   letter-spacing: 0.02em;
 }
+const info = document.getElementById("infoLink");
+if (info) {
+  // choose your real path:
+  // info.href = "/setsumei/ippan/"; 
+  // or if you want to preserve context:
+  info.href = `/setsumei/ippan/?id=${encodeURIComponent(window.STATION_ID || "")}`;
+}
 
   </style>
 </head>
