@@ -99,8 +99,6 @@ Do not display visit counts on this page.
     この仕組みについて（店舗）→
   </a>
 </div>
-
-      </div>
     </div>
   </div>
 <script src="/js/storage.js"></script>
@@ -147,6 +145,8 @@ Do not display visit counts on this page.
   const merchantLink = document.getElementById("merchantLink");
   if (merchantLink) {
     const url = m?.merchant_url;
+      if (merchantLink) {
+    const url = m?.merchant_url;
     if (url) {
       merchantLink.href = url;
       merchantLink.target = "_blank";
@@ -155,8 +155,9 @@ Do not display visit counts on this page.
     } else {
       merchantLink.style.display = "none";
     }
-    }
+  }
 })();
+
 </script>
 </body>
 </html>  
