@@ -66,21 +66,14 @@ Do not display visit counts on this page.
     .optional-link a:hover{
       color:#000;
     }
-const info = document.getElementById("infoLink");
-if (info) {
-  // choose your real path:
-  // info.href = "/setsumei/tenpo/"; 
-  // or if you want to preserve context:
-  info.href = `/setsumei/tenpo/?id=${encodeURIComponent(window.STATION_ID || "")}`;
-}
+
   </style>
 </head>
 
 <body>
   <div class="wrap">
     <h1>Welcome to Johren Adventure</h1><br>
-    <h1>（参加者名）</h1>
-
+    <h1 id="merchantName">（参加者名）</h1>
     <div class="card">
       <div class="message">
         この場所は、参加できる場所です。
@@ -97,22 +90,73 @@ if (info) {
 
       <!-- ✅ ONLY DIFFERENCE FROM PARTICIPANT -->
       <div class="optional-link">
-        <a href="/jbs/qr/level_03_merchant_sample/" aria-label="詳細を見る">
-  この参加者について、もう少し →
-</a>
-        <a id="/infoLink" href="/setsumei/tenpo/" style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
-  この仕組みについて（店舗）→
-</a>
+  <a id="merchantLink" href="#" aria-label="詳細を見る" style="display:none;">
+    この参加者について、もう少し →
+  </a>
+
+  <a id="infoLink" href="/setsumei/tenpo/"
+     style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
+    この仕組みについて（店舗）→
+  </a>
+</div>
+
       </div>
     </div>
   </div>
 <script src="/js/storage.js"></script>
 <script>
-  // Johren QR visit — JBS Level 03 (merchant-specific)
-  if (window.recordVisit) {
-    window.recordVisit("jbs:level_03:sample_001");
-  }
-</script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = (params.get("id") || "").trim();
 
+  // Fallback if no id
+  if (!id) {
+    // Choose your preferred safe landing:
+    location.replace("/jbs/setsumei/");
+    return;
+  }
+
+  // Record visit (no counts displayed)
+  if (window.recordVisit) {
+    window.recordVisit(`jbs:level_03:${id}`);
+  }
+
+  // Fetch merchant data
+  let merchants = null;
+  try {
+    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
+    merchants = await res.json();
+  } catch (e) {
+    console.error(e);
+  }
+
+  const m = merchants?.[id];
+
+  // (Optional) populate merchant name if present
+  if (m?.name) {
+    const nameH1 = document.getElementById("merchantName");
+    if (nameH1) nameH1.textContent = m.name;
+  }
+
+  // Info link: preserve context
+  const info = document.getElementById("infoLink");
+  if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+
+  // Merchant link: only show if URL exists
+  const merchantLink = document.getElementById("merchantLink");
+  if (merchantLink) {
+    const url = m?.merchant_url;
+    if (url) {
+      merchantLink.href = url;
+      merchantLink.target = "_blank";
+      merchantLink.rel = "noopener noreferrer";
+      merchantLink.style.display = "inline-block";
+    } else {
+      merchantLink.style.display = "none";
+    }
+    }
+})();
+</script>
 </body>
 </html>  
