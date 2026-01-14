@@ -1,16 +1,17 @@
 {
   "cafe_001": {
-    "name": "Sunset Cafe",
-    "lat": 33.57815,
-    "lng": 130.25986,
-    "level": 3,
-    "setsumei": "/jbs/setsumei/"
-  },
-  "shop_002": {
-    "name": "Cafe Chopin",
-    "lat": 33.5837,
-    "lng": 130.32501,
-    "level": 3,
-    "setsumei": "/jbs/setsumei/"
-  }
+  "name": "Cafe Chopin",
+  "level": 3,
+  "merchant_url": "https://example.com",
+  "lat": 33.57815,
+  "lng": 130.25986
 }
+
+"cafe_002": {
+  "name": "Sunset Cafe",
+  "level": 3,
+  "merchant_url": "https://example.com",
+  "lat": 33.57815,
+  "lng": 130.25986
+}
+
