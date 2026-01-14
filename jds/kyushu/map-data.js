@@ -1,7 +1,7 @@
 window.MAP_CONFIG = {
   kyushu: {
     center: [32, 131],
-    zoom: 10,
+    zoom: 8,
    
   stations: [
 // CHIKUHI LINE
