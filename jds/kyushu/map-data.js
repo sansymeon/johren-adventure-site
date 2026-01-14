@@ -2,7 +2,7 @@ window.MAP_CONFIG = {
   kyushu: {
     center: [32, 131],
     zoom: 10,
- },  
+   
   stations: [
 // CHIKUHI LINE
 {
@@ -1102,4 +1102,4 @@ window.MAP_CONFIG = {
   lat: 31.601404041487406,
   lng: 130.56299002617163
 }
-]
+};
