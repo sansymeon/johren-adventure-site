@@ -1,21 +1,8 @@
 window.MAP_CONFIG = {
-  itoshima: {
-    center: [33.557, 130.199],
+  kyushu: {
+    center: [32, 131],
     zoom: 10,
-
-  museums: [
-  { 
-    name: "Ito Art Museum", 
-   lat: 33.56063278048929,   
-   lng: 130.20447283810256 
-  },
-  { 
-    name: "Ito-koku History Museum", 
-   lat: 33.53641274192818,   
-   lng: 130.25185578816215 
-  }
-],
-  
+ },  
   stations: [
 // CHIKUHI LINE
 {
@@ -1115,3 +1102,4 @@ window.MAP_CONFIG = {
   lat: 31.601404041487406,
   lng: 130.56299002617163
 }
+]
