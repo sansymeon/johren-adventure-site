@@ -29,12 +29,12 @@ window.samples = [
     name: "Johren Fukuoka-Chuo サンプル・スポット",
     lat: 33.58620293814177,
     lng: 130.3764331173192,
-    url: "/jbs/qr/level_01/sample_001/index.html"
+    url: "/jbs/qr/level_01/index.html"
   },
   {
     name: "Johren Oita サンプル・スポット",
     lat: 33.23137680796785,
     lng: 131.60516398591903,
-    url: "/jbs/qr/level_01/sample_001/index.html"
+    url: "/jbs/qr/level_01/index.html"
   }
 ];
