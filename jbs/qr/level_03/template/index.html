@@ -99,6 +99,7 @@ Do not display visit counts on this page.
     この仕組みについて（店舗）→
   </a>
 </div>
+
     </div>
   </div>
 <script src="/js/storage.js"></script>
@@ -107,19 +108,15 @@ Do not display visit counts on this page.
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
 
-  // Fallback if no id
   if (!id) {
-    // Choose your preferred safe landing:
     location.replace("/setsumei/");
     return;
   }
 
-  // Record visit (no counts displayed)
   if (window.recordVisit) {
     window.recordVisit(`jbs:level_03:${id}`);
   }
 
-  // Fetch merchant data
   let merchants = null;
   try {
     const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
@@ -131,21 +128,16 @@ Do not display visit counts on this page.
 
   const m = merchants?.[id];
 
-  // (Optional) populate merchant name if present
   if (m?.name) {
     const nameH1 = document.getElementById("merchantName");
     if (nameH1) nameH1.textContent = m.name;
   }
 
-  // Info link: preserve context
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
 
-  // Merchant link: only show if URL exists
   const merchantLink = document.getElementById("merchantLink");
   if (merchantLink) {
-    const url = m?.merchant_url;
-      if (merchantLink) {
     const url = m?.merchant_url;
     if (url) {
       merchantLink.href = url;
@@ -157,7 +149,7 @@ Do not display visit counts on this page.
     }
   }
 })();
-
 </script>
+
 </body>
 </html>  
