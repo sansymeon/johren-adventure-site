@@ -49,6 +49,13 @@
       color:#555;
       margin-bottom:12px;
     }
+const info = document.getElementById("infoLink");
+if (info) {
+  // choose your real path:
+  // info.href = "/setsumei/tenpo/"; 
+  // or if you want to preserve context:
+  info.href = `/setsumei/tenpo/?id=${encodeURIComponent(window.STATION_ID || "")}`;
+}
 
   </style>
 </head>
