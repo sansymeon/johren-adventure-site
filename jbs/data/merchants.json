@@ -1,0 +1,16 @@
+{
+  "cafe_001": {
+    "name": "Sunset Cafe",
+    "lat": 33.57815,
+    "lng": 130.25986,
+    "level": 2,
+    "setsumei": "/jbs/setsumei/"
+  },
+  "shop_002": {
+    "name": "Cafe Chopin",
+    "lat": 33.5837,
+    "lng": 130.32501,
+    "level": 3,
+    "setsumei": "/jbs/setsumei/"
+  }
+}
