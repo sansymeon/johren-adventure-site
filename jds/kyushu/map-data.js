@@ -1,6 +1,6 @@
 window.MAP_CONFIG = {
   kyushu: {
-    center: [32, 131],
+    center: [33.316994,130.938711],
     zoom: 8,
    
   stations: [
