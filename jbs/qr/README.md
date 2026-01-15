@@ -32,6 +32,7 @@ They do NOT exist to:
 QR levels are an **internal structural tool**, not a public feature.
 
 ### Level 01 – “Peace Boat” Level
+https://johrenadventure.com/jbs/qr/level_01/
 - One universal QR code
 - No merchant identity
 - No visible visit counts
@@ -46,7 +47,8 @@ Do not rename to marketing terms.
 
 ---
 
-### Level 02 / Level 03 (Future, Optional)
+### Level 02 / https://johrenadventure.com/jbs/qr/level_02/?id=cafe_001
+###Level 03 / https://johrenadventure.com/jbs/qr/level_03/?id=cafe_001
 - Unique QR codes per location
 - May expose limited information **only to the place owner**
 - Still no public metrics
