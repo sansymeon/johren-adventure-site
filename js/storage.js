@@ -39,38 +39,56 @@ function getStorageKey() {
 // LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
+  // Default shape (schema)
+  const base = { visitedStations: [], visitCounts: {} };
+
+  let raw = null;
   try {
-    const raw = localStorage.getItem(getStorageKey());
-    if (!raw) return { visitedStations: [], visitCounts: {} };
+    raw = localStorage.getItem(getStorageKey());
+  } catch (e) {
+    return base; // storage blocked; stay quiet
+  }
+
+  if (!raw) return base;
+
+  try {
     const parsed = JSON.parse(raw);
-    return parsed && typeof parsed === "object"
-      ? {
-          visitedStations: Array.isArray(parsed.visitedStations) ? parsed.visitedStations : [],
-          visitCounts: parsed.visitCounts && typeof parsed.visitCounts === "object" ? parsed.visitCounts : {}
-        }
-      : { visitedStations: [], visitCounts: {} };
+
+    if (!parsed || typeof parsed !== 'object') return base;
+
+    if (!Array.isArray(parsed.visitedStations)) parsed.visitedStations = [];
+
+    if (!parsed.visitCounts || typeof parsed.visitCounts !== 'object' || Array.isArray(parsed.visitCounts)) {
+      parsed.visitCounts = {};
+    }
+
+    return parsed;
   } catch (e) {
-    return { visitedStations: [], visitCounts: {} };
+    console.warn('[Johren] storage parse failed, resetting');
+    return base;
   }
 }
 
-function saveJohrenData(data) {
-  try {
-    localStorage.setItem(getStorageKey(), JSON.stringify(data));
-  } catch (e) {
-    console.warn("[Johren] storage write failed");
-  }
-}
-
-// ===============================
-// STATIONS (existing behavior)
-// ===============================
-function markStationVisited(stationId) {
-  const id = String(stationId);
+function recordVisit(key) {
+  const id = String(key);
+  const today = new Date().toISOString().slice(0, 10);
   const data = getJohrenData();
 
-  if (!data.visitedStations.includes(id)) {
-    data.visitedStations.push(id);
+  if (!data.visitCounts || typeof data.visitCounts !== 'object' || Array.isArray(data.visitCounts)) {
+    data.visitCounts = {};
+  }
+
+  const cur = data.visitCounts[id];
+  if (!cur || typeof cur !== 'object' || Array.isArray(cur)) {
+    data.visitCounts[id] = { total: 0, lastDate: null };
+  } else {
+    if (typeof cur.total !== 'number') cur.total = 0;
+    if (cur.lastDate !== null && typeof cur.lastDate !== 'string') cur.lastDate = null;
+  }
+
+  if (data.visitCounts[id].lastDate !== today) {
+    data.visitCounts[id].total += 1;
+    data.visitCounts[id].lastDate = today;
     saveJohrenData(data);
   }
 }
