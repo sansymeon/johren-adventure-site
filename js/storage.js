@@ -23,11 +23,7 @@ Stop and read:
 
 Calm is a feature.
 */
-/*
-JOHREN QR SYSTEM — DO NOT OPTIMIZE
 
-... (your full header comment unchanged) ...
-*/
 
 // ===============================
 // STORAGE KEY (area-scoped)
@@ -75,11 +71,33 @@ function getJohrenData() {
 
 function saveJohrenData(data) {
   try {
-    localStorage.setItem(getStorageKey(), JSON.stringify(data));
+    const safe = {
+      visitedStations: Array.isArray(data?.visitedStations)
+        ? data.visitedStations.map(String)
+        : [],
+      visitCounts:
+        (data?.visitCounts && typeof data.visitCounts === 'object' && !Array.isArray(data.visitCounts))
+          ? data.visitCounts
+          : {}
+    };
+
+    // normalize visitCounts entries
+    for (const k of Object.keys(safe.visitCounts)) {
+      const v = safe.visitCounts[k];
+      if (!v || typeof v !== 'object' || Array.isArray(v)) {
+        safe.visitCounts[k] = { total: 0, lastDate: null };
+        continue;
+      }
+      if (typeof v.total !== 'number') v.total = 0;
+      if (v.lastDate !== null && typeof v.lastDate !== 'string') v.lastDate = null;
+    }
+
+    localStorage.setItem(getStorageKey(), JSON.stringify(safe));
   } catch (e) {
     console.warn('[Johren] storage write failed');
   }
 }
+
 
 // ===============================
 // STATIONS (existing behavior)
