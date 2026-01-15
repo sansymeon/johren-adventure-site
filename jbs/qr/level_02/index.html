@@ -1,5 +1,5 @@
 <!--
-Johren QR visit — JBS Level 03
+Johren QR visit — JBS Level 02
 In the script below, replace "sample_001" with the correct merchant ID.
 Do not display visit counts on this page.
 -->
@@ -66,11 +66,6 @@ Do not display visit counts on this page.
     .optional-link a:hover{
       color:#000;
     }
-} catch (e) {
-  console.error(e);
-  const nameH1 = document.getElementById("merchantName");
-  if (nameH1) nameH1.textContent = "（読み込み中…）";
-}
 
   </style>
 </head>
@@ -115,9 +110,6 @@ Do not display visit counts on this page.
     return;
   }
 
-  if (!m || Number(m.level) < 2) { location.replace("/setsumei/"); return; }
-
-
   let merchants = null;
   try {
     const res = await fetch(`/jbs/data/merchants.json?v=${Date.now()}`, { cache: "no-store" });
@@ -125,19 +117,33 @@ Do not display visit counts on this page.
     merchants = await res.json();
   } catch (e) {
     console.error(e);
+    const nameH1 = document.getElementById("merchantName");
+    if (nameH1) nameH1.textContent = "（読み込みエラー）";
+    return;
   }
 
   const m = merchants?.[id];
 
+  // Level guard for Level 2 page
+  if (!m || Number(m.level) < 2) {
+    location.replace("/setsumei/");
+    return;
+  }
+
+  // Record visit
+  if (window.recordVisit) {
+    window.recordVisit(`jbs:level_02:${id}`);
+  }
+
+  // Populate merchant name
   if (m?.name) {
     const nameH1 = document.getElementById("merchantName");
     if (nameH1) nameH1.textContent = m.name;
   }
 
+  // Info link: preserve context
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
-
-  }
 })();
 </script>
 
