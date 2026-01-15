@@ -119,7 +119,7 @@ Do not display visit counts on this page.
 
   let merchants = null;
   try {
-    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    const res = await fetch(`/jbs/data/merchants.json?v=${Date.now()}`, { cache: "no-store" });
     if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
     merchants = await res.json();
   } catch (e) {
