@@ -39,63 +39,28 @@ function getStorageKey() {
 // LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
-  const base = { visitedStations: [], visitCounts: {} };
-
-  let raw = null;
   try {
-    raw = localStorage.getItem(getStorageKey());
-  } catch (e) {
-    return base; // blocked storage
-  }
-
-  if (!raw) return base;
-
-  try {
+    const raw = localStorage.getItem(getStorageKey());
+    if (!raw) return { visitedStations: [], visitCounts: {} };
     const parsed = JSON.parse(raw);
-
-    if (!parsed || typeof parsed !== "object") return base;
-
-    // Self-heal schema
-    if (!Array.isArray(parsed.visitedStations)) parsed.visitedStations = [];
-    if (!parsed.visitCounts || typeof parsed.visitCounts !== "object" || Array.isArray(parsed.visitCounts)) {
-      parsed.visitCounts = {};
-    }
-
-    return parsed;
+    return parsed && typeof parsed === "object"
+      ? {
+          visitedStations: Array.isArray(parsed.visitedStations) ? parsed.visitedStations : [],
+          visitCounts: parsed.visitCounts && typeof parsed.visitCounts === "object" ? parsed.visitCounts : {}
+        }
+      : { visitedStations: [], visitCounts: {} };
   } catch (e) {
-    // corrupted JSON
-    return base;
+    return { visitedStations: [], visitCounts: {} };
   }
 }
 
 function saveJohrenData(data) {
   try {
-    const safe = {
-      visitedStations: Array.isArray(data?.visitedStations)
-        ? data.visitedStations.map(String)
-        : [],
-      visitCounts: (data?.visitCounts && typeof data.visitCounts === "object" && !Array.isArray(data.visitCounts))
-        ? data.visitCounts
-        : {}
-    };
-
-    for (const k of Object.keys(safe.visitCounts)) {
-      const v = safe.visitCounts[k];
-      if (!v || typeof v !== "object") {
-        safe.visitCounts[k] = { total: 0, lastDate: null };
-        continue;
-      }
-      if (typeof v.total !== "number") v.total = 0;
-      if (v.lastDate !== null && typeof v.lastDate !== "string") v.lastDate = null;
-    }
-
-    localStorage.setItem(getStorageKey(), JSON.stringify(safe));
+    localStorage.setItem(getStorageKey(), JSON.stringify(data));
   } catch (e) {
     console.warn("[Johren] storage write failed");
   }
 }
-
-
 
 // ===============================
 // STATIONS (existing behavior)
@@ -106,7 +71,7 @@ function markStationVisited(stationId) {
 
   if (!data.visitedStations.includes(id)) {
     data.visitedStations.push(id);
-    localstorage.setItem(data);
+    saveJohrenData(data);
   }
 }
 
@@ -135,7 +100,7 @@ function recordVisit(key) {
   if (data.visitCounts[id].lastDate !== today) {
     data.visitCounts[id].total += 1;
     data.visitCounts[id].lastDate = today;
-    localstorage.setItem(data);
+    saveJohrenData(data);
   }
 }
 
