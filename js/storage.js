@@ -80,6 +80,20 @@ function saveJohrenData(data) {
           ? data.visitCounts
           : {}
     };
+function getDeviceId() {
+  try {
+    const k = "johren_device_id";
+    let v = localStorage.getItem(k);
+    if (!v) {
+      v = (crypto?.randomUUID?.() || (String(Math.random()).slice(2) + Date.now()));
+      localStorage.setItem(k, v);
+    }
+    return v;
+  } catch (e) {
+    return "anon";
+  }
+}
+window.getDeviceId = getDeviceId;
 
     // normalize visitCounts entries
     for (const k of Object.keys(safe.visitCounts)) {
@@ -111,7 +125,6 @@ function markStationVisited(stationId) {
     saveJohrenData(data);
   }
 }
-
 // ===============================
 // VISIT COUNT (GENERIC, SILENT)
 // ===============================
@@ -138,7 +151,10 @@ function recordVisit(key) {
     data.visitCounts[id].total += 1;
     data.visitCounts[id].lastDate = today;
     saveJohrenData(data);
+    return true;   // increment happened today
   }
+
+  return false;    // already counted today
 }
 
 // ===============================
