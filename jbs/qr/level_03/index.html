@@ -130,8 +130,29 @@ Do not display visit counts on this page.
   // Level guard for Level 3 page
   if (!m || Number(m.level) < 3) { location.replace("/setsumei/"); return; }
 
-  // Record visit (silent)
-  if (window.recordVisit) window.recordVisit(`jbs:level_03:${id}`);
+  // Record visit (silent) — returns true only when it increments today
+  const didIncrement = (window.recordVisit)
+    ? window.recordVisit(`jbs:level_03:${id}`)
+    : false;
+
+  // If today’s increment happened, ping server once/day/device (no user data)
+  if (didIncrement && crypto?.subtle) {
+    const today = new Date().toISOString().slice(0,10);
+    const device = window.getDeviceId ? window.getDeviceId() : "anon";
+
+    const buf = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(`${device}|${id}|${today}|v1`)
+    );
+    const token = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+
+    fetch("/.netlify/functions/johren_count", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ merchant: id, token }),
+      keepalive: true
+    }).catch(()=>{});
+  }
 
   // Populate merchant name
   const nameH1 = document.getElementById("merchantName");
