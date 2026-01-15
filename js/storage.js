@@ -39,70 +39,37 @@ function getStorageKey() {
 // LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
-  let raw = null;
+  const base = { visitedStations: [], visitCounts: {} };
 
+  let raw = null;
   try {
     raw = localStorage.getItem(getStorageKey());
   } catch (e) {
-    // blocked storage, stay quiet
-    return { visitedStations: [], visitCounts: {} };
+    return base; // blocked storage
   }
-
-  if (!raw) {
-    return { visitedStations: [], visitCounts: {} };
-  }
-
-  try {
-    const parsed = JSON.parse(raw);
-
-    // Self-heal schema
-    if (!parsed || typeof parsed !== "object") {
-      return { visitedStations: [], visitCounts: {} };
-    }
-    if (!Array.isArray(parsed.visitedStations)) parsed.visitedStations = [];
-    if (!parsed.visitCounts || typeof parsed.visitCounts !== "object") parsed.visitCounts = {};
-
-    return parsed;
-  } catch (e) {
-    // corrupted JSON, reset quietly
-    return { visitedStations: [], visitCounts: {} };
-  }
-}
-
-
-  // Default shape (schema)
-  const base = {
-    visitedStations: [],
-    visitCounts: {}
-  };
 
   if (!raw) return base;
 
   try {
     const parsed = JSON.parse(raw);
 
-    // Self-heal missing / wrong-typed fields
-    if (!parsed || typeof parsed !== 'object') return base;
+    if (!parsed || typeof parsed !== "object") return base;
 
-    if (!Array.isArray(parsed.visitedStations)) {
-      parsed.visitedStations = [];
-    }
-
-    if (!parsed.visitCounts || typeof parsed.visitCounts !== 'object') {
+    // Self-heal schema
+    if (!Array.isArray(parsed.visitedStations)) parsed.visitedStations = [];
+    if (!parsed.visitCounts || typeof parsed.visitCounts !== "object" || Array.isArray(parsed.visitCounts)) {
       parsed.visitCounts = {};
     }
 
     return parsed;
   } catch (e) {
-    // Storage may be corrupted; reset quietly to safe base.
-    console.warn('[Johren] storage parse failed, resetting');
+    // corrupted JSON
     return base;
   }
 }
 
 function saveJohrenData(data) {
   try {
-    // Self-heal / sanitize before saving (keeps schema stable)
     const safe = {
       visitedStations: Array.isArray(data?.visitedStations)
         ? data.visitedStations.map(String)
@@ -112,7 +79,6 @@ function saveJohrenData(data) {
         : {}
     };
 
-    // Normalize each entry
     for (const k of Object.keys(safe.visitCounts)) {
       const v = safe.visitCounts[k];
       if (!v || typeof v !== "object") {
@@ -125,10 +91,10 @@ function saveJohrenData(data) {
 
     localStorage.setItem(getStorageKey(), JSON.stringify(safe));
   } catch (e) {
-    // If storage is full/blocked, stay quiet. No user-facing effects.
     console.warn("[Johren] storage write failed");
   }
 }
+
 
 
 // ===============================
@@ -140,7 +106,7 @@ function markStationVisited(stationId) {
 
   if (!data.visitedStations.includes(id)) {
     data.visitedStations.push(id);
-    saveJohrenData(data);
+    localstorage.setItem(data);
   }
 }
 
@@ -169,7 +135,7 @@ function recordVisit(key) {
   if (data.visitCounts[id].lastDate !== today) {
     data.visitCounts[id].total += 1;
     data.visitCounts[id].lastDate = today;
-    saveJohrenData(data);
+    localstorage.setItem(data);
   }
 }
 
