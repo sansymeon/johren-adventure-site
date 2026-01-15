@@ -102,20 +102,14 @@ Do not display visit counts on this page.
     </div>
   </div>
 <script src="/js/storage.js"></script>
+<script src="/js/storage.js"></script>
 <script>
 (async function () {
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
+  if (!id) { location.replace("/setsumei/"); return; }
 
-  if (!id) {
-    location.replace("/setsumei/");
-    return;
-  }
-
-  if (window.recordVisit) {
-    window.recordVisit(`jbs:level_03:${id}`);
-  }
-
+  // Load merchants
   let merchants = null;
   try {
     const res = await fetch(`/jbs/data/merchants.json?v=${Date.now()}`, { cache: "no-store" });
@@ -123,23 +117,28 @@ Do not display visit counts on this page.
     merchants = await res.json();
   } catch (e) {
     console.error(e);
-  }
-
-  const m = merchants?.[id];
-
-  if (m?.name) {
-    const nameH1 = document.getElementById("merchantName");
-    if (nameH1) nameH1.textContent = m.name;
-  }
-catch (e) {
-    console.error(e);
     const nameH1 = document.getElementById("merchantName");
     if (nameH1) nameH1.textContent = "（読み込みエラー）";
     return;
   }
+
+  const m = merchants?.[id];
+
+  // Level guard for Level 3 page
+  if (!m || Number(m.level) < 3) { location.replace("/setsumei/"); return; }
+
+  // Record visit (silent)
+  if (window.recordVisit) window.recordVisit(`jbs:level_03:${id}`);
+
+  // Populate merchant name
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
+
+  // Info link: preserve context
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
 
+  // Optional merchant URL link
   const merchantLink = document.getElementById("merchantLink");
   if (merchantLink) {
     const url = m?.merchant_url;
