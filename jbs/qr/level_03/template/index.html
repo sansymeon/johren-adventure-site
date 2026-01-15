@@ -66,6 +66,11 @@ Do not display visit counts on this page.
     .optional-link a:hover{
       color:#000;
     }
+} catch (e) {
+  console.error(e);
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = "（読み込み中…）";
+}
 
   </style>
 </head>
