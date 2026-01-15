@@ -23,6 +23,11 @@ Stop and read:
 
 Calm is a feature.
 */
+/*
+JOHREN QR SYSTEM — DO NOT OPTIMIZE
+
+... (your full header comment unchanged) ...
+*/
 
 // ===============================
 // STORAGE KEY (area-scoped)
@@ -39,14 +44,13 @@ function getStorageKey() {
 // LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
-  // Default shape (schema)
   const base = { visitedStations: [], visitCounts: {} };
 
   let raw = null;
   try {
     raw = localStorage.getItem(getStorageKey());
   } catch (e) {
-    return base; // storage blocked; stay quiet
+    return base; // blocked storage; stay quiet
   }
 
   if (!raw) return base;
@@ -69,26 +73,23 @@ function getJohrenData() {
   }
 }
 
-function recordVisit(key) {
-  const id = String(key);
-  const today = new Date().toISOString().slice(0, 10);
+function saveJohrenData(data) {
+  try {
+    localStorage.setItem(getStorageKey(), JSON.stringify(data));
+  } catch (e) {
+    console.warn('[Johren] storage write failed');
+  }
+}
+
+// ===============================
+// STATIONS (existing behavior)
+// ===============================
+function markStationVisited(stationId) {
+  const id = String(stationId);
   const data = getJohrenData();
 
-  if (!data.visitCounts || typeof data.visitCounts !== 'object' || Array.isArray(data.visitCounts)) {
-    data.visitCounts = {};
-  }
-
-  const cur = data.visitCounts[id];
-  if (!cur || typeof cur !== 'object' || Array.isArray(cur)) {
-    data.visitCounts[id] = { total: 0, lastDate: null };
-  } else {
-    if (typeof cur.total !== 'number') cur.total = 0;
-    if (cur.lastDate !== null && typeof cur.lastDate !== 'string') cur.lastDate = null;
-  }
-
-  if (data.visitCounts[id].lastDate !== today) {
-    data.visitCounts[id].total += 1;
-    data.visitCounts[id].lastDate = today;
+  if (!data.visitedStations.includes(id)) {
+    data.visitedStations.push(id);
     saveJohrenData(data);
   }
 }
@@ -101,17 +102,17 @@ function recordVisit(key) {
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const data = getJohrenData();
 
-  // Extra guard in case old schema sneaks in mid-session
-  if (!data.visitCounts || typeof data.visitCounts !== 'object') {
+  // guard schema
+  if (!data.visitCounts || typeof data.visitCounts !== 'object' || Array.isArray(data.visitCounts)) {
     data.visitCounts = {};
   }
 
-  if (!data.visitCounts[id] || typeof data.visitCounts[id] !== 'object' || data.visitCounts[id] === null) {
+  const cur = data.visitCounts[id];
+  if (!cur || typeof cur !== 'object' || Array.isArray(cur) || cur === null) {
     data.visitCounts[id] = { total: 0, lastDate: null };
   } else {
-    // Self-heal partial objects
-    if (typeof data.visitCounts[id].total !== 'number') data.visitCounts[id].total = 0;
-    if (typeof data.visitCounts[id].lastDate !== 'string') data.visitCounts[id].lastDate = null;
+    if (typeof cur.total !== 'number') cur.total = 0;
+    if (cur.lastDate !== null && typeof cur.lastDate !== 'string') cur.lastDate = null;
   }
 
   // only increment once per day
@@ -121,7 +122,6 @@ function recordVisit(key) {
     saveJohrenData(data);
   }
 }
-
 
 // ===============================
 // READ-ONLY ACCESS (DISPLAY LAYER)
@@ -139,3 +139,4 @@ function getVisitCount(key) {
 window.markStationVisited = markStationVisited;
 window.recordVisit = recordVisit;
 window.getVisitCount = getVisitCount;
+
