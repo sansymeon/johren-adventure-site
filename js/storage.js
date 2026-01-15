@@ -39,52 +39,36 @@ function getStorageKey() {
 // LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
-  const raw = localStorage.getItem(getStorageKey());
+  let raw = null;
 
-  // Default schema
-  const base = {
-    visitedStations: [],
-    visitCounts: {}
-  };
-
-  if (!raw) return base;
-
-  let data;
   try {
-    data = JSON.parse(raw);
+    raw = localStorage.getItem(getStorageKey());
   } catch (e) {
-    console.warn("[Johren] Bad JSON in storage, resetting", e);
-    return base;
+    // blocked storage, stay quiet
+    return { visitedStations: [], visitCounts: {} };
   }
 
-  // Must be an object
-  if (!data || typeof data !== "object") return base;
-
-  // visitedStations must be an array of strings
-  if (!Array.isArray(data.visitedStations)) {
-    data.visitedStations = [];
-  } else {
-    data.visitedStations = data.visitedStations.map(String);
+  if (!raw) {
+    return { visitedStations: [], visitCounts: {} };
   }
 
-  // visitCounts must be an object
-  if (!data.visitCounts || typeof data.visitCounts !== "object" || Array.isArray(data.visitCounts)) {
-    data.visitCounts = {};
-  }
+  try {
+    const parsed = JSON.parse(raw);
 
-  // Self-heal each visitCounts entry
-  for (const k of Object.keys(data.visitCounts)) {
-    const v = data.visitCounts[k];
-    if (!v || typeof v !== "object") {
-      data.visitCounts[k] = { total: 0, lastDate: null };
-      continue;
+    // Self-heal schema
+    if (!parsed || typeof parsed !== "object") {
+      return { visitedStations: [], visitCounts: {} };
     }
-    if (typeof v.total !== "number") v.total = 0;
-    if (v.lastDate !== null && typeof v.lastDate !== "string") v.lastDate = null;
-  }
+    if (!Array.isArray(parsed.visitedStations)) parsed.visitedStations = [];
+    if (!parsed.visitCounts || typeof parsed.visitCounts !== "object") parsed.visitCounts = {};
 
-  return data;
+    return parsed;
+  } catch (e) {
+    // corrupted JSON, reset quietly
+    return { visitedStations: [], visitCounts: {} };
+  }
 }
+
 
   // Default shape (schema)
   const base = {
