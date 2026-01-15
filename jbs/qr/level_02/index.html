@@ -117,12 +117,12 @@
 
   const m = merchants?.[id];
 
-  // Level guard for Level 3 page
-  if (!m || Number(m.level) < 3) { location.replace("/setsumei/"); return; }
+  // Level guard for Level 2 page
+  if (!m || Number(m.level) < 2) { location.replace("/setsumei/"); return; }
 
   // Record visit (silent) — returns true only when it increments today
   const didIncrement = (window.recordVisit)
-    ? window.recordVisit(`jbs:level_03:${id}`)
+    ? window.recordVisit(`jbs:level_02:${id}`)
     : false;
 
   // If today’s increment happened, ping server once/day/device (no user data)
@@ -151,9 +151,9 @@
   // Info link: preserve context
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
-
 })();
 </script>
+
 
 
 </body>
