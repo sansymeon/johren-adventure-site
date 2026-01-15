@@ -36,20 +36,48 @@ function getStorageKey() {
 }
 
 // ===============================
-// LOAD / SAVE
+// LOAD / SAVE (HARDENED)
 // ===============================
 function getJohrenData() {
-  return JSON.parse(localStorage.getItem(getStorageKey())) || {
+  const raw = localStorage.getItem(getStorageKey());
+
+  // Default shape (schema)
+  const base = {
     visitedStations: [],
     visitCounts: {}
   };
+
+  if (!raw) return base;
+
+  try {
+    const parsed = JSON.parse(raw);
+
+    // Self-heal missing / wrong-typed fields
+    if (!parsed || typeof parsed !== 'object') return base;
+
+    if (!Array.isArray(parsed.visitedStations)) {
+      parsed.visitedStations = [];
+    }
+
+    if (!parsed.visitCounts || typeof parsed.visitCounts !== 'object') {
+      parsed.visitCounts = {};
+    }
+
+    return parsed;
+  } catch (e) {
+    // Storage may be corrupted; reset quietly to safe base.
+    console.warn('[Johren] storage parse failed, resetting');
+    return base;
+  }
 }
 
 function saveJohrenData(data) {
-  localStorage.setItem(
-    getStorageKey(),
-    JSON.stringify(data)
-  );
+  try {
+    localStorage.setItem(getStorageKey(), JSON.stringify(data));
+  } catch (e) {
+    // If storage is full/blocked, stay quiet. No user-facing effects.
+    console.warn('[Johren] storage write failed');
+  }
 }
 
 // ===============================
@@ -73,11 +101,17 @@ function recordVisit(key) {
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
   const data = getJohrenData();
 
-  if (!data.visitCounts[id]) {
-    data.visitCounts[id] = {
-      total: 0,
-      lastDate: null
-    };
+  // Extra guard in case old schema sneaks in mid-session
+  if (!data.visitCounts || typeof data.visitCounts !== 'object') {
+    data.visitCounts = {};
+  }
+
+  if (!data.visitCounts[id] || typeof data.visitCounts[id] !== 'object' || data.visitCounts[id] === null) {
+    data.visitCounts[id] = { total: 0, lastDate: null };
+  } else {
+    // Self-heal partial objects
+    if (typeof data.visitCounts[id].total !== 'number') data.visitCounts[id].total = 0;
+    if (typeof data.visitCounts[id].lastDate !== 'string') data.visitCounts[id].lastDate = null;
   }
 
   // only increment once per day
@@ -88,12 +122,15 @@ function recordVisit(key) {
   }
 }
 
+
 // ===============================
 // READ-ONLY ACCESS (DISPLAY LAYER)
 // ===============================
 function getVisitCount(key) {
   const data = getJohrenData();
-  return data.visitCounts?.[String(key)]?.total || 0;
+  const id = String(key);
+  const item = data.visitCounts?.[id];
+  return (item && typeof item.total === 'number') ? item.total : 0;
 }
 
 // ===============================
