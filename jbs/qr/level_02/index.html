@@ -95,16 +95,14 @@
   </div>
 <script>window.AREA_KEY = "jbs";</script>
 <script src="/js/storage.js"></script>
+
 <script>
 (async function () {
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
+  if (!id) { location.replace("/setsumei/"); return; }
 
-  if (!id) {
-    location.replace("/setsumei/");
-    return;
-  }
-
+  // Load merchants
   let merchants = null;
   try {
     const res = await fetch(`/jbs/data/merchants.json?v=${Date.now()}`, { cache: "no-store" });
@@ -119,28 +117,44 @@
 
   const m = merchants?.[id];
 
-  // Level guard for Level 2 page
-  if (!m || Number(m.level) < 2) {
-    location.replace("/setsumei/");
-    return;
-  }
+  // Level guard for Level 3 page
+  if (!m || Number(m.level) < 3) { location.replace("/setsumei/"); return; }
 
-  // Record visit
-  if (window.recordVisit) {
-    window.recordVisit(`jbs:level_02:${id}`);
+  // Record visit (silent) — returns true only when it increments today
+  const didIncrement = (window.recordVisit)
+    ? window.recordVisit(`jbs:level_03:${id}`)
+    : false;
+
+  // If today’s increment happened, ping server once/day/device (no user data)
+  if (didIncrement && crypto?.subtle) {
+    const today = new Date().toISOString().slice(0,10);
+    const device = window.getDeviceId ? window.getDeviceId() : "anon";
+
+    const buf = await crypto.subtle.digest(
+      "SHA-256",
+      new TextEncoder().encode(`${device}|${id}|${today}|v1`)
+    );
+    const token = [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+
+    fetch("/.netlify/functions/johren_count", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ merchant: id, token }),
+      keepalive: true
+    }).catch(()=>{});
   }
 
   // Populate merchant name
-  if (m?.name) {
-    const nameH1 = document.getElementById("merchantName");
-    if (nameH1) nameH1.textContent = m.name;
-  }
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
 
   // Info link: preserve context
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+
 })();
 </script>
+
 
 </body>
 </html>  
