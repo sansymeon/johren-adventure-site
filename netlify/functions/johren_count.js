@@ -9,6 +9,17 @@ export async function handler(event) {
   const token = (body.token || "").trim();
   if (!merchant || !token) return { statusCode: 400, body: "Missing merchant/token" };
 
+  const origin = event.headers?.origin || "";
+const referer = event.headers?.referer || "";
+const okRef =
+  origin === "https://johrenadventure.com" ||
+  referer.startsWith("https://johrenadventure.com");
+
+if (!okRef) return { statusCode: 403, body: "Forbidden" };
+
+  const origin = event.headers?.origin || "";
+  const referer = event.headers?.referer || "";
+  
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.UPSTASH_REDIS_REST_TOKEN;
   if (!url || !tok) return { statusCode: 500, body: "Server not configured" };
@@ -17,6 +28,13 @@ export async function handler(event) {
 
   const dedupeKey = `johren:dedupe:${merchant}:${token}`;
   const totalKey  = `johren:total:${merchant}`;
+  
+
+const okRef =
+  origin === "https://johrenadventure.com" ||
+  referer.startsWith("https://johrenadventure.com");
+
+if (!okRef) return { statusCode: 403, body: "Forbidden" };
 
   // set dedupe key once (nx) so each device/day increments max once
   const setnx = await fetch(`${url}/set/${encodeURIComponent(dedupeKey)}/1?nx=1`, { headers: auth })
