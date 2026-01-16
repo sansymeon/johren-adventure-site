@@ -11,12 +11,16 @@ export async function handler(event) {
 
   // (Optional) light gate so random sites don’t hotlink it
   const origin = event.headers?.origin || "";
-  const referer = event.headers?.referer || "";
-  const okRef =
-    origin === "https://johrenadventure.com" ||
-    referer.startsWith("https://johrenadventure.com");
+const referer = event.headers?.referer || "";
 
-  if (!okRef) return { statusCode: 403, body: "Forbidden" };
+const hasRef = !!origin || !!referer;
+const okRef =
+  origin === "https://johrenadventure.com" ||
+  referer.startsWith("https://johrenadventure.com/");
+
+// Only enforce if we got a ref at all
+if (hasRef && !okRef) return { statusCode: 403, body: "Forbidden" };
+
 
   const url = process.env.UPSTASH_REDIS_REST_URL;
   const tok = process.env.UPSTASH_REDIS_REST_TOKEN;
