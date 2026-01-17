@@ -1,1 +1,138 @@
-.txt
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Johren｜Level_02</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Johren の参加者ページです。">
+
+  <style>
+    body{
+  margin:0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Subtle intentional background */
+  background:
+    url("/img/qrlanding_page_image.jpg") center / cover no-repeat,
+    #f6f6f4;
+
+  color:#222;
+  line-height:1.7;
+}
+
+    .wrap{
+      max-width:520px;
+      margin:0 auto;
+      padding:56px 20px 64px;
+      text-align:center;
+    }
+    h1{
+      font-size:1.35rem;
+      margin:0 0 16px;
+      letter-spacing:.2px;
+    }
+    .card{
+      background:#fff;
+      border:1px solid #ddd;
+      border-radius:16px;
+      padding:28px 24px;
+      display:inline-block;
+      width:100%;
+      box-sizing:border-box;
+    }
+    .message{
+      font-size:15px;
+      margin-bottom:18px;
+    }
+    .sub{
+      font-size:13px;
+      color:#777;
+    }
+    .optional-link{
+      margin-top:22px;
+      font-size:14px;
+    }
+    .optional-link a{
+      color:#555;
+      text-decoration:none;
+      border-bottom:1px solid #ddd;
+    }
+    .optional-link a:hover{
+      color:#000;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <h1>Welcome to Johren Adventure</h1><br>
+    <h1 id="merchantName">（参加者名）</h1>
+    <div class="card">
+      <div class="message">
+        この場所は、参加できる場所です。
+      </div><div class="sub" style="margin-top:10px;">
+  詳細は、現地でQRを読み取ると表示されます。
+</div>
+
+
+      <div class="sub">
+        Thanks for stopping by.</div>
+      <div style="margin-top:24px; font-size:13px; color:#666;">
+  <a href="/jbs/map/" style="color:#666; text-decoration:underline;">
+    参加している場所を見る
+  </a>
+</div>
+
+
+      <!-- ✅ ONLY DIFFERENCE FROM LEVEL 1 -->
+      <div class="optional-link">
+
+  <a id="infoLink" href="/setsumei/tenpo/"
+     style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
+    この仕組みについて（店舗）→
+  </a>
+</div>
+
+    </div>
+  </div>
+
+
+<script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = (params.get("id") || "").trim();
+
+  // If opened without an id, send them back to the JBS map
+  if (!id) { location.replace("/jbs/map/"); return; }
+
+  // Load merchants (simple, reliable)
+  let merchants = null;
+  try {
+    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
+    merchants = await res.json();
+  } catch (e) {
+    console.error(e);
+    const nameH1 = document.getElementById("merchantName");
+    if (nameH1) nameH1.textContent = "（読み込みエラー）";
+    return;
+  }
+
+  const m = merchants?.[id];
+
+  // Populate merchant name
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
+
+  // Info link: preserve context
+  const info = document.getElementById("infoLink");
+  if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+})();
+</script>
+
+
+
+
+</body>
+</html>  
