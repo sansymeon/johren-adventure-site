@@ -73,9 +73,21 @@
     list
       .filter(item => item.visible === true)
       .forEach(item => {
-        L.marker([item.lat, item.lng], { icon })
-          .addTo(map)
-          .bindPopup(item.name);
+        const pinUrl =
+  item.pin_url ||
+  (item.id ? `/jbs/pin/level_0${item.level || 1}/?id=${encodeURIComponent(item.id)}` : null);
+
+const html = pinUrl
+  ? `<div>${item.name}</div>
+     <div style="margin-top:6px;">
+       <a href="${pinUrl}">開く →</a>
+     </div>`
+  : `<div>${item.name}</div>`;
+
+L.marker([item.lat, item.lng], { icon })
+  .addTo(map)
+  .bindPopup(html);
+
       });
   }
 
