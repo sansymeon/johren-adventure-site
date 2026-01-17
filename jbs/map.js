@@ -109,18 +109,25 @@ L.marker([item.lat, item.lng], { icon })
   loadCategory("supermarkets", "supermarket");
 
   // ===============================
-  // OPTIONAL SAMPLES
-  // ===============================
-  if (Array.isArray(window.samples)) {
-    window.samples.forEach(s => {
-      L.marker([s.lat, s.lng], { icon: icons.sample })
-        .addTo(map)
-        .bindPopup(
-          `<div>${s.name}</div>
-           <div style="margin-top:6px;">
-             <a href="${s.pin_url}">開く →</a>
-           </div>`
-        );
-    });
-  }
-})();
+// OPTIONAL SAMPLES
+// ===============================
+if (Array.isArray(window.samples)) {
+  window.samples.forEach(s => {
+    // guard
+    if (typeof s.lat !== "number" || typeof s.lng !== "number") return;
+
+    const lvl = s.level || 1;
+    const pinUrl =
+      s.pin_url ||
+      (s.id ? `/jbs/pin/level_0${lvl}/?id=${encodeURIComponent(s.id)}` : "#");
+
+    L.marker([s.lat, s.lng], { icon: icons.sample })
+      .addTo(map)
+      .bindPopup(
+        `<div>${s.name}</div>
+         <div style="margin-top:6px;">
+           <a href="${pinUrl}">開く →</a>
+         </div>`
+      );
+  });
+}
