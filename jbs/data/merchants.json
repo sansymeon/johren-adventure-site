@@ -22,6 +22,7 @@
     "level": 3,
     "pin_url": "/jbs/pin/level_03/?id=sample_03",
     "qr_url": "/jbs/qr/level_03/?id=sample_03",
+    "merchant_url": "/jbs/qr/level_03/?id=sample_01"
     "lat": 33.57815,
     "lng": 130.25986,
     "visible": true
