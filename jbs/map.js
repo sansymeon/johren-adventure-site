@@ -241,16 +241,14 @@ L.marker([item.lat, item.lng], { icon })
   loadCategory("restaurants", "restaurant");
   loadCategory("supermarkets", "supermarket");
 
-  // ===============================
+// ===============================
 // OPTIONAL SAMPLES
 // ===============================
 if (Array.isArray(window.samples)) {
   window.samples.forEach(s => {
-    // guard
     if (typeof s.lat !== "number" || typeof s.lng !== "number") return;
 
-    const lvl = Math.max(1, Math.min(3, parseInt(s.level, 10) || 1));
-
+    const lvl = s.level || 1;
     const pinUrl =
       s.pin_url ||
       (s.id ? `/jbs/pin/level_0${lvl}/?id=${encodeURIComponent(s.id)}` : "#");
@@ -262,6 +260,7 @@ if (Array.isArray(window.samples)) {
          <div style="margin-top:6px;">
            <a href="${pinUrl}">開く →</a>
          </div>`
-});
+      );
+  });
 }
 })(); 
