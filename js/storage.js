@@ -6,7 +6,7 @@ It is intentionally quiet and minimal.
 
 Rules (non-negotiable):
 - QR access is for presence, not engagement.
-- Users must NEVER see visit counts or progress.
+- Merchants only see visit counts.
 - No instant feedback, rewards, or explanations.
 - Any effects (if ever) must be delayed and subtle.
 - Johren does not issue incentives or manage rewards.
@@ -166,6 +166,17 @@ function getVisitCount(key) {
   const item = data.visitCounts?.[id];
   return (item && typeof item.total === 'number') ? item.total : 0;
 }
+// ===============================
+// COUNT VISIBILITY HELPERS
+// ===============================
+window.SHOW_COUNT_AFTER = 5; // global default threshold (change anytime)
+
+function shouldShowCount(key, threshold) {
+  const t = Number.isFinite(threshold) ? threshold : Number(window.SHOW_COUNT_AFTER || 0);
+  return getVisitCount(key) >= t;
+}
+
+window.shouldShowCount = shouldShowCount;
 
 // ===============================
 // EXPOSE
