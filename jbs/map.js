@@ -1,29 +1,8 @@
 (function () {
   // ===============================
-  // MAP CONTEXT DETECTION
+  // JBS MAP CONFIG (from map-data.js)
   // ===============================
-  window.JBS_MAP = {
-  center: [33.5, 130.5],// kyushu
-  zoom: 9
-};
-
-const isJBSMap = true; // or !!window.JBS_MAP
-  
-
-
-  if (!isJBSMap && !window.AREA_KEY) {
-    console.error('AREA_KEY missing');
-    return;
-  }
-
-  const mapConfig = isJBSMap
-    ? window.JBS_MAP
-    : window.MAP_CONFIG?.[window.AREA_KEY];
-
-  if (!mapConfig) {
-    console.error('Map config not found');
-    return;
-  }
+  const mapConfig = window.JBS_MAP || { center: [33.5, 130.5], zoom: 9 };
 
   // ===============================
   // MAP INITIALIZATION
@@ -36,16 +15,10 @@ const isJBSMap = true; // or !!window.JBS_MAP
 
   const hasValidCoords = !isNaN(lat) && !isNaN(lng);
 
-  const center = hasValidCoords
-    ? [lat, lng]
-    : mapConfig.center;
+  const center = hasValidCoords ? [lat, lng] : mapConfig.center;
+  const finalZoom = hasValidCoords ? (zoom || mapConfig.zoom) : mapConfig.zoom;
 
-  const finalZoom = hasValidCoords
-    ? (zoom || mapConfig.zoom)
-    : mapConfig.zoom;
-
-  const map = L.map('map', { zoomControl: false })
-    .setView(center, finalZoom);
+  const map = L.map('map', { zoomControl: false }).setView(center, finalZoom);
 
   // ===============================
   // TILE LAYER
@@ -130,9 +103,12 @@ const isJBSMap = true; // or !!window.JBS_MAP
     window.samples.forEach(s => {
       L.marker([s.lat, s.lng], { icon: icons.sample })
         .addTo(map)
-        .on('click', () => {
-          window.location.href = s.url;
-        });
+        .bindPopup(
+          `<div>${s.name}</div>
+           <div style="margin-top:6px;">
+             <a href="${s.url}">開く →</a>
+           </div>`
+        );
     });
   }
 })();
