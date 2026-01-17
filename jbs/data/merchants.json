@@ -2,13 +2,16 @@
   "cafe_001": {
     "name": "カフェ・ショパン　Cafe Chopin",
     "level": 3,
-    "merchant_url": "https://johrenadventure.com/jbs/qr/level_03_merchant_sample/",
+    "pin_url": "/jbs/pin/level_03/?id=cafe_001",
+    "qr_url":  "/jbs/qr/level_03/?id=cafe_001",
     "lat": 33.57815,
     "lng": 130.25986
   },
   "cafe_002": {
     "name": "Sunset Cafe",
     "level": 2,
+    "pin_url": "/jbs/pin/level_02/?id=cafe_002",
+    "qr_url":  "/jbs/qr/level_02/?id=cafe_002",
     "lat": 33.57815,
     "lng": 130.25986
   }
