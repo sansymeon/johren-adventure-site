@@ -46,15 +46,5 @@ window.samples = [
     visible: true,
     pin_url: "/jbs/pin/level_02/?id=sample_03",
     qr_url:  "/jbs/qr/level_02/?id=sample_03"
-  },
-  {
-    id: "sample_04",
-    name: "Johren Oita サンプル・スポット",
-    level: 1,
-    lat: 33.23137680796785,
-    lng: 131.60516398591903,
-    visible: true,
-    pin_url: "/jbs/pin/level_01/?id=sample_04",
-    qr_url:  "/jbs/qr/level_01/?id=sample_04"
   }
 ];
