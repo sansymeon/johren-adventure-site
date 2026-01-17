@@ -249,7 +249,8 @@ if (Array.isArray(window.samples)) {
     // guard
     if (typeof s.lat !== "number" || typeof s.lng !== "number") return;
 
-    const lvl = s.level || 1;
+    const lvl = Math.max(1, Math.min(3, parseInt(s.level, 10) || 1));
+
     const pinUrl =
       s.pin_url ||
       (s.id ? `/jbs/pin/level_0${lvl}/?id=${encodeURIComponent(s.id)}` : "#");
