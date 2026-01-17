@@ -69,17 +69,9 @@ function getJohrenData() {
   }
 }
 
-function saveJohrenData(data) {
-  try {
-    const safe = {
-      visitedStations: Array.isArray(data?.visitedStations)
-        ? data.visitedStations.map(String)
-        : [],
-      visitCounts:
-        (data?.visitCounts && typeof data.visitCounts === 'object' && !Array.isArray(data.visitCounts))
-          ? data.visitCounts
-          : {}
-    };
+// ===============================
+// DEVICE ID (one per browser)
+// ===============================
 function getDeviceId() {
   try {
     const k = "johren_device_id";
@@ -94,6 +86,21 @@ function getDeviceId() {
   }
 }
 window.getDeviceId = getDeviceId;
+
+// ===============================
+// SAVE (HARDENED)
+// ===============================
+function saveJohrenData(data) {
+  try {
+    const safe = {
+      visitedStations: Array.isArray(data?.visitedStations)
+        ? data.visitedStations.map(String)
+        : [],
+      visitCounts:
+        (data?.visitCounts && typeof data.visitCounts === 'object' && !Array.isArray(data.visitCounts))
+          ? data.visitCounts
+          : {}
+    };
 
     // normalize visitCounts entries
     for (const k of Object.keys(safe.visitCounts)) {
@@ -111,6 +118,7 @@ window.getDeviceId = getDeviceId;
     console.warn('[Johren] storage write failed');
   }
 }
+
 
 
 // ===============================
