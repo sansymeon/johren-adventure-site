@@ -263,4 +263,4 @@ if (Array.isArray(window.samples)) {
       );
   });
 }
-})(); 
+
