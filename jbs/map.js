@@ -261,7 +261,6 @@ if (Array.isArray(window.samples)) {
          <div style="margin-top:6px;">
            <a href="${pinUrl}">開く →</a>
          </div>`
-      );
-  });
+});
 }
-})();
+})(); 
