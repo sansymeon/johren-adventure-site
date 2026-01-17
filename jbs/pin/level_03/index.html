@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Johren｜Level_02</title>
+  <title>Johren｜Level_03</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Johren の参加者ページです。">
 
@@ -123,6 +123,39 @@
   }
 
   const m = merchants?.[id];
+
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = (params.get("id") || "").trim();
+  if (!id) { location.replace("/jbs/map/"); return; }
+
+  let merchants = null;
+  try {
+    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
+    merchants = await res.json();
+  } catch (e) {
+    console.error(e);
+    const nameH1 = document.getElementById("merchantName");
+    if (nameH1) nameH1.textContent = "（読み込みエラー）";
+    return;
+  }
+
+  const m = merchants?.[id];
+
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
+
+  const info = document.getElementById("infoLink");
+  if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+
+  // ✅ Level 3: show merchant link if we have one
+  const merchantLink = document.getElementById("merchantLink");
+  if (merchantLink && m?.merchant_url) {
+    merchantLink.href = m.merchant_url;
+    merchantLink.style.display = "block";
+  }
+})();
 
   // Populate merchant name
   const nameH1 = document.getElementById("merchantName");
