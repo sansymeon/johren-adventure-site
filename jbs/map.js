@@ -246,8 +246,6 @@ L.marker([item.lat, item.lng], { icon })
 // ===============================
 if (Array.isArray(window.samples)) {
   window.samples.forEach(s => {
-    if (typeof s.lat !== "number" || typeof s.lng !== "number") return;
-
     const lvl = s.level || 1;
     const pinUrl =
       s.pin_url ||
@@ -263,4 +261,4 @@ if (Array.isArray(window.samples)) {
       );
   });
 }
-})(); 
+})();
