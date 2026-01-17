@@ -2,39 +2,59 @@
 // Only locations explicitly marked as visible are rendered on the map.
 // Sample markers are shown separately for demonstration purposes.
 
+window.JBS_MAP = {
+  center: [33.5, 130.5], // Kyushu overview
+  zoom: 9
+};
 
+// If you later want “real” joined locations in one array:
 window.PLACE_MAP = {
-  center: [33.557082, 130.199305], // Itoshima
+  center: [33.557082, 130.199305], // Itoshima (optional if you ever use it)
   zoom: 11,
   places: [
-    // join locations only
+    // joined locations only
   ]
 };
 
-
 window.samples = [
   {
+    id: "sample_01",
     name: "Johren Itoshima サンプル・スポット",
+    level: 3,
     lat: 33.55857973584153,
     lng: 130.21385183358143,
-    url: "/jbs/qr/level_03/index.html"
+    visible: true,
+    pin_url: "/jbs/pin/level_03/?id=sample_01",
+    qr_url:  "/jbs/qr/level_03/?id=sample_01"
   },
   {
+    id: "sample_02",
     name: "Johren Karatsu サンプル・スポット",
+    level: 3,
     lat: 33.44973729276236,
     lng: 129.96801192244578,
-    url: "/jbs/qr/level_02/index.html"
+    visible: true,
+    pin_url: "/jbs/pin/level_03/?id=sample_02",
+    qr_url:  "/jbs/qr/level_03/?id=sample_02"
   },
   {
+    id: "sample_03",
     name: "Johren Fukuoka-Chuo サンプル・スポット",
+    level: 2,
     lat: 33.58620293814177,
     lng: 130.3764331173192,
-    url: "/jbs/qr/level_01/index.html"
+    visible: true,
+    pin_url: "/jbs/pin/level_02/?id=sample_03",
+    qr_url:  "/jbs/qr/level_02/?id=sample_03"
   },
   {
+    id: "sample_04",
     name: "Johren Oita サンプル・スポット",
+    level: 1,
     lat: 33.23137680796785,
     lng: 131.60516398591903,
-    url: "/jbs/qr/level_01/index.html"
+    visible: true,
+    pin_url: "/jbs/pin/level_01/?id=sample_04",
+    qr_url:  "/jbs/qr/level_01/?id=sample_04"
   }
 ];
