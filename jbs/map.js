@@ -118,7 +118,7 @@ L.marker([item.lat, item.lng], { icon })
         .bindPopup(
           `<div>${s.name}</div>
            <div style="margin-top:6px;">
-             <a href="${s.url}">開く →</a>
+             <a href="${s.pin_url}">開く →</a>
            </div>`
         );
     });
