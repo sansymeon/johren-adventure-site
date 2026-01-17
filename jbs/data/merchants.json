@@ -1,9 +1,9 @@
 {
   "sample_01": {
     "name": "Sample Spot 1",
-    "level": 3,
-    "pin_url": "/jbs/pin/level_03/?id=sample_01",
-    "qr_url": "/jbs/qr/level_03/?id=sample_01",
+    "level": 1,
+    "pin_url": "/jbs/pin/level_01/?id=sample_01",
+    "qr_url": "/jbs/qr/level_01/?id=sample_01",
     "lat": 33.57815,
     "lng": 130.25986,
     "visible": true
