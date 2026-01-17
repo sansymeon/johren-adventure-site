@@ -81,7 +81,8 @@
       </div>
 
       <div class="links">
-        <a href="/jbs/map/">参加している場所を見る</a>
+        <a id="backLink" href="/jbs/map/" style="color:#666; text-decoration:underline;">
+  戻る →</a>
 
         <a id="infoLink" class="info" href="/setsumei/tenpo/">
           この仕組みについて（店舗） →
@@ -99,6 +100,33 @@
     if (info && id) {
       info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
     }
+    <script>
+  (function () {
+    const back = document.getElementById("backLink");
+    if (!back) return;
+
+    // If user came from your map page, prefer real "Back" (preserves zoom/position)
+    try {
+      const ref = document.referrer || "";
+      const sameHost = ref.startsWith(location.origin);
+      const fromJbsMap = sameHost && ref.includes("/jbs/map");
+
+      if (fromJbsMap && window.history.length > 1) {
+        back.href = "#";
+        back.addEventListener("click", function (e) {
+          e.preventDefault();
+          history.back();
+        });
+      } else {
+        // fallback stays /jbs/map/
+        back.href = "/jbs/map/";
+      }
+    } catch (e) {
+      back.href = "/jbs/map/";
+    }
+  })();
+</script>
+
   </script>
 </body>
 </html>
