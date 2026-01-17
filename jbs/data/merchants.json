@@ -1,18 +1,29 @@
 {
-  "cafe_001": {
-    "name": "カフェ・ショパン　Cafe Chopin",
+  "sample_01": {
+    "name": "Sample Spot 1",
     "level": 3,
-    "pin_url": "/jbs/pin/level_03/?id=cafe_001",
-    "qr_url":  "/jbs/qr/level_03/?id=cafe_001",
+    "pin_url": "/jbs/pin/level_03/?id=sample_01",
+    "qr_url": "/jbs/qr/level_03/?id=sample_01",
     "lat": 33.57815,
-    "lng": 130.25986
+    "lng": 130.25986,
+    "visible": true
   },
-  "cafe_002": {
+  "sample_02": {
     "name": "Sunset Cafe",
     "level": 2,
-    "pin_url": "/jbs/pin/level_02/?id=cafe_002",
-    "qr_url":  "/jbs/qr/level_02/?id=cafe_002",
+    "pin_url": "/jbs/pin/level_02/?id=sample_02",
+    "qr_url": "/jbs/qr/level_02/?id=sample_02",
     "lat": 33.57815,
-    "lng": 130.25986
+    "lng": 130.25986,
+    "visible": true
+  },
+  "sample_03": {
+    "name": "Sample Spot 3",
+    "level": 3,
+    "pin_url": "/jbs/pin/level_03/?id=sample_03",
+    "qr_url": "/jbs/qr/level_03/?id=sample_03",
+    "lat": 33.57815,
+    "lng": 130.25986,
+    "visible": true
   }
 }
