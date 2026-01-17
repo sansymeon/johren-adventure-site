@@ -17,13 +17,13 @@ window.samples = [
     name: "Johren Itoshima サンプル・スポット",
     lat: 33.55857973584153,
     lng: 130.21385183358143,
-    url: "/jbs/qr/level_03/sample_001/index.html"
+    url: "/jbs/qr/level_03/index.html"
   },
   {
     name: "Johren Karatsu サンプル・スポット",
     lat: 33.44973729276236,
     lng: 129.96801192244578,
-    url: "/jbs/qr/level_02/sample_001/index.html"
+    url: "/jbs/qr/level_02/index.html"
   },
   {
     name: "Johren Fukuoka-Chuo サンプル・スポット",
