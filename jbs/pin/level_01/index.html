@@ -92,33 +92,36 @@
   </div>
 
   <script>
-    // Optional: if you later pass ?id=... you can preserve context
+  // Preserve context for info link
+  (function () {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+    const id = (params.get("id") || "").trim();
 
     const info = document.getElementById("infoLink");
     if (info && id) {
       info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
     }
-    <script>
+  })();
+</script>
+
+<script>
+  // Back link behavior: use real back when coming from map
   (function () {
     const back = document.getElementById("backLink");
     if (!back) return;
 
-    // If user came from your map page, prefer real "Back" (preserves zoom/position)
     try {
       const ref = document.referrer || "";
       const sameHost = ref.startsWith(location.origin);
       const fromJbsMap = sameHost && ref.includes("/jbs/map");
 
-      if (fromJbsMap && window.history.length > 1) {
+      if (fromJbsMap && history.length > 1) {
         back.href = "#";
         back.addEventListener("click", function (e) {
           e.preventDefault();
           history.back();
         });
       } else {
-        // fallback stays /jbs/map/
         back.href = "/jbs/map/";
       }
     } catch (e) {
@@ -127,6 +130,5 @@
   })();
 </script>
 
-  </script>
 </body>
 </html>
