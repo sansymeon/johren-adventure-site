@@ -30,21 +30,21 @@ window.samples = [
   {
     id: "sample_02",
     name: "Johren Karatsu サンプル・スポット",
-    level: 3,
+    level: 2,
     lat: 33.44973729276236,
     lng: 129.96801192244578,
     visible: true,
-    pin_url: "/jbs/pin/level_03/?id=sample_02",
-    qr_url:  "/jbs/qr/level_03/?id=sample_02"
+    pin_url: "/jbs/pin/level_02/?id=sample_02",
+    qr_url:  "/jbs/qr/level_02/?id=sample_02"
   },
   {
     id: "sample_03",
     name: "Johren Fukuoka-Chuo サンプル・スポット",
-    level: 2,
+    level: 1,
     lat: 33.58620293814177,
     lng: 130.3764331173192,
     visible: true,
-    pin_url: "/jbs/pin/level_02/?id=sample_03",
-    qr_url:  "/jbs/qr/level_02/?id=sample_03"
+    pin_url: "/jbs/pin/level_01/?id=sample_03",
+    qr_url:  "/jbs/qr/level_01/?id=sample_03"
   }
 ];
