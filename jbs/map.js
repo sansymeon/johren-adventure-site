@@ -16,7 +16,7 @@
     const places = Object.entries(data).map(([id, p]) => ({ id, ...p }));
 
     return places.filter(p => p.visible === true);
-
+}
 
   // ===============================
   // MAP CONFIG
