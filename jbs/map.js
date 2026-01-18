@@ -9,7 +9,7 @@
   }
 
   async function loadVisiblePlaces() {
-    const res = await fetch('/jbs/merchants.json', { cache: 'no-store' });
+    const res = await fetch('/jbs/data/merchants.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('Failed to load /jbs/merchants.json');
 
     const data = await res.json(); // object keyed by id
