@@ -20,9 +20,9 @@ window.samples = [
   {
     id: "sample_01",
     name: "Johren Karatsu サンプル・スポット",
-    level: 1,
-    lat: 33.57815,
-    lng: 130.25986,
+    level: 1, 
+    lat: 33.453496,
+    lng: 129.978192
     visible: true,
     pin_url: "/jbs/pin/level_01/?id=sample_01",
     qr_url:  "/jbs/qr/level_01/?id=sample_01"
