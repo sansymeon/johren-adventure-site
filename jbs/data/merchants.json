@@ -2,7 +2,7 @@
   "itoshima_pizza": {
     "name": "Itoshima Pizza",
     "level": 1,
-    "pin_url": "/jbs/pin/level_01/?id=universal",
+    "pin_url": "/jbs/pin/level_01/",
     "lat": 33.5585797,
     "lng": 130.2138518,
     "visible": true
