@@ -15,17 +15,8 @@
     const data = await res.json(); // object keyed by id
     const places = Object.entries(data).map(([id, p]) => ({ id, ...p }));
 
-    // Validate: pin_url should match level segment
-    for (const p of places) {
-      const seg = `level_${String(p.level).padStart(2, '0')}`;
-      if (p.pin_url && !p.pin_url.includes(seg)) {
-        console.warn('pin_url level mismatch', p.id, p.pin_url, p.level);
-      }
-    }
+    return places.filter(p => p.visible === true);
 
-    // Only render places explicitly visible and having a pin_url
-    return places.filter(p => p.visible === true && typeof p.pin_url === 'string' && p.pin_url.length > 0);
-  }
 
   // ===============================
   // MAP CONFIG
@@ -73,18 +64,20 @@
   }
 
   places.forEach(p => {
-    const popup = `
-      <div style="line-height:1.4">
-        <div><strong>${escapeHtml(p.name || p.id)}</strong></div>
-        <div style="margin-top:6px;">
-          <a href="${p.pin_url}">開く →</a>
-        </div>
-      </div>
-    `;
+  const pinUrl = `/jbs/pin/level_${String(p.level).padStart(2,'0')}/?id=${encodeURIComponent(p.id)}`;
 
-    L.marker([p.lat, p.lng], { icon: sampleIcon })
-      .addTo(map)
-      .bindPopup(popup);
-  });
+  const popup = `
+    <div style="line-height:1.4">
+      <div><strong>${escapeHtml(p.name || p.id)}</strong></div>
+      <div style="margin-top:6px;">
+        <a href="${pinUrl}">開く →</a>
+      </div>
+    </div>
+  `;
+
+  L.marker([p.lat, p.lng], { icon: sampleIcon })
+    .addTo(map)
+    .bindPopup(popup);
+});
 
 })().catch(err => console.error(err));
