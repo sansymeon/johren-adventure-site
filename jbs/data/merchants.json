@@ -4,8 +4,8 @@
     "level": 1,
     "pin_url": "/jbs/pin/level_01/?id=sample_01",
     "qr_url": "/jbs/qr/level_01/?id=sample_01",
-    "lat": 33.57815,
-    "lng": 130.25986,
+    "lat": 33.5585797,
+    "lng": 130.2138518,
     "visible": true
   },
   "sample_02": {
@@ -23,8 +23,8 @@
     "pin_url": "/jbs/pin/level_03/?id=sample_03",
     "qr_url": "/jbs/qr/level_03/?id=sample_03",
     "merchant_url": "/jbs/qr/level_03_merchant_sample/?id=sample_03",
-    "lat": 33.57815,
-    "lng": 130.25986,
+   "lat": 33.58620293,
+    "lng": 130.3764331,
     "visible": true
   }
 }
