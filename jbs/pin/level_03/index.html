@@ -63,6 +63,7 @@
 .links { margin-top:24px; font-size:13px; color:#666; }
 .links a { color:#666; text-decoration:underline; }
 
+    
   </style>
 </head>
 
@@ -104,6 +105,7 @@
 
 
 <script>
+<script>
 (async function () {
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
@@ -134,18 +136,13 @@
   const info = document.getElementById("infoLink");
   if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
 
-  // Level 3: show merchant link if we have one
+  // LEVEL 3 ONLY: show merchant link (computed, not from JSON)
   const merchantLink = document.getElementById("merchantLink");
-  if (merchantLink && m?.merchant_url) {
-    merchantLink.href = m.merchant_url;
+  if (merchantLink && m?.level === 3) {
+    merchantLink.href = `/jbs/qr/level_03_merchant/?id=${encodeURIComponent(id)}`;
     merchantLink.style.display = "block";
   }
 })();
 </script>
-
-
-
-
-
 </body>
 </html>  
