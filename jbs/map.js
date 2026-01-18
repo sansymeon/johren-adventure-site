@@ -1,35 +1,57 @@
-(function () {
+(async function () {
   // ===============================
-  // JBS MAP CONFIG (from map-data.js)
+  // HELPERS
   // ===============================
-  const mapConfig = window.JBS_MAP || { center: [33.5, 130.5], zoom: 9 };
+  function escapeHtml(s = '') {
+    return String(s).replace(/[&<>"']/g, c =>
+      ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
+    );
+  }
+
+  async function loadVisiblePlaces() {
+    const res = await fetch('/jbs/merchants.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('Failed to load /jbs/merchants.json');
+
+    const data = await res.json(); // object keyed by id
+    const places = Object.entries(data).map(([id, p]) => ({ id, ...p }));
+
+    // Basic validation: level should match URL segment
+    for (const p of places) {
+      const seg = `level_${String(p.level).padStart(2, '0')}`;
+      if (p.pin_url && !p.pin_url.includes(seg)) console.warn('pin_url level mismatch', p.id, p.pin_url, p.level);
+      if (p.qr_url  && !p.qr_url.includes(seg))  console.warn('qr_url level mismatch',  p.id, p.qr_url,  p.level);
+    }
+
+    return places.filter(p => p.visible);
+  }
+
+  // ===============================
+  // MAP CONFIG (no more map-data.js)
+  // ===============================
+  const mapConfig = { center: [33.5, 130.5], zoom: 9 };
+
+  // Allow optional deep-link center/zoom via URL params
+  const params = new URLSearchParams(window.location.search);
+  const lat  = parseFloat(params.get('lat'));
+  const lng  = parseFloat(params.get('lng'));
+  const zoom = parseInt(params.get('zoom'), 10);
+  const hasValidCoords = !isNaN(lat) && !isNaN(lng);
+
+  const center   = hasValidCoords ? [lat, lng] : mapConfig.center;
+  const finalZoom = hasValidCoords ? (zoom || mapConfig.zoom) : mapConfig.zoom;
 
   // ===============================
   // MAP INITIALIZATION
   // ===============================
-  const params = new URLSearchParams(window.location.search);
-
-  const lat  = parseFloat(params.get('lat'));
-  const lng  = parseFloat(params.get('lng'));
-  const zoom = parseInt(params.get('zoom'), 10);
-
-  const hasValidCoords = !isNaN(lat) && !isNaN(lng);
-
-  const center = hasValidCoords ? [lat, lng] : mapConfig.center;
-  const finalZoom = hasValidCoords ? (zoom || mapConfig.zoom) : mapConfig.zoom;
-
   const map = L.map('map', { zoomControl: false }).setView(center, finalZoom);
 
-  // ===============================
-  // TILE LAYER
-  // ===============================
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
   // ===============================
-  // ICON FACTORY
+  // ICON FACTORY + REGISTRY
   // ===============================
   function makeIcon(file) {
     return L.icon({
@@ -40,95 +62,7 @@
     });
   }
 
-  // ===============================
-  // ICON REGISTRY
-  // ===============================
   const icons = {
     artisan: makeIcon('artisan.png'),
     bakery: makeIcon('bakery.png'),
-    barbershop: makeIcon('barber.png'),
-    bath: makeIcon('bath.png'),
-    beauty: makeIcon('beauty.png'),
-    bookstore: makeIcon('bookstore.png'),
-    coffee: makeIcon('coffee.png'),
-    combini: makeIcon('combini.png'),
-    drugstore: makeIcon('drugs.png'),
-    hotel: makeIcon('hotel.png'),
-    noodles: makeIcon('noodles.png'),
-    restaurant: makeIcon('restaurant.png'),
-    supermarket: makeIcon('supermarket.png'),
-    playground: makeIcon('playground.png'),
-    sample: makeIcon('sample.png')
-  };
-
-  // ===============================
-  // CATEGORY LOADER
-  // ===============================
-  function loadCategory(categoryName, iconName) {
-    const list = window[categoryName];
-    const icon = icons[iconName];
-
-    if (!Array.isArray(list) || !icon) return;
-
-    list
-      .filter(item => item.visible === true)
-      .forEach(item => {
-        const pinUrl =
-  item.pin_url ||
-  (item.id ? `/jbs/pin/level_0${item.level || 1}/?id=${encodeURIComponent(item.id)}` : null);
-
-const html = pinUrl
-  ? `<div>${item.name}</div>
-     <div style="margin-top:6px;">
-       <a href="${pinUrl}">開く →</a>
-     </div>`
-  : `<div>${item.name}</div>`;
-
-L.marker([item.lat, item.lng], { icon })
-  .addTo(map)
-  .bindPopup(html);
-
-      });
-  }
-
-  // ===============================
-  // LOAD CATEGORIES
-  // ===============================
-  loadCategory("artisans", "artisan");
-  loadCategory("bakeries", "bakery");
-  loadCategory("baths", "bath");
-  loadCategory("beautyshops", "beauty");
-  loadCategory("bookstores", "bookstore");
-  loadCategory("coffeeshops", "coffee");
-  loadCategory("combini", "combini");
-  loadCategory("drugstores", "drugstore");
-  loadCategory("hotels", "hotel");
-  loadCategory("noodles", "noodles");
-  loadCategory("playgrounds", "playground");
-  loadCategory("restaurants", "restaurant");
-  loadCategory("supermarkets", "supermarket");
-
-  // ===============================
-// OPTIONAL SAMPLES
-// ===============================
-if (Array.isArray(window.samples)) {
-  window.samples.forEach(s => {
-    // guard
-    if (typeof s.lat !== "number" || typeof s.lng !== "number") return;
-
-    const lvl = s.level || 1;
-    const pinUrl =
-      s.pin_url ||
-      (s.id ? `/jbs/pin/level_0${lvl}/?id=${encodeURIComponent(s.id)}` : "#");
-
-    L.marker([s.lat, s.lng], { icon: icons.sample })
-      .addTo(map)
-      .bindPopup(
-        `<div>${s.name}</div>
-         <div style="margin-top:6px;">
-           <a href="${pinUrl}">開く →</a>
-         </div>`
-      );
-  });
-}
-})();
+    barbershop: makeIcon('barb
