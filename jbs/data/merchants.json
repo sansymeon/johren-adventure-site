@@ -1,26 +1,32 @@
 {
-  "sample_01": {
-    "name": "Sample Spot 1",
+  "itoshima_pizza": {
+    "name": "Itoshima Pizza",
     "level": 1,
-    "pin_url": "/jbs/pin/level_01/?id=sample_01",
+    "pin_url": "/jbs/pin/level_01/?id=universal",
     "lat": 33.5585797,
     "lng": 130.2138518,
     "visible": true
   },
-  "sample_02": {
-    "name": "Sample Spot 2",
+  {
+  "cafe_mozart": {
+    "name": "Cafe Mozart",
     "level": 2,
-    "pin_url": "/jbs/pin/level_02/?id=sample_02",
     "lat": 33.57815,
     "lng": 130.25986,
-    "visible": true
+    "visible": true,
+    "category": "cafe",
+    "updated": "2026-01-18",
+    "note": "Upgraded to L2"
   },
-  "sample_03": {
-    "name": "Sample Spot 3",
+  {
+  "itoshima_noodles": {
+    "name": "Itoshima Noodles",
     "level": 3,
-    "pin_url": "/jbs/pin/level_03/?id=sample_03",
-   "lat": 33.58620293,
-    "lng": 130.3764331,
-    "visible": true
-  }
+    "lat": 33.5956766671, 
+    "lng": 130.22763163,
+    "visible": true,
+    "category": "noodles",
+    "updated": "2026-01-18",
+    "note": "Upgraded to L2"
+  },
 }
