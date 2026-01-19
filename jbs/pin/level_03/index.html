@@ -88,11 +88,37 @@
 
 
 
-      <!-- ✅ ONLY DIFFERENCE FROM LEVEL 1 -->
-      <div class="optional-link">
+ <!-- ✅ ONLY DIFFERENCE FROM LEVEL 1 -->
+<div class="optional-link">
   <a id="merchantLink" href="#" aria-label="詳細を見る" style="display:none;">
     この参加者について、もう少し →
   </a>
+</div>
+
+<script>
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = (params.get("id") || "").trim();
+  if (!id) return;
+
+  try {
+    const res = await fetch(`/.netlify/functions/merchant-link-get?id=${encodeURIComponent(id)}`, {
+      cache: "no-store"
+    });
+    if (!res.ok) return;
+
+    const out = await res.json(); // { ok:true, url:"..." } (or url:null)
+
+    const a = document.getElementById("merchantLink");
+    if (a && out && out.url) {
+      a.href = out.url;
+      a.style.display = "block";
+    }
+  } catch (e) {
+    console.error(e);
+  }
+})();
+</script>
 
   <a id="infoLink" href="/setsumei/tenpo/"
      style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
