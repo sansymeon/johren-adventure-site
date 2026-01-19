@@ -99,26 +99,51 @@
 (async function () {
   const params = new URLSearchParams(location.search);
   const id = (params.get("id") || "").trim();
-  if (!id) return;
 
+  // If opened without an id, send them back to the JBS map
+  if (!id) { location.replace("/jbs/map/"); return; }
+
+  // Populate merchant name (still from merchants.json)
+  let merchants = null;
   try {
-    const res = await fetch(`/.netlify/functions/merchant-link-get?id=${encodeURIComponent(id)}`, {
-      cache: "no-store"
-    });
-    if (!res.ok) return;
-
-    const out = await res.json(); // { ok:true, url:"..." } (or url:null)
-
-    const a = document.getElementById("merchantLink");
-    if (a && out && out.url) {
-      a.href = out.url;
-      a.style.display = "block";
-    }
+    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
+    merchants = await res.json();
   } catch (e) {
     console.error(e);
   }
+
+  const m = merchants?.[id];
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
+
+  // Info link: preserve context
+  const info = document.getElementById("infoLink");
+  if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+
+  // ✅ NEW: get merchant URL from Netlify function (Supabase-backed)
+  const merchantLink = document.getElementById("merchantLink");
+  if (!merchantLink) return;
+
+  try {
+    const r = await fetch(`/.netlify/functions/merchant-link-get?id=${encodeURIComponent(id)}`, { cache: "no-store" });
+    if (!r.ok) throw new Error("merchant-link-get failed: " + r.status);
+
+    const j = await r.json();
+    const url = (j?.url || "").trim();
+
+    // only show if a real URL exists
+    if (url) {
+      merchantLink.href = url;
+      merchantLink.style.display = "block";
+    }
+  } catch (e) {
+    console.error(e);
+    // fail silently = keep link hidden
+  }
 })();
 </script>
+
 
   <a id="infoLink" href="/setsumei/tenpo/"
      style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
