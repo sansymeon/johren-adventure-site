@@ -123,55 +123,71 @@
 
 
   <script>
-    (async function () {
-      const params = new URLSearchParams(location.search);
-      const id = (params.get("id") || "").trim();
+(async function () {
+  const params = new URLSearchParams(location.search);
+  const id = (params.get("id") || "").trim();
 
-      if (!id) { location.replace("/jbs/map/"); return; }
+  if (!id) { location.replace("/jbs/map/"); return; }
 
-      // merchant name
-      const m = merchants?.[id];
+  // 1) Load merchants.json
+  let merchants = null;
+  try {
+    const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("merchants.json fetch failed: " + res.status);
+    merchants = await res.json();
+  } catch (e) {
+    console.error(e);
+    location.replace("/jbs/map/");
+    return;
+  }
 
-      const nameH1 = document.getElementById("merchantName");
-      if (nameH1) nameH1.textContent = m?.name || m?.nameEn || "（参加者名）";
+  const m = merchants?.[id];
 
-      const nameEn = document.getElementById("merchantNameEn");
-      if (nameEn) {
-      const en = (m?.nameEn || "").trim();
-      if (en) { nameEn.textContent = en; nameEn.style.display = "block"; }
-      }
+  // 2) Enforce visibility + level BEFORE anything else
+  if (!m || m.visible !== true || Number(m.level) < 3) {
+    location.replace("/jbs/map/");
+    return;
+  }
 
-      // links
-      const back = document.getElementById("backLink");
-      if (back) back.href = "/jbs/map/";
+  // 3) Populate names
+  const nameH1 = document.getElementById("merchantName");
+  if (nameH1) nameH1.textContent = m?.name || m?.nameEn || "（参加者名）";
 
-      const info = document.getElementById("infoLink");
-      if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
+  const nameEn = document.getElementById("merchantNameEn");
+  if (nameEn) {
+    const en = (m?.nameEn || "").trim();
+    if (en) { nameEn.textContent = en; nameEn.style.display = "block"; }
+  }
 
-      // merchant public link
-      const merchantLink = document.getElementById("merchantLink");
-      if (!merchantLink) return;
+  // 4) Links
+  const back = document.getElementById("backLink");
+  if (back) back.href = "/jbs/map/";
 
-      try {
-        const r = await fetch(`/.netlify/functions/merchant-link?id=${encodeURIComponent(id)}`, { cache: "no-store" });
-        if (!r.ok) throw new Error("merchant-link failed: " + r.status);
+  const info = document.getElementById("infoLink");
+  if (info) info.href = `/setsumei/tenpo/?id=${encodeURIComponent(id)}`;
 
-        const j = await r.json();
-        const url = (j?.url || "").trim();
+  // 5) Optional merchant public link from Supabase
+  const merchantLink = document.getElementById("merchantLink");
+  if (!merchantLink) return;
 
-        if (!m || m.visible !== true || Number(m.level) < 3) {
-        location.replace("/jbs/map/");
-        return;
-       }
+  try {
+    const r = await fetch(`/.netlify/functions/merchant-link?id=${encodeURIComponent(id)}`, { cache: "no-store" });
+    if (!r.ok) throw new Error("merchant-link failed: " + r.status);
 
-        if (url) {
-          merchantLink.href = url;
-          merchantLink.target = "_blank";
-          merchantLink.rel = "noopener noreferrer";
-          merchantLink.style.display = "block";
-        }
-      } catch (e) { console.error(e); }
-    })();
-  </script>
+    const j = await r.json();
+    const url = (j?.url || "").trim();
+
+    if (url) {
+      merchantLink.href = url;
+      merchantLink.target = "_blank";
+      merchantLink.rel = "noopener noreferrer";
+      merchantLink.style.display = "block";
+    }
+  } catch (e) {
+    console.error(e);
+  }
+})();
+</script>
+
 </body>
 </html>
