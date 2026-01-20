@@ -28,7 +28,7 @@ window.MAP_CONFIG = {
     ],
     churches: [
       {
-        name: "カトリック大分司教区 教区本部事務局"
+        name: "カトリック大分司教区 教区本部事務局",
         nameEn: "St. Francis Xavier Cathedral",
         lat: 33.238665,
         lng: 131.604509
