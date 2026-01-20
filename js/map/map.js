@@ -204,7 +204,7 @@ function formatLandmarkLabel(item) {
           </div>`;
 }
 
-  stations.forEach(station => {
+stations.forEach(station => {
   if (
     !station ||
     typeof station.lat !== 'number' ||
@@ -226,7 +226,6 @@ function formatLandmarkLabel(item) {
     sticky: true,
     className: 'station-tooltip'
   });
-)}
 
   marker.on('click', () => {
     if (lastTappedStation !== station) {
@@ -236,10 +235,12 @@ function formatLandmarkLabel(item) {
     }
 
     selectedStation = station;
-    marker.bindPopup(`基準駅：${station.name}`).openPopup();
+    const base = station.nameEn ? `${station.name}（${station.nameEn}）` : station.name;
+    marker.bindPopup(`基準駅：${base}`).openPopup();
     updateDistances();
   });
 });
+
 
   // -------------------------------
   // LANDMARKS
