@@ -1,11 +1,12 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>Johren Adventure | Local Discovery Journey (West Fukuoka)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Johren Adventure — a simple local discovery journey along West Fukuoka. Scan QR markers near stations to collect small stories and stamps. No app. No registration." />
-
+  <title>ジョウレン・アドベンチャー｜福岡西のローカル発見旅</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ジョウレン・アドベンチャー ― 福岡市西区と糸島の間のローカル</br>発見旅。駅に設置されたQRを読み取り、小さな物語やスタンプを集めて進む新しい散策体験。" />
+  
   <style>
     :root {
       --bg: #f7f7f7;
@@ -30,7 +31,11 @@
       line-height: 1.6;
     }
 
-    img { max-width: 100%; display: block; }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     a { color: inherit; text-decoration: none; }
 
     .container {
@@ -40,6 +45,7 @@
     }
 
     /* HERO */
+
     .hero {
       background: url('/img/nokonoshima_view.jpg') center/cover no-repeat;
       color: #fff;
@@ -92,7 +98,6 @@
       justify-content: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-top: 1.8rem;
     }
 
     .hero-buttons .btn {
@@ -104,10 +109,18 @@
       border-radius: 999px;
       font-weight: 600;
     }
-    .hero-buttons .btn:hover { background: #fff; }
+
+    .hero-buttons .btn:hover {
+      background: #fff;
+    }
+    .hero-buttons {
+  margin-top: 1.8rem;
+}
+
 
     /* Sections */
-    section { padding: 2rem 0 !important; }
+
+    section { padding: 2.5rem 0; }
 
     .section-heading {
       text-align: center;
@@ -124,8 +137,8 @@
       font-size: 0.95rem;
     }
 
-    .section--surface { background: var(--surface); padding-bottom: 2rem !important; }
-    .section--soft { background: var(--surface-soft); padding-top: 2rem !important; }
+    .section--surface { background: var(--surface); }
+    .section--soft { background: var(--surface-soft); }
     .section--accent-soft { background: var(--accent-soft); }
 
     .about-text {
@@ -133,8 +146,6 @@
       margin: 0 auto;
       font-size: 1rem;
       text-align: center;
-      line-height: 1.55 !important;
-      margin-top: 0.5rem !important;
     }
 
     .pill-row {
@@ -142,7 +153,7 @@
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin-top: 1.5rem !important;
+      margin-top: 2rem;
     }
 
     .pill {
@@ -155,6 +166,7 @@
     }
 
     /* Spots */
+
     .spot {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
@@ -166,7 +178,9 @@
       margin-right: auto;
     }
 
-    .spot--reverse { grid-template-columns: 1fr 1.1fr; }
+    .spot--reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
 
     .spot-image {
       border-radius: 18px;
@@ -191,35 +205,8 @@
     .spot-body h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
     .spot-body p { font-size: 0.95rem; color: var(--text-muted); }
 
-    /* HOW IT WORKS */
-    #how .steps {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    #how .step { margin-bottom: 2rem; }
-    #how .step-line { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.35rem; }
-    #how p { font-size: 0.95rem; color: #444; line-height: 1.5; }
-
-    /* WHY (basic grid — keep simple even if old CSS is missing elsewhere) */
-    .why-grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 1.5rem;
-    }
-    .why-card{
-      background:#fff;
-      border:1px solid rgba(0,0,0,0.05);
-      border-radius: 16px;
-      padding: 18px 16px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
-    }
-    .why-card h3{ font-size: 1.05rem; margin-bottom: 0.5rem; }
-    .why-card p{ font-size: 0.92rem; color: #555; line-height: 1.55; }
-
     /* CTA */
+
     .cta {
       position: relative;
       text-align: center;
@@ -247,65 +234,176 @@
     .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.7rem; }
 
     /* Footer */
-    .site-footer {
-      background: #111;
-      color: #bbb;
-      font-size: 0.75rem;
-      padding: 6px 0;
-      line-height: 1.2;
-    }
 
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1080px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
+ .site-footer {
+  background: #111;
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 6px 0;     /* Tight top/bottom */
+  line-height: 1.2;   /* Prevents inherited tall spacing */
+}
 
-    .site-footer div { margin: 0; padding: 0; }
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;    /* Horizontal only */
+}
 
-    .footer-links a {
-      margin-left: 1rem;
-      color: #ccc;
-      text-decoration: none;
-    }
-    .footer-links a:hover { color: #fff; }
+.site-footer div {
+  margin: 0;          /* Remove any default spacing */
+  padding: 0;
+}
 
-    @media (max-width: 768px) {
+.footer-links a {
+  margin-left: 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+}
+
+
+    @media(max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
       .spot, .spot--reverse { grid-template-columns: 1fr; }
-      .why-grid{ grid-template-columns: 1fr; }
-      .hero-title { font-size: 1.9rem; }
-      .hero { padding-top: 120px; height: 60vh; min-height: 360px; }
-      .hero-inner { padding-top: 2.5rem; }
-      .hero-kicker { display:block; margin-bottom:0.6rem; opacity:0.85; }
     }
+/* TIGHTER SECTIONS */
+section {
+  padding: 2rem 0 !important;      /* from 4rem → 2rem */
+}
 
-    @media (max-width: 480px) {
-      body { font-size: 16.5px; }
-      .hero-title { font-size: 2.1rem; line-height: 1.25; }
-      .hero-subtitle { font-size: 1.05rem; }
-    }
+/* TIGHTEN THE ABOUT SECTION */
+#about .section-heading h2 {
+  margin-bottom: 0.4rem !important;
+}
+
+#about .section-heading p {
+  margin-bottom: 1rem !important;
+}
+
+#about .about-text {
+  margin-top: 0.5rem !important;
+  line-height: 1.55 !important;
+}
+
+#about .pill-row {
+  margin-top: 1.5rem !important;
+}
+
+/* Optional: reduce large white space between ABOUT and SPOTS */
+.section--surface {
+  padding-bottom: 2rem !important;
+}
+.section--soft {
+  padding-top: 2rem !important;
+}
+/* Center the HOW IT WORKS section */
+#how .steps {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Center each step */
+#how .step {
+  margin-bottom: 2rem;
+}
+
+#how .step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#how .step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+#how p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
+  .hero-title {
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-top: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-kicker {
+    display: block;
+    margin-bottom: 0.6rem;
+    opacity: 0.85;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 480px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    white-space: normal;
+  }
+}
+
   </style>
 </head>
 
 <body>
+
 <main>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-kicker">WEST FUKUOKA</div>
-    <h1 class="hero-title">Johren Adventure</h1>
+    <div class="hero-kicker">福岡西地域</div>
+    <h1 class="hero-title">ジョウレン アドベンチャー</h1>
     <p class="hero-subtitle">
-      A simple local journey along West Fukuoka.<br>
-      Scan station QR markers to uncover small stories hidden in everyday life.
+      福岡西地域に沿って進むシンプルなローカル冒険。<br>
+      駅にあるQRマーカーを読み取り、日常に隠れた小さな物語を発見していきます。
     </p>
     <div class="hero-buttons">
-      <a class="btn" href="#how">How it works</a>
-      <a class="btn" href="map.html">Open the map</a>
-    </div>
+  <a class="btn" href="#how">使い方を見る</a>
+  <a class="btn" href="map.html">地図を見る</a>
+</div>
+
   </div>
 </section>
 
@@ -313,22 +411,23 @@
 <section class="section--surface" id="about">
   <div class="container">
     <div class="section-heading">
-      <h2>What is Johren?</h2>
-      <p>A local discovery system designed for Japan.</p>
+      <h2>ジョウレンとは？</h2>
+      <p>日本のために作られたローカル発見システム。</p>
     </div>
 
     <div class="about-text">
-      Johren Adventure lets you move through<br>
-      <strong>stations, shops, scenic views, and small cultural places</strong>,<br>
-      collecting stamps as you go.<br><br>
-      No app. No registration.<br>
-      Your normal commute or walk becomes a small “journey.”
+      ジョウレン・アドベンチャーは、<br>
+      <strong>駅・お店・景観スポット・小さな文化地点</strong>を巡り、<br>
+      スタンプを集めながら進むローカル発見システムです。<br><br>
+
+      アプリ不要。登録不要。<br>
+      いつもの通勤や散歩が、ちょっとした「旅」になります。
     </div>
 
     <div class="pill-row">
-      <div class="pill">QR stamps by station</div>
-      <div class="pill">Small stories & local hints</div>
-      <div class="pill">No app / no login</div>
+      <div class="pill">駅ごとにQRスタンプ</div>
+      <div class="pill">小さな物語 & ローカルの豆知識</div>
+      <div class="pill">アプリ・ログイン不要</div>
     </div>
   </div>
 </section>
@@ -337,52 +436,53 @@
 <section class="section--soft" id="spots">
   <div class="container">
     <div class="section-heading">
-      <h2>West Fukuoka spots</h2>
-      <p>A few quiet highlights along the route.</p>
+      <h2>福岡西のスポット</h2>
+      <p>沿線の見どころを少しだけ紹介。</p>
     </div>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/muromigawa.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Riverside</div>
-        <h3>Muromi River</h3>
-        <p>A place where people walk, pause, and the seasons change quietly along the water.</p>
+        <div class="spot-tag">川沿い</div>
+        <h3>室見川</h3>
+        <p>川に沿って人が歩き、立ち止まり、季節が静かに移り変わっていく場所。</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/matsubara.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Seaside memory</div>
-        <h3>Pine groves</h3>
-        <p>A coastline once used by travelers. Now, mostly wind—and footsteps—remain.</p>
+        <div class="spot-tag">海辺の記憶</div>
+        <h3>松原</h3>
+        <p>かつて人の行き来があったとされる海辺。今も風と足音だけが残っています。</p>
       </div>
     </article>
+
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/nishijin.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Everyday streets</div>
-        <h3>Nishijin & Fujisaki shotengai</h3>
-        <p>Shopping streets where small shops, talk, and daily life naturally cross paths.</p>
+        <div class="spot-tag">ロー日常の通り道</div>
+        <h3>西新・藤崎の商店街</h3>
+        <p>屋台や古い店が並ぶ、買い物と会話が自然に交わる通り。</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/atago_shrine.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">High ground</div>
-        <h3>Atago Shrine</h3>
-        <p>A place above the city and sea—people have stopped here for a long time.</p>
+        <div class="spot-tag">高台</div>
+        <h3>愛宕神社</h3>
+        <p>街と海を見下ろす場所。昔から人が足を止めてきました。</p>
       </div>
     </article>
 
     <article class="spot">
       <div class="spot-image" style="background-image:url('/img/odo_park.jpg')"></div>
       <div class="spot-body">
-        <div class="spot-tag">Park</div>
-        <h3>Odo Park</h3>
-        <p>An ordinary park where walking, playing, and doing nothing all fit naturally.</p>
+        <div class="spot-tag">公園</div>
+        <h3>小戸公園</h3>
+        <p>散歩や遊び、何もしない時間が流れる、いつもの公園。</p>
       </div>
     </article>
 
@@ -393,26 +493,29 @@
 <section class="section--surface" id="how">
   <div class="container">
     <div class="section-heading">
-      <h2>How it works</h2>
-      <p>Very simple. No app needed.</p>
+      <h2>使い方</h2>
+      <p>とてもシンプル。アプリ不要。</p>
     </div>
 
-    <div class="steps">
-      <div class="step">
-        <div class="step-line"><strong>1. Find a QR marker</strong></div>
-        <p>Near each station in West Fukuoka, you’ll find a Johren QR plate.</p>
-      </div>
+<div class="steps">
 
-      <div class="step">
-        <div class="step-line"><strong>2. Scan with your phone</strong></div>
-        <p>Your camera or browser is enough. No login. No app installation.</p>
-      </div>
+  <div class="step">
+    <div class="step-line"><strong>1. QRマーカーを見つける</strong></div>
+    <p>福岡西地域の各駅のあたりにはジョウレンQRプレートがあります。</p>
+  </div>
 
-      <div class="step">
-        <div class="step-line"><strong>3. Collect a stamp</strong></div>
-        <p>You’ll unlock a stamp and a small story connected to that place.</p>
-      </div>
-    </div>
+  <div class="step">
+    <div class="step-line"><strong>2. スマホで読み取る</strong></div>
+    <p>カメラまたはブラウザでOK。ログインやアプリは必要ありません。</p>
+  </div>
+
+  <div class="step">
+    <div class="step-line"><strong>3. スタンプを獲得</strong></div>
+    <p>その場所に合わせたスタンプと小さな物語が開きます。</p>
+  </div>
+
+</div>
+
   </div>
 </section>
 
@@ -420,59 +523,76 @@
 <section class="section--accent-soft" id="why">
   <div class="container">
     <div class="section-heading">
-      <h2>Why Johren works</h2>
-      <p>Designed to match Japan’s cultural logic.</p>
+      <h2>ジョウレンの特徴</h2>
+      <p>日本の文化的ロジックに合わせて設計。</p>
     </div>
 
     <div class="why-grid">
       <div class="why-card">
-        <h3>Familiar in Japan</h3>
-        <p>Stamp rallies, goshuin, point cards—Johren builds on cultures people already enjoy.</p>
+        <h3>日本で馴染みのある仕組み</h3>
+        <p>スタンプラリー、御朱印、ポイントカード ― すでに人々が好きな文化を活かしています。</p>
       </div>
 
       <div class="why-card">
-        <h3>Experience first</h3>
-        <p>In Phase 1, there are no discounts or exchanges. The focus is walking, noticing, and enjoying.</p>
+        <h3>お金ではなく「体験」</h3>
+        <p>フェーズ1では割引や交換はありません。歩く・見る・気づく楽しさを重視。</p>
       </div>
 
       <div class="why-card">
-        <h3>Easy for shops</h3>
-        <p>Zero setup cost. One small QR plate can quietly bring more visitors—without extra work.</p>
+        <h3>お店も気軽に参加できる</h3>
+        <p>設置費ゼロ。QRプレートひとつで、手間なく来訪者が増えます。</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
-<section class="cta">
+  <section class="cta">
   <div class="cta-inner">
-    <h2>Start with the West Fukuoka map.</h2>
+    <h2>まずは福岡西マップから。</h2>
     <p>
-      This is a demo to show what might be possible in Itoshima.<br>
-      The number of pins will grow gradually.
+      「糸島でこういうことができそうだな」というイメージを見るためのデモです。<br>
+      ピンの数は少しずつ増えていきます。
     </p>
 
     <a class="btn"
        href="map.html"
        style="background:#fff;color:#222;border-radius:999px;padding:10px 18px;font-weight:600;">
-      Open the West Fukuoka map
+      福岡西マップを開く
     </a>
-
     <br><br>
-
+    <!-- quiet, optional link -->
     <div style="margin-top:14px;font-size:13px;">
       <a href="https://johrenadventure.com"
          style="color:#777;text-decoration:none;">
-        A little more about this project →
+        この取り組みについて、もう少し →
       </a>
     </div>
   </div>
 </section>
 
-<p style="margin-top:2rem;text-align:center;font-size:0.75rem;color:#888;">
-  Note: Places listed here do not imply partnership, endorsement, or recommendation of any specific business or facility.
+
+  <p style="margin-top:2rem;text-align:center;font-size:0.75rem;color:#888;">
+  ※ 本サイトに掲載されているスポットは、特定の事業者・施設との提携や推薦を示すものではありません。
 </p>
 
-</main>
+</section>
 
-<footer class="site-
+</main>
+  
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© SanSymeon / ジョウレン・アドベンチャー</div>
+    <div class="footer-links">
+      <a href="#">利用規約</a>
+      <a href="#">お問い合わせ</a>
+      <a href="/en/index.html">English</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
+
+
+
