@@ -57,7 +57,8 @@ history_pool: [
 
     churches: [
       {
-        name: "Baptist Church 姪浜バプテスト教会",
+        name: "姪浜バプテスト教会",
+        nameEn: "Meinohama Baptist Church",
         lat: 33.584414790218574,
         lng: 130.32510369901166
       }
@@ -65,7 +66,8 @@ history_pool: [
 
     shrines: [
       {
-        name: "Atago 鷲尾愛宕神社",
+        name: "鷲尾愛宕神社",
+        nameEn: "Atago Shrine", 
         lat: 33.586443725202805,
         lng: 130.33472168452056
       }
@@ -73,7 +75,8 @@ history_pool: [
 
     temples: [
       {
-        name: "Junkoji 順光寺",
+        name: "順光寺",
+        nameEn: "Junkoji", 
         lat: 33.59031331862292,
         lng: 130.32182965079352
       }
