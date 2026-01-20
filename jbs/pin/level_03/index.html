@@ -64,39 +64,66 @@
 
   .links{ margin-top:24px; font-size:13px; color:#666; }
   .links a{ color:#666; text-decoration:underline; }
+
+    .jp { display:block; }
+.en {
+  display:block;
+  font-size:12px;
+  color:#777;
+  margin-top:4px;
+  line-height:1.4;
+}
+.kicker .en { font-size:11px; color:#888; margin-top:2px; }
+.name-en { text-align:center; margin:6px 0 18px; }
+.message .en { margin-top:6px; }
+
 </style>
 
 </head>
 
 <body>
   <div class="wrap">
-    <div class="kicker">Welcome to Johren Adventure</div>
-    <h1 id="merchantName">（参加者名）</h1>
+  <div class="kicker">
+    <div class="jp">Johren Adventure</div>
+    <div class="en">Johren Adventure</div>
+  </div>
 
-    <div class="card">
-      <div class="message">この場所は、参加できる場所です。</div>
+  <h1 id="merchantName">（参加者名）</h1>
+  <div id="merchantNameEn" class="en name-en" style="display:none;"></div>
 
-      <div class="sub" style="margin-top:10px;">
-        詳細は、現地でQRを読み取ると表示されます。
-      </div>
-      <div class="sub">Thanks for stopping by.</div>
+  <div class="card">
+    <div class="message">
+      <div class="jp">この場所は、参加できる場所です。</div>
+      <div class="en">This place is participating.</div>
+    </div>
 
-      <div class="links">
-        <a id="backLink" href="/jbs/map/">戻る →</a>
-      </div>
+    <div class="sub" style="margin-top:10px;">
+      <div class="jp">詳細は、現地でQRを読み取ると表示されます。</div>
+      <div class="en">More details appear when you scan the QR on-site.</div>
+    </div>
 
-      <div class="optional-link">
-        <a id="merchantLink" href="#" aria-label="詳細を見る" style="display:none;">
-          この参加者について、もう少し →
-        </a>
-      </div>
-
-      <a id="infoLink" href="/setsumei/tenpo/"
-         style="display:block;margin-top:12px;font-size:13px;color:#555;text-decoration:none;">
-        この仕組みについて（店舗）→
+    <div class="links">
+      <a id="backLink" href="/jbs/map/">
+        <span class="jp">戻る →</span>
+        <span class="en">Back →</span>
       </a>
     </div>
+
+    <div class="optional-link">
+      <a id="merchantLink" href="#" aria-label="詳細を見る" style="display:none;">
+        <span class="jp">この参加者について、もう少し →</span>
+        <span class="en">More about this place →</span>
+      </a>
+    </div>
+
+    <a id="infoLink" href="/setsumei/tenpo/"
+       style="display:block;margin-top:12px;text-decoration:none;">
+      <span class="jp" style="font-size:13px;color:#555;">この仕組みについて（店舗）→</span>
+      <span class="en" style="font-size:12px;color:#777;display:block;margin-top:2px;">How this works (for shops) →</span>
+    </a>
   </div>
+</div>
+
 
   <script>
     (async function () {
@@ -106,15 +133,16 @@
       if (!id) { location.replace("/jbs/map/"); return; }
 
       // merchant name
-      try {
-        const res = await fetch("/jbs/data/merchants.json", { cache: "no-store" });
-        if (res.ok) {
-          const merchants = await res.json();
-          const m = merchants?.[id];
-          const nameH1 = document.getElementById("merchantName");
-          if (nameH1) nameH1.textContent = m?.name || "（参加者名）";
-        }
-      } catch (e) { console.error(e); }
+      const m = merchants?.[id];
+
+      const nameH1 = document.getElementById("merchantName");
+      if (nameH1) nameH1.textContent = m?.name || m?.nameEn || "（参加者名）";
+
+      const nameEn = document.getElementById("merchantNameEn");
+      if (nameEn) {
+      const en = (m?.nameEn || "").trim();
+      if (en) { nameEn.textContent = en; nameEn.style.display = "block"; }
+      }
 
       // links
       const back = document.getElementById("backLink");
@@ -133,6 +161,11 @@
 
         const j = await r.json();
         const url = (j?.url || "").trim();
+
+        if (!m || m.visible !== true || Number(m.level) < 3) {
+        location.replace("/jbs/map/");
+        return;
+       }
 
         if (url) {
           merchantLink.href = url;
