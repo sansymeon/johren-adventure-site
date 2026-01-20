@@ -87,4 +87,5 @@ const popup = `
     .bindPopup(popup);
 });
 
-})().catch(err => console.error(err));
+.catch(err => console.error(err));
+})()
