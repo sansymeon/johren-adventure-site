@@ -63,29 +63,28 @@
     map.fitBounds(bounds.pad(0.2));
   }
 
-  places.forEach(p => {
-  const pinUrl = `/jbs/pin/level_${String(p.level).padStart(2,'0')}/?id=${encodeURIComponent(p.id)}`;
+   places.forEach(p => {
+    const pinUrl = `/jbs/pin/level_${String(p.level).padStart(2,'0')}/?id=${encodeURIComponent(p.id)}`;
 
-const nameJP = (p.name || "").trim();
-const nameEN = (p.nameEn || "").trim();
+    const nameJP = (p.name || "").trim();
+    const nameEN = (p.nameEn || "").trim();
 
-const title = nameJP || nameEN || p.id;
-const showEn = nameJP && nameEN && nameEN !== nameJP;
+    const title = nameJP || nameEN || p.id;
+    const showEn = nameJP && nameEN && nameEN !== nameJP;
 
-const popup = `
-  <div style="line-height:1.4">
-    <div><strong>${escapeHtml(title)}</strong></div>
-    ${showEn ? `<div style="font-size:11px;color:#777;margin-top:4px;">${escapeHtml(nameEN)}</div>` : ``}
-    <div style="margin-top:6px;">
-      <a href="${pinUrl}">開く →</a>
-    </div>
-   </div>  
-`;`
+    const popup = `
+      <div style="line-height:1.4">
+        <div><strong>${escapeHtml(title)}</strong></div>
+        ${showEn ? `<div style="font-size:11px;color:#777;margin-top:4px;">${escapeHtml(nameEN)}</div>` : ``}
+        <div style="margin-top:6px;">
+          <a href="${pinUrl}">開く →</a>
+        </div>
+      </div>
+    `;
 
-  L.marker([p.lat, p.lng], { icon: sampleIcon })
-    .addTo(map)
-    .bindPopup(popup);
-});
+    L.marker([p.lat, p.lng], { icon: sampleIcon })
+      .addTo(map)
+      .bindPopup(popup);
+  });
 
-.catch(err => console.error(err));
-})()
+})().catch(err => console.error(err));
