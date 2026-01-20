@@ -70,7 +70,12 @@ window.MAP_CONFIG = {
   ],
 
   churches: [
-    { name: 'Karatsu Catholic Church', lat: 33.45252801155086, lng: 129.9614152412968 }
+    { 
+      name: '唐津城',
+      nameEn: 'Karatsu Catholic Church', 
+      lat: 33.45252801155086, 
+      lng: 129.9614152412968 
+    }
   ],
 
   museums: [
