@@ -181,13 +181,28 @@ function renderHistoryLine(text) {
 
   
   function formatStationLabel(station) {
-    return station.nameEn
-      ? `<div class="station-label">
-           <div class="jp">${station.name}</div>
-           <div class="en">${station.nameEn}</div>
-         </div>`
-      : `<div class="station-label"><div class="jp">${station.name}</div></div>`;
-  }
+  return station.nameEn
+    ? `<div class="station-label">
+         <div class="jp">${station.name}</div>
+         <div class="en">${station.nameEn}</div>
+       </div>`
+    : `<div class="station-label"><div class="jp">${station.name}</div></div>`;
+}
+
+function formatLandmarkLabel(item) {
+  const jp = (item.name || '').trim();
+  const en = (item.nameEn || '').trim();
+
+  const title = escapeHtml(jp || en || '');
+  const sub = (jp && en && jp !== en)
+    ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
+    : '';
+
+  return `<div class="landmark-label">
+            <div class="jp">${title}</div>
+            ${sub}
+          </div>`;
+}
 
   stations.forEach(station => {
   if (
@@ -211,19 +226,6 @@ function renderHistoryLine(text) {
     sticky: true,
     className: 'station-tooltip'
   });
-function formatLandmarkLabel(item) {
-  const jp = (item.name || '').trim();
-  const en = (item.nameEn || '').trim();
-
-  const title = escapeHtml(jp || en || '');
-  const sub = (jp && en && jp !== en)
-    ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
-    : '';
-
-  return `<div class="landmark-label">
-            <div class="jp">${title}</div>
-            ${sub}
-          </div>`;
 }
 
   marker.on('click', () => {
