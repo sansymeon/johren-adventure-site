@@ -14,6 +14,31 @@
 
     const data = await res.json(); // object keyed by id
     const places = Object.entries(data).map(([id, p]) => ({ id, ...p }));
+// --- sanity warnings (non-blocking) ---
+places.forEach(p => {
+  if (p.visible !== true) return;
+
+  // name checks
+  if (!String(p.name || "").trim()) {
+    console.warn(`[JBS] visible place missing name (JP): ${p.id}`);
+  }
+  if (!String(p.nameEn || "").trim()) {
+    console.warn(`[JBS] visible place missing nameEn: ${p.id}`);
+  }
+
+  // coordinate checks
+  const latOk = typeof p.lat === "number" && !Number.isNaN(p.lat);
+  const lngOk = typeof p.lng === "number" && !Number.isNaN(p.lng);
+  if (!latOk || !lngOk) {
+    console.warn(`[JBS] visible place missing/invalid lat/lng: ${p.id}`, { lat: p.lat, lng: p.lng });
+  }
+
+  // level check
+  const lvl = Number(p.level);
+  if (!Number.isFinite(lvl) || lvl < 1 || lvl > 3) {
+    console.warn(`[JBS] visible place has strange level: ${p.id}`, { level: p.level });
+  }
+});
 
     return places.filter(p => p.visible === true);
 }
