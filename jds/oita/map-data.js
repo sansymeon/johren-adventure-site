@@ -5,30 +5,31 @@ window.MAP_CONFIG = {
 
     stations: [
       {
-        id: 'oita',
-        name: '大分',
-        nameEn: 'Oita',
+        id: "oita",
+        name: "大分",
+        nameEn: "Oita",
         lat: 33.23232801877058,
         lng: 131.6057111319828
       },
   { 
-      id:'beppu',
-      name: '別府',
-      nameEn: 'Beppu',
+      id:"beppu",
+      name: "別府",
+      nameEn: "Beppu",
       lat:33.27964, 
       lng:131.50039
       },
       { 
-        id: 'yufuin',
-        name:'由布院', 
-        nameEn: 'Yufuin', 
+        id: "yufuin",
+        name:"由布院", 
+        nameEn: "Yufuin", 
         lat: 33.26269658669704, 
         lng: 131.35526192713755 
       },
     ],
     churches: [
       {
-        name: 'St. Francis Xavier Cathedral',
+        name: "カトリック大分司教区 教区本部事務局"
+        nameEn: "St. Francis Xavier Cathedral",
         lat: 33.238665,
         lng: 131.604509
       }
@@ -49,7 +50,8 @@ history_pool: [
 
     museums: [ 
       {
-        name: 'Oita Pref. Art Museum 大分県立美術館',
+        name: "大分県立美術館",
+        nameEn: "Oita Pref. Art Museum", 
         lat: 33.23950622291895, 
         lng: 131.6013320325027
       }
