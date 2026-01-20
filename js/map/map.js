@@ -226,7 +226,7 @@ function formatLandmarkLabel(item) {
     sticky: true,
     className: 'station-tooltip'
   });
-})
+)}
 
   marker.on('click', () => {
     if (lastTappedStation !== station) {
