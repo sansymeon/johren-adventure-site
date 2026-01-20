@@ -173,6 +173,13 @@ function renderHistoryLine(text) {
   let lastTappedStation = null;
   const visitedStations = getVisitedStations();
 
+  function escapeHtml(s = '') {
+  return String(s).replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
+  );
+}
+
+  
   function formatStationLabel(station) {
     return station.nameEn
       ? `<div class="station-label">
@@ -204,6 +211,20 @@ function renderHistoryLine(text) {
     sticky: true,
     className: 'station-tooltip'
   });
+function formatLandmarkLabel(item) {
+  const jp = (item.name || '').trim();
+  const en = (item.nameEn || '').trim();
+
+  const title = escapeHtml(jp || en || '');
+  const sub = (jp && en && jp !== en)
+    ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
+    : '';
+
+  return `<div class="landmark-label">
+            <div class="jp">${title}</div>
+            ${sub}
+          </div>`;
+}
 
   marker.on('click', () => {
     if (lastTappedStation !== station) {
@@ -236,7 +257,7 @@ function renderHistoryLine(text) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(item.name);
+      .bindPopup(formatLandmarkLabel(item));
 
     item._marker = marker;
   });
@@ -259,7 +280,7 @@ loadCategory(parks, parkLayer, icons.park);
     [...churches, ...museums, ...shrines, ...temples, ...parks].forEach(item => {
       if (!item._marker) return;
       const d = distanceKm(selectedStation, item).toFixed(1);
-      item._marker.bindPopup(`${item.name}<br>駅から約 ${d} km`);
+      item._marker.bindPopup(`${formatLandmarkLabel(item)}<div style="margin-top:6px;">駅から約 ${d} km</div>`);
     });
   }
 
