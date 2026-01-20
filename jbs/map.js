@@ -66,14 +66,25 @@
   places.forEach(p => {
   const pinUrl = `/jbs/pin/level_${String(p.level).padStart(2,'0')}/?id=${encodeURIComponent(p.id)}`;
 
-  const popup = `
-    <div style="line-height:1.4">
-      <div><strong>${escapeHtml(p.name || p.id)}</strong></div>
-      <div style="margin-top:6px;">
-        <a href="${pinUrl}">開く →</a>
-      </div>
+const nameJP = (p.name || "").trim();
+const nameEN = (p.nameEn || "").trim();
+const title  = nameJP || nameEN || p.id;
+
+const popup = `
+  <div style="line-height:1.4">
+    <div><strong>${escapeHtml(title)}</strong></div>
+    ${
+      nameJP && nameEN && nameEN !== nameJP
+        ? `<div style="font-size:11px;color:#777;margin-top:4px;">${escapeHtml(nameEN)}</div>`
+        : `
+    }
+    <div style="margin-top:6px;">
+      <a href="${pinUrl}">開く →</a>
     </div>
-  `;
+  </div>
+`;
+
+  `
 
   L.marker([p.lat, p.lng], { icon: sampleIcon })
     .addTo(map)
