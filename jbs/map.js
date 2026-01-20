@@ -79,6 +79,7 @@ const popup = `
     <div style="margin-top:6px;">
       <a href="${pinUrl}">開く →</a>
     </div>
+   </div>  
 `;`
 
   L.marker([p.lat, p.lng], { icon: sampleIcon })
