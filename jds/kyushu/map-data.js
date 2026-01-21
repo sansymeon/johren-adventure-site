@@ -203,12 +203,52 @@ window.MAP_CONFIG = {
   lng: 130.37429225460698
 },
 {
-  id: "unknown_taku",
-  line: "unknown",
+  id: "karatsu_taku",
+  line: "karatsu",
   name: "多久",
   nameEn: "Taku",
   lat: 33.28813833803867,
   lng: 130.09618428697073
+},
+    {
+  id: "karatsu_onizuka",
+  line: "karatsu",
+  name: "鬼塚",
+  nameEn: "Onizuka",
+  lat: 33.42131904715924, 
+  lng: 129.98708949461442
+},
+    {
+  id: "karatsu_yamamoto",
+  line: "karatsu",
+  name: "山本",
+  nameEn: "Yamamoto",
+  lat: 33.39274324265433, 
+  lng: 129.98115587927094
+},
+    {
+  id: "karatsu_honmutabe",
+  line: "karatsu",
+  name: "本牟田部",
+  nameEn: "Honmutabe",
+  lat: 33.372104413610074, 
+  lng: 129.99661769461167
+},
+    {
+  id: "karatsu_ochi",
+  line: "karatsu",
+  name: "相知",
+  nameEn: "ochi",
+  lat: 33.34690607415139, 
+  lng: 130.01967871180034
+},
+    {
+  id: "karatsu_iwaya",
+  line: "karatsu",
+  name: "岩屋",
+  nameEn: "Iwaya",
+  lat: 33.33253618434135,  
+  lng: 130.04173438088404
 },
 {
   id: "unknown_imari",
