@@ -101,30 +101,50 @@
   <!-- ===============================
        STATION CONTEXT (ONCE)
   =============================== -->
-  <script src="/js/data/station-area.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
+  <script src="/jds/kyushu/map-data.js"></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
 
-    let stationId = (params.get("id") || "").trim();
-    stationId = stationId.replace(/\/+$/, ""); // strip trailing slashes
+  let stationId = (params.get("id") || "").trim().replace(/\/+$/, "");
+  stationId = decodeURIComponent(stationId);
 
-    window.STATION_ID = stationId;
-    window.AREA_KEY = window.STATION_AREA_MAP?.[stationId];
+  const stations = window.MAP_CONFIG?.kyushu?.stations || [];
+  const station = stations.find(s => s.id === stationId);
 
-    if (!window.STATION_ID) console.warn("[Johren] No station ID in URL");
-    if (!window.AREA_KEY) console.warn("[Johren] Unknown area for station:", stationId);
+  // Elements (assumes you have these in your HTML)
+  const titleEl  = document.getElementById("stationTitle");
+  const statusEl = document.getElementById("stationStatus");
+  const mapLink  = document.getElementById("mapLink");
+  const infoLink = document.getElementById("infoLink");
 
-    // ✅ show something on screen even if mapping fails
-    const titleEl  = document.getElementById("stationTitle");
-    const statusEl = document.getElementById("stationStatus");
-
-    if (titleEl) titleEl.textContent = window.STATION_ID ? `Station: ${window.STATION_ID}` : "Johren Station";
-    if (statusEl) {
-      statusEl.textContent = window.AREA_KEY
-        ? `Area: ${window.AREA_KEY}`
-        : (window.STATION_ID ? "This station ID isn’t mapped yet." : "Missing station ID.");
+  if (!station) {
+    if (titleEl)  titleEl.textContent = "Station not found";
+    if (statusEl) statusEl.textContent = `Unknown station id: ${stationId || "(missing)"}`;
+    if (mapLink)  mapLink.setAttribute("aria-disabled", "true");
+    if (infoLink) infoLink.setAttribute("aria-disabled", "true");
+  } else {
+    // Bilingual title
+    if (titleEl) {
+      titleEl.innerHTML =
+        `${station.name}駅<br><span style="font-size:14px; opacity:.75">${station.nameEn}</span>`;
     }
-  </script>
+
+    // Area status (optional)
+    if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
+
+    // Map link from area
+    if (mapLink) {
+      mapLink.href = `/jds/${station.area}/map/`;
+      mapLink.setAttribute("aria-disabled", "false");
+    }
+
+    // Info link from station id
+    if (infoLink) {
+      infoLink.href = `/setsumei/eki/?id=${encodeURIComponent(station.id)}`;
+      infoLink.setAttribute("aria-disabled", "false");
+    }
+  }
+</script>
 
   <script>
     // --- helpers ---
