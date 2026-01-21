@@ -80,18 +80,15 @@
 <script src="/js/data/station-area.js"></script>
 <script>
   const params = new URLSearchParams(window.location.search);
-  const stationId = params.get("id");
+
+  let stationId = (params.get("id") || "").trim();
+  stationId = stationId.replace(/\/+$/, "");
 
   window.STATION_ID = stationId;
   window.AREA_KEY = window.STATION_AREA_MAP?.[stationId];
 
-  if (!window.STATION_ID) {
-    console.warn("[Johren] No station ID in URL");
-  }
-
-  if (!window.AREA_KEY) {
-    console.warn("[Johren] Unknown area for station:", stationId);
-  }
+  if (!window.STATION_ID) console.warn("[Johren] No station ID in URL");
+  if (!window.AREA_KEY) console.warn("[Johren] Unknown area for station:", stationId);
 </script>
 
 <script>
