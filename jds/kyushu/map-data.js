@@ -271,8 +271,8 @@ window.MAP_CONFIG = {
   line: "karatsu",
   name: "東多久",
   nameEn: "Higashi Taku",
-  lat: 33.28544855850767,    
-  lng: 130.14313447007683
+  lat: 33.285412683557624,     
+  lng: 130.14315592774776
 },
     {
   id: "karatsu_ogi",
