@@ -56,105 +56,139 @@
       text-decoration: underline;
     }
 
+    /* optional: make "disabled" links obvious */
+    .map-link a[aria-disabled="true"]{
+      opacity: .55;
+      pointer-events: none;
+      text-decoration: none;
+    }
+
     /* History whisper area (bottom / beach zone) */
     .history-whisper {
       padding: 28px 20px 36px;
       text-align: center;
     }
-.history-line{
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(0,0,0,0.7);
-  text-shadow: 0 1px 3px rgba(255,255,255,0.6);
-}
-
-
+    .history-line{
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(0,0,0,0.7);
+      text-shadow: 0 1px 3px rgba(255,255,255,0.6);
+      margin: 0;
+    }
   </style>
 </head>
 
 <body>
 
-<!-- ===============================
-     STATION CONTEXT (ONCE)
-=============================== -->
-<script src="/js/data/station-area.js"></script>
-<script>
-  const params = new URLSearchParams(window.location.search);
+  <!-- ✅ MISSING MARKUP ADDED -->
+  <main class="card" role="main">
+    <h1 id="stationTitle">Johren Station</h1>
+    <p id="stationStatus">Loading…</p>
 
-  let stationId = (params.get("id") || "").trim();
-  stationId = stationId.replace(/\/+$/, "");
+    <div class="map-link">
+      <a id="mapLink" href="#" aria-disabled="true">▶ Open map</a>
+    </div>
 
-  window.STATION_ID = stationId;
-  window.AREA_KEY = window.STATION_AREA_MAP?.[stationId];
+    <div class="map-link">
+      <a id="infoLink" href="#" aria-disabled="true">▶ About this station</a>
+    </div>
+  </main>
 
-  if (!window.STATION_ID) console.warn("[Johren] No station ID in URL");
-  if (!window.AREA_KEY) console.warn("[Johren] Unknown area for station:", stationId);
-</script>
+  <!-- ✅ needed for history injection -->
+  <footer class="history-whisper" aria-live="polite"></footer>
 
-<script>
-  // --- helpers ---
-  function hashString(str) {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = ((hash << 5) - hash) + str.charCodeAt(i);
-      hash |= 0;
+
+  <!-- ===============================
+       STATION CONTEXT (ONCE)
+  =============================== -->
+  <script src="/js/data/station-area.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+
+    let stationId = (params.get("id") || "").trim();
+    stationId = stationId.replace(/\/+$/, ""); // strip trailing slashes
+
+    window.STATION_ID = stationId;
+    window.AREA_KEY = window.STATION_AREA_MAP?.[stationId];
+
+    if (!window.STATION_ID) console.warn("[Johren] No station ID in URL");
+    if (!window.AREA_KEY) console.warn("[Johren] Unknown area for station:", stationId);
+
+    // ✅ show something on screen even if mapping fails
+    const titleEl  = document.getElementById("stationTitle");
+    const statusEl = document.getElementById("stationStatus");
+
+    if (titleEl) titleEl.textContent = window.STATION_ID ? `Station: ${window.STATION_ID}` : "Johren Station";
+    if (statusEl) {
+      statusEl.textContent = window.AREA_KEY
+        ? `Area: ${window.AREA_KEY}`
+        : (window.STATION_ID ? "This station ID isn’t mapped yet." : "Missing station ID.");
     }
-    return Math.abs(hash);
-  }
+  </script>
 
-  function shouldShowHistory(key) {
-    return hashString(key) % 4 === 0;
-  }
-
-  function pickHistoryLine(key, pool) {
-    if (!Array.isArray(pool) || pool.length === 0) return null;
-    const index = hashString(key + "_history") % pool.length;
-    return pool[index];
-  }
-
-  (function renderStationHistory(attempt = 0) {
-    if (attempt > 20) return;
-
-    if (!window.STATION_ID || !window.AREA_KEY || !window.MAP_CONFIG) {
-      setTimeout(() => renderStationHistory(attempt + 1), 50);
-      return;
+  <script>
+    // --- helpers ---
+    function hashString(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = ((hash << 5) - hash) + str.charCodeAt(i);
+        hash |= 0;
+      }
+      return Math.abs(hash);
     }
 
-    if (!shouldShowHistory(window.STATION_ID)) return;
+    function shouldShowHistory(key) {
+      return hashString(key) % 4 === 0;
+    }
 
-    const area = window.MAP_CONFIG[window.AREA_KEY];
-    if (!area || !area.history_pool) return;
+    function pickHistoryLine(key, pool) {
+      if (!Array.isArray(pool) || pool.length === 0) return null;
+      const index = hashString(key + "_history") % pool.length;
+      return pool[index];
+    }
 
-    const line = pickHistoryLine(window.STATION_ID, area.history_pool);
-    if (!line) return;
+    (function renderStationHistory(attempt = 0) {
+      if (attempt > 20) return;
 
-    const container = document.querySelector(".history-whisper");
-    if (!container) return;
+      if (!window.STATION_ID || !window.AREA_KEY || !window.MAP_CONFIG) {
+        setTimeout(() => renderStationHistory(attempt + 1), 50);
+        return;
+      }
 
-    const p = document.createElement("p");
-    p.className = "history-line";
-    p.textContent = line;
-    container.appendChild(p);
-  })();
+      if (!shouldShowHistory(window.STATION_ID)) return;
 
-  const info = document.getElementById("infoLink");
-  if (info) {
-    info.href = `/setsumei/eki/?id=${encodeURIComponent(window.STATION_ID || "")}`;
-  }
-</script>
+      const area = window.MAP_CONFIG[window.AREA_KEY];
+      if (!area || !area.history_pool) return;
 
+      const line = pickHistoryLine(window.STATION_ID, area.history_pool);
+      if (!line) return;
 
+      const container = document.querySelector(".history-whisper");
+      if (!container) return;
 
-<!-- ===============================
-     MAP LINK SETUP
-=============================== -->
-<script>
-  const link = document.getElementById("mapLink");
-  if (link && window.AREA_KEY) {
-    link.href = `/jds/${window.AREA_KEY}/map/`;
-  }
-</script>
+      const p = document.createElement("p");
+      p.className = "history-line";
+      p.textContent = line;
+      container.appendChild(p);
+    })();
+
+    const info = document.getElementById("infoLink");
+    if (info) {
+      info.href = `/setsumei/eki/?id=${encodeURIComponent(window.STATION_ID || "")}`;
+      info.setAttribute("aria-disabled", window.STATION_ID ? "false" : "true");
+    }
+  </script>
+
+  <!-- ===============================
+       MAP LINK SETUP
+  =============================== -->
+  <script>
+    const link = document.getElementById("mapLink");
+    if (link && window.AREA_KEY) {
+      link.href = `/jds/${window.AREA_KEY}/map/`;
+      link.setAttribute("aria-disabled", "false");
+    }
+  </script>
 
 </body>
 </html>
-
