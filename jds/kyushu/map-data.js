@@ -202,14 +202,6 @@ window.MAP_CONFIG = {
   lat: 33.31576515819523,
   lng: 130.37429225460698
 },
-{
-  id: "karatsu_taku",
-  line: "karatsu",
-  name: "多久",
-  nameEn: "Taku",
-  lat: 33.28813833803867,
-  lng: 130.09618428697073
-},
     {
   id: "karatsu_onizuka",
   line: "karatsu",
@@ -250,6 +242,78 @@ window.MAP_CONFIG = {
   lat: 33.33253618434135,  
   lng: 130.04173438088404
 },
+    {
+  id: "karatsu_kyuuragi",
+  line: "karatsu",
+  name: "厳木",
+  nameEn: "Kyuuragi",
+  lat: 33.32337017344916,  
+  lng: 130.06029500995092
+},
+    {
+  id: "karatsu_taku",
+  line: "karatsu",
+  name: "多久",
+  nameEn: "Taku",
+  lat: 33.28813833803867,
+  lng: 130.09618428697073
+},
+    {
+  id: "karatsu_naka_taku",
+  line: "karatsu",
+  name: "中多久",
+  nameEn: "Naka Taku",
+  lat: 33.2832379114861,   
+  lng: 130.11262045924815
+},
+    {
+  id: "karatsu_higashi_taku",
+  line: "karatsu",
+  name: "東多久",
+  nameEn: "Higashi Taku",
+  lat: 33.28544855850767,    
+  lng: 130.14313447007683
+},
+    {
+  id: "karatsu_ogi",
+  line: "karatsu",
+  name: "東多久",
+  nameEn: "Ogi",
+  lat: 33.285741436054934,    
+  lng: 130.19867733693596 
+},   
+        {
+  id: "karatsu_kubota",
+  line: "karatsu",
+  name: "久保田",
+  nameEn: "Kubota",
+  lat: 33.25572240202076,     
+  lng: 130.229488570067 
+}, 
+    {
+  id: "sasebo_omachi",
+  line: "sasebo",
+  name: "大町",
+  nameEn: "Omachi",
+  lat: 33.212411473493844,      
+  lng: 130.10649455227374 
+}, 
+        {
+  id: "sasebo_mikawachi",
+  line: "sasebo",
+  name: "三河内",
+  nameEn: "Mikawachi",
+  lat: 33.07803157141688,      
+  lng: 130.06745362273077 
+},
+     {
+  id: "sasebo_haiki",
+  line: "sasebo",
+  name: "早岐",
+  nameEn: "Haiki",
+  lat: 33.13377922640225,     
+  lng: 129.79926949459863 
+}, 
 {
   id: "unknown_imari",
   line: "unknown",
@@ -259,8 +323,8 @@ window.MAP_CONFIG = {
   lng: 129.87629789460615
 },
 {
-  id: "unknown_takeo_onsen",
-  line: "unknown",
+  id: "sasebo_takeo_onsen",
+  line: "sasebo",
   name: "武雄温泉",
   nameEn: "Takeo-Onsen",
   lat: 33.19635315980435,
@@ -275,32 +339,24 @@ window.MAP_CONFIG = {
   lng: 129.9990303397883
 },
 {
-  id: "unknown_sasebo",
-  line: "unknown",
+  id: "sasebo_sasebo",
+  line: "sasebo",
   name: "佐世保",
   nameEn: "Sasebo",
   lat: 33.16392652960352,
   lng: 129.7257186464349
 },
 {
-  id: "unknown_haiki",
-  line: "unknown",
-  name: "早岐",
-  nameEn: "Haiki",
-  lat: 33.1338407612025,
-  lng: 129.79914191926892
-},
-{
-  id: "unknown_arita",
-  line: "unknown",
+  id: "sasebo_arita",
+  line: "sasebo",
   name: "有田",
   nameEn: "Arita",
   lat: 33.183696197108546,
   lng: 129.88170132776435
 },
 {
-  id: "unknown_saga",
-  line: "unknown",
+  id: "karatsu_saga",
+  line: "karatsu",
   name: "佐賀",
   nameEn: "Saga",
   lat: 33.26418348559751,
