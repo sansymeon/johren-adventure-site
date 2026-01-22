@@ -8,6 +8,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_meinohama",
   line: "chikuhi",
+  area: "fukuoka-west",
   name: "姪浜",
   nameEn: "Meinohama",
   lat: 33.58370,
@@ -16,6 +17,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_shimoyamato",
   line: "chikuhi",
+  area: "fukuoka-west",
   name: "下山門",
   nameEn: "Shimoyamato",
   lat: 33.581882,
@@ -24,6 +26,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_imajuku",
   line: "chikuhi",
+  area: "itoshima",
   name: "今宿",
   nameEn: "Imajuku",
   lat: 33.579257,
@@ -32,6 +35,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_kyudaigakkentoshi",
   line: "chikuhi",
+  area: "itoshima",
   name: "九大学研都市",
   nameEn: "Kyudai Gakken Toshi",
   lat: 33.578150,
@@ -40,6 +44,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_susenji",
   line: "chikuhi",
+  area: "itoshima",
   name: "周船寺",
   nameEn: "Susenji",
   lat: 33.570792,
@@ -48,6 +53,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_hatae",
   line: "chikuhi",
+  area: "itoshima",
   name: "波多江",
   nameEn: "Hatae",
   lat: 33.563944,
@@ -56,6 +62,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_itoshimakoko_mae",
   line: "chikuhi",
+  area: "itoshima",
   name: "糸島高校前",
   nameEn: "Itoshimakoko Mae",
   lat: 33.560660,
@@ -64,6 +71,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_chikuzen_maebaru",
   line: "chikuhi",
+  area: "itoshima",
   name: "筑前前原",
   nameEn: "Chikuzen Maebaru",
   lat: 33.557082,
@@ -72,6 +80,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_misakigaoka",
   line: "chikuhi",
+  area: "itoshima",
   name: "美咲が丘",
   nameEn: "Misakigaoka",
   lat: 33.549959,
@@ -80,6 +89,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_kafuri",
   line: "chikuhi",
+  area: "itoshima",
   name: "加布里",
   nameEn: "Kafuri",
   lat: 33.543150,
@@ -88,6 +98,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_ikisan",
   line: "chikuhi",
+  area: "itoshima",
   name: "一貴山",
   nameEn: "Ikisan",
   lat: 33.534295,
@@ -97,6 +108,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_chikuzen_fukae",
   line: "chikuhi",
+  area: "itoshima",
   name: "筑前深江",
   nameEn: "Chikuzen Fukae",
   lat: 33.514949,
@@ -105,6 +117,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_dainyu",
   line: "chikuhi",
+  area: "itoshima",
   name: "大入",
   nameEn: "Dainyu",
   lat: 33.508855,
@@ -114,6 +127,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_fukuyoshi",
   line: "chikuhi",
+  area: "itoshima",
   name: "福吉",
   nameEn: "Fukuyoshi",
   lat: 33.501554,
@@ -122,6 +136,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_shikaka",
   line: "chikuhi",
+  area: "itoshima",
   name: "鹿家",
   nameEn: "Shikaka",
   lat: 33.484259,
@@ -131,6 +146,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_hamasaki",
   line: "chikuhi",
+  area: "karatsu",
   name: "浜崎",
   nameEn: "Hamasaki",
   lat: 33.446720,
@@ -139,6 +155,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_nijinomatsubara",
   line: "chikuhi",
+  area: "karatsu",
   name: "虹ノ松原",
   nameEn: "Nijinomatsubara",
   lat: 33.441033,
@@ -147,6 +164,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_higashi_karatsu",
   line: "chikuhi",
+  area: "karatsu",
   name: "東唐津",
   nameEn: "Higashi Karatsu",
   lat: 33.439393,
@@ -155,6 +173,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_watada",
   line: "chikuhi",
+  area: "karatsu",
   name: "和多田",
   nameEn: "Watada",
   lat: 33.436933,
@@ -163,6 +182,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_karatsu",
   line: "chikuhi",
+  area: "karatsu",
   name: "唐津",
   nameEn: "Karatsu",
   lat: 33.446223,
@@ -171,6 +191,7 @@ window.MAP_CONFIG = {
 {
   id: "chikuhi_nishi_karatsu",
   line: "chikuhi",
+  area: "karatsu",
   name: "西唐津",
   nameEn: "Nishi Karatsu",
   lat: 33.461434,
@@ -448,6 +469,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_tenjin",
   line: "airport",
+  area: "fukuoka-chuo",
   name: "天神",
   nameEn: "Tenjin",
   lat: 33.5913469503287,
@@ -456,6 +478,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_akasaka",
   line: "airport",
+  area: "fukuoka-chuo",
   name: "赤坂",
   nameEn: "Akasaka",
   lat: 33.58906127661953,
@@ -464,6 +487,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_ohori_park",
   line: "airport",
+  area: "fukuoka-chuo",
   name: "大濠公園",
   nameEn: "Ohori Park",
   lat: 33.59012812434707,
@@ -472,6 +496,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_tohjinmachi",
   line: "airport",
+  area: "fukuoka-chuo",
   name: "唐人町",
   nameEn: "Tojinmachi",
   lat: 33.590145613562676,
@@ -480,6 +505,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_nishijin",
   line: "airport",
+  area: "fukuoka-west",
   name: "西新",
   nameEn: "Nishijin",
   lat: 33.583574101225004,
@@ -488,6 +514,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_fujisaki",
   line: "airport",
+  area: "fukuoka-west",
   name: "藤崎",
   nameEn: "Fujisaki",
   lat: 33.581378487964386,
@@ -496,6 +523,7 @@ window.MAP_CONFIG = {
 {
   id: "airport_muromi",
   line: "airport",
+  area: "fukuoka-west",
   name: "室見",
   nameEn: "Muromi",
   lat: 33.58091545591748,
