@@ -142,6 +142,9 @@
   const mapLink  = document.getElementById("mapLink");
   const infoLink = document.getElementById("infoLink");
 
+  // (Optional) quick debug
+  // console.log("[station]", { stationId, found: !!station, station });
+
   if (!station) {
     if (titleEl)  titleEl.textContent = "Station not found";
     if (statusEl) statusEl.textContent = `Unknown station id: ${stationId || "(missing)"}`;
@@ -164,32 +167,28 @@
         `${station.name}駅<br><span style="font-size:14px; opacity:.75">${station.nameEn}</span>`;
     }
 
-    // Status (optional)
-    if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
-
-// ✅ safety-net message if area missing
-if (statusEl && !station.area) statusEl.textContent = "Area: (default kyushu)";
-
- // Map link (with safety net)
-if (mapLink) {
-  const target = station.area ? `/jds/${station.area}/map/` : `/jds/kyushu/map/`;
-
-  mapLink.href = target;
-  mapLink.setAttribute("aria-disabled", "false");
-
-  // Log map click
-  mapLink.addEventListener("click", () => {
-    if (typeof window.logVisit === "function") {
-      window.logVisit({
-        kind: "station_open_map",
-        id: station.id,
-        area: station.area || null,
-        line: station.line || null
-      });
+    // Status + safety net
+    if (statusEl) {
+      statusEl.textContent = station.area ? `Area: ${station.area}` : "Area: (default kyushu)";
     }
-  }, { once: true });
-}
 
+    // Map link (with safety net) + click log
+    if (mapLink) {
+      const target = station.area ? `/jds/${station.area}/map/` : `/jds/kyushu/map/`;
+      mapLink.href = target;
+      mapLink.setAttribute("aria-disabled", "false");
+
+      mapLink.addEventListener("click", () => {
+        if (typeof window.logVisit === "function") {
+          window.logVisit({
+            kind: "station_open_map",
+            id: station.id,
+            area: station.area || null,
+            line: station.line || null
+          });
+        }
+      }, { once: true });
+    }
 
     // About Johren link (not station-specific)
     if (infoLink) {
@@ -211,6 +210,7 @@ if (mapLink) {
     }
   }
 </script>
+
 
 
 </body>
