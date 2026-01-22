@@ -1,6 +1,6 @@
 window.MAP_CONFIG = {
-  kyushu: {
-    center: [33.316994,130.938711],
+  zen_nihon: {
+    center: [35.17541877112721, 136.9047463448224],
     zoom: 8,
 
     churches: [
