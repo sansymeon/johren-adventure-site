@@ -1,7 +1,7 @@
 window.MAP_CONFIG = {
   zen_nihon: {
     center: [35.17541877112721, 136.9047463448224],
-    zoom: 8,
+    zoom: 5,
 
     churches: [
      {
