@@ -344,14 +344,6 @@ window.MAP_CONFIG = {
 
 
 {
-  id: "unknown_nishitetsu_omuta",
-  line: "unknown",
-  name: "西鉄大牟田",
-  nameEn: "Nishitetsu-Omuta",
-  lat: 33.02990295665634,
-  lng: 130.44320628992418
-},
-{
   id: "unknown_hitoyoshi",
   line: "unknown",
   name: "人吉",
