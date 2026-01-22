@@ -245,14 +245,7 @@ window.MAP_CONFIG = {
 },
 
 // FUKUOKA SUBWAY AIRPORT LINE
-{
-  id: "airport_fukuoka_airport",
-  line: "airport",
-  name: "福岡空港",
-  nameEn: "Fukuoka Airport",
-  lat: 33.59719916364836,
-  lng: 130.44822439462428
-},
+
 {
   id: "airport_hakata",
   line: "airport",
@@ -261,15 +254,7 @@ window.MAP_CONFIG = {
   lat: 33.589580007114,
   lng: 130.42049136024366
 },
-{
-  id: "airport_tenjin",
-  line: "airport",
-  area: "fukuoka-chuo",
-  name: "天神",
-  nameEn: "Tenjin",
-  lat: 33.5913469503287,
-  lng: 130.39891098113026
-},
+
 {
   id: "kagoshima_koga",
   line: "kagoshima",
@@ -388,112 +373,6 @@ window.MAP_CONFIG = {
   lng: 130.79549716269443,
   visible: false
 },
-{
-  id: "kagoshima_space_world",
-  line: "kagoshima",
-  name: "スペースワールド",
-  nameEn: "Space World",
-  lat: 33.87135687616503,
-  lng: 130.8066169702724
-},
-{
-  id: "kagoshima_edamitsu",
-  line: "kagoshima",
-  name: "枝光",
-  nameEn: "Edamitsu",
-  lat: 33.87942438673168,
-  lng: 130.8131340216272,
-  visible: false
-},
-{
-  id: "kagoshima_tobata",
-  line: "kagoshima",
-  name: "戸畑",
-  nameEn: "Tobata",
-  lat: 33.89691234250908,
-  lng: 130.8203713491716
-},
-{
-  id: "kagoshima_kyushu_kodai",
-  line: "kagoshima",
-  name: "九州工大前",
-  nameEn: "Kyushu-Kodai",
-  lat: 33.900411168201266,
-  lng: 130.84002577929928
-},
-
-// KYUDAI MAIN LINE
-{
-  id: "kyudai_minami_oita",
-  line: "kyudai",
-  name: "南大分",
-  nameEn: "Minami Oita",
-  lat: 33.21406265499788,
-  lng: 131.58629379060434
-},
-{
-  id: "kyudai_furugo",
-  line: "kyudai",
-  name: "古国府",
-  nameEn: "Furugo",
-  lat: 33.22065690479467,
-  lng: 131.60749091301474
-},
-{
-  id: "kyudai_kaku",
-  line: "kyudai",
-  name: "賀来",
-  nameEn: "Kaku",
-  lat: 33.21323569734439,
-  lng: 131.5626648657675,
-  visible: false
-},
-{
-  id: "kyudai_bungo_kokubu",
-  line: "kyudai",
-  name: "豊後国分",
-  nameEn: "Bungo-Kokubu",
-  lat: 33.19506346554613,
-  lng: 131.5512154516554,
-  visible: false
-},
-{
-  id: "kyudai_tenjin_yama",
-  line: "kyudai",
-  name: "天神山",
-  nameEn: "Tenjin-Yama",
-  lat: 33.186959358136164,
-  lng: 131.43886043693058,
-  visible: false
-},
-{
-  id: "kyudai_onoya",
-  line: "kyudai",
-  name: "小野屋",
-  nameEn: "Onoya",
-  lat: 33.18509931488385,
-  lng: 131.4528201313089,
-  visible: false
-},
-{
-  id: "kyudai_onigase",
-  line: "kyudai",
-  name: "鬼瀬",
-  nameEn: "Onigase",
-  lat: 33.19563483964115,
-  lng: 131.48543738110843,
-  visible: false
-},
-{
-  id: "kyudai_minami_yufuin",
-  line: "kyudai",
-  name: "南由布",
-  nameEn: "Minami Yufuin",
-  lat: 33.242215107613,
-  lng: 131.33365115227534,
-  visible: false
-},
-
 
 // NIPPO MAIN LINE
 {
@@ -531,36 +410,12 @@ window.MAP_CONFIG = {
   lng: 130.93871101241635
 },
 {
-  id: "hohi_bungo_mori",
-  line: "hohi",
-  name: "豊後森",
-  nameEn: "Bungo-Mori",
-  lat: 33.28267636111276,
-  lng: 131.15544586295107
-},
-{
   id: "hohi_aso",
   line: "hohi",
   name: "阿蘇",
   nameEn: "Aso",
   lat: 32.937228239599264,
   lng: 131.08020325245215
-},
-{
-  id: "hohi_bungo_taketa",
-  line: "hohi",
-  name: "豊後竹田",
-  nameEn: "Bungo-Taketa",
-  lat: 32.97071556513112,
-  lng: 131.38971476575412
-},
-{
-  id: "hohi_miemachi",
-  line: "hohi",
-  name: "三重町",
-  nameEn: "Miemachi",
-  lat: 32.98366968078889,
-  lng: 131.58429961093785
 },
 
 // KYUSHU SHINKANSEN (you can refine later)
@@ -597,39 +452,7 @@ window.MAP_CONFIG = {
   lng: 130.63461495221995
 },
 
-// (UNSORTED / OTHER — you can assign later)
-{
-  id: "unknown_amagi",
-  line: "unknown",
-  name: "甘木",
-  nameEn: "Amagi",
-  lat: 33.4192430704809,
-  lng: 130.65348064295375
-},
-{
-  id: "unknown_ukiha",
-  line: "unknown",
-  name: "うきは",
-  nameEn: "Ukiha",
-  lat: 33.33479713952632,
-  lng: 130.78917334413924
-},
-{
-  id: "unknown_nishi_omuta",
-  line: "unknown",
-  name: "西大牟田",
-  nameEn: "Nishi-Omuta",
-  lat: 33.24609650022158,
-  lng: 130.5008872072392
-},
-{
-  id: "unknown_nishitetsu_yanagawa",
-  line: "unknown",
-  name: "西鉄柳川",
-  nameEn: "Nishitetsu-Yanagawa",
-  lat: 33.16483308770013,
-  lng: 130.41975360291633
-},
+
 {
   id: "unknown_nishitetsu_omuta",
   line: "unknown",
