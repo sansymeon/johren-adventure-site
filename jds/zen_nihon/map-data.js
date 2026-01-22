@@ -253,7 +253,7 @@ window.MAP_CONFIG = {
   lat: 33.59719916364836,
   lng: 130.44822439462428
 },
-
+{
   id: "airport_hakata",
   line: "airport",
   name: "博多",
@@ -269,74 +269,6 @@ window.MAP_CONFIG = {
   nameEn: "Tenjin",
   lat: 33.5913469503287,
   lng: 130.39891098113026
-},
-
-// KAGOSHIMA LINE
-{
-  id: "kagoshima_yoshizuka",
-  line: "kagoshima",
-  name: "吉塚",
-  nameEn: "Yoshizuka",
-  lat: 33.60690081236377,
-  lng: 130.42364803927666
-},
-{
-  id: "kagoshima_hakozaki",
-  line: "kagoshima",
-  name: "箱崎",
-  nameEn: "Hakozaki",
-  lat: 33.61817780491143,
-  lng: 130.4269867278585,
-  visible: false
-},
-{
-  id: "kagoshima_chihaya",
-  line: "kagoshima",
-  name: "千早",
-  nameEn: "Chihaya",
-  lat: 33.649212142148514,
-  lng: 130.44060779462708
-},
-{
-  id: "kagoshima_kashii",
-  line: "kagoshima",
-  name: "香椎",
-  nameEn: "Kashii",
-  lat: 33.65957167882258,
-  lng: 130.44408393753503
-},
-{
-  id: "kagoshima_kyusan_daimae",
-  line: "kagoshima",
-  name: "九産大前",
-  nameEn: "Kyusan-daimae",
-  lat: 33.673528072200114,
-  lng: 130.44126918185134
-},
-{
-  id: "kagoshima_fuukodai_mae",
-  line: "kagoshima",
-  name: "福工大前",
-  nameEn: "Fuukodai-mae",
-  lat: 33.69840228441997,
-  lng: 130.4401530057084
-},
-{
-  id: "kagoshima_shingu_chuo",
-  line: "kagoshima",
-  name: "新宮中央",
-  nameEn: "Shingu-chuo",
-  lat: 33.711624844956056,
-  lng: 130.44918646394683
-},
-{
-  id: "kagoshima_shishibu",
-  line: "kagoshima",
-  name: "ししぶ",
-  nameEn: "Shishibu",
-  lat: 33.72166328413928,
-  lng: 130.4582904081248,
-  visible: false
 },
 {
   id: "kagoshima_koga",
@@ -561,85 +493,7 @@ window.MAP_CONFIG = {
   lng: 131.33365115227534,
   visible: false
 },
-{
-  id: "kyudai_yunohira",
-  line: "kyudai",
-  name: "湯平",
-  nameEn: "Yunohira",
-  lat: 33.1973714290547,
-  lng: 131.35408359460197,
-  visible: false
-},
-{
-  id: "kyudai_yufuin",
-  line: "kyudai",
-  name: "由布院",
-  nameEn: "Yufuin",
-  lat: 33.26269658669704,
-  lng: 131.35526192713755
-},
-{
-  id: "kyudai_takio",
-  line: "kyudai",
-  name: "滝尾",
-  nameEn: "Takio",
-  lat: 33.2093348203975,
-  lng: 131.6231774657672,
-  visible: false
-},
-{
-  id: "kyudai_shikido",
-  line: "kyudai",
-  name: "敷戸",
-  nameEn: "Shikido",
-  lat: 33.188145588399905,
-  lng: 131.61515013693062,
-  visible: false
-},
-{
-  id: "kyudai_oitadaigaku_mae",
-  line: "kyudai",
-  name: "大分大学前",
-  nameEn: "Oitadaigaku-Mae",
-  lat: 33.17724089366869,
-  lng: 131.6186053657655
-},
-{
-  id: "kyudai_naka_handa",
-  line: "kyudai",
-  name: "中判田",
-  nameEn: "Naka-Handa",
-  lat: 33.16447006646251,
-  lng: 131.63879511909792,
-  visible: false
-},
-{
-  id: "kyudai_sugao",
-  line: "kyudai",
-  name: "菅尾",
-  nameEn: "Sugao",
-  lat: 33.01444709049888,
-  lng: 131.61642285204695,
-  visible: false
-},
-{
-  id: "kyudai_takenaka",
-  line: "kyudai",
-  name: "竹中",
-  nameEn: "Takenaka",
-  lat: 33.12069695808658,
-  lng: 131.64940976576244,
-  visible: false
-},
-{
-  id: "kyudai_inukai",
-  line: "kyudai",
-  name: "犬飼",
-  nameEn: "Inukai",
-  lat: 33.077999545388494,
-  lng: 131.63645657200593,
-  visible: false
-},
+
 
 // NIPPO MAIN LINE
 {
@@ -651,155 +505,12 @@ window.MAP_CONFIG = {
   lng: 130.88267235415955
 },
 {
-  id: "nippo_nishi_kokura",
+  id: "nippo_beppu",
   line: "nippo",
-  name: "西小倉",
-  nameEn: "Nishi Kokura",
-  lat: 33.88847941058861,
-  lng: 130.87406638484333
-},
-{
-  id: "nippo_jono",
-  line: "nippo",
-  name: "城野",
-  nameEn: "Jono",
-  lat: 33.85794316243455,
-  lng: 130.88654775251135,
-  visible: false
-},
-{
-  id: "nippo_abeyama_koen",
-  line: "nippo",
-  name: "安部山公園",
-  nameEn: "AbeyamaKoen",
-  lat: 33.844089298497266,
-  lng: 130.90422187773387,
-  visible: false
-},
-{
-  id: "nippo_shimo_sone",
-  line: "nippo",
-  name: "下曽根",
-  nameEn: "Shimo-Sone",
-  lat: 33.83230816422438,
-  lng: 130.93463317078653,
-  visible: false
-},
-{
-  id: "nippo_kusami",
-  line: "nippo",
-  name: "朽網",
-  nameEn: "Kusami",
-  lat: 33.807287199586774,
-  lng: 130.95509543299045,
-  visible: false
-},
-{
-  id: "nippo_kanda",
-  line: "nippo",
-  name: "苅田",
-  nameEn: "Kanda",
-  lat: 33.78450222336173,
-  lng: 130.978982886759
-},
-{
-  id: "nippo_obase_nishikodai_mae",
-  line: "nippo",
-  name: "小波瀬西工大前",
-  nameEn: "Obase Nishikodai-Mae",
-  lat: 33.75295659753037,
-  lng: 130.97189514521259,
-  visible: false
-},
-{
-  id: "nippo_yukuhashi",
-  line: "nippo",
-  name: "行橋",
-  nameEn: "Yukuhashi",
-  lat: 33.72864122770345,
-  lng: 130.96980850960972
-},
-{
-  id: "nippo_minami_yukuhashi",
-  line: "nippo",
-  name: "南行橋",
-  nameEn: "Minami Yukuhashi",
-  lat: 33.716683069018295,
-  lng: 130.9759345567837,
-  visible: false
-},
-{
-  id: "nippo_shindembaru",
-  line: "nippo",
-  name: "新田原",
-  nameEn: "Shindembaru",
-  lat: 33.69539629593777,
-  lng: 131.00808977980333,
-  visible: false
-},
-{
-  id: "nippo_tsuiki",
-  line: "nippo",
-  name: "築城",
-  nameEn: "Tsuiki",
-  lat: 33.6730864134871,
-  lng: 131.03776215671238
-},
-{
-  id: "nippo_nakatsu",
-  line: "nippo",
-  name: "中津",
-  nameEn: "Nakatsu",
-  lat: 33.598740761099585,
-  lng: 131.19158506348714
-},
-{
-  id: "nippo_usa",
-  line: "nippo",
-  name: "宇佐",
-  nameEn: "Usa",
-  lat: 33.53162013470124,
-  lng: 131.4112687105833
-},
-{
-  id: "nippo_kitsuki",
-  line: "nippo",
-  name: "杵築",
-  nameEn: "Kitsuki",
-  lat: 33.41099860926826,
-  lng: 131.5756072029127
-},
-{
-  id: "nippo_kamegawa",
-  line: "nippo",
-  name: "亀川",
-  nameEn: "Kamegawa",
-  lat: 33.3312027734460,
-  lng: 131.493079650432
-},
-{
-  id: "nippo_beppu_daigaku",
-  line: "nippo",
-  name: "別府大学",
-  nameEn: "Beppu Daigaku",
-  lat: 33.31322823458146,
-  lng: 131.49923883194245
-},
-{
-  id: "nippo_higashi_beppu",
-  line: "nippo",
-  name: "東別府",
-  nameEn: "Higashi Beppu",
-  lat: 33.2677076187008,
-  lng: 131.51050697420135
-},
-{
-  id: "nippo_nishi_oita",
-  line: "nippo",
-  name: "西大分",
-  nameEn: "Nishi Oita",
-  lat: 33.24522482617123,
-  lng: 131.58285137901504
+  name: "別府",
+  nameEn: "Beppu",
+  lat: 33.279665196154234, 
+  lng: 131.50028898111296
 },
 {
   id: "nippo_oita",
