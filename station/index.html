@@ -81,37 +81,62 @@
 <body>
 
   <!-- ✅ MISSING MARKUP ADDED -->
-  <main class="card" role="main">
-    <h1 id="stationTitle">Johren Station</h1>
-    <p id="stationStatus">Loading…</p>
-
-    <div class="map-link">
-      <a id="mapLink" href="#" aria-disabled="true">▶ Open map</a>
-    </div>
-
-    <div class="map-link">
-      <a id="infoLink" href="#" aria-disabled="true">▶ Johrenについて・About Johren</a>
-    </div>
-  </main>
-
-  <!-- ✅ needed for history injection -->
-  <footer class="history-whisper" aria-live="polite"></footer>
-
-
   <!-- ===============================
-       STATION CONTEXT (ONCE)
-  =============================== -->
-  <script src="/jds/kyushu/map-data.js"></script>
+     UI
+=============================== -->
+<main class="card" role="main">
+  <h1 id="stationTitle">Johren Station</h1>
+  <p id="stationStatus">Loading…</p>
+
+  <div class="map-link">
+    <a id="mapLink" href="#" aria-disabled="true">▶ Open map</a>
+  </div>
+
+  <div class="map-link">
+    <a id="infoLink" href="#" aria-disabled="true">▶ Johrenについて・About Johren</a>
+  </div>
+</main>
+
+<footer class="history-whisper" aria-live="polite"></footer>
+
+<!-- ===============================
+     DATA + LOGGING
+=============================== -->
+<script src="/jds/kyushu/map-data.js"></script>
+<script src="/js/data/area-config.js"></script>
+<script src="/js/visit-log.js"></script>
+
 <script>
+  // --- helpers ---
+  function hashString(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+      hash = ((hash << 5) - hash) + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return Math.abs(hash);
+  }
+
+  function shouldShowHistory(key) {
+    return hashString(key) % 4 === 0; // ~25%
+  }
+
+  function pickHistoryLine(key, pool) {
+    if (!Array.isArray(pool) || pool.length === 0) return null;
+    const index = hashString(key + "_history") % pool.length;
+    return pool[index];
+  }
+
+  // --- read station id ---
   const params = new URLSearchParams(window.location.search);
-
   let stationId = (params.get("id") || "").trim().replace(/\/+$/, "");
-  stationId = decodeURIComponent(stationId);
+  try { stationId = decodeURIComponent(stationId); } catch {}
 
+  // --- lookup station from map-data ---
   const stations = window.MAP_CONFIG?.kyushu?.stations || [];
-  const station = stations.find(s => s.id === stationId);
+  const station = stations.find(s => s.id === stationId) || null;
 
-  // Elements (assumes you have these in your HTML)
+  // Elements
   const titleEl  = document.getElementById("stationTitle");
   const statusEl = document.getElementById("stationStatus");
   const mapLink  = document.getElementById("mapLink");
@@ -123,92 +148,69 @@
     if (mapLink)  mapLink.setAttribute("aria-disabled", "true");
     if (infoLink) infoLink.setAttribute("aria-disabled", "true");
   } else {
-    // Bilingual title
+    // ✅ Log page load
+    if (typeof window.logVisit === "function") {
+      window.logVisit({
+        kind: "station_view",
+        id: station.id,
+        area: station.area || null,
+        line: station.line || null
+      });
+    }
+
+    // Title (bilingual)
     if (titleEl) {
       titleEl.innerHTML =
         `${station.name}駅<br><span style="font-size:14px; opacity:.75">${station.nameEn}</span>`;
     }
 
-    // Area status (optional)
+    // Status (optional)
     if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
 
-    // Map link from area
+    // Map link
     if (mapLink) {
-      mapLink.href = `/jds/${station.area}/map/`;
-      mapLink.setAttribute("aria-disabled", "false");
+      if (station.area) {
+        mapLink.href = `/jds/${station.area}/map/`;
+        mapLink.setAttribute("aria-disabled", "false");
+
+        // ✅ Log map click
+        mapLink.addEventListener("click", () => {
+          if (typeof window.logVisit === "function") {
+            window.logVisit({
+              kind: "station_open_map",
+              id: station.id,
+              area: station.area || null,
+              line: station.line || null
+            });
+          }
+        }, { once: true });
+
+      } else {
+        mapLink.setAttribute("aria-disabled", "true");
+      }
     }
 
-    // Info link from station id
+    // About Johren link (not station-specific)
     if (infoLink) {
-      infoLink.href = `/setsumei/eki/?id=${encodeURIComponent(station.id)}`;
+      infoLink.href = `/setsumei/eki/`;
       infoLink.setAttribute("aria-disabled", "false");
+    }
+
+    // History whisper (area-based)
+    const pool = window.AREA_CONFIG?.[station.area]?.history_pool;
+    if (station.id && shouldShowHistory(station.id) && Array.isArray(pool) && pool.length) {
+      const line = pickHistoryLine(station.id, pool);
+      const container = document.querySelector(".history-whisper");
+      if (line && container) {
+        const p = document.createElement("p");
+        p.className = "history-line";
+        p.textContent = line;
+        container.appendChild(p);
+      }
     }
   }
 </script>
 
-  <script>
-    // --- helpers ---
-    function hashString(str) {
-      let hash = 0;
-      for (let i = 0; i < str.length; i++) {
-        hash = ((hash << 5) - hash) + str.charCodeAt(i);
-        hash |= 0;
-      }
-      return Math.abs(hash);
-    }
-
-    function shouldShowHistory(key) {
-      return hashString(key) % 4 === 0;
-    }
-
-    function pickHistoryLine(key, pool) {
-      if (!Array.isArray(pool) || pool.length === 0) return null;
-      const index = hashString(key + "_history") % pool.length;
-      return pool[index];
-    }
-
-    (function renderStationHistory(attempt = 0) {
-      if (attempt > 20) return;
-
-      if (!window.STATION_ID || !window.AREA_KEY || !window.MAP_CONFIG) {
-        setTimeout(() => renderStationHistory(attempt + 1), 50);
-        return;
-      }
-
-      if (!shouldShowHistory(window.STATION_ID)) return;
-
-      const area = window.MAP_CONFIG[window.AREA_KEY];
-      if (!area || !area.history_pool) return;
-
-      const line = pickHistoryLine(window.STATION_ID, area.history_pool);
-      if (!line) return;
-
-      const container = document.querySelector(".history-whisper");
-      if (!container) return;
-
-      const p = document.createElement("p");
-      p.className = "history-line";
-      p.textContent = line;
-      container.appendChild(p);
-    })();
-
-    const info = document.getElementById("infoLink");
-    if (info) {
-      info.href = `/setsumei/eki/?id=${encodeURIComponent(window.STATION_ID || "")}`;
-      info.setAttribute("aria-disabled", window.STATION_ID ? "false" : "true");
-    }
-  </script>
-
-  <!-- ===============================
-       MAP LINK SETUP
-  =============================== -->
-  <script>
-    const link = document.getElementById("mapLink");
-    if (link && window.AREA_KEY) {
-      link.href = `/jds/${window.AREA_KEY}/map/`;
-      link.setAttribute("aria-disabled", "false");
-    }
-  </script>
 
 </body>
 </html>
