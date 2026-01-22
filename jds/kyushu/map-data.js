@@ -33,7 +33,7 @@ window.MAP_CONFIG = {
   id: "chikuhi_kyudaigakkentoshi",
   line: "chikuhi",
   name: "九大学研都市",
-  nameEn: "Kyudaigakkentoshi",
+  nameEn: "Kyudai Gakken Toshi",
   lat: 33.578150,
   lng: 130.259861
 },
@@ -57,7 +57,7 @@ window.MAP_CONFIG = {
   id: "chikuhi_itoshimakoko_mae",
   line: "chikuhi",
   name: "糸島高校前",
-  nameEn: "Itoshimakoko-Mae",
+  nameEn: "Itoshimakoko Mae",
   lat: 33.560660,
   lng: 130.213243
 },
