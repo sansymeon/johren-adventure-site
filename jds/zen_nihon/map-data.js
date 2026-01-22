@@ -3,7 +3,16 @@ window.MAP_CONFIG = {
     center: [35.17541877112721, 136.9047463448224],
     zoom: 6,
 
-    churches: [
+    shrines: [
+     {
+        id: "maruyama_hachimangu",
+        name: "丸山八幡宮 二の鳥居",
+        nameEn: "Maruyama Hachimangu Shrine",
+        lat: 34.54822633746893,                    
+        lng: 131.63678866800052 
+      },
+      ],
+      churches: [
      {
         id: "otaru_orthodox",
         name: "小樽ハリストス正教会・主の復活聖堂",
