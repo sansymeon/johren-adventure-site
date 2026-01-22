@@ -167,24 +167,19 @@
     // Status (optional)
     if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
 
-    // Area status (optional)
-if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
-
 // ✅ safety-net message if area missing
 if (statusEl && !station.area) statusEl.textContent = "Area: (default kyushu)";
 
-    // Map link
-    if (mapLink) {
-  const target = (station && station.area)
-    ? `/jds/${station.area}/map/`
-    : `/jds/kyushu/map/`;  // safety net
+ // Map link (with safety net)
+if (mapLink) {
+  const target = station.area ? `/jds/${station.area}/map/` : `/jds/kyushu/map/`;
 
   mapLink.href = target;
   mapLink.setAttribute("aria-disabled", "false");
 
-  // Log map click (keep this even with fallback)
+  // Log map click
   mapLink.addEventListener("click", () => {
-    if (typeof window.logVisit === "function" && station) {
+    if (typeof window.logVisit === "function") {
       window.logVisit({
         kind: "station_open_map",
         id: station.id,
