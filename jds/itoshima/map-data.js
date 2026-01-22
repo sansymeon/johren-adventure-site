@@ -19,98 +19,114 @@ window.MAP_CONFIG = {
     ],
 
     stations: [
-      {
-        id: "jr-chikuhi-jk03",
-        name: "今宿",
-        nameEn: "Imajuku",
-        lat: 33.579257,
-        lng: 130.273519
-      },
-      {
-        id: "jr-chikuhi-jk04",
-        name: "九大学研都市",
-        nameEn: "Kyudai Gakken",
-        lat: 33.578150,
-        lng: 130.259861
-      },
-      {
-        id: "jr-chikuhi-jk05",
-        name: "周船寺",
-        nameEn: "Susenji",
-        lat: 33.570792,
-        lng: 130.246136
-      },
-      {
-        id: "jr-chikuhi-jk06",
-        name: "波多江",
-        nameEn: "Hatae",
-        lat: 33.563944,
-        lng: 130.226822
-      },
-      {
-        id: "jr-chikuhi-jk07",
-        name: "糸島高校前",
-        nameEn: "Itoshimakoko-mae",
-        lat: 33.560660,
-        lng: 130.213243
-      },
-      {
-        id: "jr-chikuhi-jk08",
-        name: "筑前前原",
-        nameEn: "Maebaru",
-        lat: 33.557082,
-        lng: 130.199305
-      },
-      {
-        id: "jr-chikuhi-jk09",
-        name: "美咲が丘",
-        nameEn: "Misakigaoka",
-        lat: 33.549959,
-        lng: 130.185515
-      },
-      {
-        id: "jr-chikuhi-jk10",
-        name: "加布里",
-        nameEn: "Kafuri",
-        lat: 33.543150,
-        lng: 130.176150
-      },
-      {
-        id: "jr-chikuhi-jk11",
-        name: "一貴山",
-        nameEn: "Ikisan",
-        lat: 33.534295,
-        lng: 130.168242
-      },
-      {
-        id: "jr-chikuhi-jk12",
-        name: "筑前深江",
-        nameEn: "Fukae",
-        lat: 33.514949,
-        lng: 130.139429
-      },
-      {
-        id: "jr-chikuhi-jk13",
-        name: "大入",
-        nameEn: "Dainyu",
-        lat: 33.508855,
-        lng: 130.106038
-      },
-      {
-        id: "jr-chikuhi-jk14",
-        name: "福吉",
-        nameEn: "Fukuyoshi",
-        lat: 33.501554,
-        lng: 130.079523
-      },
-      {
-        id: "jr-chikuhi-jk15",
-        name: "鹿家",
-        nameEn: "Shikaka",
-        lat: 33.484259,
-        lng: 130.047476
-      }
-    ],
+{
+  id: "chikuhi_imajuku",
+  line: "chikuhi",
+  name: "今宿",
+  nameEn: "Imajuku",
+  lat: 33.579257,
+  lng: 130.273519
+},
+{
+  id: "chikuhi_kyudaigakkentoshi",
+  line: "chikuhi",
+  name: "九大学研都市",
+  nameEn: "Kyudaigakkentoshi",
+  lat: 33.578150,
+  lng: 130.259861
+},
+{
+  id: "chikuhi_susenji",
+  line: "chikuhi",
+  name: "周船寺",
+  nameEn: "Susenji",
+  lat: 33.570792,
+  lng: 130.246136
+},
+{
+  id: "chikuhi_hatae",
+  line: "chikuhi",
+  name: "波多江",
+  nameEn: "Hatae",
+  lat: 33.563944,
+  lng: 130.226822
+},
+{
+  id: "chikuhi_itoshimakoko_mae",
+  line: "chikuhi",
+  name: "糸島高校前",
+  nameEn: "Itoshimakoko-Mae",
+  lat: 33.560660,
+  lng: 130.213243
+},
+{
+  id: "chikuhi_chikuzen_maebaru",
+  line: "chikuhi",
+  name: "筑前前原",
+  nameEn: "Chikuzen Maebaru",
+  lat: 33.557082,
+  lng: 130.199305
+},
+{
+  id: "chikuhi_misakigaoka",
+  line: "chikuhi",
+  name: "美咲が丘",
+  nameEn: "Misakigaoka",
+  lat: 33.549959,
+  lng: 130.185515
+},
+{
+  id: "chikuhi_kafuri",
+  line: "chikuhi",
+  name: "加布里",
+  nameEn: "Kafuri",
+  lat: 33.543150,
+  lng: 130.176150
+},
+{
+  id: "chikuhi_ikisan",
+  line: "chikuhi",
+  name: "一貴山",
+  nameEn: "Ikisan",
+  lat: 33.534295,
+  lng: 130.168242,
+  visible: false
+},
+{
+  id: "chikuhi_chikuzen_fukae",
+  line: "chikuhi",
+  name: "筑前深江",
+  nameEn: "Chikuzen Fukae",
+  lat: 33.514949,
+  lng: 130.139429
+},
+{
+  id: "chikuhi_dainyu",
+  line: "chikuhi",
+  name: "大入",
+  nameEn: "Dainyu",
+  lat: 33.508855,
+  lng: 130.106038,
+  visible: false
+},
+{
+  id: "chikuhi_fukuyoshi",
+  line: "chikuhi",
+  name: "福吉",
+  nameEn: "Fukuyoshi",
+  lat: 33.501554,
+  lng: 130.079523
+},
+{
+  id: "chikuhi_shikaka",
+  line: "chikuhi",
+  name: "鹿家",
+  nameEn: "Shikaka",
+  lat: 33.484259,
+  lng: 130.047476,
+  visible: false
+}
+],
 
     history_pool: [
       "このあたりには、古い埋葬の跡が点在しています。",
