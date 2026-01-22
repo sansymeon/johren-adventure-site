@@ -87,7 +87,8 @@ window.MAP_CONFIG = {
         nameEn: "Tonosei Orthodox Church",
         lat: 39.34801785518456,              
         lng: 141.56757262380552
-      },{
+      },
+      {
         id: "ichinoseki_orthodox",
         name: "一関ハリストス正教会・昇天聖堂",
         nameEn: "Ichinoseki Orthodox Church",
@@ -112,7 +113,7 @@ window.MAP_CONFIG = {
         id: "jumonji_orthodox",
         name: "十文字ハリストス正教会",
         nameEn: "Jumonji Orthodox Church",
-        lat: 38.767362271760085, 141.14312620047744           
+        lat: 38.767362271760085,            
         lng: 141.14312620047744
       },
       {
