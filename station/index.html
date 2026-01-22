@@ -89,7 +89,7 @@
   <p id="stationStatus">Loading…</p>
 
   <div class="map-link">
-    <a id="mapLink" href="#" aria-disabled="true">▶ Open map</a>
+    <a id="mapLink" href="#" aria-disabled="true">▶ 地区を見る・Open map</a>
   </div>
 
   <div class="map-link">
@@ -167,23 +167,34 @@
     // Status (optional)
     if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
 
+    // Area status (optional)
+if (statusEl) statusEl.textContent = station.area ? `Area: ${station.area}` : "";
+
+// ✅ safety-net message if area missing
+if (statusEl && !station.area) statusEl.textContent = "Area: (default kyushu)";
+
     // Map link
     if (mapLink) {
-      if (station.area) {
-        mapLink.href = `/jds/${station.area}/map/`;
-        mapLink.setAttribute("aria-disabled", "false");
+  const target = (station && station.area)
+    ? `/jds/${station.area}/map/`
+    : `/jds/kyushu/map/`;  // safety net
 
-        // ✅ Log map click
-        mapLink.addEventListener("click", () => {
-          if (typeof window.logVisit === "function") {
-            window.logVisit({
-              kind: "station_open_map",
-              id: station.id,
-              area: station.area || null,
-              line: station.line || null
-            });
-          }
-        }, { once: true });
+  mapLink.href = target;
+  mapLink.setAttribute("aria-disabled", "false");
+
+  // Log map click (keep this even with fallback)
+  mapLink.addEventListener("click", () => {
+    if (typeof window.logVisit === "function" && station) {
+      window.logVisit({
+        kind: "station_open_map",
+        id: station.id,
+        area: station.area || null,
+        line: station.line || null
+      });
+    }
+  }, { once: true });
+}
+
 
       } else {
         mapLink.setAttribute("aria-disabled", "true");
