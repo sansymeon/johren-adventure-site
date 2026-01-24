@@ -6,7 +6,7 @@ window.MAP_CONFIG.KK_GAYA = {
   stations: [],
 
   // TEMP: put everything in parks so the current engine renders them
- supermarket: [
+ park: [
     { id:"kk_gaya_daily_coffee", name:"Daily Coffee", nameEn:"Daily Coffee", lat:5.985660732321517, lng:116.07799084381578 },
     { id:"kk_gaya_5star_chicken", name:"5 Star Chicken", nameEn:"5 Star Chicken", lat:5.983031764408568, lng:116.07654463607166 },
     { id:"kk_gaya_mizu_mizu", name:"MizuMizu Coffee", nameEn:"MizuMizu Coffee", lat:5.983050873372208, lng:116.07683515719098 },
