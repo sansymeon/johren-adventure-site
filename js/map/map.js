@@ -174,7 +174,7 @@
     const el = document.getElementById('pinFilters');
     if (!el) return;
 
-    const labels = { coffee:"Coffee", restaurant:"Food", supermarket:"Shop", church:"Church", mosque:"Mosque"};
+    const labels = { coffee:"Coffee", restaurant:"Food", supermarket:"Shop", church:"Church", museum: "Museum", mosque:"Mosque"};
 
     el.innerHTML = types.map(t => `
       <label>
