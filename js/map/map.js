@@ -52,6 +52,7 @@
 
   const icons = {
     church: makeIcon('church.png'),
+    landmark: makeIcon('landmark.png'),
     museum: makeIcon('museum.png'),
     mosque: makeIcon('mosque.png'),
     shrine: makeIcon('shrine.png'),
