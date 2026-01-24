@@ -200,5 +200,182 @@
 
   const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
   if (pinTypes.length) renderPinFilters(pinTypes);
+// =====================================================
+// "I'M HERE" (MAP-FIRST) — local-only, demo-friendly
+// Requires: Leaflet map instance named `map`
+// Uses: window.AREA_KEY for per-area storage
+// =====================================================
+(function setupImHere() {
+  if (typeof L === "undefined") return;
+  if (typeof map === "undefined") {
+    console.warn("[Johren] map var not found — 'I'm here' not initialized");
+    return;
+  }
 
+  const AREA = (window.AREA_KEY || "default_area").trim();
+  const KEY  = `johren_here_v1:${AREA}`;
+
+  let hereMarker = null;
+  let armed = false;
+
+  function round(n, dp = 6) {
+    const p = Math.pow(10, dp);
+    return Math.round(n * p) / p;
+  }
+
+  function loadHere() {
+    try {
+      const raw = localStorage.getItem(KEY);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (!obj || typeof obj.lat !== "number" || typeof obj.lng !== "number") return null;
+      return obj;
+    } catch {
+      return null;
+    }
+  }
+
+  function saveHere(obj) {
+    try { localStorage.setItem(KEY, JSON.stringify(obj)); } catch {}
+  }
+
+  function clearHere() {
+    try { localStorage.removeItem(KEY); } catch {}
+  }
+
+  function setButtonState(btnEl, mode) {
+    // mode: "idle" | "armed" | "has"
+    if (!btnEl) return;
+
+    if (mode === "armed") {
+      btnEl.textContent = "Tap map…";
+      btnEl.style.opacity = "0.95";
+    } else if (mode === "has") {
+      btnEl.textContent = "Clear";
+      btnEl.style.opacity = "0.95";
+    } else {
+      btnEl.textContent = "I’m here";
+      btnEl.style.opacity = "0.95";
+    }
+  }
+
+  function placeMarker(h) {
+    if (!h) return;
+    const lat = h.lat, lng = h.lng;
+
+    if (hereMarker) {
+      hereMarker.setLatLng([lat, lng]);
+    } else {
+      hereMarker = L.marker([lat, lng], { keyboard: false }).addTo(map);
+    }
+
+    const label = (h.label || "You are here").trim();
+    hereMarker.bindPopup(`<b>${label}</b>`).openPopup();
+  }
+
+  // ---- Leaflet control UI ----
+  const HereControl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      const container = L.DomUtil.create("div", "leaflet-bar");
+      const a = L.DomUtil.create("a", "", container);
+
+      a.href = "#";
+      a.style.width = "auto";
+      a.style.padding = "0 10px";
+      a.style.lineHeight = "30px";
+      a.style.fontSize = "13px";
+      a.style.fontFamily = "system-ui, -apple-system, Segoe UI, sans-serif";
+      a.style.background = "#fff";
+      a.style.color = "#222";
+      a.style.cursor = "pointer";
+      a.style.textDecoration = "none";
+
+      // prevent map drag/zoom when tapping the button
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      // initial state based on saved "here"
+      const existing = loadHere();
+      if (existing) setButtonState(a, "has");
+      else setButtonState(a, "idle");
+
+      L.DomEvent.on(a, "click", (e) => {
+        L.DomEvent.preventDefault(e);
+
+        const existingNow = loadHere();
+
+        // If we already have a here -> clicking means clear
+        if (existingNow && !armed) {
+          clearHere();
+          if (hereMarker) {
+            map.removeLayer(hereMarker);
+            hereMarker = null;
+          }
+          setButtonState(a, "idle");
+          if (typeof window.logVisit === "function") {
+            window.logVisit({ kind: "clear_here", area: AREA });
+          }
+          return;
+        }
+
+        // Arm "tap to set"
+        armed = !armed;
+
+        if (armed) setButtonState(a, "armed");
+        else setButtonState(a, existingNow ? "has" : "idle");
+      });
+
+      // expose for other UI if needed
+      container._btn = a;
+      return container;
+    }
+  });
+
+  const hereControl = new HereControl();
+  map.addControl(hereControl);
+
+  function getBtnEl() {
+    // Leaflet stores container as _container
+    // our <a> is firstChild of that container
+    return hereControl?._container?._btn || hereControl?._container?.querySelector("a");
+  }
+
+  // ---- Map click handler (only when armed) ----
+  map.on("click", (ev) => {
+    if (!armed) return;
+
+    const lat = round(ev.latlng.lat, 6);
+    const lng = round(ev.latlng.lng, 6);
+
+    const hereObj = {
+      lat,
+      lng,
+      area: AREA,
+      source: "map_tap",
+      ts: Date.now(),
+      label: "I’m here"
+    };
+
+    saveHere(hereObj);
+    placeMarker(hereObj);
+    map.setView([lat, lng], Math.max(map.getZoom(), 16), { animate: true });
+
+    armed = false;
+    setButtonState(getBtnEl(), "has");
+
+    if (typeof window.logVisit === "function") {
+      // Optional: for privacy, you can round to 3 decimals here
+      window.logVisit({ kind: "set_here", area: AREA, lat, lng, source: "map_tap" });
+    }
+  });
+
+  // ---- Restore on load ----
+  const existing = loadHere();
+  if (existing) {
+    placeMarker(existing);
+    map.setView([existing.lat, existing.lng], Math.max(map.getZoom(), 16));
+  }
 })();
+})(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
+
