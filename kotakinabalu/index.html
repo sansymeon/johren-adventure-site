@@ -1,141 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Discovery Spots</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css" />
+
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f8f8f8;
+      font-family: system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
       margin: 0;
       padding: 0;
-      line-height: 1.7;
-      color: #222;
     }
-    nav {
-      text-align: right;
-      padding: 10px 20px;
-      font-size: 14px;
-    }
-    nav a {
-      color: #555;
-      text-decoration: none;
-    }
+
     header {
       text-align: center;
-      padding: 40px 20px 20px;
+      padding: 50px 20px 30px;
     }
-    .crest {
-      width: 120px;
-      margin: 0 auto 10px;
-      display: block;
-    }
-    h1 {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 32px;
-      font-weight: bold;
-      color: #333;
-    }
-    .intro {
-      max-width: 750px;
-      margin: 30px auto;
-      padding: 0 20px;
-      font-size: 18px;
-      text-align: center;
-    }
-    .program-grid {
-      max-width: 900px;
-      margin: 40px auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 20px;
-      
-    }.program-grid{
-  display: flex;
-  gap: 20px;
-  justify-content: center;   /* centers the row */
-  flex-wrap: wrap;           /* allows wrap on small screens */
-  max-width: 980px;          /* optional: keeps it from stretching too wide */
-  margin: 0 auto;            /* centers the container itself */
-  padding: 0 16px;           /* breathing room on mobile */
-}
 
-    @media (min-width: 700px) {
-      .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    h1 {
+      font-size: 1.9rem;
+      margin: 0;
     }
-    .card {
-      background: #fff;
+
+    .intro {
+      width: 90%;
+      max-width: 800px;
+      margin: 25px auto 50px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      background: var(--surface);
+      padding: 25px 20px;
       border-radius: 14px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+      position: relative;
     }
-    .card h2 {
+
+    .intro img {
+      position: absolute;
+      right: 20px;
+      bottom: -10px;
+      width: 90px;
+      height: auto;
+    }
+
+    .areas {
+      width: 90%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: grid;
+      gap: 20px;
+    }
+
+    .area-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: left;
+      transition: box-shadow 0.2s;
+    }
+
+    .area-card:hover {
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .area-card h2 {
       margin-top: 0;
-      font-size: 22px;
-      color: #333;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+      color: var(--text-main);
     }
-    .card p {
-      font-size: 15px;
-      color: #555;
-      min-height: 60px;
+
+    .area-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
-    .card a {
+
+    .area-card a {
       display: inline-block;
-      margin-top: 14px;
-      padding: 10px 22px;
-      border-radius: 8px;
-      background: #c79b3b;
-      color: white;
-      text-decoration: none;
+      margin-top: 12px;
       font-weight: bold;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .disabled {
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    footer {
+      margin-top: 50px;
+      text-align: center;
+      padding: 20px;
+      color: var(--text-muted);
     }
   </style>
 </head>
+
 <body>
 
-<nav>
-  <a href="../index.html">日本語</a>
-</nav>
-
 <header>
-  <img src="../img/johren_crest_gold.png" class="crest" alt="Johren Crest">
   <h1>Discovery Spots</h1>
 </header>
 
 <div class="intro">
-  Discovery Spots is a quiet, QR-based system designed for everyday places in Japan.<br><br>
+  "Discovery Spots" is a gentle exploration project that invites you
+to notice the places you might normally walk past.<br><br>
 
-  It does not require an app, registration, or explanation.<br>
-  People simply scan, notice, and continue walking.<br><br>
+Simple QR codes are quietly placed near cultural landmarks, streets, and local merchants.
+Scan one to collect a <strong>“Discovery Mark”</strong> — a small personal trace of
+having been there — and rediscover your town through moments of curiosity,
+stillness, and delight.
 
-  What begins as a small discovery can also support<br>
-  local shops and community presence—<br>
-  without changing how places normally operate.
+
+  <img src="../../img/tanukicoon.png" alt="Tanukicoon" />
 </div>
 
+<main class="areas">
 
-<div class="program-grid">
-
-  <div class="card">
-    <h2>Discovery Spots</h2>
-    <p>A gentle walking-and-discovery map.<br>
-QR markers unlock small stories tied to merchants,<br>
-streets, and everyday landmarks.
-</p>
-    <a href="/kotakinabalu/discovery/index.html">Open</a>
+  <div class="area-card">
+  <h2>Kota Kinabalu's Gaya Street Area</h2>
+  <p>A coastal town shaped by history, the blending of various cultures, and everyday life. Discover the city centre of Kota Kinabalu, in historic 
+    "Old Town Jestleton," where the quiet streets, and small corners still remain.
+  </p>
+  <a href="/en/discovery/gaya_street/index.html">▶ Start Exploring</a>
+</div>
+  
+  <!-- Coming Soon Areas -->
+  <div class="area-card disabled">
+    <h2>Papar Area</h2>
+    <p>Coming soon — spot selection in progress.</p>
   </div>
 
-  
+</main>
 
-
-</div>
+<footer>
+  © Discovery Spots — A SanSymeon Project
+</footer>
 
 </body>
 </html>
