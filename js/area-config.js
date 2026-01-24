@@ -41,7 +41,6 @@ window.MAP_CONFIG.KK_GAYA = {
 
   // put your places here for now:
   coffee: [
-  export const PLACES = [
   { id:"kk_gaya_daily_coffee", name:"Daily Coffee", category:"cafe", area:"gaya_street", 
    lat:5.985660732321517,  lng:116.07799084381578 },
   { id:"kk_gaya_5star_chicken", name:"5 Star Chicken", category:"food", area:"gaya_street", 
