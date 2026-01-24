@@ -1,1 +1,553 @@
-.txt
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+   <title>Discovery Spots | A Quiet Local Journey around Kota Kinabalu</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+        content="Discovery Spots — a quiet local journey around the Old Town of Kota Kinabalu, originally, Jestelton. 
+    Scan QR markers at everyday places to discover small stories and collect journey marks." />
+
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --surface-soft: #fafafa;
+      --border: #e0e0e0;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --accent: #c79b3b;
+      --accent-soft: #f2e3b8;
+      --nav-height: 64px;
+      --max-width: 1080px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-main);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: url('/img/night_market.jpg') center/cover no-repeat;
+      color: #fff;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 20px;
+      height: 50vh;
+      max-height: 420px;
+      min-height: 260px;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      opacity: 0.92;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons .btn {
+      background: rgba(255,255,255,0.85);
+      color: #222;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 18px;
+      font-size: 14px;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero-buttons .btn:hover {
+      background: #fff;
+    }
+    .hero-buttons {
+  margin-top: 1.8rem;
+}
+
+
+    /* Sections */
+
+    section { padding: 2.5rem 0; }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-heading p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .section--surface { background: var(--surface); }
+    .section--soft { background: var(--surface-soft); }
+    .section--accent-soft { background: var(--accent-soft); }
+
+    .about-text {
+      max-width: 42rem;
+      margin: 0 auto;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pill {
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.55rem 1.1rem;
+      font-size: 0.85rem;
+      border: 1px solid rgba(0,0,0,0.04);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    /* Spots */
+
+    .spot {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .spot--reverse {
+      grid-template-columns: 1fr 1.1fr;
+    }
+
+    .spot-image {
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 240px;
+      max-height: 240px;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 38px rgba(15,23,42,0.18);
+    }
+
+    .spot-tag {
+      background: rgba(199,155,59,0.12);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      color: #7a5a16;
+      margin-bottom: 0.4rem;
+      display: inline-block;
+    }
+
+    .spot-body h3 { font-size: 1.3rem; margin-bottom: 0.6rem; }
+    .spot-body p { font-size: 0.95rem; color: var(--text-muted); }
+
+    /* CTA */
+
+    .cta {
+      position: relative;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("/img/kk_coastline.jpg");
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) brightness(0.4);
+    }
+
+    .cta-inner {
+      position: relative;
+      z-index: 1;
+      padding: 4rem 1.5rem;
+    }
+
+    .cta-inner h2 { font-size: 1.7rem; margin-bottom: 0.6rem; }
+    .cta-inner p { font-size: 0.95rem; opacity: 0.9; margin-bottom: 1.7rem; }
+
+    /* Footer */
+
+ .site-footer {
+  background: #111;
+  color: #bbb;
+  font-size: 0.75rem;
+  padding: 6px 0;     /* Tight top/bottom */
+  line-height: 1.2;   /* Prevents inherited tall spacing */
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1rem;    /* Horizontal only */
+}
+
+.site-footer div {
+  margin: 0;          /* Remove any default spacing */
+  padding: 0;
+}
+
+.footer-links a {
+  margin-left: 1rem;
+  color: #ccc;
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+}
+
+
+    @media(max-width: 768px) {
+      .nav { display: none; }
+      .nav-toggle { display: block; }
+      .spot, .spot--reverse { grid-template-columns: 1fr; }
+    }
+/* TIGHTER SECTIONS */
+section {
+  padding: 2rem 0 !important;      /* from 4rem → 2rem */
+}
+
+/* TIGHTEN THE ABOUT SECTION */
+#about .section-heading h2 {
+  margin-bottom: 0.4rem !important;
+}
+
+#about .section-heading p {
+  margin-bottom: 1rem !important;
+}
+
+#about .about-text {
+  margin-top: 0.5rem !important;
+  line-height: 1.55 !important;
+}
+
+#about .pill-row {
+  margin-top: 1.5rem !important;
+}
+
+/* Optional: reduce large white space between ABOUT and SPOTS */
+.section--surface {
+  padding-bottom: 2rem !important;
+}
+.section--soft {
+  padding-top: 2rem !important;
+}
+/* Center the HOW IT WORKS section */
+#how .steps {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Center each step */
+#how .step {
+  margin-bottom: 2rem;
+}
+
+#how .step-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+#how .step-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+#how p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.5;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 120px;   /* was effectively ~80px */
+    height: 60vh;         /* give image more presence */
+    min-height: 360px;
+  }
+
+  .hero-title {
+    margin-top: 0.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-inner {
+    padding-top: 2.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .hero-kicker {
+    display: block;
+    margin-bottom: 0.6rem;
+    opacity: 0.85;
+  }
+}
+@media (max-width: 480px) {
+  body {
+    font-size: 16.5px;
+  }
+}
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.25;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+  }
+}
+@media (max-width: 480px) {
+  .logo-block {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.1rem;
+    white-space: normal;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Gaya Street Area</div>
+
+    <h1 class="hero-title">Discovery Spots</h1>
+
+    <p class="hero-subtitle">
+      A simple local journey in historic Gaya Street.<br>
+      Scan QR markers at everyday places to discover
+      small stories hidden in daily life.
+    </p>
+
+    <div class="hero-buttons">
+      <a class="btn" href="#how">How it works</a>
+      <a class="btn" href="/discovery/map.html">View map</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section--surface" id="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2>What is Discovery Spots?</h2>
+      <p>A local discovery system designed for Japan.</p>
+    </div>
+
+    <div class="about-text">
+      Discovery Spots is a quiet exploration system that connects
+      <strong>shops, scenic views, and small cultural places</strong>
+      along everyday routes.<br><br>
+
+      No app required. No registration.<br>
+      Your usual commute or walk becomes a small journey.
+    </div>
+
+    <div class="pill-row">
+      <div class="pill">QR stamps at each station</div>
+      <div class="pill">Short stories & local notes</div>
+      <div class="pill">No app / no login</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOTS -->
+<section class="section section--soft" id="spots">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Spots Along the Chikuhi Line</h2>
+      <p>A small introduction to places you may pass every day.</p>
+    </div>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/nokonoshima_view.jpg')"></div>
+      <div class="spot-body">
+        <span class="spot-tag">Starting point</span>
+        <h3>Nokonoshima View</h3>
+        <p>Spring colors overlooking the sea. Scanning here gives your first journey mark.</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/kyudai_tsutaya_night.jpg')"></div>
+      <div class="spot-body">
+        <span class="spot-tag">Everyday place</span>
+        <h3>Kyudai Tsutaya</h3>
+        <p>A warm local landmark where students and neighbors cross paths.</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/futamigaura.jpg')"></div>
+      <div class="spot-body">
+        <span class="spot-tag">By the sea</span>
+        <h3>Futamigaura (Meoto Iwa)</h3>
+        <p>A recognizable coastal view that changes quietly with the seasons.</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/itoshima_sunrise.jpg')"></div>
+      <div class="spot-body">
+        <span class="spot-tag">Local view</span>
+        <h3>Morning in Itoshima</h3>
+        <p>A calm sunrise over fields and mountains — a slow beginning to the day.</p>
+      </div>
+    </article>
+
+    <article class="spot">
+      <div class="spot-image" style="background-image:url('/img/maebaru_ekipiano.jpg')"></div>
+      <div class="spot-body">
+        <span class="spot-tag">Station spot</span>
+        <h3>Station Piano</h3>
+        <p>A public piano anyone can play, reflecting the relaxed rhythm of the line.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section section--surface" id="how">
+  <div class="container">
+    <div class="section-heading">
+      <h2>How It Works</h2>
+      <p>Very simple. No app required.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <strong>1. Find a QR marker</strong>
+        <p>QR plates are placed at shops and cultural locations.</p>
+      </div>
+
+      <div class="step">
+        <strong>2. Scan with your phone</strong>
+        <p>Your camera or browser is enough. No login needed.</p>
+      </div>
+
+      <div class="step">
+        <strong>3. Collect a journey mark</strong>
+        <p>A short story and a place-specific stamp appear.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <h2>Start with the Gaya Street map.</h2>
+    <p>This area is a demonstration. New pins will be added gradually.</p>
+    <a class="btn" href="/discovery/gaya_street/map.html">Open Gaya Street map</a>
+  </div>
+
+  <p class="disclaimer">
+    * Places shown do not indicate partnerships or endorsements.
+  </p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>© SanSymeon / Discovery Spots</div>
+    <div class="footer-links">
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+      <a href="/index.html">日本語</a>
+    </div>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/script/config.js"></script>
+<script src="/script/smooth-scroll.js"></script>
+<script src="/script/johren-core.js"></script>
+
+</body>
+</html>
