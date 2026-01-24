@@ -1,24 +1,13 @@
 // ===============================
 // JOHREN MAP ENGINE (UNIVERSAL)
 // ===============================
-
 (function () {
-  if (!window.MAP_CONFIG) {
-    console.error('MAP_CONFIG missing');
-    return;
-  }
-
+  if (!window.MAP_CONFIG) return console.error('MAP_CONFIG missing');
   const AREA_KEY = window.AREA_KEY;
-  if (!AREA_KEY) {
-    console.error('AREA_KEY missing');
-    return;
-  }
+  if (!AREA_KEY) return console.error('AREA_KEY missing');
 
   const area = window.MAP_CONFIG[AREA_KEY];
-  if (!area) {
-    console.error('Invalid AREA_KEY:', AREA_KEY);
-    return;
-  }
+  if (!area) return console.error('Invalid AREA_KEY:', AREA_KEY);
 
   const {
     center,
@@ -32,50 +21,25 @@
     pins = []
   } = area;
 
-  // ✅ AREA-SCOPED STORAGE
   const storageKey = `johren:${AREA_KEY}`;
 
-
-  // -------------------------------
-  // MAP INITIALIZATION
-  // -------------------------------
-  const map = L.map('map', { zoomControl: false })
-  .setView(center, zoom);
-
+  const map = L.map('map', { zoomControl: false }).setView(center, zoom);
   L.control.zoom({ position: 'topright' }).addTo(map);
 
-  // -------------------------------
-  // TILE LAYER
-  // -------------------------------
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // -------------------------------
-  // STORAGE
-  // -------------------------------
   function getVisitedStations() {
     try {
       const data = JSON.parse(localStorage.getItem(storageKey));
-      return Array.isArray(data?.visitedStations)
-        ? data.visitedStations.map(String)
-        : [];
+      return Array.isArray(data?.visitedStations) ? data.visitedStations.map(String) : [];
     } catch {
       return [];
     }
   }
 
-  function setVisitedStations(list) {
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify({ visitedStations: list })
-    );
-  }
-
-  // -------------------------------
-  // ICON FACTORY
-  // -------------------------------
   function makeIcon(file) {
     return L.icon({
       iconUrl: `/img/map/${file}`,
@@ -86,41 +50,19 @@
   }
 
   const icons = {
-  church: makeIcon('church.png'),
-  museum: makeIcon('museum.png'),
-  shrine: makeIcon('shrine.png'),
-  temple: makeIcon('temple.png'),
-  park: makeIcon('park.png'),
-  stationDefault: makeIcon('station.png'),
-  stationVisited: makeIcon('station_visited.png'),
+    church: makeIcon('church.png'),
+    museum: makeIcon('museum.png'),
+    shrine: makeIcon('shrine.png'),
+    temple: makeIcon('temple.png'),
+    park: makeIcon('park.png'),
+    stationDefault: makeIcon('station.png'),
+    stationVisited: makeIcon('station_visited.png'),
 
-  // ✅ pins
-  coffee: makeIcon('coffee.png'),
-  restaurant: makeIcon('restaurant.png'),
-  supermarket: makeIcon('supermarket.png')
-};
+    coffee: makeIcon('coffee.png'),
+    restaurant: makeIcon('restaurant.png'),
+    supermarket: makeIcon('supermarket.png')
+  };
 
-
-  // -------------------------------
-  // DISTANCE
-  // -------------------------------
-  function distanceKm(a, b) {
-    const R = 6371;
-    const dLat = (b.lat - a.lat) * Math.PI / 180;
-    const dLng = (b.lng - a.lng) * Math.PI / 180;
-    const lat1 = a.lat * Math.PI / 180;
-    const lat2 = b.lat * Math.PI / 180;
-
-    const x =
-      Math.sin(dLat / 2) ** 2 +
-      Math.sin(dLng / 2) ** 2 * Math.cos(lat1) * Math.cos(lat2);
-
-    return 2 * R * Math.asin(Math.sqrt(x));
-  }
-
-  // -------------------------------
-  // LAYERS
-  // -------------------------------
   const stationLayer = L.layerGroup().addTo(map);
   const churchLayer  = L.layerGroup().addTo(map);
   const museumLayer  = L.layerGroup().addTo(map);
@@ -129,195 +71,129 @@
   const parkLayer    = L.layerGroup().addTo(map);
   const pinLayer     = L.layerGroup().addTo(map);
 
-
-  // ===============================
-// HISTORICAL WHISPER LAYER
-// Area-level quiet context
-// One line max. No explanations.
-// Absence is intentional.
-// ===============================
-
-// Simple deterministic hash (stable across reloads)
-function hashString(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = ((hash << 5) - hash) + str.charCodeAt(i);
-    hash |= 0; // 32bit
+  function escapeHtml(s='') {
+    return String(s).replace(/[&<>"']/g, c =>
+      ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
+    );
   }
-  return Math.abs(hash);
-}
 
-  // Decide whether this station should show history (~25%)
-function shouldShowHistory(stationId) {
-  return hashString(stationId) % 4 === 0;
-}
-
-
-
-// Pick a stable history line from the area's pool
-function pickHistoryLine(stationId, pool) {
-  if (!pool || pool.length === 0) return null;
-  const index = hashString(stationId + "_history") % pool.length;
-  return pool[index];
-}
-
-// Render in ONE place only (bottom image / quiet zone)
-function renderHistoryLine(text) {
-  if (!text) return;
-
-  const container = document.querySelector(".history-whisper");
-  if (!container) return;
-
-  const p = document.createElement("p");
-  p.className = "history-line";
-  p.textContent = text;
-
-  container.appendChild(p);
-}
-
-  // -------------------------------
-  // STATIONS
-  // -------------------------------
-  let selectedStation = null;
-  let lastTappedStation = null;
-  const visitedStations = getVisitedStations();
-
-  function escapeHtml(s = '') {
-  return String(s).replace(/[&<>"']/g, c =>
-    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
-  );
-}
-
-  
   function formatStationLabel(station) {
-  return station.nameEn
-    ? `<div class="station-label">
-         <div class="jp">${station.name}</div>
-         <div class="en">${station.nameEn}</div>
-       </div>`
-    : `<div class="station-label"><div class="jp">${station.name}</div></div>`;
-}
-
-function formatLandmarkLabel(item) {
-  const jp = (item.name || '').trim();
-  const en = (item.nameEn || '').trim();
-
-  const title = escapeHtml(jp || en || '');
-  const sub = (jp && en && jp !== en)
-    ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
-    : '';
-
-  return `<div class="landmark-label">
-            <div class="jp">${title}</div>
-            ${sub}
-          </div>`;
-}
-
-stations.forEach(station => {
-  if (
-    !station ||
-    typeof station.lat !== 'number' ||
-    typeof station.lng !== 'number'
-  ) {
-    console.warn('[Johren] Invalid station:', station);
-    return;
+    return station.nameEn
+      ? `<div class="station-label"><div class="jp">${escapeHtml(station.name)}</div><div class="en">${escapeHtml(station.nameEn)}</div></div>`
+      : `<div class="station-label"><div class="jp">${escapeHtml(station.name)}</div></div>`;
   }
 
-  const isVisited = visitedStations.includes(String(station.id));
-
-  const marker = L.marker([station.lat, station.lng], {
-    icon: isVisited ? icons.stationVisited : icons.stationDefault
-  }).addTo(stationLayer);
-
-  marker.bindTooltip(formatStationLabel(station), {
-    direction: 'top',
-    offset: [0, -28],
-    sticky: true,
-    className: 'station-tooltip'
-  });
-
-  marker.on('click', () => {
-    if (lastTappedStation !== station) {
-      lastTappedStation = station;
-      marker.openTooltip();
-      return;
-    }
-
-    selectedStation = station;
-    const base = station.nameEn ? `${station.name}（${station.nameEn}）` : station.name;
-    marker.bindPopup(`基準駅：${base}`).openPopup();
-    updateDistances();
-  });
-});
-
+  function formatLandmarkLabel(item) {
+    const jp = (item.name || '').trim();
+    const en = (item.nameEn || '').trim();
+    const title = escapeHtml(jp || en || '');
+    const sub = (jp && en && jp !== en)
+      ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
+      : '';
+    return `<div class="landmark-label"><div class="jp">${title}</div>${sub}</div>`;
+  }
 
   // -------------------------------
-  // LANDMARKS
+  // STATIONS (Japan only)
   // -------------------------------
- function loadCategory(list, layer, icon) {
-  if (!Array.isArray(list)) return;
+  if (stations.length) {
+    const visitedStations = getVisitedStations();
+    let lastTappedStation = null;
 
-  list.forEach(item => {
-    if (
-      !item ||
-      typeof item.lat !== 'number' ||
-      typeof item.lng !== 'number'
-    ) {
-      console.warn('[Johren] Invalid landmark:', item);
-      return;
-    }
+    stations.forEach(station => {
+      if (!station || typeof station.lat !== 'number' || typeof station.lng !== 'number') return;
 
-    const marker = L.marker([item.lat, item.lng], { icon })
-      .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+      const isVisited = visitedStations.includes(String(station.id));
+      const marker = L.marker([station.lat, station.lng], {
+        icon: isVisited ? icons.stationVisited : icons.stationDefault
+      }).addTo(stationLayer);
 
-    item._marker = marker;
-  });
-}
-// -------------------------------
-// LOAD LANDMARK CATEGORIES
-// -------------------------------
-loadCategory(churches, churchLayer, icons.church);
-loadCategory(museums, museumLayer, icons.museum);
-loadCategory(shrines, shrineLayer, icons.shrine);
-loadCategory(temples, templeLayer, icons.temple);
-loadCategory(parks, parkLayer, icons.park);
+      marker.bindTooltip(formatStationLabel(station), {
+        direction: 'top',
+        offset: [0, -28],
+        sticky: true,
+        className: 'station-tooltip'
+      });
+
+      marker.on('click', () => {
+        if (lastTappedStation !== station) {
+          lastTappedStation = station;
+          marker.openTooltip();
+          return;
+        }
+        const base = station.nameEn ? `${station.name}（${station.nameEn}）` : station.name;
+        marker.bindPopup(`基準駅：${escapeHtml(base)}`).openPopup();
+      });
+    });
+  }
+
+  // -------------------------------
+  // LANDMARKS (existing categories)
+  // -------------------------------
+  function loadCategory(list, layer, icon) {
+    if (!Array.isArray(list)) return;
+    list.forEach(item => {
+      if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
+      L.marker([item.lat, item.lng], { icon }).addTo(layer).bindPopup(formatLandmarkLabel(item));
+    });
+  }
+
+  loadCategory(churches, churchLayer, icons.church);
+  loadCategory(museums, museumLayer, icons.museum);
+  loadCategory(shrines, shrineLayer, icons.shrine);
+  loadCategory(temples, templeLayer, icons.temple);
+  loadCategory(parks, parkLayer, icons.park);
+
+  // -------------------------------
+  // PINS + FILTER UI (KK demo)
+  // -------------------------------
+  const pinMarkers = [];
 
   function loadPins(list, layer) {
-  if (!Array.isArray(list)) return;
+    if (!Array.isArray(list)) return;
+    list.forEach(item => {
+      if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
 
-  list.forEach(item => {
-    if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') {
-      console.warn('[Johren] Invalid pin:', item);
-      return;
-    }
+      const type = (item.type || '').toLowerCase();
+      const icon = icons[type] || icons.park;
 
-    const type = (item.type || '').toLowerCase();
-    const icon = icons[type] || icons.park; // fallback
+      const marker = L.marker([item.lat, item.lng], { icon })
+        .addTo(layer)
+        .bindPopup(formatLandmarkLabel(item));
 
-    const marker = L.marker([item.lat, item.lng], { icon })
-      .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+      marker._pinType = type;
+      pinMarkers.push(marker);
+    });
+  }
 
-    item._marker = marker;
-  });
-}
+  function renderPinFilters(types) {
+    const el = document.getElementById('pinFilters');
+    if (!el) return;
 
-  // -------------------------------
-  // DISTANCE UPDATE
-  // -------------------------------
-  function updateDistances() {
-    if (!selectedStation) return;
+    const labels = { coffee:"Coffee", restaurant:"Food", supermarket:"Shop", church:"Church", museum:"Museum" };
 
-    [...churches, ...museums, ...shrines, ...temples, ...parks].forEach(item => {
-      if (!item._marker) return;
-      const d = distanceKm(selectedStation, item).toFixed(1);
-      item._marker.bindPopup(`${formatLandmarkLabel(item)}<div style="margin-top:6px;">駅から約 ${d} km</div>`);
+    el.innerHTML = types.map(t => `
+      <label>
+        <input type="checkbox" data-type="${t}" checked>
+        <span>${labels[t] || t}</span>
+      </label>
+    `).join("");
+
+    el.addEventListener('change', () => {
+      const checked = new Set(
+        Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(x => x.dataset.type)
+      );
+      pinMarkers.forEach(m => {
+        const show = checked.has(m._pinType);
+        if (show) m.addTo(pinLayer);
+        else pinLayer.removeLayer(m);
+      });
     });
   }
 
   loadPins(pins, pinLayer);
 
-
+  const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
+  if (pinTypes.length) renderPinFilters(pinTypes);
 
 })();
