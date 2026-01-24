@@ -506,7 +506,10 @@ else setButtonState(a, existingNow ? "has" : "idle");
     placeMarker(existing);
     map.setView([existing.lat, existing.lng], Math.max(map.getZoom(), 16));
     updateNearestPill({ lat: existing.lat, lng: existing.lng });
+  } else {
+    updateNearestPill(null);
   }
+
 })(map);
 
 
