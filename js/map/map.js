@@ -28,7 +28,8 @@
     museums = [],
     shrines = [],
     temples = [],
-    parks = []
+    parks = [],
+    pins = []
   } = area;
 
   // ✅ AREA-SCOPED STORAGE
@@ -85,14 +86,20 @@
   }
 
   const icons = {
-    church: makeIcon('church.png'),
-    museum: makeIcon('museum.png'),
-    shrine: makeIcon('shrine.png'),
-    temple: makeIcon('temple.png'),
-    park: makeIcon('park.png'),
-    stationDefault: makeIcon('station.png'),
-    stationVisited: makeIcon('station_visited.png')
-  };
+  church: makeIcon('church.png'),
+  museum: makeIcon('museum.png'),
+  shrine: makeIcon('shrine.png'),
+  temple: makeIcon('temple.png'),
+  park: makeIcon('park.png'),
+  stationDefault: makeIcon('station.png'),
+  stationVisited: makeIcon('station_visited.png'),
+
+  // ✅ pins
+  coffee: makeIcon('coffee.png'),
+  restaurant: makeIcon('restaurant.png'),
+  supermarket: makeIcon('supermarket.png')
+};
+
 
   // -------------------------------
   // DISTANCE
@@ -120,6 +127,8 @@
   const shrineLayer  = L.layerGroup().addTo(map);
   const templeLayer  = L.layerGroup().addTo(map);
   const parkLayer    = L.layerGroup().addTo(map);
+  const pinLayer     = L.layerGroup().addTo(map);
+
 
   // ===============================
 // HISTORICAL WHISPER LAYER
@@ -274,6 +283,26 @@ loadCategory(shrines, shrineLayer, icons.shrine);
 loadCategory(temples, templeLayer, icons.temple);
 loadCategory(parks, parkLayer, icons.park);
 
+  function loadPins(list, layer) {
+  if (!Array.isArray(list)) return;
+
+  list.forEach(item => {
+    if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') {
+      console.warn('[Johren] Invalid pin:', item);
+      return;
+    }
+
+    const type = (item.type || '').toLowerCase();
+    const icon = icons[type] || icons.park; // fallback
+
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(formatLandmarkLabel(item));
+
+    item._marker = marker;
+  });
+}
+
   // -------------------------------
   // DISTANCE UPDATE
   // -------------------------------
@@ -286,6 +315,8 @@ loadCategory(parks, parkLayer, icons.park);
       item._marker.bindPopup(`${formatLandmarkLabel(item)}<div style="margin-top:6px;">駅から約 ${d} km</div>`);
     });
   }
+
+  loadPins(pins, pinLayer);
 
 
 
