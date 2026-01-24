@@ -14,6 +14,7 @@
     zoom,
     stations = [],
     churches = [],
+    mosques = [],
     museums = [],
     shrines = [],
     temples = [],
@@ -52,6 +53,7 @@
   const icons = {
     church: makeIcon('church.png'),
     museum: makeIcon('museum.png'),
+    mosque: makeIcon('mosque.png'),
     shrine: makeIcon('shrine.png'),
     temple: makeIcon('temple.png'),
     park: makeIcon('park.png'),
@@ -65,6 +67,7 @@
 
   const stationLayer = L.layerGroup().addTo(map);
   const churchLayer  = L.layerGroup().addTo(map);
+  const mosqueLayer  = L.layerGroup().addTo(map);
   const museumLayer  = L.layerGroup().addTo(map);
   const shrineLayer  = L.layerGroup().addTo(map);
   const templeLayer  = L.layerGroup().addTo(map);
@@ -139,6 +142,7 @@
   }
 
   loadCategory(churches, churchLayer, icons.church);
+  loadCategory(mosques, mosqueLayer, icons.mosque);
   loadCategory(museums, museumLayer, icons.museum);
   loadCategory(shrines, shrineLayer, icons.shrine);
   loadCategory(temples, templeLayer, icons.temple);
