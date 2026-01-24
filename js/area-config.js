@@ -30,7 +30,7 @@ window.MAP_CONFIG.KK_GAYA = {
     { id:"kk_wisma_merdeka", name:"Wisma Merdeka", nameEn:"Wisma Merdeka", type:"supermarket", lat:5.985733240095716, lng:116.07576779351677 },
 
     // ⛪ Church
-    { id:"kk_sacred_heart_cathedral", name:"Sacred Heart Cathedral", nameEn:"Sacred Heart Cathedral", type:"church", lat:5.981233323587597, lng:116.07179395141341 },
+    { id:"kk_sacred_heart_cathedral", name:"Sacred Heart Cathedral", nameEn:"Sacred Heart Cathedral", type:"church",  lat:5.9651963565132435,  lng:116.07241272442612 },
 
     // 🕌 Mosque (fallback icon unless you add mosque.png)
     { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu", nameEn:"Floating Mosque", type:"restaurant", lat:5.995620541789315, lng:116.10821949798203 },
