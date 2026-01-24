@@ -27,6 +27,54 @@
   const map = L.map('map', { zoomControl: false }).setView(center, zoom);
   L.control.zoom({ position: 'topright' }).addTo(map);
 
+  // =====================================================
+// RESET CONTROL (center on "here" if set, else area center)
+// =====================================================
+(function setupReset(map, center, zoom) {
+  if (!map || !Array.isArray(center) || center.length !== 2) return;
+
+  const AREA = (window.AREA_KEY || "default_area").trim();
+  const HERE_KEY = `johren_here_v1:${AREA}`;
+
+  function loadHere() {
+    try {
+      const raw = localStorage.getItem(HERE_KEY);
+      if (!raw) return null;
+      const obj = JSON.parse(raw);
+      if (!obj || typeof obj.lat !== "number" || typeof obj.lng !== "number") return null;
+      return obj;
+    } catch { return null; }
+  }
+
+  const ResetControl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      const container = L.DomUtil.create("div", "leaflet-bar");
+      const a = L.DomUtil.create("a", "leaflet-text-btn", container);
+      a.href = "#";
+      a.textContent = "Reset";
+
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+
+      L.DomEvent.on(a, "click", (e) => {
+        L.DomEvent.preventDefault(e);
+
+        const h = loadHere();
+        if (h) {
+          map.setView([h.lat, h.lng], Math.max(map.getZoom(), 16), { animate: true });
+        } else {
+          map.setView(center, zoom, { animate: true });
+        }
+      });
+
+      return container;
+    }
+  });
+
+  map.addControl(new ResetControl());
+})(map, center, zoom);
+
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; OpenStreetMap contributors'
