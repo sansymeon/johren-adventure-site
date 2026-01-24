@@ -35,6 +35,13 @@
     }
     .pin-filters:empty{ display:none; }
     .pin-filters label{ display:flex; gap:8px; align-items:center; margin:6px 0; }
+    
+    /* Force cursor while "I'm here" is armed */
+#map.here-armed,
+#map.here-armed * {
+  cursor: crosshair !important;
+}
+
   </style>
 </head>
 
