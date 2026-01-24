@@ -323,19 +323,12 @@ if (existingNow && !armed) {
   return;
 }
 
-        // Arm "tap to set"
-     armed = !armed;
-
-     // visual cue: crosshair while armed
-     map.getContainer().style.cursor = armed ? "crosshair" : "";
-
-     if (armed) setButtonState(a, "armed");
-     else setButtonState(a, existingNow ? "has" : "idle");
-     map.getContainer().style.cursor = "";// Arm "tap to set"
+// Arm "tap to set"
 armed = !armed;
 
-// visual cue: crosshair while armed
-map.getContainer().style.cursor = armed ? "crosshair" : "";
+// visual cue: crosshair while armed (CSS class)
+const mapEl = map.getContainer();
+mapEl.classList.toggle("here-armed", armed);
 
 if (armed) setButtonState(a, "armed");
 else setButtonState(a, existingNow ? "has" : "idle");
