@@ -248,6 +248,74 @@
 
   const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
   if (pinTypes.length) renderPinFilters(pinTypes);
+
+  // -------------------------------
+// NEAREST SPOT (from "here")
+// -------------------------------
+function kmBetween(a, b) {
+  // Haversine
+  const R = 6371;
+  const toRad = x => x * Math.PI / 180;
+  const dLat = toRad(b.lat - a.lat);
+  const dLng = toRad(b.lng - a.lng);
+  const lat1 = toRad(a.lat);
+  const lat2 = toRad(b.lat);
+  const s = Math.sin(dLat/2)**2 + Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLng/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+function buildSpotList() {
+  const add = (arr, kind) =>
+    (Array.isArray(arr) ? arr : [])
+      .filter(x => x && typeof x.lat === "number" && typeof x.lng === "number")
+      .map(x => ({
+        kind,
+        lat: x.lat,
+        lng: x.lng,
+        name: (x.name || x.nameEn || "").trim() || kind,
+        ref: x
+      }));
+
+  return [
+    ...add(pins, "pin"),
+    ...add(churches, "church"),
+    ...add(mosques, "mosque"),
+    ...add(museums, "museum"),
+    ...add(shrines, "shrine"),
+    ...add(temples, "temple"),
+    ...add(parks, "park"),
+    ...add(stations, "station"),
+  ];
+}
+
+const ALL_SPOTS = buildSpotList();
+
+function updateNearestPill(fromLatLng) {
+  const el = document.getElementById("nearestPill");
+  if (!el) return;
+
+  if (!fromLatLng || typeof fromLatLng.lat !== "number" || typeof fromLatLng.lng !== "number") {
+    el.textContent = "";
+    return;
+  }
+
+  let best = null;
+  let bestKm = Infinity;
+
+  for (const s of ALL_SPOTS) {
+    const d = kmBetween(fromLatLng, s);
+    if (d < bestKm) { bestKm = d; best = s; }
+  }
+
+  if (!best || !isFinite(bestKm)) {
+    el.textContent = "";
+    return;
+  }
+
+  const dist = bestKm < 1 ? `${Math.round(bestKm*1000)} m` : `${bestKm.toFixed(1)} km`;
+  el.innerHTML = `Nearest: <b>${escapeHtml(best.name)}</b> <span style="color:#555;">(${dist})</span>`;
+}
+
 // =====================================================
 // "I'M HERE" (MAP-FIRST) — local-only, demo-friendly
 // Requires: Leaflet map instance named `map`
@@ -356,6 +424,9 @@
         // If we already have a here -> clicking means clear
 if (existingNow && !armed) {
   clearHere();
+armed = false;
+map.getContainer().classList.remove("here-armed");
+updateNearestPill(null);
 
   if (hereMarker) {
     map.removeLayer(hereMarker);
@@ -398,7 +469,7 @@ else setButtonState(a, existingNow ? "has" : "idle");
     return hereControl?._container?._btn || hereControl?._container?.querySelector("a");
   }
 
-  // ---- Map click handler (only when armed) ----
+    // ---- Map click handler (only when armed) ----
   map.on("click", (ev) => {
     if (!armed) return;
 
@@ -418,12 +489,13 @@ else setButtonState(a, existingNow ? "has" : "idle");
     placeMarker(hereObj);
     map.setView([lat, lng], Math.max(map.getZoom(), 16), { animate: true });
 
+    updateNearestPill({ lat, lng });
+
     armed = false;
-    map.getContainer().style.cursor = "";
+    map.getContainer().classList.remove("here-armed");
     setButtonState(getBtnEl(), "has");
 
     if (typeof window.logVisit === "function") {
-      // Optional: for privacy, you can round to 3 decimals here
       window.logVisit({ kind: "set_here", area: AREA, lat, lng, source: "map_tap" });
     }
   });
@@ -433,8 +505,10 @@ else setButtonState(a, existingNow ? "has" : "idle");
   if (existing) {
     placeMarker(existing);
     map.setView([existing.lat, existing.lng], Math.max(map.getZoom(), 16));
+    updateNearestPill({ lat: existing.lat, lng: existing.lng });
   }
 })(map);
+
 
 })(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
 
