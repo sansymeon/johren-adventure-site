@@ -18,10 +18,10 @@ window.MAP_CONFIG.KK_GAYA = {
     { id:"kk_gaya_market", name:"Api Api Night Market", nameEn:"Api Api Night Market", type:"restaurant", lat:5.984943829919245, lng:116.07773967412899 },
 
     // 📍 Landmarks (use restaurant or park icon fallback if you want later)
-    { id:"kk_atkinson_clock", name:"Atkinson Clock Tower", nameEn:"Atkinson Clock Tower", type:"restaurant", lat:5.982215481272314, lng:116.0773183937425 },
-    { id:"kk_signal_hill", name:"Signal Hill Observatory", nameEn:"Signal Hill Observatory", type:"restaurant", lat:5.985572923668009, lng:116.07922822257807 },
-    { id:"kk_jesselton_point", name:"Jesselton Point Ferry Terminal", nameEn:"Jesselton Point Ferry Terminal", type:"restaurant", lat:5.990159207045816, lng:116.07903429465016 },
-    { id:"kk_waterfront", name:"Kota Kinabalu Waterfront", nameEn:"Kota Kinabalu Waterfront", type:"restaurant", lat:5.979362334949551, lng:116.069949222578 },
+    { id:"kk_atkinson_clock", name:"Atkinson Clock Tower", nameEn:"Atkinson Clock Tower", type:"landmark", lat:5.982215481272314, lng:116.0773183937425 },
+    { id:"kk_signal_hill", name:"Signal Hill Observatory", nameEn:"Signal Hill Observatory", type:"landmark", lat:5.985572923668009, lng:116.07922822257807 },
+    { id:"kk_jesselton_point", name:"Jesselton Point Ferry Terminal", nameEn:"Jesselton Point Ferry Terminal", type:"landmark", lat:5.990159207045816, lng:116.07903429465016 },
+    { id:"kk_waterfront", name:"Kota Kinabalu Waterfront", nameEn:"Kota Kinabalu Waterfront", type:"landmark", lat:5.979362334949551, lng:116.069949222578 },
 
     // 🛍️ Shopping
     { id:"kk_suria_sabah", name:"Suria Sabah", nameEn:"Suria Sabah", type:"supermarket", lat:5.986803951094435, lng:116.07751459351678 },
@@ -34,8 +34,8 @@ window.MAP_CONFIG.KK_GAYA = {
     { id:"kk_all_saints_cathedral", name:"All Saints Cathedral Anglican", nameEn:"All Saints Cathedral Anglican", type:"church",  lat:5.972951642647269, lng:116.07230478239839 },
 
     // 🕌 Mosque (fallback icon unless you add mosque.png)
-    { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu", nameEn:"Floating Mosque", type:"restaurant", lat:5.995620541789315, lng:116.10821949798203 },
-    { id:"kk_state_mosque", name:"Sabah State Mosque", nameEn:"Floating Mosque", type:"restaurant", lat:5.959647452024467, lng:116.06715338024884 },
+    { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu", nameEn:"Floating Mosque", type:"mosque", lat:5.995620541789315, lng:116.10821949798203 },
+    { id:"kk_state_mosque", name:"Sabah State Mosque", nameEn:"Floating Mosque", type:"mosque", lat:5.959647452024467, lng:116.06715338024884 },
      
     // 🏛️ Museum
     { id:"kk_sabah_museum", name:"Sabah State Museum", nameEn:"Sabah State Museum", type:"museum", lat:5.960591352375199, lng:116.07145826490698 }
