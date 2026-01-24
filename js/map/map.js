@@ -205,10 +205,10 @@
 // Requires: Leaflet map instance named `map`
 // Uses: window.AREA_KEY for per-area storage
 // =====================================================
-(function setupImHere() {
+(function setupImHere(map) {
   if (typeof L === "undefined") return;
-  if (typeof map === "undefined") {
-    console.warn("[Johren] map var not found — 'I'm here' not initialized");
+  if (!map) {
+    console.warn("[Johren] map instance missing — 'I'm here' not initialized");
     return;
   }
 
@@ -306,24 +306,40 @@
         const existingNow = loadHere();
 
         // If we already have a here -> clicking means clear
-        if (existingNow && !armed) {
-          clearHere();
-          if (hereMarker) {
-            map.removeLayer(hereMarker);
-            hereMarker = null;
-          }
-          setButtonState(a, "idle");
-          if (typeof window.logVisit === "function") {
-            window.logVisit({ kind: "clear_here", area: AREA });
-          }
-          return;
-        }
+if (existingNow && !armed) {
+  clearHere();
+
+  if (hereMarker) {
+    map.removeLayer(hereMarker);
+    hereMarker = null;
+  }
+
+  // ✅ reset cursor
+  setButtonState(a, "idle");
+
+  if (typeof window.logVisit === "function") {
+    window.logVisit({ kind: "clear_here", area: AREA });
+  }
+  return;
+}
 
         // Arm "tap to set"
-        armed = !armed;
+     armed = !armed;
 
-        if (armed) setButtonState(a, "armed");
-        else setButtonState(a, existingNow ? "has" : "idle");
+     // visual cue: crosshair while armed
+     map.getContainer().style.cursor = armed ? "crosshair" : "";
+
+     if (armed) setButtonState(a, "armed");
+     else setButtonState(a, existingNow ? "has" : "idle");
+     map.getContainer().style.cursor = "";// Arm "tap to set"
+armed = !armed;
+
+// visual cue: crosshair while armed
+map.getContainer().style.cursor = armed ? "crosshair" : "";
+
+if (armed) setButtonState(a, "armed");
+else setButtonState(a, existingNow ? "has" : "idle");
+
       });
 
       // expose for other UI if needed
@@ -362,6 +378,7 @@
     map.setView([lat, lng], Math.max(map.getZoom(), 16), { animate: true });
 
     armed = false;
+    map.getContainer().style.cursor = "";
     setButtonState(getBtnEl(), "has");
 
     if (typeof window.logVisit === "function") {
@@ -376,6 +393,7 @@
     placeMarker(existing);
     map.setView([existing.lat, existing.lng], Math.max(map.getZoom(), 16));
   }
-})();
+})(map);
+
 })(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
 
