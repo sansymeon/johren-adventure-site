@@ -761,7 +761,7 @@ function armPersonalPinPlacement() {
 
   map.once("click", once);
 }
-})(map);
+
 
 (function initPersonalPinsStepA() {
   // 1) render markers
