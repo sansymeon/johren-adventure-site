@@ -408,7 +408,8 @@ function updateNearestPill(fromLatLng) {
 // Requires: Leaflet map instance named `map`
 // Uses: window.AREA_KEY for per-area storage
 // =====================================================
-(function setupImHere(map) {
+
+  (function setupImHere(map) {
   if (typeof L === "undefined") return;
   if (!map) {
     console.warn("[Johren] map instance missing — 'I'm here' not initialized");
@@ -597,6 +598,7 @@ else setButtonState(a, existingNow ? "has" : "idle");
     updateNearestPill(null);
   }
 
+})(map);
 
 function savePersonalPins(pins) {
   localStorage.setItem(personalStorageKey(), JSON.stringify(pins));
