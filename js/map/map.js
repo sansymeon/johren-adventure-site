@@ -286,6 +286,18 @@ el.addEventListener('change', () => {
   if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
 else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
 
+const PERSONAL_TYPE = "personal";
+
+function personalStorageKey() {
+  return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
+}
+
+function loadPersonalPins() {
+  try { return JSON.parse(localStorage.getItem(personalStorageKey()) || "[]"); }
+  catch { return []; }
+}
+
+let personalPins = loadPersonalPins();
 
 
   // -------------------------------
@@ -327,19 +339,9 @@ function buildSpotList() {
     ...add(stations, "station"),
   ];
 }
-const PERSONAL_TYPE = "personal";
 
-function personalStorageKey() {
-  return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
-}
-
-function loadPersonalPins() {
-  try { return JSON.parse(localStorage.getItem(personalStorageKey()) || "[]"); }
-  catch { return []; }
-}
-
-let ALL_SPOTS = buildSpotList(personalPins);
-function refreshAllSpots() { ALL_SPOTS = buildSpotList(personalPins); }
+let ALL_SPOTS = buildSpotList();
+function refreshAllSpots() { ALL_SPOTS = buildSpotList(); }
 
 
 let nearestCache = null; // { lat, lng, name }
