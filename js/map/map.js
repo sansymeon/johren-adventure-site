@@ -202,22 +202,28 @@
   // -------------------------------
   const pinMarkers = [];
 
-  function loadPins(list, layer) {
-    if (!Array.isArray(list)) return;
-    list.forEach(item => {
-      if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
+function loadPins(list, layer) {
+  if (!Array.isArray(list)) return;
+  list.forEach(item => {
+    if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
 
-      const type = (item.type || '').toLowerCase();
-      const icon = icons[type] || icons.park;
+    const type = (item.type || '').toLowerCase();
+    const icon = icons[type] || icons.park;
 
-      const marker = L.marker([item.lat, item.lng], { icon })
-        .addTo(layer)
-        .bindPopup(formatLandmarkLabel(item));
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(formatLandmarkLabel(item));
 
-      marker._pinType = type;
-      pinMarkers.push(marker);
-    });
-  }
+    marker._pinType = type;
+
+    // ✅ store by id so we can open it later
+    const id = String(item.id || `${type}:${item.lat},${item.lng}`);
+    markerById.set(id, marker);
+
+    pinMarkers.push(marker);
+  });
+}
+
 
   function renderPinFilters(types) {
     const el = document.getElementById('pinFilters');
