@@ -327,6 +327,18 @@ function buildSpotList() {
     ...add(stations, "station"),
   ];
 }
+const PERSONAL_TYPE = "personal";
+
+function personalStorageKey() {
+  return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
+}
+
+function loadPersonalPins() {
+  try { return JSON.parse(localStorage.getItem(personalStorageKey()) || "[]"); }
+  catch { return []; }
+}
+
+let personalPins = loadPersonalPins();
 
 let ALL_SPOTS = buildSpotList();
 function refreshAllSpots() { ALL_SPOTS = buildSpotList(); }
@@ -583,22 +595,7 @@ else setButtonState(a, existingNow ? "has" : "idle");
   } else {
     updateNearestPill(null);
   }
-// ===============================
-// Step A: Personal Local Pins (localStorage per AREA_KEY)
-// ===============================
-const PERSONAL_TYPE = "personal";
 
-function personalStorageKey() {
-  return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
-}
-
-function loadPersonalPins() {
-  try {
-    return JSON.parse(localStorage.getItem(personalStorageKey()) || "[]");
-  } catch {
-    return [];
-  }
-}
 
 function savePersonalPins(pins) {
   localStorage.setItem(personalStorageKey(), JSON.stringify(pins));
