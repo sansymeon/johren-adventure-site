@@ -178,6 +178,7 @@
       });
     });
   }
+const markerById = new Map(); // id -> Leaflet marker
 
  // -------------------------------
 // LANDMARKS (existing categories)
@@ -211,7 +212,7 @@ loadCategory(parks, parkLayer, icons.park, "park");
   // -------------------------------
   const pinMarkers = [];
 
-  const markerById = new Map(); 
+  
   // id -> Leaflet marker
 
  
@@ -243,7 +244,15 @@ function loadPins(list, layer) {
     const el = document.getElementById('pinFilters');
     if (!el) return;
 
-    const labels = { coffee:"Coffee", restaurant:"Food", supermarket:"Shop", church:"Church", museum: "Museum", mosque:"Mosque"};
+    const labels = 
+    { coffee:"Coffee", 
+     restaurant:"Food", 
+     supermarket:"Shop", 
+     church:"Church", 
+     museum: "Museum", 
+     mosque:"Mosque", 
+     personal: "Pin"
+};
 
     el.innerHTML = types.map(t => `
       <label>
@@ -260,14 +269,20 @@ function loadPins(list, layer) {
         const show = checked.has(m._pinType);
         if (show) m.addTo(pinLayer);
         else pinLayer.removeLayer(m);
-      });
+
+        
+     syncPersonalVisibility(); // ✅ add this
+
     });
   }
 
   loadPins(pins, pinLayer);
 
   const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
-  if (pinTypes.length) renderPinFilters(pinTypes);
+  if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
+else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
+
+
 
   // -------------------------------
 // NEAREST SPOT (from "here")
@@ -561,8 +576,199 @@ else setButtonState(a, existingNow ? "has" : "idle");
   } else {
     updateNearestPill(null);
   }
+// ===============================
+// Step A: Personal Local Pins (localStorage per AREA_KEY)
+// ===============================
+const PERSONAL_TYPE = "personal";
+
+function personalStorageKey() {
+  return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
+}
+
+function loadPersonalPins() {
+  try {
+    return JSON.parse(localStorage.getItem(personalStorageKey()) || "[]");
+  } catch {
+    return [];
+  }
+}
+
+function savePersonalPins(pins) {
+  localStorage.setItem(personalStorageKey(), JSON.stringify(pins));
+}
+
+function uid() {
+  return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+}
+
+// Keep personal pins in memory (so filters can toggle them)
+let personalPins = loadPersonalPins();
+
+// Create a layer group so we can hide/show personal pins cleanly
+const personalLayer = L.layerGroup();
+
+// Style: simple but distinct
+function makePersonalIcon() {
+  // uses Leaflet default marker; if you already use custom icons, swap here
+  return new L.Icon.Default();
+}
+
+function bindPersonalPopup(marker, pin) {
+  const safeName = (pin.name || "Pinned spot").replace(/[<>]/g, "");
+  marker.bindPopup(`
+    <b>${safeName}</b>
+    <div style="margin-top:6px; font-size:12px; color:#444;">
+      Personal pin (local only)
+    </div>
+    <div style="margin-top:10px; display:flex; gap:8px;">
+      <button data-action="rename" style="padding:6px 10px;">Rename</button>
+      <button data-action="delete" style="padding:6px 10px;">Delete</button>
+    </div>
+  `);
+
+  marker.on("popupopen", (e) => {
+    const el = e.popup.getElement();
+    if (!el) return;
+
+    const renameBtn = el.querySelector('button[data-action="rename"]');
+    const deleteBtn = el.querySelector('button[data-action="delete"]');
+
+    if (renameBtn) {
+      renameBtn.onclick = () => {
+        const next = prompt("Name this pin:", pin.name || "");
+        if (next === null) return;
+        pin.name = next.trim() || "Pinned spot";
+        savePersonalPins(personalPins);
+        marker.setPopupContent(`
+          <b>${pin.name.replace(/[<>]/g, "")}</b>
+          <div style="margin-top:6px; font-size:12px; color:#444;">
+            Personal pin (local only)
+          </div>
+          <div style="margin-top:10px; display:flex; gap:8px;">
+            <button data-action="rename" style="padding:6px 10px;">Rename</button>
+            <button data-action="delete" style="padding:6px 10px;">Delete</button>
+          </div>
+        `);
+      };
+    }
+
+    if (deleteBtn) {
+      deleteBtn.onclick = () => {
+        if (!confirm("Delete this personal pin?")) return;
+        personalPins = personalPins.filter(p => p.id !== pin.id);
+        savePersonalPins(personalPins);
+        personalLayer.removeLayer(marker);
+      };
+    }
+  });
+}
+
+function renderPersonalPins() {
+  personalLayer.clearLayers();
+
+  personalPins.forEach(pin => {
+    const m = L.marker([pin.lat, pin.lng], { icon: makePersonalIcon() });
+    // Tag marker for filter system consistency
+    m._pinType = PERSONAL_TYPE;
+    bindPersonalPopup(m, pin);
+    m.addTo(personalLayer);
+  });
+}
+
+// Helper: if you already have a filter system, hook into it by
+// showing/hiding personalLayer when "personal" is checked.
+function isTypeEnabled(type) {
+  const box = document.querySelector(`.pin-filters input[data-type="${type}"]`);
+  return !box ? true : box.checked;
+}
+
+// Call this whenever filters change
+function syncPersonalVisibility() {
+  const on = isTypeEnabled(PERSONAL_TYPE);
+  if (on) {
+    if (!map.hasLayer(personalLayer)) personalLayer.addTo(map);
+  } else {
+    if (map.hasLayer(personalLayer)) map.removeLayer(personalLayer);
+  }
+}
+
+// Add a Leaflet text button: "+ Pin"
+function addPersonalPinControl() {
+  const PinControl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      const div = L.DomUtil.create("div", "leaflet-bar");
+      const a = L.DomUtil.create("a", "leaflet-text-btn", div);
+      a.href = "#";
+      a.textContent = "+ Pin";
+      a.title = "Add a personal pin (local only)";
+
+      // Prevent map drag/zoom when clicking control
+      L.DomEvent.disableClickPropagation(div);
+
+      a.onclick = (ev) => {
+        ev.preventDefault();
+        armPersonalPinPlacement();
+      };
+
+      return div;
+    }
+  });
+
+  map.addControl(new PinControl());
+}
+
+let pinArmed = false;
+
+function armPersonalPinPlacement() {
+  if (pinArmed) return;
+  pinArmed = true;
+
+  // Visual cue
+  map.getContainer().classList.add("here-armed");
+
+  // One-time click handler
+  const once = (e) => {
+    pinArmed = false;
+    map.getContainer().classList.remove("here-armed");
+    map.off("click", once);
+
+    const name = prompt("Pin name:", "Pinned spot");
+    const pin = {
+      id: uid(),
+      type: PERSONAL_TYPE,
+      name: (name || "Pinned spot").trim() || "Pinned spot",
+      lat: e.latlng.lat,
+      lng: e.latlng.lng,
+      createdAt: Date.now()
+    };
+
+    personalPins.push(pin);
+    savePersonalPins(personalPins);
+
+    renderPersonalPins();
+    syncPersonalVisibility();
+  };
+
+  map.once("click", once);
+}
+
 
 })(map);
+// --- Initialize Step A ---
+// Make sure "personal" shows in your filters list.
+// If you already build "types" dynamically, just include PERSONAL_TYPE.
+// Example: renderPinFilters([...types, PERSONAL_TYPE])
+(function initPersonalPinsStepA() {
+  // 1) render markers
+  renderPersonalPins();
+
+  // 2) ensure layer visibility matches current filters
+  syncPersonalVisibility();
+
+  // 4) add +Pin control
+  addPersonalPinControl();
+})();
 
 
 })(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
