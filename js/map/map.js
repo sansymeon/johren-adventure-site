@@ -214,7 +214,7 @@ loadCategory(parks, parkLayer, icons.park, "park");
   const markerById = new Map(); 
   // id -> Leaflet marker
 
-  const markerById = new Map(); // id -> Leaflet marker
+ 
 
 function loadPins(list, layer) {
   if (!Array.isArray(list)) return;
