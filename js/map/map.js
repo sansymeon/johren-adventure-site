@@ -317,6 +317,7 @@ function buildSpotList() {
 
   return [
     ...add(pins, "pin"),
+    ...add(personalPins, "personal"),
     ...add(churches, "church"),
     ...add(mosques, "mosque"),
     ...add(museums, "museum"),
@@ -641,6 +642,7 @@ function bindPersonalPopup(marker, pin) {
         if (next === null) return;
         pin.name = next.trim() || "Pinned spot";
         savePersonalPins(personalPins);
+        refreshAllSpots(); 
         marker.setPopupContent(`
           <b>${pin.name.replace(/[<>]/g, "")}</b>
           <div style="margin-top:6px; font-size:12px; color:#444;">
@@ -752,9 +754,9 @@ function armPersonalPinPlacement() {
 
     personalPins.push(pin);
     savePersonalPins(personalPins);
-
     renderPersonalPins();
     syncPersonalVisibility();
+    refreshAllSpots();
   };
 
   map.once("click", once);
