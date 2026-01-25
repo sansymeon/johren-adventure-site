@@ -106,6 +106,7 @@
     shrine: makeIcon('shrine.png'),
     temple: makeIcon('temple.png'),
     park: makeIcon('park.png'),
+    personal: makeIcon('pin_personal.png'),
     stationDefault: makeIcon('station.png'),
     stationVisited: makeIcon('station_visited.png'),
 
@@ -128,6 +129,8 @@
       ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
     );
   }
+   
+   function makePersonalIcon(){ return icons.personal; }
 
   function formatStationLabel(station) {
     return station.nameEn
@@ -323,7 +326,9 @@ function buildSpotList() {
   ];
 }
 
-const ALL_SPOTS = buildSpotList();
+let ALL_SPOTS = buildSpotList();
+function refreshAllSpots() { ALL_SPOTS = buildSpotList(); }
+
 
 let nearestCache = null; // { lat, lng, name }
 (function hookNearestClick(){
@@ -668,12 +673,17 @@ function renderPersonalPins() {
 
   personalPins.forEach(pin => {
     const m = L.marker([pin.lat, pin.lng], { icon: makePersonalIcon() });
-    // Tag marker for filter system consistency
+
     m._pinType = PERSONAL_TYPE;
+
+    const id = String(pin.id || `personal:${pin.lat},${pin.lng}`);
+    markerById.set(id, m); // ✅ allow Nearest click to open popup
+
     bindPersonalPopup(m, pin);
     m.addTo(personalLayer);
   });
 }
+
 
 // Helper: if you already have a filter system, hook into it by
 // showing/hiding personalLayer when "personal" is checked.
