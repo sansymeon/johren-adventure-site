@@ -290,12 +290,15 @@ function buildSpotList() {
 
 const ALL_SPOTS = buildSpotList();
 
+let nearestCache = null; // { lat, lng, name }
+
 function updateNearestPill(fromLatLng) {
   const el = document.getElementById("nearestPill");
   if (!el) return;
 
   if (!fromLatLng || typeof fromLatLng.lat !== "number" || typeof fromLatLng.lng !== "number") {
     el.textContent = "";
+    nearestCache = null;
     return;
   }
 
@@ -309,12 +312,28 @@ function updateNearestPill(fromLatLng) {
 
   if (!best || !isFinite(bestKm)) {
     el.textContent = "";
+    nearestCache = null;
     return;
   }
 
+  nearestCache = { lat: best.lat, lng: best.lng, name: best.name };
+
   const dist = bestKm < 1 ? `${Math.round(bestKm*1000)} m` : `${bestKm.toFixed(1)} km`;
   el.innerHTML = `Nearest: <b>${escapeHtml(best.name)}</b> <span style="color:#555;">(${dist})</span>`;
+  el.style.cursor = "pointer";
 }
+
+// Click-to-jump (attach once)
+(function hookNearestClick(){
+  const el = document.getElementById("nearestPill");
+  if (!el) return;
+
+  el.addEventListener("click", () => {
+    if (!nearestCache) return;
+    map.setView([nearestCache.lat, nearestCache.lng], Math.max(map.getZoom(), 17), { animate: true });
+  });
+})();
+
 
 // =====================================================
 // "I'M HERE" (MAP-FIRST) — local-only, demo-friendly
