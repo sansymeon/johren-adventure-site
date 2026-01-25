@@ -42,8 +42,8 @@
     .pin-filters label{ display:flex; gap:8px; align-items:center; margin:6px 0; }
     
     /* Force cursor while "I'm here" is armed */
-#map.here-armed,
-#map.here-armed * {
+.leaflet-container.here-armed,
+.leaflet-container.here-armed * {
   cursor: crosshair !important;
 }
 .nearest-pill{
@@ -69,6 +69,7 @@
 <body>
   <div id="pinFilters" class="pin-filters"></div>
   <div id="map"></div>
+  <div id="nearestPill" class="nearest-pill"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
@@ -78,7 +79,6 @@
 
   <script src="/js/area-config.js"></script>
   <script src="/js/map/map.js"></script>
-  <div id="nearestPill" class="nearest-pill"></div>
-
 </body>
+
 </html>
