@@ -179,28 +179,42 @@
     });
   }
 
-  // -------------------------------
-  // LANDMARKS (existing categories)
-  // -------------------------------
-  function loadCategory(list, layer, icon) {
-    if (!Array.isArray(list)) return;
-    list.forEach(item => {
-      if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
-      L.marker([item.lat, item.lng], { icon }).addTo(layer).bindPopup(formatLandmarkLabel(item));
-    });
-  }
+ // -------------------------------
+// LANDMARKS (existing categories)
+// -------------------------------
+function loadCategory(list, layer, icon, kind) {
+  if (!Array.isArray(list)) return;
 
-  loadCategory(churches, churchLayer, icons.church);
-  loadCategory(mosques, mosqueLayer, icons.mosque);
-  loadCategory(museums, museumLayer, icons.museum);
-  loadCategory(shrines, shrineLayer, icons.shrine);
-  loadCategory(temples, templeLayer, icons.temple);
-  loadCategory(parks, parkLayer, icons.park);
+  list.forEach(item => {
+    if (!item || typeof item.lat !== "number" || typeof item.lng !== "number") return;
+
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(formatLandmarkLabel(item));
+
+    // ✅ store by id so Nearest-click can open it
+    const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
+    markerById.set(id, marker);
+  });
+}
+
+loadCategory(churches, churchLayer, icons.church, "church");
+loadCategory(mosques, mosqueLayer, icons.mosque, "mosque");
+loadCategory(museums, museumLayer, icons.museum, "museum");
+loadCategory(shrines, shrineLayer, icons.shrine, "shrine");
+loadCategory(temples, templeLayer, icons.temple, "temple");
+loadCategory(parks, parkLayer, icons.park, "park");
+
 
   // -------------------------------
   // PINS + FILTER UI (KK demo)
   // -------------------------------
   const pinMarkers = [];
+
+  const markerById = new Map(); 
+  // id -> Leaflet marker
+
+  const markerById = new Map(); // id -> Leaflet marker
 
 function loadPins(list, layer) {
   if (!Array.isArray(list)) return;
@@ -297,7 +311,21 @@ function buildSpotList() {
 const ALL_SPOTS = buildSpotList();
 
 let nearestCache = null; // { lat, lng, name }
+(function hookNearestClick(){
+  const el = document.getElementById("nearestPill");
+  if (!el) return;
 
+  el.addEventListener("click", () => {
+    if (!nearestCache) return;
+
+    map.setView([nearestCache.lat, nearestCache.lng], Math.max(map.getZoom(), 17), { animate: true });
+
+    const m = markerById.get(nearestCache.id);
+    if (m) m.openPopup();
+  });
+})();
+
+  
 function updateNearestPill(fromLatLng) {
   const el = document.getElementById("nearestPill");
   if (!el) return;
@@ -322,7 +350,14 @@ function updateNearestPill(fromLatLng) {
     return;
   }
 
-  nearestCache = { lat: best.lat, lng: best.lng, name: best.name };
+  nearestCache = {
+  id: String(best.ref?.id || `${best.kind}:${best.lat},${best.lng}`),
+  lat: best.lat,
+  lng: best.lng,
+  name: best.name,
+  kind: best.kind
+};
+
 
   const dist = bestKm < 1 ? `${Math.round(bestKm*1000)} m` : `${bestKm.toFixed(1)} km`;
   el.innerHTML = `Nearest: <b>${escapeHtml(best.name)}</b> <span style="color:#555;">(${dist})</span>`;
@@ -330,15 +365,7 @@ function updateNearestPill(fromLatLng) {
 }
 
 // Click-to-jump (attach once)
-(function hookNearestClick(){
-  const el = document.getElementById("nearestPill");
-  if (!el) return;
 
-  el.addEventListener("click", () => {
-    if (!nearestCache) return;
-    map.setView([nearestCache.lat, nearestCache.lng], Math.max(map.getZoom(), 17), { animate: true });
-  });
-})();
 
 
 // =====================================================
