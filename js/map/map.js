@@ -286,7 +286,7 @@ el.addEventListener('change', () => {
   if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
 else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
 
-})(map);
+
 const PERSONAL_TYPE = "personal";
 
 function personalStorageKey() {
@@ -761,7 +761,7 @@ function armPersonalPinPlacement() {
 
   map.once("click", once);
 }
-
+})(map);
 
 (function initPersonalPinsStepA() {
   // 1) render markers
