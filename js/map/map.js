@@ -338,10 +338,8 @@ function loadPersonalPins() {
   catch { return []; }
 }
 
-let personalPins = loadPersonalPins();
-
-let ALL_SPOTS = buildSpotList();
-function refreshAllSpots() { ALL_SPOTS = buildSpotList(); }
+let ALL_SPOTS = buildSpotList(personalPins);
+function refreshAllSpots() { ALL_SPOTS = buildSpotList(personalPins); }
 
 
 let nearestCache = null; // { lat, lng, name }
@@ -605,9 +603,6 @@ function uid() {
   return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
 }
 
-// Keep personal pins in memory (so filters can toggle them)
-let personalPins = loadPersonalPins();
-
 // Create a layer group so we can hide/show personal pins cleanly
 const personalLayer = L.layerGroup();
 
@@ -653,14 +648,19 @@ function bindPersonalPopup(marker, pin) {
       };
     }
 
-    if (deleteBtn) {
-      deleteBtn.onclick = () => {
-        if (!confirm("Delete this personal pin?")) return;
-        personalPins = personalPins.filter(p => p.id !== pin.id);
-        savePersonalPins(personalPins);
-        personalLayer.removeLayer(marker);
-      };
-    }
+if (deleteBtn) {
+  deleteBtn.onclick = () => {
+    if (!confirm("Delete this personal pin?")) return;
+
+    personalPins = personalPins.filter(p => p.id !== pin.id);
+    savePersonalPins(personalPins);
+
+    personalLayer.removeLayer(marker);
+    markerById.delete(String(pin.id));   // ✅ add this
+    refreshAllSpots();                   // ✅ keep this
+  };
+}
+
   });
 }
 
