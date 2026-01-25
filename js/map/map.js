@@ -286,6 +286,7 @@ el.addEventListener('change', () => {
   if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
 else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
 
+})(map);
 const PERSONAL_TYPE = "personal";
 
 function personalStorageKey() {
@@ -315,7 +316,7 @@ function kmBetween(a, b) {
   return 2 * R * Math.asin(Math.sqrt(s));
 }
 
-function buildSpotList() {
+function buildSpotList(personalPinsList = []) {
   const add = (arr, kind) =>
     (Array.isArray(arr) ? arr : [])
       .filter(x => x && typeof x.lat === "number" && typeof x.lng === "number")
@@ -329,7 +330,7 @@ function buildSpotList() {
 
   return [
     ...add(pins, "pin"),
-    ...add(personalPins, "personal"),
+    ...add(personalPinsList, "personal"),
     ...add(churches, "church"),
     ...add(mosques, "mosque"),
     ...add(museums, "museum"),
@@ -340,8 +341,8 @@ function buildSpotList() {
   ];
 }
 
-let ALL_SPOTS = buildSpotList();
-function refreshAllSpots() { ALL_SPOTS = buildSpotList(); }
+let ALL_SPOTS = buildSpotList(personalPins);
+function refreshAllSpots() { ALL_SPOTS = buildSpotList(personalPins); }
 
 
 let nearestCache = null; // { lat, lng, name }
@@ -762,11 +763,6 @@ function armPersonalPinPlacement() {
 }
 
 
-})(map);
-// --- Initialize Step A ---
-// Make sure "personal" shows in your filters list.
-// If you already build "types" dynamically, just include PERSONAL_TYPE.
-// Example: renderPinFilters([...types, PERSONAL_TYPE])
 (function initPersonalPinsStepA() {
   // 1) render markers
   renderPersonalPins();
@@ -777,7 +773,6 @@ function armPersonalPinPlacement() {
   // 4) add +Pin control
   addPersonalPinControl();
 })();
-
 
 })(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
 
