@@ -35,7 +35,7 @@ window.MAP_CONFIG.KK_GAYA = {
 
     // 🕌 Mosque (fallback icon unless you add mosque.png)
     { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu", nameEn:"Floating Mosque", type:"mosque", lat:5.995620541789315, lng:116.10821949798203 },
-    { id:"kk_state_mosque", name:"Sabah State Mosque", nameEn:"Floating Mosque", type:"mosque", lat:5.959647452024467, lng:116.06715338024884 },
+    { id:"kk_state_mosque", name:"Sabah State Mosque", nameEn:"State Mosque", type:"mosque", lat:5.959647452024467, lng:116.06715338024884 },
      
     // 🏛️ Museum
     { id:"kk_sabah_museum", name:"Sabah State Museum", nameEn:"Sabah State Museum", type:"museum", lat:5.960591352375199, lng:116.07145826490698 }
