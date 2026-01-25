@@ -194,7 +194,7 @@ function loadCategory(list, layer, icon, kind) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(`formatLandmarkLabel(item));
+      .bindPopup(formatLandmarkLabel(item));
 
     // ✅ store by id so Nearest-click can open it
     const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
@@ -230,7 +230,7 @@ function loadPins(list, layer) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(`formatLandmarkLabel(item));
+      .bindPopup(formatLandmarkLabel(item));
 
     marker._pinType = type;
 
@@ -264,19 +264,20 @@ function loadPins(list, layer) {
       </label>
     `).join("");
 
-    el.addEventListener('change', () => {
-      const checked = new Set(
-        Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(x => x.dataset.type)
-      );
-      pinMarkers.forEach(m => {
-        const show = checked.has(m._pinType);
-        if (show) m.addTo(pinLayer);
-        else pinLayer.removeLayer(m);
+el.addEventListener('change', () => {
+  const checked = new Set(
+    Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(x => x.dataset.type)
+  );
 
-        
-     syncPersonalVisibility(); // ✅ add this
+  pinMarkers.forEach(m => {
+    const show = checked.has(m._pinType);
+    if (show) m.addTo(pinLayer);
+    else pinLayer.removeLayer(m);
+  });
 
-    });
+  syncPersonalVisibility(); // ✅ keep this once, outside the loop
+});
+
   }
 
   loadPins(pins, pinLayer);
@@ -612,11 +613,7 @@ let personalPins = loadPersonalPins();
 // Create a layer group so we can hide/show personal pins cleanly
 const personalLayer = L.layerGroup();
 
-// Style: simple but distinct
-function makePersonalIcon() {
-  // uses Leaflet default marker; if you already use custom icons, swap here
-  return new L.Icon.Default();
-}
+// Style: 
 
 function bindPersonalPopup(marker, pin) {
   const safeName = (pin.name || "Pinned spot").replace(/[<>]/g, "");
