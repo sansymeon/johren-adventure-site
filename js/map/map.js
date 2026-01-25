@@ -773,6 +773,3 @@ function armPersonalPinPlacement() {
   // 4) add +Pin control
   addPersonalPinControl();
 })();
-
-})(); // ✅ closes JOHREN MAP ENGINE (UNIVERSAL)
-
