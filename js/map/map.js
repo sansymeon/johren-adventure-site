@@ -775,3 +775,4 @@ function armPersonalPinPlacement() {
   // 4) add +Pin control
   addPersonalPinControl();
 })();
+})(); // <--- ADD THIS LINE TO CLOSE THE ENTIRE WRAPPER
