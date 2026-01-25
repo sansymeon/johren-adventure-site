@@ -194,7 +194,7 @@ function loadCategory(list, layer, icon, kind) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+      .bindPopup(`formatLandmarkLabel(item));
 
     // ✅ store by id so Nearest-click can open it
     const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
@@ -230,7 +230,7 @@ function loadPins(list, layer) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+      .bindPopup(`formatLandmarkLabel(item));
 
     marker._pinType = type;
 
