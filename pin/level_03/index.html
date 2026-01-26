@@ -43,13 +43,18 @@
         <div class="v" id="coordsVal"></div>
       </div>
 
-      <div class="btns">//visitLink.href =
-  `/pin/level_03/demo_site/?area=${encodeURIComponent(areaKey)}&id=${encodeURIComponent(pin.id)}&name=${encodeURIComponent(pin.nameEn || pin.name || "")}`;
-visitLink.classList.remove("hide");
-        <a class="btn primary hide" id="visitLink" href="/pin/level_03/demo_site" target="_blank" rel="noopener">Open merchant link</a>
-        <a class="btn secondary hide" id="lineFollow" href="#" target="_blank" rel="noopener">Follow on LINE</a>
-        <a class="btn secondary" id="backLevel2" href="#">Back</a>
-      </div>
+      <div class="btns">
+  <!-- Merchant link (will be set by JS when available) -->
+  <a class="btn primary hide" id="visitLink" href="#" target="_blank" rel="noopener">Open merchant link</a>
+
+  <!-- Demo site (always available) -->
+  <a class="btn secondary" id="demoLink"
+     href="/pin/level_03/demo_site/"
+     target="_blank" rel="noopener">Demo site</a>
+
+  <a class="btn secondary hide" id="lineFollow" href="#" target="_blank" rel="noopener">Follow on LINE</a>
+  <a class="btn secondary" id="backLevel2" href="#">Back</a>
+</div>
 
       <div class="tiny">ID: <span id="pinId"></span></div>
     </div>
