@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Johren | Pin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Pin page" />
+  <style>
+    body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f6f4;color:#222;line-height:1.6}
+    .wrap{max-width:520px;margin:0 auto;padding:56px 20px 64px;text-align:center}
+    .card{background:#fff;border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:22px}
+    h1{font-size:20px;margin:0 0 8px}
+    .name{font-size:26px;margin:6px 0 0}
+    .muted{opacity:.7;font-size:13px;margin-top:10px}
+    .btn{display:inline-block;margin-top:18px;padding:12px 16px;border-radius:999px;background:#111;color:#fff;text-decoration:none;font-weight:600}
+    .tiny{display:block;margin-top:10px;font-size:12px;opacity:.7}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="card">
+      <h1 id="areaTitle">Pin</h1>
+      <div class="name" id="pinName">Loading…</div>
+      <div class="muted" id="pinMeta"></div>
+
+      <a class="btn" id="toLevel3" href="#">View details</a>
+      <span class="tiny">ID: <span id="pinId"></span></span>
+    </div>
+  </main>
+
+  <!-- must load your config before this script -->
+  <script src="/js/area-config.js"></script>
+  <script>
+    (function(){
+      const params = new URLSearchParams(location.search);
+      const area = (params.get("area") || "").trim();
+      const id   = (params.get("id") || "").trim();
+
+      const cfg = window.AREA_CONFIG?.[area];
+      const pin = cfg?.pins?.find(p => p.id === id);
+
+      const areaTitle = document.getElementById("areaTitle");
+      const pinName   = document.getElementById("pinName");
+      const pinMeta   = document.getElementById("pinMeta");
+      const pinId     = document.getElementById("pinId");
+      const toLevel3  = document.getElementById("toLevel3");
+
+      if (!cfg) {
+        areaTitle.textContent = "Unknown area";
+        pinName.textContent = "Missing area config";
+        pinMeta.textContent = "Check ?area=...";
+        toLevel3.style.display = "none";
+        return;
+      }
+
+      areaTitle.textContent = cfg.areaName || "Pin";
+
+      if (!pin) {
+        pinName.textContent = "Pin not found";
+        pinMeta.textContent = "Check ?id=...";
+        pinId.textContent = id || "(none)";
+        toLevel3.style.display = "none";
+        return;
+      }
+
+      pinName.textContent = pin.name || "(no name)";
+      pinMeta.textContent = pin.type ? `Category: ${pin.type}` : "";
+      pinId.textContent = pin.id;
+
+      // Always point to universal Level 3
+      toLevel3.href = `/pin/level_03/?area=${encodeURIComponent(area)}&level=3&id=${encodeURIComponent(pin.id)}`;
+    })();
+  </script>
+</body>
+</html>
