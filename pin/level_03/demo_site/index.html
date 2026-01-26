@@ -1,59 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sample Coffee Shop</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Participant Demo Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Demo participant webpage" />
 
   <style>
     body{
       margin:0;
-      padding:48px 24px;
+      padding:56px 20px 64px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:#fafafa;
+      background:#f6f6f4;
       color:#222;
-      line-height:1.8;
+      line-height:1.7;
     }
-    .container{
+    .wrap{
       max-width:560px;
       margin:0 auto;
+    }
+    .card{
       background:#fff;
-      padding:32px 28px;
-      border-radius:12px;
-      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+      border-radius:18px;
+      padding:24px 22px;
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
+    .top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:14px;
+    }
+    .pill{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.12);
+      text-decoration:none;
+      color:#111;
+      font-weight:700;
+      font-size:13px;
+      background:#fff;
+      white-space:nowrap;
     }
     h1{
-      font-size:20px;
-      margin-bottom:16px;
+      font-size:22px;
+      margin:6px 0 10px;
+    }
+    .sub{
+      font-size:13px;
+      opacity:.75;
+      margin:0 0 18px;
     }
     p{
       font-size:14px;
-      margin:0 0 16px;
+      margin:0 0 14px;
+      color:#333;
+    }
+    .box{
+      margin-top:18px;
+      padding:14px 14px;
+      border-radius:14px;
+      background:rgba(0,0,0,.04);
+      font-size:13px;
       color:#444;
     }
-    .note{
-      font-size:13px;
-      color:#777;
-      margin-top:24px;
+    .btn{
+      display:block;
+      margin-top:14px;
+      text-align:center;
+      padding:12px 14px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      background:#111;
+      color:#fff;
+    }
+    .tiny{
+      margin-top:14px;
+      font-size:12px;
+      opacity:.65;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>Sample Coffee Shop</h1>
+  <main class="wrap">
+    <div class="card">
+      <div class="top">
+        <a class="pill" id="backToPin" href="/pin/level_03/">← Back to pin</a>
+        <span class="pill" aria-label="demo badge">Demo</span>
+      </div>
 
-    <p>
-      This is an example of a webpage that can be prepared by participants.
-    </p>
+      <h1 id="merchantName">Sample Coffee Shop</h1>
+      <p class="sub">Example participant webpage</p>
 
-    <p>
-      Content such as business hours, atmosphere, SNS links, etc.
-    </p>
+      <p>
+        This page shows what a participant’s own site could look like.
+        In real use, this would link to the participant’s preferred page (Facebook, Instagram, a simple website, etc.).
+      </p>
 
-    <div class="note">
-      ※ This page is a sample only.
-    </div>
-  </div>
-</body>
-</html>
+      <div class="box">
+        <strong>What this demonstrates:</strong><br>
+        • Level 3 can optionally open an external link<br>
