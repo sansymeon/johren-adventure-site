@@ -146,6 +146,7 @@
   };
   return labels[t] || t || "Spot";
 }
+  
 function nearestTitle(item, kindFallback = "Spot") {
   const type  = String(item?.type || kindFallback).toLowerCase();
   const level = Number(item?.level ?? 1);
@@ -466,7 +467,6 @@ function buildSpotList(personalPinsList = []) {
 
   return [
     ...add(pins, "pin"),
-    ...add(pins, "landmark"),
     ...add(personalPinsList, "personal"),
     ...add(churches, "church"),
     ...add(mosques, "mosque"),
@@ -828,7 +828,7 @@ function renderPersonalPins() {
 // Helper: if you already have a filter system, hook into it by
 // showing/hiding personalLayer when "personal" is checked.
 function isTypeEnabled(type) {
-  const box = document.querySelector(`.pin-filters input[data-type="${type}"]`);
+  const box = document.querySelector(`#pinFilters input[data-type="${type}"]`);
   return !box ? true : box.checked;
 }
 
