@@ -129,7 +129,23 @@
       ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
     );
   }
-   
+  function getPinConsent(pin) {
+  // default to level1/location-only if missing
+  return (pin && pin.consent ? String(pin.consent) : "location_only").toLowerCase();
+}
+
+function formatPinPopup(pin) {
+  const consent = getPinConsent(pin);
+
+  // Level 1: location-only (no name shown)
+  if (consent === "location_only") {
+    return `<div class="landmark-label"><div class="jp">📍 Location added</div></div>`;
+  }
+
+  // Level 2+: show your existing label (name/nameEn)
+  return formatLandmarkLabel(pin);
+}
+ 
    function makePersonalIcon(){ return icons.personal; }
 
   function formatStationLabel(station) {
@@ -138,15 +154,64 @@
       : `<div class="station-label"><div class="jp">${escapeHtml(station.name)}</div></div>`;
   }
 
-  function formatLandmarkLabel(item) {
-    const jp = (item.name || '').trim();
-    const en = (item.nameEn || '').trim();
-    const title = escapeHtml(jp || en || '');
-    const sub = (jp && en && jp !== en)
-      ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
-      : '';
-    return `<div class="landmark-label"><div class="jp">${title}</div>${sub}</div>`;
+  function formatLandmarkLabel(item, opts = {}) {
+  const { hideName = false } = opts;
+
+  if (hideName) {
+    const type = (item.type || "spot").toLowerCase();
+    const nice = ({
+      coffee: "Coffee",
+      restaurant: "Food",
+      supermarket: "Shop"
+    }[type]) || type;
+
+    return `<div class="landmark-label"><div class="jp">${escapeHtml(nice)}</div></div>`;
   }
+
+  const jp = (item.name || '').trim();
+  const en = (item.nameEn || '').trim();
+  const title = escapeHtml(jp || en || '');
+  const sub = (jp && en && jp !== en)
+    ? `<div class="en" style="font-size:11px;color:#777;margin-top:2px;">${escapeHtml(en)}</div>`
+    : '';
+  return `<div class="landmark-label"><div class="jp">${title}</div>${sub}</div>`;
+}
+
+function formatPinPopup(item) {
+  const level = Number(item.level || 1); // 1,2,3
+  const title = formatLandmarkLabel(item); // re-use your existing label renderer
+
+  // Level 1: location only (no name)
+  if (level === 1) {
+    return `${title}<div style="margin-top:6px;color:#666;font-size:12px;">
+      Location only (no name)
+    </div>`;
+  }
+
+  // Level 2: show store name (free)
+  if (level === 2) {
+    const name = escapeHtml(item.storeName || item.name || "");
+    return `${title}<div style="margin-top:6px;font-size:12px;">
+      <b>${name || "Verified (name allowed)"}</b>
+    </div>`;
+  }
+
+  // Level 3: show full info (subscription)
+  const name = escapeHtml(item.storeName || item.name || "");
+  const hours = escapeHtml(item.hours || "");
+  const url = (item.url || "").trim();
+
+  const link = url
+    ? `<div style="margin-top:6px;"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">Website</a></div>`
+    : "";
+
+  return `${title}
+    <div style="margin-top:6px;font-size:12px;">
+      <b>${name || "Store"}</b>
+      ${hours ? `<div style="margin-top:4px;color:#555;">Hours: ${hours}</div>` : ""}
+      ${link}
+    </div>`;
+}
 
   // -------------------------------
   // STATIONS (Japan only)
@@ -194,7 +259,7 @@ function loadCategory(list, layer, icon, kind) {
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+    .bindPopup(formatPinPopup(item));
 
     // ✅ store by id so Nearest-click can open it
     const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
@@ -228,9 +293,18 @@ function loadPins(list, layer) {
     const type = (item.type || '').toLowerCase();
     const icon = icons[type] || icons.park;
 
-    const marker = L.marker([item.lat, item.lng], { icon })
-      .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item));
+    const type = (item.type || "").toLowerCase();
+const icon = icons[type] || icons.park;
+
+const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
+const lvl = Number(item.level || 1);
+const hideName = isBusiness && lvl === 1;
+
+const marker = L.marker([item.lat, item.lng], { icon })
+  .addTo(layer)
+  .bindPopup(formatLandmarkLabel(item, { hideName }));
+
+
 
     marker._pinType = type;
 
