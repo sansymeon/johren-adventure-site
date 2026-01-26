@@ -244,7 +244,7 @@ function loadPins(list, layer) {
 
 
   function renderPinFilters(types) {
-    const el = document.getElementById('pinFilters');
+    const box = document.querySelector(`#pinFilters input[data-type="${type}"]`);
     if (!el) return;
 
     const labels = 
