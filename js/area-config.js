@@ -34,7 +34,7 @@ window.MAP_CONFIG.KK_GAYA = {
     { id:"kk_all_saints_cathedral", name:"All Saints Cathedral Anglican", nameEn:"All Saints Cathedral Anglican", type:"church",  lat:5.972951642647269, lng:116.07230478239839 },
 
     // 🕌 Mosque (fallback icon unless you add mosque.png)
-    { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu", nameEn:"Floating Mosque", type:"mosque", lat:5.995620541789315, lng:116.10821949798203 },
+    { id:"kk_floating_mosque", name:"Masjid Bandaraya Kota Kinabalu (Floating Mosque)", nameEn:"Floating Mosque", type:"mosque", lat:5.995620541789315, lng:116.10821949798203 },
     { id:"kk_state_mosque", name:"Sabah State Mosque", nameEn:"State Mosque", type:"mosque", lat:5.959647452024467, lng:116.06715338024884 },
      
     // 🏛️ Museum
