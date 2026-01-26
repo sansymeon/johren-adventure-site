@@ -373,7 +373,22 @@ loadCategory(parks, parkLayer, icons.park, "park");
     pinMarkers.push(marker);
   });
 }
+const personalLayer = L.layerGroup();
+const PERSONAL_TYPE = "personal";
 
+function isTypeEnabled(type) {
+  const box = document.querySelector(`#pinFilters input[data-type="${type}"]`);
+  return !box ? true : box.checked;
+}
+
+function syncPersonalVisibility() {
+  const on = isTypeEnabled(PERSONAL_TYPE);
+  if (on) {
+    if (!map.hasLayer(personalLayer)) personalLayer.addTo(map);
+  } else {
+    if (map.hasLayer(personalLayer)) map.removeLayer(personalLayer);
+  }
+}
 
   function renderPinFilters(types) {
   const el = document.getElementById('pinFilters');
@@ -424,9 +439,6 @@ loadCategory(parks, parkLayer, icons.park, "park");
   const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
   if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
 else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
-
-
-const PERSONAL_TYPE = "personal";
 
 function personalStorageKey() {
   return `JBS_PERSONAL_PINS__${window.AREA_KEY || "DEFAULT"}`;
@@ -746,9 +758,6 @@ function savePersonalPins(pins) {
 function uid() {
   return Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
 }
-
-// Create a layer group so we can hide/show personal pins cleanly
-const personalLayer = L.layerGroup();
 
 // Style: 
 
