@@ -333,29 +333,22 @@ loadCategory(parks, parkLayer, icons.park, "park");
   // -------------------------------
   const pinMarkers = [];
 
-  
-  // id -> Leaflet marker
-
- 
-
-function loadPins(list, layer) {
+  // id -> Leaflet marker  
+  function loadPins(list, layer) {
   if (!Array.isArray(list)) return;
   list.forEach(item => {
     if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
 
-    const type = (item.type || '').toLowerCase();
-    const icon = icons[type] || icons.park;
+    const type = String(item.type || "landmark").toLowerCase();
+    const icon = icons[type] || icons.landmark; // fallback to something that exists
 
-const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
-const lvl = Number(item.level || 1);
-const hideName = isBusiness && lvl === 1;
-
-const marker = L.marker([item.lat, item.lng], { icon })
-  .addTo(layer)
-  .bindPopup(formatLandmarkLabel(item, { hideName }));
-
-
-
+    const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
+    const lvl = Number(item.level ?? 1);
+    const hideName = isBusiness && lvl <= 1;
+      
+   const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(formatLandmarkLabel(item, { hideName }));
     marker._pinType = type;
 
     // ✅ store by id so we can open it later
