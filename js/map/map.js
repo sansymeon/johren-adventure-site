@@ -254,7 +254,7 @@ function loadPins(list, layer) {
      church:"Church", 
      museum: "Museum", 
      mosque:"Mosque", 
-     personal: "Pin"
+     personal: "My Pin"
 };
 
     el.innerHTML = types.map(t => `
