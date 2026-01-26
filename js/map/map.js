@@ -182,13 +182,6 @@ function formatUniversalPopup(item, opts = {}) {
   `;
 }
 
-  function getPinConsent(pin) {
-  // default to level1/location-only if missing
-  return (pin && pin.consent ? String(pin.consent) : "location_only").toLowerCase();
-}
-
-function formatPinPopup(pin) {
-  const consent = getPinConsent(pin);
 
   // Level 1: location-only (no name shown)
   if (consent === "location_only") {
@@ -230,18 +223,31 @@ function formatPinPopup(pin) {
   return `<div class="landmark-label"><div class="jp">${title}</div>${sub}</div>`;
 }
 
-function formatPinPopup(item) {
-  const level = Number(item.level || 1); // 1,2,3
-  const title = formatLandmarkLabel(item); // re-use your existing label renderer
+function formatBusinessLevel1Popup(item) {
+  const type = (item.type || "spot").toLowerCase();
+  const nice = { coffee:"Coffee", restaurant:"Food", supermarket:"Shop" }[type] || type;
 
-  // Level 1: location only (no name)
-  if (level === 1) {
-    return `${title}<div style="margin-top:6px;color:#666;font-size:12px;">
-      Location only (no name)
-    </div>`;
+  return `
+    <div class="landmark-label">
+      <div class="jp">${escapeHtml(nice)}</div>
+      <div class="en" style="font-size:12px;color:#777;margin-top:6px;">
+        Can I add this location to my map?
+      </div>
+    </div>
+  `;
+}
+
+function formatPinPopup(item) {
+  const level = Number(item.level || 1);
+
+  // Level 1 business: show category + permission wording (no name)
+  if (level <= 1 && ["coffee","restaurant","supermarket"].includes((item.type||"").toLowerCase())) {
+    return formatBusinessLevel1Popup(item);
   }
 
-  // Level 2: show store name (free)
+  // For everything else, keep your normal label
+  const title = formatLandmarkLabel(item);
+
   if (level === 2) {
     const name = escapeHtml(item.storeName || item.name || "");
     return `${title}<div style="margin-top:6px;font-size:12px;">
@@ -249,22 +255,25 @@ function formatPinPopup(item) {
     </div>`;
   }
 
-  // Level 3: show full info (subscription)
-  const name = escapeHtml(item.storeName || item.name || "");
-  const hours = escapeHtml(item.hours || "");
-  const url = (item.url || "").trim();
+  if (level >= 3) {
+    const name = escapeHtml(item.storeName || item.name || "");
+    const hours = escapeHtml(item.hours || "");
+    const url = (item.url || "").trim();
+    const link = url
+      ? `<div style="margin-top:6px;"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">Website</a></div>`
+      : "";
+    return `${title}
+      <div style="margin-top:6px;font-size:12px;">
+        <b>${name || "Store"}</b>
+        ${hours ? `<div style="margin-top:4px;color:#555;">Hours: ${hours}</div>` : ""}
+        ${link}
+      </div>`;
+  }
 
-  const link = url
-    ? `<div style="margin-top:6px;"><a href="${escapeHtml(url)}" target="_blank" rel="noopener">Website</a></div>`
-    : "";
-
-  return `${title}
-    <div style="margin-top:6px;font-size:12px;">
-      <b>${name || "Store"}</b>
-      ${hours ? `<div style="margin-top:4px;color:#555;">Hours: ${hours}</div>` : ""}
-      ${link}
-    </div>`;
+  // fallback
+  return title;
 }
+
 
   // -------------------------------
   // STATIONS (Japan only)
@@ -348,7 +357,7 @@ loadCategory(parks, parkLayer, icons.park, "park");
       
    const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-      .bindPopup(formatLandmarkLabel(item, { hideName }));
+      .bindPopup(formatPinPopup(item));
     marker._pinType = type;
 
     // ✅ store by id so we can open it later
