@@ -43,7 +43,10 @@
         <div class="v" id="coordsVal"></div>
       </div>
 
-      <div class="btns">
+      <div class="btns">// DEMO override: send to demo page with context
+visitLink.href =
+  `/pin/level_03/demo_site/?area=${encodeURIComponent(areaKey)}&id=${encodeURIComponent(pin.id)}&name=${encodeURIComponent(pin.nameEn || pin.name || "")}`;
+visitLink.classList.remove("hide");
         <a class="btn primary hide" id="visitLink" href="/pin/level_03/demo_site" target="_blank" rel="noopener">Open merchant link</a>
         <a class="btn secondary hide" id="lineFollow" href="#" target="_blank" rel="noopener">Follow on LINE</a>
         <a class="btn secondary" id="backLevel2" href="#">Back</a>
