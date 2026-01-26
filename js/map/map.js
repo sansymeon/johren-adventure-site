@@ -315,8 +315,8 @@ const marker = L.marker([item.lat, item.lng], { icon })
 
 
   function renderPinFilters(types) {
-    const box = document.querySelector(`#pinFilters input[data-type="${t}"]`);
-    if (!el) return;
+  const el = document.getElementById('pinFilters');
+  if (!el) return;
 
     const labels = 
     { coffee:"Coffee", 
