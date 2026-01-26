@@ -905,13 +905,10 @@ function armPersonalPinPlacement() {
 
 
 (function initPersonalPinsStepA() {
-  // 1) render markers
   renderPersonalPins();
-
-  // 2) ensure layer visibility matches current filters
   syncPersonalVisibility();
-
-  // 4) add +Pin control
   addPersonalPinControl();
 })();
-})(); // <--- ADD THIS LINE TO CLOSE THE ENTIRE WRAPPER
+
+})();   // ✅ outer wrapper close (ONLY ONE)
+
