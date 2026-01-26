@@ -318,38 +318,42 @@ const marker = L.marker([item.lat, item.lng], { icon })
   const el = document.getElementById('pinFilters');
   if (!el) return;
 
-    const labels = 
-    { coffee:"Coffee", 
-     restaurant:"Food", 
-     supermarket:"Shop", 
-     church:"Church", 
-     museum: "Museum", 
-     mosque:"Mosque", 
-     personal: "My Pin"
-};
+  // ✅ reset any previous handler (prevents duplicates)
+  el.onchange = null;
 
-    el.innerHTML = types.map(t => `
-      <label>
-        <input type="checkbox" data-type="${t}" checked>
-        <span>${labels[t] || t}</span>
-      </label>
-    `).join("");
+  const labels = {
+    coffee:"Coffee",
+    restaurant:"Food",
+    supermarket:"Shop",
+    church:"Church",
+    museum:"Museum",
+    mosque:"Mosque",
+    personal:"My Pin"
+  };
 
-el.addEventListener('change', () => {
-  const checked = new Set(
-    Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(x => x.dataset.type)
-  );
+  el.innerHTML = types.map(t => `
+    <label>
+      <input type="checkbox" data-type="${t}" checked>
+      <span>${labels[t] || t}</span>
+    </label>
+  `).join("");
 
-  pinMarkers.forEach(m => {
-    const show = checked.has(m._pinType);
-    if (show) m.addTo(pinLayer);
-    else pinLayer.removeLayer(m);
-  });
+  // ✅ attach exactly one handler
+  el.onchange = () => {
+    const checked = new Set(
+      Array.from(el.querySelectorAll('input[type="checkbox"]:checked')).map(x => x.dataset.type)
+    );
 
-  syncPersonalVisibility(); // ✅ keep this once, outside the loop
-});
+    pinMarkers.forEach(m => {
+      const show = checked.has(m._pinType);
+      if (show) m.addTo(pinLayer);
+      else pinLayer.removeLayer(m);
+    });
 
-  }
+    syncPersonalVisibility();
+  };
+}
+
 
   loadPins(pins, pinLayer);
 
