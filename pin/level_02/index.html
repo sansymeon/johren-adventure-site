@@ -9,10 +9,10 @@
     body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f6f6f4;color:#222;line-height:1.6}
     .wrap{max-width:520px;margin:0 auto;padding:56px 20px 64px;text-align:center}
     .card{background:#fff;border-radius:18px;box-shadow:0 6px 18px rgba(0,0,0,.08);padding:22px}
-    h1{font-size:20px;margin:0 0 8px}
-    .name{font-size:26px;margin:6px 0 0}
+    h1{font-size:18px;margin:0 0 8px;opacity:.85}
+    .name{font-size:28px;margin:6px 0 0}
     .muted{opacity:.7;font-size:13px;margin-top:10px}
-    .btn{display:inline-block;margin-top:18px;padding:12px 16px;border-radius:999px;background:#111;color:#fff;text-decoration:none;font-weight:600}
+    .btn{display:inline-block;margin-top:18px;padding:12px 16px;border-radius:999px;background:#111;color:#fff;text-decoration:none;font-weight:700}
     .tiny{display:block;margin-top:10px;font-size:12px;opacity:.7}
   </style>
 </head>
@@ -28,15 +28,15 @@
     </div>
   </main>
 
-  <!-- must load your config before this script -->
+  <!-- Load your existing area-config -->
   <script src="/js/area-config.js"></script>
   <script>
     (function(){
       const params = new URLSearchParams(location.search);
-      const area = (params.get("area") || "").trim();
-      const id   = (params.get("id") || "").trim();
+      const areaKey = (params.get("area") || "").trim(); // e.g. KK_GAYA
+      const id      = (params.get("id") || "").trim();
 
-      const cfg = window.AREA_CONFIG?.[area];
+      const cfg = window.MAP_CONFIG?.[areaKey];
       const pin = cfg?.pins?.find(p => p.id === id);
 
       const areaTitle = document.getElementById("areaTitle");
@@ -48,27 +48,27 @@
       if (!cfg) {
         areaTitle.textContent = "Unknown area";
         pinName.textContent = "Missing area config";
-        pinMeta.textContent = "Check ?area=...";
+        pinMeta.textContent = "Add ?area=KK_GAYA";
         toLevel3.style.display = "none";
+        pinId.textContent = id || "(none)";
         return;
       }
 
-      areaTitle.textContent = cfg.areaName || "Pin";
+      areaTitle.textContent = cfg.title || areaKey || "Pin";
 
       if (!pin) {
         pinName.textContent = "Pin not found";
         pinMeta.textContent = "Check ?id=...";
-        pinId.textContent = id || "(none)";
         toLevel3.style.display = "none";
+        pinId.textContent = id || "(none)";
         return;
       }
 
-      pinName.textContent = pin.name || "(no name)";
+      pinName.textContent = pin.nameEn || pin.name || "(no name)";
       pinMeta.textContent = pin.type ? `Category: ${pin.type}` : "";
       pinId.textContent = pin.id;
 
-      // Always point to universal Level 3
-      toLevel3.href = `/pin/level_03/?area=${encodeURIComponent(area)}&level=3&id=${encodeURIComponent(pin.id)}`;
+      toLevel3.href = `/pin/level_03/?area=${encodeURIComponent(areaKey)}&level=3&id=${encodeURIComponent(pin.id)}`;
     })();
   </script>
 </body>
