@@ -400,6 +400,8 @@ loadCategory(parks, parkLayer, icons.park, "park");
     </label>
   `).join("");
 
+    syncPersonalVisibility();
+
   // ✅ attach exactly one handler
   el.onchange = () => {
     const checked = new Set(
