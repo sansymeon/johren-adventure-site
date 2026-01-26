@@ -293,9 +293,6 @@ function loadPins(list, layer) {
     const type = (item.type || '').toLowerCase();
     const icon = icons[type] || icons.park;
 
-    const type = (item.type || "").toLowerCase();
-const icon = icons[type] || icons.park;
-
 const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
 const lvl = Number(item.level || 1);
 const hideName = isBusiness && lvl === 1;
