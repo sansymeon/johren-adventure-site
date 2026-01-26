@@ -28,14 +28,19 @@
       <h1 id="areaTitle">Pin details</h1>
       <div class="name" id="pinName">Loading…</div>
 
-      <div class="row" id="rowHours">
+      <div class="row hide" id="rowHours">
         <div class="k">Hours</div>
-        <div class="v" id="hoursVal">—</div>
+        <div class="v" id="hoursVal"></div>
       </div>
 
-      <div class="row" id="rowDays">
+      <div class="row hide" id="rowDays">
         <div class="k">Business days</div>
-        <div class="v" id="daysVal">—</div>
+        <div class="v" id="daysVal"></div>
+      </div>
+
+      <div class="row" id="rowCoords">
+        <div class="k">Location</div>
+        <div class="v" id="coordsVal"></div>
       </div>
 
       <div class="btns">
@@ -52,10 +57,10 @@
   <script>
     (function(){
       const params = new URLSearchParams(location.search);
-      const area = (params.get("area") || "").trim();
-      const id   = (params.get("id") || "").trim();
+      const areaKey = (params.get("area") || "").trim();
+      const id      = (params.get("id") || "").trim();
 
-      const cfg = window.AREA_CONFIG?.[area];
+      const cfg = window.MAP_CONFIG?.[areaKey];
       const pin = cfg?.pins?.find(p => p.id === id);
 
       const areaTitle = document.getElementById("areaTitle");
@@ -67,6 +72,8 @@
       const hoursVal  = document.getElementById("hoursVal");
       const daysVal   = document.getElementById("daysVal");
 
+      const coordsVal = document.getElementById("coordsVal");
+
       const visitLink = document.getElementById("visitLink");
       const lineFollow= document.getElementById("lineFollow");
       const backLevel2= document.getElementById("backLevel2");
@@ -74,52 +81,45 @@
       if (!cfg) {
         areaTitle.textContent = "Unknown area";
         pinName.textContent = "Missing area config";
-        rowHours.classList.add("hide");
-        rowDays.classList.add("hide");
-        visitLink.classList.add("hide");
-        lineFollow.classList.add("hide");
-        backLevel2.href = "/"; // fallback
+        document.getElementById("rowCoords").classList.add("hide");
+        backLevel2.href = "/";
         pinId.textContent = id || "(none)";
         return;
       }
 
-      areaTitle.textContent = cfg.areaName || "Pin details";
+      areaTitle.textContent = cfg.title || areaKey || "Pin details";
 
       if (!pin) {
         pinName.textContent = "Pin not found";
-        rowHours.classList.add("hide");
-        rowDays.classList.add("hide");
-        visitLink.classList.add("hide");
-        lineFollow.classList.add("hide");
-        backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(area)}&level=2&id=${encodeURIComponent(id)}`;
+        document.getElementById("rowCoords").classList.add("hide");
+        backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(areaKey)}&level=2&id=${encodeURIComponent(id)}`;
         pinId.textContent = id || "(none)";
         return;
       }
 
-      pinName.textContent = pin.name || "(no name)";
+      pinName.textContent = pin.nameEn || pin.name || "(no name)";
       pinId.textContent = pin.id;
 
-      // Hours / days (hide rows if empty)
-      if (pin.hours) hoursVal.textContent = pin.hours;
-      else rowHours.classList.add("hide");
+      // coords always available in your data
+      coordsVal.textContent = `${pin.lat.toFixed(5)}, ${pin.lng.toFixed(5)}`;
 
-      if (pin.days) daysVal.textContent = pin.days;
-      else rowDays.classList.add("hide");
+      // Optional info fields (only show if present)
+      if (pin.hours) { hoursVal.textContent = pin.hours; rowHours.classList.remove("hide"); }
+      if (pin.days)  { daysVal.textContent  = pin.days;  rowDays.classList.remove("hide"); }
 
-      // Optional external link
+      // Optional merchant link
       if (pin.link) {
         visitLink.href = pin.link;
         visitLink.classList.remove("hide");
       }
 
-      // Optional LINE follow link (official account)
+      // Optional LINE follow
       if (pin.line) {
         lineFollow.href = pin.line;
         lineFollow.classList.remove("hide");
       }
 
-      // Back to Level 2
-      backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(area)}&level=2&id=${encodeURIComponent(pin.id)}`;
+      backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(areaKey)}&level=2&id=${encodeURIComponent(pin.id)}`;
     })();
   </script>
 </body>
