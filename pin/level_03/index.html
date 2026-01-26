@@ -99,7 +99,7 @@
       if (!pin) {
         pinName.textContent = "Pin not found";
         document.getElementById("rowCoords").classList.add("hide");
-        backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(areaKey)}&level=2&id=${encodeURIComponent(id)}`;
+        backLevel2.href = `/pin/level_03/?area=${encodeURIComponent(areaKey)}&level=3&id=${encodeURIComponent(id)}`;
         pinId.textContent = id || "(none)";
         return;
       }
@@ -126,7 +126,7 @@
         lineFollow.classList.remove("hide");
       }
 
-      backLevel2.href = `/pin/level_02/?area=${encodeURIComponent(areaKey)}&level=2&id=${encodeURIComponent(pin.id)}`;
+      backLevel3.href = `/pin/level_03/?area=${encodeURIComponent(areaKey)}&level=3&id=${encodeURIComponent(pin.id)}`;
     })();
   </script>
 </body>
