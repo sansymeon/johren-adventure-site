@@ -109,7 +109,6 @@
     personal: makeIcon('pin_personal.png'),
     stationDefault: makeIcon('station.png'),
     stationVisited: makeIcon('station_visited.png'),
-
     coffee: makeIcon('coffee.png'),
     restaurant: makeIcon('restaurant.png'),
     supermarket: makeIcon('supermarket.png')
@@ -806,7 +805,9 @@ if (deleteBtn) {
 
   });
 }
-
+function makePersonalIcon() {
+  return icons.personal;
+}
 function renderPersonalPins() {
   personalLayer.clearLayers();
 
