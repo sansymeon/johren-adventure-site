@@ -129,6 +129,59 @@
       ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;', "'":'&#39;' }[c])
     );
   }
+  function labelForType(type='') {
+  const t = String(type).toLowerCase();
+  const labels = {
+    coffee: "Coffee spot",
+    restaurant: "Food spot",
+    supermarket: "Shop",
+    personal: "My Pin",
+    church: "Church",
+    mosque: "Mosque",
+    museum: "Museum",
+    shrine: "Shrine",
+    temple: "Temple",
+    park: "Park",
+    station: "Station",
+    pin: "Spot"
+  };
+  return labels[t] || t || "Spot";
+}
+
+function formatUniversalPopup(item, opts = {}) {
+  const type  = (item?.type || opts.type || "").toLowerCase();
+  const level = Number(item?.level ?? opts.level ?? 1);
+
+  const isBiz = ["coffee","restaurant","supermarket"].includes(type);
+
+  let title = "";
+  if (isBiz) {
+    title = (level >= 2 && (item.name || item.nameEn))
+      ? (item.name || item.nameEn)
+      : labelForType(type);
+  } else {
+    title = (item.name || item.nameEn || labelForType(type));
+  }
+
+  const hours = (level >= 3 && item?.hours)
+    ? `<div style="margin-top:6px;font-size:12px;color:#444;">${escapeHtml(item.hours)}</div>`
+    : "";
+
+  const link  = (level >= 3 && item?.url)
+    ? `<div style="margin-top:10px;font-size:13px;">
+         <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Website →</a>
+       </div>`
+    : "";
+
+  return `
+    <div>
+      <b>${escapeHtml(title)}</b>
+      ${hours}
+      ${link}
+    </div>
+  `;
+}
+
   function getPinConsent(pin) {
   // default to level1/location-only if missing
   return (pin && pin.consent ? String(pin.consent) : "location_only").toLowerCase();
