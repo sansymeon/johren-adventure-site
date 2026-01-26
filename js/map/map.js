@@ -147,6 +147,58 @@
   };
   return labels[t] || t || "Spot";
 }
+function nearestTitle(item, kindFallback = "Spot") {
+  const type  = String(item?.type || kindFallback).toLowerCase();
+  const level = Number(item?.level ?? 1);
+
+  const isBiz = ["coffee","restaurant","supermarket"].includes(type);
+
+  // Level 1 business: hide name, show type label
+  if (isBiz && level <= 1) return labelForType(type);
+
+  // Level 2+ business: allow name if present
+  if (isBiz) return (item?.name || item?.nameEn || labelForType(type)).trim();
+
+  // Non-business: name if present, else label
+  return (item?.name || item?.nameEn || labelForType(type)).trim();
+}
+
+  function formatUniversalPopup(item, opts = {}) {
+  const type  = (item?.type || opts.type || "").toLowerCase();
+  const level = Number(item?.level ?? opts.level ?? 1);
+
+  const isBiz = ["coffee","restaurant","supermarket"].includes(type);
+
+  // Title rules:
+  // - Businesses: L1 shows type label; L2+ can show name
+  // - Non-biz: always show name if present, else type label
+  let title = "";
+  if (isBiz) {
+    title = (level >= 2 && (item?.name || item?.nameEn))
+      ? (item.name || item.nameEn)
+      : labelForType(type);
+  } else {
+    title = (item?.name || item?.nameEn || labelForType(type));
+  }
+
+  const hours = (level >= 3 && item?.hours)
+    ? `<div style="margin-top:6px;font-size:12px;color:#444;">${escapeHtml(item.hours)}</div>`
+    : "";
+
+  const link = (level >= 3 && item?.url)
+    ? `<div style="margin-top:10px;font-size:13px;">
+         <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">Website →</a>
+       </div>`
+    : "";
+
+  return `
+    <div>
+      <b>${escapeHtml(title)}</b>
+      ${hours}
+      ${link}
+    </div>
+  `;
+}
 
 
   function formatStationLabel(station) {
@@ -308,11 +360,10 @@ loadCategory(parks, parkLayer, icons.park, "park");
 
     const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
     const lvl = Number(item.level ?? 1);
-    const hideName = isBusiness && lvl <= 1;
       
    const marker = L.marker([item.lat, item.lng], { icon })
-      .addTo(layer)
-      .bindPopup(formatPinPopup(item));
+  .addTo(layer)
+  .bindPopup(formatUniversalPopup(item));
     marker._pinType = type;
 
     // ✅ store by id so we can open it later
@@ -338,6 +389,7 @@ loadCategory(parks, parkLayer, icons.park, "park");
     church:"Church",
     museum:"Museum",
     mosque:"Mosque",
+    landmark: "Landmark",
     personal:"My Pin"
   };
 
@@ -415,6 +467,7 @@ function buildSpotList(personalPinsList = []) {
 
   return [
     ...add(pins, "pin"),
+    ...add(pins, "landmark"),
     ...add(personalPinsList, "personal"),
     ...add(churches, "church"),
     ...add(mosques, "mosque"),
