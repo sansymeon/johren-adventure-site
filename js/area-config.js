@@ -330,8 +330,8 @@ window.MAP_CONFIG.ITOSHIMA = {
 
     churches: [
       {
-        id: "karatsu_catholic"
-        name: "カトリック唐津教会",         // 
+        id: "karatsu_catholic",
+        name: "カトリック唐津教会",      
         nameEn: "Karatsu Catholic Church",
         lat: 33.45252801155086,            
         lng: 129.9614152412968
