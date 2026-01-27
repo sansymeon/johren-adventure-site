@@ -417,8 +417,7 @@ window.MAP_CONFIG.ITOSHIMA = {
       "語られなかった時間が、このあたりに沈んでいます。"
     ]
 };
-window.MAP_CONFIG = {
-  fukuoka_chuo: {
+window.MAP_CONFIG = { fukuoka_chuo: {
     center: [33.58602, 130.37622],
     zoom: 12,
 
