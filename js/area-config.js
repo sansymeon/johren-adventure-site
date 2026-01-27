@@ -5,8 +5,8 @@ window.MAP_CONFIG.kk_gaya = {
   zoom: 16,
   stations: [],
 
-  pins: [
-  { 
+  pins:  [
+        {
     id:"kk_gaya_daily_coffee", name:"Daily Coffee", nameEn:"Daily Coffee", type:"coffee", 
    lat:5.985660732321517, lng:116.07799084381578 
   },
@@ -51,8 +51,8 @@ window.MAP_CONFIG.itoshima = {
   center: [33.557, 130.199],
   zoom: 12,
 
- pins:  [
-  {  
+pins:  [
+        { 
     id: "ito_art_museum",
     name: "伊都郷土美術館",
     nameEn: "Ito Art Museum",
@@ -261,8 +261,8 @@ window.MAP_CONFIG.itoshima = {
     center: [33.4533, 129.9782], 
     zoom: 12,
 
-  pins: [
-  { 
+ pins:  [
+        {
       id: "jr-chikuhi-jk16", 
       name: "浜崎", 
       nameEn: "Hamasaki", 
@@ -402,13 +402,13 @@ window.MAP_CONFIG.itoshima = {
       "名が変わっても、役割は静かに受け継がれてきました。",
       "語られなかった時間が、このあたりに沈んでいます。"
     ]
-};
-window.MAP_CONFIG.fukuoka_chuo = {
-  center: [33.58602, 130.37622],
-  zoom: 12,
+    };
+          window.MAP_CONFIG.fukuoka_chuo = {
+          center: [33.58602, 130.37622],
+          zoom: 12,
 
   pins:  [
-  {
+        {
           id: "airport-tenjin",
           type: "station",
           name: "天神",
