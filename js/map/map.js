@@ -107,6 +107,7 @@
     temple: makeIcon('temple.png'),
     park: makeIcon('park.png'),
     personal: makeIcon('pin_personal.png'),
+    station: makeIcon('station.png'),  
     stationDefault: makeIcon('station.png'),
     stationVisited: makeIcon('station_visited.png'),
     coffee: makeIcon('coffee.png'),
