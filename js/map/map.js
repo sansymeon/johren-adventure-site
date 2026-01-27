@@ -437,7 +437,12 @@ function syncPersonalVisibility() {
 
   loadPins(pins, pinLayer);
 
-  const pinTypes = Array.from(new Set((pins || []).map(p => (p.type || '').toLowerCase()))).filter(Boolean);
+  const allPins = Object.values(pins || {}).flat();
+
+const pinTypes = Array.from(
+  new Set(allPins.map(p => (p.type || '').toLowerCase()))
+).filter(Boolean);
+
   if (pinTypes.length) renderPinFilters([...new Set([...pinTypes, "personal"])]);
 else renderPinFilters(["personal"]); // optional: still show +Pin filter even if no server pins
 
