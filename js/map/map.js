@@ -336,13 +336,6 @@ function loadCategory(list, layer, icon, kind) {
   });
 }
 
-
-    // ✅ store by id so Nearest-click can open it
-    const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
-    markerById.set(id, marker);
-  });
-}
-
 loadCategory(churches, churchLayer, icons.church, "church");
 loadCategory(mosques, mosqueLayer, icons.mosque, "mosque");
 loadCategory(museums, museumLayer, icons.museum, "museum");
