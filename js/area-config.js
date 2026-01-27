@@ -41,7 +41,7 @@ window.MAP_CONFIG.KK_GAYA = {
     { id:"kk_sabah_museum", name:"Sabah State Museum", nameEn:"Sabah State Museum", type:"museum", lat:5.960591352375199, lng:116.07145826490698 }
   ]
 };
-window.MAP_CONFIG.itoshima = {
+window.MAP_CONFIG.ITOSHIMA = {
   center: [33.557, 130.199],
   zoom: 12,
 
