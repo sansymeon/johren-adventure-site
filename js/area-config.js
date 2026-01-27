@@ -509,7 +509,7 @@ window.MAP_CONFIG = {
 
       temples: [],
       parks: []
-    },
+       },
 
     history_pool: [
       "かつて境界だった場所が、日常の通り道になりました。",
