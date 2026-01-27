@@ -351,7 +351,6 @@ loadCategory(parks, parkLayer, icons.park, "park");
   const pinMarkers = [];
 
   // id -> Leaflet marker  
-  function loadPins(list, layer) {
  function loadPins(list, layer) {
   const allPins = Array.isArray(list)
     ? list
@@ -359,25 +358,25 @@ loadCategory(parks, parkLayer, icons.park, "park");
 
   if (!allPins.length) return;
 
+  allPins.forEach(item => {
+    if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
 
     const type = String(item.type || "landmark").toLowerCase();
-    const icon = icons[type] || icons.landmark; // fallback to something that exists
+    const icon = icons[type] || icons.landmark;
 
-    const isBusiness = ["coffee","restaurant","supermarket"].includes(type);
-    const lvl = Number(item.level ?? 1);
-      
-   const marker = L.marker([item.lat, item.lng], { icon })
-  .addTo(layer)
-  .bindPopup(formatUniversalPopup(item));
+    const marker = L.marker([item.lat, item.lng], { icon })
+      .addTo(layer)
+      .bindPopup(formatUniversalPopup(item));
+
     marker._pinType = type;
 
-    // ✅ store by id so we can open it later
     const id = String(item.id || `${type}:${item.lat},${item.lng}`);
     markerById.set(id, marker);
 
     pinMarkers.push(marker);
   });
 }
+
 const personalLayer = L.layerGroup();
 const PERSONAL_TYPE = "personal";
 
