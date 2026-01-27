@@ -332,8 +332,8 @@ history_pool: [
   "水辺の記憶が、今も地形に残っています。",
   "足を止める人と、通り過ぎる人の両方を見てきました。"
  ]
-};
-  window.MAP_CONFIG.karatsu = {  
+    };
+    window.MAP_CONFIG.karatsu = {  
     center: [33.4533, 129.9782], 
     zoom: 12,
 
