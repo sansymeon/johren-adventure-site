@@ -324,7 +324,7 @@ const markerById = new Map(); // id -> Leaflet marker
 function loadCategory(list, layer, icon, kind) {
   if (!Array.isArray(list)) return;
 
-  list.forEach(item => {
+  allPins.forEach(item => {
     if (!item || typeof item.lat !== "number" || typeof item.lng !== "number") return;
 
     const marker = L.marker([item.lat, item.lng], { icon })
@@ -352,9 +352,13 @@ loadCategory(parks, parkLayer, icons.park, "park");
 
   // id -> Leaflet marker  
   function loadPins(list, layer) {
-  if (!Array.isArray(list)) return;
-  list.forEach(item => {
-    if (!item || typeof item.lat !== 'number' || typeof item.lng !== 'number') return;
+ function loadPins(list, layer) {
+  const allPins = Array.isArray(list)
+    ? list
+    : Object.values(list || {}).flat();
+
+  if (!allPins.length) return;
+
 
     const type = String(item.type || "landmark").toLowerCase();
     const icon = icons[type] || icons.landmark; // fallback to something that exists
