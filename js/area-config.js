@@ -1,4 +1,4 @@
-window.MAP_CONFIG = window.MAP_CONFIG || {};
+window.MAP_CONFIG = window.MAP_CONFIG || {};356
 
 window.MAP_CONFIG.KK_GAYA = {
   center: [5.9826, 116.0737],
@@ -352,7 +352,7 @@ window.MAP_CONFIG.ITOSHIMA = {
 
     museums: [
       { 
-         id: "hikiyama_hall"
+         id: "hikiyama_hall",
        name: "曳山展示場", 
        nameEn: "Hikiyama Exhibition Hall", 
         type: "museum",
@@ -360,7 +360,7 @@ window.MAP_CONFIG.ITOSHIMA = {
        lng: 129.96991124129468 
       },
       { 
-        id: "karatsu_castle"
+        id: "karatsu_castle",
         name: "唐津城", 
        nameEn: "Karatsu Castle", 
         type: "museum",
@@ -368,7 +368,7 @@ window.MAP_CONFIG.ITOSHIMA = {
        lng: 129.9782080418245 
       },
       { 
-        id: "takatori_museum"
+        id: "takatori_museum",
         name: "旧高取邸", 
        nameEn: "Former Takatori Residence", 
         type: "museum",
@@ -379,7 +379,7 @@ window.MAP_CONFIG.ITOSHIMA = {
 
     shrines: [
       { 
-        id: "karatsu_shrine"
+        id: "karatsu_shrine",
         name: "唐津神社", 
        nameEn: "Karatsu Shrine", 
         type: "shrine",
@@ -387,7 +387,7 @@ window.MAP_CONFIG.ITOSHIMA = {
        lng: 129.96948404957564 
       },
       { 
-        id: "myoken_shrine"
+        id: "myoken_shrine",
         name: "妙見神社", 
        nameEn: "Myoken Shrine", 
          type: "shrine",
@@ -398,7 +398,7 @@ window.MAP_CONFIG.ITOSHIMA = {
 
     temples: [
       { 
-        id: "gonshoji_temple"
+        id: "gonshoji_temple",
         name: "近松寺", 
        nameEn: "Gonshoji Temple", 
          type: "temple",
