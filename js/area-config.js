@@ -324,7 +324,8 @@ window.MAP_CONFIG.ITOSHIMA = {
       },
       { 
         id: "jr-karatsu-ouchi", 
-       name: "相知", nameEn: "Ouchi", 
+       name: "相知", 
+        nameEn: "Ouchi", 
         type: "station",
         lat: 33.34699039849446, 
         lng: 130.01952634118035 
@@ -418,5 +419,4 @@ window.MAP_CONFIG.ITOSHIMA = {
 
     parks: []
   }
-};
 };
