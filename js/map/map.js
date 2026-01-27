@@ -322,14 +322,20 @@ const markerById = new Map(); // id -> Leaflet marker
 // LANDMARKS (existing categories)
 // -------------------------------
 function loadCategory(list, layer, icon, kind) {
-  if (!Array.isArray(list)) return;
+  if (!Array.isArray(list) || !list.length) return;
 
-  allPins.forEach(item => {
+  list.forEach(item => {
     if (!item || typeof item.lat !== "number" || typeof item.lng !== "number") return;
 
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
-    .bindPopup(formatPinPopup(item));
+      .bindPopup(formatPinPopup(item));
+
+    const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
+    markerById.set(id, marker);
+  });
+}
+
 
     // ✅ store by id so Nearest-click can open it
     const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
