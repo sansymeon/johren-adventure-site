@@ -1,4 +1,4 @@
-window.MAP_CONFIG = window.MAP_CONFIG || {};356
+window.MAP_CONFIG = window.MAP_CONFIG || {};
 
 window.MAP_CONFIG.kk_gaya = {
   center: [5.9826, 116.0737],
