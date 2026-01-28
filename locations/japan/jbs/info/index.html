@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Johren（ジョウレン）｜事業者の方へ（Phase 1）</title>
+ <meta name="description" content="Johren（ジョウレン）事業者向け案内（Phase 1）。LINEでつながっている間のみ、JBS 地図に静かに表示されます。契約・登録は不要です。" />
+
+  <style>
+    :root{
+      --bg:#f7f7f7;
+      --surface:#ffffff;
+      --border:#e6e6e6;
+      --text:#222;
+      --muted:#666;
+      --accent:#c79a3b;          /* champagne gold */
+      --accent-soft:#f5ecd7;
+      --link:#1a73e8;
+    }
+    *{box-sizing:border-box;}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic", Meiryo, sans-serif;
+      line-height:1.7;
+    }
+    .wrap{
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 22px 16px 56px;
+    }
+    header{
+      background:linear-gradient(180deg, var(--surface) 0%, #fbfbfb 100%);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:22px 18px;
+      box-shadow:0 1px 0 rgba(0,0,0,0.03);
+    }
+    h1{
+      margin:0 0 6px;
+      font-size: 24px;
+      letter-spacing: .3px;
+    }
+    .sub{
+      margin:0;
+      color:var(--muted);
+      font-size: 14px;
+    }
+    .pill{
+      display:inline-block;
+      margin-top:12px;
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    @media (min-width: 860px){
+      .grid{ grid-template-columns: 1.2fr .8fr; }
+    }
+    .card{
+      background:var(--surface);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:18px;
+    }
+    h2{
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    h3{
+      margin: 14px 0 6px;
+      font-size: 15px;
+    }
+    p{ margin: 8px 0; }
+    ul{ margin: 8px 0 0; padding-left: 18px; }
+    li{ margin: 6px 0; }
+    .note{
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 12px 12px;
+      margin-top: 10px;
+      color: var(--text);
+    }
+    .muted{ color: var(--muted); }
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 12px;
+      align-items:center;
+    }
+    .btn{
+      display:inline-block;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      text-decoration:none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .btn.primary{
+      border-color: var(--accent);
+      background: var(--accent);
+      color:#111;
+    }
+    .btn.primary:hover{ filter: brightness(0.98); }
+    .btn:active{ transform: translateY(1px); }
+    .small{
+      font-size:12px;
+      color: var(--muted);
+    }
+
+    /* Map legend */
+    .legend{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+      align-items:center;
+    }
+
+    .tag{
+      display:inline-block;
+      font-size:12px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--muted);
+    }
+
+    /* QR placeholder */
+    .qr{
+      width: 180px;
+      height: 180px;
+      border: 1px dashed #bbb;
+      border-radius: 14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: #fff;
+      color: #888;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    footer{
+      margin-top:16px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    a{ color: var(--link); }
+    .hr{
+      height:1px;
+      background: var(--border);
+      margin: 14px 0;
+    }
+    .line-qr-link {
+  display: block;
+  max-width: 240px;
+  margin: 12px auto 0;
+}
+
+.line-qr-link img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .line-qr-link {
+    max-width: 240px;
+  }
+}
+.qr-center {
+  text-align: center;
+}
+
+.line-qr-small {
+  width: 120px;
+  max-width: 100%;
+  display: inline-block;
+}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Johren（ジョウレン）｜事業者の方へ（Phase 1）</h1>
+
+      <p class="small muted">
+        このページは、Johren Business Spots（JBS）に
+        関心を持たれたお店・場所向けの補足説明です。
+      </p>
+
+      <p class="sub">
+        LINEをフォローしている間のみ、事業者向け地図（JBS）に表示されます。
+        契約・書類・登録はありません。
+      </p>
+
+      <span class="pill">糸島で育った感覚を、他の地域にも、そっと。</span>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <main class="card">
+        <h2>1. Johrenとは（事業者向け）</h2>
+
+        <p>
+          Johren（ジョウレン）は、地域を歩きながら
+          小さな場所や空気感に出会うための、
+          <strong>非観光型の地域散策</strong> の仕組みです。
+        </p>
+
+        <ul>
+          <li>アプリではありません</li>
+          <li>会員登録はありません</li>
+          <li>一般の方は無料で利用します</li>
+        </ul>
+
+        <div class="note">
+          Johrenは <strong>宣伝・集客・ランキング</strong> を目的としていません。<br>
+          日常の中にある場所が、静かに「そこにある」ことを大切にしています。
+        </div>
+
+        <p class="muted">
+          Johrenは、「以前に訪れたことがある」という記憶を、
+          そっと残すための地図です。
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>2. Johrenとの関わり方</h2>
+
+        <p>
+          関心がある場合の関わり方は、とてもシンプルです。
+        </p>
+
+        <h3>▶︎ JohrenのLINE公式アカウントをフォロー</h3>
+
+        <ul>
+          <li>契約はありません</li>
+          <li>書類はありません</li>
+          <li>フォローはいつでも解除できます</li>
+        </ul>
+
+        <p class="muted">
+          フォローしている間のみ、事業者向け地図（JBS）に表示されます。
+        </p>
+
+        <p class="line-instruction">
+          下の画像をタップ（またはQRコードを読み取り）して、
+          JohrenのLINEをフォローしてください。
+        </p>
+
+        <a
+          href="https://lin.ee/mvNQuY4"
+          target="_blank"
+          rel="noopener"
+          class="line-qr-link"
+        >
+          <img
+            src="https://qr-official.line.me/gs/M_066ywqza_GW.png?oat_content=qr"
+            alt="Johren LINE QR code">
+        </a>
+
+        <p class="small muted">
+          ※ フォローは任意です。説明や対応は必要ありません。
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>3. 事業者向け地図（JBS）について</h2>
+
+        <ul>
+          <li>Johrenとつながっている場所のみ表示されます</li>
+          <li>優先表示・おすすめ表示はありません</li>
+          <li>評価・回数・頻度による差はありません</li>
+          <li>表示内容は最小限です</li>
+        </ul>
+
+        <div class="cta">
+          <a href="/jbs/map/" class="btn">JBS マップを見る（参考）</a>
+          <span class="small muted">※ 掲載内容・位置はサンプルを含みます</span>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>4. 今は何もしていただかなくて大丈夫です</h2>
+
+        <p>Phase 1では、以下は行いません。</p>
+
+        <ul>
+          <li>情報入力</li>
+          <li>メニュー登録</li>
+          <li>クーポン発行</li>
+          <li>対応ルールの追加</li>
+        </ul>
+
+        <p><strong>通常営業のままで問題ありません。</strong></p>
+
+        <div class="hr"></div>
+
+        <h2>5. 今後について（必要な場合のみ）</h2>
+
+        <p>
+          将来、もしご希望があれば、任意で以下を提供します。
+        </p>
+
+        <ul>
+          <li>お店のウェブサイト / SNS へのリンク</li>
+          <li>Johren用のQRコード</li>
+        </ul>
+
+        <p class="muted">
+          「紹介したい」と思った場合のみで大丈夫です。
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>6. 今日しなくてよいこと</h2>
+
+        <ul>
+          <li>説明をする必要はありません</li>
+          <li>準備や対応は必要ありません</li>
+          <li>営業方法を変える必要もありません</li>
+        </ul>
+
+        <p>
+          <strong>LINEフォローは、関心がある場合のみで大丈夫です。</strong>
+        </p>
+
+        <div class="note">
+          <strong>まとめ：</strong><br>
+          Johrenは集客ツールではありません。<br>
+          お店に負担をかけず、無理に広げる仕組みでもありません。<br>
+          地域の中で、静かに存在するための地図です。
+        </div>
+      </main>
+
+      <!-- RIGHT -->
+      <aside class="card">
+        <h2>今日のミニ説明（口頭用）</h2>
+
+        <p>
+          <strong>「今日は練習だけです。</strong><br>
+          LINEでつながっているかどうか、それだけです。<br>
+          登録や契約はありません。」
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>LINE QR</h2>
+
+        <div class="qr-center">
+          <img
+            src="https://qr-official.line.me/gs/M_066ywqza_GW.png?oat_content=qr"
+            alt="Johren LINE QR（確認用）"
+            class="line-qr-small"
+          >
+          <p class="small muted">
+            対面でのご説明用
+          </p>
+        </div>
+
+        <div class="hr"></div>
+
+        <h2>連絡（任意）</h2>
+
+        <p class="muted">
+          制作：Johren（糸島）<br>
+          info@sansymeon.com
+        </p>
+      </aside>
+    </div>
+
+    <footer>
+      <div>© Johren（ジョウレン）｜Phase 1（内部用・説明用）</div>
+    </footer>
+  </div>
+</body>
+
+
+  </html>
