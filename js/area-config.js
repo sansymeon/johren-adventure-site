@@ -577,4 +577,20 @@ window.MAP_CONFIG.fukuoka_west = {
           lng: 130.38203472165
         }
     ]
+        };
+
+window.MAP_CONFIG.london_west = {
+    center: [51.479465789978356, -0.4563344609084773],
+    zoom: 10,
+
+ pins:  [
+        {
+      id: "stoke_poges_costa", 
+        name: "Stoke Poges Costa", 
+        nameEn: "Stoke Poges Costa",  
+        type: "coffee",
+        lat: 51.54913581194051, 
+        lng: -0.5858203724053814 
+      }
+   ]
 };
