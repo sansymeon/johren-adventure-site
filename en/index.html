@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Johren Adventure｜ジョウレン・アドヴェンチャー</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <title>Discovery Maps｜Johren Adventure</title>
+
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -14,90 +14,98 @@
       line-height: 1.7;
       color: #222;
     }
+
     nav {
       text-align: right;
-      padding: 10px 20px;
+      padding: 12px 20px;
       font-size: 14px;
     }
+
     nav a {
       color: #555;
       text-decoration: none;
     }
+
     header {
       text-align: center;
       padding: 40px 20px 20px;
     }
+
     .crest {
       width: 120px;
       margin: 0 auto 10px;
       display: block;
     }
+
     h1 {
-      text-align: center;
-      margin-top: 10px;
+      margin: 10px 0 6px;
       font-size: 32px;
       font-weight: bold;
       color: #333;
     }
+
+    .subtitle {
+      font-size: 14px;
+      color: #777;
+    }
+
     .intro {
-      max-width: 750px;
-      margin: 30px auto;
+      max-width: 760px;
+      margin: 30px auto 10px;
       padding: 0 20px;
       font-size: 18px;
       text-align: center;
     }
-    .program-grid {
-      max-width: 900px;
-      margin: 40px auto;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 20px;
-      
-    }.program-grid{
-  display: flex;
-  gap: 20px;
-  justify-content: center;   /* centers the row */
-  flex-wrap: wrap;           /* allows wrap on small screens */
-  max-width: 980px;          /* optional: keeps it from stretching too wide */
-  margin: 0 auto;            /* centers the container itself */
-  padding: 0 16px;           /* breathing room on mobile */
-}
 
-    @media (min-width: 700px) {
-      .program-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
+    .note {
+      margin-top: 14px;
+      font-size: 14px;
+      color: #666;
     }
+
+    .program-grid {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 980px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
     .card {
       background: #fff;
       border-radius: 14px;
-      padding: 25px;
+      padding: 26px 24px;
       text-align: center;
       box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      width: 280px;
     }
+
     .card h2 {
       margin-top: 0;
       font-size: 22px;
       color: #333;
     }
+
     .card p {
       font-size: 15px;
       color: #555;
-      min-height: 60px;
     }
+
     .card a {
       display: inline-block;
-      margin-top: 14px;
+      margin-top: 16px;
       padding: 10px 22px;
       border-radius: 8px;
       background: #c79b3b;
-      color: white;
+      color: #fff;
       text-decoration: none;
       font-weight: bold;
     }
   </style>
 </head>
+
 <body>
 
 <nav>
@@ -106,48 +114,46 @@
 
 <header>
   <img src="../img/johren_crest_gold.png" class="crest" alt="Johren Crest">
-  <h1>Johren Adventure</h1>
+  <h1>Discovery Maps</h1>
+  <div class="subtitle">Part of Johren Adventure</div>
 </header>
 
 <div class="intro">
-  <div class="intro">
-  Johren is a quiet discovery system designed for everyday places in Japan.<br><br>
+  Johren is a quiet discovery system designed for everyday places.<br><br>
 
   It does not require an app, registration, or explanation.<br>
   People simply notice a place, pause briefly, and continue walking.<br><br>
 
   What begins as a small moment of discovery can also support<br>
-  local shops, community presence, and child safety —<br>
-  without changing how places normally operate.
-    <p class="note">
-  Some places include simple markers, but discovery always comes first.
-</p>
+  local presence and community life — without changing<br>
+  how places normally operate.
 
+  <div class="note">
+    Some locations include simple markers, but discovery always comes first.
+  </div>
 </div>
-</div>
-
 
 <div class="program-grid">
 
   <div class="card">
-  <h2>Johren Discovery Spots</h2>
-  <p>
-    A gentle walking-and-discovery map.<br>
-    Small stories are tied to stations,<br>
-    streets, and everyday landmarks.
-  </p>
-  <a href="../en/jds/index.html">Open</a>
-</div>
+    <h2>Discovery Spots</h2>
+    <p>
+      A gentle walking-and-discovery map.<br>
+      Small stories tied to stations,<br>
+      streets, and everyday landmarks.
+    </p>
+    <a href="../en/jds/index.html">Open</a>
+  </div>
 
- <div class="card">
-  <h2>Johren Business Spots</h2>
-  <p>
-    A quiet way for local businesses and places<br>
-    to appear on the map — simply by being present,<br>
-    not by advertising.
-  </p>
-  <a href="../en/jbs/index.html">Open</a>
-</div>
+  <div class="card">
+    <h2>Business Spots</h2>
+    <p>
+      A quiet way for local places<br>
+      to appear on the map — simply by being present,<br>
+      not by advertising.
+    </p>
+    <a href="../en/jbs/index.html">Open</a>
+  </div>
 
 </div>
 
