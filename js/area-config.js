@@ -1,10 +1,21 @@
 window.MAP_CONFIG = window.MAP_CONFIG || {};
 
+window.MAP_CONFIG.london_west = {
+  center: [51.474249832362524, -0.4430690461872019],
+  zoom: 10,
+  pins:  [
+        {
+    id:"stoke_poges_costa", 
+    name:"Costa Coffee", 
+    nameEn:"Costa Coffee", 
+    type:"coffee", 
+   lat:51.549128808745294, lng:-0.5858091104123709 
+  ]
+};
 window.MAP_CONFIG.kk_gaya = {
   center: [5.9826, 116.0737],
   zoom: 16,
-  stations: [],
-
+ 
   pins:  [
         {
     id:"kk_gaya_daily_coffee", name:"Daily Coffee", nameEn:"Daily Coffee", type:"coffee", 
