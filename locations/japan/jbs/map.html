@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ジョウレン・アドベンチャー｜九州マップ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Leaflet CSS (REQUIRED) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
+
+  <!-- Leaflet JS (CSP-safe build) -->
+  <script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  crossorigin=""
+></script>
+
+
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+
+  #map {
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .nav-link {
+    position: absolute;
+    z-index: 9999;
+    top: 10px;
+    background: white;
+    padding: 8px 14px;
+    border-radius: 999px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .nav-left {
+    left: 10px;
+  }
+
+  .nav-right {
+    right: 10px;
+  }
+.about-link{
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 99999;          /* force above Leaflet controls */
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.85);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.about-link:hover {
+  background: rgba(255,255,255,1);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a class="nav-link nav-left" href="/jbs/">← 戻る (Back)</a> 
+<a class="nav-link nav-right" href="/">Johren とは？About Johren</a>
+  <div id="map"></div>
+<a href="/jbs/about-map.html" class="about-link">
+  この地図について・About this Map
+</a>
+<!-- Your data + logic -->
+<script src="/jbs/map.js"></script>
+
+</body>
+</html>
