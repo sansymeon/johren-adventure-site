@@ -1,0 +1,33 @@
+{
+  "itoshima_pizza": {
+  "name": "糸島ピサ",
+  "nameEn": "Itoshima Pizza",
+  "level": 1,
+  "lat": 33.5585797,
+  "lng": 130.2138518,
+  "category": "restaurant",
+  "visible": true
+},
+  "cafe_mozart": {
+    "name": "カフェ・モーツァルト",
+    "nameEn": "Cafe Mozart",
+    "level": 2,
+    "lat": 33.57815,
+    "lng": 130.25986,
+    "visible": true,
+    "category": "cafe",
+    "updated": "2026-01-18",
+    "note": "Upgraded to L2"
+  },
+  "itoshima_noodles": {
+  "name": "糸島麺",
+  "nameEn": "Itoshima Noodles",
+  "level": 3,
+  "lat": 33.5956766671,
+  "lng": 130.22763163,
+  "visible": true,
+  "category": "noodles",
+  "updated": "2026-01-18",
+  "note": "Upgraded to L3"
+  }
+}
