@@ -11,15 +11,29 @@ window.MAP_CONFIG = {
         type: "museum",
         lat: 32.80557603104838,    
         lng: 130.70550853156524
-      },   
+      }, 
+         {
+        id: "hitoyoshi_orthodox",
+        name: "人吉ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Hitoyoshi Orthodox Church",
+        lat: 32.21672654292169, 
+        lng: 130.76909883687796
+      },
       {
-  id: "unknown_miyazaki",
+        id: "kumamoto_orthodox",
+        name: "熊本ハリストス正教会",
+        nameEn: "Kumamoto Orthodox Church",
+        lat: 32.80435218639175,   
+        lng: 130.71799555031276
+      },  
+      {
+  id: "unknown_kumamoto",
   line: "unknown",
-  name: "宮崎",
-  nameEn: "Miyazaki",
+  name: "熊本",
+  nameEn: "Kumamoto",
   type: "station",
-  lat: 31.91563158122375, 
-  lng: 131.43231940518467
+  lat: 32.78992744083884,  
+  lng: 130.68872734662327
  }
   ]
   }
