@@ -3,56 +3,7 @@ window.MAP_CONFIG = {
     center: [33.316994,130.938711],
     zoom: 8,
 
-    churches: [
-     {
-        id: "otaru_orthodox",
-        name: "小樽ハリストス正教会・主の復活聖堂",
-        nameEn: "Otaru Orthodox Church",
-        lat: 43.19058532675394,                     
-        lng: 140.98899218173514
-      },
-      {
-        id: "sapporo_orthodox",
-        name: "札幌ハリストス正教会・主の顕栄聖堂",
-        nameEn: "Sapporo Orthodox Church",
-        lat: 43.01865151311119,                      
-        lng: 141.40312645103944
-      },
-      {
-        id: "otaru_orthodox",
-        name: "小樽ハリストス正教会・主の復活聖堂",
-        nameEn: "Otaru Orthodox Church",
-        lat: 43.19058532675394,                     
-        lng: 140.98899218173514
-      },
-      {
-        id: "tomakomai_orthodox",
-        name: "苫小牧ハリストス正教会・主の降誕聖堂",
-        nameEn: "Tomakomai Orthodox Church",
-        lat: 42.642654755289584,                    
-        lng: 141.5805366375196
-      }, 
-      {
-        id: "kushiro_orthodox",
-        name: "釧路ハリストス正教会・聖神゜降臨聖堂",
-        nameEn: "Kushiro Orthodox Church",
-        lat: 42.97550972265846,                    
-        lng: 144.38810002404912
-      }, 
-      {
-        id: "kamimusa_orthodox",
-        name: "上武佐ハリストス正教会・生神女就寝聖堂",
-        nameEn: "Kamimusa Orthodox Church",
-        lat: 43.61850720398041,                   
-        lng: 144.99488426642338
-      }, 
-      {
-        id: "shari_orthodox",
-        name: "斜里ハリストス正教会・生神女福音聖堂",
-        nameEn: "Shari Orthodox Church",
-        lat: 43.899288709566385,                  
-        lng: 144.62383363760782
-      }, 
+    churches: [ 
       {
         id: "morioka_orthodox",
         name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
