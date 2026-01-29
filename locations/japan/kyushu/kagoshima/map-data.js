@@ -4,7 +4,15 @@ window.MAP_CONFIG = {
     zoom: 12,
 
     pins:  [
-        {
+  {
+        id: "kagoshima_orthodox",
+        name: "鹿児島ハリストス正教会・聖使徒イアコフ聖堂",
+        nameEn: "Kagoshima Orthodox Church",
+        type: "church",
+        lat: 31.591379029899404,  
+        lng: 130.54791936752866
+      },   
+      {
   id: "unknown_kagoshima",
   line: "unknown",
   name: "鹿児島",
