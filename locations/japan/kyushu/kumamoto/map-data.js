@@ -36,8 +36,17 @@ window.MAP_CONFIG = {
         type: "church",
         lat: 32.80435218639175,   
         lng: 130.71799555031276
-      },  
+      }, 
       {
+  id: "unknown_hitoyoshi",
+  line: "unknown",
+  name: "人吉",
+  nameEn: "Hitoyoshi",
+  type: "station",
+  lat: 32.21605623447905,
+  lng: 130.75371869454892
+},
+{
   id: "unknown_kumamoto",
   line: "unknown",
   name: "熊本",
