@@ -193,20 +193,7 @@ window.MAP_CONFIG = {
         lat: 33.59902883402787, 
         lng: 130.4577854597739
       },
-      {
-        id: "hitoyoshi_orthodox",
-        name: "人吉ハリストス正教会・生神女庇護聖堂",
-        nameEn: "Hitoyoshi Orthodox Church",
-        lat: 32.21672654292169, 
-        lng: 130.76909883687796
-      },
-      {
-        id: "kumamoto_orthodox",
-        name: "熊本ハリストス正教会",
-        nameEn: "Kumamoto Orthodox Church",
-        lat: 32.80435218639175,   
-        lng: 130.71799555031276
-      }
+     
     ],
    
   stations: [
