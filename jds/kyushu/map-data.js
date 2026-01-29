@@ -186,13 +186,6 @@ window.MAP_CONFIG = {
         lat: 34.043597041074776,    
         lng: 134.56363952705485
       },
-      {
-        id: "fukuoka_orthodox",
-        name: "九州北ハリストス正教会",
-        nameEn: "Fukuoka Orthodox Church",
-        lat: 33.59902883402787, 
-        lng: 130.4577854597739
-      },
      
     ],
    
@@ -585,46 +578,7 @@ window.MAP_CONFIG = {
   lat: 33.068486779692165,
   lng: 129.8634278238975
 },
-{
-  id: "unknown_shin_omura",
-  line: "unknown",
-  name: "新大村",
-  nameEn: "Shin-Omura",
-  lat: 32.932626750179075,
-  lng: 129.95722857374489
-},
-{
-  id: "unknown_isahaya",
-  line: "unknown",
-  name: "諫早",
-  nameEn: "Isahaya",
-  lat: 32.85203767364156,
-  lng: 130.0412546541023
-},
-{
-  id: "unknown_nagasaki",
-  line: "unknown",
-  name: "長崎",
-  nameEn: "Nagasaki",
-  lat: 32.752447043746166,
-  lng: 129.86892703690688
-},
-{
-  id: "unknown_aino",
-  line: "unknown",
-  name: "愛野",
-  nameEn: "Aino",
-  lat: 32.81895137075822,
-  lng: 130.15604553458053
-},
-{
-  id: "unknown_shimabara",
-  line: "unknown",
-  name: "島原",
-  nameEn: "Shimabara",
-  lat: 32.79027786498945,
-  lng: 130.370631075974
-},
+
 
 // FUKUOKA SUBWAY AIRPORT LINE
 {
