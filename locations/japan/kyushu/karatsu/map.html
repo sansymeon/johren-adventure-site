@@ -12,6 +12,33 @@
     body { margin: 0; }
     #map { height: 100vh; width: 100vw; }
 
+    .station-tooltip {
+      font-size: 13px;
+      line-height: 1.2;
+    }
+
+    .station-tooltip .jp {
+      font-weight: 600;
+    }
+
+    .station-tooltip .en {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+  .back-link {
+      position: fixed;
+      z-index: 9999;
+      bottom: 20px;
+      right: 10px;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 14px;
+      text-decoration: none;
+      color: #333;
+    }
+
     .about-link {
       position: absolute;
       left: 14px;
@@ -33,7 +60,7 @@
 </head>
 
 <body>
-
+<a class="back-link" href="./">← 戻る (Back)</a>
 
 <div id="map"></div>
 
