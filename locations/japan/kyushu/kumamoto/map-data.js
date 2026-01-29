@@ -16,6 +16,7 @@ window.MAP_CONFIG = {
         id: "hitoyoshi_orthodox",
         name: "人吉ハリストス正教会・生神女庇護聖堂",
         nameEn: "Hitoyoshi Orthodox Church",
+        type: "church",
         lat: 32.21672654292169, 
         lng: 130.76909883687796
       },
@@ -23,6 +24,7 @@ window.MAP_CONFIG = {
         id: "kumamoto_orthodox",
         name: "熊本ハリストス正教会",
         nameEn: "Kumamoto Orthodox Church",
+        type: "church",
         lat: 32.80435218639175,   
         lng: 130.71799555031276
       },  
