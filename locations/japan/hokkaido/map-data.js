@@ -61,22 +61,6 @@ window.MAP_CONFIG = {
         lng: 144.62383363760782
       }, 
       {
-        id: "morioka_orthodox",
-        name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
-        nameEn: "Morioka Orthodox Church",
-         type: "church",
-        lat: 39.718873261561406,                 
-        lng: 141.14334543732312
-      },
-      {
-        id: "hokuroku_orthodox",
-        name: "北鹿ハリストス正教会・生神女福音会堂",
-        nameEn: "Hokuroku Orthodox Church",
-        type: "church",
-        lat: 40.21460725011423,                
-        lng: 140.62425246619102
-      },
-      {
   id: "unknown_sapporo",
   line: "unknown",
   name: "札幌",
