@@ -65,4 +65,4 @@ window.MAP_CONFIG.fukuoka_west = {
         lng: 130.32182965079352
         }
  ]
-    };
+};
