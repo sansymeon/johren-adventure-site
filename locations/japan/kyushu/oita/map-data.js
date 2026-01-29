@@ -42,6 +42,7 @@ window.MAP_CONFIG.oita = {
         type: "museum",
         lat: 33.23950622291895, 
         lng: 131.6013320325027
-     }
-]
-};
+      }
+  ]
+  }
+};;
