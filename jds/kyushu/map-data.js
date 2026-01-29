@@ -206,14 +206,7 @@ window.MAP_CONFIG = {
         nameEn: "Kumamoto Orthodox Church",
         lat: 32.80435218639175,   
         lng: 130.71799555031276
-      },
-    {
-        id: "kagoshima_orthodox",
-        name: "鹿児島ハリストス正教会・聖使徒イアコフ聖堂",
-        nameEn: "Kagoshima Orthodox Church",
-        lat: 31.591379029899404,  
-        lng: 130.54791936752866
-      },   
+      }
     ],
    
   stations: [
