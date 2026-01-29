@@ -1,7 +1,7 @@
 window.MAP_CONFIG = {
   hokkaido: {
     center: [43.068772070661566, 141.3509750091167],
-    zoom: 10,
+    zoom: 8,
 
     pins:  [
   {
