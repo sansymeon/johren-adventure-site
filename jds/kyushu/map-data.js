@@ -1379,14 +1379,7 @@ window.MAP_CONFIG = {
   lat: 33.02990295665634,
   lng: 130.44320628992418
 },
-{
-  id: "unknown_hitoyoshi",
-  line: "unknown",
-  name: "人吉",
-  nameEn: "Hitoyoshi",
-  lat: 32.21605623447905,
-  lng: 130.75371869454892
-},
+
 {
   id: "unknown_ebino",
   line: "unknown",
@@ -1402,13 +1395,5 @@ window.MAP_CONFIG = {
   nameEn: "Miyakonojo",
   lat: 31.736378618376378,
   lng: 131.07474138097672
-},
-{
-  id: "unknown_miyazaki",
-  line: "unknown",
-  name: "宮崎",
-  nameEn: "Miyazaki",
-  lat: 31.915539598715622,
-  lng: 131.43198524061467
 },
 
