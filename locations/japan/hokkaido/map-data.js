@@ -82,7 +82,7 @@ window.MAP_CONFIG = {
   name: "札幌",
   nameEn: "Sapporo",
   type: "station",
-  lat: 43.068772070661566, , 
+  lat: 43.068772070661566,
   lng: 141.3509750091167
  }
   ]
