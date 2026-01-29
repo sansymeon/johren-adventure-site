@@ -4,7 +4,16 @@ window.MAP_CONFIG = {
     zoom: 10,
 
     pins:  [
-  {
+      
+      {
+        id: "mount_aso",
+        name: "阿蘇山上ビジターセンター",
+        nameEn: "Mt. Aso Visitor Center",
+        type: "museum",
+        lat: 32.885374785782034,     
+        lng: 131.05229967956592
+      }, 
+      {
         id: "kumamoto_castle",
         name: "熊本城",
         nameEn: "Kumamoto Castle",
