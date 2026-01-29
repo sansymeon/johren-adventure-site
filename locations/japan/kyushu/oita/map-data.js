@@ -46,4 +46,4 @@ window.MAP_CONFIG = {
       }
   ]
   }
-};;
+};
