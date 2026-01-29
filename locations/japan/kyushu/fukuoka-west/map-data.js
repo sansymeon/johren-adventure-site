@@ -1,4 +1,5 @@
-window.MAP_CONFIG.fukuoka_west = {
+window.MAP_CONFIG = {
+  fukuoka_west: {
     center: [33.58355982784518, 130.32484060626882],
     zoom: 12,
 
