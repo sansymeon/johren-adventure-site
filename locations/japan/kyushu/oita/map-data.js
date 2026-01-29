@@ -1,4 +1,4 @@
-window.MAP_CONFIG.oita = {
+window.MAP_CONFIG = {oita
     center: [33.232606218244186, 131.6058935221856],
     zoom: 12,
 
