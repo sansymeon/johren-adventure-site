@@ -1,5 +1,5 @@
 window.MAP_CONFIG = {
-  iwate: {
+  akita: {
     center: [40.03492001454607, 140.38592139337334],
     zoom: 10,
 
