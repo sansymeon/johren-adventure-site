@@ -1,23 +1,23 @@
 window.MAP_CONFIG = {
   iwate: {
-    center: [39.91842729730693, 141.19868947313708],
+    center: [40.03492001454607, 140.38592139337334],
     zoom: 10,
 
     pins:  [
-  {
-        id: "morioka_orthodox",
-        name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
-        nameEn: "Morioka Orthodox Church",
-        lat: 39.718873261561406,                 
-        lng: 141.14334543732312
+ {
+        id: "hokuroku_orthodox",
+        name: "北鹿ハリストス正教会・生神女福音会堂",
+        nameEn: "Hokuroku Orthodox Church",
+        lat: 40.21460725011423,                
+        lng: 140.62425246619102
       },
         {
-        id: "iwate_kawaguchi",
-        name: "岩手川口駅",
-        nameEn: "Iwate Kawaguchi",
+        id: "akita",
+        name: "秋田",
+        nameEn: "Akita",
         type: "station",
-        lat: 39.91886880943039,  
-        lng: 141.19933495479495
+        lat: 39.71699459890198, 
+        lng: 140.12967542198115
  }
   ]
   }
