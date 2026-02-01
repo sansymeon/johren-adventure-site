@@ -4,14 +4,6 @@ window.MAP_CONFIG = {
     zoom: 7,
 
     pins:  [
-  {
-        id: "otaru_orthodox",
-        name: "小樽ハリストス正教会・主の復活聖堂",
-        nameEn: "Otaru Orthodox Church",
-         type: "church",
-        lat: 43.19058532675394,                     
-        lng: 140.98899218173514
-      },
        {
         id: "hakodate_orthodox",
         name: "函館ハリストス正教会",
