@@ -18,6 +18,20 @@ window.MAP_CONFIG = {
         lat: 39.19564918643734,               
         lng: 141.1774628084538
       },
+            {
+        id: "toyohashi_orthodox",
+        name: "豊橋ハリストス正教会・聖使徒福音者マトフェイ聖堂",
+        nameEn: "Toyohashi Orthodox Church",
+        lat: 34.76802881935057,          
+        lng: 137.39393794866496
+      },
+      {
+        id: "handa_orthodox",
+        name: "半田ハリストス正教会・聖イオアン・ダマスキン聖堂",
+        nameEn: "Saint John of Damascus Orthodox Church",
+        lat: 34.91164457680192,         
+        lng: 136.9408163370278
+      },
       {
   id: "unknown_nagoya",
   line: "unknown",
