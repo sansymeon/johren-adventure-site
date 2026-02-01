@@ -4,12 +4,19 @@ window.MAP_CONFIG = {
     zoom: 10,
 
     pins:  [
- {
+      {
         id: "hokuroku_orthodox",
         name: "北鹿ハリストス正教会・生神女福音会堂",
         nameEn: "Hokuroku Orthodox Church",
         lat: 40.21460725011423,                
         lng: 140.62425246619102
+      },
+      {  
+        id: "jumonji_orthodox",
+        name: "十文字ハリストス正教会",
+        nameEn: "Jumonji Orthodox Church",
+        lat: 38.767362271760085,            
+        lng: 141.14312620047744
       },
         {
         id: "akita",
