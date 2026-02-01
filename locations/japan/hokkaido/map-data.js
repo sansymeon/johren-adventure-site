@@ -12,6 +12,22 @@ window.MAP_CONFIG = {
         lat: 43.19058532675394,                     
         lng: 140.98899218173514
       },
+       {
+        id: "hakodate_orthodox",
+        name: "函館ハリストス正教会",
+        nameEn: "Hakodate Orthodox Church",
+         type: "church",
+        lat: 41.762791271261975,                    
+        lng: 140.71221112396552
+      }, 
+      {
+        id: "kamiiso_orthodox",
+        name: "上磯ハリストス正教会・主の昇天聖堂（北斗市）",
+        nameEn: "Kamiiso Orthodox Church",
+         type: "church",
+        lat: 41.84321997856034,                    
+        lng: 140.63660773746471 
+      }, 
       {
         id: "sapporo_orthodox",
         name: "札幌ハリストス正教会・主の顕栄聖堂",
