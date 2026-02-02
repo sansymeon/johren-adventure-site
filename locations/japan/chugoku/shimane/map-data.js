@@ -1,17 +1,10 @@
 window.MAP_CONFIG = {
-  nagasaki: {
-    center: [32.752546298028726, 129.86865881602043],
+  shimane: {
+    center: [35.05372647020306, 132.557175153782],
     zoom: 10,
 
     pins:  [
-  {
-        id: "peace_park",
-        name: "平和公園",
-        nameEn: "Peace Park Nagasaki",
-        type: "museum",
-        lat: 32.776992537763874,    
-        lng: 129.86393524060455
-      },  
+  
         {
         id: "urakami_cathedral",
         name: "カトリック浦上教会（浦上天主堂）",
