@@ -1,69 +1,33 @@
 window.MAP_CONFIG = {
-  nagasaki: {
-    center: [32.752546298028726, 129.86865881602043],
+  kanagawa: {
+    center: [35.42044573151612, 139.4031563415516],
     zoom: 10,
 
     pins:  [
   {
-        id: "peace_park",
-        name: "平和公園",
-        nameEn: "Peace Park Nagasaki",
-        type: "museum",
-        lat: 32.776992537763874,    
-        lng: 129.86393524060455
+        id: "odawara_orthodox",
+        name: "小田原ハリストス正教会",
+        nameEn: "Odawara Orthodox Church",
+        type: "church",
+        lat: 35.25415027273678,    
+        lng: 139.1633436505412
       },  
         {
-        id: "urakami_cathedral",
-        name: "カトリック浦上教会（浦上天主堂）",
-        nameEn: "Urakami Cathedral",
+        id: "yokohama_orthodox",
+        name: "横浜ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Yokohama Orthodox",
         type: "church",
-        lat: 32.77611633657394,   
-        lng: 129.86835109327734
+        lat: 35.47552476115016,    
+        lng: 139.61811951007334
       }, 
       {
-  id: "unknown_shin_omura",
-  line: "unknown",
-  name: "新大村",
-  nameEn: "Shin-Omura",
+  id: "tokaido_odawara",
+  line: "tokaido",
+  name: "小田原",
+  nameEn: "Odawara",
   type: "station",
-  lat: 32.932626750179075,
-  lng: 129.95722857374489
-},
-{
-  id: "unknown_isahaya",
-  line: "unknown",
-  name: "諫早",
-  nameEn: "Isahaya",
-  type: "station",
-  lat: 32.85203767364156,
-  lng: 130.0412546541023
-},
-{
-  id: "unknown_aino",
-  line: "unknown",
-  name: "愛野",
-  nameEn: "Aino",
-  type: "station",
-  lat: 32.81895137075822,
-  lng: 130.15604553458053
-},
-{
-  id: "unknown_shimabara",
-  line: "unknown",
-  name: "島原",
-  type: "station",
-  nameEn: "Shimabara",
-  lat: 32.79027786498945,
-  lng: 130.370631075974
-},
-      {
-  id: "unknown_nagasaki",
-  line: "unknown",
-  name: "長崎",
-  nameEn: "Nagasaki",
-  type: "station",
-  lat: 32.752546298028726, 
-  lng: 129.86865881602043
+  lat: 35.25618114388968,  
+  lng: 139.15575408424047
  }
   ]
   }
