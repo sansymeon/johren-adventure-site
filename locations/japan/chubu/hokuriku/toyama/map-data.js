@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  toyama: {
+    center: [36.71081212618168, 137.1759720093874],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "toyama_catholic",
+        name: "カトリック富山教会",
+        nameEn: "Toyama Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 36.68684080386004,    
+        lng: 137.2127495442675
       }, 
       {
-  id: "jr_west_tottori",
+  id: "jr_west_toyama",
   line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  name: "富山",
+  nameEn: "Toyama",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 36.70186117993539,   
+  lng: 137.2124863199435
  }
   ]
   }
