@@ -1,69 +1,34 @@
 window.MAP_CONFIG = {
-  nagasaki: {
+  hyogo: {
     center: [32.752546298028726, 129.86865881602043],
     zoom: 10,
 
     pins:  [
-  {
-        id: "peace_park",
-        name: "平和公園",
-        nameEn: "Peace Park Nagasaki",
-        type: "museum",
-        lat: 32.776992537763874,    
-        lng: 129.86393524060455
-      },  
         {
-        id: "urakami_cathedral",
-        name: "カトリック浦上教会（浦上天主堂）",
-        nameEn: "Urakami Cathedral",
+        id: "kobe_orthodox",
+        name: "神戸ハリストス正教会",
+        nameEn: "Kobe (Dormition) Orthodox Church",
         type: "church",
-        lat: 32.77611633657394,   
-        lng: 129.86835109327734
+        lat: 34.699163335146295,   
+        lng: 135.192054065851 
       }, 
       {
-  id: "unknown_shin_omura",
-  line: "unknown",
-  name: "新大村",
-  nameEn: "Shin-Omura",
+  id: "jr_west_himeji",
+  line: "jr_west",
+  name: "姫路",
   type: "station",
-  lat: 32.932626750179075,
-  lng: 129.95722857374489
+  nameEn: "Himeji",
+  lat: 34.82668218036908, 
+  lng: 134.69050040818743
 },
 {
-  id: "unknown_isahaya",
-  line: "unknown",
-  name: "諫早",
-  nameEn: "Isahaya",
+  id: "jr_west_kobe",
+  line: "jr_west",
+  name: "神戸",
+  nameEn: "Kobe",
   type: "station",
-  lat: 32.85203767364156,
-  lng: 130.0412546541023
-},
-{
-  id: "unknown_aino",
-  line: "unknown",
-  name: "愛野",
-  nameEn: "Aino",
-  type: "station",
-  lat: 32.81895137075822,
-  lng: 130.15604553458053
-},
-{
-  id: "unknown_shimabara",
-  line: "unknown",
-  name: "島原",
-  type: "station",
-  nameEn: "Shimabara",
-  lat: 32.79027786498945,
-  lng: 130.370631075974
-},
-      {
-  id: "unknown_nagasaki",
-  line: "unknown",
-  name: "長崎",
-  nameEn: "Nagasaki",
-  type: "station",
-  lat: 32.752546298028726, 
-  lng: 129.86865881602043
+  lat: 34.679489017452056, 
+  lng: 135.17826511406824
  }
   ]
   }
