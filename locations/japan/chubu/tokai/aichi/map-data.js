@@ -33,8 +33,8 @@ window.MAP_CONFIG = {
         lng: 136.9408163370278
       },
       {
-  id: "unknown_nagoya",
-  line: "unknown",
+  id: "tokaido_nagoya",
+  line: "tokaido",
   name: "名古屋",
   nameEn: "Nagoya",
   type: "station",
