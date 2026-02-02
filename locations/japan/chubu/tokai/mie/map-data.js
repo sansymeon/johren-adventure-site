@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  mie: {
+    center: [34.668684025513514, 136.43558112910594],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "yokkaichi_catholic",
+        name: "カトリック四日市教会",
+        nameEn: "Yokkaichi Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 34.960578258398655,    
+        lng: 136.62207633703056
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_central_yokkaichi",
+  line: "jr_central",
+  name: "四日市駅",
+  nameEn: "Yokkaichi",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 34.96303176535332,   
+  lng: 136.62959923703082
  }
   ]
   }
