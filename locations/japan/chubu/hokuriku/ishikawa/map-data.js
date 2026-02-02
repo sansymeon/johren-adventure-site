@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  ishikawa: {
+    center: [36.40896337807482, 136.53396520580696],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "kanazawa_catholic",
+        name: "カトリック金沢教会",
+        nameEn: "Kanazawa Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 36.561423033796366,     
+        lng: 136.65571591446258
       }, 
       {
-  id: "jr_west_tottori",
+  id: "jr_west_kanazawa",
   line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  name: "金沢",
+  nameEn: "Kanazawa",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 36.57809596678759,   
+  lng: 136.64860054821557
  }
   ]
   }
