@@ -14,8 +14,8 @@ window.MAP_CONFIG = {
         lng: 138.57452837088948
       }, 
       {
-  id: "jr_chuo_kofu",
-  line: "jr_chuo",
+  id: "jr_central_kofu",
+  line: "jr_central",
   name: "甲府",
   nameEn: "Kofu",
   type: "station",
