@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  yamanashi: {
+    center: [35.63749154824226, 138.5689917579345],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "kofu_catholic",
+        name: "カトリック甲府教会",
+        nameEn: "Kofu Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 35.66305006229238,    
+        lng: 138.57452837088948
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_chuo_kofu",
+  line: "jr_chuo",
+  name: "甲府",
+  nameEn: "Kofu",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 35.66706620742847,   
+  lng: 138.56944998254116
  }
   ]
   }
