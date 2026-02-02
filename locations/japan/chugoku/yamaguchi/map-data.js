@@ -5,6 +5,14 @@ window.MAP_CONFIG = {
 
     pins:  [
         {
+        id: "maruyama_hachimangu",
+        name: "丸山八幡宮 二の鳥居",
+        nameEn: "Maruyama Hachimangu Shrine",
+        type: "shrine",
+        lat: 34.54822633746893,                    
+        lng: 131.63678866800052 
+      },
+      {
         id: "yanaihara_orthodox",
         name: "柳井原ハリストス正教会",
         nameEn: "Yanaihara Orthodox Church",
