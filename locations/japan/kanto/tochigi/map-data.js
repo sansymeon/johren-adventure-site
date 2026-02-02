@@ -1,69 +1,49 @@
 window.MAP_CONFIG = {
-  nagasaki: {
-    center: [32.752546298028726, 129.86865881602043],
+  tochigi: {
+    center: [36.61168393433168, 139.935363031308],
     zoom: 10,
 
     pins:  [
   {
-        id: "peace_park",
-        name: "平和公園",
-        nameEn: "Peace Park Nagasaki",
-        type: "museum",
-        lat: 32.776992537763874,    
-        lng: 129.86393524060455
+        id: "ashikaga_orthodox",
+        name: "足利ハリストス正教会",
+        nameEn: "Ashikaga Orthodox",
+        type: "church",
+        lat: 36.34042392554054,     
+        lng: 139.44069005245362
       },  
         {
-        id: "urakami_cathedral",
-        name: "カトリック浦上教会（浦上天主堂）",
-        nameEn: "Urakami Cathedral",
+        id: "kanuma_orthodox",
+        name: "鹿沼ハリストス正教会",
+        nameEn: "Kanuma Orthodox Church",
         type: "church",
-        lat: 32.77611633657394,   
-        lng: 129.86835109327734
+        lat: 36.568075037474735,    
+        lng: 139.74618269479646
       }, 
       {
-  id: "unknown_shin_omura",
-  line: "unknown",
-  name: "新大村",
-  nameEn: "Shin-Omura",
-  type: "station",
-  lat: 32.932626750179075,
-  lng: 129.95722857374489
+  id: "bato_orthodox",
+  name: "馬頭ハリストス正教会",
+  nameEn: "Bato Orthodox Church",
+  type: "church",
+  lat: 36.73551117598863, 
+  lng: 140.16940642364202
 },
 {
-  id: "unknown_isahaya",
-  line: "unknown",
-  name: "諫早",
-  nameEn: "Isahaya",
-  type: "station",
-  lat: 32.85203767364156,
-  lng: 130.0412546541023
+  id: "utsunomiya_orthodox",
+  name: "宇都宮ハリストス正教会",
+  nameEn: "Utsunomiya Orthodox Church",
+  type: "church",
+  lat: 36.55939642581332, 
+  lng: 139.87642161013775
 },
-{
-  id: "unknown_aino",
-  line: "unknown",
-  name: "愛野",
-  nameEn: "Aino",
+ {
+  id: "jr_east_utsunomiya",
+  line: "jr_east",
+  name: "宇都宮駅",
+  nameEn: "Utsunomiya",
   type: "station",
-  lat: 32.81895137075822,
-  lng: 130.15604553458053
-},
-{
-  id: "unknown_shimabara",
-  line: "unknown",
-  name: "島原",
-  type: "station",
-  nameEn: "Shimabara",
-  lat: 32.79027786498945,
-  lng: 130.370631075974
-},
-      {
-  id: "unknown_nagasaki",
-  line: "unknown",
-  name: "長崎",
-  nameEn: "Nagasaki",
-  type: "station",
-  lat: 32.752546298028726, 
-  lng: 129.86865881602043
+  lat: 36.558928575702026,  
+  lng: 139.89837599294765
  }
   ]
   }
