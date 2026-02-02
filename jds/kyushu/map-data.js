@@ -3,24 +3,6 @@ window.MAP_CONFIG = {
     center: [33.316994,130.938711],
     zoom: 8,
 
-    churches: [ 
-      {
-        id: "yanaihara_orthodox",
-        name: "柳井原ハリストス正教会",
-        nameEn: "Yanaihara Orthodox Church",
-        lat: 34.60898209432798,     
-        lng: 133.72219075235222
-      },
-      {
-        id: "tokushima_orthodox",
-        name: "徳島ハリストス正教会･聖神降臨聖堂",
-        nameEn: "Tokushima Orthodox Church",
-        lat: 34.043597041074776,    
-        lng: 134.56363952705485
-      },
-     
-    ],
-   
   stations: [
 // CHIKUHI LINE
 {
