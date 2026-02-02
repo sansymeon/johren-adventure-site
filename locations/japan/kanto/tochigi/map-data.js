@@ -12,6 +12,14 @@ window.MAP_CONFIG = {
         lat: 36.34042392554054,     
         lng: 139.44069005245362
       },  
+      {
+        id: "akutsu_orthodox",
+        name: "圷ハリストス正教会",
+        nameEn: "Akutsu Orthodox Church",
+        type: "church",
+        lat: 36.49210927234493,   
+        lng: 140.36823765246274
+      }, 
         {
         id: "kanuma_orthodox",
         name: "鹿沼ハリストス正教会",
