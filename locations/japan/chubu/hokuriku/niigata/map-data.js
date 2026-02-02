@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  niigata: {
+    center: [37.41266410645989, 138.79857305606032],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "niigata_catholic",
+        name: "カトリック新潟教会",
+        nameEn: "Christ the King Cathedral",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 37.924980779826875,    
+        lng: 139.0386848735976
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_east_niigata",
+  line: "jr_east",
+  name: "新潟",
+  nameEn: "Niigata",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 37.911996449103825,   
+  lng: 139.06156041816973
  }
   ]
   }
