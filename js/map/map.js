@@ -115,6 +115,32 @@
     supermarket: makeIcon('supermarket.png')
   };
 
+  // -------------------------------
+// JOHREN PIN HOVER / ACTIVE BINDING
+// -------------------------------
+function attachJohrenPinBehavior(marker) {
+  if (!marker) return;
+
+  marker.on("add", () => {
+    const el = marker.getElement();
+    if (!el) return;
+
+    el.classList.add("johren-pin");
+
+    // mobile tap highlight
+    el.addEventListener(
+      "touchstart",
+      () => el.classList.add("is-active"),
+      { passive: true }
+    );
+    el.addEventListener(
+      "touchend",
+      () => el.classList.remove("is-active"),
+      { passive: true }
+    );
+  });
+}
+
   const stationLayer = L.layerGroup().addTo(map);
   const churchLayer  = L.layerGroup().addTo(map);
   const mosqueLayer  = L.layerGroup().addTo(map);
@@ -298,6 +324,8 @@ function formatPinPopup(item) {
         icon: isVisited ? icons.stationVisited : icons.stationDefault
       }).addTo(stationLayer);
 
+      attachJohrenPinBehavior(marker);
+
       marker.bindTooltip(formatStationLabel(station), {
         direction: 'top',
         offset: [0, -28],
@@ -328,8 +356,11 @@ function loadCategory(list, layer, icon, kind) {
     if (!item || typeof item.lat !== "number" || typeof item.lng !== "number") return;
 
     const marker = L.marker([item.lat, item.lng], { icon })
-      .addTo(layer)
-      .bindPopup(formatPinPopup(item));
+  .addTo(layer)
+  .bindPopup(formatPinPopup(item));
+
+    attachJohrenPinBehavior(marker);
+
 
     const id = String(item.id || `${kind}:${item.lat},${item.lng}`);
     markerById.set(id, marker);
@@ -366,6 +397,8 @@ loadCategory(parks, parkLayer, icons.park, "park");
     const marker = L.marker([item.lat, item.lng], { icon })
       .addTo(layer)
       .bindPopup(formatUniversalPopup(item));
+
+    attachJohrenPinBehavior(marker);
 
     marker._pinType = type;
 
@@ -832,6 +865,8 @@ function renderPersonalPins() {
 
   personalPins.forEach(pin => {
     const m = L.marker([pin.lat, pin.lng], { icon: makePersonalIcon() });
+
+    attachJohrenPinBehavior(m);
 
     m._pinType = PERSONAL_TYPE;
 
