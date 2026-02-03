@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜筑肥線マップ</title>
+  <title>ジョウレン・アドベンチャー｜糸島マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
@@ -25,7 +25,8 @@
       font-size: 11px;
       opacity: 0.7;
     }
-  .back-link {
+
+    .back-link {
       position: fixed;
       z-index: 9999;
       bottom: 20px;
@@ -38,6 +39,7 @@
       text-decoration: none;
       color: #333;
     }
+
     .about-link {
       position: absolute;
       left: 14px;
@@ -55,10 +57,25 @@
     .about-link:hover {
       background: rgba(255,255,255,1);
     }
+
+    /* ===============================
+       JOHREN PIN HOVER BEHAVIOR
+       =============================== */
+    .leaflet-marker-icon.johren-pin {
+      transition: filter 120ms ease, transform 120ms ease;
+      filter: brightness(1);
+    }
+
+    .leaflet-marker-icon.johren-pin:hover,
+    .leaflet-marker-icon.johren-pin.is-active {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 
 <body>
+
 <a class="back-link" href="./">← 戻る (Back)</a>
 
 <div id="map"></div>
@@ -72,8 +89,6 @@
 
 <script src="./map-data.js"></script>
 <script src="/js/map/map.js"></script>
-
-
 
 <a href="./about-map.html" class="about-link">About Johren</a>
 
