@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Johren｜日本を選択</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Johren Japan entry page. Choose your region and begin exploring nearby places." />
+
+  <style>
+    :root {
+      --text-main: #222;
+      --text-sub: #666;
+      --border: #e6e6e6;
+      --bg-soft: #fafafa;
+      --bg-white: #ffffff;
+      --accent: #c9a24d; /* subtle gold, matches your pin language */
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-white);
+    }
+
+    /* ===============================
+       HEADER
+       =============================== */
+    .entry-header {
+      text-align: center;
+      padding: 42px 16px 30px;
+    }
+
+    .logo {
+      height: 56px;
+      margin-bottom: 14px;
+    }
+
+    .tagline-ja {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .tagline-en {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-top: 6px;
+    }
+
+    /* ===============================
+       REGION GRID
+       =============================== */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      padding: 0 16px 48px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .region-card {
+      display: block;
+      padding: 18px 14px 16px;
+      text-align: center;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+    }
+
+    .region-card:hover {
+      background: var(--bg-white);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .region-ja {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .region-en {
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.02em;
+    }
+
+    /* ===============================
+       FOOTER (optional, subtle)
+       =============================== */
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+      padding: 10px 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="entry-header">
+  <img src="/img/johren-logo.svg" alt="Johren" class="logo">
+
+  <p class="tagline-ja">地域を選んで、近くの場所を探す</p>
+  <p class="tagline-en">Choose your region in Japan to begin</p>
+</header>
+
+<main>
+  <section class="region-grid">
+
+    <a href="./hokkaido/" class="region-card">
+      <div class="region-ja">北海道</div>
+      <div class="region-en">Hokkaidō</div>
+    </a>
+
+    <a href="./tohoku/" class="region-card">
+      <div class="region-ja">東北</div>
+      <div class="region-en">Tōhoku</div>
+    </a>
+
+    <a href="./kanto/" class="region-card">
+      <div class="region-ja">関東</div>
+      <div class="region-en">Kantō</div>
+    </a>
+
+    <a href="./chubu/" class="region-card">
+      <div class="region-ja">中部</div>
+      <div class="region-en">Chūbu</div>
+    </a>
+
+    <a href="./kansai/" class="region-card">
+      <div class="region-ja">関西</div>
+      <div class="region-en">Kansai</div>
+    </a>
+
+    <a href="./chugoku/" class="region-card">
+      <div class="region-ja">中国</div>
+      <div class="region-en">Chūgoku</div>
+    </a>
+
+    <a href="./shikoku/" class="region-card">
+      <div class="region-ja">四国</div>
+      <div class="region-en">Shikoku</div>
+    </a>
+
+    <a href="./kyushu/" class="region-card">
+      <div class="region-ja">九州・沖縄</div>
+      <div class="region-en">Kyūshū & Okinawa</div>
+    </a>
+
+  </section>
+</main>
+
+<footer>
+  Johren — local discovery, gently mapped
+</footer>
+
+</body>
+</html>
