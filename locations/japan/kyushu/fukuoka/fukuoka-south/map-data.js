@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  fukuoka_south: {
+    center: [33.30481911352225, 130.5095453883657],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "kurume_catholic",
+        name: "カトリック久留米教会",
+        nameEn: "Kurume Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 33.313436341739695,   
+        lng: 130.51520736577007
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_kyushu_kurume",
+  line: "jr_kyushu",
+  name: "久留米",
+  nameEn: "",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 33.320446278042354,   
+  lng: 130.50144452714068
  }
   ]
   }
