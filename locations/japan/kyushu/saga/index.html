@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>Johren｜佐賀</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="description" content="Johren Fukuoka region. Choose an area to explore nearby places." />
+
+  <style>
+    :root {
+      --text-main: #222;
+      --text-sub: #666;
+      --border: #e6e6e6;
+      --bg-soft: #fafafa;
+      --bg-white: #ffffff;
+      --accent: #c9a24d;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+      color: var(--text-main);
+      background: var(--bg-white);
+    }
+
+    /* ===============================
+       HEADER
+       =============================== */
+    .entry-header {
+      text-align: center;
+      padding: 42px 16px 28px;
+    }
+
+    .logo {
+      height: 52px;
+      margin-bottom: 14px;
+    }
+
+    .tagline-ja {
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .tagline-en {
+      font-size: 13px;
+      color: var(--text-sub);
+      margin-top: 6px;
+    }
+
+    /* ===============================
+       GRID
+       =============================== */
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+      padding: 0 16px 48px;
+      max-width: 920px;
+      margin: 0 auto;
+    }
+
+    .region-card {
+      display: block;
+      padding: 18px 14px 16px;
+      text-align: center;
+      border-radius: 14px;
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text-main);
+      transition: background 120ms ease, transform 120ms ease, box-shadow 120ms ease;
+    }
+
+    .region-card:hover {
+      background: var(--bg-white);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .region-ja {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .region-en {
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.02em;
+    }
+
+    /* ===============================
+       BACK LINK
+       =============================== */
+    .back-link {
+      position: fixed;
+      left: 14px;
+      top: 14px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #555;
+      background: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .back-link:hover {
+      background: #fff;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #888;
+      padding: 10px 0 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<a href="../" class="back-link">← 日本 / Japan</a>
+
+<header class="entry-header">
+  <img src="/img/johren_crest_gold.png" alt="Johren" class="logo">
+
+  <p class="tagline-ja">佐賀県地方を選択</p>
+  <p class="tagline-en">Choose an area within Fukuoka Prefecture</p>
+</header>
+
+<main>
+  <section class="region-grid">
+
+    <a href="./saga-west/" class="region-card">
+      <div class="region-ja">佐賀県西部</div>
+      <div class="region-en">Saga West</div>
+    </a>
+
+    <a href="./saga-city/" class="region-card">
+      <div class="region-ja">佐賀市</div>
+      <div class="region-en">Saga City</div>
+    </a>
+
+  </section>
+</main>
+
+<footer>
+  Johren — local discovery, gently mapped
+</footer>
+
+</body>
+</html>
