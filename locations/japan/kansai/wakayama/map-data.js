@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  wakayama: {
+    center: [34.24035172880232, 135.2229834187384],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "wakayama_catholic",
+        name: "カトリック和歌山教会",
+        nameEn: "Wakayama Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 34.22695496794205,   
+        lng: 135.17871496692584
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_hanwa_wakayama",
+  line: "jr_hanwa",
+  name: "和歌山",
+  nameEn: "Wakayama",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 34.23193966655008, 
+  lng: 135.19150551352493
  }
   ]
   }
