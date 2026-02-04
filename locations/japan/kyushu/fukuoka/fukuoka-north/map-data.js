@@ -1,6 +1,6 @@
 window.MAP_CONFIG = {
   fukuoka_north: {
-    center: [31.589208084437992, 130.51962061457408],
+    center: [33.77545684622755, 130.6597388177554],
     zoom: 10,
 
     pins:  [
