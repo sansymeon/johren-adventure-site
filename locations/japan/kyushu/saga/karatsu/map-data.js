@@ -1,11 +1,11 @@
 window.MAP_CONFIG = {
-  karatsu: {
+  saga_west: {
     center: [33.4533, 129.9782], 
     zoom: 12,
 
  pins:  [
         {
-      id: "jr-chikuhi-jk16", 
+      id: "jr-chikuhi-hamasaki", 
       name: "浜崎", 
       nameEn: "Hamasaki", 
       type: "station",
@@ -13,7 +13,7 @@ window.MAP_CONFIG = {
       lng: 130.036798 
       },
       { 
-        id: "jr-chikuhi-jk17", 
+        id: "jr-chikuhi-nijinomatsubara", 
        name: "虹の松原", 
        nameEn: "Nijinomatsubara", 
         type: "station",
@@ -21,7 +21,7 @@ window.MAP_CONFIG = {
         lng: 130.01619 
       },
       { 
-        id: "jr-chikuhi-jk18", 
+        id: "jr-chikuhi-higashi-karatsu", 
        name: "東唐津", 
        nameEn: "Higashi Karatsu", 
          type: "station",
@@ -31,7 +31,7 @@ window.MAP_CONFIG = {
       },
     
       { 
-        id: "jr-chikuhi-jk19", 
+        id: "jr-chikuhi-watada", 
        name: "和多田", 
         nameEn: "Watada", 
          type: "station",
@@ -39,7 +39,7 @@ window.MAP_CONFIG = {
         lng: 129.980768 
       },
       { 
-        id: "jr-chikuhi-jk20", 
+        id: "jr-chikuhi-karatsu", 
        name: "唐津", 
        nameEn: "Karatsu", 
         type: "station",
@@ -47,7 +47,7 @@ window.MAP_CONFIG = {
        lng: 129.967587 
       },
       { 
-        id: "jr-chikuhi-jk21", 
+        id: "jr-chikuhi-nishi-karatsu", 
        name: "西唐津", 
        nameEn: "Nishi Karatsu", 
          type: "station",
