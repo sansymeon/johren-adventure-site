@@ -53,6 +53,14 @@ window.MAP_CONFIG = {
         lng: 130.39490595063134
       },
       {
+        id: "fukuoka_orthodox", 
+        name: "九州北ハリストス正教会",
+        nameEn: "Fukuoka Orthodox Church",
+         type: "church",
+         lat: 33.599085391232514, 
+        lng: 130.45781444340906
+      },
+      {
         id: "fukuoka_art",
         name: "福岡市美術館",
         nameEn: "Fukuoka Art Museum",
