@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About This Area</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f7f7f7;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header img {
+      height: 36px;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    h1 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    p.intro {
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .prompt-grid a {
+      display: block;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      background: #ffffff;
+      padding: 14px 16px;
+      border-radius: 8px;
+      transition: background 0.15s ease;
+    }
+
+    .prompt-grid a:hover {
+      background: #f0f0f0;
+    }
+
+    .jp {
+      font-size: 0.95rem;
+      color: #222;
+    }
+
+    .en {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    footer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: #777;
+    }
+
+    footer a {
+      color: #777;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <!-- Replace with your actual logo path -->
+  <a href="index.html">
+    <img src="../../../../img/johren_crest_gold.png" alt="Johren" />
+  </a>
+</header>
+
+<main>
+
+  <h1>この地域について考える</h1>
+  <p class="intro">
+    地図では見えにくい、この場所の空気感や日常を静かに探るための質問集です。<br>
+    <span class="en">Quiet questions to help you understand what this place feels like.</span>
+  </p>
+
+  <div class="prompt-grid">
+
+    <!-- PROMPT 1 -->
+    <a href="https://chat.openai.com/?q=Describe+this+prefecture+as+a+place+to+walk+slowly+and+observe+daily+life.+Avoid+tourist+lists."
+       target="_blank" rel="noopener">
+      <div class="jp">ゆっくり歩くと見えてくる風景</div>
+      <div class="en">What you notice when you walk without a plan</div>
+    </a>
+
+    <!-- PROMPT 2 -->
+    <a href="https://chat.openai.com/?q=What+kind+of+places+do+locals+tend+to+visit+on+ordinary+days+in+this+prefecture%3F"
+       target="_blank" rel="noopener">
+      <div class="jp">地元の人のふだんの過ごし方</div>
+      <div class="en">How locals spend an ordinary day</div>
+    </a>
+
+    <!-- PROMPT 3 -->
+    <a href="https://chat.openai.com/?q=Describe+quiet+or+reflective+places+in+this+prefecture+without+ranking+or+reviews."
+       target="_blank" rel="noopener">
+      <div class="jp">静かに過ごせる場所</div>
+      <div class="en">Quiet or reflective places</div>
+    </a>
+
+    <!-- PROMPT 4 -->
+    <a href="https://chat.openai.com/?q=How+does+this+prefecture+feel+different+depending+on+the+season%3F+Focus+on+atmosphere."
+       target="_blank" rel="noopener">
+      <div class="jp">季節による空気の違い</div>
+      <div class="en">How the atmosphere changes by season</div>
+    </a>
+
+    <!-- PROMPT 5 -->
+    <a href="https://chat.openai.com/?q=What+things+in+this+prefecture+are+often+overlooked+by+visitors+but+noticed+by+locals%3F"
+       target="_blank" rel="noopener">
+      <div class="jp">見過ごされがちな魅力</div>
+      <div class="en">Things visitors often miss</div>
+    </a>
+
+  </div>
+
+  <footer>
+    <p>
+      You don’t need an account here. These links simply open thoughtful questions elsewhere.
+      <br>
+      <a href="map.html">← Return to the map</a>
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
