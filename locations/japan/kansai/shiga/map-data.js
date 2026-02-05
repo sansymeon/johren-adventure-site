@@ -1,26 +1,26 @@
 window.MAP_CONFIG = {
-  tottori: {
-    center: [35.4788943796174, 134.05340613205206],
+  shiga: {
+    center: [35.31411971820937, 136.14026597679452],
     zoom: 10,
 
     pins:  [
   
         {
-        id: "tottori_catholic",
-        name: "カトリック鳥取教会",
-        nameEn: "Tottori Catholic Church",
+        id: "otsu_catholic",
+        name: "カトリック大津教会",
+        nameEn: "Otsu Catholic Church",
         type: "church",
-        lat: 35.504067595927765,   
-        lng: 134.23586392627794
+        lat: 35.00153617861039,    
+        lng: 135.87986357863173
       }, 
       {
-  id: "jr_west_tottori",
-  line: "jr_west",
-  name: "鳥取",
-  nameEn: "Tottori",
+  id: "jr_biwako_otsu",
+  line: "jr_biwako",
+  name: "大津",
+  nameEn: "Otsu",
   type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
+  lat: 35.00332411938232,   
+  lng: 135.86456511586854
  }
   ]
   }
