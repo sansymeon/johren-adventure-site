@@ -89,11 +89,19 @@
       color: var(--text-sub);
       letter-spacing: 0.02em;
     }
-.ask-ai-wrapper {
-  margin-top: 24px;
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.ask-ai-row {
+  margin-top: 28px;
   display: flex;
   justify-content: center;
 }
+
 
     /* ===============================
        BACK LINK
@@ -158,16 +166,14 @@
       <div class="region-ja">糸島市</div>
       <div class="region-en">Itoshima</div>
     </a>
-    
-    <div class="ask-ai-wrapper">
+    </section>
+  
+    <section class="ask-ai-row">
   <a href="./ask-ai.html" class="region-card ask-ai-card">
     <div class="region-ja">この地域について考える</div>
     <div class="region-en">Ask about this area</div>
   </a>
-</div>
-
-    
-  </section>
+</section>
 </main>
 
 <footer>
