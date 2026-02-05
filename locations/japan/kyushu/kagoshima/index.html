@@ -17,7 +17,31 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* ===============================
+       BACK LINK
+       =============================== */
+    .back-link {
+      position: fixed;
+      left: 14px;
+      top: 14px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #555;
+      background: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
 
+    .back-link:hover {
+      background: #fff;
+    }
+
+.ask-ai-row {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
                    "Helvetica Neue", Arial, sans-serif;
@@ -102,6 +126,7 @@
 </head>
 
 <body>
+<a href="../" class="back-link">← 戻る / Back</a>
 
   <div class="wrap">
 
@@ -122,6 +147,13 @@
         </span>
       </p>
 
+  
+    <section class="ask-ai-row">
+  <a href="./ask-ai.html" class="region-card ask-ai-card">
+    <div class="region-ja">この地域について考える</div>
+    <div class="region-en">Ask about this area</div>
+  </a>
+</section>
       <div class="links">
         <a href="/">トップページへ戻る</a><br>
         <a class="btn" href="./map.html">地図を見る</a><br>
