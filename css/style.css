@@ -24,42 +24,38 @@ a {
   background: transparent;
 }
 
-.leaflet-bar.johren-controls a,
-.leaflet-bar a.leaflet-text-btn {
+.leaflet-bar.johren-controls a.leaflet-text-btn {
   display: block;
+  width: auto !important;
+  min-width: 72px;
+
+  height: 32px !important;
+  line-height: 32px !important;
+
   padding: 0 12px;
-  height: 32px;
-  line-height: 32px;
   font-size: 13px;
   font-family: system-ui, -apple-system, Segoe UI, sans-serif;
 
-  background: #ffffff;
+  background: #fff;
   color: #222;
   text-decoration: none;
 
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: 6px;
-
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
 
-.leaflet-bar.johren-controls a + a {
+.leaflet-bar.johren-controls a.leaflet-text-btn + a.leaflet-text-btn {
   margin-top: 6px;
 }
-/* Johren unified map buttons */
-.leaflet-bar.johren-controls a.leaflet-text-btn {
-  width: auto !important;
-  min-width: 72px;
-  height: auto !important;
-  padding: 0 10px;
-  line-height: 30px;
 
-  background: #fff;
-  color: #222;
-  font-size: 13px;
-  font-family: system-ui, -apple-system, Segoe UI, sans-serif;
+.leaflet-bar.johren-controls a.leaflet-text-btn:hover {
+  background: #f4f4f4;
+}
 
-  border-bottom: 1px solid #ccc;
+.leaflet-bar.johren-controls a.leaflet-text-btn:active,
+.leaflet-bar.johren-controls a.leaflet-text-btn.is-active {
+  background: #eaeaea;
 }
 
 /* Remove last divider */
