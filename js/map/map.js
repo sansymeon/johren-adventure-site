@@ -49,7 +49,7 @@
   const ResetControl = L.Control.extend({
     options: { position: "topleft" },
     onAdd: function () {
-      const container = L.DomUtil.create("div", "leaflet-bar");
+      const container = L.DomUtil.create("div", "leaflet-bar johren-controls");
       const a = L.DomUtil.create("a", "leaflet-text-btn", container);
       a.href = "#";
       a.textContent = "Reset";
@@ -673,7 +673,7 @@ function updateNearestPill(fromLatLng) {
   const HereControl = L.Control.extend({
     options: { position: "topleft" },
     onAdd: function () {
-      const container = L.DomUtil.create("div", "leaflet-bar");
+      const container = L.DomUtil.create("div", "leaflet-bar johren-controls");
       const a = L.DomUtil.create("a", "", container);
 
       a.href = "#";
@@ -901,7 +901,7 @@ function addPersonalPinControl() {
   const PinControl = L.Control.extend({
     options: { position: "topleft" },
     onAdd: function () {
-      const div = L.DomUtil.create("div", "leaflet-bar");
+      const div = L.DomUtil.create("div", "leaflet-bar johren-controls");
       const a = L.DomUtil.create("a", "leaflet-text-btn", div);
       a.href = "#";
       a.textContent = "+ Pin";
