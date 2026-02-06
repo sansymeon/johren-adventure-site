@@ -58,22 +58,6 @@ a {
   background: #eaeaea;
 }
 
-/* Remove last divider */
-.leaflet-bar.johren-controls a.leaflet-text-btn:last-child {
-  border-bottom: none;
-}
-
-/* Hover / active */
-.leaflet-bar.johren-controls a:hover {
-  background: #f4f4f4;
-}
-
-/* Active (armed state) */
-.leaflet-bar.johren-controls a.is-active,
-.leaflet-bar.johren-controls a:active {
-  background: #eaeaea;
-}
-
 .container {
   max-width: 1080px;
   margin: 0 auto;
