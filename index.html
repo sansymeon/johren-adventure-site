@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <!--
-JOHREN ENTRY PAGE — INTENT (DO NOT SOFTEN)
+<!--
+JOHREN ENTRY PAGE — LEVEL ZERO
 
-This page represents Level Zero participation only.
+This page represents the most minimal form of Johren.
 
-• All Johren locations begin with explicit permission
-  to place an introductory QR Code.
-• Stations, cafés, shops, and public places all start the same way.
-• Level Zero is complete participation.
-• Some locations may only ever participate at Level Zero.
-• Graduation to higher levels (OPT-IN Level 1+) occurs
-  only at the location’s own initiative.
+• Johren begins as a quiet, community-based walking project.
+• Locations are included only with explicit permission.
+• No action, setup, or participation is required.
+• Some places may remain at this level indefinitely.
+• Optional deeper participation (opt-in) is explained separately,
+  only if a location chooses to ask.
 
 This page does not solicit participation,
-does not upsell, and does not imply tiers.
+does not require scanning,
+and does not imply obligation.
 -->
+
 
 <html lang="ja">
 <head>
@@ -159,11 +161,12 @@ body {
 
     <footer>
       <p>
-        ジョウレンは、個人を特定する情報を収集しません。<br>
-        QRコードの設置・管理は Johren が行います。
+        ジョウレンでは、場所の掲載にあたり、<br>
+       特別な対応やご負担は一切必要ありません。
       </p>
       <p>
-        <a href="/share/">QRコードについて</a>
+        <a href="/share/">場所として関わる場合</a>
+
       </p>
     </footer>
 
@@ -181,7 +184,7 @@ body {
     visited[spotId] = true;
     localStorage.setItem(key, JSON.stringify(visited));
 
-    // Optional: redirect straight to map after scan
+    // Optional: redirect straight to map when accessed with context
     window.location.replace("/locations/");
   })();
 </script>
