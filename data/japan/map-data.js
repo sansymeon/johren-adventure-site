@@ -1310,6 +1310,15 @@ window.JAPAN_MAP_DATA = {
   lat: 31.736378618376378,
   lng: 131.07474138097672
 },
-
+{
+  id: "jr_west_fukui",
+  line: "jr_west",
+  name: "福井",
+  nameEn: "Fukui",
+  type: "station",
+  lat: 36.06200365221304,   
+  lng: 136.22326035384071
+ }
   ]
+  }
 };
