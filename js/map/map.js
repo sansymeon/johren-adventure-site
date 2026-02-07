@@ -674,7 +674,8 @@ function updateNearestPill(fromLatLng) {
     options: { position: "topleft" },
     onAdd: function () {
       const container = L.DomUtil.create("div", "leaflet-bar johren-controls");
-      const a = L.DomUtil.create("a", "", container);
+      const a = L.DomUtil.create("a", "leaflet-text-btn", container);
+
 
       a.href = "#";
       a.style.width = "auto";
