@@ -17,6 +17,12 @@ a {
 /* ===============================
    JOHREN MAP BUTTONS (UNIFIED)
    =============================== */
+/* Kill Leaflet default bar styling for Johren controls */
+.leaflet-touch .leaflet-bar.johren-controls {
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
 
 .leaflet-bar.johren-controls {
   box-shadow: none;
