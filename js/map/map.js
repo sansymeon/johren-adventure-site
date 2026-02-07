@@ -2,12 +2,36 @@
 // JOHREN MAP ENGINE (UNIVERSAL)
 // ===============================
 (function () {
-  if (!window.MAP_CONFIG) return console.error('MAP_CONFIG missing');
-  const AREA_KEY = window.AREA_KEY;
-  if (!AREA_KEY) return console.error('AREA_KEY missing');
+  if (!window.PLACE_CONFIG) {
+    console.error("PLACE_CONFIG not found");
+    return;
+  }
 
-  const area = window.MAP_CONFIG[AREA_KEY];
-  if (!area) return console.error('Invalid AREA_KEY:', AREA_KEY);
+  if (!window.JAPAN_MAP_DATA || !Array.isArray(window.JAPAN_MAP_DATA.pins)) {
+    console.error("JAPAN_MAP_DATA.pins not found");
+    return;
+  }
+
+  const { center, zoom, bounds } = window.PLACE_CONFIG;
+
+  const map = L.map("map", {
+    zoomControl: true
+  }).setView(center, zoom);
+
+  if (bounds) {
+    map.setMaxBounds(bounds);
+  }
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: ""
+  }).addTo(map);
+
+  window.JAPAN_MAP_DATA.pins.forEach(pin => {
+    if (!pin.lat || !pin.lng) return;
+
+    L.marker([pin.lat, pin.lng]).addTo(map);
+  });
+})();
 
   const {
     center,
