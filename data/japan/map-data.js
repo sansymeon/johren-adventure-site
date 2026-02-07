@@ -1318,7 +1318,6 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 36.06200365221304,   
   lng: 136.22326035384071
- }
+}
   ]
-  }
 };
