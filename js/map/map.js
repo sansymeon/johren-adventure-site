@@ -28,6 +28,11 @@
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
+    temple: L.icon({
+      iconUrl: "/img/map/temple.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
     museum: L.icon({
       iconUrl: "/img/map/museum.png",
       iconSize: [26, 26],
@@ -64,6 +69,14 @@
 
     // Light labels so you can "read" the map
     if (type === "station") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "temple") {
       marker.bindTooltip(
         pin.nameEn
           ? `${pin.name} / ${pin.nameEn}`
