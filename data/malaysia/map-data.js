@@ -1,11 +1,6 @@
-window.MAP_CONFIG = window.MAP_CONFIG || {};
-
-window.MAP_CONFIG.kk_gaya = {
-  center: [5.9826, 116.0737],
-  zoom: 16,
- 
-  pins:  [
-        {
+window.JAPAN_MAP_DATA = {
+  pins: [
+    {
     id:"kk_gaya_daily_coffee", name:"Daily Coffee", nameEn:"Daily Coffee", type:"coffee", 
    lat:5.985660732321517, lng:116.07799084381578 
   },
