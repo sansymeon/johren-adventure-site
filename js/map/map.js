@@ -24,6 +24,30 @@
   // -------------------------------
   const icons = {
     station: L.icon({
+      iconUrl: "/img/map/landmark.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+    const icons = {
+    station: L.icon({
+      iconUrl: "/img/map/mosque.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+    const icons = {
+    station: L.icon({
+      iconUrl: "/img/map/supermarket.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+    const icons = {
+    station: L.icon({
+      iconUrl: "/img/map/coffee.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+    const icons = {
+    station: L.icon({
       iconUrl: "/img/map/station.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
@@ -69,6 +93,46 @@
 
     // Light labels so you can "read" the map
     if (type === "station") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "station") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "landmark") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "coffee") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "supermarket") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+    if (type === "mosque") {
       marker.bindTooltip(
         pin.nameEn
           ? `${pin.name} / ${pin.nameEn}`
