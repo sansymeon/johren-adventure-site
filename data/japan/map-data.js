@@ -1310,7 +1310,8 @@ window.JAPAN_MAP_DATA = {
   lat: 31.736378618376378,
   lng: 131.07474138097672
 },
-{
+// Fukui)
+    {
   id: "jr_west_fukui",
   line: "jr_west",
   name: "福井",
