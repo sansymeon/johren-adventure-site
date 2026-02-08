@@ -1357,7 +1357,7 @@ window.JAPAN_MAP_DATA = {
         nameEn: "Holy Theophany Orthodox Church",
          type: "church",
           lat: 34.76802881935057,          
-        lng: 137.39393794866496
+        lng: 137.39393794866496,
         visible: false
       },
         { 
@@ -1366,7 +1366,7 @@ window.JAPAN_MAP_DATA = {
         nameEn: "Iwayado Orthodox Church",
          type: "church",
           lat: 39.19564918643734,               
-        lng: 141.1774628084538
+        lng: 141.1774628084538,
          visible: false
       },
             {
@@ -1375,7 +1375,7 @@ window.JAPAN_MAP_DATA = {
         nameEn: "Toyohashi Orthodox Church",
          type: "church",
         lat: 34.76802881935057,          
-        lng: 137.39393794866496
+        lng: 137.39393794866496,
         visible: false
       },
       {
@@ -1384,7 +1384,7 @@ window.JAPAN_MAP_DATA = {
         nameEn: "Saint John of Damascus Orthodox Church",
         type: "church",
         lat: 34.91164457680192,         
-        lng: 136.9408163370278
+        lng: 136.9408163370278,
         visible: false
       },
       {
