@@ -1,29 +1,43 @@
+// ===============================
+// JOHREN MAP ENGINE (UNIVERSAL)
+// ===============================
 (function () {
+  // --------------------------------
+  // Required configs
+  // --------------------------------
   if (!window.PLACE_CONFIG) {
     console.error("PLACE_CONFIG not found");
     return;
   }
 
   if (!window.MAP_DATA || !Array.isArray(window.MAP_DATA.pins)) {
-  console.error("MAP_DATA.pins not found");
-  return;
-}
+    console.error("MAP_DATA.pins not found");
+    return;
+  }
+
   const { center, zoom, bounds } = window.PLACE_CONFIG;
 
-  const map = L.map("map", { zoomControl: true }).setView(center, zoom);
+  // --------------------------------
+  // Init map
+  // --------------------------------
+  const map = L.map("map", {
+    zoomControl: true
+  }).setView(center, zoom);
 
-  if (bounds) map.setMaxBounds(bounds);
+  if (bounds) {
+    map.setMaxBounds(bounds);
+  }
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: ""
   }).addTo(map);
 
-  // -------------------------------
-  // ICONS (minimal, extend later)
-  // -------------------------------
+  // --------------------------------
+  // Icons (extend freely)
+  // --------------------------------
   const icons = {
-    landmark: L.icon({
-      iconUrl: "/img/map/landmark.png",
+    coffee: L.icon({
+      iconUrl: "/img/map/coffee.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
@@ -37,45 +51,47 @@
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    coffee: L.icon({
-      iconUrl: "/img/map/coffee.png",
+    landmark: L.icon({
+      iconUrl: "/img/map/landmark.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    station: L.icon({
-      iconUrl: "/img/map/station.png",
-      iconSize: [28, 28],
-      iconAnchor: [14, 28]
+    church: L.icon({
+      iconUrl: "/img/map/church.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
     }),
     temple: L.icon({
       iconUrl: "/img/map/temple.png",
-      iconSize: [28, 28],
-      iconAnchor: [14, 28]
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+    }),
+    shrine: L.icon({
+      iconUrl: "/img/map/shrine.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
     }),
     museum: L.icon({
       iconUrl: "/img/map/museum.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
-    church: L.icon({
-      iconUrl: "/img/map/church.png",
-      iconSize: [26, 26],
-      iconAnchor: [13, 26]
-   }),
-       shrine: L.icon({
-      iconUrl: "/img/map/shrine.png",
-      iconSize: [26, 26],
-      iconAnchor: [13, 26]
-   })
+    station: L.icon({
+      iconUrl: "/img/map/station.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    })
   };
 
-  // -------------------------------
-  // PIN RENDERING (2 categories)
-  // -------------------------------
-  window.JAPAN_MAP_DATA.pins.forEach(pin => {
-    if (!pin.lat || !pin.lng) return;
+  // --------------------------------
+  // Render pins
+  // --------------------------------
+  window.MAP_DATA.pins.forEach(pin => {
+    if (!pin || typeof pin.lat !== "number" || typeof pin.lng !== "number") {
+      return;
+    }
 
-    // Data-driven visibility (museums can be hidden)
+    // soft visibility control
     if (pin.visible === false) return;
 
     const type = (pin.type || "").toLowerCase();
@@ -86,84 +102,18 @@
       icon ? { icon } : {}
     ).addTo(map);
 
-    // Light labels so you can "read" the map
-    if (type === "station") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "station") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "landmark") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "coffee") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "supermarket") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "mosque") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "temple") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "church") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-if (type === "shrine") {
-      marker.bindTooltip(
-        pin.nameEn
-          ? `${pin.name} / ${pin.nameEn}`
-          : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-    }
-    if (type === "museum") {
-      marker.bindTooltip(
-        pin.nameEn || pin.name,
-        { direction: "top", offset: [0, -18] }
-      );
+    // simple readable label
+    const label =
+      pin.nameEn
+        ? `${pin.name} / ${pin.nameEn}`
+        : pin.name;
+
+    if (label) {
+      marker.bindTooltip(label, {
+        direction: "top",
+        offset: [0, -20]
+      });
     }
   });
+
 })();
