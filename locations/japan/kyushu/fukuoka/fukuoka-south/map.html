@@ -7,7 +7,7 @@
 
   <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/johren-info.css">
 
@@ -60,12 +60,19 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'fukuoka_south';
+  window.PLACE_CONFIG = {
+    key: "southern Fukuoka",
+    center: [33.32935060135431, 130.53585831192277],
+    zoom: 9,
+    bounds: [
+      [32.96, 130.46],   // southwest
+      [33.41, 130.68]    // northeast
+    ]
+  };
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
