@@ -4,11 +4,10 @@
     return;
   }
 
-  if (!window.JAPAN_MAP_DATA || !Array.isArray(window.JAPAN_MAP_DATA.pins)) {
-    console.error("JAPAN_MAP_DATA.pins not found");
-    return;
-  }
-
+  if (!window.MAP_DATA || !Array.isArray(window.MAP_DATA.pins)) {
+  console.error("MAP_DATA.pins not found");
+  return;
+}
   const { center, zoom, bounds } = window.PLACE_CONFIG;
 
   const map = L.map("map", { zoomControl: true }).setView(center, zoom);
@@ -23,22 +22,22 @@
   // ICONS (minimal, extend later)
   // -------------------------------
   const icons = {
-    station: L.icon({
+    landmark: L.icon({
       iconUrl: "/img/map/landmark.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    station: L.icon({
+    mosque: L.icon({
       iconUrl: "/img/map/mosque.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    station: L.icon({
+    supermarket: L.icon({
       iconUrl: "/img/map/supermarket.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    station: L.icon({
+    coffee: L.icon({
       iconUrl: "/img/map/coffee.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
