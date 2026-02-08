@@ -57,18 +57,23 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'saga_west';
+  window.PLACE_CONFIG = {
+    key: "saga_west",
+    center: [33.425979025895245, 130.00022880103128],
+    zoom: 12,
+    bounds: [
+      [33.28, 129.83],   // southwest
+      [33.40, 130.22]    // northeast
+    ]
+  };
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
-<a href="./about-map.html" class="about-link">
-  Johrenについて・About Johren
-</a>
+<a href="./about-map.html" class="about-link">About Johren</a>
 
 </body>
 </html>
