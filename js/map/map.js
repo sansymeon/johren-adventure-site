@@ -28,25 +28,21 @@
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    const icons = {
     station: L.icon({
       iconUrl: "/img/map/mosque.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    const icons = {
     station: L.icon({
       iconUrl: "/img/map/supermarket.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    const icons = {
     station: L.icon({
       iconUrl: "/img/map/coffee.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
-    const icons = {
     station: L.icon({
       iconUrl: "/img/map/station.png",
       iconSize: [28, 28],
