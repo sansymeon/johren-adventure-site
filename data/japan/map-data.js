@@ -1,4 +1,4 @@
-window.JAPAN_MAP_DATA = {
+window.MAP_DATA = {
   pins: [
     {
       id: "ito_art_museum",
