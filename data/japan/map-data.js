@@ -1810,6 +1810,240 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 34.70679993007298, 
   lng: 135.19616486899184
- }  
+ },
+    {
+        id: "suga_orthodox",
+        name: "須賀ハリストス正教会",
+        nameEn: "Suga Orthodox Church",
+        type: "church",
+        lat: 35.668907508179174,    
+        lng: 140.54623048124927,
+        visible: false
+      },  
+        {
+        id: "tega_orthodox",
+        name: "手賀ハリストス正教会",
+        nameEn: "Tega Orthodox Church",
+        type: "church",
+        lat: 35.8420520668703,   
+        lng: 140.07945086591766,
+        visible: false
+      }, 
+      {
+  id: "jr_east_chiba",
+  line: "jr_east",
+  name: "千葉",
+  nameEn: "Chiba",
+  type: "station",
+  lat: 35.61319559432332, 
+  lng: 140.11357952727155
+ },
+    {
+        id: "maebashi_orthodox",
+        name: "前橋ハリストス正教会",
+        nameEn: "Maebashi Orthodox Church",
+        type: "church",
+        lat: 36.39251857237456,     
+        lng: 139.06543920643128,
+      visible: false
+      },  
+        {
+        id: "takasaki_orthodox",
+        name: "高崎ハリストス正教会",
+        nameEn: "Takasaki Orthodox",
+        type: "church",
+        lat: 36.35393225376748,    
+        lng: 138.99547179478353,
+          visible: false
+      }, 
+      {
+  id: "sukawa_orthodox",
+  name: "須川ハリストス正教会",
+  nameEn: "Sukawa Orthodox Church",
+  type: "church",
+  lat: 36.69922157449143, 
+  lng: 138.90685202179165,
+  visible: false
+},
+{
+  id: "jr_east_takasaki",
+  line: "jr_east",
+  name: "高崎",
+  nameEn: "Takasaki",
+  type: "station",
+  lat: 36.32362192931688, 
+  lng: 139.01279104080712
+ },
+    {
+  id: "jr_east_mito",
+  line: "jr_east",
+  name: "水戸",
+  nameEn: "Mito",
+  type: "station",
+  lat: 36.370305879959524, 
+  lng: 140.47716630481875
+ },
+    {
+        id: "odawara_orthodox",
+        name: "小田原ハリストス正教会",
+        nameEn: "Odawara Orthodox Church",
+        type: "church",
+        lat: 35.25415027273678,    
+        lng: 139.1633436505412,
+      visible: false
+      },  
+        {
+        id: "yokohama_orthodox",
+        name: "横浜ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Yokohama Orthodox",
+        type: "church",
+        lat: 35.47552476115016,    
+        lng: 139.61811951007334,
+        visible: false
+      }, 
+      {
+  id: "tokaido_odawara",
+  line: "tokaido",
+  name: "小田原",
+  nameEn: "Odawara",
+  type: "station",
+  lat: 35.25618114388968,  
+  lng: 139.15575408424047
+ },
+    {
+  id: "jr_yokohama_machida",
+  line: "jr_yokohama",
+  name: "町田",
+  nameEn: "Machida",
+  type: "station",
+  lat: 35.54404680550262,   
+  lng: 139.44506651220348
+ },
+    {
+        id: "ashikaga_orthodox",
+        name: "足利ハリストス正教会",
+        nameEn: "Ashikaga Orthodox",
+        type: "church",
+        lat: 36.34042392554054,     
+        lng: 139.44069005245362,
+        visible: false
+      },  
+      {
+        id: "akutsu_orthodox",
+        name: "圷ハリストス正教会",
+        nameEn: "Akutsu Orthodox Church",
+        type: "church",
+        lat: 36.49210927234493,   
+        lng: 140.36823765246274,
+        visible: false
+      }, 
+        {
+        id: "kanuma_orthodox",
+        name: "鹿沼ハリストス正教会",
+        nameEn: "Kanuma Orthodox Church",
+        type: "church",
+        lat: 36.568075037474735,    
+        lng: 139.74618269479646,
+        visible: false
+      }, 
+      {
+  id: "bato_orthodox",
+  name: "馬頭ハリストス正教会",
+  nameEn: "Bato Orthodox Church",
+  type: "church",
+  lat: 36.73551117598863, 
+  lng: 140.16940642364202,
+  visible: false
+},
+{
+  id: "utsunomiya_orthodox",
+  name: "宇都宮ハリストス正教会",
+  nameEn: "Utsunomiya Orthodox Church",
+  type: "church",
+  lat: 36.55939642581332, 
+  lng: 139.87642161013775,
+  visible: false
+},
+ {
+  id: "jr_east_utsunomiya",
+  line: "jr_east",
+  name: "宇都宮駅",
+  nameEn: "Utsunomiya",
+  type: "station",
+  lat: 36.558928575702026,  
+  lng: 139.89837599294765
+ },
+    {
+        id: "yamate_orthodox",
+        name: "山手ハリストス正教会",
+        nameEn: "Yamate Orthodox Church",
+        type: "church",
+        lat: 35.69711939864383,   
+        lng: 139.60897218125092,
+      visible: false
+      },  
+        {
+        id: "nikolai_dou_cathedral",
+        name: "東京復活大聖堂（ニコライ堂)",
+        nameEn: "Holy Resurrection Cathedral",
+        type: "church",
+        lat: 35.69805537259034,    
+        lng: 139.7655202947447,
+        visible: false
+      }, 
+      {
+  id: "jr_east_tokyo",
+  line: "jr_east",
+  name: "東京",
+  nameEn: "Tokyo",
+  type: "station",
+  lat: 35.68124722348953, 
+  lng: 139.7667331769967
+ },
+    {
+  id: "jr_shikoku_matsuyama",
+  line: "jr_shikoku",
+  name: "松山",
+  nameEn: "Matsuyama",
+  type: "station",
+  lat: 33.83985068892453,  
+  lng: 132.75076964861216
+ },
+    {
+  id: "jr_shikoku_takamatsu",
+  line: "jr_shikoku",
+  name: "高松",
+  nameEn: "Takamatsu",
+  type: "station",
+  lat: 34.35060753330822,   
+  lng: 134.0468136611
+ },
+    {
+  id: "jr_shikoku_kochi",
+  line: "jr_shikoku",
+  name: "高知",
+  nameEn: "Kochi",
+  type: "station",
+  lat: 33.567209194010836,   
+  lng: 133.54363446578702
+ },
+    {
+        id: "tokushima_orthodox",
+        name: "徳島ハリストス正教会･聖神降臨聖堂",
+        nameEn: "Tokushima Orthodox Church",
+        type: "church",
+        lat: 34.043597041074776,    
+        lng: 134.56363952705485,
+        visible: false
+      },
+      {
+  id: "jr_shikoku_tokushima",
+  line: "jr_shikoku",
+  name: "徳島",
+  nameEn: "Tokushima",
+  type: "station",
+  lat: 34.07441973350795,  
+  lng: 134.55145338766974
+ }
   ]
 };
