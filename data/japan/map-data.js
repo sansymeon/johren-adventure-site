@@ -2360,7 +2360,7 @@ window.JAPAN_MAP_DATA = {
       },
         {
         id: "jr_east_morioka",
-        line: "jr_east"
+        line: "jr_east",
         name: "盛岡",
         nameEn: "Morioka",
         type: "station",
