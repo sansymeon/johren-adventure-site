@@ -1310,8 +1310,38 @@ window.JAPAN_MAP_DATA = {
   lat: 31.736378618376378,
   lng: 131.07474138097672
 },
-// Fukui)
+// Chubu: Hokuriku: Ishikawa)
     {
+  id: "jr_west_kanazawa",
+  line: "jr_west",
+  name: "金沢",
+  nameEn: "Kanazawa",
+  type: "station",
+  lat: 36.57809596678759,   
+  lng: 136.64860054821557
+ },
+ //Chubu: Hokuriku: Niigata)  
+    {
+  id: "jr_east_niigata",
+  line: "jr_east",
+  name: "新潟",
+  nameEn: "Niigata",
+  type: "station",
+  lat: 37.911996449103825,   
+  lng: 139.06156041816973
+ },
+//Chubu: Hokuriku: Toyama)
+ {
+  id: "jr_west_toyama",
+  line: "jr_west",
+  name: "富山",
+  nameEn: "Toyama",
+  type: "station",
+  lat: 36.70186117993539,   
+  lng: 137.2124863199435
+ },
+ //Chubu: Hokuriku: Fukui)  
+{
   id: "jr_west_fukui",
   line: "jr_west",
   name: "福井",
@@ -1319,6 +1349,221 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 36.06200365221304,   
   lng: 136.22326035384071
-}
+},
+ //Chubu: Tokai: Aichi)  
+{
+        id: "nagoya_orthodox",
+        name: "名古屋ハリストス正教会・神現聖堂",
+        nameEn: "Holy Theophany Orthodox Church",
+         type: "church",
+          lat: 34.76802881935057,          
+        lng: 137.39393794866496
+        visible: false
+      },
+        { 
+        id: "iwayado_orthodox", 
+        name: "岩谷堂ハリストス正教会・主の降誕聖堂",
+        nameEn: "Iwayado Orthodox Church",
+         type: "church",
+          lat: 39.19564918643734,               
+        lng: 141.1774628084538
+         visible: false
+      },
+            {
+        id: "toyohashi_orthodox",
+        name: "豊橋ハリストス正教会・聖使徒福音者マトフェイ聖堂",
+        nameEn: "Toyohashi Orthodox Church",
+         type: "church",
+        lat: 34.76802881935057,          
+        lng: 137.39393794866496
+        visible: false
+      },
+      {
+        id: "handa_orthodox",
+        name: "半田ハリストス正教会・聖イオアン・ダマスキン聖堂",
+        nameEn: "Saint John of Damascus Orthodox Church",
+        type: "church",
+        lat: 34.91164457680192,         
+        lng: 136.9408163370278
+        visible: false
+      },
+      {
+  id: "tokaido_nagoya",
+  line: "tokaido",
+  name: "名古屋",
+  nameEn: "Nagoya",
+  type: "station",
+  lat: 35.17075221462044, 
+  lng: 136.881565537144
+},
+ //Chubu: Tokai: Gifu) 
+   {
+  id: "jr_tokaido_gifu",
+  line: "jr_tokaido",
+  name: "岐阜",
+  nameEn: "Gifu",
+  type: "station",
+  lat: 35.409475306635464,   
+  lng: 136.75669090027228
+ },
+ //Chubu: Tokai: Mie)  
+     {
+  id: "jr_central_yokkaichi",
+  line: "jr_central",
+  name: "四日市駅",
+  nameEn: "Yokkaichi",
+  type: "station",
+  lat: 34.96303176535332,   
+  lng: 136.62959923703082
+ },
+ //Chubu: Tokai: Shizuoka)  
+ {
+        id: "kashiwakubo_orthodox",
+        name: "柏久保ハリストス正教会",
+        nameEn: "Kashiwakubo Orthodox Church",
+        type: "church",
+        lat: 34.97534355522436,      
+        lng: 138.9539535351832,
+      visible: false
+      },  
+      {
+        id: "hamamatsu_orthodox",
+        name: "浜松ハリストス正教会",
+        nameEn: "Hamamatsu Orthodox Church",
+        type: "church",
+        lat: 34.71300005366215,     
+        lng: 137.72066736769992,
+        visible: false
+      },  
+  {
+        id: "shuzenji_orthodox",
+        name: "修善寺ハリストス正教会",
+        nameEn: "Shuzenji Orthodox Church",
+        type: "church",
+        lat: 34.97160178964159,     
+        lng: 138.93276886586673,
+        visible: false
+      },  
+        {
+        id: "shizuoka_orthodox",
+        name: "静岡ハリストス正教会",
+        nameEn: "Shizuoka Orthodox Church",
+        type: "church",
+        lat: 34.98061258220121,   
+        lng: 138.40191225237368,
+          visible: false
+      }, 
+      {
+  id: "jr_tokaido_shizuoka",
+  line: "jr_tokaido",
+  name: "静岡",
+  nameEn: "Shizuoka",
+  type: "station",
+  lat: 34.97172644390538, 
+  lng: 138.38871819249098
+ },
+ //Chubu: Koshinetsu: Yamanashi)  
+ {
+  id: "jr_central_kofu",
+  line: "jr_central",
+  name: "甲府",
+  nameEn: "Kofu",
+  type: "station",
+  lat: 35.66706620742847,   
+  lng: 138.56944998254116
+ },
+//Chubu: Koshinetsu: Nagano)  
+{
+  id: "jr_east_nagano",
+  line: "jr_east",
+  name: "長野",
+  nameEn: "Nagano",
+  type: "station",
+  lat: 36.64322757398966,   
+  lng: 138.18878316966197
+ },
+ //Hokkaido)  
+{
+        id: "hakodate_orthodox",
+        name: "函館ハリストス正教会",
+        nameEn: "Hakodate Orthodox Church",
+         type: "church",
+        lat: 41.762791271261975,                    
+        lng: 140.71221112396552,
+        visible: false
+      }, 
+      {
+        id: "kamiiso_orthodox",
+        name: "上磯ハリストス正教会・主の昇天聖堂（北斗市）",
+        nameEn: "Kamiiso Orthodox Church",
+         type: "church",
+        lat: 41.84321997856034,                    
+        lng: 140.63660773746471,
+          visible: false
+      }, 
+      {
+        id: "sapporo_orthodox",
+        name: "札幌ハリストス正教会・主の顕栄聖堂",
+        nameEn: "Sapporo Orthodox Church",
+         type: "church",
+        lat: 43.01865151311119,                      
+        lng: 141.40312645103944,
+            visible: false
+      },
+      {
+        id: "otaru_orthodox",
+        name: "小樽ハリストス正教会・主の復活聖堂",
+        nameEn: "Otaru Orthodox Church",
+         type: "church",
+        lat: 43.19058532675394,                     
+        lng: 140.98899218173514,
+            visible: false
+      },
+      {
+        id: "tomakomai_orthodox",
+        name: "苫小牧ハリストス正教会・主の降誕聖堂",
+        nameEn: "Tomakomai Orthodox Church",
+         type: "church",
+        lat: 42.642654755289584,                    
+        lng: 141.5805366375196,
+            visible: false
+      }, 
+      {
+        id: "kushiro_orthodox",
+        name: "釧路ハリストス正教会・聖神゜降臨聖堂",
+        nameEn: "Kushiro Orthodox Church",
+         type: "church",
+        lat: 42.97550972265846,                    
+        lng: 144.38810002404912,
+            visible: false
+      }, 
+      {
+        id: "kamimusa_orthodox",
+        name: "上武佐ハリストス正教会・生神女就寝聖堂",
+        nameEn: "Kamimusa Orthodox Church",
+         type: "church",
+        lat: 43.61850720398041,                   
+        lng: 144.99488426642338,
+            visible: false
+      }, 
+      {
+        id: "shari_orthodox",
+        name: "斜里ハリストス正教会・生神女福音聖堂",
+        nameEn: "Shari Orthodox Church",
+         type: "church",
+        lat: 43.899288709566385,                  
+        lng: 144.62383363760782,
+            visible: false
+      }, 
+      {
+  id: "unknown_sapporo",
+  line: "unknown",
+  name: "札幌",
+  nameEn: "Sapporo",
+  type: "station",
+  lat: 43.068772070661566,
+  lng: 141.3509750091167,
+      visible: false
+ }
   ]
 };
