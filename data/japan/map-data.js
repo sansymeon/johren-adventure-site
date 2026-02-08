@@ -919,7 +919,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.21323569734439,
       lng: 131.5626648657675,
-      visible: false
     },
     {
       id: "kyudai_bungo_kokubu",
@@ -929,7 +928,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.19506346554613,
       lng: 131.5512154516554,
-      visible: false
     },
     {
       id: "kyudai_tenjin_yama",
@@ -939,7 +937,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.186959358136164,
       lng: 131.43886043693058,
-      visible: false
     },
     {
       id: "kyudai_onoya",
@@ -949,7 +946,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.18509931488385,
       lng: 131.4528201313089,
-      visible: false
     },
     {
       id: "kyudai_onigase",
@@ -959,7 +955,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.19563483964115,
       lng: 131.48543738110843,
-      visible: false
     },
     {
       id: "kyudai_minami_yufuin",
@@ -969,7 +964,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.242215107613,
       lng: 131.33365115227534,
-      visible: false
     },
     {
       id: "kyudai_yunohira",
@@ -979,7 +973,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.1973714290547,
       lng: 131.35408359460197,
-      visible: false
     },
     {
       id: "kyudai_yufuin",
@@ -998,7 +991,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.2093348203975,
       lng: 131.6231774657672,
-      visible: false
     },
     {
       id: "kyudai_shikido",
@@ -1008,7 +1000,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.188145588399905,
       lng: 131.61515013693062,
-      visible: false
     },
     {
       id: "kyudai_oitadaigaku_mae",
@@ -1027,7 +1018,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.16447006646251,
       lng: 131.63879511909792,
-      visible: false
     },
     {
       id: "kyudai_sugao",
@@ -1037,7 +1027,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.01444709049888,
       lng: 131.61642285204695,
-      visible: false
     },
     {
       id: "kyudai_takenaka",
@@ -1047,7 +1036,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.12069695808658,
       lng: 131.64940976576244,
-      visible: false
     },
     {
       id: "kyudai_inukai",
@@ -1057,7 +1045,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.077999545388494,
       lng: 131.63645657200593,
-      visible: false
     },
     {
       id: "nippo_kokura",
@@ -1085,7 +1072,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.85794316243455,
       lng: 130.88654775251135,
-      visible: false
     },
     {
       id: "nippo_abeyama_koen",
@@ -1095,7 +1081,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.844089298497266,
       lng: 130.90422187773387,
-      visible: false
     },
     {
       id: "nippo_shimo_sone",
@@ -1105,7 +1090,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.83230816422438,
       lng: 130.93463317078653,
-      visible: false
     },
     {
       id: "nippo_kusami",
@@ -1115,7 +1099,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.807287199586774,
       lng: 130.95509543299045,
-      visible: false
     },
     {
       id: "nippo_kanda",
@@ -1134,7 +1117,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.75295659753037,
       lng: 130.97189514521259,
-      visible: false
     },
     {
       id: "nippo_yukuhashi",
@@ -1153,7 +1135,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.716683069018295,
       lng: 130.9759345567837,
-      visible: false
     },
     {
       id: "nippo_shindembaru",
@@ -1163,7 +1144,6 @@ window.JAPAN_MAP_DATA = {
       type: "station",
       lat: 33.69539629593777,
       lng: 131.00808977980333,
-      visible: false
     },
     {
       id: "nippo_tsuiki",
