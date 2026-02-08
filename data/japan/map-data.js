@@ -1472,6 +1472,14 @@ window.JAPAN_MAP_DATA = {
       lng: 141.40312645103944,
       visible: false
     },
+     {
+      id: "sapporo_station",
+      name: "札幌",
+      nameEn: "Sapporo",
+      type: "station",
+      lat: 43.06870361524902, 
+      lng: 141.35071235839033
+    },
     {
       id: "otaru_orthodox",
       name: "小樽ハリストス正教会・主の復活聖堂",
@@ -1526,6 +1534,68 @@ window.JAPAN_MAP_DATA = {
       lat: 43.068772070661566,
       lng: 141.3509750091167,
       visible: false
-    }
+    },
+    {
+        id: "hiroshima_peace_museum",
+        name: "広島平和記念資料館",
+        nameEn: "Hiroshima Peace Memorial Museum",
+        type: "museum",
+        lat: 34.391586720771336,     
+        lng: 132.4527286170304
+      }, 
+        {
+        id: "hiroshima_catholic",
+        name: "カトリック幟町教会 世界平和記念聖堂",
+        nameEn: "Assumption of Mary Cathedral",
+        type: "church",
+        lat: 34.39516261648929,    
+        lng: 132.46852401660675,
+        visible: false
+      }, 
+      {
+  id: "jr_west_hiroshima",
+  line: "jr_west",
+  name: "広島",
+  nameEn: "Hiroshima",
+  type: "station",
+  lat: 34.397861733401015, 
+  lng: 132.4754107811756
+ },
+{
+  id: "jr_west_okayama",
+  line: "jr_west",
+  name: "岡山",
+  nameEn: "Okayama",
+  type: "station",
+  lat: 34.66590056618729, 
+  lng: 133.91813046159663
+ },
+{
+  id: "jr_west_matsue",
+  line: "jr_west",
+  name: "松江",
+  type: "station",
+  nameEn: "Matsue",
+  lat: 35.464061700026434, 
+  lng: 133.06388299237187
+},
+      {
+  id: "jr_west_hamada",
+  line: "jr_west",
+  name: "浜田",
+  nameEn: "Hamada",
+  type: "station",
+  lat: 34.9025934187279,  
+  lng: 132.0888999545535
+ },
+{
+  id: "jr_west_tottori",
+  line: "jr_west",
+  name: "鳥取",
+  nameEn: "Tottori",
+  type: "station",
+  lat: 35.493999272656936,  
+  lng: 134.22585357939084
+ }
   ]
 };
