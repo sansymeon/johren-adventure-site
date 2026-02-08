@@ -71,14 +71,25 @@
   <div id="map"></div>
   <div id="nearestPill" class="nearest-pill"></div>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  window.PLACE_CONFIG = {
+    key: "gaya_street",
+    center: [5.983719401663811, 116.07712256462898],
+    zoom: 12,
+    bounds: [
+      [5.98, 116.075],   // southwest
+      [5.98, 116.08]    // northeast
+    ]
+  };
+</script>
 
-  <script>
-    window.AREA_KEY = "kk_gaya";
-  </script>
+<script src="/data/malaysia/map-data.js"></script>
+<script src="/js/map/map.js"></script>
 
-  <script src="/js/area-config.js"></script>
-  <script src="/js/map/map.js"></script>
+
+<a href="./about-map.html" class="about-link">About Johren</a>
+
 </body>
-
 </html>
