@@ -13,7 +13,6 @@ window.MAP_CONFIG = {
         lat: 35.47399461420605,    
         lng: 133.05542132569042
       }, 
-      {
 {
   id: "jr_west_matsue",
   line: "jr_west",
