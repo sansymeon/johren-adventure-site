@@ -221,6 +221,86 @@ window.JAPAN_MAP_DATA = {
       lat: 33.461434,
       lng: 129.957480
     },
+     { 
+        id: "jr-karatsu-yamamoto", 
+       name: "山本", 
+       nameEn: "Yamamoto", 
+        type: "station",
+        lat: 33.39278208271683, 
+        lng: 129.98118155167737 
+      },
+      { 
+        id: "jr-karatsu-ouchi", 
+       name: "相知", 
+        nameEn: "Ouchi", 
+        type: "station",
+        lat: 33.34699039849446, 
+        lng: 130.01952634118035 
+      },
+      { 
+        id: "jr-karatsu-iwaya", 
+       name: "岩屋", 
+        nameEn: "Iwaya", 
+        type: "station",
+        lat: 33.33076505677805, 
+        lng: 130.03827683163834 
+      },
+      {
+        id: "karatsu_catholic",
+        name: "カトリック唐津教会",      
+        nameEn: "Karatsu Catholic Church",
+         type: "church",
+        lat: 33.45252801155086,            
+        lng: 129.9614152412968
+      },
+    { 
+         id: "hikiyama_hall",
+       name: "曳山展示場", 
+       nameEn: "Hikiyama Exhibition Hall", 
+        type: "museum",
+       lat: 33.445946414612074, 
+       lng: 129.96991124129468 
+      },
+      { 
+        id: "karatsu_castle",
+        name: "唐津城", 
+       nameEn: "Karatsu Castle", 
+        type: "museum",
+          lat: 33.45345765716856, 
+       lng: 129.9782080418245 
+      },
+      { 
+        id: "takatori_museum",
+        name: "旧高取邸", 
+       nameEn: "Former Takatori Residence", 
+        type: "museum",
+          lat: 33.45437629769318, 
+       lng: 129.97209266442803 
+      },
+      { 
+        id: "karatsu_shrine",
+        name: "唐津神社", 
+       nameEn: "Karatsu Shrine", 
+        type: "shrine",
+      lat: 33.45227410257489, 
+       lng: 129.96948404957564 
+      },
+      { 
+        id: "myoken_shrine",
+        name: "妙見神社", 
+       nameEn: "Myoken Shrine", 
+         type: "shrine",
+          lat: 33.46854559781762, 
+       lng: 129.95317852240166 
+      },
+      { 
+        id: "gonshoji_temple",
+        name: "近松寺", 
+       nameEn: "Gonshoji Temple", 
+         type: "temple",
+      lat: 33.449901908390125, 
+       lng: 129.96520797775324 
+      },
     {
       id: "unknown_hizen_kashima",
       line: "unknown",
@@ -428,6 +508,15 @@ window.JAPAN_MAP_DATA = {
       lat: 33.26418348559751,
       lng: 130.29725684813994
     },
+    {
+  id: "unknown_saga",
+  line: "unknown",
+  name: "佐賀",
+  nameEn: "saga",
+  type: "station",
+  lat: 33.26416730255144, 
+  lng: 130.29694618351647
+ },
     {
       id: "unknown_kawatana",
       line: "unknown",
@@ -786,6 +875,24 @@ window.JAPAN_MAP_DATA = {
       lat: 33.900411168201266,
       lng: 130.84002577929928
     },
+    {
+        id: "kagoshima_orthodox",
+        name: "鹿児島ハリストス正教会・聖使徒イアコフ聖堂",
+        nameEn: "Kagoshima Orthodox Church",
+        type: "church",
+        lat: 31.591379029899404,  
+        lng: 130.54791936752866,
+        visible: false
+      },   
+      {
+  id: "unknown_kagoshima",
+  line: "unknown",
+  name: "鹿児島",
+  nameEn: "Kagoshima",
+  type: "station",
+  lat: 31.601404041487406,
+  lng: 130.56299002617163
+ },
     {
       id: "kyudai_minami_oita",
       line: "kyudai",
@@ -1193,6 +1300,55 @@ window.JAPAN_MAP_DATA = {
       lat: 33.071373125359564,
       lng: 130.48852330511616
     },
+     {
+  id: "unknown_miyazaki",
+  line: "unknown",
+  name: "宮崎",
+  nameEn: "Miyazaki",
+  type: "station",
+  lat: 31.91563158122375, 
+  lng: 131.43231940518467
+ },
+    {
+      id: "oita",
+      name: "大分",
+      nameEn: "Oita",
+      type: "station",
+      lat: 33.23232801877058,
+      lng: 131.6057111319828
+      },
+  {
+      id:"beppu",
+      name: "別府",
+      nameEn: "Beppu",
+      type: "station",
+      lat:33.27964, 
+      lng:131.50039
+      },
+      { 
+        id: "yufuin",
+        name:"由布院", 
+        nameEn: "Yufuin", 
+        type: "station",
+        lat: 33.26269658669704, 
+        lng: 131.35526192713755 
+      },
+  {
+        id: "oita_catholic",
+        name: "カトリック大分司教区 教区本部事務局",
+        nameEn: "St. Francis Xavier Cathedral",
+        type: "church",
+        lat: 33.238665,
+        lng: 131.604509
+     },
+  {
+        id: "oita_art",
+        name: "大分県立美術館",
+        nameEn: "Oita Pref. Art Museum", 
+        type: "museum",
+        lat: 33.23950622291895, 
+        lng: 131.6013320325027
+      },
     {
       id: "kyushu_shinkansen_shin_tamana",
       line: "kyushu_shinkansen",
@@ -1211,6 +1367,49 @@ window.JAPAN_MAP_DATA = {
       lat: 32.79020258795432,
       lng: 130.68854498108618
     },
+    {
+        id: "mount_aso",
+        name: "阿蘇山上ビジターセンター",
+        nameEn: "Mt. Aso Visitor Center",
+        type: "museum",
+        lat: 32.885374785782034,     
+        lng: 131.05229967956592
+      }, 
+      {
+        id: "kumamoto_castle",
+        name: "熊本城",
+        nameEn: "Kumamoto Castle",
+        type: "museum",
+        lat: 32.80557603104838,    
+        lng: 130.70550853156524
+      }, 
+         {
+        id: "hitoyoshi_orthodox",
+        name: "人吉ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Hitoyoshi Orthodox Church",
+        type: "church",
+        lat: 32.21672654292169, 
+        lng: 130.76909883687796,
+        visible: false
+      },
+      {
+        id: "kumamoto_orthodox",
+        name: "熊本ハリストス正教会",
+        nameEn: "Kumamoto Orthodox Church",
+        type: "church",
+        lat: 32.80435218639175,   
+        lng: 130.71799555031276,
+        visible: false
+      }, 
+      {
+  id: "unknown_hitoyoshi",
+  line: "unknown",
+  name: "人吉",
+  nameEn: "Hitoyoshi",
+  type: "station",
+  lat: 32.21605623447905,
+  lng: 130.75371869454892
+},
     {
       id: "kyushu_shinkansen_shin_yatsushiro",
       line: "kyushu_shinkansen",
@@ -2044,6 +2243,280 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 34.07441973350795,  
   lng: 134.55145338766974
- }
+ },
+    {
+        id: "hokuroku_orthodox",
+        name: "北鹿ハリストス正教会・生神女福音会堂",
+        nameEn: "Hokuroku Orthodox Church",
+        lat: 40.21460725011423,                
+        lng: 140.62425246619102,
+        visible: false
+      },
+      {  
+        id: "jumonji_orthodox",
+        name: "十文字ハリストス正教会",
+        nameEn: "Jumonji Orthodox Church",
+        lat: 38.767362271760085,            
+        lng: 141.14312620047744,
+        visible: false
+      },
+        {
+        id: "akita",
+        name: "秋田",
+        nameEn: "Akita",
+        type: "station",
+        lat: 39.71699459890198, 
+        lng: 140.12967542198115
+ },
+    {
+  id: "unknown_aomori",
+  line: "unknown",
+  name: "青森",
+  nameEn: "Aomori",
+  type: "station",
+  lat: 40.8296329213454,  
+  lng: 140.73392955858864
+ },
+     {
+        id: "shirakawa_orthodox",
+        name: "白河ハリストス正教会",
+        nameEn: "Shirakawa Orthodox Church",
+        type: "church",
+        lat: 37.12721986402288,    
+        lng: 140.21178726599504,
+        visible: false
+      }, 
+      {
+  id: "jr_east_iwaki",
+  line: "jr_east",
+  name: "いわき",
+  nameEn: "Iwaki",
+  type: "station",
+  lat: 37.05809691532164, 
+  lng: 140.89207113715523
+ },
+ {
+        id: "morioka_orthodox",
+        name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
+        nameEn: "Morioka Orthodox Church",
+        type: "church",
+        lat: 39.718873261561406,                 
+        lng: 141.14334543732312,
+       visible: false
+      },
+      {
+      id: "tonosei_orthodox",
+      name: "遠野正教会・聖太祖アウラアム・サッラ会堂",
+      nameEn: "Tonosei Orthodox Church",
+      type: "church",
+      lat: 39.3479680749271, 
+      lng: 141.56756189497005,
+      visible: false
+      },
+      {
+      id: "iwayado_orthodox",
+      name: "岩谷堂ハリストス正教会・主の降誕聖堂",
+      nameEn: "Iwayado Church",
+      type: "church",
+      lat: 39.19564087166975, 
+      lng: 141.1774842661247,
+      visible: false
+      },
+     {
+        id: "sakari_orthodox",
+        name: "盛ハリストス正教会・昇天聖堂",
+        nameEn: "Sakari Orthodox Church",
+        type: "church",
+        lat: 39.08736041329395,            
+        lng: 141.70685229327933,
+        visible: false
+      },
+       {
+        id: "kannari_orthodox",
+        name: "金成ハリストス正教会",
+        nameEn: "Kannari Orthodox Church",
+        type: "church",
+        lat: 39.08736041329395,            
+        lng: 141.70685229327933,
+         visible: false
+      },
+      { 
+        id: "yamada_orthodox",
+        name: "山田ハリストス正教会・主の復活会堂",
+        nameEn: "Yamada Orthodox Church",
+        type: "church",
+        lat: 39.46703315417506,              
+        lng: 141.9510394814841,
+        visible: false
+      },
+      { 
+        id: "ichinoseki_orthodox",
+        name: "一関ハリストス正教会・昇天聖堂",
+        nameEn: "Ichinoseki Orthodox Church",
+        type: "church",
+        lat: 38.92259105365958,             
+        lng: 141.1217309986392,
+        visible: false
+      },
+        {
+        id: "jr_east_morioka",
+        line: "jr_east"
+        name: "盛岡",
+        nameEn: "Morioka",
+        type: "station",
+        lat: 39.91886880943039,  
+        lng: 141.19933495479495
+ },
+  { 
+        id: "kesennuma_orthodox",
+        name: "気仙沼ハリストス正教会・復活会堂",
+        nameEn: "Kesennuma Orthodox Church",
+        type: "church",
+        lat: 38.906254620638066,             
+        lng: 141.56940059494167,
+        visible: false
+      },
+      {
+      id: "nakaniida_orthodox",
+      name: "中新田ハリストス正教会・前駆授洗イオアン聖堂"
+      nameEn: "Nakaniida Orthodox Church",
+       type: "church",
+      lat: 38.566379926736566, 
+      lng: "140.85696752375557,
+        visible: false
+      },
+      {
+      id: "wakuya_orthodox",
+      name: "涌谷ハリストス正教会・聖預言者イサイヤ聖堂",
+      nameEn: "Wakuya Orthodox Holy Prophet Isaiah Church",
+      type: "church",
+      lat: 38.5433232546557, 
+      lng: 141.1281048525895,
+        visible: false
+      },
+      {
+      id: "ishinomaki_orthodox",
+      name: "石巻ハリストス正教会",
+      nameEn: "Ishinomaki Saint John the Apostle Orthodox Church",
+      type: "church",
+      lat: 38.434259379351346, 
+      lng: 141.30931764182455,
+        visible: false
+      },
+      {
+     id: "takashimizu_orthodox",
+     name: "高清水ハリストス正教会・主の顕栄聖堂",
+     nameEn: "Takashimizu Orthodox Church of the Transfiguration of Our Lord",
+     type: "church", 
+     lat: 38.65662459359928, 
+     lng: 141.0118792660903,
+        visible: false
+     },
+      {
+     id: "sanuma_orthodox",
+     name: "佐沼ハリストス正教会・主の顕栄聖堂",
+     NameEn: "Sanuma Orthodox Church of the Transfiguration of our Lord",
+     type: "church",
+     lat: 38.68704997177767, 
+     lng: 141.19764990842125,
+        visible: false
+     },
+      {
+     id: "jogetsutsumi_orthodox",
+     name: "上下堤ハリストス正教会・生神女庇護聖堂",
+     nameEn: "Jogetsutsumi Orthodox Church of the Assumption",
+     type: "church",
+     lat: 38.40659439389966, 
+     lng: 141.1172397255936,
+        visible: false
+      },
+      { 
+        id: "kannari_orthodox",
+        name: "金成ハリストス正教会・聖使徒イオアン聖堂",
+        nameEn: "Kannari Orthodox Church",
+        type: "church",
+        lat: 38.810866974763925,            
+        lng: 141.07472281853876,
+        visible: false
+      },
+      {
+  id: "unknown_sendai",
+  line: "unknown",
+  name: "仙台",
+  nameEn: "Sendai",
+  type: "station",
+  lat: 38.26007260131876, 
+  lng:  140.8822765623688
+ },
+          {
+        id: "peace_park",
+        name: "平和公園",
+        nameEn: "Peace Park Nagasaki",
+        type: "museum",
+        lat: 32.776992537763874,    
+        lng: 129.86393524060455
+      },  
+        {
+        id: "urakami_cathedral",
+        name: "カトリック浦上教会（浦上天主堂）",
+        nameEn: "Urakami Cathedral",
+        type: "church",
+        lat: 32.77611633657394,   
+        lng: 129.86835109327734
+      }, 
+      {
+  id: "unknown_shin_omura",
+  line: "unknown",
+  name: "新大村",
+  nameEn: "Shin-Omura",
+  type: "station",
+  lat: 32.932626750179075,
+  lng: 129.95722857374489
+},
+{
+  id: "unknown_isahaya",
+  line: "unknown",
+  name: "諫早",
+  nameEn: "Isahaya",
+  type: "station",
+  lat: 32.85203767364156,
+  lng: 130.0412546541023
+},
+{
+  id: "unknown_aino",
+  line: "unknown",
+  name: "愛野",
+  nameEn: "Aino",
+  type: "station",
+  lat: 32.81895137075822,
+  lng: 130.15604553458053
+},
+{
+  id: "unknown_shimabara",
+  line: "unknown",
+  name: "島原",
+  type: "station",
+  nameEn: "Shimabara",
+  lat: 32.79027786498945,
+  lng: 130.370631075974
+},
+      {
+  id: "unknown_nagasaki",
+  line: "unknown",
+  name: "長崎",
+  nameEn: "Nagasaki",
+  type: "station",
+  lat: 32.752546298028726, 
+  lng: 129.86865881602043
+ },
+ {
+  id: "unknown_yamagata",
+  line: "unknown",
+  name: "山形",
+  nameEn: "Yamagata",
+  type: "station",
+  lat: 38.24855114859316,  
+  lng: 140.3274321836492
+ },       
   ]
 };
