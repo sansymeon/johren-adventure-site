@@ -1596,6 +1596,121 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 35.493999272656936,  
   lng: 134.22585357939084
+ },
+    {
+        id: "maruyama_hachimangu",
+        name: "丸山八幡宮 二の鳥居",
+        nameEn: "Maruyama Hachimangu Shrine",
+        type: "shrine",
+        lat: 34.54822633746893,                    
+        lng: 131.63678866800052 
+      },
+      {
+        id: "yanaihara_orthodox",
+        name: "柳井原ハリストス正教会",
+        nameEn: "Yanaihara Orthodox Church",
+        type: "church",
+        lat: 34.608973263987686,    
+        lng: 133.72219075235222
+      }, 
+      {
+  id: "jr_west_yamaguchi",
+  line: "jr_west",
+  name: "山口",
+  nameEn: "Yamaguchi",
+  type: "station",
+  lat: 34.17267360239606, 
+  lng: 131.48077570260548
+},
+      {
+  id: "jr_west_shimonoseki",
+  line: "jr_west",
+  name: "下関",
+  nameEn: "Shimonoseki",
+  type: "station",
+  lat: 33.950751626493975, 
+  lng: 130.92207125669896
+ },
+    {
+  id: "jr_west_himeji",
+  line: "jr_west",
+  name: "姫路",
+  type: "station",
+  nameEn: "Himeji",
+  lat: 34.82668218036908, 
+  lng: 134.69050040818743
+},
+{
+  id: "jr_west_kobe",
+  line: "jr_west",
+  name: "神戸",
+  nameEn: "Kobe",
+  type: "station",
+  lat: 34.679489017452056, 
+  lng: 135.17826511406824
+ },
+    {
+        id: "kyoto_orthodox",
+        name: "京都ハリストス正教会",
+        nameEn: "Kyoto Orthodox Church",
+        type: "church",
+        lat: 35.01445715981374,  
+        lng: 135.76418814867904,
+      visible: false
+      }, 
+      {
+  id: "jr_west_kyoto",
+  line: "jr_west",
+  name: "京都",
+  nameEn: "Kyoto",
+  type: "station",
+  lat: 34.985752282029665, 
+  lng: 135.75833754128462
+ },
+    {
+  id: "jr_west_nara",
+  line: "jr_west",
+  name: "奈良",
+  nameEn: "Nara",
+  type: "station",
+  lat: 34.680737580008184,  
+  lng: 135.81890927934364
+ },
+    {
+  id: "jr_west_osaka",
+  line: "jr_west",
+  name: "大阪",
+  nameEn: "Osaka",
+  type: "station",
+  lat: 34.70229737398776, , 
+  lng: 135.49521376356904
+ },
+    {
+        id: "osaka_orthodox",
+        name: "大阪ハリストス正教会",
+        nameEn: "Osaka Orthodox Church",
+        type: "church",
+        lat: 34.76633139508822, 
+        lng: 135.5118561946903,
+      visible: false
+      }, 
+    {
+  id: "jr_biwako_otsu",
+  line: "jr_biwako",
+  name: "大津",
+  nameEn: "Otsu",
+  type: "station",
+  lat: 35.00332411938232,   
+  lng: 135.86456511586854
+ },
+    {
+  id: "jr_hanwa_wakayama",
+  line: "jr_hanwa",
+  name: "和歌山",
+  nameEn: "Wakayama",
+  type: "station",
+  lat: 34.23193966655008, 
+  lng: 135.19150551352493
  }
   ]
 };
