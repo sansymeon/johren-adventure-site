@@ -2382,7 +2382,7 @@ window.JAPAN_MAP_DATA = {
       nameEn: "Nakaniida Orthodox Church",
        type: "church",
       lat: 38.566379926736566, 
-      lng: "140.85696752375557,
+      lng: 140.85696752375557,
         visible: false
       },
       {
