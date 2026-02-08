@@ -1682,7 +1682,7 @@ window.JAPAN_MAP_DATA = {
   name: "大阪",
   nameEn: "Osaka",
   type: "station",
-  lat: 34.70229737398776, , 
+  lat: 34.70229737398776,  
   lng: 135.49521376356904
  },
     {
