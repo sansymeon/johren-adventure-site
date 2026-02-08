@@ -36,6 +36,11 @@
   // Icons (extend freely)
   // --------------------------------
   const icons = {
+    restaurant: L.icon({
+      iconUrl: "/img/map/restaurant.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
     coffee: L.icon({
       iconUrl: "/img/map/coffee.png",
       iconSize: [28, 28],
