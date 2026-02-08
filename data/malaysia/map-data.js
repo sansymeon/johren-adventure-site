@@ -1,4 +1,4 @@
-window.JAPAN_MAP_DATA = {
+window.MAP_DATA = {
   pins: [
     {
     id:"kk_gaya_daily_coffee", name:"Daily Coffee", nameEn:"Daily Coffee", type:"coffee", 
