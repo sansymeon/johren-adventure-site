@@ -2378,7 +2378,7 @@ window.JAPAN_MAP_DATA = {
       },
       {
       id: "nakaniida_orthodox",
-      name: "中新田ハリストス正教会・前駆授洗イオアン聖堂"
+      name: "中新田ハリストス正教会・前駆授洗イオアン聖堂",
       nameEn: "Nakaniida Orthodox Church",
        type: "church",
       lat: 38.566379926736566, 
