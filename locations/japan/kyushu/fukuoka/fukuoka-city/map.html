@@ -60,12 +60,26 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'fukuoka_city';
+  window.PLACE_CONFIG = {
+  key: "fukuoka_city",
+
+  // Tenjin / Hakata midpoint (good mental center)
+  center: [33.5902, 130.4017],
+
+  // City-level zoom
+  zoom: 12,
+
+  // Soft city envelope (includes Hakata, Tenjin, Momochi, Ohori)
+  bounds: [
+    [33.520, 130.300],  // southwest (Nishi / Sawara edge)
+    [33.680, 130.500]   // northeast (Higashi / Kashii side)
+  ]
+};
+
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
