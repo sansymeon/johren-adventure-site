@@ -32,7 +32,17 @@
       iconUrl: "/img/map/museum.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
-    })
+    }),
+    church: L.icon({
+      iconUrl: "/img/map/church.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+   }),
+       shrine: L.icon({
+      iconUrl: "/img/map/shrine.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+   })
   };
 
   // -------------------------------
