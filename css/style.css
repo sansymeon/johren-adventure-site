@@ -11,9 +11,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-.leaflet-control-attribution {
-  display: none !important;
-}
+
 /* ===============================
    JOHREN MAP BUTTONS (UNIFIED)
    =============================== */
