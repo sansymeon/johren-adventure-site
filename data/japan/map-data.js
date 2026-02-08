@@ -1711,6 +1711,105 @@ window.JAPAN_MAP_DATA = {
   type: "station",
   lat: 34.23193966655008, 
   lng: 135.19150551352493
- }
+ },
+     {
+  id: "sanyo_shinkansen_shin_shimonoseki",
+  line: "sanyo_shinkansen",
+  name: "新下関",
+  nameEn: "Shin-Shimonoseki",
+  type: "station",
+  lat: 34.007173219895265,  
+  lng: 130.94905989464706
+ },
+     {
+  id: "sanyo_shinkansen_asa",
+  line: "sanyo_shinkansen",
+  name: "厚狭",
+  nameEn: "Asa",
+  type: "station",
+  lat: 34.05378230440899, 
+  lng: 131.16004482404128
+ },
+     {
+  id: "sanyo_shinkansen_shin_yamaguchi",
+  line: "sanyo_shinkansen_shin_yamaguchi",
+  name: "新山口",
+  nameEn: "Shin-Yamaguchi",
+  type: "station",
+  lat: 34.09380717528445, 
+  lng: 131.39635396581656
+ },
+     {
+  id: "sanyo_shinkansen_tokuyama",
+  line: "sanyo_shinkansen",
+  name: "徳山",
+  nameEn: "Tokuyama",
+  type: "station",
+  lat: 34.05117824090719, 
+  lng: 131.80288025047233
+ },
+     {
+  id: "sanyo_shinkansen_shin_iwakuni",
+  line: "sanyo_shinkansen",
+  name: "新岩国",
+  nameEn: "Shin-Iwakuni",
+  type: "station",
+  lat: 34.16477067833664, 
+  lng: 132.14960902903604
+ },
+     {
+  id: "sanyo_shinkansen_higashi_hiroshima",
+  line: "sanyo_shinkansen",
+  name: "東広島",
+  nameEn: "Higashi Hiroshima",
+  type: "station",
+  lat: 34.38932491940482, 
+  lng: 132.759548804466
+ },
+     {
+  id: "sanyo_shinkansen_mihara",
+  line: "sanyo_shinkansen",
+  name: "三原",
+  nameEn: "Mihara",
+  type: "station",
+  lat: 34.40068115614304,  
+  lng: 133.08316498394547
+ },
+     {
+  id: "sanyo_shinkansen_shin_onomichi",
+  line: "sanyo_shinkansen",
+  name: "新尾道",
+  nameEn: "Shin Onomichi",
+  type: "station",
+  lat: 34.430164623711384, 
+  lng: 133.19030555234193
+ },
+     {
+  id: "sanyo_shinkansen_aioi",
+  line: "sanyo_shinkansen",
+  name: "相生",
+  nameEn: "Aioi",
+  type: "station",
+  lat: 34.81795910228426,  
+  lng: 134.473974250334
+ },
+     {
+  id: "sanyo_shinkansen_nishi_akashi",
+  line: "sanyo_shinkansen",
+  name: "西明石",
+  nameEn: "Nishi Akashi",
+  type: "station",
+  lat: 34.66700248183328, 
+  lng: 134.96007403091295
+ },
+    {
+  id: "sanyo_shinkansen_shin_kobe",
+  line: "sanyo_shinkansen",
+  name: "新神戸",
+  nameEn: "Shin-Kobe",
+  type: "station",
+  lat: 34.70679993007298, 
+  lng: 135.19616486899184
+ }  
   ]
 };
