@@ -71,7 +71,22 @@
         { direction: "top", offset: [0, -20] }
       );
     }
-
+    if (type === "church") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
+if (type === "shrine") {
+      marker.bindTooltip(
+        pin.nameEn
+          ? `${pin.name} / ${pin.nameEn}`
+          : pin.name,
+        { direction: "top", offset: [0, -20] }
+      );
+    }
     if (type === "museum") {
       marker.bindTooltip(
         pin.nameEn || pin.name,
