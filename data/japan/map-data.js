@@ -1,6 +1,96 @@
 window.MAP_DATA = {
   pins: [
    {
+      id: "jr_hokkaido_asahikawa",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "旭川",
+      nameEn: "Asahikawa",
+      type: "station",
+      lat: 43.76272312873298,  
+      lng: 142.35829591855986
+    }, 
+     {
+      id: "jr_hokkaido_hakodate",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "函館",
+      nameEn: "Hakodate",
+      type: "station",
+      lat: 41.774451195511105, 
+      lng: 140.72629352911002
+    }, 
+     {
+      id: "jr_hokkaido_shin_hakodate_hokuto",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "新函館北斗",
+      nameEn: "Shin-Hakodate Hokuto",
+      type: "station",
+      lat: 41.90492185110209, 
+      lng: 140.64865524486171
+    }, 
+     {
+      id: "jr_hokkaido_tomakomai",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "苫小牧",
+      nameEn: "Tomakomai",
+      type: "station",
+      lat: 42.6397785332933, 
+      lng: 141.59670286450677
+    }, 
+     {
+      id: "jr_hokkaido_otaru",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "小樽",
+      nameEn: "Otaru",
+      type: "station",
+      lat: 43.19772948511116, 
+      lng: 140.99377632866572
+    }, 
+     {
+      id: "jr_hokkaido_kushiro",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "釧路",
+      nameEn: "Kushiro",
+      type: "station",
+      lat: 42.99051855295074, 
+      lng: 144.38206414734094
+    }, 
+     {
+      id: "jr_hokkaido_obihiro",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "帯広",
+      nameEn: "Obihiro",
+      type: "station",
+      lat: 42.917963015629766, 
+      lng: 143.20212078624675
+    }, 
+     {
+      id: "jr_hokkaido_kitami",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "北見",
+      nameEn: "Kitami",
+      type: "station",
+      lat: 43.80503627208645, 
+      lng: 143.8975985026649 
+    }, 
+     {
+      id: "jr_hokkaido_noboribetsu",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+       name: "登別",
+      nameEn: "Noboribetsu",
+      type: "station",
+      lat: 42.452047875141865, 
+      lng: 141.18037024464272
+    }, 
+    {
       id: "naha_airport",
       name: "那覇空港",
       nameEn: "Naha Airport",
