@@ -77,6 +77,23 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
   if (savedHere) {
     placeMarker(savedHere);
   }
+    // --------------------------------
+  // "I'm here" button
+  // --------------------------------
+  const hereBtn = document.querySelector(".here-btn");
+
+  if (hereBtn) {
+    hereBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      armed = !armed;
+
+      map.getContainer().classList.toggle("here-armed", armed);
+
+      hereBtn.textContent = armed ? "Tap map" : "I'm here";
+    });
+  }
+
 
   // --------------------------------
   // Icons (extend freely)
