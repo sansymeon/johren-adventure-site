@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜長崎マップ</title>
+  <title>ジョウレン・アドベンチャー｜千葉マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'chiba';
+  window.PLACE_CONFIG = {
+    key: "chiba",
+    center: [35.60385175578461, 140.30519817948272],
+    zoom: 6,
+    bounds: [
+      [34.90525833360776, 139.7472598402697],   // southwest
+      [36.0524429501007, 140.2540538317215]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "chiba"; 
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
