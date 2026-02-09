@@ -57,12 +57,23 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'miyazaki';
-</script>
+  window.PLACE_CONFIG = {
+  key: "miyazaki",
 
-<script src="./map-data.js"></script>
+  center: [32.188563054756685, 131.35353269661738],
+  zoom: 10,
+  bounds: [
+    [31.70847422063496, 131.05140869009213],  // southwest 
+    [32.740091381827554, 131.79847896077277]   // northeast 
+  ]
+};
+
+</script>
+<script>
+  window.AREA_KEY = "miyazaki"; 
+</script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
