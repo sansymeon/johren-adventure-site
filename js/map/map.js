@@ -121,4 +121,112 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     }
   });
 
+  // =====================================================
+// I'M HERE (minimal v1)
+// =====================================================
+(function setupImHere(map) {
+  if (!map) return;
+
+  const AREA = (window.AREA_KEY || "default").trim();
+  const KEY = `johren_here_v1:${AREA}`;
+
+  let hereMarker = null;
+  let armed = false;
+
+  function loadHere() {
+    try {
+      return JSON.parse(localStorage.getItem(KEY));
+    } catch {
+      return null;
+    }
+  }
+
+  function saveHere(obj) {
+    localStorage.setItem(KEY, JSON.stringify(obj));
+  }
+
+  function clearHere() {
+    localStorage.removeItem(KEY);
+  }
+
+  function placeMarker(h) {
+    if (!h) return;
+    if (hereMarker) {
+      hereMarker.setLatLng([h.lat, h.lng]);
+    } else {
+      hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+    }
+    hereMarker.bindPopup("I’m here").openPopup();
+  }
+
+  // ---- Leaflet control ----
+  const HereControl = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      const div = L.DomUtil.create("div", "leaflet-bar");
+      const a = L.DomUtil.create("a", "", div);
+      a.href = "#";
+      a.textContent = "I’m here";
+      a.style.padding = "0 10px";
+      a.style.lineHeight = "30px";
+      a.style.fontSize = "13px";
+      a.style.background = "#fff";
+      a.style.color = "#222";
+      a.style.textDecoration = "none";
+
+      L.DomEvent.disableClickPropagation(div);
+
+      a.onclick = (e) => {
+        e.preventDefault();
+
+        const existing = loadHere();
+        if (existing && !armed) {
+          clearHere();
+          if (hereMarker) {
+            map.removeLayer(hereMarker);
+            hereMarker = null;
+          }
+          a.textContent = "I’m here";
+          return;
+        }
+
+        armed = true;
+        a.textContent = "Tap map…";
+      };
+
+      return div;
+    }
+  });
+
+  map.addControl(new HereControl());
+
+  // ---- Map click (only when armed) ----
+  map.on("click", (e) => {
+    if (!armed) return;
+
+    const h = {
+      lat: e.latlng.lat,
+      lng: e.latlng.lng,
+      ts: Date.now()
+    };
+
+    saveHere(h);
+    placeMarker(h);
+
+    armed = false;
+
+    // reset button label
+    const btn = document.querySelector(".leaflet-bar a");
+    if (btn) btn.textContent = "Clear";
+  });
+
+  // ---- Restore on load ----
+  const existing = loadHere();
+  if (existing) {
+    placeMarker(existing);
+  }
+
+})(map);
+
+
 })();
