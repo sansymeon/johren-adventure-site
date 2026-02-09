@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'kagoshima';
-</script>
+  window.PLACE_CONFIG = {
+  key: "kagoshima",
+  center: [31.617829111020274, 130.6435083060261],
+  zoom: 10,
+  bounds: [
+    [31.256, 130.214],  // southwest 
+    [31.955, 130.803]   // northeast 
+  ]
+};
 
-<script src="./map-data.js"></script>
+</script>
+<script>
+  window.AREA_KEY = "kagoshima"; 
+</script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
