@@ -1,6 +1,30 @@
 window.MAP_DATA = {
   pins: [
-    {
+   {
+      id: "naha_airport",
+      name: "那覇空港",
+      nameEn: "Naha Airport",
+      type: "station",
+      lat: 26.206500429087768, 
+      lng: 127.65219063658655
+    }, 
+     {
+      id: "urasoemaeda",
+      name: "浦添前田",
+      nameEn: "Urasoemaeda",
+      type: "station",
+      lat: 26.24383887706269,  
+      lng: 127.73223797891734
+    },
+   {
+      id: "okuma_beach",
+      name: "オクマビーチ",
+      nameEn: "Okuma Beach",
+      type: "landmark",
+      lat: 26.74010368624446, 
+      lng: 128.15881546628992
+    },
+   {
       id: "ito_art_museum",
       name: "伊都郷土美術館",
       nameEn: "Ito Art Museum",
