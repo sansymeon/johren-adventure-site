@@ -23,22 +23,55 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
   // Init map
   // --------------------------------
   const map = L.map("map", {
-    zoomControl: false
-  }).setView(center, zoom);
-  L.control.zoom({ position: "topright" }).addTo(map);
+  zoomControl: false
+}).setView(center, zoom);
 
-  if (bounds) {
-    map.setMaxBounds(bounds);
-  }
+L.control.zoom({ position: "topright" }).addTo(map);
+
+if (bounds) {
+  map.setMaxBounds(bounds);
+}
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-  const savedHere = loadHere();
+ let hereMarker = null;
+let armed = false;
+
+function loadHere() {
+  try {
+    return JSON.parse(localStorage.getItem(KEY));
+  } catch {
+    return null;
+  }
+}
+
+function saveHere(obj) {
+  localStorage.setItem(KEY, JSON.stringify(obj));
+}
+
+function clearHere() {
+  localStorage.removeItem(KEY);
+}
+
+function placeMarker(h) {
+  if (!h) return;
+
+  if (hereMarker) {
+    hereMarker.setLatLng([h.lat, h.lng]);
+  } else {
+    hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+  }
+
+  hereMarker.bindPopup("I’m here");
+}
+  
+ const savedHere = loadHere();
 if (savedHere) {
   placeMarker(savedHere);
 }
+
 
   // --------------------------------
   // Icons (extend freely)
@@ -137,35 +170,6 @@ if (savedHere) {
 
   const AREA = (window.AREA_KEY || "default").trim();
   const KEY = `johren_here_v1:${AREA}`;
-
-  let hereMarker = null;
-  let armed = false;
-
-  function loadHere() {
-    try {
-      return JSON.parse(localStorage.getItem(KEY));
-    } catch {
-      return null;
-    }
-  }
-
-  function saveHere(obj) {
-    localStorage.setItem(KEY, JSON.stringify(obj));
-  }
-
-  function clearHere() {
-    localStorage.removeItem(KEY);
-  }
-
-  function placeMarker(h) {
-    if (!h) return;
-    if (hereMarker) {
-      hereMarker.setLatLng([h.lat, h.lng]);
-    } else {
-      hereMarker = L.marker([h.lat, h.lng]).addTo(map);
-    }
-    hereMarker.bindPopup("I’m here").openPopup();
-  }
 
   // ---- Leaflet control ----
   const HereControl = L.Control.extend({
