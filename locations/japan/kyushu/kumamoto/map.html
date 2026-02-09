@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'kumamoto';
-</script>
+  window.PLACE_CONFIG = {
+  key: "kumamoto",
+  center: [32.64795774285065, 130.7683422822091],
+  zoom: 10,
+  bounds: [
+    [32.3468119277559, 130.0130322658959],  // southwest 
+    [33.06556106353994, 131.1556103269369]   // northeast 
+  ]
+};
 
-<script src="./map-data.js"></script>
+</script>
+<script>
+  window.AREA_KEY = "kumamoto"; 
+</script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
