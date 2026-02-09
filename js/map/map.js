@@ -167,12 +167,16 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       const a = L.DomUtil.create("a", "", div);
       a.href = "#";
       a.textContent = "I’m here";
-      a.style.padding = "0 10px";
-      a.style.lineHeight = "30px";
+      a.style.padding = "0";
+      a.style.lineHeight = "32px";
       a.style.fontSize = "13px";
       a.style.background = "#fff";
       a.style.color = "#222";
       a.style.textDecoration = "none";
+      a.style.width = "96px";        // ← fixed width so it doesn’t jump
+      a.style.textAlign = "center";
+      
+
 
       L.DomEvent.disableClickPropagation(div);
 
