@@ -40,6 +40,8 @@
     }
     .pin-filters:empty{ display:none; }
     .pin-filters label{ display:flex; gap:8px; align-items:center; margin:6px 0; }
+
+    /* FUTURE: nearest-place indicator (enable when distance logic is added) */
     
     /* Force cursor while "I'm here" is armed */
 .leaflet-container.here-armed,
@@ -84,6 +86,7 @@
     ]
   };
 </script>
+window.AREA_KEY = "gaya_street";
 
 <script src="/data/malaysia/map-data.js"></script>
 <script src="/js/map/map.js"></script>
