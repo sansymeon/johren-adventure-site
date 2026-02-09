@@ -2,9 +2,12 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜準備中</title>
+  <title>ジョウレン・アドベンチャー｜糸島</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="ジョウレン・アドベンチャー。現在このエリアは準備中です。" />
+  <meta name="description"
+  content="ジョウレン・アドベンチャー。糸島の空気や日常を、地図と静かな問いを通して探ります。 
+    Johren Adventure. Exploring the atmosphere and everyday life of Itoshima through maps and quiet questions." />
+
 
   <style>
     :root {
@@ -17,7 +20,31 @@
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* ===============================
+       BACK LINK
+       =============================== */
+    .back-link {
+      position: fixed;
+      left: 14px;
+      top: 14px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #555;
+      background: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
 
+    .back-link:hover {
+      background: #fff;
+    }
+
+.ask-ai-row {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont,
                    "Helvetica Neue", Arial, sans-serif;
@@ -102,6 +129,7 @@
 </head>
 
 <body>
+<a href="../" class="back-link">← 戻る / Back</a>
 
   <div class="wrap">
 
@@ -110,18 +138,26 @@
     <div class="jp-sub">アドベンチャー</div>
     <div class="divider"></div>
 
-    <h1>準備中</h1>
+    <h1>糸島・Itoshima</h1>
 
     <div class="card">
       <p class="message">
-        このエリアは、現在準備中です。<br>
-        もうしばらくお待ちください。
-        <br><br>
-        <span style="font-size:13px;color:#777;">
-          This location will be available soon.
-        </span>
-      </p>
+  この地域の地図と情報は、少しずつ追加されています。<br>
+  気になる場所があれば、静かに探してみてください。
+  <br><br>
+  <span style="font-size:13px;color:#777;">
+    This area is gradually being mapped.
+  </span>
+</p>
 
+
+  
+    <section class="ask-ai-row">
+  <a href="./ask-ai.html" class="region-card ask-ai-card">
+    <div class="region-ja">この地域について考える</div>
+    <div class="region-en">Ask about this area</div>
+  </a>
+</section>
       <div class="links">
         <a href="/">トップページへ戻る</a><br>
         <a class="btn" href="./map.html">地図を見る</a><br>
