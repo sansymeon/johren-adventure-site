@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'wakayama';
+  window.PLACE_CONFIG = {
+    key: "wakayama",
+    center: [33.94017816228581, 135.57956627915047],
+    zoom: 6,
+    bounds: [
+      [33.51996325525308, 135.3143396038583],   // southwest
+      [34.17095085483262, 135.76322201133382]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "wakayama"; 
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
