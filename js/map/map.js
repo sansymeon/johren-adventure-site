@@ -23,55 +23,60 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
   // Init map
   // --------------------------------
   const map = L.map("map", {
-  zoomControl: false
-}).setView(center, zoom);
+    zoomControl: false
+  }).setView(center, zoom);
 
-L.control.zoom({ position: "topright" }).addTo(map);
+  L.control.zoom({ position: "topright" }).addTo(map);
 
-if (bounds) {
-  map.setMaxBounds(bounds);
-}
-
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
- let hereMarker = null;
-let armed = false;
-
-function loadHere() {
-  try {
-    return JSON.parse(localStorage.getItem(KEY));
-  } catch {
-    return null;
-  }
-}
-
-function saveHere(obj) {
-  localStorage.setItem(KEY, JSON.stringify(obj));
-}
-
-function clearHere() {
-  localStorage.removeItem(KEY);
-}
-
-function placeMarker(h) {
-  if (!h) return;
-
-  if (hereMarker) {
-    hereMarker.setLatLng([h.lat, h.lng]);
-  } else {
-    hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+  if (bounds) {
+    map.setMaxBounds(bounds);
   }
 
-  hereMarker.bindPopup("I’m here");
-}
-  
- const savedHere = loadHere();
-if (savedHere) {
-  placeMarker(savedHere);
-}
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
+  // --------------------------------
+  // "I'm here" state
+  // --------------------------------
+  let hereMarker = null;
+  let armed = false;
+
+  function loadHere() {
+    try {
+      return JSON.parse(localStorage.getItem(KEY));
+    } catch {
+      return null;
+    }
+  }
+
+  function saveHere(obj) {
+    localStorage.setItem(KEY, JSON.stringify(obj));
+  }
+
+  function clearHere() {
+    localStorage.removeItem(KEY);
+  }
+
+  function placeMarker(h) {
+    if (!h) return;
+
+    if (hereMarker) {
+      hereMarker.setLatLng([h.lat, h.lng]);
+    } else {
+      hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+    }
+
+    hereMarker.bindPopup("I’m here");
+  }
+
+  // --------------------------------
+  // Restore saved location (after map exists)
+  // --------------------------------
+  const savedHere = loadHere();
+  if (savedHere) {
+    placeMarker(savedHere);
+  }
 
   // --------------------------------
   // Icons (extend freely)
