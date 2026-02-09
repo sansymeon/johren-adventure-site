@@ -21,8 +21,9 @@
   // Init map
   // --------------------------------
   const map = L.map("map", {
-    zoomControl: true
+    zoomControl: false
   }).setView(center, zoom);
+  L.control.zoom({ position: "topright" }).addTo(map);
 
   if (bounds) {
     map.setMaxBounds(bounds);
