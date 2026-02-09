@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜長崎マップ</title>
+  <title>ジョウレン・アドベンチャー｜沖縄マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
@@ -57,12 +57,23 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'tottori';
-</script>
+  window.PLACE_CONFIG = {
+  key: "okinawa",
 
-<script src="./map-data.js"></script>
+  center: [26.549502191433174, 127.99128150917734],
+  zoom: 9,
+  bounds: [
+    [26.061759973587296, 127.60636773346722],  // southwest 
+    [26.94844109205097, 128.34284927167852]   // northeast 
+  ]
+};
+
+</script>
+<script>
+  window.AREA_KEY = "okinawa"; 
+</script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
