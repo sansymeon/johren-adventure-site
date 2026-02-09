@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'yamanashi';
+  window.PLACE_CONFIG = {
+    key: "yamanashi",
+    center: [35.62856224464321, 138.6623755417696],
+    zoom: 12,
+    bounds: [
+      [35.18577447890808, 138.47702841420016],   // southwest
+      [35.836303393349475, 138.90303494172932]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "yamanashi"; 
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
