@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'aichi';
+  window.PLACE_CONFIG = {
+    key: "fukui",
+    center: [35.12773728008706, 137.13768553886229],
+    zoom: 10,
+    bounds: [
+      [35.395835865321224, 135.54535290879406],   // southwest
+      [36.14598008667696, 136.55272321791438]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "aichi"; 
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
