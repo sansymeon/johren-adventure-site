@@ -93,6 +93,28 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
       hereBtn.textContent = armed ? "Tap map" : "I'm here";
     });
   }
+  // --------------------------------
+  // Map click handler (place "I'm here")
+  // --------------------------------
+  map.on("click", (e) => {
+    if (!armed) return;
+
+    const here = {
+      lat: e.latlng.lat,
+      lng: e.latlng.lng,
+      ts: Date.now()
+    };
+
+    saveHere(here);
+    placeMarker(here);
+
+    armed = false;
+    map.getContainer().classList.remove("here-armed");
+
+    if (hereBtn) {
+      hereBtn.textContent = "I'm here";
+    }
+  });
 
 
   // --------------------------------
