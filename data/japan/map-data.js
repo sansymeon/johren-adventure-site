@@ -1,6 +1,16 @@
 window.MAP_DATA = {
   pins: [
-   {
+     {
+      id: "jr_hokkaido_wakkanai",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "稚内",
+      nameEn: "Wakkanai",
+      type: "station",
+      lat: 45.417168132175405,  
+      lng: 141.6772552432066
+    }, 
+    {
       id: "jr_hokkaido_asahikawa",
       line: "jr_hokkaido",
       area: "hokkaido",
