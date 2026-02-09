@@ -1,6 +1,8 @@
 // ===============================
 // JOHREN MAP ENGINE (UNIVERSAL)
 // ===============================
+const KEY = `here:${window.AREA_KEY || "global"}`;
+
 (function () {
   // --------------------------------
   // Required configs
@@ -32,6 +34,11 @@
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
+
+  const savedHere = loadHere();
+if (savedHere) {
+  placeMarker(savedHere);
+}
 
   // --------------------------------
   // Icons (extend freely)
