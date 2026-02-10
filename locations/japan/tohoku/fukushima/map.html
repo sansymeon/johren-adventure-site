@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜長崎マップ</title>
+  <title>ジョウレン・アドベンチャー｜福島マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
@@ -57,14 +57,41 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'fukushima';
+  window.PLACE_CONFIG = {
+    key: "fukushima",
+    center: [<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  window.PLACE_CONFIG = {
+    key: "fukushima",
+    center: [37.472575942346815, 140.23466697824287],
+    zoom: 6,
+    bounds: [
+      [36.930031466053514, 139.16350004601694],   // southwest
+      [37.89859601267943, 141.05864154149364]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "fukushima"; 
 </script>
 
-<script src="./map-data.js"></script>
-<script src="/js/map/map.js"></script>
+<script src="/data/japan/map-data.js"></script>
+<script src="/js/map/map.js"></script>],
+    zoom: 6,
+    bounds: [
+      [41.44687120205564, 140.0876932984387],   // southwest
+      [45.56005536849475, 144.55900332244417]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "fukushima"; 
+</script>
 
+<script src="/data/japan/map-data.js"></script>
+<script src="/js/map/map.js"></script>
 
 <a href="./about-map.html" class="about-link">
   Johrenについて・About Johren
