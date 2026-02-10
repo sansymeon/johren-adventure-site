@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <title>ジョウレン・アドベンチャー｜長崎マップ</title>
+  <title>ジョウレン・アドベンチャー｜岩手マップ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Leaflet CSS -->
@@ -57,12 +57,22 @@
 
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 <script>
-  window.AREA_KEY = 'iwate';
+  window.PLACE_CONFIG = {
+    key: "iwate",
+    center: [39.63802677773041, 141.42193197544415],
+    zoom: 6,
+    bounds: [
+      [38.71398801383511, 141.07036949512386],   // southwest
+      [40.48724533315689, 141.7075764907044]    // northeast
+    ]
+  };
+</script>
+<script>
+  window.AREA_KEY = "iwate"; 
 </script>
 
-<script src="./map-data.js"></script>
+<script src="/data/japan/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
