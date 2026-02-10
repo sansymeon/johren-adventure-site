@@ -148,7 +148,7 @@ window.MAP_DATA = {
       nameEn: "Nihonbashi",
       type: "station",
       lat: 35.682136701922175, 
-      lng: 141.6772552432066139.77461203522455
+      lng: 139.77470857065944
     }, 
         {
       id: "unknown_tsukiji",
