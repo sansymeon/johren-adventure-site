@@ -1,6 +1,176 @@
 window.MAP_DATA = {
   pins: [
-     {
+    {
+      id: "unknown_yurakucho",
+      line: "unknown",
+      area: "tokyo",
+      name: "有楽町",
+      nameEn: "Yurakucho",
+      type: "station",
+      lat: 35.67496969538431,   
+      lng: 139.76304185241415
+    }, 
+        {
+      id: "unknown_otemachi",
+      line: "unknown",
+      area: "tokyo",
+      name: "大手町",
+      nameEn: "Otemachi",
+      type: "station",
+      lat: 35.68537551552463,   
+      lng: 139.76327839474382
+    }, 
+        {
+      id: "unknown_shinjuku",
+      line: "unknown",
+      area: "tokyo",
+      name: "新宿",
+      nameEn: "Shinjuku",
+      type: "station",
+      lat: 35.689749147708746,   
+      lng: 139.7005541211752
+    }, 
+        {
+      id: "unknown_shibuya",
+      line: "unknown",
+      area: "tokyo",
+      name: "渋谷",
+      nameEn: "Shibuya",
+      type: "station",
+      lat: 35.658809708015205, 
+      lng: 139.70139976036222
+    }, 
+        {
+      id: "unknown_harajuku",
+      line: "unknown",
+      area: "tokyo",
+      name: "原宿",
+      nameEn: "Harajuku",
+      type: "station",
+      lat: 35.66998548079574,  
+      lng: 139.702444737072
+    }, 
+        {
+      id: "unknown_ebisu",
+      line: "unknown",
+      area: "tokyo",
+      name: "恵比寿",
+      nameEn: "Ebisu",
+      type: "station",
+      lat: 35.64660985018325,  
+      lng: 139.71024272727348 
+    }, 
+        {
+      id: "unknown_roppongi",
+      line: "unknown",
+      area: "tokyo",
+      name: "六本木",
+      nameEn: "Roppongi",
+      type: "station",
+      lat: 35.663288106044625,   
+      lng: 139.7320746659071
+    }, 
+        {
+      id: "unknown_shinagawa",
+      line: "unknown",
+      area: "tokyo",
+      name: "品川",
+      nameEn: "Shinagawa",
+      type: "station",
+      lat: 35.6288200926527,  
+      lng: 139.73890989843687
+    }, 
+        {
+      id: "unknown_shinbashi",
+      line: "unknown",
+      area: "tokyo",
+      name: "新橋",
+      nameEn: "Shinbashi",
+      type: "station",
+      lat: 35.6665968818815, 
+      lng: 139.75825396405907 
+    }, 
+        {
+      id: "unknown_tamachi",
+      line: "unknown",
+      area: "tokyo",
+      name: "田町",
+      nameEn: "Tamachi",
+      type: "station",
+      lat: 35.64578832386757,  
+      lng: 139.74760528622525
+    }, 
+        {
+      id: "unknown_ueno",
+      line: "unknown",
+      area: "tokyo",
+      name: "上野",
+      nameEn: "Ueno",
+      type: "station",
+      lat: 35.713705479633106,   
+      lng: 139.77700139899818
+    }, 
+        {
+      id: "unknown_asakusa",
+      line: "unknown",
+      area: "tokyo",
+      name: "浅草",
+      nameEn: "Asakusa",
+      type: "station",
+      lat: 35.710803118646155,   
+      lng: 139.79763052902732
+    }, 
+        {
+      id: "unknown_nippori",
+      line: "unknown",
+      area: "tokyo",
+      name: "日暮里",
+      nameEn: "Nippori",
+      type: "station",
+      lat: 35.7275828741282,  
+      lng: 139.77112416850807
+    }, 
+        {
+      id: "unknown_ginza",
+      line: "unknown",
+      area: "tokyo",
+      name: "銀座",
+      nameEn: "Ginza",
+      type: "station",
+      lat: 35.67121514737473,  
+      lng: 139.76499716562958
+    }, 
+        {
+      id: "unknown_nihonbashi",
+      line: "unknown",
+      area: "tokyo",
+      name: "日本橋",
+      nameEn: "Nihonbashi",
+      type: "station",
+      lat: 35.682136701922175, 
+      lng: 141.6772552432066139.77461203522455
+    }, 
+        {
+      id: "unknown_tsukiji",
+      line: "unknown",
+      area: "tokyo",
+      name: "築地",
+      nameEn: "Tsukiji",
+      type: "station",
+      lat: 35.66817488593285,   
+      lng: 139.77262489474282
+    }, 
+    {
+      id: "unknown_ikebukuro",
+      line: "unknown",
+      area: "tokyo",
+      name: "池袋",
+      nameEn: "Ikebukuro",
+      type: "station",
+      lat: 35.72977276618652, 
+      lng: 139.71064260269546
+    },
+    {
       id: "jr_hokkaido_wakkanai",
       line: "jr_hokkaido",
       area: "hokkaido",
