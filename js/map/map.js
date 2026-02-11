@@ -11,7 +11,26 @@ const HERE_KEY = `johren_here:${window.AREA_KEY || "global"}`;
     return console.error("MAP_DATA.pins missing");
 
   const { center, zoom, bounds } = window.PLACE_CONFIG;
+const LABELS = {
+  cafe:   { ja: "カフェ", en: "Cafés" },
+  shrine: { ja: "神社・お寺", en: "Shrines & Temples" },
+  church: { ja: "教会", en: "Churches" }
+};
 
+const controls = document.getElementById("map-controls");
+
+presentTypes.forEach(type => {
+  const label = LABELS[type];
+  if (!label) return;
+
+  const el = document.createElement("label");
+  el.innerHTML = `
+    <input type="checkbox" data-type="${type}" checked>
+    <span class="label-ja">${label.ja}</span>
+    <span class="label-en">${label.en}</span>
+  `;
+  .appendChild(el);
+});controls
   // ---- Init map ----
   map = L.map("map", { zoomControl: false }).setView(center, zoom);
 
