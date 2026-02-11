@@ -2,6 +2,11 @@
 // JOHREN MAP ENGINE (BASELINE)
 // ===============================
 let map;
+let hereLocation = null;
+let hereMarker = null;
+let armed = false;
+let pinLayer;
+
 const HERE_KEY = `johren_here:${window.AREA_KEY || "global"}`;
 
 (function () {
@@ -63,6 +68,12 @@ function placeHereMarker(h) {
   }
 
   hereMarker.bindPopup("I’m here");
+}
+function formatDistance(meters) {
+  if (meters < 1000) {
+    return `${Math.round(meters)} m`;
+  }
+  return `${(meters / 1000).toFixed(1)} km`;
 }
 
 // ---- restore on load ----
@@ -189,8 +200,51 @@ L.marker(
   pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
   { direction: "top", offset: [0, -20] }
 );
+function formatDistance(meters) {
+  if (meters < 1000) {
+    return `${Math.round(meters)} m`;
+  }
+  return `${(meters / 1000).toFixed(1)} km`;
+}
 
 });
+function renderPins() {
+  if (!pinLayer) return;
+
+  pinLayer.clearLayers();
+
+  window.MAP_DATA.pins.forEach(pin => {
+    if (pin.area !== window.AREA_KEY) return;
+    if (typeof pin.lat !== "number") return;
+
+    const icon = icons[pin.type];
+
+    const marker = L.marker(
+      [pin.lat, pin.lng],
+      icon ? { icon } : {}
+    );
+
+    let label =
+      pin.nameEn
+        ? `${pin.name} / ${pin.nameEn}`
+        : pin.name;
+
+    if (hereLocation) {
+      const meters = map.distance(
+        [hereLocation.lat, hereLocation.lng],
+        [pin.lat, pin.lng]
+      );
+      label += ` · ${formatDistance(meters)}`;
+    }
+
+    marker.bindTooltip(label, {
+      direction: "top",
+      offset: [0, -20]
+    });
+
+    pinLayer.addLayer(marker);
+  });
+}
 
 
 })();
