@@ -3,7 +3,7 @@ window.MAP_DATA = {
     {
       id: "unknown_yurakucho",
       line: "unknown",
-      area: "tokyo",
+      area: "tokyo",  
       name: "有楽町",
       nameEn: "Yurakucho",
       type: "station",
@@ -194,7 +194,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_hakodate",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "函館",
+      name: "函館",
       nameEn: "Hakodate",
       type: "station",
       lat: 41.774451195511105, 
@@ -204,7 +204,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_shin_hakodate_hokuto",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "新函館北斗",
+      name: "新函館北斗",
       nameEn: "Shin-Hakodate Hokuto",
       type: "station",
       lat: 41.90492185110209, 
@@ -214,7 +214,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_tomakomai",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "苫小牧",
+      name: "苫小牧",
       nameEn: "Tomakomai",
       type: "station",
       lat: 42.6397785332933, 
@@ -224,7 +224,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_otaru",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "小樽",
+      name: "小樽",
       nameEn: "Otaru",
       type: "station",
       lat: 43.19772948511116, 
@@ -234,7 +234,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_kushiro",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "釧路",
+      name: "釧路",
       nameEn: "Kushiro",
       type: "station",
       lat: 42.99051855295074, 
@@ -244,7 +244,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_obihiro",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "帯広",
+      name: "帯広",
       nameEn: "Obihiro",
       type: "station",
       lat: 42.917963015629766, 
@@ -254,7 +254,7 @@ window.MAP_DATA = {
       id: "jr_hokkaido_kitami",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "北見",
+      name: "北見",
       nameEn: "Kitami",
       type: "station",
       lat: 43.80503627208645, 
@@ -264,14 +264,16 @@ window.MAP_DATA = {
       id: "jr_hokkaido_noboribetsu",
       line: "jr_hokkaido",
       area: "hokkaido",
-       name: "登別",
+      name: "登別",
       nameEn: "Noboribetsu",
       type: "station",
+       
       lat: 42.452047875141865, 
       lng: 141.18037024464272
     }, 
     {
       id: "naha_airport",
+      area: "okinawa",       
       name: "那覇空港",
       nameEn: "Naha Airport",
       type: "station",
@@ -280,6 +282,7 @@ window.MAP_DATA = {
     }, 
      {
       id: "urasoemaeda",
+      area: "okinawa",       
       name: "浦添前田",
       nameEn: "Urasoemaeda",
       type: "station",
@@ -288,6 +291,7 @@ window.MAP_DATA = {
     },
    {
       id: "okuma_beach",
+      area: "okinawa",       
       name: "オクマビーチ",
       nameEn: "Okuma Beach",
       type: "landmark",
@@ -296,6 +300,7 @@ window.MAP_DATA = {
     },
    {
       id: "ito_art_museum",
+      area: "itoshima",       
       name: "伊都郷土美術館",
       nameEn: "Ito Art Museum",
       type: "museum",
@@ -458,7 +463,7 @@ window.MAP_DATA = {
     {
       id: "chikuhi_hamasaki",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "浜崎",
       nameEn: "Hamasaki",
       type: "station",
@@ -468,7 +473,7 @@ window.MAP_DATA = {
     {
       id: "chikuhi_nijinomatsubara",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "虹ノ松原",
       nameEn: "Nijinomatsubara",
       type: "station",
@@ -476,11 +481,11 @@ window.MAP_DATA = {
       lng: 130.016195
     },
     {
-      id: "chikuhi_higashi_karatsu",
+      id: "chikuhi_higashi_saga_west",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "東唐津",
-      nameEn: "Higashi Karatsu",
+      nameEn: "Higashi saga_west",
       type: "station",
       lat: 33.439393,
       lng: 129.996837
@@ -488,7 +493,7 @@ window.MAP_DATA = {
     {
       id: "chikuhi_watada",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "和多田",
       nameEn: "Watada",
       type: "station",
@@ -496,27 +501,28 @@ window.MAP_DATA = {
       lng: 129.980768
     },
     {
-      id: "chikuhi_karatsu",
+      id: "chikuhi_saga_west",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "唐津",
-      nameEn: "Karatsu",
+      nameEn: "saga_west",
       type: "station",
       lat: 33.446223,
       lng: 129.967587
     },
     {
-      id: "chikuhi_nishi_karatsu",
+      id: "chikuhi_nishi_saga_west",
       line: "chikuhi",
-      area: "karatsu",
+      area: "saga_west",
       name: "西唐津",
-      nameEn: "Nishi Karatsu",
+      nameEn: "Nishi saga_west",
       type: "station",
       lat: 33.461434,
       lng: 129.957480
     },
      { 
-        id: "jr-karatsu-yamamoto", 
+        id: "jr-saga_west-yamamoto", 
+       area: "saga_west",       
        name: "山本", 
        nameEn: "Yamamoto", 
         type: "station",
@@ -524,16 +530,18 @@ window.MAP_DATA = {
         lng: 129.98118155167737 
       },
       { 
-        id: "jr-karatsu-ouchi", 
-       name: "相知", 
+        id: "jr-saga_west-ouchi", 
+       area: "saga_west",       
+        name: "相知", 
         nameEn: "Ouchi", 
         type: "station",
         lat: 33.34699039849446, 
         lng: 130.01952634118035 
       },
       { 
-        id: "jr-karatsu-iwaya", 
-       name: "岩屋", 
+        id: "jr-saga_west-iwaya", 
+       area: "saga_west",       
+        name: "岩屋", 
         nameEn: "Iwaya", 
         type: "station",
         lat: 33.33076505677805, 
@@ -541,6 +549,7 @@ window.MAP_DATA = {
       },
       {
         id: "karatsu_catholic",
+        area: "saga_west",       
         name: "カトリック唐津教会",      
         nameEn: "Karatsu Catholic Church",
          type: "church",
@@ -549,7 +558,8 @@ window.MAP_DATA = {
       },
     { 
          id: "hikiyama_hall",
-       name: "曳山展示場", 
+       area: "saga_west",       
+      name: "曳山展示場", 
        nameEn: "Hikiyama Exhibition Hall", 
         type: "museum",
        lat: 33.445946414612074, 
@@ -557,6 +567,7 @@ window.MAP_DATA = {
       },
       { 
         id: "karatsu_castle",
+        area: "saga_west",       
         name: "唐津城", 
        nameEn: "Karatsu Castle", 
         type: "museum",
@@ -565,6 +576,7 @@ window.MAP_DATA = {
       },
       { 
         id: "takatori_museum",
+        area: "saga_west",       
         name: "旧高取邸", 
        nameEn: "Former Takatori Residence", 
         type: "museum",
@@ -573,6 +585,7 @@ window.MAP_DATA = {
       },
       { 
         id: "karatsu_shrine",
+        area: "saga_west",       
         name: "唐津神社", 
        nameEn: "Karatsu Shrine", 
         type: "shrine",
@@ -581,6 +594,7 @@ window.MAP_DATA = {
       },
       { 
         id: "myoken_shrine",
+        area: "saga_west",       
         name: "妙見神社", 
        nameEn: "Myoken Shrine", 
          type: "shrine",
@@ -589,6 +603,7 @@ window.MAP_DATA = {
       },
       { 
         id: "gonshoji_temple",
+        area: "saga_west",       
         name: "近松寺", 
        nameEn: "Gonshoji Temple", 
          type: "temple",
@@ -597,7 +612,8 @@ window.MAP_DATA = {
       },
     {
       id: "unknown_hizen_kashima",
-      line: "unknown",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "肥前鹿島",
       nameEn: "Hizen-Kashima",
       type: "station",
@@ -607,6 +623,7 @@ window.MAP_DATA = {
     {
       id: "unknown_kohoku",
       line: "unknown",
+      area: "saga_west",       
       name: "江北",
       nameEn: "Kohoku",
       type: "station",
@@ -616,6 +633,7 @@ window.MAP_DATA = {
     {
       id: "unknown_kanzaki",
       line: "unknown",
+      area: "saga_west",       
       name: "神埼",
       nameEn: "Kanzaki",
       type: "station",
@@ -623,8 +641,9 @@ window.MAP_DATA = {
       lng: 130.37429225460698
     },
     {
-      id: "karatsu_onizuka",
-      line: "karatsu",
+      id: "jr_karatsu_onizuka",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "鬼塚",
       nameEn: "Onizuka",
       type: "station",
@@ -632,8 +651,9 @@ window.MAP_DATA = {
       lng: 129.98708949461442
     },
     {
-      id: "karatsu_yamamoto",
-      line: "karatsu",
+      id: "jr_karatsu_yamamoto",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "山本",
       nameEn: "Yamamoto",
       type: "station",
@@ -641,8 +661,9 @@ window.MAP_DATA = {
       lng: 129.98115587927094
     },
     {
-      id: "karatsu_honmutabe",
-      line: "karatsu",
+      id: "jr_karatsu_honmutabe",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "本牟田部",
       nameEn: "Honmutabe",
       type: "station",
@@ -650,8 +671,9 @@ window.MAP_DATA = {
       lng: 129.99661769461167
     },
     {
-      id: "karatsu_ochi",
-      line: "karatsu",
+      id: "jr_karatsu_ochi",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "相知",
       nameEn: "ochi",
       type: "station",
@@ -659,8 +681,9 @@ window.MAP_DATA = {
       lng: 130.01967871180034
     },
     {
-      id: "karatsu_iwaya",
-      line: "karatsu",
+      id: "jr_karatsu_iwaya",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "岩屋",
       nameEn: "Iwaya",
       type: "station",
@@ -668,8 +691,9 @@ window.MAP_DATA = {
       lng: 130.04173438088404
     },
     {
-      id: "karatsu_kyuuragi",
-      line: "karatsu",
+      id: "jr_west_kyuuragi",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "厳木",
       nameEn: "Kyuuragi",
       type: "station",
@@ -677,8 +701,9 @@ window.MAP_DATA = {
       lng: 130.06029500995092
     },
     {
-      id: "karatsu_taku",
-      line: "karatsu",
+      id: "jr_karatsu_taku",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "多久",
       nameEn: "Taku",
       type: "station",
@@ -686,8 +711,9 @@ window.MAP_DATA = {
       lng: 130.09618428697073
     },
     {
-      id: "karatsu_naka_taku",
-      line: "karatsu",
+      id: "jr_karatsu_naka_taku",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "中多久",
       nameEn: "Naka Taku",
       type: "station",
@@ -695,8 +721,9 @@ window.MAP_DATA = {
       lng: 130.11262045924815
     },
     {
-      id: "karatsu_higashi_taku",
-      line: "karatsu",
+      id: "jr_karatsu_higashi_taku",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "東多久",
       nameEn: "Higashi Taku",
       type: "station",
@@ -704,8 +731,9 @@ window.MAP_DATA = {
       lng: 130.14315592774776
     },
     {
-      id: "karatsu_ogi",
-      line: "karatsu",
+      id: "jr_karatsu_ogi",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "東多久",
       nameEn: "Ogi",
       type: "station",
@@ -713,8 +741,9 @@ window.MAP_DATA = {
       lng: 130.19867733693596
     },
     {
-      id: "karatsu_kubota",
-      line: "karatsu",
+      id: "jr_karatsu_kubota",
+      line: "jr_karatsu",
+      area: "saga_west",       
       name: "久保田",
       nameEn: "Kubota",
       type: "station",
@@ -724,6 +753,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_omachi",
       line: "sasebo",
+      area: "nagasaki",       
       name: "大町",
       nameEn: "Omachi",
       type: "station",
@@ -733,6 +763,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_mikawachi",
       line: "sasebo",
+      area: "nagasaki",       
       name: "三河内",
       nameEn: "Mikawachi",
       type: "station",
@@ -742,6 +773,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_haiki",
       line: "sasebo",
+      area: "nagasaki",       
       name: "早岐",
       nameEn: "Haiki",
       type: "station",
@@ -751,6 +783,7 @@ window.MAP_DATA = {
     {
       id: "unknown_imari",
       line: "unknown",
+      area: "nagasaki",       
       name: "伊万里",
       nameEn: "Imari",
       type: "station",
@@ -760,6 +793,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_takeo_onsen",
       line: "sasebo",
+      area: "nagasaki",       
       name: "武雄温泉",
       nameEn: "Takeo-Onsen",
       type: "station",
@@ -769,6 +803,7 @@ window.MAP_DATA = {
     {
       id: "unknown_ureshino",
       line: "unknown",
+      area: "saga-west",       
       name: "嬉野",
       nameEn: "Ureshino-Onsen",
       type: "station",
@@ -778,6 +813,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_sasebo",
       line: "sasebo",
+      area: "nagasaki",       
       name: "佐世保",
       nameEn: "Sasebo",
       type: "station",
@@ -787,6 +823,7 @@ window.MAP_DATA = {
     {
       id: "sasebo_arita",
       line: "sasebo",
+      area: "saga_west",       
       name: "有田",
       nameEn: "Arita",
       type: "station",
@@ -794,8 +831,8 @@ window.MAP_DATA = {
       lng: 129.88170132776435
     },
     {
-      id: "karatsu_saga",
-      line: "karatsu",
+      id: "jr_kyushu_saga",
+      area: "saga_city",       
       name: "佐賀",
       nameEn: "Saga",
       type: "station",
@@ -803,17 +840,9 @@ window.MAP_DATA = {
       lng: 130.29725684813994
     },
     {
-  id: "unknown_saga",
-  line: "unknown",
-  name: "佐賀",
-  nameEn: "saga",
-  type: "station",
-  lat: 33.26416730255144, 
-  lng: 130.29694618351647
- },
-    {
       id: "unknown_kawatana",
       line: "unknown",
+      area: "nagasaki",       
       name: "川棚",
       nameEn: "Kawatana",
       type: "station",
@@ -823,6 +852,7 @@ window.MAP_DATA = {
     {
       id: "airport_fukuoka_airport",
       line: "airport",
+      area: "fukuoka_city",       
       name: "福岡空港",
       nameEn: "Fukuoka Airport",
       type: "station",
@@ -832,6 +862,7 @@ window.MAP_DATA = {
     {
       id: "airport_higashi_hie",
       line: "airport",
+      area: "fukuoka_city",       
       name: "東比恵",
       nameEn: "Higashi-Hie",
       type: "station",
@@ -840,7 +871,8 @@ window.MAP_DATA = {
     },
     {
       id: "airport_hakata",
-      line: "airport",
+      line: "jr_kyushu",
+      area: "fukuoka_city",       
       name: "博多",
       nameEn: "Hakata",
       type: "station",
@@ -850,6 +882,7 @@ window.MAP_DATA = {
     {
       id: "airport_nakasukawabata",
       line: "airport",
+      area: "fukuoka_city",       
       name: "中洲川端",
       nameEn: "Nakasukawabata",
       type: "station",
@@ -859,7 +892,7 @@ window.MAP_DATA = {
     {
       id: "airport_tenjin",
       line: "airport",
-      area: "fukuoka-chuo",
+      area: "fukuoka_city",    
       name: "天神",
       nameEn: "Tenjin",
       type: "station",
@@ -869,7 +902,7 @@ window.MAP_DATA = {
     {
       id: "airport_akasaka",
       line: "airport",
-      area: "fukuoka-chuo",
+      area: "fukuoka_city",
       name: "赤坂",
       nameEn: "Akasaka",
       type: "station",
@@ -879,7 +912,7 @@ window.MAP_DATA = {
     {
       id: "airport_ohori_park",
       line: "airport",
-      area: "fukuoka-chuo",
+      area: "fukuoka_city",
       name: "大濠公園",
       nameEn: "Ohori Park",
       type: "station",
@@ -889,7 +922,7 @@ window.MAP_DATA = {
     {
       id: "airport_tohjinmachi",
       line: "airport",
-      area: "fukuoka-chuo",
+      area: "fukuoka_city",
       name: "唐人町",
       nameEn: "Tojinmachi",
       type: "station",
@@ -899,7 +932,7 @@ window.MAP_DATA = {
     {
       id: "airport_nishijin",
       line: "airport",
-      area: "fukuoka-west",
+      area: "fukuoka_city",
       name: "西新",
       nameEn: "Nishijin",
       type: "station",
@@ -909,7 +942,7 @@ window.MAP_DATA = {
     {
       id: "airport_fujisaki",
       line: "airport",
-      area: "fukuoka-west",
+      area: "fukuoka_city",
       name: "藤崎",
       nameEn: "Fujisaki",
       type: "station",
@@ -919,7 +952,7 @@ window.MAP_DATA = {
     {
       id: "airport_muromi",
       line: "airport",
-      area: "fukuoka-west",
+      area: "fukuoka_city",
       name: "室見",
       nameEn: "Muromi",
       type: "station",
@@ -929,6 +962,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_yoshizuka",
       line: "kagoshima",
+      area: "fukuoka_city",       
       name: "吉塚",
       nameEn: "Yoshizuka",
       type: "station",
@@ -938,6 +972,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_hakozaki",
       line: "kagoshima",
+      area: "fukuoka_city",       
       name: "箱崎",
       nameEn: "Hakozaki",
       type: "station",
@@ -947,7 +982,8 @@ window.MAP_DATA = {
     },
     {
       id: "kagoshima_chihaya",
-      line: "kagoshima",
+      line: "fukuoka_city",
+      area: "add",       
       name: "千早",
       nameEn: "Chihaya",
       type: "station",
@@ -957,6 +993,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_kashii",
       line: "kagoshima",
+      area: "fukuoka_city",       
       name: "香椎",
       nameEn: "Kashii",
       type: "station",
@@ -966,6 +1003,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_kyusan_daimae",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "九産大前",
       nameEn: "Kyusan-daimae",
       type: "station",
@@ -975,6 +1013,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_fuukodai_mae",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "福工大前",
       nameEn: "Fuukodai-mae",
       type: "station",
@@ -984,6 +1023,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_shingu_chuo",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "新宮中央",
       nameEn: "Shingu-chuo",
       type: "station",
@@ -993,6 +1033,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_shishibu",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "ししぶ",
       nameEn: "Shishibu",
       type: "station",
@@ -1003,6 +1044,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_koga",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "古賀",
       nameEn: "Koga",
       type: "station",
@@ -1012,6 +1054,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_chidori",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "千鳥",
       nameEn: "Chidori",
       type: "station",
@@ -1022,6 +1065,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_fukuma",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "福間",
       nameEn: "Fukuma",
       type: "station",
@@ -1031,6 +1075,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_higashi_fukuma",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "東福間",
       nameEn: "Higashi-Fukuma",
       type: "station",
@@ -1040,6 +1085,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_togo",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "東郷",
       nameEn: "Togo",
       type: "station",
@@ -1049,6 +1095,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_akama",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "赤間",
       nameEn: "Akama",
       type: "station",
@@ -1058,6 +1105,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_kyoikudai_mae",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "教育大前",
       nameEn: "Kyoikudai-mae",
       type: "station",
@@ -1067,6 +1115,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_ebitsu",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "海老津",
       nameEn: "Ebitsu",
       type: "station",
@@ -1077,6 +1126,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_ongagawa",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "遠賀川",
       nameEn: "Ongagawa",
       type: "station",
@@ -1087,6 +1137,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_mizumaki",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "水巻",
       nameEn: "Mizumaki",
       type: "station",
@@ -1097,6 +1148,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_orio",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "折尾",
       nameEn: "Orio",
       type: "station",
@@ -1106,6 +1158,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_jinnohara",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "陣原",
       nameEn: "Jinnohara",
       type: "station",
@@ -1116,6 +1169,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_kurosaki",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "黒崎",
       nameEn: "Kurosaki",
       type: "station",
@@ -1125,6 +1179,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_yahata",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "八幡",
       nameEn: "Yahata",
       type: "station",
@@ -1135,6 +1190,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_space_world",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "スペースワールド",
       nameEn: "Space World",
       type: "station",
@@ -1144,6 +1200,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_edamitsu",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "枝光",
       nameEn: "Edamitsu",
       type: "station",
@@ -1154,6 +1211,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_tobata",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "戸畑",
       nameEn: "Tobata",
       type: "station",
@@ -1163,6 +1221,7 @@ window.MAP_DATA = {
     {
       id: "kagoshima_kyushu_kodai",
       line: "kagoshima",
+      area: "fukuoka_north",       
       name: "九州工大前",
       nameEn: "Kyushu-Kodai",
       type: "station",
@@ -1171,7 +1230,8 @@ window.MAP_DATA = {
     },
     {
         id: "kagoshima_orthodox",
-        name: "鹿児島ハリストス正教会・聖使徒イアコフ聖堂",
+        area: "kagoshima",       
+      name: "鹿児島ハリストス正教会・聖使徒イアコフ聖堂",
         nameEn: "Kagoshima Orthodox Church",
         type: "church",
         lat: 31.591379029899404,  
@@ -1181,7 +1241,8 @@ window.MAP_DATA = {
       {
   id: "unknown_kagoshima",
   line: "unknown",
-  name: "鹿児島",
+  area: "kagoshima",       
+        name: "鹿児島",
   nameEn: "Kagoshima",
   type: "station",
   lat: 31.601404041487406,
@@ -1190,6 +1251,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_minami_oita",
       line: "kyudai",
+      area: "oita",       
       name: "南大分",
       nameEn: "Minami Oita",
       type: "station",
@@ -1199,6 +1261,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_furugo",
       line: "kyudai",
+      area: "oita",       
       name: "古国府",
       nameEn: "Furugo",
       type: "station",
@@ -1208,6 +1271,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_kaku",
       line: "kyudai",
+      area: "oita",       
       name: "賀来",
       nameEn: "Kaku",
       type: "station",
@@ -1217,6 +1281,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_bungo_kokubu",
       line: "kyudai",
+      area: "oita",       
       name: "豊後国分",
       nameEn: "Bungo-Kokubu",
       type: "station",
@@ -1226,6 +1291,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_tenjin_yama",
       line: "kyudai",
+      area: "oita",       
       name: "天神山",
       nameEn: "Tenjin-Yama",
       type: "station",
@@ -1235,6 +1301,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_onoya",
       line: "kyudai",
+      area: "oita",       
       name: "小野屋",
       nameEn: "Onoya",
       type: "station",
@@ -1244,6 +1311,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_onigase",
       line: "kyudai",
+      area: "oita",       
       name: "鬼瀬",
       nameEn: "Onigase",
       type: "station",
@@ -1253,6 +1321,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_minami_yufuin",
       line: "kyudai",
+      area: "oita",       
       name: "南由布",
       nameEn: "Minami Yufuin",
       type: "station",
@@ -1262,6 +1331,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_yunohira",
       line: "kyudai",
+      area: "oita",       
       name: "湯平",
       nameEn: "Yunohira",
       type: "station",
@@ -1271,6 +1341,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_yufuin",
       line: "kyudai",
+      area: "oita",       
       name: "由布院",
       nameEn: "Yufuin",
       type: "station",
@@ -1280,6 +1351,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_takio",
       line: "kyudai",
+      area: "oita",       
       name: "滝尾",
       nameEn: "Takio",
       type: "station",
@@ -1289,6 +1361,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_shikido",
       line: "kyudai",
+      area: "oita",       
       name: "敷戸",
       nameEn: "Shikido",
       type: "station",
@@ -1296,8 +1369,9 @@ window.MAP_DATA = {
       lng: 131.61515013693062,
     },
     {
-      id: "kyudai_oitadaigaku_mae",
+      id: "kyudai_oita_daigaku_mae",
       line: "kyudai",
+      area: "oita",       
       name: "大分大学前",
       nameEn: "Oitadaigaku-Mae",
       type: "station",
@@ -1307,6 +1381,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_naka_handa",
       line: "kyudai",
+      area: "oita",       
       name: "中判田",
       nameEn: "Naka-Handa",
       type: "station",
@@ -1316,6 +1391,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_sugao",
       line: "kyudai",
+      area: "oita",       
       name: "菅尾",
       nameEn: "Sugao",
       type: "station",
@@ -1325,6 +1401,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_takenaka",
       line: "kyudai",
+      area: "oita",       
       name: "竹中",
       nameEn: "Takenaka",
       type: "station",
@@ -1334,6 +1411,7 @@ window.MAP_DATA = {
     {
       id: "kyudai_inukai",
       line: "kyudai",
+      area: "oita",       
       name: "犬飼",
       nameEn: "Inukai",
       type: "station",
@@ -1343,6 +1421,7 @@ window.MAP_DATA = {
     {
       id: "nippo_kokura",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "小倉",
       nameEn: "Kokura",
       type: "station",
@@ -1352,6 +1431,7 @@ window.MAP_DATA = {
     {
       id: "nippo_nishi_kokura",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "西小倉",
       nameEn: "Nishi Kokura",
       type: "station",
@@ -1361,6 +1441,7 @@ window.MAP_DATA = {
     {
       id: "nippo_jono",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "城野",
       nameEn: "Jono",
       type: "station",
@@ -1370,6 +1451,7 @@ window.MAP_DATA = {
     {
       id: "nippo_abeyama_koen",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "安部山公園",
       nameEn: "AbeyamaKoen",
       type: "station",
@@ -1379,6 +1461,7 @@ window.MAP_DATA = {
     {
       id: "nippo_shimo_sone",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "下曽根",
       nameEn: "Shimo-Sone",
       type: "station",
@@ -1388,6 +1471,7 @@ window.MAP_DATA = {
     {
       id: "nippo_kusami",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "朽網",
       nameEn: "Kusami",
       type: "station",
@@ -1397,6 +1481,7 @@ window.MAP_DATA = {
     {
       id: "nippo_kanda",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "苅田",
       nameEn: "Kanda",
       type: "station",
@@ -1406,6 +1491,7 @@ window.MAP_DATA = {
     {
       id: "nippo_obase_nishikodai_mae",
       line: "nippo",
+      area: "fukuoka_north",       
       name: "小波瀬西工大前",
       nameEn: "Obase Nishikodai-Mae",
       type: "station",
@@ -1415,6 +1501,7 @@ window.MAP_DATA = {
     {
       id: "nippo_yukuhashi",
       line: "nippo",
+      area: "oita",       
       name: "行橋",
       nameEn: "Yukuhashi",
       type: "station",
@@ -1424,6 +1511,7 @@ window.MAP_DATA = {
     {
       id: "nippo_minami_yukuhashi",
       line: "nippo",
+      area: "oita",       
       name: "南行橋",
       nameEn: "Minami Yukuhashi",
       type: "station",
@@ -1433,6 +1521,7 @@ window.MAP_DATA = {
     {
       id: "nippo_shindembaru",
       line: "nippo",
+      area: "oita",       
       name: "新田原",
       nameEn: "Shindembaru",
       type: "station",
@@ -1442,6 +1531,7 @@ window.MAP_DATA = {
     {
       id: "nippo_tsuiki",
       line: "nippo",
+      area: "oita",       
       name: "築城",
       nameEn: "Tsuiki",
       type: "station",
@@ -1451,6 +1541,7 @@ window.MAP_DATA = {
     {
       id: "nippo_nakatsu",
       line: "nippo",
+      area: "oita",       
       name: "中津",
       nameEn: "Nakatsu",
       type: "station",
@@ -1460,6 +1551,7 @@ window.MAP_DATA = {
     {
       id: "nippo_usa",
       line: "nippo",
+      area: "oita",       
       name: "宇佐",
       nameEn: "Usa",
       type: "station",
@@ -1469,6 +1561,7 @@ window.MAP_DATA = {
     {
       id: "nippo_kitsuki",
       line: "nippo",
+      area: "oita",       
       name: "杵築",
       nameEn: "Kitsuki",
       type: "station",
@@ -1478,6 +1571,7 @@ window.MAP_DATA = {
     {
       id: "nippo_kamegawa",
       line: "nippo",
+      area: "oita",       
       name: "亀川",
       nameEn: "Kamegawa",
       type: "station",
@@ -1487,6 +1581,7 @@ window.MAP_DATA = {
     {
       id: "nippo_beppu_daigaku",
       line: "nippo",
+      area: "oita",       
       name: "別府大学",
       nameEn: "Beppu Daigaku",
       type: "station",
@@ -1496,6 +1591,7 @@ window.MAP_DATA = {
     {
       id: "nippo_higashi_beppu",
       line: "nippo",
+      area: "oita",       
       name: "東別府",
       nameEn: "Higashi Beppu",
       type: "station",
@@ -1505,6 +1601,7 @@ window.MAP_DATA = {
     {
       id: "nippo_nishi_oita",
       line: "nippo",
+      area: "oita",       
       name: "西大分",
       nameEn: "Nishi Oita",
       type: "station",
@@ -1514,6 +1611,7 @@ window.MAP_DATA = {
     {
       id: "nippo_oita",
       line: "nippo",
+      area: "oita",       
       name: "大分",
       nameEn: "Oita",
       type: "station",
@@ -1523,6 +1621,7 @@ window.MAP_DATA = {
     {
       id: "hohi_hita",
       line: "hohi",
+      area: "oita",       
       name: "日田",
       nameEn: "Hita",
       type: "station",
@@ -1532,6 +1631,7 @@ window.MAP_DATA = {
     {
       id: "hohi_bungo_mori",
       line: "hohi",
+      area: "oita",       
       name: "豊後森",
       nameEn: "Bungo-Mori",
       type: "station",
@@ -1541,6 +1641,7 @@ window.MAP_DATA = {
     {
       id: "hohi_aso",
       line: "hohi",
+      area: "kumamoto",       
       name: "阿蘇",
       nameEn: "Aso",
       type: "station",
@@ -1550,6 +1651,7 @@ window.MAP_DATA = {
     {
       id: "hohi_bungo_taketa",
       line: "hohi",
+      area: "kumamoto",       
       name: "豊後竹田",
       nameEn: "Bungo-Taketa",
       type: "station",
@@ -1559,6 +1661,7 @@ window.MAP_DATA = {
     {
       id: "hohi_miemachi",
       line: "hohi",
+      area: "kumamoto",       
       name: "三重町",
       nameEn: "Miemachi",
       type: "station",
@@ -1568,6 +1671,7 @@ window.MAP_DATA = {
     {
       id: "kyushu_shinkansen_shin_omuta",
       line: "kyushu_shinkansen",
+      area: "fukuoka_south",       
       name: "新大牟田",
       nameEn: "Shin-Omuta",
       type: "station",
@@ -1577,38 +1681,25 @@ window.MAP_DATA = {
      {
   id: "unknown_miyazaki",
   line: "unknown",
+  area: "miyazaki",       
   name: "宮崎",
   nameEn: "Miyazaki",
   type: "station",
   lat: 31.91563158122375, 
   lng: 131.43231940518467
  },
-    {
-      id: "oita",
-      name: "大分",
-      nameEn: "Oita",
-      type: "station",
-      lat: 33.23232801877058,
-      lng: 131.6057111319828
-      },
   {
       id:"beppu",
+      area: "oita",       
       name: "別府",
       nameEn: "Beppu",
       type: "station",
       lat:33.27964, 
       lng:131.50039
       },
-      { 
-        id: "yufuin",
-        name:"由布院", 
-        nameEn: "Yufuin", 
-        type: "station",
-        lat: 33.26269658669704, 
-        lng: 131.35526192713755 
-      },
   {
         id: "oita_catholic",
+        area: "oita",       
         name: "カトリック大分司教区 教区本部事務局",
         nameEn: "St. Francis Xavier Cathedral",
         type: "church",
@@ -1617,6 +1708,7 @@ window.MAP_DATA = {
      },
   {
         id: "oita_art",
+        area: "oita",       
         name: "大分県立美術館",
         nameEn: "Oita Pref. Art Museum", 
         type: "museum",
@@ -1626,6 +1718,7 @@ window.MAP_DATA = {
     {
       id: "kyushu_shinkansen_shin_tamana",
       line: "kyushu_shinkansen",
+      area: "kumamoto",       
       name: "新玉名",
       nameEn: "Shin-Tamana",
       type: "station",
@@ -1635,6 +1728,7 @@ window.MAP_DATA = {
     {
       id: "kyushu_shinkansen_kumamoto",
       line: "kyushu_shinkansen",
+      area: "kumamoto",       
       name: "熊本",
       nameEn: "Kumamoto",
       type: "station",
@@ -1643,6 +1737,7 @@ window.MAP_DATA = {
     },
     {
         id: "mount_aso",
+        area: "kumamoto",       
         name: "阿蘇山上ビジターセンター",
         nameEn: "Mt. Aso Visitor Center",
         type: "museum",
@@ -1651,6 +1746,7 @@ window.MAP_DATA = {
       }, 
       {
         id: "kumamoto_castle",
+        area: "kumamoto",       
         name: "熊本城",
         nameEn: "Kumamoto Castle",
         type: "museum",
@@ -1659,6 +1755,7 @@ window.MAP_DATA = {
       }, 
          {
         id: "hitoyoshi_orthodox",
+        area: "kumamoto",       
         name: "人吉ハリストス正教会・生神女庇護聖堂",
         nameEn: "Hitoyoshi Orthodox Church",
         type: "church",
@@ -1668,6 +1765,7 @@ window.MAP_DATA = {
       },
       {
         id: "kumamoto_orthodox",
+        area: "kumamoto",       
         name: "熊本ハリストス正教会",
         nameEn: "Kumamoto Orthodox Church",
         type: "church",
@@ -1678,6 +1776,7 @@ window.MAP_DATA = {
       {
   id: "unknown_hitoyoshi",
   line: "unknown",
+  area: "kumamoto",       
   name: "人吉",
   nameEn: "Hitoyoshi",
   type: "station",
@@ -1687,6 +1786,7 @@ window.MAP_DATA = {
     {
       id: "kyushu_shinkansen_shin_yatsushiro",
       line: "kyushu_shinkansen",
+      area: "kumamoto",       
       name: "新八代",
       nameEn: "Shin-Yatsushiro",
       type: "station",
@@ -1696,6 +1796,7 @@ window.MAP_DATA = {
     {
       id: "unknown_amagi",
       line: "unknown",
+      area: "fukuoka_south",       
       name: "甘木",
       nameEn: "Amagi",
       type: "station",
@@ -1705,6 +1806,7 @@ window.MAP_DATA = {
     {
       id: "unknown_ukiha",
       line: "unknown",
+      area: "fukuoka_south",       
       name: "うきは",
       nameEn: "Ukiha",
       type: "station",
@@ -1714,6 +1816,7 @@ window.MAP_DATA = {
     {
       id: "unknown_nishi_omuta",
       line: "unknown",
+      area: "nagasaki",       
       name: "西大牟田",
       nameEn: "Nishi-Omuta",
       type: "station",
@@ -1723,6 +1826,7 @@ window.MAP_DATA = {
     {
       id: "unknown_nishitetsu_yanagawa",
       line: "unknown",
+      area: "fukuoka_south",       
       name: "西鉄柳川",
       nameEn: "Nishitetsu-Yanagawa",
       type: "station",
@@ -1732,6 +1836,7 @@ window.MAP_DATA = {
     {
       id: "unknown_nishitetsu_omuta",
       line: "unknown",
+      area: "fukuoka_south",       
       name: "西鉄大牟田",
       nameEn: "Nishitetsu-Omuta",
       type: "station",
@@ -1741,6 +1846,7 @@ window.MAP_DATA = {
     {
       id: "unknown_ebino",
       line: "unknown",
+      area: "miyazaki",       
       name: "えびの",
       nameEn: "Ebino",
       type: "station",
@@ -1750,6 +1856,7 @@ window.MAP_DATA = {
     {
       id: "unknown_miyakonojo",
       line: "unknown",
+      area: "miyazaki",       
       name: "都城",
       nameEn: "Miyakonojo",
       type: "station",
@@ -1759,6 +1866,7 @@ window.MAP_DATA = {
     {
       id: "jr_west_kanazawa",
       line: "jr_west",
+      area: "kumamoto",       
       name: "金沢",
       nameEn: "Kanazawa",
       type: "station",
@@ -1768,6 +1876,7 @@ window.MAP_DATA = {
     {
       id: "jr_east_niigata",
       line: "jr_east",
+      area: "niigata",       
       name: "新潟",
       nameEn: "Niigata",
       type: "station",
@@ -1777,6 +1886,7 @@ window.MAP_DATA = {
     {
       id: "jr_west_toyama",
       line: "jr_west",
+      area: "toyama",       
       name: "富山",
       nameEn: "Toyama",
       type: "station",
@@ -1786,7 +1896,7 @@ window.MAP_DATA = {
     {
       id: "jr_west_fukui",
       line: "jr_west",
-       area: "fukui",
+       area: "fukui",    
       name: "福井",
       nameEn: "Fukui",
       type: "station",
@@ -1796,6 +1906,7 @@ window.MAP_DATA = {
     {
       id: "nagoya_orthodox",
        area: "nagoya",
+      area: "aichi",       
       name: "名古屋ハリストス正教会・神現聖堂",
       nameEn: "Holy Theophany Orthodox Church",
       type: "church",
@@ -1805,6 +1916,7 @@ window.MAP_DATA = {
     },
     {
       id: "iwayado_orthodox",
+      area: "aichi",       
       name: "岩谷堂ハリストス正教会・主の降誕聖堂",
       nameEn: "Iwayado Orthodox Church",
       type: "church",
@@ -1814,6 +1926,7 @@ window.MAP_DATA = {
     },
     {
       id: "toyohashi_orthodox",
+      area: "aichi",       
       name: "豊橋ハリストス正教会・聖使徒福音者マトフェイ聖堂",
       nameEn: "Toyohashi Orthodox Church",
       type: "church",
@@ -1823,6 +1936,7 @@ window.MAP_DATA = {
     },
     {
       id: "handa_orthodox",
+      area: "aichi",       
       name: "半田ハリストス正教会・聖イオアン・ダマスキン聖堂",
       nameEn: "Saint John of Damascus Orthodox Church",
       type: "church",
@@ -1833,6 +1947,7 @@ window.MAP_DATA = {
     {
       id: "tokaido_nagoya",
       line: "tokaido",
+      area: "aichi",       
       name: "名古屋",
       nameEn: "Nagoya",
       type: "station",
@@ -1842,6 +1957,7 @@ window.MAP_DATA = {
     {
       id: "jr_tokaido_gifu",
       line: "jr_tokaido",
+      area: "gifu",       
       name: "岐阜",
       nameEn: "Gifu",
       type: "station",
@@ -1851,7 +1967,7 @@ window.MAP_DATA = {
     {
       id: "jr_central_yokkaichi",
       line: "jr_central",
-      name: "四日市駅",
+      area: "add",       name: "四日市駅",
       nameEn: "Yokkaichi",
       type: "station",
       lat: 34.96303176535332,
@@ -1859,7 +1975,7 @@ window.MAP_DATA = {
     },
     {
       id: "kashiwakubo_orthodox",
-      name: "柏久保ハリストス正教会",
+      area: "add",       name: "柏久保ハリストス正教会",
       nameEn: "Kashiwakubo Orthodox Church",
       type: "church",
       lat: 34.97534355522436,
@@ -1868,6 +1984,7 @@ window.MAP_DATA = {
     },
     {
       id: "hamamatsu_orthodox",
+      area: "shizuoka",       
       name: "浜松ハリストス正教会",
       nameEn: "Hamamatsu Orthodox Church",
       type: "church",
@@ -1877,6 +1994,7 @@ window.MAP_DATA = {
     },
     {
       id: "shuzenji_orthodox",
+      area: "shizuoka",       
       name: "修善寺ハリストス正教会",
       nameEn: "Shuzenji Orthodox Church",
       type: "church",
@@ -1886,6 +2004,7 @@ window.MAP_DATA = {
     },
     {
       id: "shizuoka_orthodox",
+      area: "shizuoka",       
       name: "静岡ハリストス正教会",
       nameEn: "Shizuoka Orthodox Church",
       type: "church",
@@ -1896,6 +2015,7 @@ window.MAP_DATA = {
     {
       id: "jr_tokaido_shizuoka",
       line: "jr_tokaido",
+      area: "shizuoka",       
       name: "静岡",
       nameEn: "Shizuoka",
       type: "station",
@@ -1905,6 +2025,7 @@ window.MAP_DATA = {
     {
       id: "jr_central_kofu",
       line: "jr_central",
+      area: "yamanashi",       
       name: "甲府",
       nameEn: "Kofu",
       type: "station",
@@ -1914,6 +2035,7 @@ window.MAP_DATA = {
     {
       id: "jr_east_nagano",
       line: "jr_east",
+      area: "nagano",       
       name: "長野",
       nameEn: "Nagano",
       type: "station",
@@ -1922,6 +2044,7 @@ window.MAP_DATA = {
     },
     {
       id: "hakodate_orthodox",
+      area: "hokkaido",       
       name: "函館ハリストス正教会",
       nameEn: "Hakodate Orthodox Church",
       type: "church",
@@ -1931,6 +2054,7 @@ window.MAP_DATA = {
     },
     {
       id: "kamiiso_orthodox",
+      area: "hokkaido",       
       name: "上磯ハリストス正教会・主の昇天聖堂（北斗市）",
       nameEn: "Kamiiso Orthodox Church",
       type: "church",
@@ -1940,16 +2064,17 @@ window.MAP_DATA = {
     },
     {
       id: "sapporo_orthodox",
+      area: "hokkaido",       
       name: "札幌ハリストス正教会・主の顕栄聖堂",
       nameEn: "Sapporo Orthodox Church",
       type: "church",
       lat: 43.01865151311119,
       lng: 141.40312645103944,
-      visible: false
     },
      {
       id: "sapporo_station",
-      name: "札幌",
+      area: "hokkaido",       
+       name: "札幌",
       nameEn: "Sapporo",
       type: "station",
       lat: 43.06870361524902, 
@@ -1957,6 +2082,7 @@ window.MAP_DATA = {
     },
     {
       id: "otaru_orthodox",
+      area: "hokkaido",       
       name: "小樽ハリストス正教会・主の復活聖堂",
       nameEn: "Otaru Orthodox Church",
       type: "church",
@@ -1966,6 +2092,7 @@ window.MAP_DATA = {
     },
     {
       id: "tomakomai_orthodox",
+      area: "hokkaido",       
       name: "苫小牧ハリストス正教会・主の降誕聖堂",
       nameEn: "Tomakomai Orthodox Church",
       type: "church",
@@ -1975,6 +2102,7 @@ window.MAP_DATA = {
     },
     {
       id: "kushiro_orthodox",
+      area: "hokkaido",       
       name: "釧路ハリストス正教会・聖神゜降臨聖堂",
       nameEn: "Kushiro Orthodox Church",
       type: "church",
@@ -1984,6 +2112,7 @@ window.MAP_DATA = {
     },
     {
       id: "kamimusa_orthodox",
+      area: "hokkaido",       
       name: "上武佐ハリストス正教会・生神女就寝聖堂",
       nameEn: "Kamimusa Orthodox Church",
       type: "church",
@@ -1993,6 +2122,7 @@ window.MAP_DATA = {
     },
     {
       id: "shari_orthodox",
+      area: "hokkaido",       
       name: "斜里ハリストス正教会・生神女福音聖堂",
       nameEn: "Shari Orthodox Church",
       type: "church",
@@ -2001,17 +2131,8 @@ window.MAP_DATA = {
       visible: false
     },
     {
-      id: "unknown_sapporo",
-      line: "unknown",
-      name: "札幌",
-      nameEn: "Sapporo",
-      type: "station",
-      lat: 43.068772070661566,
-      lng: 141.3509750091167,
-      visible: false
-    },
-    {
         id: "hiroshima_peace_museum",
+        area: "hiroshima",       
         name: "広島平和記念資料館",
         nameEn: "Hiroshima Peace Memorial Museum",
         type: "museum",
@@ -2020,6 +2141,7 @@ window.MAP_DATA = {
       }, 
         {
         id: "hiroshima_catholic",
+        area: "hiroshima",       
         name: "カトリック幟町教会 世界平和記念聖堂",
         nameEn: "Assumption of Mary Cathedral",
         type: "church",
@@ -2030,6 +2152,7 @@ window.MAP_DATA = {
       {
   id: "jr_west_hiroshima",
   line: "jr_west",
+  area: "hiroshima",       
   name: "広島",
   nameEn: "Hiroshima",
   type: "station",
@@ -2039,6 +2162,7 @@ window.MAP_DATA = {
 {
   id: "jr_west_okayama",
   line: "jr_west",
+  area: "okayama",       
   name: "岡山",
   nameEn: "Okayama",
   type: "station",
@@ -2048,6 +2172,7 @@ window.MAP_DATA = {
 {
   id: "jr_west_matsue",
   line: "jr_west",
+  area: "shimane",       
   name: "松江",
   type: "station",
   nameEn: "Matsue",
@@ -2057,6 +2182,7 @@ window.MAP_DATA = {
       {
   id: "jr_west_hamada",
   line: "jr_west",
+  area: "shimane",       
   name: "浜田",
   nameEn: "Hamada",
   type: "station",
@@ -2066,6 +2192,7 @@ window.MAP_DATA = {
 {
   id: "jr_west_tottori",
   line: "jr_west",
+  area: "tottori",       
   name: "鳥取",
   nameEn: "Tottori",
   type: "station",
@@ -2074,7 +2201,8 @@ window.MAP_DATA = {
  },
     {
         id: "maruyama_hachimangu",
-        name: "丸山八幡宮 二の鳥居",
+        area: "yamaguchi",       
+      name: "丸山八幡宮 二の鳥居",
         nameEn: "Maruyama Hachimangu Shrine",
         type: "shrine",
         lat: 34.54822633746893,                    
@@ -2082,6 +2210,7 @@ window.MAP_DATA = {
       },
       {
         id: "yanaihara_orthodox",
+        area: "kanagawa",       
         name: "柳井原ハリストス正教会",
         nameEn: "Yanaihara Orthodox Church",
         type: "church",
@@ -2091,6 +2220,7 @@ window.MAP_DATA = {
       {
   id: "jr_west_yamaguchi",
   line: "jr_west",
+  area: "yamaguchi",       
   name: "山口",
   nameEn: "Yamaguchi",
   type: "station",
@@ -2100,6 +2230,7 @@ window.MAP_DATA = {
       {
   id: "jr_west_shimonoseki",
   line: "jr_west",
+  area: "yamaguchi",       
   name: "下関",
   nameEn: "Shimonoseki",
   type: "station",
@@ -2109,6 +2240,7 @@ window.MAP_DATA = {
     {
   id: "jr_west_himeji",
   line: "jr_west",
+  area: "hyogo",       
   name: "姫路",
   type: "station",
   nameEn: "Himeji",
@@ -2118,6 +2250,7 @@ window.MAP_DATA = {
 {
   id: "jr_west_kobe",
   line: "jr_west",
+  area: "kobe",       
   name: "神戸",
   nameEn: "Kobe",
   type: "station",
@@ -2126,6 +2259,7 @@ window.MAP_DATA = {
  },
     {
         id: "kyoto_orthodox",
+        area: "kyoto",       
         name: "京都ハリストス正教会",
         nameEn: "Kyoto Orthodox Church",
         type: "church",
@@ -2136,6 +2270,7 @@ window.MAP_DATA = {
       {
   id: "jr_west_kyoto",
   line: "jr_west",
+  area: "kyoto",       
   name: "京都",
   nameEn: "Kyoto",
   type: "station",
@@ -2145,6 +2280,7 @@ window.MAP_DATA = {
     {
   id: "jr_west_nara",
   line: "jr_west",
+  area: "nara",       
   name: "奈良",
   nameEn: "Nara",
   type: "station",
@@ -2154,6 +2290,7 @@ window.MAP_DATA = {
     {
   id: "jr_west_osaka",
   line: "jr_west",
+  area: "osaka",       
   name: "大阪",
   nameEn: "Osaka",
   type: "station",
@@ -2162,7 +2299,8 @@ window.MAP_DATA = {
  },
     {
         id: "osaka_orthodox",
-        name: "大阪ハリストス正教会",
+        area: "osaka",       
+      name: "大阪ハリストス正教会",
         nameEn: "Osaka Orthodox Church",
         type: "church",
         lat: 34.76633139508822, 
@@ -2172,6 +2310,7 @@ window.MAP_DATA = {
     {
   id: "jr_biwako_otsu",
   line: "jr_biwako",
+  area: "shiga",       
   name: "大津",
   nameEn: "Otsu",
   type: "station",
@@ -2181,6 +2320,7 @@ window.MAP_DATA = {
     {
   id: "jr_hanwa_wakayama",
   line: "jr_hanwa",
+  area: "wakayama",       
   name: "和歌山",
   nameEn: "Wakayama",
   type: "station",
@@ -2190,6 +2330,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_shin_shimonoseki",
   line: "sanyo_shinkansen",
+  area: "yamaguchi",       
   name: "新下関",
   nameEn: "Shin-Shimonoseki",
   type: "station",
@@ -2199,6 +2340,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_asa",
   line: "sanyo_shinkansen",
+  area: "yamaguchi",       
   name: "厚狭",
   nameEn: "Asa",
   type: "station",
@@ -2208,6 +2350,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_shin_yamaguchi",
   line: "sanyo_shinkansen_shin_yamaguchi",
+  area: "yamaguchi",       
   name: "新山口",
   nameEn: "Shin-Yamaguchi",
   type: "station",
@@ -2217,6 +2360,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_tokuyama",
   line: "sanyo_shinkansen",
+  area: "tokuyama",       
   name: "徳山",
   nameEn: "Tokuyama",
   type: "station",
@@ -2226,6 +2370,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_shin_iwakuni",
   line: "sanyo_shinkansen",
+  area: "hiroshima",       
   name: "新岩国",
   nameEn: "Shin-Iwakuni",
   type: "station",
@@ -2235,6 +2380,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_higashi_hiroshima",
   line: "sanyo_shinkansen",
+  area: "hiroshima",       
   name: "東広島",
   nameEn: "Higashi Hiroshima",
   type: "station",
@@ -2244,6 +2390,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_mihara",
   line: "sanyo_shinkansen",
+  area: "hiroshima",       
   name: "三原",
   nameEn: "Mihara",
   type: "station",
@@ -2253,6 +2400,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_shin_onomichi",
   line: "sanyo_shinkansen",
+  area: "hiroshima",       
   name: "新尾道",
   nameEn: "Shin Onomichi",
   type: "station",
@@ -2262,6 +2410,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_aioi",
   line: "sanyo_shinkansen",
+  area: "hyogo",       
   name: "相生",
   nameEn: "Aioi",
   type: "station",
@@ -2271,6 +2420,7 @@ window.MAP_DATA = {
      {
   id: "sanyo_shinkansen_nishi_akashi",
   line: "sanyo_shinkansen",
+  area: "hyogo",       
   name: "西明石",
   nameEn: "Nishi Akashi",
   type: "station",
@@ -2280,6 +2430,7 @@ window.MAP_DATA = {
     {
   id: "sanyo_shinkansen_shin_kobe",
   line: "sanyo_shinkansen",
+  area: "kobe",       
   name: "新神戸",
   nameEn: "Shin-Kobe",
   type: "station",
@@ -2288,6 +2439,7 @@ window.MAP_DATA = {
  },
     {
         id: "suga_orthodox",
+        area: "chiba",       
         name: "須賀ハリストス正教会",
         nameEn: "Suga Orthodox Church",
         type: "church",
@@ -2297,6 +2449,7 @@ window.MAP_DATA = {
       },  
         {
         id: "tega_orthodox",
+        area: "chiba",       
         name: "手賀ハリストス正教会",
         nameEn: "Tega Orthodox Church",
         type: "church",
@@ -2307,6 +2460,7 @@ window.MAP_DATA = {
       {
   id: "jr_east_chiba",
   line: "jr_east",
+  area: "chiba",       
   name: "千葉",
   nameEn: "Chiba",
   type: "station",
@@ -2315,15 +2469,17 @@ window.MAP_DATA = {
  },
     {
         id: "maebashi_orthodox",
+        area: "gunma",       
         name: "前橋ハリストス正教会",
         nameEn: "Maebashi Orthodox Church",
-        type: "church",
+        type: "church",  
         lat: 36.39251857237456,     
         lng: 139.06543920643128,
       visible: false
       },  
         {
         id: "takasaki_orthodox",
+        area: "gunma",       
         name: "高崎ハリストス正教会",
         nameEn: "Takasaki Orthodox",
         type: "church",
@@ -2333,6 +2489,7 @@ window.MAP_DATA = {
       }, 
       {
   id: "sukawa_orthodox",
+  area: "gunma",       
   name: "須川ハリストス正教会",
   nameEn: "Sukawa Orthodox Church",
   type: "church",
@@ -2343,6 +2500,7 @@ window.MAP_DATA = {
 {
   id: "jr_east_takasaki",
   line: "jr_east",
+  area: "gunma",       
   name: "高崎",
   nameEn: "Takasaki",
   type: "station",
@@ -2352,6 +2510,7 @@ window.MAP_DATA = {
     {
   id: "jr_east_mito",
   line: "jr_east",
+  area: "ibaraki",       
   name: "水戸",
   nameEn: "Mito",
   type: "station",
@@ -2360,6 +2519,7 @@ window.MAP_DATA = {
  },
     {
         id: "odawara_orthodox",
+        area: "kanagawa",       
         name: "小田原ハリストス正教会",
         nameEn: "Odawara Orthodox Church",
         type: "church",
@@ -2369,6 +2529,7 @@ window.MAP_DATA = {
       },  
         {
         id: "yokohama_orthodox",
+        area: "yokohama",       
         name: "横浜ハリストス正教会・生神女庇護聖堂",
         nameEn: "Yokohama Orthodox",
         type: "church",
@@ -2379,7 +2540,8 @@ window.MAP_DATA = {
       {
   id: "tokaido_odawara",
   line: "tokaido",
-  name: "小田原",
+  area: "kanagawa",       
+  ame: "小田原",
   nameEn: "Odawara",
   type: "station",
   lat: 35.25618114388968,  
@@ -2388,6 +2550,7 @@ window.MAP_DATA = {
     {
   id: "jr_yokohama_machida",
   line: "jr_yokohama",
+  area: "tokyo",       
   name: "町田",
   nameEn: "Machida",
   type: "station",
@@ -2396,6 +2559,7 @@ window.MAP_DATA = {
  },
     {
         id: "ashikaga_orthodox",
+        area: "tochigi",       
         name: "足利ハリストス正教会",
         nameEn: "Ashikaga Orthodox",
         type: "church",
@@ -2405,6 +2569,7 @@ window.MAP_DATA = {
       },  
       {
         id: "akutsu_orthodox",
+        area: "gunma",       
         name: "圷ハリストス正教会",
         nameEn: "Akutsu Orthodox Church",
         type: "church",
@@ -2414,6 +2579,7 @@ window.MAP_DATA = {
       }, 
         {
         id: "kanuma_orthodox",
+        area: "tochigi",       
         name: "鹿沼ハリストス正教会",
         nameEn: "Kanuma Orthodox Church",
         type: "church",
@@ -2423,6 +2589,7 @@ window.MAP_DATA = {
       }, 
       {
   id: "bato_orthodox",
+  area: "tochigi",       
   name: "馬頭ハリストス正教会",
   nameEn: "Bato Orthodox Church",
   type: "church",
@@ -2432,6 +2599,7 @@ window.MAP_DATA = {
 },
 {
   id: "utsunomiya_orthodox",
+  area: "tochigi",       
   name: "宇都宮ハリストス正教会",
   nameEn: "Utsunomiya Orthodox Church",
   type: "church",
@@ -2442,7 +2610,8 @@ window.MAP_DATA = {
  {
   id: "jr_east_utsunomiya",
   line: "jr_east",
-  name: "宇都宮駅",
+  area: "tochigi",       
+   name: "宇都宮駅",
   nameEn: "Utsunomiya",
   type: "station",
   lat: 36.558928575702026,  
@@ -2450,6 +2619,7 @@ window.MAP_DATA = {
  },
     {
         id: "yamate_orthodox",
+        area: "gunma",       
         name: "山手ハリストス正教会",
         nameEn: "Yamate Orthodox Church",
         type: "church",
@@ -2459,16 +2629,17 @@ window.MAP_DATA = {
       },  
         {
         id: "nikolai_dou_cathedral",
-        name: "東京復活大聖堂（ニコライ堂)",
+        area: "tokyo",       
+          name: "東京復活大聖堂（ニコライ堂)",
         nameEn: "Holy Resurrection Cathedral",
         type: "church",
         lat: 35.69805537259034,    
         lng: 139.7655202947447,
-        visible: false
       }, 
       {
   id: "jr_east_tokyo",
   line: "jr_east",
+  area: "tokyo",       
   name: "東京",
   nameEn: "Tokyo",
   type: "station",
@@ -2478,6 +2649,7 @@ window.MAP_DATA = {
     {
   id: "jr_shikoku_matsuyama",
   line: "jr_shikoku",
+  area: "shikoku",       
   name: "松山",
   nameEn: "Matsuyama",
   type: "station",
@@ -2487,6 +2659,7 @@ window.MAP_DATA = {
     {
   id: "jr_shikoku_takamatsu",
   line: "jr_shikoku",
+  area: "shikoku",       
   name: "高松",
   nameEn: "Takamatsu",
   type: "station",
@@ -2496,6 +2669,7 @@ window.MAP_DATA = {
     {
   id: "jr_shikoku_kochi",
   line: "jr_shikoku",
+  area: "shikoku",       
   name: "高知",
   nameEn: "Kochi",
   type: "station",
@@ -2504,6 +2678,7 @@ window.MAP_DATA = {
  },
     {
         id: "tokushima_orthodox",
+        area: "shikoku",       
         name: "徳島ハリストス正教会･聖神降臨聖堂",
         nameEn: "Tokushima Orthodox Church",
         type: "church",
@@ -2514,6 +2689,7 @@ window.MAP_DATA = {
       {
   id: "jr_shikoku_tokushima",
   line: "jr_shikoku",
+  area: "shikoku",       
   name: "徳島",
   nameEn: "Tokushima",
   type: "station",
@@ -2522,6 +2698,7 @@ window.MAP_DATA = {
  },
     {
         id: "hokuroku_orthodox",
+        area: "akita",       
         name: "北鹿ハリストス正教会・生神女福音会堂",
         nameEn: "Hokuroku Orthodox Church",
         lat: 40.21460725011423,                
@@ -2530,6 +2707,7 @@ window.MAP_DATA = {
       },
       {  
         id: "jumonji_orthodox",
+        area: "miyagi",       
         name: "十文字ハリストス正教会",
         nameEn: "Jumonji Orthodox Church",
         lat: 38.767362271760085,            
@@ -2538,6 +2716,7 @@ window.MAP_DATA = {
       },
         {
         id: "akita",
+        area: "akita",       
         name: "秋田",
         nameEn: "Akita",
         type: "station",
@@ -2547,6 +2726,7 @@ window.MAP_DATA = {
     {
   id: "unknown_aomori",
   line: "unknown",
+  area: "aomori",       
   name: "青森",
   nameEn: "Aomori",
   type: "station",
@@ -2555,6 +2735,7 @@ window.MAP_DATA = {
  },
      {
         id: "shirakawa_orthodox",
+        area: "gifu",       
         name: "白河ハリストス正教会",
         nameEn: "Shirakawa Orthodox Church",
         type: "church",
@@ -2565,6 +2746,7 @@ window.MAP_DATA = {
       {
   id: "jr_east_iwaki",
   line: "jr_east",
+  area: "fukushima",       
   name: "いわき",
   nameEn: "Iwaki",
   type: "station",
@@ -2573,6 +2755,7 @@ window.MAP_DATA = {
  },
  {
         id: "morioka_orthodox",
+        area: "iwate",       
         name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
         nameEn: "Morioka Orthodox Church",
         type: "church",
@@ -2582,6 +2765,7 @@ window.MAP_DATA = {
       },
       {
       id: "tonosei_orthodox",
+      area: "iwate",       
       name: "遠野正教会・聖太祖アウラアム・サッラ会堂",
       nameEn: "Tonosei Orthodox Church",
       type: "church",
@@ -2591,6 +2775,7 @@ window.MAP_DATA = {
       },
       {
       id: "iwayado_orthodox",
+      area: "iwate",       
       name: "岩谷堂ハリストス正教会・主の降誕聖堂",
       nameEn: "Iwayado Church",
       type: "church",
@@ -2600,6 +2785,7 @@ window.MAP_DATA = {
       },
      {
         id: "sakari_orthodox",
+        area: "iwate",       
         name: "盛ハリストス正教会・昇天聖堂",
         nameEn: "Sakari Orthodox Church",
         type: "church",
@@ -2609,6 +2795,7 @@ window.MAP_DATA = {
       },
        {
         id: "kannari_orthodox",
+        area: "miyagi",       
         name: "金成ハリストス正教会",
         nameEn: "Kannari Orthodox Church",
         type: "church",
@@ -2618,6 +2805,7 @@ window.MAP_DATA = {
       },
       { 
         id: "yamada_orthodox",
+        area: "iwate",       
         name: "山田ハリストス正教会・主の復活会堂",
         nameEn: "Yamada Orthodox Church",
         type: "church",
@@ -2627,6 +2815,7 @@ window.MAP_DATA = {
       },
       { 
         id: "ichinoseki_orthodox",
+        area: "iwate",       
         name: "一関ハリストス正教会・昇天聖堂",
         nameEn: "Ichinoseki Orthodox Church",
         type: "church",
@@ -2637,6 +2826,7 @@ window.MAP_DATA = {
         {
         id: "jr_east_morioka",
         line: "jr_east",
+        area: "iwate",       
         name: "盛岡",
         nameEn: "Morioka",
         type: "station",
@@ -2645,6 +2835,7 @@ window.MAP_DATA = {
  },
   { 
         id: "kesennuma_orthodox",
+        area: "miyagi",       
         name: "気仙沼ハリストス正教会・復活会堂",
         nameEn: "Kesennuma Orthodox Church",
         type: "church",
@@ -2654,6 +2845,7 @@ window.MAP_DATA = {
       },
       {
       id: "nakaniida_orthodox",
+      area: "miyagi",       
       name: "中新田ハリストス正教会・前駆授洗イオアン聖堂",
       nameEn: "Nakaniida Orthodox Church",
        type: "church",
@@ -2663,6 +2855,7 @@ window.MAP_DATA = {
       },
       {
       id: "wakuya_orthodox",
+      area: "miyagi",       
       name: "涌谷ハリストス正教会・聖預言者イサイヤ聖堂",
       nameEn: "Wakuya Orthodox Holy Prophet Isaiah Church",
       type: "church",
@@ -2672,6 +2865,7 @@ window.MAP_DATA = {
       },
       {
       id: "ishinomaki_orthodox",
+      area: "miyagi",       
       name: "石巻ハリストス正教会",
       nameEn: "Ishinomaki Saint John the Apostle Orthodox Church",
       type: "church",
@@ -2681,6 +2875,7 @@ window.MAP_DATA = {
       },
       {
      id: "takashimizu_orthodox",
+     area: "miyagi",       
      name: "高清水ハリストス正教会・主の顕栄聖堂",
      nameEn: "Takashimizu Orthodox Church of the Transfiguration of Our Lord",
      type: "church", 
@@ -2690,7 +2885,8 @@ window.MAP_DATA = {
      },
       {
      id: "sanuma_orthodox",
-     name: "佐沼ハリストス正教会・主の顕栄聖堂",
+     area: "miyagi",       
+    name: "佐沼ハリストス正教会・主の顕栄聖堂",
      NameEn: "Sanuma Orthodox Church of the Transfiguration of our Lord",
      type: "church",
      lat: 38.68704997177767, 
@@ -2699,6 +2895,7 @@ window.MAP_DATA = {
      },
       {
      id: "jogetsutsumi_orthodox",
+     area: "miyagi",       
      name: "上下堤ハリストス正教会・生神女庇護聖堂",
      nameEn: "Jogetsutsumi Orthodox Church of the Assumption",
      type: "church",
@@ -2706,18 +2903,11 @@ window.MAP_DATA = {
      lng: 141.1172397255936,
         visible: false
       },
-      { 
-        id: "kannari_orthodox",
-        name: "金成ハリストス正教会・聖使徒イオアン聖堂",
-        nameEn: "Kannari Orthodox Church",
-        type: "church",
-        lat: 38.810866974763925,            
-        lng: 141.07472281853876,
-        visible: false
-      },
+      
       {
   id: "unknown_sendai",
   line: "unknown",
+  area: "miyagi",       
   name: "仙台",
   nameEn: "Sendai",
   type: "station",
@@ -2726,6 +2916,7 @@ window.MAP_DATA = {
  },
           {
         id: "peace_park",
+        area: "nagasaki",       
         name: "平和公園",
         nameEn: "Peace Park Nagasaki",
         type: "museum",
@@ -2734,6 +2925,7 @@ window.MAP_DATA = {
       },  
         {
         id: "urakami_cathedral",
+        area: "nagasaki",       
         name: "カトリック浦上教会（浦上天主堂）",
         nameEn: "Urakami Cathedral",
         type: "church",
@@ -2743,6 +2935,7 @@ window.MAP_DATA = {
       {
   id: "unknown_shin_omura",
   line: "unknown",
+  area: "nagasaki",       
   name: "新大村",
   nameEn: "Shin-Omura",
   type: "station",
@@ -2752,6 +2945,7 @@ window.MAP_DATA = {
 {
   id: "unknown_isahaya",
   line: "unknown",
+  area: "nagasaki",       
   name: "諫早",
   nameEn: "Isahaya",
   type: "station",
@@ -2761,6 +2955,7 @@ window.MAP_DATA = {
 {
   id: "unknown_aino",
   line: "unknown",
+  area: "shizuoka",       
   name: "愛野",
   nameEn: "Aino",
   type: "station",
@@ -2770,6 +2965,7 @@ window.MAP_DATA = {
 {
   id: "unknown_shimabara",
   line: "unknown",
+  area: "nagasaki",       
   name: "島原",
   type: "station",
   nameEn: "Shimabara",
@@ -2779,6 +2975,7 @@ window.MAP_DATA = {
       {
   id: "unknown_nagasaki",
   line: "unknown",
+  area: "nagasaki",       
   name: "長崎",
   nameEn: "Nagasaki",
   type: "station",
@@ -2788,6 +2985,7 @@ window.MAP_DATA = {
  {
   id: "unknown_yamagata",
   line: "unknown",
+  area: "yamagata",       
   name: "山形",
   nameEn: "Yamagata",
   type: "station",
