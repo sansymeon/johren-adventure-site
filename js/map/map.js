@@ -79,44 +79,7 @@ let map;
   if (savedHere) {
     placeMarker(savedHere);
   }
-    // --------------------------------
-  // "I'm here" button
-  // --------------------------------
-  const hereBtn = document.querySelector(".here-btn");
-
-  if (hereBtn) {
-    hereBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-
-      armed = !armed;
-
-      map.getContainer().classList.toggle("here-armed", armed);
-
-      hereBtn.textContent = armed ? "Tap map" : "I'm here";
-    });
-  }
-  // --------------------------------
-  // Map click handler (place "I'm here")
-  // --------------------------------
-  map.on("click", (e) => {
-    if (!armed) return;
-
-    const here = {
-      lat: e.latlng.lat,
-      lng: e.latlng.lng,
-      ts: Date.now()
-    };
-
-    saveHere(here);
-    placeMarker(here);
-
-    armed = false;
-    map.getContainer().classList.remove("here-armed");
-
-    if (hereBtn) {
-      hereBtn.textContent = "I'm here";
-    }
-  });
+ 
 const presentTypes = new Set(
   pins
     .filter(p => p.area === AREA_KEY)
