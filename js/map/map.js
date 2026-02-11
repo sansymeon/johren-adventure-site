@@ -48,13 +48,42 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
+     restaurant: L.icon({
+      iconUrl: "/img/map/restaurant.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+     supermarket: L.icon({
+      iconUrl: "/img/map/supermarket.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+     museum: L.icon({
+      iconUrl: "/img/map/museum.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+     mosque: L.icon({
+      iconUrl: "/img/map/mosque.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
+     landmark: L.icon({
+      iconUrl: "/img/map/landmark.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
 
-    cafe: L.icon({
-      iconUrl: "/img/map/cafe.png",
+    coffee: L.icon({
+      iconUrl: "/img/map/coffee.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
-
+temple: L.icon({
+      iconUrl: "/img/map/temple.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+    }),
     shrine: L.icon({
       iconUrl: "/img/map/shrine.png",
       iconSize: [26, 26],
