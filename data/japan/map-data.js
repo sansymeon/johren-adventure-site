@@ -1786,6 +1786,7 @@ window.MAP_DATA = {
     {
       id: "jr_west_fukui",
       line: "jr_west",
+       area: "fukui",
       name: "福井",
       nameEn: "Fukui",
       type: "station",
@@ -1794,6 +1795,7 @@ window.MAP_DATA = {
     },
     {
       id: "nagoya_orthodox",
+       area: "nagoya",
       name: "名古屋ハリストス正教会・神現聖堂",
       nameEn: "Holy Theophany Orthodox Church",
       type: "church",
