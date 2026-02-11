@@ -7,9 +7,7 @@
   <meta name="description"
   content="ジョウレン・アドベンチャー。福井の空気や日常を、地図と静かな問いを通して探ります。 
     Johren Adventure. Exploring the atmosphere and everyday life of Fukui through maps and quiet questions." />
-
-
-  <style>
+<style>
     :root {
       --bg: #f7f7f7;
       --surface: #ffffff;
@@ -130,8 +128,36 @@
 
 <body>
 <a href="../" class="back-link">← 戻る / Back</a>
+<div id="pin-menu" class="pin-menu">
+  <div class="pin-menu-title">
+    表示する場所
+    <span class="pin-menu-title-en">Show places</span>
+  </div>
 
-  <div class="wrap">
+  <label>
+    <input type="checkbox" data-category="cafe" checked>
+    <span class="label-ja">カフェ</span>
+    <span class="label-en">Cafés</span>
+  </label>
+
+  <label>
+    <input type="checkbox" data-category="shrine" checked>
+    <span class="label-ja">神社・お寺</span>
+    <span class="label-en">Shrines & Temples</span>
+  </label>
+
+  <label>
+    <input type="checkbox" data-category="quiet" checked>
+    <span class="label-ja">静かな場所</span>
+    <span class="label-en">Quiet places</span>
+  </label>
+
+  <label>
+    <input type="checkbox" data-category="view" checked>
+    <span class="label-ja">景色</span>
+    <span class="label-en">Views</span>
+  </label>
+</div>
 
     <!-- Title block -->
     <div class="jp-title">ジョウレン</div>
