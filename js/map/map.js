@@ -112,6 +112,32 @@ const HereControl = L.Control.extend({
 });
 
 map.addControl(new HereControl());
+// ---- Icons ----
+const icons = {
+  station: L.icon({
+    iconUrl: "/icons/station.png",
+    iconSize: [28, 28],
+    iconAnchor: [14, 28]
+  }),
+
+  cafe: L.icon({
+    iconUrl: "/img/map/cafe.png",
+    iconSize: [26, 26],
+    iconAnchor: [13, 26]
+  }),
+
+  shrine: L.icon({
+    iconUrl: "/img/map/shrine.png",
+    iconSize: [26, 26],
+    iconAnchor: [13, 26]
+  }),
+
+  church: L.icon({
+    iconUrl: "/img/map/church.png",
+    iconSize: [26, 26],
+    iconAnchor: [13, 26]
+  })
+};
 
 // ---- map click ----
 map.on("click", (e) => {
