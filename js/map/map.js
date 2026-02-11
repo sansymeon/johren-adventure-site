@@ -1,30 +1,34 @@
 // ===============================
-// JOHREN MAP ENGINE (BASELINE)
+// JOHREN MAP ENGINE (CLEAN v1)
 // ===============================
+
 let map;
-let hereLocation = null;
-let hereMarker = null;
-let armed = false;
 let pinLayer;
+let hereMarker = null;
+let hereLocation = null;
+let hereArmed = false;
 
-const HERE_KEY = `johren_here:${window.AREA_KEY || "global"}`;
+const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
 
+// -------------------------------
+// Guard clauses
+// -------------------------------
 (function () {
+  if (!window.PLACE_CONFIG) {
+    console.error("PLACE_CONFIG missing");
+    return;
+  }
 
-  if (!window.PLACE_CONFIG) return console.error("PLACE_CONFIG missing");
-  if (!window.MAP_DATA || !Array.isArray(window.MAP_DATA.pins))
-    return console.error("MAP_DATA.pins missing");
+  if (!window.MAP_DATA || !Array.isArray(window.MAP_DATA.pins)) {
+    console.error("MAP_DATA.pins missing");
+    return;
+  }
 
   const { center, zoom, bounds } = window.PLACE_CONFIG;
-const LABELS = {
-  cafe:   { ja: "カフェ", en: "Cafés" },
-  shrine: { ja: "神社・お寺", en: "Shrines & Temples" },
-  church: { ja: "教会", en: "Churches" }
-};
 
-const controls = document.getElementById("map-controls");
-
-  // ---- Init map ----
+  // -------------------------------
+  // Init map
+  // -------------------------------
   map = L.map("map", { zoomControl: false }).setView(center, zoom);
 
   if (bounds) map.setMaxBounds(bounds);
@@ -32,150 +36,203 @@ const controls = document.getElementById("map-controls");
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
-  
-// =====================================================
-// I'M HERE (clean v1)
-// =====================================================
-let hereMarker = null;
-let hereArmed = false;
 
-const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
+  pinLayer = L.layerGroup().addTo(map);
 
-// ---- helpers ----
-function loadHere() {
-  try {
-    return JSON.parse(localStorage.getItem(HERE_STORAGE_KEY));
-  } catch {
-    return null;
-  }
-}
+  // -------------------------------
+  // Icons
+  // -------------------------------
+  const icons = {
+    station: L.icon({
+      iconUrl: "/img/map/station.png",
+      iconSize: [28, 28],
+      iconAnchor: [14, 28]
+    }),
 
-function saveHere(obj) {
-  localStorage.setItem(HERE_STORAGE_KEY, JSON.stringify(obj));
-}
+    cafe: L.icon({
+      iconUrl: "/img/map/cafe.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+    }),
 
-function clearHere() {
-  localStorage.removeItem(HERE_STORAGE_KEY);
-}
+    shrine: L.icon({
+      iconUrl: "/img/map/shrine.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+    }),
 
-function placeHereMarker(h) {
-  if (!h) return;
-
-  if (hereMarker) {
-    hereMarker.setLatLng([h.lat, h.lng]);
-  } else {
-    hereMarker = L.marker([h.lat, h.lng]).addTo(map);
-  }
-
-  hereMarker.bindPopup("I’m here");
-}
-function formatDistance(meters) {
-  if (meters < 1000) {
-    return `${Math.round(meters)} m`;
-  }
-  return `${(meters / 1000).toFixed(1)} km`;
-}
-
-// ---- restore on load ----
-const existingHere = loadHere();
-if (existingHere) {
-  placeHereMarker(existingHere);
-}
-
-// ---- Leaflet control ----
-const HereControl = L.Control.extend({
-  options: { position: "topleft" },
-
-  onAdd: function () {
-    const container = L.DomUtil.create("div", "leaflet-bar");
-    const btn = L.DomUtil.create("a", "", container);
-
-    btn.href = "#";
-    btn.textContent = existingHere ? "Clear" : "I’m here";
-
-    btn.style.width = "96px";
-    btn.style.lineHeight = "32px";
-    btn.style.textAlign = "center";
-    btn.style.fontSize = "13px";
-    btn.style.background = "#fff";
-    btn.style.color = "#222";
-    btn.style.textDecoration = "none";
-
-    L.DomEvent.disableClickPropagation(container);
-
-    btn.onclick = (e) => {
-      e.preventDefault();
-
-      if (hereMarker && !hereArmed) {
-        map.removeLayer(hereMarker);
-        hereMarker = null;
-        clearHere();
-        btn.textContent = "I’m here";
-        return;
-      }
-
-      hereArmed = true;
-      btn.textContent = "Tap map…";
-    };
-
-    return container;
-  }
-});
-
-map.addControl(new HereControl());
-// ---- Icons ----
-const icons = {
-  station: L.icon({
-    iconUrl: "/img/map/station.png",
-    iconSize: [28, 28],
-    iconAnchor: [14, 28]
-  }),
-
-  cafe: L.icon({
-    iconUrl: "/img/map/cafe.png",
-    iconSize: [26, 26],
-    iconAnchor: [13, 26]
-  }),
-
-  shrine: L.icon({
-    iconUrl: "/img/map/shrine.png",
-    iconSize: [26, 26],
-    iconAnchor: [13, 26]
-  }),
-
-  church: L.icon({
-    iconUrl: "/img/map/church.png",
-    iconSize: [26, 26],
-    iconAnchor: [13, 26]
-  })
-};
-
-// ---- map click ----
-map.on("click", (e) => {
-  if (!hereArmed) return;
-
-  const h = {
-    lat: e.latlng.lat,
-    lng: e.latlng.lng,
-    ts: Date.now()
+    church: L.icon({
+      iconUrl: "/img/map/church.png",
+      iconSize: [26, 26],
+      iconAnchor: [13, 26]
+    })
   };
 
-  saveHere(h);
-  placeHereMarker(h);
+  // -------------------------------
+  // HERE helpers
+  // -------------------------------
+  function loadHere() {
+    try {
+      return JSON.parse(localStorage.getItem(HERE_STORAGE_KEY));
+    } catch {
+      return null;
+    }
+  }
 
-  hereArmed = false;
+  function saveHere(h) {
+    localStorage.setItem(HERE_STORAGE_KEY, JSON.stringify(h));
+  }
 
-  const btn = document.querySelector(".leaflet-bar a");
-  if (btn) btn.textContent = "Clear";
-});
-  
-  // ---- Hide empty menu categories (Gaya rule) ----
- const presentTypes = new Set(
-  window.MAP_DATA.pins
-    .filter(p => (!p.area || p.area === window.AREA_KEY))
-    .map(p => p.type)
-);
-  
+  function clearHereStorage() {
+    localStorage.removeItem(HERE_STORAGE_KEY);
+  }
+
+  function placeHereMarker(h) {
+    if (!h) return;
+
+    hereLocation = h;
+
+    if (hereMarker) {
+      hereMarker.setLatLng([h.lat, h.lng]);
+    } else {
+      hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+    }
+
+    hereMarker.bindPopup("I’m here");
+  }
+
+  function clearHereAll() {
+    if (hereMarker) map.removeLayer(hereMarker);
+    hereMarker = null;
+    hereLocation = null;
+    clearHereStorage();
+  }
+
+  function formatDistance(meters) {
+    if (meters < 1000) return `${Math.round(meters)} m`;
+    return `${(meters / 1000).toFixed(1)} km`;
+  }
+
+  // -------------------------------
+  // Render pins (single source)
+  // -------------------------------
+  function renderPins() {
+    pinLayer.clearLayers();
+
+    window.MAP_DATA.pins.forEach(pin => {
+      if (pin.area && pin.area !== window.AREA_KEY) return;
+      if (typeof pin.lat !== "number") return;
+
+      const icon = icons[pin.type];
+
+      const marker = L.marker(
+        [pin.lat, pin.lng],
+        icon ? { icon } : {}
+      );
+
+      let label = pin.nameEn
+        ? `${pin.name} / ${pin.nameEn}`
+        : pin.name;
+
+      if (hereLocation) {
+        const meters = map.distance(
+          [hereLocation.lat, hereLocation.lng],
+          [pin.lat, pin.lng]
+        );
+        label += ` · ${formatDistance(meters)}`;
+      }
+
+      marker.bindTooltip(label, {
+        direction: "top",
+        offset: [0, -20]
+      });
+
+      pinLayer.addLayer(marker);
+    });
+  }
+
+  // -------------------------------
+  // Restore HERE on load
+  // -------------------------------
+  const existingHere = loadHere();
+  if (existingHere) {
+    placeHereMarker(existingHere);
+  }
+
+  // -------------------------------
+  // HERE control
+  // -------------------------------
+  const HereControl = L.Control.extend({
+    options: { position: "topleft" },
+
+    onAdd: function () {
+      const container = L.DomUtil.create("div", "leaflet-bar");
+      const btn = L.DomUtil.create("a", "", container);
+
+      btn.href = "#";
+      btn.textContent = existingHere ? "Clear" : "I’m here";
+
+      btn.style.width = "96px";
+      btn.style.lineHeight = "32px";
+      btn.style.textAlign = "center";
+      btn.style.fontSize = "13px";
+      btn.style.background = "#fff";
+      btn.style.color = "#222";
+      btn.style.textDecoration = "none";
+
+      L.DomEvent.disableClickPropagation(container);
+
+      btn.onclick = (e) => {
+        e.preventDefault();
+
+        if (hereMarker && !hereArmed) {
+          clearHereAll();
+          renderPins();
+          btn.textContent = "I’m here";
+          return;
+        }
+
+        hereArmed = true;
+        btn.textContent = "Tap map…";
+      };
+
+      return container;
+    }
+  });
+
+  map.addControl(new HereControl());
+
+  // -------------------------------
+  // Map click (set HERE)
+  // -------------------------------
+  map.on("click", (e) => {
+    if (!hereArmed) return;
+
+    const h = {
+      lat: e.latlng.lat,
+      lng: e.latlng.lng,
+      ts: Date.now()
+    };
+
+    saveHere(h);
+    placeHereMarker(h);
+    hereArmed = false;
+
+    const btn = document.querySelector(".leaflet-bar a");
+    if (btn) btn.textContent = "Clear";
+
+    renderPins();
+  });
+
+  // -------------------------------
+  // Hide empty categories (Gaya rule)
+  // -------------------------------
+  const presentTypes = new Set(
+    window.MAP_DATA.pins
+      .filter(p => !p.area || p.area === window.AREA_KEY)
+      .map(p => p.type)
+  );
+
   document
     .querySelectorAll("#map-controls input[data-type]")
     .forEach(input => {
@@ -184,67 +241,9 @@ map.on("click", (e) => {
       }
     });
 
-  // ---- Render pins ----
-  window.MAP_DATA.pins.forEach(pin => {
-  if (pin.area && pin.area !== window.AREA_KEY) return;
-  if (typeof pin.lat !== "number") return;
-
- const icon = icons[pin.type];
-
-L.marker(
-  [pin.lat, pin.lng],
-  icon ? { icon } : {}
-)
-.addTo(map)
-.bindTooltip(
-  pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
-  { direction: "top", offset: [0, -20] }
-);
-function formatDistance(meters) {
-  if (meters < 1000) {
-    return `${Math.round(meters)} m`;
-  }
-  return `${(meters / 1000).toFixed(1)} km`;
-}
-
-});
-function renderPins() {
-  if (!pinLayer) return;
-
-  pinLayer.clearLayers();
-
-  window.MAP_DATA.pins.forEach(pin => {
-    if (pin.area !== window.AREA_KEY) return;
-    if (typeof pin.lat !== "number") return;
-
-    const icon = icons[pin.type];
-
-    const marker = L.marker(
-      [pin.lat, pin.lng],
-      icon ? { icon } : {}
-    );
-
-    let label =
-      pin.nameEn
-        ? `${pin.name} / ${pin.nameEn}`
-        : pin.name;
-
-    if (hereLocation) {
-      const meters = map.distance(
-        [hereLocation.lat, hereLocation.lng],
-        [pin.lat, pin.lng]
-      );
-      label += ` · ${formatDistance(meters)}`;
-    }
-
-    marker.bindTooltip(label, {
-      direction: "top",
-      offset: [0, -20]
-    });
-
-    pinLayer.addLayer(marker);
-  });
-}
-
+  // -------------------------------
+  // Initial render
+  // -------------------------------
+  renderPins();
 
 })();
