@@ -20,7 +20,110 @@ const HERE_KEY = `johren_here:${window.AREA_KEY || "global"}`;
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
+// =====================================================
+// I'M HERE (clean v1)
+// =====================================================
+let hereMarker = null;
+let hereArmed = false;
 
+const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
+
+// ---- helpers ----
+function loadHere() {
+  try {
+    return JSON.parse(localStorage.getItem(HERE_STORAGE_KEY));
+  } catch {
+    return null;
+  }
+}
+
+function saveHere(obj) {
+  localStorage.setItem(HERE_STORAGE_KEY, JSON.stringify(obj));
+}
+
+function clearHere() {
+  localStorage.removeItem(HERE_STORAGE_KEY);
+}
+
+function placeHereMarker(h) {
+  if (!h) return;
+
+  if (hereMarker) {
+    hereMarker.setLatLng([h.lat, h.lng]);
+  } else {
+    hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+  }
+
+  hereMarker.bindPopup("I’m here");
+}
+
+// ---- restore on load ----
+const existingHere = loadHere();
+if (existingHere) {
+  placeHereMarker(existingHere);
+}
+
+// ---- Leaflet control ----
+const HereControl = L.Control.extend({
+  options: { position: "topleft" },
+
+  onAdd: function () {
+    const container = L.DomUtil.create("div", "leaflet-bar");
+    const btn = L.DomUtil.create("a", "", container);
+
+    btn.href = "#";
+    btn.textContent = existingHere ? "Clear" : "I’m here";
+
+    btn.style.width = "96px";
+    btn.style.lineHeight = "32px";
+    btn.style.textAlign = "center";
+    btn.style.fontSize = "13px";
+    btn.style.background = "#fff";
+    btn.style.color = "#222";
+    btn.style.textDecoration = "none";
+
+    L.DomEvent.disableClickPropagation(container);
+
+    btn.onclick = (e) => {
+      e.preventDefault();
+
+      if (hereMarker && !hereArmed) {
+        map.removeLayer(hereMarker);
+        hereMarker = null;
+        clearHere();
+        btn.textContent = "I’m here";
+        return;
+      }
+
+      hereArmed = true;
+      btn.textContent = "Tap map…";
+    };
+
+    return container;
+  }
+});
+
+map.addControl(new HereControl());
+
+// ---- map click ----
+map.on("click", (e) => {
+  if (!hereArmed) return;
+
+  const h = {
+    lat: e.latlng.lat,
+    lng: e.latlng.lng,
+    ts: Date.now()
+  };
+
+  saveHere(h);
+  placeHereMarker(h);
+
+  hereArmed = false;
+
+  const btn = document.querySelector(".leaflet-bar a");
+  if (btn) btn.textContent = "Clear";
+});
+  
   // ---- Hide empty menu categories (Gaya rule) ----
   const presentTypes = new Set(
     window.MAP_DATA.pins
