@@ -16,6 +16,31 @@ a {
     display: none;
   }
 }
+.pin-menu-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.pin-menu-title-en {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  font-weight: normal;
+}
+
+.pin-menu label {
+  display: block;
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 6px 0;
+}
+
+.label-en {
+  display: block;
+  font-size: 11px;
+  color: #777;
+  margin-left: 22px; /* aligns under checkbox */
+}
 
 /* ===============================
    JOHREN MAP BUTTONS (UNIFIED)
