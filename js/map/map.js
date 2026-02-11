@@ -29,7 +29,7 @@ presentTypes.forEach(type => {
     <span class="label-ja">${label.ja}</span>
     <span class="label-en">${label.en}</span>
   `;
-  .appendChild(el);
+controls.appendChild(el);
 });controls
   // ---- Init map ----
   map = L.map("map", { zoomControl: false }).setView(center, zoom);
