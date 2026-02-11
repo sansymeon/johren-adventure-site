@@ -1,8 +1,8 @@
 // ===============================
-// JOHREN MAP ENGINE (UNIVERSAL)
+// JOHREN  ENGINE (UNIVERSAL)
 // ===============================
 const KEY = `here:${window.AREA_KEY || "global"}`;
-let map;
+let ;
 
 (function () {
   // --------------------------------
@@ -13,30 +13,30 @@ let map;
     return;
   }
 
-  if (!window.MAP_DATA || !Array.isArray(window.MAP_DATA.pins)) {
-    console.error("MAP_DATA.pins not found");
+  if (!window._DATA || !Array.isArray(window._DATA.pins)) {
+    console.error("_DATA.pins not found");
     return;
   }
 
   const { center, zoom, bounds } = window.PLACE_CONFIG;
 
   // --------------------------------
-  // Init map
+  // Init 
   // --------------------------------
-  if (!map) {
-  map = L.map("map", {
+  if (!) {
+   = L.("", {
     zoomControl: false
   }).setView(center, zoom);
 }
 
 
   if (bounds) {
-    map.setMaxBounds(bounds);
+    .setMaxBounds(bounds);
   }
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+  L.tileLayer("https://{s}.tile.openstreet.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; OpenStreet contributors'
+  }).addTo();
 
   // --------------------------------
   // "I'm here" state
@@ -66,14 +66,14 @@ let map;
     if (hereMarker) {
       hereMarker.setLatLng([h.lat, h.lng]);
     } else {
-      hereMarker = L.marker([h.lat, h.lng]).addTo(map);
+      hereMarker = L.marker([h.lat, h.lng]).addTo();
     }
 
     hereMarker.bindPopup("I’m here");
   }
 
   // --------------------------------
-  // Restore saved location (after map exists)
+  // Restore saved location (after  exists)
   // --------------------------------
   const savedHere = loadHere();
   if (savedHere) {
@@ -83,16 +83,30 @@ let map;
 const presentTypes = new Set(
   pins
     .filter(p => p.area === AREA_KEY)
-    .map(p => p.type)
+    .(p => p.type)
 );
 
 // Hide menu items with no data
-document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
+document.querySelectorAll('#-controls input[data-type]').forEach(input => {
   const type = input.dataset.type;
   if (!presentTypes.has(type)) {
     input.closest('label').style.display = 'none';
   }
 });
+const presentTypes = new Set(
+  window._DATA.pins
+    .filter(p => p.area === AREA_KEY)
+    .(p => p.type)
+);
+
+document
+  .querySelectorAll("#-controls input[data-type]")
+  .forEach(input => {
+    const type = input.dataset.type;
+    if (!presentTypes.has(type)) {
+      input.closest("label").style.display = "none";
+    }
+  });
 
 
   // --------------------------------
@@ -100,52 +114,52 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
   // --------------------------------
   const icons = {
     restaurant: L.icon({
-      iconUrl: "/img/map/restaurant.png",
+      iconUrl: "/img//restaurant.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
     coffee: L.icon({
-      iconUrl: "/img/map/coffee.png",
+      iconUrl: "/img//coffee.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
     mosque: L.icon({
-      iconUrl: "/img/map/mosque.png",
+      iconUrl: "/img//mosque.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
     supermarket: L.icon({
-      iconUrl: "/img/map/supermarket.png",
+      iconUrl: "/img//supermarket.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
     landmark: L.icon({
-      iconUrl: "/img/map/landmark.png",
+      iconUrl: "/img//landmark.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     }),
     church: L.icon({
-      iconUrl: "/img/map/church.png",
+      iconUrl: "/img//church.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
     temple: L.icon({
-      iconUrl: "/img/map/temple.png",
+      iconUrl: "/img//temple.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
     shrine: L.icon({
-      iconUrl: "/img/map/shrine.png",
+      iconUrl: "/img//shrine.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
     museum: L.icon({
-      iconUrl: "/img/map/museum.png",
+      iconUrl: "/img//museum.png",
       iconSize: [26, 26],
       iconAnchor: [13, 26]
     }),
     station: L.icon({
-      iconUrl: "/img/map/station.png",
+      iconUrl: "/img//station.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
     })
@@ -154,7 +168,7 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
   // --------------------------------
   // Render pins
   // --------------------------------
-  window.MAP_DATA.pins.forEach(pin => {
+  window._DATA.pins.forEach(pin => {
     if (!pin || typeof pin.lat !== "number" || typeof pin.lng !== "number") {
       return;
     }
@@ -168,7 +182,7 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
     const marker = L.marker(
       [pin.lat, pin.lng],
       icon ? { icon } : {}
-    ).addTo(map);
+    ).addTo();
 
     // simple readable label
     const label =
@@ -187,8 +201,8 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
   // =====================================================
 // I'M HERE (minimal v1)
 // =====================================================
-(function setupImHere(map) {
-  if (!map) return;
+(function setupImHere() {
+  if (!) return;
 
   const AREA = (window.AREA_KEY || "default").trim();
   const KEY = `johren_here_v1:${AREA}`;
@@ -221,7 +235,7 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
         if (existing && !armed) {
           clearHere();
           if (hereMarker) {
-            map.removeLayer(hereMarker);
+            .removeLayer(hereMarker);
             hereMarker = null;
           }
           a.textContent = "I’m here";
@@ -229,17 +243,17 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
         }
 
         armed = true;
-        a.textContent = "Tap map…";
+        a.textContent = "Tap …";
       };
 
       return div;
     }
   });
 
-  map.addControl(new HereControl());
+  .addControl(new HereControl());
 
-  // ---- Map click (only when armed) ----
-  map.on("click", (e) => {
+  // ----  click (only when armed) ----
+  .on("click", (e) => {
     if (!armed) return;
 
     const h = {
@@ -264,7 +278,7 @@ document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
     placeMarker(existing);
   }
 
-})(map);
+})();
 
 
 })();
