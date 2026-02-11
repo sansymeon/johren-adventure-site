@@ -178,12 +178,18 @@ map.on("click", (e) => {
   if (pin.area && pin.area !== window.AREA_KEY) return;
   if (typeof pin.lat !== "number") return;
 
-  L.marker([pin.lat, pin.lng])
-    .addTo(map)
-    .bindTooltip(
-      pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
-      { direction: "top", offset: [0, -20] }
-    );
+ const icon = icons[pin.type];
+
+L.marker(
+  [pin.lat, pin.lng],
+  icon ? { icon } : {}
+)
+.addTo(map)
+.bindTooltip(
+  pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
+  { direction: "top", offset: [0, -20] }
+);
+
 });
 
 
