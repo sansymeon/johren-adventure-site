@@ -26,6 +26,10 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
     zoomControl: false
   }).setView(center, zoom);
 
+  L.map('map', {
+  zoomControl: false
+});
+
   if (bounds) {
     map.setMaxBounds(bounds);
   }
