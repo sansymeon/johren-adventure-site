@@ -26,8 +26,6 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
     zoomControl: false
   }).setView(center, zoom);
 
-  L.control.zoom({ position: "topright" }).addTo(map);
-
   if (bounds) {
     map.setMaxBounds(bounds);
   }
