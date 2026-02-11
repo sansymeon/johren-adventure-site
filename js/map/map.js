@@ -2,6 +2,7 @@
 // JOHREN MAP ENGINE (UNIVERSAL)
 // ===============================
 const KEY = `here:${window.AREA_KEY || "global"}`;
+let map;
 
 (function () {
   // --------------------------------
@@ -22,13 +23,12 @@ const KEY = `here:${window.AREA_KEY || "global"}`;
   // --------------------------------
   // Init map
   // --------------------------------
-  const map = L.map("map", {
+  if (!map) {
+  map = L.map("map", {
     zoomControl: false
   }).setView(center, zoom);
+}
 
-  L.map('map', {
-  zoomControl: false
-});
 
   if (bounds) {
     map.setMaxBounds(bounds);
