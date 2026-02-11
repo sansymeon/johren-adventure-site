@@ -19,18 +19,6 @@ const LABELS = {
 
 const controls = document.getElementById("map-controls");
 
-presentTypes.forEach(type => {
-  const label = LABELS[type];
-  if (!label) return;
-
-  const el = document.createElement("label");
-  el.innerHTML = `
-    <input type="checkbox" data-type="${type}" checked>
-    <span class="label-ja">${label.ja}</span>
-    <span class="label-en">${label.en}</span>
-  `;
-controls.appendChild(el);
-});controls
   // ---- Init map ----
   map = L.map("map", { zoomControl: false }).setView(center, zoom);
 
@@ -39,6 +27,7 @@ controls.appendChild(el);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap contributors"
   }).addTo(map);
+  
 // =====================================================
 // I'M HERE (clean v1)
 // =====================================================
