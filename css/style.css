@@ -16,17 +16,52 @@ a {
     display: none;
   }
 }
-.pin-menu-title {
-  font-size: 14px;
-  font-weight: 600;
+.map-controls {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 1000;
+
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px 12px;
+  width: 180px;
+
+  font-family: system-ui, sans-serif;
 }
 
-.pin-menu-title-en {
+.control-section {
+  margin-bottom: 10px;
+}
+
+.control-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.control-title-en {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  color: #777;
+}
+
+.map-controls label {
+  display: block;
+  margin: 6px 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.label-en {
   display: block;
   font-size: 11px;
   color: #777;
-  font-weight: normal;
+  margin-left: 22px;
 }
+
 
 .pin-menu label {
   display: block;
