@@ -117,6 +117,19 @@ let map;
       hereBtn.textContent = "I'm here";
     }
   });
+const presentTypes = new Set(
+  pins
+    .filter(p => p.area === AREA_KEY)
+    .map(p => p.type)
+);
+
+// Hide menu items with no data
+document.querySelectorAll('#map-controls input[data-type]').forEach(input => {
+  const type = input.dataset.type;
+  if (!presentTypes.has(type)) {
+    input.closest('label').style.display = 'none';
+  }
+});
 
 
   // --------------------------------
