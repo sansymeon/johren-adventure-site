@@ -2,98 +2,91 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Discovery Spots｜Kota Kinabalu</title>
+  <title>Johren Adventureー｜Kota Kinabalu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <style>
     body { margin: 0; }
     #map { height: 100vh; width: 100vw; }
 
-    /* Small Leaflet text buttons (Reset / I'm here) */
-.leaflet-bar a.leaflet-text-btn{
-  width:auto;
-  padding:0 10px;
-  line-height:30px;
-  font-size:13px;
-  font-family:system-ui,-apple-system,Segoe UI,sans-serif;
-  background:#fff;
-  color:#222;
-  cursor:pointer;
-  text-decoration:none;
-}
-    .about-link{
-      position:absolute; left:14px; bottom:14px; z-index:900;
-      font-size:12px; color:#555; text-decoration:none;
-      background:rgba(255,255,255,.85);
-      padding:6px 10px; border-radius:8px;
-      box-shadow:0 1px 4px rgba(0,0,0,.12);
+    .back-link {
+      position: fixed;
+      z-index: 2000;
+      bottom: 20px;
+      right: 10px;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 14px;
+      text-decoration: none;
+      color: #333;
     }
-    .about-link:hover{ background:rgba(255,255,255,1); }
+    .about-link {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 900;
 
-    .pin-filters{
-      position:absolute; right:12px; top:72px; z-index:950;
-      background:rgba(255,255,255,.92);
-      padding:10px; border-radius:12px;
-      box-shadow:0 2px 8px rgba(0,0,0,.12);
-      font-size:12px;
-    }
-    .pin-filters:empty{ display:none; }
-    .pin-filters label{ display:flex; gap:8px; align-items:center; margin:6px 0; }
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
 
-    /* FUTURE: nearest-place indicator (enable when distance logic is added) */
-    
-    /* Force cursor while "I'm here" is armed */
-.leaflet-container.here-armed,
-.leaflet-container.here-armed * {
-  cursor: crosshair !important;
+  background: rgba(255,255,255,0.85);
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
 }
-.nearest-pill{
-  position:absolute;
-  right:12px;
-  bottom:56px; /* above attribution + browser UI */
-  z-index:950;
-  background:rgba(255,255,255,.92);
-  padding:8px 10px;
-  border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,.12);
-  font-size:12px;
-  color:#222;
-  max-width:62vw;
-  line-height:1.25;
+
+.about-link:hover {
+  background: rgba(255,255,255,1);
 }
-.nearest-pill:empty{ display:none; }
-.nearest-pill b{ font-weight:600; }
 
   </style>
 </head>
 
 <body>
-  <div id="pinFilters" class="pin-filters"></div>
-  <div id="map"></div>
-  <div id="nearestPill" class="nearest-pill"></div>
 
-  <!-- Leaflet JS -->
+<a class="back-link" href="./">← 戻る (Back)</a>
+<div id="map-controls" class="map-controls">
+
+</div>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
   window.PLACE_CONFIG = {
-    key: "gaya_street",
-    center: [5.984301099576558, 116.07708391525193],
-    zoom: 15,
-    bounds: [
-      [5.981902029122125, 116.07462891429003],   // southwest
-      [5.9884272513471615, 116.07960709172326]    // northeast
-    ]
-  };
-window.AREA_KEY = "gaya_street";
+  key: "gaya_street",
+
+  center: [5.98380544260789, 116.0770980820169],
+
+  // City-level zoom
+  zoom: 10,
+
+  bounds: [
+    [5.966448578043891, 116.0652097527192],  // southwest 
+    [5.9957648774887415, 116.10151004290462]   // northeast 
+  ]
+};
+
 </script>
-
-
+<script>
+  window.AREA_KEY = "gaya_street"; 
+</script>
 <script src="/data/malaysia/map-data.js"></script>
 <script src="/js/map/map.js"></script>
 
 
-<a href="./about-en.html" class="about-link">About Johren</a>
+<a href="./about.html" class="about-link">
+  Johrenについて・About Johren
+</a>
 
 </body>
 </html>
