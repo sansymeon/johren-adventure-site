@@ -133,12 +133,12 @@ map.on("click", (e) => {
 });
   
   // ---- Hide empty menu categories (Gaya rule) ----
-  const presentTypes = new Set(
-    window.MAP_DATA.pins
-      .filter(p => p.area === window.AREA_KEY)
-      .map(p => p.type)
-  );
-
+ const presentTypes = new Set(
+  window.MAP_DATA.pins
+    .filter(p => (!p.area || p.area === window.AREA_KEY))
+    .map(p => p.type)
+);
+  
   document
     .querySelectorAll("#map-controls input[data-type]")
     .forEach(input => {
@@ -149,15 +149,16 @@ map.on("click", (e) => {
 
   // ---- Render pins ----
   window.MAP_DATA.pins.forEach(pin => {
-    if (pin.area !== window.AREA_KEY) return;
-    if (typeof pin.lat !== "number") return;
+  if (pin.area && pin.area !== window.AREA_KEY) return;
+  if (typeof pin.lat !== "number") return;
 
-    L.marker([pin.lat, pin.lng])
-      .addTo(map)
-      .bindTooltip(
-        pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
-        { direction: "top", offset: [0, -20] }
-      );
-  });
+  L.marker([pin.lat, pin.lng])
+    .addTo(map)
+    .bindTooltip(
+      pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name,
+      { direction: "top", offset: [0, -20] }
+    );
+});
+
 
 })();
