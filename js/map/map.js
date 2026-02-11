@@ -115,7 +115,7 @@ map.addControl(new HereControl());
 // ---- Icons ----
 const icons = {
   station: L.icon({
-    iconUrl: "/icons/station.png",
+    iconUrl: "/img/map/station.png",
     iconSize: [28, 28],
     iconAnchor: [14, 28]
   }),
