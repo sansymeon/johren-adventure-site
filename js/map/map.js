@@ -179,6 +179,14 @@ temple: L.icon({
       pinLayer.addLayer(marker);
     });
   }
+// Render a single pin by adding it to MAP_DATA then re-rendering
+function renderPin(pin) {
+  if (!window.MAP_DATA) window.MAP_DATA = { pins: [] };
+  if (!Array.isArray(window.MAP_DATA.pins)) window.MAP_DATA.pins = [];
+
+  window.MAP_DATA.pins.push(pin);
+  renderPins();
+}
 
   // -------------------------------
   // Restore HERE on load
