@@ -1,316 +1,264 @@
 window.MAP_DATA = {
   pins: [
+// ==================
+// AICHI
+// ==================
     {
-      id: "unknown_yurakucho",
-      line: "unknown",
-      area: "tokyo",  
-      name: "有楽町",
-      nameEn: "Yurakucho",
-      type: "station",
-      lat: 35.67496969538431,   
-      lng: 139.76304185241415
-    }, 
-        {
-      id: "unknown_otemachi",
-      line: "unknown",
-      area: "tokyo",
-      name: "大手町",
-      nameEn: "Otemachi",
-      type: "station",
-      lat: 35.68537551552463,   
-      lng: 139.76327839474382
-    }, 
-        {
-      id: "unknown_shinjuku",
-      line: "unknown",
-      area: "tokyo",
-      name: "新宿",
-      nameEn: "Shinjuku",
-      type: "station",
-      lat: 35.689749147708746,   
-      lng: 139.7005541211752
-    }, 
-        {
-      id: "unknown_shibuya",
-      line: "unknown",
-      area: "tokyo",
-      name: "渋谷",
-      nameEn: "Shibuya",
-      type: "station",
-      lat: 35.658809708015205, 
-      lng: 139.70139976036222
-    }, 
-        {
-      id: "unknown_harajuku",
-      line: "unknown",
-      area: "tokyo",
-      name: "原宿",
-      nameEn: "Harajuku",
-      type: "station",
-      lat: 35.66998548079574,  
-      lng: 139.702444737072
-    }, 
-        {
-      id: "unknown_ebisu",
-      line: "unknown",
-      area: "tokyo",
-      name: "恵比寿",
-      nameEn: "Ebisu",
-      type: "station",
-      lat: 35.64660985018325,  
-      lng: 139.71024272727348 
-    }, 
-        {
-      id: "unknown_roppongi",
-      line: "unknown",
-      area: "tokyo",
-      name: "六本木",
-      nameEn: "Roppongi",
-      type: "station",
-      lat: 35.663288106044625,   
-      lng: 139.7320746659071
-    }, 
-        {
-      id: "unknown_shinagawa",
-      line: "unknown",
-      area: "tokyo",
-      name: "品川",
-      nameEn: "Shinagawa",
-      type: "station",
-      lat: 35.6288200926527,  
-      lng: 139.73890989843687
-    }, 
-        {
-      id: "unknown_shinbashi",
-      line: "unknown",
-      area: "tokyo",
-      name: "新橋",
-      nameEn: "Shinbashi",
-      type: "station",
-      lat: 35.6665968818815, 
-      lng: 139.75825396405907 
-    }, 
-        {
-      id: "unknown_tamachi",
-      line: "unknown",
-      area: "tokyo",
-      name: "田町",
-      nameEn: "Tamachi",
-      type: "station",
-      lat: 35.64578832386757,  
-      lng: 139.74760528622525
-    }, 
-        {
-      id: "unknown_ueno",
-      line: "unknown",
-      area: "tokyo",
-      name: "上野",
-      nameEn: "Ueno",
-      type: "station",
-      lat: 35.713705479633106,   
-      lng: 139.77700139899818
-    }, 
-        {
-      id: "unknown_asakusa",
-      line: "unknown",
-      area: "tokyo",
-      name: "浅草",
-      nameEn: "Asakusa",
-      type: "station",
-      lat: 35.710803118646155,   
-      lng: 139.79763052902732
-    }, 
-        {
-      id: "unknown_nippori",
-      line: "unknown",
-      area: "tokyo",
-      name: "日暮里",
-      nameEn: "Nippori",
-      type: "station",
-      lat: 35.7275828741282,  
-      lng: 139.77112416850807
-    }, 
-        {
-      id: "unknown_ginza",
-      line: "unknown",
-      area: "tokyo",
-      name: "銀座",
-      nameEn: "Ginza",
-      type: "station",
-      lat: 35.67121514737473,  
-      lng: 139.76499716562958
-    }, 
-        {
-      id: "unknown_nihonbashi",
-      line: "unknown",
-      area: "tokyo",
-      name: "日本橋",
-      nameEn: "Nihonbashi",
-      type: "station",
-      lat: 35.682136701922175, 
-      lng: 139.77470857065944
-    }, 
-        {
-      id: "unknown_tsukiji",
-      line: "unknown",
-      area: "tokyo",
-      name: "築地",
-      nameEn: "Tsukiji",
-      type: "station",
-      lat: 35.66817488593285,   
-      lng: 139.77262489474282
-    }, 
-    {
-      id: "unknown_ikebukuro",
-      line: "unknown",
-      area: "tokyo",
-      name: "池袋",
-      nameEn: "Ikebukuro",
-      type: "station",
-      lat: 35.72977276618652, 
-      lng: 139.71064260269546
+      id: "nagoya_orthodox",
+       area: "nagoya",
+      area: "aichi",       
+      name: "名古屋ハリストス正教会・神現聖堂",
+      nameEn: "Holy Theophany Orthodox Church",
+      type: "church",
+      lat: 35.152855753126595,
+      lng: 136.9245572602125,
+      visible: false
     },
     {
-      id: "jr_hokkaido_wakkanai",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "稚内",
-      nameEn: "Wakkanai",
-      type: "station",
-      lat: 45.417168132175405,  
-      lng: 141.6772552432066
-    }, 
+      id: "iwayado_orthodox",
+      area: "aichi",       
+      name: "岩谷堂ハリストス正教会・主の降誕聖堂",
+      nameEn: "Iwayado Orthodox Church",
+      type: "church",
+      lat: 39.19564918643734,
+      lng: 141.1774628084538,
+      visible: false
+    },
     {
-      id: "jr_hokkaido_asahikawa",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "旭川",
-      nameEn: "Asahikawa",
-      type: "station",
-      lat: 43.76272312873298,  
-      lng: 142.35829591855986
-    }, 
-     {
-      id: "jr_hokkaido_hakodate",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "函館",
-      nameEn: "Hakodate",
-      type: "station",
-      lat: 41.774451195511105, 
-      lng: 140.72629352911002
-    }, 
-     {
-      id: "jr_hokkaido_shin_hakodate_hokuto",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "新函館北斗",
-      nameEn: "Shin-Hakodate Hokuto",
-      type: "station",
-      lat: 41.90492185110209, 
-      lng: 140.64865524486171
-    }, 
-     {
-      id: "jr_hokkaido_tomakomai",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "苫小牧",
-      nameEn: "Tomakomai",
-      type: "station",
-      lat: 42.6397785332933, 
-      lng: 141.59670286450677
-    }, 
-     {
-      id: "jr_hokkaido_otaru",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "小樽",
-      nameEn: "Otaru",
-      type: "station",
-      lat: 43.19772948511116, 
-      lng: 140.99377632866572
-    }, 
-     {
-      id: "jr_hokkaido_kushiro",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "釧路",
-      nameEn: "Kushiro",
-      type: "station",
-      lat: 42.99051855295074, 
-      lng: 144.38206414734094
-    }, 
-     {
-      id: "jr_hokkaido_obihiro",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "帯広",
-      nameEn: "Obihiro",
-      type: "station",
-      lat: 42.917963015629766, 
-      lng: 143.20212078624675
-    }, 
-     {
-      id: "jr_hokkaido_kitami",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "北見",
-      nameEn: "Kitami",
-      type: "station",
-      lat: 43.80503627208645, 
-      lng: 143.8975985026649 
-    }, 
-     {
-      id: "jr_hokkaido_noboribetsu",
-      line: "jr_hokkaido",
-      area: "hokkaido",
-      name: "登別",
-      nameEn: "Noboribetsu",
-      type: "station",
-       
-      lat: 42.452047875141865, 
-      lng: 141.18037024464272
-    }, 
+      id: "toyohashi_orthodox",
+      area: "aichi",       
+      name: "豊橋ハリストス正教会・聖使徒福音者マトフェイ聖堂",
+      nameEn: "Toyohashi Orthodox Church",
+      type: "church",
+      lat: 34.76802881935057,
+      lng: 137.39393794866496,
+      visible: false
+    },
     {
-      id: "naha_airport",
-      area: "okinawa",       
-      name: "那覇空港",
-      nameEn: "Naha Airport",
+      id: "handa_orthodox",
+      area: "aichi",       
+      name: "半田ハリストス正教会・聖イオアン・ダマスキン聖堂",
+      nameEn: "Saint John of Damascus Orthodox Church",
+      type: "church",
+      lat: 34.91164457680192,
+      lng: 136.9408163370278,
+      visible: false
+    },
+    {
+      id: "tokaido_nagoya",
+      line: "tokaido",
+      area: "aichi",       
+      name: "名古屋",
+      nameEn: "Nagoya",
       type: "station",
-      lat: 26.206500429087768, 
-      lng: 127.65219063658655
+      lat: 35.17075221462044,
+      lng: 136.881565537144
+    },
+// ==================
+// AKITA
+// ==================    
+    {
+        id: "hokuroku_orthodox",
+        area: "akita",       
+        name: "北鹿ハリストス正教会・生神女福音会堂",
+        nameEn: "Hokuroku Orthodox Church",
+        lat: 40.21460725011423,                
+        lng: 140.62425246619102,
+        visible: false
+      },
+          {
+        id: "akita",
+        area: "akita",       
+        name: "秋田",
+        nameEn: "Akita",
+        type: "station",
+        lat: 39.71699459890198, 
+        lng: 140.12967542198115
+ },
+// ==================
+// AOMORI
+// ==================   
+    {
+  id: "unknown_aomori",
+  line: "unknown",
+  area: "aomori",       
+  name: "青森",
+  nameEn: "Aomori",
+  type: "station",
+  lat: 40.8296329213454,  
+  lng: 140.73392955858864
+ },
+// ==================
+// CHIBA
+// ==================
+    {
+        id: "suga_orthodox",
+        area: "chiba",       
+        name: "須賀ハリストス正教会",
+        nameEn: "Suga Orthodox Church",
+        type: "church",
+        lat: 35.668907508179174,    
+        lng: 140.54623048124927,
+        visible: false
+      },  
+        {
+        id: "tega_orthodox",
+        area: "chiba",       
+        name: "手賀ハリストス正教会",
+        nameEn: "Tega Orthodox Church",
+        type: "church",
+        lat: 35.8420520668703,   
+        lng: 140.07945086591766,
+        visible: false
+      }, 
+      {
+  id: "jr_east_chiba",
+  line: "jr_east",
+  area: "chiba",       
+  name: "千葉",
+  nameEn: "Chiba",
+  type: "station",
+  lat: 35.61319559432332, 
+  lng: 140.11357952727155
+ },
+// ==================
+// EHIME
+// ==================   
+    {
+  id: "jr_shikoku_matsuyama",
+  line: "jr_shikoku",
+  area: "ehime",       
+  name: "松山",
+  nameEn: "Matsuyama",
+  type: "station",
+  lat: 33.83985068892453,  
+  lng: 132.75076964861216
+ },
+// ==================
+// NAGASAKI
+// ==================   
+    {
+      id: "sasebo_sasebo",
+      line: "sasebo",
+      area: "nagasaki",       
+      name: "佐世保",
+      nameEn: "Sasebo",
+      type: "station",
+      lat: 33.16392652960352,
+      lng: 129.7257186464349
     }, 
-     {
-      id: "urasoemaeda",
-      area: "okinawa",       
-      name: "浦添前田",
-      nameEn: "Urasoemaeda",
+    
+    {
+      id: "sasebo_mikawachi",
+      line: "sasebo",
+      area: "nagasaki",       
+      name: "三河内",
+      nameEn: "Mikawachi",
       type: "station",
-      lat: 26.24383887706269,  
-      lng: 127.73223797891734
+      lat: 33.07803157141688,
+      lng: 130.06745362273077
     },
-   {
-      id: "okuma_beach",
-      area: "okinawa",       
-      name: "オクマビーチ",
-      nameEn: "Okuma Beach",
-      type: "landmark",
-      lat: 26.74010368624446, 
-      lng: 128.15881546628992
+    {
+      id: "sasebo_haiki",
+      line: "sasebo",
+      area: "nagasaki",       
+      name: "早岐",
+      nameEn: "Haiki",
+      type: "station",
+      lat: 33.13377922640225,
+      lng: 129.79926949459863
     },
-   {
-      id: "ito_art_museum",
-      area: "itoshima",       
-      name: "伊都郷土美術館",
-      nameEn: "Ito Art Museum",
-      type: "museum",
-      lat: 33.56063278048929,
-      lng: 130.20447283810256
+  
+    {
+      id: "unknown_kawatana",
+      line: "unknown",
+      area: "nagasaki",       
+      name: "川棚",
+      nameEn: "Kawatana",
+      type: "station",
+      lat: 33.068486779692165,
+      lng: 129.8634278238975
     },
+              {
+        id: "peace_park",
+        area: "nagasaki",       
+        name: "平和公園",
+        nameEn: "Peace Park Nagasaki",
+        type: "museum",
+        lat: 32.776992537763874,    
+        lng: 129.86393524060455
+      },  
+        {
+        id: "urakami_cathedral",
+        area: "nagasaki",       
+        name: "カトリック浦上教会（浦上天主堂）",
+        nameEn: "Urakami Cathedral",
+        type: "church",
+        lat: 32.77611633657394,   
+        lng: 129.86835109327734
+      }, 
+      {
+  id: "unknown_shin_omura",
+  line: "unknown",
+  area: "nagasaki",       
+  name: "新大村",
+  nameEn: "Shin-Omura",
+  type: "station",
+  lat: 32.932626750179075,
+  lng: 129.95722857374489
+},
+{
+  id: "unknown_isahaya",
+  line: "unknown",
+  area: "nagasaki",       
+  name: "諫早",
+  nameEn: "Isahaya",
+  type: "station",
+  lat: 32.85203767364156,
+  lng: 130.0412546541023
+},
+    {
+  id: "unknown_shimabara",
+  line: "unknown",
+  area: "nagasaki",       
+  name: "島原",
+  type: "station",
+  nameEn: "Shimabara",
+  lat: 32.79027786498945,
+  lng: 130.370631075974
+},
+{
+  id: "unknown_nagasaki",
+  line: "unknown",
+  area: "nagasaki",       
+  name: "長崎",
+  nameEn: "Nagasaki",
+  type: "station",
+  lat: 32.752546298028726, 
+  lng: 129.86865881602043
+ },
+// ==================
+// FUKUI
+// ==================
+    {
+      id: "jr_west_fukui",
+      line: "jr_west",
+       area: "fukui",    
+      name: "福井",
+      nameEn: "Fukui",
+      type: "station",
+      lat: 36.06200365221304,
+      lng: 136.22326035384071
+    },
+
+
+ // ==================
+// FUKUOKA
+// ==================
     {
       id: "chikuhi_meinohama",
       line: "chikuhi",
-      area: "fukuoka-west",
+      area: "fukuoka",
       name: "姪浜",
       nameEn: "Meinohama",
       type: "station",
@@ -320,14 +268,585 @@ window.MAP_DATA = {
     {
       id: "chikuhi_shimoyamato",
       line: "chikuhi",
-      area: "fukuoka-west",
+      area: "fukuoka",
       name: "下山門",
       nameEn: "Shimoyamato",
       type: "station",
       lat: 33.581882,
       lng: 130.308038
     },
+     {
+      id: "airport_fukuoka_airport",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",       
+      name: "福岡空港",
+      nameEn: "Fukuoka Airport",
+      type: "station",
+      lat: 33.59719916364836,
+      lng: 130.44822439462428
+    },
     {
+      id: "airport_higashi_hie",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",       
+      name: "東比恵",
+      nameEn: "Higashi-Hie",
+      type: "station",
+      lat: 33.589754713543435,
+      lng: 130.43123418620593
+    },
+    {
+      id: "airport_hakata",
+      line: "jr_kagoshima",
+      area: "fukuoka",       
+      name: "博多",
+      nameEn: "Hakata",
+      type: "station",
+      lat: 33.589580007114,
+      lng: 130.42049136024366
+    },
+    {
+      id: "airport_nakasukawabata",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",       
+      name: "中洲川端",
+      nameEn: "Nakasukawabata",
+      type: "station",
+      lat: 33.594395499429346,
+      lng: 130.4060595133835
+    },
+    {
+      id: "airport_tenjin",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",    
+      name: "天神",
+      nameEn: "Tenjin",
+      type: "station",
+      lat: 33.5913469503287,
+      lng: 130.39891098113026
+    },
+    {
+      id: "airport_akasaka",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "赤坂",
+      nameEn: "Akasaka",
+      type: "station",
+      lat: 33.58906127661953,
+      lng: 130.3906207746017
+    },
+    {
+      id: "airport_ohori_park",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "大濠公園",
+      nameEn: "Ohori Park",
+      type: "station",
+      lat: 33.59012812434707,
+      lng: 130.3788320713684
+    },
+    {
+      id: "airport_tohjinmachi",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "唐人町",
+      nameEn: "Tojinmachi",
+      type: "station",
+      lat: 33.590145613562676,
+      lng: 130.36996167573926
+    },
+    {
+      id: "airport_nishijin",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "西新",
+      nameEn: "Nishijin",
+      type: "station",
+      lat: 33.583574101225004,
+      lng: 130.3592916253071
+    },
+    {
+      id: "airport_fujisaki",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "藤崎",
+      nameEn: "Fujisaki",
+      type: "station",
+      lat: 33.581378487964386,
+      lng: 130.34798479092692
+    },
+    {
+      id: "airport_muromi",
+      line: "fukuoka_airport_subway",
+      area: "fukuoka",
+      name: "室見",
+      nameEn: "Muromi",
+      type: "station",
+      lat: 33.58091545591748,
+      lng: 130.33992923325593
+    },
+    {
+      id: "kagoshima_yoshizuka",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "吉塚",
+      nameEn: "Yoshizuka",
+      type: "station",
+      lat: 33.60690081236377,
+      lng: 130.42364803927666
+    },
+    {
+      id: "kagoshima_hakozaki",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "箱崎",
+      nameEn: "Hakozaki",
+      type: "station",
+      lat: 33.61817780491143,
+      lng: 130.4269867278585,
+      visible: false
+    },
+    {
+      id: "kagoshima_chihaya",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "千早",
+      nameEn: "Chihaya",
+      type: "station",
+      lat: 33.649212142148514,
+      lng: 130.44060779462708
+    },
+    {
+      id: "kagoshima_kashii",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "香椎",
+      nameEn: "Kashii",
+      type: "station",
+      lat: 33.65957167882258,
+      lng: 130.44408393753503
+    },
+    {
+      id: "kagoshima_kyusan_daimae",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "九産大前",
+      nameEn: "Kyusan-daimae",
+      type: "station",
+      lat: 33.673528072200114,
+      lng: 130.44126918185134
+    },
+    {
+      id: "kagoshima_fuukodai_mae",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "福工大前",
+      nameEn: "Fuukodai-mae",
+      type: "station",
+      lat: 33.69840228441997,
+      lng: 130.4401530057084
+    },
+    {
+      id: "kagoshima_shingu_chuo",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "新宮中央",
+      nameEn: "Shingu-chuo",
+      type: "station",
+      lat: 33.711624844956056,
+      lng: 130.44918646394683
+    },
+    {
+      id: "kagoshima_shishibu",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "ししぶ",
+      nameEn: "Shishibu",
+      type: "station",
+      lat: 33.72166328413928,
+      lng: 130.4582904081248,
+      visible: false
+    },
+    {
+      id: "kagoshima_koga",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "古賀",
+      nameEn: "Koga",
+      type: "station",
+      lat: 33.732413088801486,
+      lng: 130.466493063948
+    },
+    {
+      id: "kagoshima_chidori",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "千鳥",
+      nameEn: "Chidori",
+      type: "station",
+      lat: 33.74863479338904,
+      lng: 130.47608614139565,
+      visible: false
+    },
+    {
+      id: "kagoshima_fukuma",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "福間",
+      nameEn: "Fukuma",
+      type: "station",
+      lat: 33.76344491188212,
+      lng: 130.48680252531722
+    },
+    {
+      id: "kagoshima_higashi_fukuma",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "東福間",
+      nameEn: "Higashi-Fukuma",
+      type: "station",
+      lat: 33.77411965051876,
+      lng: 130.51087175674616
+    },
+    {
+      id: "kagoshima_togo",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "東郷",
+      nameEn: "Togo",
+      type: "station",
+      lat: 33.79465900183122,
+      lng: 130.5288475279176
+    },
+    {
+      id: "kagoshima_akama",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "赤間",
+      nameEn: "Akama",
+      type: "station",
+      lat: 33.80852420948639,
+      lng: 130.56998936154793
+    },
+    {
+      id: "kagoshima_kyoikudai_mae",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "教育大前",
+      nameEn: "Kyoikudai-mae",
+      type: "station",
+      lat: 33.80838881182614,
+      lng: 130.5912502438203
+    },
+    {
+      id: "kagoshima_ebitsu",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "海老津",
+      nameEn: "Ebitsu",
+      type: "station",
+      lat: 33.84011816193234,
+      lng: 130.6238064927896,
+      visible: false
+    },
+    {
+      id: "kagoshima_ongagawa",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "遠賀川",
+      nameEn: "Ongagawa",
+      type: "station",
+      lat: 33.846829647570566,
+      lng: 130.67341776395446,
+      visible: false
+    },
+    {
+      id: "kagoshima_mizumaki",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "水巻",
+      nameEn: "Mizumaki",
+      type: "station",
+      lat: 33.85242282341066,
+      lng: 130.69554009833485,
+      visible: false
+    },
+    {
+      id: "kagoshima_orio",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "折尾",
+      nameEn: "Orio",
+      type: "station",
+      lat: 33.86438043149877,
+      lng: 130.71225182162638
+    },
+    {
+      id: "kagoshima_jinnohara",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "陣原",
+      nameEn: "Jinnohara",
+      type: "station",
+      lat: 33.86815576484634,
+      lng: 130.74280493327194,
+      visible: false
+    },
+    {
+      id: "kagoshima_kurosaki",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "黒崎",
+      nameEn: "Kurosaki",
+      type: "station",
+      lat: 33.866787526976914,
+      lng: 130.76652121099508
+    },
+    {
+      id: "kagoshima_yahata",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "八幡",
+      nameEn: "Yahata",
+      type: "station",
+      lat: 33.86924172009082,
+      lng: 130.79549716269443,
+      visible: false
+    },
+    {
+      id: "kagoshima_space_world",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "スペースワールド",
+      nameEn: "Space World",
+      type: "station",
+      lat: 33.87135687616503,
+      lng: 130.8066169702724
+    },
+    {
+      id: "kagoshima_edamitsu",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "枝光",
+      nameEn: "Edamitsu",
+      type: "station",
+      lat: 33.87942438673168,
+      lng: 130.8131340216272,
+      visible: false
+    },
+    {
+      id: "kagoshima_tobata",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "戸畑",
+      nameEn: "Tobata",
+      type: "station",
+      lat: 33.89691234250908,
+      lng: 130.8203713491716
+    },
+    {
+      id: "kagoshima_kyushu_kodai",
+      line: "kagoshima",
+      area: "fukuoka",       
+      name: "九州工大前",
+      nameEn: "Kyushu-Kodai",
+      type: "station",
+      lat: 33.900411168201266,
+      lng: 130.84002577929928
+    },
+    {
+      id: "nippo_kokura",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "小倉",
+      nameEn: "Kokura",
+      type: "station",
+      lat: 33.88692334108495,
+      lng: 130.88267235415955
+    },
+    {
+      id: "nippo_nishi_kokura",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "西小倉",
+      nameEn: "Nishi Kokura",
+      type: "station",
+      lat: 33.88847941058861,
+      lng: 130.87406638484333
+    },
+    {
+      id: "nippo_jono",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "城野",
+      nameEn: "Jono",
+      type: "station",
+      lat: 33.85794316243455,
+      lng: 130.88654775251135,
+    },
+    {
+      id: "nippo_abeyama_koen",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "安部山公園",
+      nameEn: "AbeyamaKoen",
+      type: "station",
+      lat: 33.844089298497266,
+      lng: 130.90422187773387,
+    },
+    {
+      id: "nippo_shimo_sone",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "下曽根",
+      nameEn: "Shimo-Sone",
+      type: "station",
+      lat: 33.83230816422438,
+      lng: 130.93463317078653,
+    },
+    {
+      id: "nippo_kusami",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "朽網",
+      nameEn: "Kusami",
+      type: "station",
+      lat: 33.807287199586774,
+      lng: 130.95509543299045,
+    },
+    {
+      id: "nippo_kanda",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "苅田",
+      nameEn: "Kanda",
+      type: "station",
+      lat: 33.78450222336173,
+      lng: 130.978982886759
+    },
+    {
+      id: "nippo_obase_nishikodai_mae",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "小波瀬西工大前",
+      nameEn: "Obase Nishikodai-Mae",
+      type: "station",
+      lat: 33.75295659753037,
+      lng: 130.97189514521259,
+    },
+     {
+      id: "kyushu_shinkansen_shin_omuta",
+      line: "kyushu_shinkansen",
+      area: "fukuoka",       
+      name: "新大牟田",
+      nameEn: "Shin-Omuta",
+      type: "station",
+      lat: 33.071373125359564,
+      lng: 130.48852330511616
+    },
+    {
+      id: "unknown_amagi",
+      line: "unknown",
+      area: "fukuoka",       
+      name: "甘木",
+      nameEn: "Amagi",
+      type: "station",
+      lat: 33.4192430704809,
+      lng: 130.65348064295375
+    },
+    {
+      id: "unknown_ukiha",
+      line: "unknown",
+      area: "fukuoka",       
+      name: "うきは",
+      nameEn: "Ukiha",
+      type: "station",
+      lat: 33.33479713952632,
+      lng: 130.78917334413924
+    },
+    {
+      id: "unknown_nishi_omuta",
+      line: "unknown",
+      area: "fukuoka",       
+      name: "西大牟田",
+      nameEn: "Nishi-Omuta",
+      type: "station",
+      lat: 33.24609650022158,
+      lng: 130.5008872072392
+    },
+    {
+      id: "unknown_nishitetsu_yanagawa",
+      line: "unknown",
+      area: "fukuoka",       
+      name: "西鉄柳川",
+      nameEn: "Nishitetsu-Yanagawa",
+      type: "station",
+      lat: 33.16483308770013,
+      lng: 130.41975360291633
+    },
+    {
+      id: "unknown_nishitetsu_omuta",
+      line: "unknown",
+      area: "fukuoka",       
+      name: "西鉄大牟田",
+      nameEn: "Nishitetsu-Omuta",
+      type: "station",
+      lat: 33.02990295665634,
+      lng: 130.44320628992418
+    },
+     {
+      id: "nippo_yukuhashi",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "行橋",
+      nameEn: "Yukuhashi",
+      type: "station",
+      lat: 33.72864122770345,
+      lng: 130.96980850960972
+    },
+    {
+      id: "nippo_minami_yukuhashi",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "南行橋",
+      nameEn: "Minami Yukuhashi",
+      type: "station",
+      lat: 33.716683069018295,
+      lng: 130.9759345567837,
+    },
+    {
+      id: "nippo_shindembaru",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "新田原",
+      nameEn: "Shindembaru",
+      type: "station",
+      lat: 33.69539629593777,
+      lng: 131.00808977980333,
+    },
+    {
+      id: "nippo_tsuiki",
+      line: "nippo",
+      area: "fukuoka",       
+      name: "築城",
+      nameEn: "Tsuiki",
+      type: "station",
+      lat: 33.6730864134871,
+      lng: 131.03776215671238
+    },
+// ==================
+// FUKUOKA: ITOSHIMA
+// ==================
+    {
+      id: "ito_art_museum",
+      area: "itoshima",       
+      name: "伊都郷土美術館",
+      nameEn: "Ito Art Museum",
+      type: "museum",
+      lat: 33.56063278048929,
+      lng: 130.20447283810256
+     }, 
+      {
       id: "chikuhi_imajuku",
       line: "chikuhi",
       area: "itoshima",
@@ -460,774 +979,540 @@ window.MAP_DATA = {
       lng: 130.047476,
       visible: false
     },
+
+// ==================
+// FUKUSHIMA
+// ==================  
+      {
+  id: "jr_east_iwaki",
+  line: "jr_east",
+  area: "fukushima",       
+  name: "いわき",
+  nameEn: "Iwaki",
+  type: "station",
+  lat: 37.05809691532164, 
+  lng: 140.89207113715523
+ },
+// ==================
+// HOKKAIDO
+// ==================
     {
-      id: "chikuhi_hamasaki",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "浜崎",
-      nameEn: "Hamasaki",
+      id: "jr_hokkaido_wakkanai",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "稚内",
+      nameEn: "Wakkanai",
       type: "station",
-      lat: 33.446720,
-      lng: 130.036798
+      lat: 45.417168132175405,  
+      lng: 141.6772552432066
+    }, 
+    {
+      id: "jr_hokkaido_asahikawa",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "旭川",
+      nameEn: "Asahikawa",
+      type: "station",
+      lat: 43.76272312873298,  
+      lng: 142.35829591855986
+    }, 
+     {
+      id: "jr_hokkaido_hakodate",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "函館",
+      nameEn: "Hakodate",
+      type: "station",
+      lat: 41.774451195511105, 
+      lng: 140.72629352911002
+    }, 
+     {
+      id: "jr_hokkaido_shin_hakodate_hokuto",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "新函館北斗",
+      nameEn: "Shin-Hakodate Hokuto",
+      type: "station",
+      lat: 41.90492185110209, 
+      lng: 140.64865524486171
+    }, 
+     {
+      id: "jr_hokkaido_tomakomai",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "苫小牧",
+      nameEn: "Tomakomai",
+      type: "station",
+      lat: 42.6397785332933, 
+      lng: 141.59670286450677
+    }, 
+     {
+      id: "jr_hokkaido_otaru",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "小樽",
+      nameEn: "Otaru",
+      type: "station",
+      lat: 43.19772948511116, 
+      lng: 140.99377632866572
+    }, 
+     {
+      id: "jr_hokkaido_kushiro",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "釧路",
+      nameEn: "Kushiro",
+      type: "station",
+      lat: 42.99051855295074, 
+      lng: 144.38206414734094
+    }, 
+     {
+      id: "jr_hokkaido_obihiro",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "帯広",
+      nameEn: "Obihiro",
+      type: "station",
+      lat: 42.917963015629766, 
+      lng: 143.20212078624675
+    }, 
+     {
+      id: "jr_hokkaido_kitami",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "北見",
+      nameEn: "Kitami",
+      type: "station",
+      lat: 43.80503627208645, 
+      lng: 143.8975985026649 
+    }, 
+     {
+      id: "jr_hokkaido_noboribetsu",
+      line: "jr_hokkaido",
+      area: "hokkaido",
+      name: "登別",
+      nameEn: "Noboribetsu",
+      type: "station",
+       
+      lat: 42.452047875141865, 
+      lng: 141.18037024464272
+    }, 
+     {
+      id: "hakodate_orthodox",
+      area: "hokkaido",       
+      name: "函館ハリストス正教会",
+      nameEn: "Hakodate Orthodox Church",
+      type: "church",
+      lat: 41.762791271261975,
+      lng: 140.71221112396552,
+      visible: false
     },
     {
-      id: "chikuhi_nijinomatsubara",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "虹ノ松原",
-      nameEn: "Nijinomatsubara",
-      type: "station",
-      lat: 33.441033,
-      lng: 130.016195
+      id: "kamiiso_orthodox",
+      area: "hokkaido",       
+      name: "上磯ハリストス正教会・主の昇天聖堂（北斗市）",
+      nameEn: "Kamiiso Orthodox Church",
+      type: "church",
+      lat: 41.84321997856034,
+      lng: 140.63660773746471,
+      visible: false
     },
     {
-      id: "chikuhi_higashi_saga_west",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "東唐津",
-      nameEn: "Higashi saga_west",
+      id: "sapporo_orthodox",
+      area: "hokkaido",       
+      name: "札幌ハリストス正教会・主の顕栄聖堂",
+      nameEn: "Sapporo Orthodox Church",
+      type: "church",
+      lat: 43.01865151311119,
+      lng: 141.40312645103944,
+    },
+     {
+      id: "sapporo_station",
+      area: "hokkaido",       
+       name: "札幌",
+      nameEn: "Sapporo",
       type: "station",
-      lat: 33.439393,
-      lng: 129.996837
+      lat: 43.06870361524902, 
+      lng: 141.35071235839033
     },
     {
-      id: "chikuhi_watada",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "和多田",
-      nameEn: "Watada",
-      type: "station",
-      lat: 33.436933,
-      lng: 129.980768
+      id: "otaru_orthodox",
+      area: "hokkaido",       
+      name: "小樽ハリストス正教会・主の復活聖堂",
+      nameEn: "Otaru Orthodox Church",
+      type: "church",
+      lat: 43.19058532675394,
+      lng: 140.98899218173514,
+      visible: false
     },
     {
-      id: "chikuhi_saga_west",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "唐津",
-      nameEn: "saga_west",
-      type: "station",
-      lat: 33.446223,
-      lng: 129.967587
+      id: "tomakomai_orthodox",
+      area: "hokkaido",       
+      name: "苫小牧ハリストス正教会・主の降誕聖堂",
+      nameEn: "Tomakomai Orthodox Church",
+      type: "church",
+      lat: 42.642654755289584,
+      lng: 141.5805366375196,
+      visible: false
     },
     {
-      id: "chikuhi_nishi_saga_west",
-      line: "chikuhi",
-      area: "saga_west",
-      name: "西唐津",
-      nameEn: "Nishi saga_west",
-      type: "station",
-      lat: 33.461434,
-      lng: 129.957480
+      id: "kushiro_orthodox",
+      area: "hokkaido",       
+      name: "釧路ハリストス正教会・聖神゜降臨聖堂",
+      nameEn: "Kushiro Orthodox Church",
+      type: "church",
+      lat: 42.97550972265846,
+      lng: 144.38810002404912,
+      visible: false
     },
-     { 
-        id: "jr-saga_west-yamamoto", 
-       area: "saga_west",       
-       name: "山本", 
-       nameEn: "Yamamoto", 
-        type: "station",
-        lat: 33.39278208271683, 
-        lng: 129.98118155167737 
+    {
+      id: "kamimusa_orthodox",
+      area: "hokkaido",       
+      name: "上武佐ハリストス正教会・生神女就寝聖堂",
+      nameEn: "Kamimusa Orthodox Church",
+      type: "church",
+      lat: 43.61850720398041,
+      lng: 144.99488426642338,
+      visible: false
+    },
+    {
+      id: "shari_orthodox",
+      area: "hokkaido",       
+      name: "斜里ハリストス正教会・生神女福音聖堂",
+      nameEn: "Shari Orthodox Church",
+      type: "church",
+      lat: 43.899288709566385,
+      lng: 144.62383363760782,
+      visible: false
+    },
+ 
+
+// ==================
+// GIFU
+// ==================
+    {
+      id: "jr_tokaido_gifu",
+      line: "jr_tokaido",
+      area: "gifu",       
+      name: "岐阜",
+      nameEn: "Gifu",
+      type: "station",
+      lat: 35.409475306635464,
+      lng: 136.75669090027228
+    },
+         {
+        id: "shirakawa_orthodox",
+        area: "gifu",       
+        name: "白河ハリストス正教会",
+        nameEn: "Shirakawa Orthodox Church",
+        type: "church",
+        lat: 37.12721986402288,    
+        lng: 140.21178726599504,
+        visible: false
+      }, 
+// ==================
+// GUNMA
+// ==================
+    {
+        id: "maebashi_orthodox",
+        area: "gunma",       
+        name: "前橋ハリストス正教会",
+        nameEn: "Maebashi Orthodox Church",
+        type: "church",  
+        lat: 36.39251857237456,     
+        lng: 139.06543920643128,
+      visible: false
+      },  
+        {
+        id: "takasaki_orthodox",
+        area: "gunma",       
+        name: "高崎ハリストス正教会",
+        nameEn: "Takasaki Orthodox",
+        type: "church",
+        lat: 36.35393225376748,    
+        lng: 138.99547179478353,
+          visible: false
+      }, 
+      {
+  id: "sukawa_orthodox",
+  area: "gunma",       
+  name: "須川ハリストス正教会",
+  nameEn: "Sukawa Orthodox Church",
+  type: "church",
+  lat: 36.69922157449143, 
+  lng: 138.90685202179165,
+  visible: false
+},
+{
+  id: "jr_east_takasaki",
+  line: "jr_east",
+  area: "gunma",       
+  name: "高崎",
+  nameEn: "Takasaki",
+  type: "station",
+  lat: 36.32362192931688, 
+  lng: 139.01279104080712
+ },
+     {
+        id: "akutsu_orthodox",
+        area: "gunma",       
+        name: "圷ハリストス正教会",
+        nameEn: "Akutsu Orthodox Church",
+        type: "church",
+        lat: 36.49210927234493,   
+        lng: 140.36823765246274,
+        visible: false
+      }, 
+        {
+        id: "yamate_orthodox",
+        area: "gunma",       
+        name: "山手ハリストス正教会",
+        nameEn: "Yamate Orthodox Church",
+        type: "church",
+        lat: 35.69711939864383,   
+        lng: 139.60897218125092,
+      visible: false
+      },  
+    // ==================
+// HIROSHIMA
+// ==================
+    {
+        id: "hiroshima_peace_museum",
+        area: "hiroshima",       
+        name: "広島平和記念資料館",
+        nameEn: "Hiroshima Peace Memorial Museum",
+        type: "museum",
+        lat: 34.391586720771336,     
+        lng: 132.4527286170304
+      }, 
+        {
+        id: "hiroshima_catholic",
+        area: "hiroshima",       
+        name: "カトリック幟町教会 世界平和記念聖堂",
+        nameEn: "Assumption of Mary Cathedral",
+        type: "church",
+        lat: 34.39516261648929,    
+        lng: 132.46852401660675,
+        visible: false
+      }, 
+      {
+  id: "jr_west_hiroshima",
+  line: "jr_west",
+  area: "hiroshima",       
+  name: "広島",
+  nameEn: "Hiroshima",
+  type: "station",
+  lat: 34.397861733401015, 
+  lng: 132.4754107811756
+ },
+        {
+  id: "sanyo_shinkansen_shin_iwakuni",
+  line: "sanyo_shinkansen",
+  area: "hiroshima",       
+  name: "新岩国",
+  nameEn: "Shin-Iwakuni",
+  type: "station",
+  lat: 34.16477067833664, 
+  lng: 132.14960902903604
+ },
+     {
+  id: "sanyo_shinkansen_higashi_hiroshima",
+  line: "sanyo_shinkansen",
+  area: "hiroshima",       
+  name: "東広島",
+  nameEn: "Higashi Hiroshima",
+  type: "station",
+  lat: 34.38932491940482, 
+  lng: 132.759548804466
+ },
+     {
+  id: "sanyo_shinkansen_mihara",
+  line: "sanyo_shinkansen",
+  area: "hiroshima",       
+  name: "三原",
+  nameEn: "Mihara",
+  type: "station",
+  lat: 34.40068115614304,  
+  lng: 133.08316498394547
+ },
+     {
+  id: "sanyo_shinkansen_shin_onomichi",
+  line: "sanyo_shinkansen",
+  area: "hiroshima",       
+  name: "新尾道",
+  nameEn: "Shin Onomichi",
+  type: "station",
+  lat: 34.430164623711384, 
+  lng: 133.19030555234193
+ },
+// ==================
+// HYOGO
+// ==================
+     {
+  id: "sanyo_shinkansen_aioi",
+  line: "sanyo_shinkansen",
+  area: "hyogo",       
+  name: "相生",
+  nameEn: "Aioi",
+  type: "station",
+  lat: 34.81795910228426,  
+  lng: 134.473974250334
+ },
+     {
+  id: "sanyo_shinkansen_nishi_akashi",
+  line: "sanyo_shinkansen",
+  area: "hyogo",       
+  name: "西明石",
+  nameEn: "Nishi Akashi",
+  type: "station",
+  lat: 34.66700248183328, 
+  lng: 134.96007403091295
+ },
+  
+    {
+  id: "sanyo_shinkansen_shin_kobe",
+  line: "sanyo_shinkansen",
+  area: "hyogo",       
+  name: "新神戸",
+  nameEn: "Shin-Kobe",
+  type: "station",
+  lat: 34.70679993007298, 
+  lng: 135.19616486899184
+ },
+  {
+  id: "jr_west_kobe",
+  line: "jr_west",
+  area: "kobe",       
+  name: "神戸",
+  nameEn: "Kobe",
+  type: "station",
+  lat: 34.679489017452056, 
+  lng: 135.17826511406824
+ },
+    {
+  id: "jr_west_himeji",
+  line: "jr_west",
+  area: "hyogo",       
+  name: "姫路",
+  type: "station",
+  nameEn: "Himeji",
+  lat: 34.82668218036908, 
+  lng: 134.69050040818743
+},
+
+// ==================
+// IBARAKI
+// ==================
+    {
+  id: "jr_east_mito",
+  line: "jr_east",
+  area: "ibaraki",       
+  name: "水戸",
+  nameEn: "Mito",
+  type: "station",
+  lat: 36.370305879959524, 
+  lng: 140.47716630481875
+ },
+// ==================
+// ISHIKAWA
+// ==================
+{
+  id: "jr_west_kanazawa",
+  line: "jr_west",
+  area: "ishikawa",
+  name: "金沢",
+  lat: 36.5780,
+  lng: 136.6486
+}    
+// ==================
+// IWATE
+// ==================
+      { 
+        id: "yamada_orthodox",
+        area: "iwate",       
+        name: "山田ハリストス正教会・主の復活会堂",
+        nameEn: "Yamada Orthodox Church",
+        type: "church",
+        lat: 39.46703315417506,              
+        lng: 141.9510394814841,
+        visible: false
       },
       { 
-        id: "jr-saga_west-ouchi", 
-       area: "saga_west",       
-        name: "相知", 
-        nameEn: "Ouchi", 
-        type: "station",
-        lat: 33.34699039849446, 
-        lng: 130.01952634118035 
+        id: "ichinoseki_orthodox",
+        area: "iwate",       
+        name: "一関ハリストス正教会・昇天聖堂",
+        nameEn: "Ichinoseki Orthodox Church",
+        type: "church",
+        lat: 38.92259105365958,             
+        lng: 141.1217309986392,
+        visible: false
       },
-      { 
-        id: "jr-saga_west-iwaya", 
-       area: "saga_west",       
-        name: "岩屋", 
-        nameEn: "Iwaya", 
+        {
+        id: "jr_east_morioka",
+        line: "jr_east",
+        area: "iwate",       
+        name: "盛岡",
+        nameEn: "Morioka",
         type: "station",
-        lat: 33.33076505677805, 
-        lng: 130.03827683163834 
+        lat: 39.91886880943039,  
+        lng: 141.19933495479495
+ },
+ {
+        id: "morioka_orthodox",
+        area: "iwate",       
+        name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
+        nameEn: "Morioka Orthodox Church",
+        type: "church",
+        lat: 39.718873261561406,                 
+        lng: 141.14334543732312,
+       visible: false
       },
       {
-        id: "karatsu_catholic",
-        area: "saga_west",       
-        name: "カトリック唐津教会",      
-        nameEn: "Karatsu Catholic Church",
-         type: "church",
-        lat: 33.45252801155086,            
-        lng: 129.9614152412968
+      id: "tonosei_orthodox",
+      area: "iwate",       
+      name: "遠野正教会・聖太祖アウラアム・サッラ会堂",
+      nameEn: "Tonosei Orthodox Church",
+      type: "church",
+      lat: 39.3479680749271, 
+      lng: 141.56756189497005,
+      visible: false
       },
-    { 
-         id: "hikiyama_hall",
-       area: "saga_west",       
-      name: "曳山展示場", 
-       nameEn: "Hikiyama Exhibition Hall", 
-        type: "museum",
-       lat: 33.445946414612074, 
-       lng: 129.96991124129468 
+      {
+      id: "iwayado_orthodox",
+      area: "iwate",       
+      name: "岩谷堂ハリストス正教会・主の降誕聖堂",
+      nameEn: "Iwayado Church",
+      type: "church",
+      lat: 39.19564087166975, 
+      lng: 141.1774842661247,
+      visible: false
       },
-      { 
-        id: "karatsu_castle",
-        area: "saga_west",       
-        name: "唐津城", 
-       nameEn: "Karatsu Castle", 
-        type: "museum",
-          lat: 33.45345765716856, 
-       lng: 129.9782080418245 
+     {
+        id: "sakari_orthodox",
+        area: "iwate",       
+        name: "盛ハリストス正教会・昇天聖堂",
+        nameEn: "Sakari Orthodox Church",
+        type: "church",
+        lat: 39.08736041329395,            
+        lng: 141.70685229327933,
+        visible: false
       },
-      { 
-        id: "takatori_museum",
-        area: "saga_west",       
-        name: "旧高取邸", 
-       nameEn: "Former Takatori Residence", 
-        type: "museum",
-          lat: 33.45437629769318, 
-       lng: 129.97209266442803 
-      },
-      { 
-        id: "karatsu_shrine",
-        area: "saga_west",       
-        name: "唐津神社", 
-       nameEn: "Karatsu Shrine", 
-        type: "shrine",
-      lat: 33.45227410257489, 
-       lng: 129.96948404957564 
-      },
-      { 
-        id: "myoken_shrine",
-        area: "saga_west",       
-        name: "妙見神社", 
-       nameEn: "Myoken Shrine", 
-         type: "shrine",
-          lat: 33.46854559781762, 
-       lng: 129.95317852240166 
-      },
-      { 
-        id: "gonshoji_temple",
-        area: "saga_west",       
-        name: "近松寺", 
-       nameEn: "Gonshoji Temple", 
-         type: "temple",
-      lat: 33.449901908390125, 
-       lng: 129.96520797775324 
-      },
+// ==================
+// KAGAWA
+// ==================  
     {
-      id: "unknown_hizen_kashima",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "肥前鹿島",
-      nameEn: "Hizen-Kashima",
-      type: "station",
-      lat: 33.114448415943485,
-      lng: 130.09778871016235
-    },
-    {
-      id: "unknown_kohoku",
-      line: "unknown",
-      area: "saga_west",       
-      name: "江北",
-      nameEn: "Kohoku",
-      type: "station",
-      lat: 33.21925788202843,
-      lng: 130.16084380073875
-    },
-    {
-      id: "unknown_kanzaki",
-      line: "unknown",
-      area: "saga_west",       
-      name: "神埼",
-      nameEn: "Kanzaki",
-      type: "station",
-      lat: 33.31576515819523,
-      lng: 130.37429225460698
-    },
-    {
-      id: "jr_karatsu_onizuka",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "鬼塚",
-      nameEn: "Onizuka",
-      type: "station",
-      lat: 33.42131904715924,
-      lng: 129.98708949461442
-    },
-    {
-      id: "jr_karatsu_yamamoto",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "山本",
-      nameEn: "Yamamoto",
-      type: "station",
-      lat: 33.39274324265433,
-      lng: 129.98115587927094
-    },
-    {
-      id: "jr_karatsu_honmutabe",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "本牟田部",
-      nameEn: "Honmutabe",
-      type: "station",
-      lat: 33.372104413610074,
-      lng: 129.99661769461167
-    },
-    {
-      id: "jr_karatsu_ochi",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "相知",
-      nameEn: "ochi",
-      type: "station",
-      lat: 33.34690607415139,
-      lng: 130.01967871180034
-    },
-    {
-      id: "jr_karatsu_iwaya",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "岩屋",
-      nameEn: "Iwaya",
-      type: "station",
-      lat: 33.33253618434135,
-      lng: 130.04173438088404
-    },
-    {
-      id: "jr_west_kyuuragi",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "厳木",
-      nameEn: "Kyuuragi",
-      type: "station",
-      lat: 33.32337017344916,
-      lng: 130.06029500995092
-    },
-    {
-      id: "jr_karatsu_taku",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "多久",
-      nameEn: "Taku",
-      type: "station",
-      lat: 33.28813833803867,
-      lng: 130.09618428697073
-    },
-    {
-      id: "jr_karatsu_naka_taku",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "中多久",
-      nameEn: "Naka Taku",
-      type: "station",
-      lat: 33.2832379114861,
-      lng: 130.11262045924815
-    },
-    {
-      id: "jr_karatsu_higashi_taku",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "東多久",
-      nameEn: "Higashi Taku",
-      type: "station",
-      lat: 33.285412683557624,
-      lng: 130.14315592774776
-    },
-    {
-      id: "jr_karatsu_ogi",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "東多久",
-      nameEn: "Ogi",
-      type: "station",
-      lat: 33.285741436054934,
-      lng: 130.19867733693596
-    },
-    {
-      id: "jr_karatsu_kubota",
-      line: "jr_karatsu",
-      area: "saga_west",       
-      name: "久保田",
-      nameEn: "Kubota",
-      type: "station",
-      lat: 33.25572240202076,
-      lng: 130.229488570067
-    },
-    {
-      id: "sasebo_omachi",
-      line: "sasebo",
-      area: "nagasaki",       
-      name: "大町",
-      nameEn: "Omachi",
-      type: "station",
-      lat: 33.212411473493844,
-      lng: 130.10649455227374
-    },
-    {
-      id: "sasebo_mikawachi",
-      line: "sasebo",
-      area: "nagasaki",       
-      name: "三河内",
-      nameEn: "Mikawachi",
-      type: "station",
-      lat: 33.07803157141688,
-      lng: 130.06745362273077
-    },
-    {
-      id: "sasebo_haiki",
-      line: "sasebo",
-      area: "nagasaki",       
-      name: "早岐",
-      nameEn: "Haiki",
-      type: "station",
-      lat: 33.13377922640225,
-      lng: 129.79926949459863
-    },
-    {
-      id: "unknown_imari",
-      line: "unknown",
-      area: "nagasaki",       
-      name: "伊万里",
-      nameEn: "Imari",
-      type: "station",
-      lat: 33.2718816435999,
-      lng: 129.87629789460615
-    },
-    {
-      id: "sasebo_takeo_onsen",
-      line: "sasebo",
-      area: "nagasaki",       
-      name: "武雄温泉",
-      nameEn: "Takeo-Onsen",
-      type: "station",
-      lat: 33.19635315980435,
-      lng: 130.0231733771491
-    },
-    {
-      id: "unknown_ureshino",
-      line: "unknown",
-      area: "saga-west",       
-      name: "嬉野",
-      nameEn: "Ureshino-Onsen",
-      type: "station",
-      lat: 33.10673489243643,
-      lng: 129.9990303397883
-    },
-    {
-      id: "sasebo_sasebo",
-      line: "sasebo",
-      area: "nagasaki",       
-      name: "佐世保",
-      nameEn: "Sasebo",
-      type: "station",
-      lat: 33.16392652960352,
-      lng: 129.7257186464349
-    },
-    {
-      id: "sasebo_arita",
-      line: "sasebo",
-      area: "saga_west",       
-      name: "有田",
-      nameEn: "Arita",
-      type: "station",
-      lat: 33.183696197108546,
-      lng: 129.88170132776435
-    },
-    {
-      id: "jr_kyushu_saga",
-      area: "saga_city",       
-      name: "佐賀",
-      nameEn: "Saga",
-      type: "station",
-      lat: 33.26418348559751,
-      lng: 130.29725684813994
-    },
-    {
-      id: "unknown_kawatana",
-      line: "unknown",
-      area: "nagasaki",       
-      name: "川棚",
-      nameEn: "Kawatana",
-      type: "station",
-      lat: 33.068486779692165,
-      lng: 129.8634278238975
-    },
-    {
-      id: "airport_fukuoka_airport",
-      line: "airport",
-      area: "fukuoka_city",       
-      name: "福岡空港",
-      nameEn: "Fukuoka Airport",
-      type: "station",
-      lat: 33.59719916364836,
-      lng: 130.44822439462428
-    },
-    {
-      id: "airport_higashi_hie",
-      line: "airport",
-      area: "fukuoka_city",       
-      name: "東比恵",
-      nameEn: "Higashi-Hie",
-      type: "station",
-      lat: 33.589754713543435,
-      lng: 130.43123418620593
-    },
-    {
-      id: "airport_hakata",
-      line: "jr_kyushu",
-      area: "fukuoka_city",       
-      name: "博多",
-      nameEn: "Hakata",
-      type: "station",
-      lat: 33.589580007114,
-      lng: 130.42049136024366
-    },
-    {
-      id: "airport_nakasukawabata",
-      line: "airport",
-      area: "fukuoka_city",       
-      name: "中洲川端",
-      nameEn: "Nakasukawabata",
-      type: "station",
-      lat: 33.594395499429346,
-      lng: 130.4060595133835
-    },
-    {
-      id: "airport_tenjin",
-      line: "airport",
-      area: "fukuoka_city",    
-      name: "天神",
-      nameEn: "Tenjin",
-      type: "station",
-      lat: 33.5913469503287,
-      lng: 130.39891098113026
-    },
-    {
-      id: "airport_akasaka",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "赤坂",
-      nameEn: "Akasaka",
-      type: "station",
-      lat: 33.58906127661953,
-      lng: 130.3906207746017
-    },
-    {
-      id: "airport_ohori_park",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "大濠公園",
-      nameEn: "Ohori Park",
-      type: "station",
-      lat: 33.59012812434707,
-      lng: 130.3788320713684
-    },
-    {
-      id: "airport_tohjinmachi",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "唐人町",
-      nameEn: "Tojinmachi",
-      type: "station",
-      lat: 33.590145613562676,
-      lng: 130.36996167573926
-    },
-    {
-      id: "airport_nishijin",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "西新",
-      nameEn: "Nishijin",
-      type: "station",
-      lat: 33.583574101225004,
-      lng: 130.3592916253071
-    },
-    {
-      id: "airport_fujisaki",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "藤崎",
-      nameEn: "Fujisaki",
-      type: "station",
-      lat: 33.581378487964386,
-      lng: 130.34798479092692
-    },
-    {
-      id: "airport_muromi",
-      line: "airport",
-      area: "fukuoka_city",
-      name: "室見",
-      nameEn: "Muromi",
-      type: "station",
-      lat: 33.58091545591748,
-      lng: 130.33992923325593
-    },
-    {
-      id: "kagoshima_yoshizuka",
-      line: "kagoshima",
-      area: "fukuoka_city",       
-      name: "吉塚",
-      nameEn: "Yoshizuka",
-      type: "station",
-      lat: 33.60690081236377,
-      lng: 130.42364803927666
-    },
-    {
-      id: "kagoshima_hakozaki",
-      line: "kagoshima",
-      area: "fukuoka_city",       
-      name: "箱崎",
-      nameEn: "Hakozaki",
-      type: "station",
-      lat: 33.61817780491143,
-      lng: 130.4269867278585,
-      visible: false
-    },
-    {
-      id: "kagoshima_chihaya",
-      line: "fukuoka_city",
-      area: "add",       
-      name: "千早",
-      nameEn: "Chihaya",
-      type: "station",
-      lat: 33.649212142148514,
-      lng: 130.44060779462708
-    },
-    {
-      id: "kagoshima_kashii",
-      line: "kagoshima",
-      area: "fukuoka_city",       
-      name: "香椎",
-      nameEn: "Kashii",
-      type: "station",
-      lat: 33.65957167882258,
-      lng: 130.44408393753503
-    },
-    {
-      id: "kagoshima_kyusan_daimae",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "九産大前",
-      nameEn: "Kyusan-daimae",
-      type: "station",
-      lat: 33.673528072200114,
-      lng: 130.44126918185134
-    },
-    {
-      id: "kagoshima_fuukodai_mae",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "福工大前",
-      nameEn: "Fuukodai-mae",
-      type: "station",
-      lat: 33.69840228441997,
-      lng: 130.4401530057084
-    },
-    {
-      id: "kagoshima_shingu_chuo",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "新宮中央",
-      nameEn: "Shingu-chuo",
-      type: "station",
-      lat: 33.711624844956056,
-      lng: 130.44918646394683
-    },
-    {
-      id: "kagoshima_shishibu",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "ししぶ",
-      nameEn: "Shishibu",
-      type: "station",
-      lat: 33.72166328413928,
-      lng: 130.4582904081248,
-      visible: false
-    },
-    {
-      id: "kagoshima_koga",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "古賀",
-      nameEn: "Koga",
-      type: "station",
-      lat: 33.732413088801486,
-      lng: 130.466493063948
-    },
-    {
-      id: "kagoshima_chidori",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "千鳥",
-      nameEn: "Chidori",
-      type: "station",
-      lat: 33.74863479338904,
-      lng: 130.47608614139565,
-      visible: false
-    },
-    {
-      id: "kagoshima_fukuma",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "福間",
-      nameEn: "Fukuma",
-      type: "station",
-      lat: 33.76344491188212,
-      lng: 130.48680252531722
-    },
-    {
-      id: "kagoshima_higashi_fukuma",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "東福間",
-      nameEn: "Higashi-Fukuma",
-      type: "station",
-      lat: 33.77411965051876,
-      lng: 130.51087175674616
-    },
-    {
-      id: "kagoshima_togo",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "東郷",
-      nameEn: "Togo",
-      type: "station",
-      lat: 33.79465900183122,
-      lng: 130.5288475279176
-    },
-    {
-      id: "kagoshima_akama",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "赤間",
-      nameEn: "Akama",
-      type: "station",
-      lat: 33.80852420948639,
-      lng: 130.56998936154793
-    },
-    {
-      id: "kagoshima_kyoikudai_mae",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "教育大前",
-      nameEn: "Kyoikudai-mae",
-      type: "station",
-      lat: 33.80838881182614,
-      lng: 130.5912502438203
-    },
-    {
-      id: "kagoshima_ebitsu",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "海老津",
-      nameEn: "Ebitsu",
-      type: "station",
-      lat: 33.84011816193234,
-      lng: 130.6238064927896,
-      visible: false
-    },
-    {
-      id: "kagoshima_ongagawa",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "遠賀川",
-      nameEn: "Ongagawa",
-      type: "station",
-      lat: 33.846829647570566,
-      lng: 130.67341776395446,
-      visible: false
-    },
-    {
-      id: "kagoshima_mizumaki",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "水巻",
-      nameEn: "Mizumaki",
-      type: "station",
-      lat: 33.85242282341066,
-      lng: 130.69554009833485,
-      visible: false
-    },
-    {
-      id: "kagoshima_orio",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "折尾",
-      nameEn: "Orio",
-      type: "station",
-      lat: 33.86438043149877,
-      lng: 130.71225182162638
-    },
-    {
-      id: "kagoshima_jinnohara",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "陣原",
-      nameEn: "Jinnohara",
-      type: "station",
-      lat: 33.86815576484634,
-      lng: 130.74280493327194,
-      visible: false
-    },
-    {
-      id: "kagoshima_kurosaki",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "黒崎",
-      nameEn: "Kurosaki",
-      type: "station",
-      lat: 33.866787526976914,
-      lng: 130.76652121099508
-    },
-    {
-      id: "kagoshima_yahata",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "八幡",
-      nameEn: "Yahata",
-      type: "station",
-      lat: 33.86924172009082,
-      lng: 130.79549716269443,
-      visible: false
-    },
-    {
-      id: "kagoshima_space_world",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "スペースワールド",
-      nameEn: "Space World",
-      type: "station",
-      lat: 33.87135687616503,
-      lng: 130.8066169702724
-    },
-    {
-      id: "kagoshima_edamitsu",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "枝光",
-      nameEn: "Edamitsu",
-      type: "station",
-      lat: 33.87942438673168,
-      lng: 130.8131340216272,
-      visible: false
-    },
-    {
-      id: "kagoshima_tobata",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "戸畑",
-      nameEn: "Tobata",
-      type: "station",
-      lat: 33.89691234250908,
-      lng: 130.8203713491716
-    },
-    {
-      id: "kagoshima_kyushu_kodai",
-      line: "kagoshima",
-      area: "fukuoka_north",       
-      name: "九州工大前",
-      nameEn: "Kyushu-Kodai",
-      type: "station",
-      lat: 33.900411168201266,
-      lng: 130.84002577929928
-    },
+  id: "jr_shikoku_takamatsu",
+  line: "jr_shikoku",
+  area: "kagawa",       
+  name: "高松",
+  nameEn: "Takamatsu",
+  type: "station",
+  lat: 34.35060753330822,   
+  lng: 134.0468136611
+ },
+// ==================
+// KAGOSHIMA
+// ==================
     {
         id: "kagoshima_orthodox",
         area: "kagoshima",       
@@ -1248,6 +1533,402 @@ window.MAP_DATA = {
   lat: 31.601404041487406,
   lng: 130.56299002617163
  },
+ // ==================
+// KANAGAWA
+// ==================
+          {
+        id: "yanaihara_orthodox",
+        area: "kanagawa",       
+        name: "柳井原ハリストス正教会",
+        nameEn: "Yanaihara Orthodox Church",
+        type: "church",
+        lat: 34.608973263987686,    
+        lng: 133.72219075235222
+      }, 
+    {
+        id: "odawara_orthodox",
+        area: "kanagawa",       
+        name: "小田原ハリストス正教会",
+        nameEn: "Odawara Orthodox Church",
+        type: "church",
+        lat: 35.25415027273678,    
+        lng: 139.1633436505412,
+      visible: false
+      },  
+        {
+        id: "yokohama_orthodox",
+        area: "kanagawa",       
+        name: "横浜ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Yokohama Orthodox",
+        type: "church",
+        lat: 35.47552476115016,    
+        lng: 139.61811951007334,
+        visible: false
+      }, 
+      {
+  id: "tokaido_odawara",
+  line: "tokaido",
+  area: "kanagawa",       
+  ame: "小田原",
+  nameEn: "Odawara",
+  type: "station",
+  lat: 35.25618114388968,  
+  lng: 139.15575408424047
+ },
+ 
+// ==================
+// KOCHI
+// ==================
+    {
+  id: "jr_shikoku_kochi",
+  line: "jr_shikoku",
+  area: "kochi",       
+  name: "高知",
+  nameEn: "Kochi",
+  type: "station",
+  lat: 33.567209194010836,   
+  lng: 133.54363446578702
+ },  
+// ==================
+// KUMAMOTO
+// ==================
+  {
+      id: "hohi_aso",
+      line: "hohi",
+      area: "kumamoto",       
+      name: "阿蘇",
+      nameEn: "Aso",
+      type: "station",
+      lat: 32.937228239599264,
+      lng: 131.08020325245215
+    },
+    {
+      id: "kyushu_shinkansen_shin_tamana",
+      line: "kyushu_shinkansen",
+      area: "kumamoto",       
+      name: "新玉名",
+      nameEn: "Shin-Tamana",
+      type: "station",
+      lat: 32.94222586477316,
+      lng: 130.5734146996767
+    },
+    {
+      id: "kyushu_shinkansen_kumamoto",
+      line: "kyushu_shinkansen",
+      area: "kumamoto",       
+      name: "熊本",
+      nameEn: "Kumamoto",
+      type: "station",
+      lat: 32.79020258795432,
+      lng: 130.68854498108618
+    },
+    {
+        id: "mount_aso",
+        area: "kumamoto",       
+        name: "阿蘇山上ビジターセンター",
+        nameEn: "Mt. Aso Visitor Center",
+        type: "museum",
+        lat: 32.885374785782034,     
+        lng: 131.05229967956592
+      }, 
+      {
+        id: "kumamoto_castle",
+        area: "kumamoto",       
+        name: "熊本城",
+        nameEn: "Kumamoto Castle",
+        type: "museum",
+        lat: 32.80557603104838,    
+        lng: 130.70550853156524
+      }, 
+         {
+        id: "hitoyoshi_orthodox",
+        area: "kumamoto",       
+        name: "人吉ハリストス正教会・生神女庇護聖堂",
+        nameEn: "Hitoyoshi Orthodox Church",
+        type: "church",
+        lat: 32.21672654292169, 
+        lng: 130.76909883687796,
+        visible: false
+      },
+      {
+        id: "kumamoto_orthodox",
+        area: "kumamoto",       
+        name: "熊本ハリストス正教会",
+        nameEn: "Kumamoto Orthodox Church",
+        type: "church",
+        lat: 32.80435218639175,   
+        lng: 130.71799555031276,
+        visible: false
+      }, 
+      {
+  id: "unknown_hitoyoshi",
+  line: "unknown",
+  area: "kumamoto",       
+  name: "人吉",
+  nameEn: "Hitoyoshi",
+  type: "station",
+  lat: 32.21605623447905,
+  lng: 130.75371869454892
+},
+    {
+      id: "kyushu_shinkansen_shin_yatsushiro",
+      line: "kyushu_shinkansen",
+      area: "kumamoto",       
+      name: "新八代",
+      nameEn: "Shin-Yatsushiro",
+      type: "station",
+      lat: 32.518019644933354,
+      lng: 130.63461495221995
+    },
+    {
+      id: "jr_west_kanazawa",
+      line: "jr_west",
+      area: "kumamoto",       
+      name: "金沢",
+      nameEn: "Kanazawa",
+      type: "station",
+      lat: 36.57809596678759,
+      lng: 136.64860054821557
+    }, 
+
+
+// ==================
+// KYOTO
+// ==================
+    {
+        id: "kyoto_orthodox",
+        area: "kyoto",       
+        name: "京都ハリストス正教会",
+        nameEn: "Kyoto Orthodox Church",
+        type: "church",
+        lat: 35.01445715981374,  
+        lng: 135.76418814867904,
+      visible: false
+      }, 
+      {
+  id: "jr_west_kyoto",
+  line: "jr_west",
+  area: "kyoto",       
+  name: "京都",
+  nameEn: "Kyoto",
+  type: "station",
+  lat: 34.985752282029665, 
+  lng: 135.75833754128462
+ },
+// ==================
+// MIE
+// ==================
+    {
+      id: "jr_central_yokkaichi",
+      line: "jr_central",
+      area: "mie",       
+      name: "四日市駅",
+      nameEn: "Yokkaichi",
+      type: "station",
+      lat: 34.96303176535332,
+      lng: 136.62959923703082
+    },
+
+// ==================
+// MIYAGI
+// ==================   
+  { 
+        id: "kesennuma_orthodox",
+        area: "miyagi",       
+        name: "気仙沼ハリストス正教会・復活会堂",
+        nameEn: "Kesennuma Orthodox Church",
+        type: "church",
+        lat: 38.906254620638066,             
+        lng: 141.56940059494167,
+        visible: false
+      },
+      {
+      id: "nakaniida_orthodox",
+      area: "miyagi",       
+      name: "中新田ハリストス正教会・前駆授洗イオアン聖堂",
+      nameEn: "Nakaniida Orthodox Church",
+       type: "church",
+      lat: 38.566379926736566, 
+      lng: 140.85696752375557,
+        visible: false
+      },
+      {
+      id: "wakuya_orthodox",
+      area: "miyagi",       
+      name: "涌谷ハリストス正教会・聖預言者イサイヤ聖堂",
+      nameEn: "Wakuya Orthodox Holy Prophet Isaiah Church",
+      type: "church",
+      lat: 38.5433232546557, 
+      lng: 141.1281048525895,
+        visible: false
+      },
+      {
+      id: "ishinomaki_orthodox",
+      area: "miyagi",       
+      name: "石巻ハリストス正教会",
+      nameEn: "Ishinomaki Saint John the Apostle Orthodox Church",
+      type: "church",
+      lat: 38.434259379351346, 
+      lng: 141.30931764182455,
+        visible: false
+      },
+      {
+     id: "takashimizu_orthodox",
+     area: "miyagi",       
+     name: "高清水ハリストス正教会・主の顕栄聖堂",
+     nameEn: "Takashimizu Orthodox Church of the Transfiguration of Our Lord",
+     type: "church", 
+     lat: 38.65662459359928, 
+     lng: 141.0118792660903,
+        visible: false
+     },
+      {
+     id: "sanuma_orthodox",
+     area: "miyagi",       
+    name: "佐沼ハリストス正教会・主の顕栄聖堂",
+     NameEn: "Sanuma Orthodox Church of the Transfiguration of our Lord",
+     type: "church",
+     lat: 38.68704997177767, 
+     lng: 141.19764990842125,
+        visible: false
+     },
+      {
+     id: "jogetsutsumi_orthodox",
+     area: "miyagi",       
+     name: "上下堤ハリストス正教会・生神女庇護聖堂",
+     nameEn: "Jogetsutsumi Orthodox Church of the Assumption",
+     type: "church",
+     lat: 38.40659439389966, 
+     lng: 141.1172397255936,
+        visible: false
+      },   
+      {
+  id: "unknown_sendai",
+  line: "unknown",
+  area: "miyagi",       
+  name: "仙台",
+  nameEn: "Sendai",
+  type: "station",
+  lat: 38.26007260131876, 
+  lng:  140.8822765623688
+ },
+          {  
+        id: "jumonji_orthodox",
+        area: "miyagi",       
+        name: "十文字ハリストス正教会",
+        nameEn: "Jumonji Orthodox Church",
+        lat: 38.767362271760085,            
+        lng: 141.14312620047744,
+        visible: false
+      },
+        {
+        id: "kannari_orthodox",
+        area: "miyagi",       
+        name: "金成ハリストス正教会",
+        nameEn: "Kannari Orthodox Church",
+        type: "church",
+        lat: 39.08736041329395,            
+        lng: 141.70685229327933,
+         visible: false
+      },
+    
+// ==================
+// MIYAZAKI
+// ================== 
+     {
+  id: "unknown_miyazaki",
+  line: "unknown",
+  area: "miyazaki",       
+  name: "宮崎",
+  nameEn: "Miyazaki",
+  type: "station",
+  lat: 31.91563158122375, 
+  lng: 131.43231940518467
+ },
+      {
+      id: "unknown_ebino",
+      line: "unknown",
+      area: "miyazaki",       
+      name: "えびの",
+      nameEn: "Ebino",
+      type: "station",
+      lat: 32.042539399497805,
+      lng: 130.81529070477754
+    },
+    {
+      id: "unknown_miyakonojo",
+      line: "unknown",
+      area: "miyazaki",       
+      name: "都城",
+      nameEn: "Miyakonojo",
+      type: "station",
+      lat: 31.736378618376378,
+      lng: 131.07474138097672
+    },
+
+// ==================
+// NAGANO
+// ==================
+    {
+      id: "jr_east_nagano",
+      line: "jr_east",
+      area: "nagano",       
+      name: "長野",
+      nameEn: "Nagano",
+      type: "station",
+      lat: 36.64322757398966,
+      lng: 138.18878316966197
+    },
+// ==================
+// NARA
+// ==================
+    {
+  id: "jr_west_nara",
+  line: "jr_west",
+  area: "nara",       
+  name: "奈良",
+  nameEn: "Nara",
+  type: "station",
+  lat: 34.680737580008184,  
+  lng: 135.81890927934364
+ },
+// ==================
+// NIIGATA
+// ==================
+    {
+      id: "jr_east_niigata",
+      line: "jr_east",
+      area: "niigata",       
+      name: "新潟",
+      nameEn: "Niigata",
+      type: "station",
+      lat: 37.911996449103825,
+      lng: 139.06156041816973
+    },
+// ==================
+// OITA
+// ==================
+         {
+      id: "hohi_bungo_taketa",
+      line: "hohi",
+      area: "oita",       
+      name: "豊後竹田",
+      nameEn: "Bungo-Taketa",
+      type: "station",
+      lat: 32.97071556513112,
+      lng: 131.38971476575412
+    },
+    {
+      id: "hohi_miemachi",
+      line: "hohi",
+      area: "oita",       
+      name: "三重町",
+      nameEn: "Miemachi",
+      type: "station",
+      lat: 32.98366968078889,
+      lng: 131.58429961093785
+    },
+
     {
       id: "kyudai_minami_oita",
       line: "kyudai",
@@ -1419,126 +2100,6 @@ window.MAP_DATA = {
       lng: 131.63645657200593,
     },
     {
-      id: "nippo_kokura",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "小倉",
-      nameEn: "Kokura",
-      type: "station",
-      lat: 33.88692334108495,
-      lng: 130.88267235415955
-    },
-    {
-      id: "nippo_nishi_kokura",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "西小倉",
-      nameEn: "Nishi Kokura",
-      type: "station",
-      lat: 33.88847941058861,
-      lng: 130.87406638484333
-    },
-    {
-      id: "nippo_jono",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "城野",
-      nameEn: "Jono",
-      type: "station",
-      lat: 33.85794316243455,
-      lng: 130.88654775251135,
-    },
-    {
-      id: "nippo_abeyama_koen",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "安部山公園",
-      nameEn: "AbeyamaKoen",
-      type: "station",
-      lat: 33.844089298497266,
-      lng: 130.90422187773387,
-    },
-    {
-      id: "nippo_shimo_sone",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "下曽根",
-      nameEn: "Shimo-Sone",
-      type: "station",
-      lat: 33.83230816422438,
-      lng: 130.93463317078653,
-    },
-    {
-      id: "nippo_kusami",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "朽網",
-      nameEn: "Kusami",
-      type: "station",
-      lat: 33.807287199586774,
-      lng: 130.95509543299045,
-    },
-    {
-      id: "nippo_kanda",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "苅田",
-      nameEn: "Kanda",
-      type: "station",
-      lat: 33.78450222336173,
-      lng: 130.978982886759
-    },
-    {
-      id: "nippo_obase_nishikodai_mae",
-      line: "nippo",
-      area: "fukuoka_north",       
-      name: "小波瀬西工大前",
-      nameEn: "Obase Nishikodai-Mae",
-      type: "station",
-      lat: 33.75295659753037,
-      lng: 130.97189514521259,
-    },
-    {
-      id: "nippo_yukuhashi",
-      line: "nippo",
-      area: "oita",       
-      name: "行橋",
-      nameEn: "Yukuhashi",
-      type: "station",
-      lat: 33.72864122770345,
-      lng: 130.96980850960972
-    },
-    {
-      id: "nippo_minami_yukuhashi",
-      line: "nippo",
-      area: "oita",       
-      name: "南行橋",
-      nameEn: "Minami Yukuhashi",
-      type: "station",
-      lat: 33.716683069018295,
-      lng: 130.9759345567837,
-    },
-    {
-      id: "nippo_shindembaru",
-      line: "nippo",
-      area: "oita",       
-      name: "新田原",
-      nameEn: "Shindembaru",
-      type: "station",
-      lat: 33.69539629593777,
-      lng: 131.00808977980333,
-    },
-    {
-      id: "nippo_tsuiki",
-      line: "nippo",
-      area: "oita",       
-      name: "築城",
-      nameEn: "Tsuiki",
-      type: "station",
-      lat: 33.6730864134871,
-      lng: 131.03776215671238
-    },
-    {
       id: "nippo_nakatsu",
       line: "nippo",
       area: "oita",       
@@ -1638,57 +2199,7 @@ window.MAP_DATA = {
       lat: 33.28267636111276,
       lng: 131.15544586295107
     },
-    {
-      id: "hohi_aso",
-      line: "hohi",
-      area: "kumamoto",       
-      name: "阿蘇",
-      nameEn: "Aso",
-      type: "station",
-      lat: 32.937228239599264,
-      lng: 131.08020325245215
-    },
-    {
-      id: "hohi_bungo_taketa",
-      line: "hohi",
-      area: "kumamoto",       
-      name: "豊後竹田",
-      nameEn: "Bungo-Taketa",
-      type: "station",
-      lat: 32.97071556513112,
-      lng: 131.38971476575412
-    },
-    {
-      id: "hohi_miemachi",
-      line: "hohi",
-      area: "kumamoto",       
-      name: "三重町",
-      nameEn: "Miemachi",
-      type: "station",
-      lat: 32.98366968078889,
-      lng: 131.58429961093785
-    },
-    {
-      id: "kyushu_shinkansen_shin_omuta",
-      line: "kyushu_shinkansen",
-      area: "fukuoka_south",       
-      name: "新大牟田",
-      nameEn: "Shin-Omuta",
-      type: "station",
-      lat: 33.071373125359564,
-      lng: 130.48852330511616
-    },
-     {
-  id: "unknown_miyazaki",
-  line: "unknown",
-  area: "miyazaki",       
-  name: "宮崎",
-  nameEn: "Miyazaki",
-  type: "station",
-  lat: 31.91563158122375, 
-  lng: 131.43231940518467
- },
-  {
+      {
       id:"beppu",
       area: "oita",       
       name: "別府",
@@ -1705,8 +2216,8 @@ window.MAP_DATA = {
         type: "church",
         lat: 33.238665,
         lng: 131.604509
-     },
-  {
+     }, 
+    {
         id: "oita_art",
         area: "oita",       
         name: "大分県立美術館",
@@ -1715,267 +2226,439 @@ window.MAP_DATA = {
         lat: 33.23950622291895, 
         lng: 131.6013320325027
       },
+// ==================
+// OKAYAMA
+// ==================
+{
+  id: "jr_west_okayama",
+  line: "jr_west",
+  area: "okayama",       
+  name: "岡山",
+  nameEn: "Okayama",
+  type: "station",
+  lat: 34.66590056618729, 
+  lng: 133.91813046159663
+ },
+// ==================
+// OKINAWA
+// ==================
     {
-      id: "kyushu_shinkansen_shin_tamana",
-      line: "kyushu_shinkansen",
-      area: "kumamoto",       
-      name: "新玉名",
-      nameEn: "Shin-Tamana",
+      id: "naha_airport",
+      area: "okinawa",       
+      name: "那覇空港",
+      nameEn: "Naha Airport",
       type: "station",
-      lat: 32.94222586477316,
-      lng: 130.5734146996767
-    },
-    {
-      id: "kyushu_shinkansen_kumamoto",
-      line: "kyushu_shinkansen",
-      area: "kumamoto",       
-      name: "熊本",
-      nameEn: "Kumamoto",
+      lat: 26.206500429087768, 
+      lng: 127.65219063658655
+    }, 
+     {
+      id: "urasoemaeda",
+      area: "okinawa",       
+      name: "浦添前田",
+      nameEn: "Urasoemaeda",
       type: "station",
-      lat: 32.79020258795432,
-      lng: 130.68854498108618
+      lat: 26.24383887706269,  
+      lng: 127.73223797891734
     },
+   {
+      id: "okuma_beach",
+      area: "okinawa",       
+      name: "オクマビーチ",
+      nameEn: "Okuma Beach",
+      type: "landmark",
+      lat: 26.74010368624446, 
+      lng: 128.15881546628992
+     },
+// ==================
+// OSAKA
+// ==================
     {
-        id: "mount_aso",
-        area: "kumamoto",       
-        name: "阿蘇山上ビジターセンター",
-        nameEn: "Mt. Aso Visitor Center",
-        type: "museum",
-        lat: 32.885374785782034,     
-        lng: 131.05229967956592
-      }, 
-      {
-        id: "kumamoto_castle",
-        area: "kumamoto",       
-        name: "熊本城",
-        nameEn: "Kumamoto Castle",
-        type: "museum",
-        lat: 32.80557603104838,    
-        lng: 130.70550853156524
-      }, 
-         {
-        id: "hitoyoshi_orthodox",
-        area: "kumamoto",       
-        name: "人吉ハリストス正教会・生神女庇護聖堂",
-        nameEn: "Hitoyoshi Orthodox Church",
+  id: "jr_west_osaka",
+  line: "jr_west",
+  area: "osaka",       
+  name: "大阪",
+  nameEn: "Osaka",
+  type: "station",
+  lat: 34.70229737398776,  
+  lng: 135.49521376356904
+ },
+    {
+        id: "osaka_orthodox",
+        area: "osaka",       
+      name: "大阪ハリストス正教会",
+        nameEn: "Osaka Orthodox Church",
         type: "church",
-        lat: 32.21672654292169, 
-        lng: 130.76909883687796,
-        visible: false
+        lat: 34.76633139508822, 
+        lng: 135.5118561946903,
+      visible: false
+      }, 
+// ==================
+// SAGA
+// ==================
+    {
+      id: "sasebo_omachi",
+      line: "sasebo",
+      area: "saga",       
+      name: "大町",
+      nameEn: "Omachi",
+      type: "station",
+      lat: 33.212411473493844,
+      lng: 130.10649455227374
+    },
+        {
+      id: "unknown_ureshino",
+      line: "unknown",
+      area: "saga",       
+      name: "嬉野",
+      nameEn: "Ureshino-Onsen",
+      type: "station",
+      lat: 33.10673489243643,
+      lng: 129.9990303397883
+    },
+        {
+      id: "sasebo_arita",
+      line: "sasebo",
+      area: "saga",       
+      name: "有田",
+      nameEn: "Arita",
+      type: "station",
+      lat: 33.183696197108546,
+      lng: 129.88170132776435
+    },
+    {
+      id: "jr_kyushu_saga",
+      area: "saga",       
+      name: "佐賀",
+      nameEn: "Saga",
+      type: "station",
+      lat: 33.26418348559751,
+      lng: 130.29725684813994
+    },
+    {
+      id: "chikuhi_hamasaki",
+      line: "chikuhi",
+      area: "saga",
+      name: "浜崎",
+      nameEn: "Hamasaki",
+      type: "station",
+      lat: 33.446720,
+      lng: 130.036798
+    },
+    {
+      id: "chikuhi_nijinomatsubara",
+      line: "chikuhi",
+      area: "saga",
+      name: "虹ノ松原",
+      nameEn: "Nijinomatsubara",
+      type: "station",
+      lat: 33.441033,
+      lng: 130.016195
+    },
+    {
+      id: "chikuhi_higashi_saga",
+      line: "chikuhi",
+      area: "saga",
+      name: "東唐津",
+      nameEn: "Higashi saga",
+      type: "station",
+      lat: 33.439393,
+      lng: 129.996837
+    },
+    {
+      id: "chikuhi_watada",
+      line: "chikuhi",
+      area: "saga",
+      name: "和多田",
+      nameEn: "Watada",
+      type: "station",
+      lat: 33.436933,
+      lng: 129.980768
+    },
+    {
+      id: "chikuhi_saga",
+      line: "chikuhi",
+      area: "saga",
+      name: "唐津",
+      nameEn: "saga",
+      type: "station",
+      lat: 33.446223,
+      lng: 129.967587
+    },
+    {
+      id: "chikuhi_nishi_saga",
+      line: "chikuhi",
+      area: "saga",
+      name: "西唐津",
+      nameEn: "Nishi saga",
+      type: "station",
+      lat: 33.461434,
+      lng: 129.957480
+    },
+     { 
+        id: "jr-saga-yamamoto", 
+       area: "saga",       
+       name: "山本", 
+       nameEn: "Yamamoto", 
+        type: "station",
+        lat: 33.39278208271683, 
+        lng: 129.98118155167737 
       },
       {
-        id: "kumamoto_orthodox",
-        area: "kumamoto",       
-        name: "熊本ハリストス正教会",
-        nameEn: "Kumamoto Orthodox Church",
-        type: "church",
-        lat: 32.80435218639175,   
-        lng: 130.71799555031276,
-        visible: false
-      }, 
+        id: "karatsu_catholic",
+        area: "saga",       
+        name: "カトリック唐津教会",      
+        nameEn: "Karatsu Catholic Church",
+         type: "church",
+        lat: 33.45252801155086,            
+        lng: 129.9614152412968
+      },
+    { 
+         id: "hikiyama_hall",
+       area: "saga",       
+      name: "曳山展示場", 
+       nameEn: "Hikiyama Exhibition Hall", 
+        type: "museum",
+       lat: 33.445946414612074, 
+       lng: 129.96991124129468 
+      },
+      { 
+        id: "karatsu_castle",
+        area: "saga",       
+        name: "唐津城", 
+       nameEn: "Karatsu Castle", 
+        type: "museum",
+          lat: 33.45345765716856, 
+       lng: 129.9782080418245 
+      },
+      { 
+        id: "takatori_museum",
+        area: "saga",       
+        name: "旧高取邸", 
+       nameEn: "Former Takatori Residence", 
+        type: "museum",
+          lat: 33.45437629769318, 
+       lng: 129.97209266442803 
+      },
+      { 
+        id: "karatsu_shrine",
+        area: "saga",       
+        name: "唐津神社", 
+       nameEn: "Karatsu Shrine", 
+        type: "shrine",
+      lat: 33.45227410257489, 
+       lng: 129.96948404957564 
+      },
+      { 
+        id: "myoken_shrine",
+        area: "saga",       
+        name: "妙見神社", 
+       nameEn: "Myoken Shrine", 
+         type: "shrine",
+          lat: 33.46854559781762, 
+       lng: 129.95317852240166 
+      },
+      { 
+        id: "gonshoji_temple",
+        area: "saga",       
+        name: "近松寺", 
+       nameEn: "Gonshoji Temple", 
+         type: "temple",
+      lat: 33.449901908390125, 
+       lng: 129.96520797775324 
+      },
+    {
+      id: "unknown_hizen_kashima",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "肥前鹿島",
+      nameEn: "Hizen-Kashima",
+      type: "station",
+      lat: 33.114448415943485,
+      lng: 130.09778871016235
+    },
+    {
+      id: "unknown_kohoku",
+      line: "unknown",
+      area: "saga",       
+      name: "江北",
+      nameEn: "Kohoku",
+      type: "station",
+      lat: 33.21925788202843,
+      lng: 130.16084380073875
+    },
+    {
+      id: "unknown_kanzaki",
+      line: "unknown",
+      area: "saga",       
+      name: "神埼",
+      nameEn: "Kanzaki",
+      type: "station",
+      lat: 33.31576515819523,
+      lng: 130.37429225460698
+    },
+    {
+      id: "jr_karatsu_onizuka",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "鬼塚",
+      nameEn: "Onizuka",
+      type: "station",
+      lat: 33.42131904715924,
+      lng: 129.98708949461442
+    },
+    {
+      id: "jr_karatsu_honmutabe",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "本牟田部",
+      nameEn: "Honmutabe",
+      type: "station",
+      lat: 33.372104413610074,
+      lng: 129.99661769461167
+    },
+    {
+      id: "jr_karatsu_ochi",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "相知",
+      nameEn: "ochi",
+      type: "station",
+      lat: 33.34690607415139,
+      lng: 130.01967871180034
+    },
+    {
+      id: "jr_karatsu_iwaya",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "岩屋",
+      nameEn: "Iwaya",
+      type: "station",
+      lat: 33.33253618434135,
+      lng: 130.04173438088404
+    },
+    {
+      id: "jr_west_kyuuragi",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "厳木",
+      nameEn: "Kyuuragi",
+      type: "station",
+      lat: 33.32337017344916,
+      lng: 130.06029500995092
+    },
+    {
+      id: "jr_karatsu_taku",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "多久",
+      nameEn: "Taku",
+      type: "station",
+      lat: 33.28813833803867,
+      lng: 130.09618428697073
+    },
+    {
+      id: "jr_karatsu_naka_taku",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "中多久",
+      nameEn: "Naka Taku",
+      type: "station",
+      lat: 33.2832379114861,
+      lng: 130.11262045924815
+    },
+    {
+      id: "jr_karatsu_higashi_taku",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "東多久",
+      nameEn: "Higashi Taku",
+      type: "station",
+      lat: 33.285412683557624,
+      lng: 130.14315592774776
+    },
+    {
+      id: "jr_karatsu_ogi",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "東多久",
+      nameEn: "Ogi",
+      type: "station",
+      lat: 33.285741436054934,
+      lng: 130.19867733693596
+    },
+    {
+      id: "jr_karatsu_kubota",
+      line: "jr_karatsu",
+      area: "saga",       
+      name: "久保田",
+      nameEn: "Kubota",
+      type: "station",
+      lat: 33.25572240202076,
+      lng: 130.229488570067
+     },
       {
-  id: "unknown_hitoyoshi",
-  line: "unknown",
-  area: "kumamoto",       
-  name: "人吉",
-  nameEn: "Hitoyoshi",
+      id: "unknown_imari",
+      line: "unknown",
+      area: "saga",       
+      name: "伊万里",
+      nameEn: "Imari",
+      type: "station",
+      lat: 33.2718816435999,
+      lng: 129.87629789460615
+    },
+    {
+      id: "sasebo_takeo_onsen",
+      line: "sasebo",
+      area: "saga",       
+      name: "武雄温泉",
+      nameEn: "Takeo-Onsen",
+      type: "station",
+      lat: 33.19635315980435,
+      lng: 130.0231733771491
+    },
+// ==================
+// SHIGA
+// ==================
+    {
+  id: "jr_biwako_otsu",
+  line: "jr_biwako",
+  area: "shiga",       
+  name: "大津",
+  nameEn: "Otsu",
   type: "station",
-  lat: 32.21605623447905,
-  lng: 130.75371869454892
+  lat: 35.00332411938232,   
+  lng: 135.86456511586854
+ },
+// ==================
+// SHIMANE
+// ==================
+{
+  id: "jr_west_matsue",
+  line: "jr_west",
+  area: "shimane",       
+  name: "松江",
+  type: "station",
+  nameEn: "Matsue",
+  lat: 35.464061700026434, 
+  lng: 133.06388299237187
 },
-    {
-      id: "kyushu_shinkansen_shin_yatsushiro",
-      line: "kyushu_shinkansen",
-      area: "kumamoto",       
-      name: "新八代",
-      nameEn: "Shin-Yatsushiro",
-      type: "station",
-      lat: 32.518019644933354,
-      lng: 130.63461495221995
-    },
-    {
-      id: "unknown_amagi",
-      line: "unknown",
-      area: "fukuoka_south",       
-      name: "甘木",
-      nameEn: "Amagi",
-      type: "station",
-      lat: 33.4192430704809,
-      lng: 130.65348064295375
-    },
-    {
-      id: "unknown_ukiha",
-      line: "unknown",
-      area: "fukuoka_south",       
-      name: "うきは",
-      nameEn: "Ukiha",
-      type: "station",
-      lat: 33.33479713952632,
-      lng: 130.78917334413924
-    },
-    {
-      id: "unknown_nishi_omuta",
-      line: "unknown",
-      area: "nagasaki",       
-      name: "西大牟田",
-      nameEn: "Nishi-Omuta",
-      type: "station",
-      lat: 33.24609650022158,
-      lng: 130.5008872072392
-    },
-    {
-      id: "unknown_nishitetsu_yanagawa",
-      line: "unknown",
-      area: "fukuoka_south",       
-      name: "西鉄柳川",
-      nameEn: "Nishitetsu-Yanagawa",
-      type: "station",
-      lat: 33.16483308770013,
-      lng: 130.41975360291633
-    },
-    {
-      id: "unknown_nishitetsu_omuta",
-      line: "unknown",
-      area: "fukuoka_south",       
-      name: "西鉄大牟田",
-      nameEn: "Nishitetsu-Omuta",
-      type: "station",
-      lat: 33.02990295665634,
-      lng: 130.44320628992418
-    },
-    {
-      id: "unknown_ebino",
-      line: "unknown",
-      area: "miyazaki",       
-      name: "えびの",
-      nameEn: "Ebino",
-      type: "station",
-      lat: 32.042539399497805,
-      lng: 130.81529070477754
-    },
-    {
-      id: "unknown_miyakonojo",
-      line: "unknown",
-      area: "miyazaki",       
-      name: "都城",
-      nameEn: "Miyakonojo",
-      type: "station",
-      lat: 31.736378618376378,
-      lng: 131.07474138097672
-    },
-    {
-      id: "jr_west_kanazawa",
-      line: "jr_west",
-      area: "kumamoto",       
-      name: "金沢",
-      nameEn: "Kanazawa",
-      type: "station",
-      lat: 36.57809596678759,
-      lng: 136.64860054821557
-    },
-    {
-      id: "jr_east_niigata",
-      line: "jr_east",
-      area: "niigata",       
-      name: "新潟",
-      nameEn: "Niigata",
-      type: "station",
-      lat: 37.911996449103825,
-      lng: 139.06156041816973
-    },
-    {
-      id: "jr_west_toyama",
-      line: "jr_west",
-      area: "toyama",       
-      name: "富山",
-      nameEn: "Toyama",
-      type: "station",
-      lat: 36.70186117993539,
-      lng: 137.2124863199435
-    },
-    {
-      id: "jr_west_fukui",
-      line: "jr_west",
-       area: "fukui",    
-      name: "福井",
-      nameEn: "Fukui",
-      type: "station",
-      lat: 36.06200365221304,
-      lng: 136.22326035384071
-    },
-    {
-      id: "nagoya_orthodox",
-       area: "nagoya",
-      area: "aichi",       
-      name: "名古屋ハリストス正教会・神現聖堂",
-      nameEn: "Holy Theophany Orthodox Church",
-      type: "church",
-      lat: 35.152855753126595,
-      lng: 136.9245572602125,
-      visible: false
-    },
-    {
-      id: "iwayado_orthodox",
-      area: "aichi",       
-      name: "岩谷堂ハリストス正教会・主の降誕聖堂",
-      nameEn: "Iwayado Orthodox Church",
-      type: "church",
-      lat: 39.19564918643734,
-      lng: 141.1774628084538,
-      visible: false
-    },
-    {
-      id: "toyohashi_orthodox",
-      area: "aichi",       
-      name: "豊橋ハリストス正教会・聖使徒福音者マトフェイ聖堂",
-      nameEn: "Toyohashi Orthodox Church",
-      type: "church",
-      lat: 34.76802881935057,
-      lng: 137.39393794866496,
-      visible: false
-    },
-    {
-      id: "handa_orthodox",
-      area: "aichi",       
-      name: "半田ハリストス正教会・聖イオアン・ダマスキン聖堂",
-      nameEn: "Saint John of Damascus Orthodox Church",
-      type: "church",
-      lat: 34.91164457680192,
-      lng: 136.9408163370278,
-      visible: false
-    },
-    {
-      id: "tokaido_nagoya",
-      line: "tokaido",
-      area: "aichi",       
-      name: "名古屋",
-      nameEn: "Nagoya",
-      type: "station",
-      lat: 35.17075221462044,
-      lng: 136.881565537144
-    },
-    {
-      id: "jr_tokaido_gifu",
-      line: "jr_tokaido",
-      area: "gifu",       
-      name: "岐阜",
-      nameEn: "Gifu",
-      type: "station",
-      lat: 35.409475306635464,
-      lng: 136.75669090027228
-    },
-    {
-      id: "jr_central_yokkaichi",
-      line: "jr_central",
-      area: "add",       name: "四日市駅",
-      nameEn: "Yokkaichi",
-      type: "station",
-      lat: 34.96303176535332,
-      lng: 136.62959923703082
-    },
+      {
+  id: "jr_west_hamada",
+  line: "jr_west",
+  area: "shimane",       
+  name: "浜田",
+  nameEn: "Hamada",
+  type: "station",
+  lat: 34.9025934187279,  
+  lng: 132.0888999545535
+ },
+// ==================
+// SHIZUOKA
+// ==================
     {
       id: "kashiwakubo_orthodox",
-      area: "add",       name: "柏久保ハリストス正教会",
+      area: "shizuoka",       
+      name: "柏久保ハリストス正教会",
       nameEn: "Kashiwakubo Orthodox Church",
       type: "church",
       lat: 34.97534355522436,
@@ -2023,540 +2706,18 @@ window.MAP_DATA = {
       lng: 138.38871819249098
     },
     {
-      id: "jr_central_kofu",
-      line: "jr_central",
-      area: "yamanashi",       
-      name: "甲府",
-      nameEn: "Kofu",
-      type: "station",
-      lat: 35.66706620742847,
-      lng: 138.56944998254116
-    },
-    {
-      id: "jr_east_nagano",
-      line: "jr_east",
-      area: "nagano",       
-      name: "長野",
-      nameEn: "Nagano",
-      type: "station",
-      lat: 36.64322757398966,
-      lng: 138.18878316966197
-    },
-    {
-      id: "hakodate_orthodox",
-      area: "hokkaido",       
-      name: "函館ハリストス正教会",
-      nameEn: "Hakodate Orthodox Church",
-      type: "church",
-      lat: 41.762791271261975,
-      lng: 140.71221112396552,
-      visible: false
-    },
-    {
-      id: "kamiiso_orthodox",
-      area: "hokkaido",       
-      name: "上磯ハリストス正教会・主の昇天聖堂（北斗市）",
-      nameEn: "Kamiiso Orthodox Church",
-      type: "church",
-      lat: 41.84321997856034,
-      lng: 140.63660773746471,
-      visible: false
-    },
-    {
-      id: "sapporo_orthodox",
-      area: "hokkaido",       
-      name: "札幌ハリストス正教会・主の顕栄聖堂",
-      nameEn: "Sapporo Orthodox Church",
-      type: "church",
-      lat: 43.01865151311119,
-      lng: 141.40312645103944,
-    },
-     {
-      id: "sapporo_station",
-      area: "hokkaido",       
-       name: "札幌",
-      nameEn: "Sapporo",
-      type: "station",
-      lat: 43.06870361524902, 
-      lng: 141.35071235839033
-    },
-    {
-      id: "otaru_orthodox",
-      area: "hokkaido",       
-      name: "小樽ハリストス正教会・主の復活聖堂",
-      nameEn: "Otaru Orthodox Church",
-      type: "church",
-      lat: 43.19058532675394,
-      lng: 140.98899218173514,
-      visible: false
-    },
-    {
-      id: "tomakomai_orthodox",
-      area: "hokkaido",       
-      name: "苫小牧ハリストス正教会・主の降誕聖堂",
-      nameEn: "Tomakomai Orthodox Church",
-      type: "church",
-      lat: 42.642654755289584,
-      lng: 141.5805366375196,
-      visible: false
-    },
-    {
-      id: "kushiro_orthodox",
-      area: "hokkaido",       
-      name: "釧路ハリストス正教会・聖神゜降臨聖堂",
-      nameEn: "Kushiro Orthodox Church",
-      type: "church",
-      lat: 42.97550972265846,
-      lng: 144.38810002404912,
-      visible: false
-    },
-    {
-      id: "kamimusa_orthodox",
-      area: "hokkaido",       
-      name: "上武佐ハリストス正教会・生神女就寝聖堂",
-      nameEn: "Kamimusa Orthodox Church",
-      type: "church",
-      lat: 43.61850720398041,
-      lng: 144.99488426642338,
-      visible: false
-    },
-    {
-      id: "shari_orthodox",
-      area: "hokkaido",       
-      name: "斜里ハリストス正教会・生神女福音聖堂",
-      nameEn: "Shari Orthodox Church",
-      type: "church",
-      lat: 43.899288709566385,
-      lng: 144.62383363760782,
-      visible: false
-    },
-    {
-        id: "hiroshima_peace_museum",
-        area: "hiroshima",       
-        name: "広島平和記念資料館",
-        nameEn: "Hiroshima Peace Memorial Museum",
-        type: "museum",
-        lat: 34.391586720771336,     
-        lng: 132.4527286170304
-      }, 
-        {
-        id: "hiroshima_catholic",
-        area: "hiroshima",       
-        name: "カトリック幟町教会 世界平和記念聖堂",
-        nameEn: "Assumption of Mary Cathedral",
-        type: "church",
-        lat: 34.39516261648929,    
-        lng: 132.46852401660675,
-        visible: false
-      }, 
-      {
-  id: "jr_west_hiroshima",
-  line: "jr_west",
-  area: "hiroshima",       
-  name: "広島",
-  nameEn: "Hiroshima",
+  id: "unknown_aino",
+  line: "unknown",
+  area: "shizuoka",       
+  name: "愛野",
+  nameEn: "Aino",
   type: "station",
-  lat: 34.397861733401015, 
-  lng: 132.4754107811756
- },
-{
-  id: "jr_west_okayama",
-  line: "jr_west",
-  area: "okayama",       
-  name: "岡山",
-  nameEn: "Okayama",
-  type: "station",
-  lat: 34.66590056618729, 
-  lng: 133.91813046159663
- },
-{
-  id: "jr_west_matsue",
-  line: "jr_west",
-  area: "shimane",       
-  name: "松江",
-  type: "station",
-  nameEn: "Matsue",
-  lat: 35.464061700026434, 
-  lng: 133.06388299237187
+  lat: 32.81895137075822,
+  lng: 130.15604553458053
 },
-      {
-  id: "jr_west_hamada",
-  line: "jr_west",
-  area: "shimane",       
-  name: "浜田",
-  nameEn: "Hamada",
-  type: "station",
-  lat: 34.9025934187279,  
-  lng: 132.0888999545535
- },
-{
-  id: "jr_west_tottori",
-  line: "jr_west",
-  area: "tottori",       
-  name: "鳥取",
-  nameEn: "Tottori",
-  type: "station",
-  lat: 35.493999272656936,  
-  lng: 134.22585357939084
- },
-    {
-        id: "maruyama_hachimangu",
-        area: "yamaguchi",       
-      name: "丸山八幡宮 二の鳥居",
-        nameEn: "Maruyama Hachimangu Shrine",
-        type: "shrine",
-        lat: 34.54822633746893,                    
-        lng: 131.63678866800052 
-      },
-      {
-        id: "yanaihara_orthodox",
-        area: "kanagawa",       
-        name: "柳井原ハリストス正教会",
-        nameEn: "Yanaihara Orthodox Church",
-        type: "church",
-        lat: 34.608973263987686,    
-        lng: 133.72219075235222
-      }, 
-      {
-  id: "jr_west_yamaguchi",
-  line: "jr_west",
-  area: "yamaguchi",       
-  name: "山口",
-  nameEn: "Yamaguchi",
-  type: "station",
-  lat: 34.17267360239606, 
-  lng: 131.48077570260548
-},
-      {
-  id: "jr_west_shimonoseki",
-  line: "jr_west",
-  area: "yamaguchi",       
-  name: "下関",
-  nameEn: "Shimonoseki",
-  type: "station",
-  lat: 33.950751626493975, 
-  lng: 130.92207125669896
- },
-    {
-  id: "jr_west_himeji",
-  line: "jr_west",
-  area: "hyogo",       
-  name: "姫路",
-  type: "station",
-  nameEn: "Himeji",
-  lat: 34.82668218036908, 
-  lng: 134.69050040818743
-},
-{
-  id: "jr_west_kobe",
-  line: "jr_west",
-  area: "kobe",       
-  name: "神戸",
-  nameEn: "Kobe",
-  type: "station",
-  lat: 34.679489017452056, 
-  lng: 135.17826511406824
- },
-    {
-        id: "kyoto_orthodox",
-        area: "kyoto",       
-        name: "京都ハリストス正教会",
-        nameEn: "Kyoto Orthodox Church",
-        type: "church",
-        lat: 35.01445715981374,  
-        lng: 135.76418814867904,
-      visible: false
-      }, 
-      {
-  id: "jr_west_kyoto",
-  line: "jr_west",
-  area: "kyoto",       
-  name: "京都",
-  nameEn: "Kyoto",
-  type: "station",
-  lat: 34.985752282029665, 
-  lng: 135.75833754128462
- },
-    {
-  id: "jr_west_nara",
-  line: "jr_west",
-  area: "nara",       
-  name: "奈良",
-  nameEn: "Nara",
-  type: "station",
-  lat: 34.680737580008184,  
-  lng: 135.81890927934364
- },
-    {
-  id: "jr_west_osaka",
-  line: "jr_west",
-  area: "osaka",       
-  name: "大阪",
-  nameEn: "Osaka",
-  type: "station",
-  lat: 34.70229737398776,  
-  lng: 135.49521376356904
- },
-    {
-        id: "osaka_orthodox",
-        area: "osaka",       
-      name: "大阪ハリストス正教会",
-        nameEn: "Osaka Orthodox Church",
-        type: "church",
-        lat: 34.76633139508822, 
-        lng: 135.5118561946903,
-      visible: false
-      }, 
-    {
-  id: "jr_biwako_otsu",
-  line: "jr_biwako",
-  area: "shiga",       
-  name: "大津",
-  nameEn: "Otsu",
-  type: "station",
-  lat: 35.00332411938232,   
-  lng: 135.86456511586854
- },
-    {
-  id: "jr_hanwa_wakayama",
-  line: "jr_hanwa",
-  area: "wakayama",       
-  name: "和歌山",
-  nameEn: "Wakayama",
-  type: "station",
-  lat: 34.23193966655008, 
-  lng: 135.19150551352493
- },
-     {
-  id: "sanyo_shinkansen_shin_shimonoseki",
-  line: "sanyo_shinkansen",
-  area: "yamaguchi",       
-  name: "新下関",
-  nameEn: "Shin-Shimonoseki",
-  type: "station",
-  lat: 34.007173219895265,  
-  lng: 130.94905989464706
- },
-     {
-  id: "sanyo_shinkansen_asa",
-  line: "sanyo_shinkansen",
-  area: "yamaguchi",       
-  name: "厚狭",
-  nameEn: "Asa",
-  type: "station",
-  lat: 34.05378230440899, 
-  lng: 131.16004482404128
- },
-     {
-  id: "sanyo_shinkansen_shin_yamaguchi",
-  line: "sanyo_shinkansen_shin_yamaguchi",
-  area: "yamaguchi",       
-  name: "新山口",
-  nameEn: "Shin-Yamaguchi",
-  type: "station",
-  lat: 34.09380717528445, 
-  lng: 131.39635396581656
- },
-     {
-  id: "sanyo_shinkansen_tokuyama",
-  line: "sanyo_shinkansen",
-  area: "tokuyama",       
-  name: "徳山",
-  nameEn: "Tokuyama",
-  type: "station",
-  lat: 34.05117824090719, 
-  lng: 131.80288025047233
- },
-     {
-  id: "sanyo_shinkansen_shin_iwakuni",
-  line: "sanyo_shinkansen",
-  area: "hiroshima",       
-  name: "新岩国",
-  nameEn: "Shin-Iwakuni",
-  type: "station",
-  lat: 34.16477067833664, 
-  lng: 132.14960902903604
- },
-     {
-  id: "sanyo_shinkansen_higashi_hiroshima",
-  line: "sanyo_shinkansen",
-  area: "hiroshima",       
-  name: "東広島",
-  nameEn: "Higashi Hiroshima",
-  type: "station",
-  lat: 34.38932491940482, 
-  lng: 132.759548804466
- },
-     {
-  id: "sanyo_shinkansen_mihara",
-  line: "sanyo_shinkansen",
-  area: "hiroshima",       
-  name: "三原",
-  nameEn: "Mihara",
-  type: "station",
-  lat: 34.40068115614304,  
-  lng: 133.08316498394547
- },
-     {
-  id: "sanyo_shinkansen_shin_onomichi",
-  line: "sanyo_shinkansen",
-  area: "hiroshima",       
-  name: "新尾道",
-  nameEn: "Shin Onomichi",
-  type: "station",
-  lat: 34.430164623711384, 
-  lng: 133.19030555234193
- },
-     {
-  id: "sanyo_shinkansen_aioi",
-  line: "sanyo_shinkansen",
-  area: "hyogo",       
-  name: "相生",
-  nameEn: "Aioi",
-  type: "station",
-  lat: 34.81795910228426,  
-  lng: 134.473974250334
- },
-     {
-  id: "sanyo_shinkansen_nishi_akashi",
-  line: "sanyo_shinkansen",
-  area: "hyogo",       
-  name: "西明石",
-  nameEn: "Nishi Akashi",
-  type: "station",
-  lat: 34.66700248183328, 
-  lng: 134.96007403091295
- },
-    {
-  id: "sanyo_shinkansen_shin_kobe",
-  line: "sanyo_shinkansen",
-  area: "kobe",       
-  name: "新神戸",
-  nameEn: "Shin-Kobe",
-  type: "station",
-  lat: 34.70679993007298, 
-  lng: 135.19616486899184
- },
-    {
-        id: "suga_orthodox",
-        area: "chiba",       
-        name: "須賀ハリストス正教会",
-        nameEn: "Suga Orthodox Church",
-        type: "church",
-        lat: 35.668907508179174,    
-        lng: 140.54623048124927,
-        visible: false
-      },  
-        {
-        id: "tega_orthodox",
-        area: "chiba",       
-        name: "手賀ハリストス正教会",
-        nameEn: "Tega Orthodox Church",
-        type: "church",
-        lat: 35.8420520668703,   
-        lng: 140.07945086591766,
-        visible: false
-      }, 
-      {
-  id: "jr_east_chiba",
-  line: "jr_east",
-  area: "chiba",       
-  name: "千葉",
-  nameEn: "Chiba",
-  type: "station",
-  lat: 35.61319559432332, 
-  lng: 140.11357952727155
- },
-    {
-        id: "maebashi_orthodox",
-        area: "gunma",       
-        name: "前橋ハリストス正教会",
-        nameEn: "Maebashi Orthodox Church",
-        type: "church",  
-        lat: 36.39251857237456,     
-        lng: 139.06543920643128,
-      visible: false
-      },  
-        {
-        id: "takasaki_orthodox",
-        area: "gunma",       
-        name: "高崎ハリストス正教会",
-        nameEn: "Takasaki Orthodox",
-        type: "church",
-        lat: 36.35393225376748,    
-        lng: 138.99547179478353,
-          visible: false
-      }, 
-      {
-  id: "sukawa_orthodox",
-  area: "gunma",       
-  name: "須川ハリストス正教会",
-  nameEn: "Sukawa Orthodox Church",
-  type: "church",
-  lat: 36.69922157449143, 
-  lng: 138.90685202179165,
-  visible: false
-},
-{
-  id: "jr_east_takasaki",
-  line: "jr_east",
-  area: "gunma",       
-  name: "高崎",
-  nameEn: "Takasaki",
-  type: "station",
-  lat: 36.32362192931688, 
-  lng: 139.01279104080712
- },
-    {
-  id: "jr_east_mito",
-  line: "jr_east",
-  area: "ibaraki",       
-  name: "水戸",
-  nameEn: "Mito",
-  type: "station",
-  lat: 36.370305879959524, 
-  lng: 140.47716630481875
- },
-    {
-        id: "odawara_orthodox",
-        area: "kanagawa",       
-        name: "小田原ハリストス正教会",
-        nameEn: "Odawara Orthodox Church",
-        type: "church",
-        lat: 35.25415027273678,    
-        lng: 139.1633436505412,
-      visible: false
-      },  
-        {
-        id: "yokohama_orthodox",
-        area: "yokohama",       
-        name: "横浜ハリストス正教会・生神女庇護聖堂",
-        nameEn: "Yokohama Orthodox",
-        type: "church",
-        lat: 35.47552476115016,    
-        lng: 139.61811951007334,
-        visible: false
-      }, 
-      {
-  id: "tokaido_odawara",
-  line: "tokaido",
-  area: "kanagawa",       
-  ame: "小田原",
-  nameEn: "Odawara",
-  type: "station",
-  lat: 35.25618114388968,  
-  lng: 139.15575408424047
- },
-    {
-  id: "jr_yokohama_machida",
-  line: "jr_yokohama",
-  area: "tokyo",       
-  name: "町田",
-  nameEn: "Machida",
-  type: "station",
-  lat: 35.54404680550262,   
-  lng: 139.44506651220348
- },
+// ==================
+// TOCHIGI
+// ==================
     {
         id: "ashikaga_orthodox",
         area: "tochigi",       
@@ -2567,16 +2728,6 @@ window.MAP_DATA = {
         lng: 139.44069005245362,
         visible: false
       },  
-      {
-        id: "akutsu_orthodox",
-        area: "gunma",       
-        name: "圷ハリストス正教会",
-        nameEn: "Akutsu Orthodox Church",
-        type: "church",
-        lat: 36.49210927234493,   
-        lng: 140.36823765246274,
-        visible: false
-      }, 
         {
         id: "kanuma_orthodox",
         area: "tochigi",       
@@ -2617,17 +2768,204 @@ window.MAP_DATA = {
   lat: 36.558928575702026,  
   lng: 139.89837599294765
  },
-    {
-        id: "yamate_orthodox",
-        area: "gunma",       
-        name: "山手ハリストス正教会",
-        nameEn: "Yamate Orthodox Church",
-        type: "church",
-        lat: 35.69711939864383,   
-        lng: 139.60897218125092,
-      visible: false
-      },  
+// ==================
+// TOKUSHIMA
+// ==================
+      {
+  id: "jr_shikoku_tokushima",
+  line: "jr_shikoku",
+  area: "tokushima",       
+  name: "徳島",
+  nameEn: "Tokushima",
+  type: "station",
+  lat: 34.07441973350795,  
+  lng: 134.55145338766974
+ },
         {
+        id: "tokushima_orthodox",
+        area: "tokushima",       
+        name: "徳島ハリストス正教会･聖神降臨聖堂",
+        nameEn: "Tokushima Orthodox Church",
+        type: "church",
+        lat: 34.043597041074776,    
+        lng: 134.56363952705485,
+        visible: false
+      },
+
+// ==================
+// TOKYO
+// ==================    
+    {
+      id: "unknown_yurakucho",
+      line: "unknown",
+      area: "tokyo",  
+      name: "有楽町",
+      nameEn: "Yurakucho",
+      type: "station",
+      lat: 35.67496969538431,   
+      lng: 139.76304185241415
+    }, 
+        {
+      id: "unknown_otemachi",
+      line: "unknown",
+      area: "tokyo",
+      name: "大手町",
+      nameEn: "Otemachi",
+      type: "station",
+      lat: 35.68537551552463,   
+      lng: 139.76327839474382
+    }, 
+        {
+      id: "unknown_shinjuku",
+      line: "unknown",
+      area: "tokyo",
+      name: "新宿",
+      nameEn: "Shinjuku",
+      type: "station",
+      lat: 35.689749147708746,   
+      lng: 139.7005541211752
+    }, 
+        {
+      id: "unknown_shibuya",
+      line: "unknown",
+      area: "tokyo",
+      name: "渋谷",
+      nameEn: "Shibuya",
+      type: "station",
+      lat: 35.658809708015205, 
+      lng: 139.70139976036222
+    }, 
+        {
+      id: "unknown_harajuku",
+      line: "unknown",
+      area: "tokyo",
+      name: "原宿",
+      nameEn: "Harajuku",
+      type: "station",
+      lat: 35.66998548079574,  
+      lng: 139.702444737072
+    }, 
+        {
+      id: "unknown_ebisu",
+      line: "unknown",
+      area: "tokyo",
+      name: "恵比寿",
+      nameEn: "Ebisu",
+      type: "station",
+      lat: 35.64660985018325,  
+      lng: 139.71024272727348 
+    }, 
+        {
+      id: "unknown_roppongi",
+      line: "unknown",
+      area: "tokyo",
+      name: "六本木",
+      nameEn: "Roppongi",
+      type: "station",
+      lat: 35.663288106044625,   
+      lng: 139.7320746659071
+    }, 
+        {
+      id: "unknown_shinagawa",
+      line: "unknown",
+      area: "tokyo",
+      name: "品川",
+      nameEn: "Shinagawa",
+      type: "station",
+      lat: 35.6288200926527,  
+      lng: 139.73890989843687
+    }, 
+        {
+      id: "unknown_shinbashi",
+      line: "unknown",
+      area: "tokyo",
+      name: "新橋",
+      nameEn: "Shinbashi",
+      type: "station",
+      lat: 35.6665968818815, 
+      lng: 139.75825396405907 
+    }, 
+        {
+      id: "unknown_tamachi",
+      line: "unknown",
+      area: "tokyo",
+      name: "田町",
+      nameEn: "Tamachi",
+      type: "station",
+      lat: 35.64578832386757,  
+      lng: 139.74760528622525
+    }, 
+        {
+      id: "unknown_ueno",
+      line: "unknown",
+      area: "tokyo",
+      name: "上野",
+      nameEn: "Ueno",
+      type: "station",
+      lat: 35.713705479633106,   
+      lng: 139.77700139899818
+    }, 
+        {
+      id: "unknown_asakusa",
+      line: "unknown",
+      area: "tokyo",
+      name: "浅草",
+      nameEn: "Asakusa",
+      type: "station",
+      lat: 35.710803118646155,   
+      lng: 139.79763052902732
+    }, 
+        {
+      id: "unknown_nippori",
+      line: "unknown",
+      area: "tokyo",
+      name: "日暮里",
+      nameEn: "Nippori",
+      type: "station",
+      lat: 35.7275828741282,  
+      lng: 139.77112416850807
+    }, 
+        {
+      id: "unknown_ginza",
+      line: "unknown",
+      area: "tokyo",
+      name: "銀座",
+      nameEn: "Ginza",
+      type: "station",
+      lat: 35.67121514737473,  
+      lng: 139.76499716562958
+    }, 
+        {
+      id: "unknown_nihonbashi",
+      line: "unknown",
+      area: "tokyo",
+      name: "日本橋",
+      nameEn: "Nihonbashi",
+      type: "station",
+      lat: 35.682136701922175, 
+      lng: 139.77470857065944
+    }, 
+        {
+      id: "unknown_tsukiji",
+      line: "unknown",
+      area: "tokyo",
+      name: "築地",
+      nameEn: "Tsukiji",
+      type: "station",
+      lat: 35.66817488593285,   
+      lng: 139.77262489474282
+    }, 
+    {
+      id: "unknown_ikebukuro",
+      line: "unknown",
+      area: "tokyo",
+      name: "池袋",
+      nameEn: "Ikebukuro",
+      type: "station",
+      lat: 35.72977276618652, 
+      lng: 139.71064260269546
+    },
+           {
         id: "nikolai_dou_cathedral",
         area: "tokyo",       
           name: "東京復活大聖堂（ニコライ堂)",
@@ -2646,342 +2984,74 @@ window.MAP_DATA = {
   lat: 35.68124722348953, 
   lng: 139.7667331769967
  },
-    {
-  id: "jr_shikoku_matsuyama",
-  line: "jr_shikoku",
-  area: "shikoku",       
-  name: "松山",
-  nameEn: "Matsuyama",
-  type: "station",
-  lat: 33.83985068892453,  
-  lng: 132.75076964861216
- },
-    {
-  id: "jr_shikoku_takamatsu",
-  line: "jr_shikoku",
-  area: "shikoku",       
-  name: "高松",
-  nameEn: "Takamatsu",
-  type: "station",
-  lat: 34.35060753330822,   
-  lng: 134.0468136611
- },
-    {
-  id: "jr_shikoku_kochi",
-  line: "jr_shikoku",
-  area: "shikoku",       
-  name: "高知",
-  nameEn: "Kochi",
-  type: "station",
-  lat: 33.567209194010836,   
-  lng: 133.54363446578702
- },
-    {
-        id: "tokushima_orthodox",
-        area: "shikoku",       
-        name: "徳島ハリストス正教会･聖神降臨聖堂",
-        nameEn: "Tokushima Orthodox Church",
-        type: "church",
-        lat: 34.043597041074776,    
-        lng: 134.56363952705485,
-        visible: false
-      },
-      {
-  id: "jr_shikoku_tokushima",
-  line: "jr_shikoku",
-  area: "shikoku",       
-  name: "徳島",
-  nameEn: "Tokushima",
-  type: "station",
-  lat: 34.07441973350795,  
-  lng: 134.55145338766974
- },
-    {
-        id: "hokuroku_orthodox",
-        area: "akita",       
-        name: "北鹿ハリストス正教会・生神女福音会堂",
-        nameEn: "Hokuroku Orthodox Church",
-        lat: 40.21460725011423,                
-        lng: 140.62425246619102,
-        visible: false
-      },
-      {  
-        id: "jumonji_orthodox",
-        area: "miyagi",       
-        name: "十文字ハリストス正教会",
-        nameEn: "Jumonji Orthodox Church",
-        lat: 38.767362271760085,            
-        lng: 141.14312620047744,
-        visible: false
-      },
         {
-        id: "akita",
-        area: "akita",       
-        name: "秋田",
-        nameEn: "Akita",
-        type: "station",
-        lat: 39.71699459890198, 
-        lng: 140.12967542198115
- },
-    {
-  id: "unknown_aomori",
-  line: "unknown",
-  area: "aomori",       
-  name: "青森",
-  nameEn: "Aomori",
+  id: "jr_yokohama_machida",
+  line: "jr_yokohama",
+  area: "tokyo",       
+  name: "町田",
+  nameEn: "Machida",
   type: "station",
-  lat: 40.8296329213454,  
-  lng: 140.73392955858864
+  lat: 35.54404680550262,   
+  lng: 139.44506651220348
  },
+// ==================
+// TOYAMA
+// ==================
+    {
+      id: "jr_west_toyama",
+      line: "jr_west",
+      area: "toyama",       
+      name: "富山",
+      nameEn: "Toyama",
+      type: "station",
+      lat: 36.70186117993539,
+      lng: 137.2124863199435
+    },
+
+// ==================
+// TOTTORI
+// ==================
+{
+  id: "jr_west_tottori",
+  line: "jr_west",
+  area: "tottori",       
+  name: "鳥取",
+  nameEn: "Tottori",
+  type: "station",
+  lat: 35.493999272656936,  
+  lng: 134.22585357939084
+ },
+
+// ==================
+// TOKUYAMA
+// ==================
      {
-        id: "shirakawa_orthodox",
-        area: "gifu",       
-        name: "白河ハリストス正教会",
-        nameEn: "Shirakawa Orthodox Church",
-        type: "church",
-        lat: 37.12721986402288,    
-        lng: 140.21178726599504,
-        visible: false
-      }, 
-      {
-  id: "jr_east_iwaki",
-  line: "jr_east",
-  area: "fukushima",       
-  name: "いわき",
-  nameEn: "Iwaki",
+  id: "sanyo_shinkansen_tokuyama",
+  line: "sanyo_shinkansen",
+  area: "tokuyama",       
+  name: "徳山",
+  nameEn: "Tokuyama",
   type: "station",
-  lat: 37.05809691532164, 
-  lng: 140.89207113715523
+  lat: 34.05117824090719, 
+  lng: 131.80288025047233
  },
- {
-        id: "morioka_orthodox",
-        area: "iwate",       
-        name: "盛岡ハリストス正教会・聖十字架挙栄聖堂",
-        nameEn: "Morioka Orthodox Church",
-        type: "church",
-        lat: 39.718873261561406,                 
-        lng: 141.14334543732312,
-       visible: false
-      },
-      {
-      id: "tonosei_orthodox",
-      area: "iwate",       
-      name: "遠野正教会・聖太祖アウラアム・サッラ会堂",
-      nameEn: "Tonosei Orthodox Church",
-      type: "church",
-      lat: 39.3479680749271, 
-      lng: 141.56756189497005,
-      visible: false
-      },
-      {
-      id: "iwayado_orthodox",
-      area: "iwate",       
-      name: "岩谷堂ハリストス正教会・主の降誕聖堂",
-      nameEn: "Iwayado Church",
-      type: "church",
-      lat: 39.19564087166975, 
-      lng: 141.1774842661247,
-      visible: false
-      },
-     {
-        id: "sakari_orthodox",
-        area: "iwate",       
-        name: "盛ハリストス正教会・昇天聖堂",
-        nameEn: "Sakari Orthodox Church",
-        type: "church",
-        lat: 39.08736041329395,            
-        lng: 141.70685229327933,
-        visible: false
-      },
-       {
-        id: "kannari_orthodox",
-        area: "miyagi",       
-        name: "金成ハリストス正教会",
-        nameEn: "Kannari Orthodox Church",
-        type: "church",
-        lat: 39.08736041329395,            
-        lng: 141.70685229327933,
-         visible: false
-      },
-      { 
-        id: "yamada_orthodox",
-        area: "iwate",       
-        name: "山田ハリストス正教会・主の復活会堂",
-        nameEn: "Yamada Orthodox Church",
-        type: "church",
-        lat: 39.46703315417506,              
-        lng: 141.9510394814841,
-        visible: false
-      },
-      { 
-        id: "ichinoseki_orthodox",
-        area: "iwate",       
-        name: "一関ハリストス正教会・昇天聖堂",
-        nameEn: "Ichinoseki Orthodox Church",
-        type: "church",
-        lat: 38.92259105365958,             
-        lng: 141.1217309986392,
-        visible: false
-      },
-        {
-        id: "jr_east_morioka",
-        line: "jr_east",
-        area: "iwate",       
-        name: "盛岡",
-        nameEn: "Morioka",
-        type: "station",
-        lat: 39.91886880943039,  
-        lng: 141.19933495479495
+ 
+// ==================
+// WAKAYAMA
+// ==================    
+    {
+  id: "jr_hanwa_wakayama",
+  line: "jr_hanwa",
+  area: "wakayama",       
+  name: "和歌山",
+  nameEn: "Wakayama",
+  type: "station",
+  lat: 34.23193966655008, 
+  lng: 135.19150551352493
  },
-  { 
-        id: "kesennuma_orthodox",
-        area: "miyagi",       
-        name: "気仙沼ハリストス正教会・復活会堂",
-        nameEn: "Kesennuma Orthodox Church",
-        type: "church",
-        lat: 38.906254620638066,             
-        lng: 141.56940059494167,
-        visible: false
-      },
-      {
-      id: "nakaniida_orthodox",
-      area: "miyagi",       
-      name: "中新田ハリストス正教会・前駆授洗イオアン聖堂",
-      nameEn: "Nakaniida Orthodox Church",
-       type: "church",
-      lat: 38.566379926736566, 
-      lng: 140.85696752375557,
-        visible: false
-      },
-      {
-      id: "wakuya_orthodox",
-      area: "miyagi",       
-      name: "涌谷ハリストス正教会・聖預言者イサイヤ聖堂",
-      nameEn: "Wakuya Orthodox Holy Prophet Isaiah Church",
-      type: "church",
-      lat: 38.5433232546557, 
-      lng: 141.1281048525895,
-        visible: false
-      },
-      {
-      id: "ishinomaki_orthodox",
-      area: "miyagi",       
-      name: "石巻ハリストス正教会",
-      nameEn: "Ishinomaki Saint John the Apostle Orthodox Church",
-      type: "church",
-      lat: 38.434259379351346, 
-      lng: 141.30931764182455,
-        visible: false
-      },
-      {
-     id: "takashimizu_orthodox",
-     area: "miyagi",       
-     name: "高清水ハリストス正教会・主の顕栄聖堂",
-     nameEn: "Takashimizu Orthodox Church of the Transfiguration of Our Lord",
-     type: "church", 
-     lat: 38.65662459359928, 
-     lng: 141.0118792660903,
-        visible: false
-     },
-      {
-     id: "sanuma_orthodox",
-     area: "miyagi",       
-    name: "佐沼ハリストス正教会・主の顕栄聖堂",
-     NameEn: "Sanuma Orthodox Church of the Transfiguration of our Lord",
-     type: "church",
-     lat: 38.68704997177767, 
-     lng: 141.19764990842125,
-        visible: false
-     },
-      {
-     id: "jogetsutsumi_orthodox",
-     area: "miyagi",       
-     name: "上下堤ハリストス正教会・生神女庇護聖堂",
-     nameEn: "Jogetsutsumi Orthodox Church of the Assumption",
-     type: "church",
-     lat: 38.40659439389966, 
-     lng: 141.1172397255936,
-        visible: false
-      },
-      
-      {
-  id: "unknown_sendai",
-  line: "unknown",
-  area: "miyagi",       
-  name: "仙台",
-  nameEn: "Sendai",
-  type: "station",
-  lat: 38.26007260131876, 
-  lng:  140.8822765623688
- },
-          {
-        id: "peace_park",
-        area: "nagasaki",       
-        name: "平和公園",
-        nameEn: "Peace Park Nagasaki",
-        type: "museum",
-        lat: 32.776992537763874,    
-        lng: 129.86393524060455
-      },  
-        {
-        id: "urakami_cathedral",
-        area: "nagasaki",       
-        name: "カトリック浦上教会（浦上天主堂）",
-        nameEn: "Urakami Cathedral",
-        type: "church",
-        lat: 32.77611633657394,   
-        lng: 129.86835109327734
-      }, 
-      {
-  id: "unknown_shin_omura",
-  line: "unknown",
-  area: "nagasaki",       
-  name: "新大村",
-  nameEn: "Shin-Omura",
-  type: "station",
-  lat: 32.932626750179075,
-  lng: 129.95722857374489
-},
-{
-  id: "unknown_isahaya",
-  line: "unknown",
-  area: "nagasaki",       
-  name: "諫早",
-  nameEn: "Isahaya",
-  type: "station",
-  lat: 32.85203767364156,
-  lng: 130.0412546541023
-},
-{
-  id: "unknown_aino",
-  line: "unknown",
-  area: "shizuoka",       
-  name: "愛野",
-  nameEn: "Aino",
-  type: "station",
-  lat: 32.81895137075822,
-  lng: 130.15604553458053
-},
-{
-  id: "unknown_shimabara",
-  line: "unknown",
-  area: "nagasaki",       
-  name: "島原",
-  type: "station",
-  nameEn: "Shimabara",
-  lat: 32.79027786498945,
-  lng: 130.370631075974
-},
-      {
-  id: "unknown_nagasaki",
-  line: "unknown",
-  area: "nagasaki",       
-  name: "長崎",
-  nameEn: "Nagasaki",
-  type: "station",
-  lat: 32.752546298028726, 
-  lng: 129.86865881602043
- },
+// ==================
+// YAMAGATA
+// ==================    
  {
   id: "unknown_yamagata",
   line: "unknown",
@@ -2991,6 +3061,81 @@ window.MAP_DATA = {
   type: "station",
   lat: 38.24855114859316,  
   lng: 140.3274321836492
- },       
+ },   
+// ==================
+// YAMAGUCHI
+// ==================
+    {
+        id: "maruyama_hachimangu",
+        area: "yamaguchi",       
+      name: "丸山八幡宮 二の鳥居",
+        nameEn: "Maruyama Hachimangu Shrine",
+        type: "shrine",
+        lat: 34.54822633746893,                    
+        lng: 131.63678866800052 
+      },
+         {
+  id: "sanyo_shinkansen_shin_shimonoseki",
+  line: "sanyo_shinkansen",
+  area: "yamaguchi",       
+  name: "新下関",
+  nameEn: "Shin-Shimonoseki",
+  type: "station",
+  lat: 34.007173219895265,  
+  lng: 130.94905989464706
+ },
+     {
+  id: "sanyo_shinkansen_asa",
+  line: "sanyo_shinkansen",
+  area: "yamaguchi",       
+  name: "厚狭",
+  nameEn: "Asa",
+  type: "station",
+  lat: 34.05378230440899, 
+  lng: 131.16004482404128
+ },
+     {
+  id: "sanyo_shinkansen_shin_yamaguchi",
+  line: "sanyo_shinkansen_shin_yamaguchi",
+  area: "yamaguchi",       
+  name: "新山口",
+  nameEn: "Shin-Yamaguchi",
+  type: "station",
+  lat: 34.09380717528445, 
+  lng: 131.39635396581656
+ },
+      {
+  id: "jr_west_yamaguchi",
+  line: "jr_west",
+  area: "yamaguchi",       
+  name: "山口",
+  nameEn: "Yamaguchi",
+  type: "station",
+  lat: 34.17267360239606, 
+  lng: 131.48077570260548
+},
+      {
+  id: "jr_west_shimonoseki",
+  line: "jr_west",
+  area: "yamaguchi",       
+  name: "下関",
+  nameEn: "Shimonoseki",
+  type: "station",
+  lat: 33.950751626493975, 
+  lng: 130.92207125669896
+ },
+// ==================
+// YAMANASHI
+// ==================
+    {
+      id: "jr_central_kofu",
+      line: "jr_central",
+      area: "yamanashi",       
+      name: "甲府",
+      nameEn: "Kofu",
+      type: "station",
+      lat: 35.66706620742847,
+      lng: 138.56944998254116
+    },
   ]
 };
