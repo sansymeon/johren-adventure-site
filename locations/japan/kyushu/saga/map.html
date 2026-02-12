@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ジョウレン・アドベンチャー｜福岡マップ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <style>
+    body { margin: 0; }
+    #map { height: 100vh; width: 100vw; }
+
+    .back-link {
+      position: fixed;
+      z-index: 2000;
+      bottom: 20px;
+      right: 10px;
+      background: white;
+      padding: 8px 14px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 14px;
+      text-decoration: none;
+      color: #333;
+    }
+    .about-link {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  z-index: 900;
+
+  font-size: 12px;
+  color: #555;
+  text-decoration: none;
+
+  background: rgba(255,255,255,0.85);
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.about-link:hover {
+  background: rgba(255,255,255,1);
+}
+
+  </style>
+</head>
+
+<body>
+
+<a class="back-link" href="./">← 戻る (Back)</a>
+<div id="map-controls" class="map-controls">
+
+</div>
+
+<div id="map"></div>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+  window.PLACE_CONFIG = {
+  key: "fukuoka",
+  center: [33.67897147857544, 130.69812257769337],
+
+  // City-level zoom
+  zoom: 9,
+
+  // Soft city envelope 
+  bounds: [
+    [33.12704588445366, 130.30645691135564],  // southwest 
+    [33.980701933732355, 131.01895196864896]   // northeast
+  ]
+};
+
+</script>
+<script>
+  window.AREA_KEY = "fukuoka"; 
+</script>
+<script src="/data/japan/map-data.js"></script>
+<script src="/js/map/map.js"></script>
+
+
+<a href="./about.html" class="about-link">
+  Johrenについて・About Johren
+</a>
+
+</body>
+</html>
