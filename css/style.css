@@ -124,9 +124,9 @@ section {
 }
 .add-pin {
   position: fixed;
-  bottom: 20px;
+  bottom: 80px;   /* 👈 move it above Back */
   right: 20px;
-  z-index: 1000;
+  z-index: 1100;  /* 👈 slightly higher */
 
   background: white;
   border: 2px solid #333;
