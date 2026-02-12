@@ -274,5 +274,42 @@ temple: L.icon({
   // Initial render
   // -------------------------------
   renderPins();
+let addPinMode = false;
+
+document.getElementById("add-pin-btn").addEventListener("click", () => {
+  addPinMode = true;
+  alert("Click on the map to add a pin");
+});
+
+map.on("click", (e) => {
+  if (!addPinMode) return;
+  addPinMode = false;
+
+  const name = prompt("Place name?");
+  if (!name) return;
+
+  const newPin = {
+    id: `draft_${Date.now()}`,
+    name,
+    lat: e.latlng.lat,
+    lng: e.latlng.lng,
+    area: window.AREA_KEY,
+    status: "draft",
+    createdAt: Date.now()
+  };
+
+  saveLocalPin(newPin);
+  renderPin(newPin, true);
+});
+function getLocalPins() {
+  return JSON.parse(localStorage.getItem("johren_local_pins") || "[]");
+}
+
+function saveLocalPin(pin) {
+  const pins = getLocalPins();
+  pins.push(pin);
+  localStorage.setItem("johren_local_pins", JSON.stringify(pins));
+}
+getLocalPins().forEach(pin => renderPin(pin, true));
 
 })();
