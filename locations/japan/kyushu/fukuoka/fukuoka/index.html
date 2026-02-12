@@ -1,1 +1,175 @@
-.txt
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>ジョウレン・アドベンチャー｜福岡県</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+  content="ジョウレン・アドベンチャー。福岡県の空気や日常を、地図と静かな問いを通して探ります。 
+    Johren Adventure. Exploring the atmosphere and everyday life of Fukuoka through maps and quiet questions." />
+
+
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --surface: #ffffff;
+      --border: #e0e0e0;
+      --text-main: #222;
+      --text-muted: #666;
+      --accent: #c79b3b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+ /* ===============================
+       BACK LINK
+       =============================== */
+    .back-link {
+      position: fixed;
+      left: 14px;
+      top: 14px;
+      font-size: 13px;
+      text-decoration: none;
+      color: #555;
+      background: rgba(255,255,255,0.9);
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .back-link:hover {
+      background: #fff;
+    }
+
+.ask-ai-row {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+}
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      padding: 72px 20px 96px;
+      text-align: center;
+    }
+
+    .jp-title {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .jp-sub {
+      font-size: 16px;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: rgba(0,0,0,0.18);
+      margin: 0 auto 28px;
+    }
+
+    h1 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+    }
+
+    .message {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .links {
+      margin-top: 24px;
+      font-size: 13px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-top: 10px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+      padding: 6px 0;
+      background: transparent;
+    }
+  </style>
+</head>
+
+<body>
+<a href="../" class="back-link">← 戻る / Back</a>
+
+  <div class="wrap">
+
+    <!-- Title block -->
+    <div class="jp-title">ジョウレン</div>
+    <div class="jp-sub">アドベンチャー</div>
+    <div class="divider"></div>
+
+    <h1>福岡県・Fukuoka</h1>
+
+    <div class="card">
+      <p class="message">
+  この地域の地図と情報は、少しずつ追加されています。<br>
+  気になる場所があれば、静かに探してみてください。
+  <br><br>
+  <span style="font-size:13px;color:#777;">
+    This area is gradually being mapped.
+  </span>
+</p>
+
+
+  
+    <section class="ask-ai-row">
+  <a href="./ask-ai.html" class="region-card ask-ai-card">
+    <div class="region-ja">この地域について考える</div>
+    <div class="region-en">Ask about this area</div>
+  </a>
+</section>
+     <div class="links">
+        <a href="/locations/japan/">日本の地域一覧へ</a><br>
+        <a class="btn" href="./map.html">地図を見る</a><br>
+        <a href="./about/">ジョウレンについて</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    © SanSymeon / Johren Adventure
+  </footer>
+
+</body>
+</html>
