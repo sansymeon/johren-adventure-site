@@ -278,5 +278,9 @@ map.on("click", (e) => {
   saveLocalPin(newPin);
   renderDraftPin(newPin);
 });
+// Restore locally-added draft pins
+getLocalPins().forEach(pin => {
+  renderDraftPin(pin);
+});
 
 })();
