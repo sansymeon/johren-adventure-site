@@ -256,5 +256,27 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   // Initial render
   // -------------------------------
   renderPins();
+map.on("click", (e) => {
+  if (!addPinMode) return;
+  addPinMode = false;
+
+  const name = prompt("Place name?");
+  if (!name) return;
+
+  const newPin = {
+    id: `draft_${Date.now()}`,
+    name: name,
+    lat: e.latlng.lat,
+    lng: e.latlng.lng,
+    area: window.AREA_KEY,
+    status: "draft",
+    createdAt: Date.now()
+  };
+
+  console.log("Draft pin added", newPin);
+
+  saveLocalPin(newPin);
+  renderDraftPin(newPin);
+});
 
 })();
