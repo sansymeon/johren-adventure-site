@@ -43,7 +43,12 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   // Icons
   // -------------------------------
   const icons = {
-    station: L.icon({
+    const draftPinIcon = L.icon({
+  iconUrl: '/img/map/pin-draft.png',
+  iconSize: [18, 18],
+  iconAnchor: [9, 18]
+   });
+  station: L.icon({
       iconUrl: "/img/map/station.png",
       iconSize: [28, 28],
       iconAnchor: [14, 28]
