@@ -39,6 +39,7 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   }).addTo(map);
 
   pinLayer = L.layerGroup().addTo(map);
+  tempPinLayer = L.layerGroup().addTo(map);
 
   // -------------------------------
   // Icons
@@ -108,6 +109,10 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   function formatDistance(m) {
     return m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(1)} km`;
   }
+function removeAddedPins() {
+  if (!tempPinLayer) return;
+  tempPinLayer.clearLayers();
+}
 
   // -------------------------------
   // Render official pins
@@ -144,7 +149,7 @@ getLocalPins().forEach(pin => {
   // -------------------------------
   // Render draft pin (local only)
   // -------------------------------
-  function renderDraftPin(pin) {
+function renderDraftPin(pin) {
   if (!pin || typeof pin.lat !== "number") return;
 
   const marker = L.marker([pin.lat, pin.lng], {
@@ -156,8 +161,9 @@ getLocalPins().forEach(pin => {
     offset: [0, -20]
   });
 
-  pinLayer.addLayer(marker);
+  tempPinLayer.addLayer(marker);
 }
+
 
 
   // -------------------------------
