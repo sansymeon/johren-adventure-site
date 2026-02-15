@@ -125,7 +125,11 @@ function removeAddedPins() {
       if (typeof pin.lat !== "number") return;
 
       const icon = icons[pin.type];
-      const marker = L.marker([pin.lat, pin.lng], icon ? { icon } : {});
+      const marker = L.marker(
+  [pin.lat, pin.lng],
+  icon ? { icon, pinType: pin.type } : { pinType: pin.type }
+);
+
 
       let label = pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name;
 
@@ -164,6 +168,44 @@ function renderDraftPin(pin) {
   tempPinLayer.addLayer(marker);
 }
 
+function renderPinFilters() {
+  const container = document.getElementById("pin-filters");
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  // Collect pin types for this area
+  const types = new Set(
+    MAP_DATA.pins
+      .filter(p => !p.area || p.area === AREA_KEY)
+      .map(p => p.type)
+      .filter(Boolean)
+  );
+
+  // Create a checkbox for each type
+  types.forEach(type => {
+    const label = document.createElement("label");
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
+
+    checkbox.addEventListener("change", () => {
+      pinLayer.eachLayer(layer => {
+        if (layer.options?.pinType === type) {
+          checkbox.checked
+            ? layer.addTo(map)
+            : map.removeLayer(layer);
+        }
+      });
+    });
+
+    label.appendChild(checkbox);
+    label.append(" " + type.charAt(0).toUpperCase() + type.slice(1));
+
+    container.appendChild(label);
+  });
+}
 
 
   // -------------------------------
