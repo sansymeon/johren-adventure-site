@@ -109,10 +109,11 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   function formatDistance(m) {
     return m < 1000 ? `${Math.round(m)} m` : `${(m / 1000).toFixed(1)} km`;
   }
-function removeAddedPins() {
+window.removeAddedPins = function () {
   if (!tempPinLayer) return;
   tempPinLayer.clearLayers();
-}
+};
+
 
   // -------------------------------
   // Render official pins
