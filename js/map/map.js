@@ -230,44 +230,48 @@ function renderPinFilters() {
   getLocalPins().forEach(renderDraftPin);
 
   // -------------------------------
-  // HERE control
-  // -------------------------------
-  const HereControl = L.Control.extend({
-    options: { position: "topleft" },
-    onAdd() {
-      const div = L.DomUtil.create("div", "leaflet-bar");
-      const btn = L.DomUtil.create("a", "", div);
+// HERE control
+// -------------------------------
+const HereControl = L.Control.extend({
+  options: { position: "topleft" },
 
-      btn.href = "#";
-      btn.textContent = savedHere ? "Clear" : "I’m here";
-      btn.style.cssText = `
-        width:96px; line-height:32px; text-align:center;
-        background:#fff; color:#222; font-size:13px;
-        text-decoration:none;
-      `;
+  onAdd() {
+    const div = L.DomUtil.create("div", "leaflet-bar");
+    const btn = L.DomUtil.create("a", "", div);
 
-      L.DomEvent.disableClickPropagation(div);
+    btn.href = "#";
+    btn.textContent = savedHere ? "Clear" : "I’m here";
+    btn.style.cssText = `
+      width:96px;
+      line-height:32px;
+      text-align:center;
+      background:#fff;
+      color:#222;
+      font-size:13px;
+      text-decoration:none;
+    `;
 
-      btn.onclick = e => {
-        e.preventDefault();
-        if (hereMarker) {
-  clearHere();
-  btn.textContent = "I’m here";
-  renderPins();
-  renderPinFilters();
-}
+    L.DomEvent.disableClickPropagation(div);
 
-        } else {
-          hereArmed = true;
-          btn.textContent = "Tap map…";
-        }
-      };
+    btn.onclick = (e) => {
+      e.preventDefault();
 
-      return div;
-    }
-  });
+      if (hereMarker) {
+        clearHere();
+        btn.textContent = "I’m here";
+        renderPins();
+        renderPinFilters();
+      } else {
+        hereArmed = true;
+        btn.textContent = "Tap map…";
+      }
+    };
 
-  map.addControl(new HereControl());
+    return div;
+  }
+});
+
+map.addControl(new HereControl());
 
   // -------------------------------
   // Add Pin button
