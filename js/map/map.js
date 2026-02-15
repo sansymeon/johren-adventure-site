@@ -135,6 +135,10 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
       pinLayer.addLayer(marker);
     });
   }
+// Render locally saved draft pins
+getLocalPins().forEach(pin => {
+  renderDraftPin(pin);
+});
 
   // -------------------------------
   // Render draft pin (local only)
@@ -148,6 +152,21 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
     marker.bindTooltip(pin.name, { direction: "top", offset: [0, -20] });
     pinLayer.addLayer(marker);
   }
+  function renderDraftPin(pin) {
+  if (!pin || typeof pin.lat !== "number") return;
+
+  const marker = L.marker([pin.lat, pin.lng], {
+    icon: draftPinIcon
+  });
+
+  marker.bindTooltip(pin.name || "Draft pin", {
+    direction: "top",
+    offset: [0, -20]
+  });
+
+  pinLayer.addLayer(marker);
+}
+
 
   // -------------------------------
   // Local draft storage
