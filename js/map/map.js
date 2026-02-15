@@ -44,7 +44,7 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   // Icons
   // -------------------------------
   const draftPinIcon = L.icon({
-    iconUrl: "../../../../img/map/pin_draft.png",
+    iconUrl: "/img/map/pin_draft.png",
     iconSize: [18, 18],
     iconAnchor: [9, 18]
   });
