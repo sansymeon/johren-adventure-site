@@ -113,7 +113,9 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
 window.removeAddedPins = function () {
   if (!tempPinLayer) return;
   tempPinLayer.clearLayers();
+  localStorage.removeItem("johren_local_pins");
 };
+
 
 
   // -------------------------------
@@ -249,9 +251,11 @@ function renderPinFilters() {
       btn.onclick = e => {
         e.preventDefault();
         if (hereMarker) {
-          clearHere();
-          btn.textContent = "I’m here";
-          renderPinFilters();
+  clearHere();
+  btn.textContent = "I’m here";
+  renderPins();
+  renderPinFilters();
+}
 
         } else {
           hereArmed = true;
@@ -314,6 +318,6 @@ function renderPinFilters() {
   // Initial render
   // -------------------------------
   renderPins();
-renderPinFilters();
+  renderPinFilters();
 
 })();
