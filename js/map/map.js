@@ -1,3 +1,5 @@
+console.log("Johren Map Engine v1.1 loaded");
+
 // ===============================
 // JOHREN MAP ENGINE (CLEAN v1.1)
 // ===============================
