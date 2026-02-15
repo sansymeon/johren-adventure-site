@@ -53,8 +53,12 @@
 
 <a class="back-link" href="./">← 戻る (Back)</a>
 <div id="map-controls" class="map-controls">
-  <button id="add-pin-btn" class="add-pin">➕ Add Pin</button>
-  <button onclick="removeAddedPins()">Remove added pins</button>
+  <div id="pin-filters"></div>
+
+  <div class="map-actions">
+    <button id="add-pin-btn" class="add-pin">➕ Add Pin</button>
+    <button onclick="removeAddedPins()">Remove added pins</button>
+  </div>
 </div>
 
 <div id="map"></div>
