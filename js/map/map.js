@@ -4,6 +4,7 @@
 
 let map;
 let pinLayer;
+let tempPinLayer;
 let hereMarker = null;
 let hereLocation = null;
 let hereArmed = false;
@@ -146,10 +147,6 @@ window.removeAddedPins = function () {
       pinLayer.addLayer(marker);
     });
   }
-// Render locally saved draft pins
-getLocalPins().forEach(pin => {
-  renderDraftPin(pin);
-});
 
   // -------------------------------
   // Render draft pin (local only)
@@ -254,7 +251,8 @@ function renderPinFilters() {
         if (hereMarker) {
           clearHere();
           btn.textContent = "I’m here";
-          renderPins();
+          renderPinFilters();
+
         } else {
           hereArmed = true;
           btn.textContent = "Tap map…";
@@ -316,31 +314,6 @@ function renderPinFilters() {
   // Initial render
   // -------------------------------
   renderPins();
-map.on("click", (e) => {
-  if (!addPinMode) return;
-  addPinMode = false;
-
-  const name = prompt("Place name?");
-  if (!name) return;
-
-  const newPin = {
-    id: `draft_${Date.now()}`,
-    name: name,
-    lat: e.latlng.lat,
-    lng: e.latlng.lng,
-    area: window.AREA_KEY,
-    status: "draft",
-    createdAt: Date.now()
-  };
-
-  console.log("Draft pin added", newPin);
-
-  saveLocalPin(newPin);
-  renderDraftPin(newPin);
-});
-// Restore locally-added draft pins
-getLocalPins().forEach(pin => {
-  renderDraftPin(pin);
-});
+renderPinFilters();
 
 })();
