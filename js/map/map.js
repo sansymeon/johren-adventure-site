@@ -176,11 +176,12 @@ function renderPinFilters() {
 
   // Collect pin types for this area
   const types = new Set(
-    MAP_DATA.pins
-      .filter(p => !p.area || p.area === AREA_KEY)
-      .map(p => p.type)
-      .filter(Boolean)
-  );
+  window.MAP_DATA.pins
+    .filter(p => !p.area || p.area === window.AREA_KEY)
+    .map(p => p.type)
+    .filter(Boolean)
+);
+
 
   // Create a checkbox for each type
   types.forEach(type => {
