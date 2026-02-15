@@ -17,7 +17,6 @@ a {
   }
 } 
 #map { position: relative; } /* safe anchor, optional but helps */
-
 .map-controls {
   position: absolute;
   top: 14px;
@@ -37,14 +36,11 @@ a {
   box-shadow: none;
 
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-.map-controls label {
+
+  /* 👇 NEW (safe additions) */
   display: flex;
-  align-items: center;
-  gap: 6px;
-  margin: 6px 0;
-  font-size: 13px;
-  line-height: 1.4;
+  flex-direction: column;
+  gap: 8px;
 }
 
 
