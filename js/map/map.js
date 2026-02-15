@@ -45,8 +45,9 @@ const HERE_STORAGE_KEY = `johren_here_v1:${window.AREA_KEY || "global"}`;
   // -------------------------------
   const draftPinIcon = L.icon({
     iconUrl: "/img/map/pin_personal.png",
-    iconSize: [18, 18],
-    iconAnchor: [9, 18]
+     iconSize: [26, 26],      // 👈 bigger than stations
+  iconAnchor: [13, 26],    // 👈 bottom-center stays correct
+  tooltipAnchor: [0, -18] /
   });
 
   const icons = {
