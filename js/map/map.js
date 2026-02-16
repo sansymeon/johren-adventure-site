@@ -326,3 +326,4 @@ map.addControl(new HereControl());
   renderPins();
   renderPinFilters();
 })();
+});
