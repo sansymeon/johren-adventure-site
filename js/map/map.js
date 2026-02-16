@@ -326,5 +326,3 @@ map.addControl(new HereControl());
   renderPinFilters();
 
 })(); // closes (function () { ... })
-
-}); // closes DOMContentLoaded
