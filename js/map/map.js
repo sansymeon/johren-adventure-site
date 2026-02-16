@@ -191,6 +191,14 @@ const types = new Set(
     .filter(Boolean)
 );
 
+// Collect pin types for this area
+const types = new Set(
+  window.MAP_DATA.pins
+    .filter(p => !p.area || p.area === window.AREA_KEY)
+    .map(p => p.type)
+    .filter(Boolean)
+);
+
 // Create a checkbox for each type
 types.forEach(type => {
   const label = document.createElement("label");
