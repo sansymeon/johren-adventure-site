@@ -187,6 +187,10 @@ section {
   border: 1px solid #aaa;
   background: white;
 }
+#pin-filters {
+  align-items: flex-start;
+}
+
 
 
 
