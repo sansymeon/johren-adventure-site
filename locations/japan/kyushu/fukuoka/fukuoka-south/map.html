@@ -53,9 +53,19 @@
 <body>
 
 <a class="back-link" href="./">← 戻る (Back)</a>
-<div id="map-controls" class="map-controls">
-<div id="map"></div>
+<div class="map-controls">
+  <div id="pin-filters"></div>
 
+  <button id="add-pin-btn" class="add-pin-inline">
+    + Add pin
+  </button>
+
+  <button class="remove-added-pins-left" onclick="removeAddedPins()">
+    Remove added pins
+  </button>
+</div>
+
+<div id="map"></div>
 <!-- Leaflet JS -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
