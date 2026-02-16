@@ -122,33 +122,35 @@ window.removeAddedPins = function () {
   // Render official pins
   // -------------------------------
   function renderPins() {
-    pinLayer.clearLayers();
+  pinLayer.clearLayers();
 
-    window.MAP_DATA.pins.forEach(pin => {
-      if (pin.area && pin.area !== window.AREA_KEY) return;
-      if (typeof pin.lat !== "number") return;
+  window.MAP_DATA.pins.forEach(pin => {
+    if (pin.area && pin.area !== window.AREA_KEY) return;
+    if (typeof pin.lat !== "number") return;
 
-      const icon = icons[pin.type];
-      const marker = L.marker(
-  [pin.lat, pin.lng],
-  icon ? { icon, pinType: pin.type } : { pinType: pin.type }
-);
+    const icon = icons[pin.type];
+    const marker = L.marker(
+      [pin.lat, pin.lng],
+      icon ? { icon, pinType: pin.type } : { pinType: pin.type }
+    );
 
+    let label = pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name;
 
-      let label = pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name;
+    if (hereLocation) {
+      const meters = map.distance(
+        [hereLocation.lat, hereLocation.lng],
+        [pin.lat, pin.lng]
+      );
+      label += ` · ${formatDistance(meters)}`;
+    }
 
-      if (hereLocation) {
-        const meters = map.distance(
-          [hereLocation.lat, hereLocation.lng],
-          [pin.lat, pin.lng]
-        );
-        label += ` · ${formatDistance(meters)}`;
-      }
+    marker.bindTooltip(label, { direction: "top", offset: [0, -20] });
+    pinLayer.addLayer(marker);
+  });
 
-      marker.bindTooltip(label, { direction: "top", offset: [0, -20] });
-      pinLayer.addLayer(marker);
-    });
-  }
+  // filters must be rendered AFTER pins exist
+  renderPinFilters();
+}
 
   // -------------------------------
   // Render draft pin (local only)
@@ -318,38 +320,6 @@ map.addControl(new HereControl());
       renderPins();
     }
   });
+})();
 
-  // -------------------------------
-  // Initial render
-  // -------------------------------
- function renderPins() {
-  pinLayer.clearLayers();
-
-  window.MAP_DATA.pins.forEach(pin => {
-    if (pin.area && pin.area !== window.AREA_KEY) return;
-    if (typeof pin.lat !== "number") return;
-
-    const icon = icons[pin.type];
-    const marker = L.marker(
-      [pin.lat, pin.lng],
-      { icon, pinType: pin.type }
-    );
-
-    let label = pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name;
-
-    if (hereLocation) {
-      const meters = map.distance(
-        [hereLocation.lat, hereLocation.lng],
-        [pin.lat, pin.lng]
-      );
-      label += ` · ${formatDistance(meters)}`;
-    }
-
-    marker.bindTooltip(label, { direction: "top", offset: [0, -20] });
-    pinLayer.addLayer(marker);
-  });
-
-  // 👇 GUARANTEED correct timing
-  renderPinFilters();
-}
 
