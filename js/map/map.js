@@ -323,5 +323,9 @@ map.addControl(new HereControl());
   // -------------------------------
   // Initial render
   // -------------------------------
-  renderPins();
+   renderPins();
   renderPinFilters();
+
+})(); // closes (function () { ... })
+
+}); // closes DOMContentLoaded
