@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", () => {
 // ===============================
 // JOHREN MAP ENGINE (CLEAN v1.1)
 // ===============================
