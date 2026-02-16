@@ -118,29 +118,21 @@ section {
   color: var(--text-muted);
   font-size: 0.95rem;
 }
-.add-pin {
-  position: fixed;
-  bottom: 70px;        /* keep it above 戻る */
-  right: 12px;
-  z-index: 1100;
-
-  background: white;
+.add-pin-inline {
+  width: 100%;
   padding: 6px 10px;
   font-size: 13px;
   font-weight: 600;
-
-  border-radius: 999px;
+  border-radius: 8px;
   border: 1px solid #aaa;
   background: white;
-  color: #333;
-
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
   cursor: pointer;
 }
 
-.add-pin:hover {
+.add-pin-inline:hover {
   background: #f3f3f3;
 }
+
 
 .map-actions {
   position: absolute;
@@ -149,30 +141,37 @@ section {
   z-index: 850;     /* 👈 LOWER than filters */
 }
 #pin-filters {
+  /* positioning stays the same */
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 1000;
 
-  background: rgba(255, 255, 255, 0.95);
-  padding: 10px 14px;
-  border-radius: 12px;
+  /* QUIET MODE */
+  background: none;        /* 👈 no box */
+  padding: 0;              /* 👈 no container padding */
+  border-radius: 0;
+  box-shadow: none;
 
   display: flex;
   flex-direction: column;
   gap: 6px;
 
-  font-size: 14px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
+  font-size: 13px;
 }
 
 #pin-filters label {
   display: flex;
   align-items: center;
   gap: 6px;
+
   cursor: pointer;
   user-select: none;
+
+  /* subtle spacing without boxing */
+  padding: 2px 0;
 }
+
 #pin-filters input[type="checkbox"] {
   transform: scale(0.9);
 }
