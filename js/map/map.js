@@ -202,6 +202,17 @@ checkbox.addEventListener("change", () => {
     }
   });
 });
+    checkbox.addEventListener("change", () => {
+  pinLayer.eachLayer(layer => {
+    if (layer.options?.pinType === type) {
+      if (checkbox.checked) {
+        layer.addTo(map);
+      } else {
+        map.removeLayer(layer);
+      }
+    }
+  });
+});
     label.appendChild(checkbox);
     label.append(" " + type.charAt(0).toUpperCase() + type.slice(1));
 
