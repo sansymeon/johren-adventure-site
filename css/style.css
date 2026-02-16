@@ -134,17 +134,10 @@ section {
 }
 
 #pin-filters {
-  /* positioning stays the same */
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1000;
-
-  /* QUIET MODE */
-  background: none;        /* 👈 no box */
-  padding: 0;              /* 👈 no container padding */
-  border-radius: 0;
-  box-shadow: none;
+  position: static;     /* 👈 important */
+  background: none;
+  padding: 0;
+  margin: 0;
 
   display: flex;
   flex-direction: column;
@@ -152,6 +145,7 @@ section {
 
   font-size: 13px;
 }
+
 
 #pin-filters label {
   display: flex;
