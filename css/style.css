@@ -133,13 +133,6 @@ section {
   background: #f3f3f3;
 }
 
-
-.map-actions {
-  position: absolute;
-  top: 70px;        /* 👈 push it BELOW filters */
-  right: 10px;
-  z-index: 850;     /* 👈 LOWER than filters */
-}
 #pin-filters {
   /* positioning stays the same */
   position: absolute;
