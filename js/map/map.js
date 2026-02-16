@@ -176,54 +176,37 @@ function renderPinFilters() {
 
   container.innerHTML = "";
 
-  // Collect pin types for this area
   const types = new Set(
-  window.MAP_DATA.pins
-    .filter(p => !p.area || p.area === window.AREA_KEY)
-    .map(p => p.type)
-    .filter(Boolean)
-);
-// Collect pin types for this area
-const types = new Set(
-  window.MAP_DATA.pins
-    .filter(p => !p.area || p.area === window.AREA_KEY)
-    .map(p => p.type)
-    .filter(Boolean)
-);
+    window.MAP_DATA.pins
+      .filter(p => !p.area || p.area === window.AREA_KEY)
+      .map(p => p.type)
+      .filter(Boolean)
+  );
 
-// Collect pin types for this area
-const types = new Set(
-  window.MAP_DATA.pins
-    .filter(p => !p.area || p.area === window.AREA_KEY)
-    .map(p => p.type)
-    .filter(Boolean)
-);
+  types.forEach(type => {
+    const label = document.createElement("label");
 
-// Create a checkbox for each type
-types.forEach(type => {
-  const label = document.createElement("label");
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = true;
 
-  const checkbox = document.createElement("input");
-  checkbox.type = "checkbox";
-  checkbox.checked = true;
-
-  checkbox.addEventListener("change", () => {
-    pinLayer.eachLayer(layer => {
-      if (layer.options?.pinType === type) {
-        if (checkbox.checked) {
-          layer.addTo(map);
-        } else {
-          map.removeLayer(layer);
+    checkbox.addEventListener("change", () => {
+      pinLayer.eachLayer(layer => {
+        if (layer.options?.pinType === type) {
+          checkbox.checked
+            ? layer.addTo(map)
+            : map.removeLayer(layer);
         }
-      }
+      });
     });
+
+    label.appendChild(checkbox);
+    label.append(" " + type.charAt(0).toUpperCase() + type.slice(1));
+
+    container.appendChild(label);
   });
+}
 
-  label.appendChild(checkbox);
-  label.append(" " + type.charAt(0).toUpperCase() + type.slice(1));
-
-  container.appendChild(label);
-});
 
 
   // -------------------------------
