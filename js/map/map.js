@@ -193,15 +193,18 @@ function renderPinFilters() {
     checkbox.type = "checkbox";
     checkbox.checked = true;
 
-    checkbox.addEventListener("change", () => {
+checkbox.addEventListener("change", () => {
   pinLayer.eachLayer(layer => {
     if (layer.options?.pinType === type) {
-      checkbox.checked
-        ? pinLayer.addLayer(layer)
-        : pinLayer.removeLayer(layer);
+      if (checkbox.checked) {
+        pinLayer.addLayer(layer);
+      } else {
+        pinLayer.removeLayer(layer);
+      }
     }
   });
 });
+
 
 
     label.appendChild(checkbox);
