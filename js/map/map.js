@@ -322,7 +322,34 @@ map.addControl(new HereControl());
   // -------------------------------
   // Initial render
   // -------------------------------
-   renderPins();
-  renderPinFilters();
+ function renderPins() {
+  pinLayer.clearLayers();
 
-})(); // closes (function () { ... })
+  window.MAP_DATA.pins.forEach(pin => {
+    if (pin.area && pin.area !== window.AREA_KEY) return;
+    if (typeof pin.lat !== "number") return;
+
+    const icon = icons[pin.type];
+    const marker = L.marker(
+      [pin.lat, pin.lng],
+      { icon, pinType: pin.type }
+    );
+
+    let label = pin.nameEn ? `${pin.name} / ${pin.nameEn}` : pin.name;
+
+    if (hereLocation) {
+      const meters = map.distance(
+        [hereLocation.lat, hereLocation.lng],
+        [pin.lat, pin.lng]
+      );
+      label += ` · ${formatDistance(meters)}`;
+    }
+
+    marker.bindTooltip(label, { direction: "top", offset: [0, -20] });
+    pinLayer.addLayer(marker);
+  });
+
+  // 👇 GUARANTEED correct timing
+  renderPinFilters();
+}
+
