@@ -321,6 +321,7 @@ map.addControl(new HereControl());
       renderPins();
     }
   });
+  renderPins();
 })();
 
 
