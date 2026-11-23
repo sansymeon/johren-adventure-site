@@ -7,6 +7,8 @@
 <meta content="noindex,nofollow" name="robots"/>
 <title>ターボ・アドベンチャーズ — オープニング</title>
 <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" rel="stylesheet"/>
 <link href="./css/discovery-map.css" rel="stylesheet"/>
 <link href="./css/welcome.css" rel="stylesheet"/>
 </head>
@@ -111,17 +113,16 @@
 <div class="brand-row">
 <div class="brand" id="app-title"><img src="../media/turbo/turbo-standing-mark.webp" alt="" width="160" height="200" style="height:1.4em;width:auto;vertical-align:-0.3em" loading="lazy"> ターボはどこ？</div>
 </div>
-<div aria-label="Map view" class="mode-switch" role="group">
-<button aria-pressed="true" class="is-active" data-mode="turbo" type="button">
-        ターボの発見スポット
-      </button>
-<button aria-pressed="false" data-mode="explore" type="button">
-        日本を探検
-      </button>
-</div>
+<button aria-controls="area-bar" aria-expanded="false" class="controls-summary" id="controls-summary" type="button"><span id="controls-summary-text">日本</span></button>
+<div class="area-bar" id="area-bar"></div>
+<button aria-controls="filter-bar" aria-expanded="false" class="filter-toggle" id="filter-toggle" type="button">種類</button>
 <div aria-label="Location filters" class="filter-bar" hidden="" id="filter-bar"></div>
 </div>
 <div class="bottom-bar">
+<div class="bottom-bar-start">
+<button aria-disabled="true" aria-label="前の地図" class="btn-theatre btn-map-back" disabled="" id="btn-map-back" type="button">←</button>
+<a class="btn-theatre btn-map-home" href="/" id="btn-map-home">ホーム</a>
+</div>
 <button class="btn-theatre" id="btn-theatre" title="Return to grand opening" type="button">オープニングへ</button>
 </div>
 <div class="sheet-backdrop" hidden="" id="sheet-backdrop"></div>
@@ -195,6 +196,7 @@
 <script src="/data/japan/map-data.js"></script>
 <script src="./js/config/locations.js"></script>
 <script src="./js/config/pins.js"></script>
+<script src="./js/config/regions.js"></script>
 <script src="./js/config/puzzle.js"></script>
 <script src="./js/i18n.js"></script>
 <script src="./js/collection.js"></script>
@@ -204,6 +206,7 @@
 <script src="./js/geo-normalize.js"></script>
 <script src="./js/discoveries.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="./js/discovery-map.js"></script>
 <script src="./js/gps-checkin.js"></script>
 <script src="./js/collection-screen.js"></script>

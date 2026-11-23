@@ -41,7 +41,13 @@
       filterAirport: "空港",
       filterCultural: "文化スポット",
       filterScenic: "絶景・自然",
+      filterMerchant: "加盟店",
       filterTurbo: "ターボスポット",
+      areaJapan: "日本",
+      areaRegion: "地方",
+      areaPrefecture: "都道府県",
+      areaAllPrefectures: "この地方のすべて",
+      filterCategories: "種類",
       statusExplore: "地図の地点 {n}",
       statusTurbo: "発見スポット {n}",
       collectionButton: "コレクション",
@@ -64,7 +70,12 @@
       resetDone: "この端末のコレクションを消しました。",
       airportSheet: "旅客ターミナルでのチェックインです。鉄道の駅とは別のコレクションです。",
       stationLine: "路線: {line}",
-      stageTemp: "仮のステージ"
+      stageTemp: "仮のステージ",
+      mapBack: "前の地図",
+      mapHome: "ホーム",
+      controlsAllCategories: "すべての種類",
+      controlsNoCategories: "種類なし",
+      controlsSummary: "地図の絞り込み"
     },
     en: {
       gpsButton: "GPS check-in",
@@ -101,7 +112,13 @@
       filterAirport: "Airports",
       filterCultural: "Cultural Spots",
       filterScenic: "Scenic & Nature",
+      filterMerchant: "Merchants",
       filterTurbo: "Turbo Spots",
+      areaJapan: "Japan",
+      areaRegion: "Region",
+      areaPrefecture: "Prefecture",
+      areaAllPrefectures: "All in this region",
+      filterCategories: "Categories",
       statusExplore: "{n} mapped locations",
       statusTurbo: "{n} adventures",
       collectionButton: "Collection",
@@ -124,7 +141,12 @@
       resetDone: "Collection data on this device was cleared.",
       airportSheet: "Check in at the passenger terminal. This is separate from railway stations.",
       stationLine: "Line: {line}",
-      stageTemp: "Temporary stage"
+      stageTemp: "Temporary stage",
+      mapBack: "Previous map",
+      mapHome: "Home",
+      controlsAllCategories: "All categories",
+      controlsNoCategories: "No categories",
+      controlsSummary: "Map filters"
     }
   };
 

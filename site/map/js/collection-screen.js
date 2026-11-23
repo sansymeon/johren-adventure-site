@@ -228,7 +228,9 @@
     button.className = "btn-theatre";
     button.id = "btn-collection";
     button.textContent = t("collectionButton");
-    bar.insertBefore(button, bar.firstChild);
+    var start = bar.querySelector(".bottom-bar-start");
+    if (start) start.appendChild(button);
+    else bar.appendChild(button);
 
     root = document.createElement("section");
     root.id = "collection-view";

@@ -38,10 +38,10 @@
         // Leaflet needs a size refresh after becoming visible
         setTimeout(() => {
           api.map.invalidateSize();
-          api.setMode(mode || "turbo");
+          api.setMode("explore");
         }, 40);
       } else if (api?.setMode) {
-        api.setMode(mode || "turbo");
+        api.setMode("explore");
       }
     };
 
@@ -53,7 +53,7 @@
     const params = new URLSearchParams(location.search);
     const mapParam = params.get("map");
     const showMap = location.hash === "#collection" || mapParam === "1" || mapParam === "turbo" || mapParam === "explore";
-    if (showMap) enterMap(mapParam === "explore" ? "explore" : "turbo");
+    if (showMap) enterMap("explore");
     else showWelcome();
     document.dispatchEvent(new CustomEvent("turbo-route"));
   }

@@ -7,14 +7,13 @@
 
   const JAPAN_CENTER = [36.5, 138.0];
   const JAPAN_ZOOM = 5;
-  const LOCAL_ZOOM = 11;
 
   const FILTERS = [
     { key: "railway", labelKey: "filterRailway" },
     { key: "airport", labelKey: "filterAirport" },
     { key: "cultural", labelKey: "filterCultural" },
     { key: "scenic", labelKey: "filterScenic" },
-    { key: "turbo", labelKey: "filterTurbo" }
+    { key: "merchant", labelKey: "filterMerchant" }
   ];
 
   function icon(url, size) {
@@ -52,21 +51,19 @@
     merchant: iconFromCategory("merchant")
   };
 
-  const turboIcon = L.divIcon({
-    className: "turbo-disc-marker",
-    html: '<span class="turbo-disc-dot" aria-hidden="true"></span>',
-    iconSize: [28, 28],
-    iconAnchor: [14, 14]
-  });
-
   let map;
   let geoLayer;
-  let turboLayer;
   let geo;
-  let mode = "turbo";
+  let mode = "explore";
+  let regionId = "";
+  let prefectureId = "";
   let enabledFilters = new Set(FILTERS.map((f) => f.key));
   let selection = null; // { pin, discovery }
   const els = {};
+  const VIEW_HISTORY_CAP = 30;
+  const viewHistory = [];
+  const CONTROLS_MQ = window.matchMedia("(max-width: 720px)");
+  let suppressHistory = false;
 
   function cacheEls() {
     [
@@ -99,14 +96,6 @@
       const key = id.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
       els[key] = document.getElementById(id);
     });
-  }
-
-  function escapeHtml(s) {
-    return String(s || "")
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
   }
 
   function pinLabel(pin) {
@@ -285,46 +274,28 @@
 
   /* ---- Map layers ---- */
 
-  function explorePopupHtml(pin, discovery) {
-    const bits = [
-      `<div class="popup-title">${escapeHtml(pin.name)}</div>`
-    ];
-    if (pin.nameEn) bits.push(`<div class="popup-en">${escapeHtml(pin.nameEn)}</div>`);
-    bits.push(
-      `<div class="popup-meta">${escapeHtml(pin.filter)} · ${escapeHtml(pin.area || "—")}</div>`
-    );
-    if (discovery?.active) {
-      bits.push(`<div class="popup-turbo">Turbo Adventure available</div>`);
+  function pinVisible(pin) {
+    if (!enabledFilters.has(pin.filter)) return false;
+    if (prefectureId && window.TURBO_REGIONS) {
+      return TURBO_REGIONS.matchesPrefecture(pin.area, prefectureId);
     }
-    return bits.join("");
+    return true;
   }
 
   function renderExplore() {
     geoLayer.clearLayers();
-    turboLayer.clearLayers();
     closeDestination();
 
     geo.pins.forEach((pin) => {
-      const turboSpot = !!discoveryForMappedId(pin.id)?.active;
-      const shown = enabledFilters.has(pin.filter) || (turboSpot && enabledFilters.has("turbo"));
-      if (!shown) return;
+      if (!pinVisible(pin)) return;
 
       const marker = L.marker([pin.lat, pin.lng], {
         icon: typeIconFor(pin),
         keyboard: true,
         title: pinLabel(pin)
       });
-
       const discovery = discoveryForMappedId(pin.id);
-      if (discovery?.active || pin.type === "airport" || pin.type === "station" || pin.type === "castle" || pin.type === "castle_ruins") {
-        marker.on("click", () => openDestination(pin, discovery));
-      } else {
-        marker.bindPopup(explorePopupHtml(pin, discovery), {
-          maxWidth: 260,
-          className: "turbo-popup"
-        });
-      }
-
+      marker.on("click", () => openDestination(pin, discovery));
       marker.bindTooltip(pinLabel(pin), {
         direction: "top",
         offset: [0, -18],
@@ -332,96 +303,266 @@
       });
       geoLayer.addLayer(marker);
     });
-
   }
 
-  function renderTurbo() {
-    geoLayer.clearLayers();
-    turboLayer.clearLayers();
+  function pinsInRegion(id) {
+    if (!id || !window.TURBO_REGIONS) return [];
+    return geo.pins.filter((pin) => TURBO_REGIONS.inRegion(pin.area, id));
+  }
 
-    const active = window.TURBO_DISCOVERY.activeDiscoveries();
-    const focus = [];
+  function snapshotView() {
+    const center = map.getCenter();
+    return {
+      lat: center.lat,
+      lng: center.lng,
+      zoom: map.getZoom(),
+      regionId: regionId,
+      prefectureId: prefectureId,
+      filters: Array.from(enabledFilters)
+    };
+  }
 
-    active.forEach((disc) => {
-      const pin = geo.byId.get(disc.mapped_location_id);
-      if (!pin) {
-        console.warn("mapped_location_id not found:", disc.mapped_location_id);
-        return;
-      }
-      focus.push([pin.lat, pin.lng]);
+  function syncMapBack() {
+    const back = document.getElementById("btn-map-back");
+    if (!back) return;
+    const empty = viewHistory.length === 0;
+    back.disabled = empty;
+    back.setAttribute("aria-disabled", empty ? "true" : "false");
+  }
 
-      // Stations and airports already get their category pin below.
-      // The green disc is only the discovery marker, not a collected badge.
-      if (pin.type === "station" || pin.type === "airport") return;
-
-      const marker = L.marker([pin.lat, pin.lng], {
-        icon: turboIcon,
-        keyboard: true,
-        title: pinLabel(pin)
-      });
-      marker.on("click", () => openDestination(pin, disc));
-      marker.bindTooltip(pinLabel(pin), {
-        direction: "top",
-        offset: [0, -14],
-        opacity: 0.95
-      });
-      turboLayer.addLayer(marker);
-    });
-
-    geo.pins.forEach((pin) => {
-      if (pin.type !== "station") return;
-      const marker = L.marker([pin.lat, pin.lng], {
-        icon: typeIconFor(pin),
-        keyboard: true,
-        title: pinLabel(pin)
-      });
-      marker.on("click", () => openDestination(pin, discoveryForMappedId(pin.id)));
-      marker.bindTooltip(pinLabel(pin), { direction: "top", offset: [0, -18], opacity: 0.95 });
-      geoLayer.addLayer(marker);
-    });
-
-    geo.pins.forEach((pin) => {
-      if (pin.type !== "airport") return;
-      const marker = L.marker([pin.lat, pin.lng], {
-        icon: typeIconFor(pin),
-        keyboard: true,
-        title: pinLabel(pin)
-      });
-      marker.on("click", () => openDestination(pin, null));
-      marker.bindTooltip(pinLabel(pin), { direction: "top", offset: [0, -14], opacity: 0.95 });
-      turboLayer.addLayer(marker);
-      focus.push([pin.lat, pin.lng]);
-    });
-
-    if (focus.length) {
-      const bounds = L.latLngBounds(focus);
-      if (bounds.isValid()) map.fitBounds(bounds.pad(0.35), { maxZoom: LOCAL_ZOOM });
+  function pushView() {
+    if (suppressHistory || !map) return;
+    viewHistory.push(snapshotView());
+    if (viewHistory.length > VIEW_HISTORY_CAP) {
+      viewHistory.splice(0, viewHistory.length - VIEW_HISTORY_CAP);
     }
+    syncMapBack();
   }
 
-  function setMode(next) {
-    mode = next;
+  function applyFilterKeys(keys) {
+    enabledFilters = new Set(keys);
+    document.querySelectorAll("#filter-bar input[data-filter]").forEach((input) => {
+      input.checked = enabledFilters.has(input.dataset.filter);
+    });
+  }
+
+  function restoreView(snap) {
+    suppressHistory = true;
+    regionId = snap.regionId || "";
+    prefectureId = snap.prefectureId || "";
+    applyFilterKeys(snap.filters || []);
+    syncAreaControls();
+    renderExplore();
+    map.setView([snap.lat, snap.lng], snap.zoom);
+    suppressHistory = false;
+    syncMapBack();
+    updateControlsSummary();
+  }
+
+  function onMapBack(event) {
+    if (!viewHistory.length) {
+      event.preventDefault();
+      return;
+    }
+    restoreView(viewHistory.pop());
+  }
+
+  function clusterClickZooms(cluster) {
+    if (!cluster || !geoLayer) return true;
+    let bottom = cluster;
+    while (bottom._childClusters && bottom._childClusters.length === 1) {
+      bottom = bottom._childClusters[0];
+    }
+    if (typeof bottom._zoom !== "number" || typeof bottom._childCount !== "number") {
+      return true;
+    }
+    const spiderfy =
+      geoLayer.options.spiderfyOnMaxZoom &&
+      bottom._zoom === geoLayer._maxZoom &&
+      bottom._childCount === cluster._childCount;
+    return !spiderfy;
+  }
+
+  function wireMapHistory() {
+    const back = document.getElementById("btn-map-back");
+    const home = document.getElementById("btn-map-home");
+    const en = window.TURBO_I18N && TURBO_I18N.lang() === "en";
+    if (back) {
+      back.setAttribute("aria-label", TURBO_I18N.t("mapBack"));
+      back.addEventListener("click", onMapBack);
+    }
+    if (home) {
+      home.href = en ? "/en/" : "/";
+      home.textContent = TURBO_I18N.t("mapHome");
+    }
+    syncMapBack();
+  }
+
+  function fitPins(pins, maxZoom) {
+    suppressHistory = true;
+    if (!pins.length) {
+      map.setView(JAPAN_CENTER, JAPAN_ZOOM);
+    } else {
+      const bounds = L.latLngBounds(pins.map((pin) => [pin.lat, pin.lng]));
+      if (!bounds.isValid()) map.setView(JAPAN_CENTER, JAPAN_ZOOM);
+      else map.fitBounds(bounds.pad(0.25), { maxZoom: maxZoom });
+    }
+    suppressHistory = false;
+  }
+
+  function showJapan() {
+    regionId = "";
+    prefectureId = "";
+    syncAreaControls();
+    map.setView(JAPAN_CENTER, JAPAN_ZOOM);
+    renderExplore();
+  }
+
+  function showRegion(id) {
+    regionId = id;
+    prefectureId = "";
+    syncAreaControls();
+    renderExplore();
+    fitPins(pinsInRegion(id), 8);
+  }
+
+  function showPrefecture(id) {
+    prefectureId = id;
+    if (id && window.TURBO_REGIONS) {
+      regionId = TURBO_REGIONS.regionOf(id) || regionId;
+    }
+    syncAreaControls();
+    renderExplore();
+    if (!id) {
+      fitPins(pinsInRegion(regionId), 8);
+      return;
+    }
+    fitPins(
+      geo.pins.filter((pin) => TURBO_REGIONS.matchesPrefecture(pin.area, id)),
+      12
+    );
+  }
+
+  function syncAreaControls() {
+    const regionSelect = document.getElementById("area-region");
+    const prefSelect = document.getElementById("area-prefecture");
+    if (!regionSelect || !prefSelect || !window.TURBO_REGIONS) return;
+    regionSelect.value = regionId;
+    prefSelect.disabled = !regionId;
+    prefSelect.innerHTML = "";
+    const all = document.createElement("option");
+    all.value = "";
+    all.textContent = TURBO_I18N.t("areaAllPrefectures");
+    prefSelect.appendChild(all);
+    if (regionId) {
+      TURBO_REGIONS.prefecturesIn(regionId).forEach((slug) => {
+        const option = document.createElement("option");
+        option.value = slug;
+        option.textContent = TURBO_REGIONS.label(TURBO_REGIONS.PREFECTURES[slug]);
+        prefSelect.appendChild(option);
+      });
+    }
+    prefSelect.value = prefectureId;
+    updateControlsSummary();
+  }
+
+  function controlsNarrow() {
+    return CONTROLS_MQ.matches;
+  }
+
+  function categorySummary() {
+    const active = FILTERS.filter((f) => enabledFilters.has(f.key));
+    if (active.length === FILTERS.length) return TURBO_I18N.t("controlsAllCategories");
+    if (!active.length) return TURBO_I18N.t("controlsNoCategories");
+    return active.map((f) => TURBO_I18N.t(f.labelKey)).join(" · ");
+  }
+
+  function updateControlsSummary() {
+    const text = document.getElementById("controls-summary-text");
+    const button = document.getElementById("controls-summary");
+    if (button) button.setAttribute("aria-label", TURBO_I18N.t("controlsSummary"));
+    if (!text) return;
+    const parts = [TURBO_I18N.t("areaJapan")];
+    if (regionId && window.TURBO_REGIONS) {
+      const region = TURBO_REGIONS.REGIONS.find((item) => item.id === regionId);
+      if (region) parts.push(TURBO_REGIONS.label(region));
+    }
+    if (prefectureId && window.TURBO_REGIONS && TURBO_REGIONS.PREFECTURES[prefectureId]) {
+      parts.push(TURBO_REGIONS.label(TURBO_REGIONS.PREFECTURES[prefectureId]));
+    }
+    parts.push(categorySummary());
+    text.textContent = parts.join(" · ");
+  }
+
+  function setControlsCollapsed(collapsed) {
+    const bar = document.querySelector(".top-bar");
+    const summary = document.getElementById("controls-summary");
+    const narrow = controlsNarrow();
+    const hideSelectors = collapsed && narrow;
+    if (bar) bar.classList.toggle("controls-collapsed", hideSelectors);
+    if (summary) summary.setAttribute("aria-expanded", hideSelectors ? "false" : "true");
+    if (narrow && !hideSelectors) setFiltersOpen(true);
+    updateControlsSummary();
+  }
+
+  function collapseControlsAfterChoice() {
+    if (controlsNarrow()) setControlsCollapsed(true);
+  }
+
+  function buildAreaSelector() {
+    const bar = document.getElementById("area-bar");
+    if (!bar || !window.TURBO_REGIONS) return;
+    bar.innerHTML = "";
+
+    const regionSelect = document.createElement("select");
+    regionSelect.id = "area-region";
+    regionSelect.setAttribute("aria-label", TURBO_I18N.t("areaRegion"));
+    const japan = document.createElement("option");
+    japan.value = "";
+    japan.textContent = TURBO_I18N.t("areaJapan");
+    regionSelect.appendChild(japan);
+    TURBO_REGIONS.REGIONS.forEach((region) => {
+      const option = document.createElement("option");
+      option.value = region.id;
+      option.textContent = TURBO_REGIONS.label(region);
+      regionSelect.appendChild(option);
+    });
+    regionSelect.addEventListener("change", () => {
+      pushView();
+      if (!regionSelect.value) showJapan();
+      else showRegion(regionSelect.value);
+      collapseControlsAfterChoice();
+    });
+
+    const prefSelect = document.createElement("select");
+    prefSelect.id = "area-prefecture";
+    prefSelect.setAttribute("aria-label", TURBO_I18N.t("areaPrefecture"));
+    prefSelect.addEventListener("change", () => {
+      pushView();
+      showPrefecture(prefSelect.value);
+      collapseControlsAfterChoice();
+    });
+
+    bar.appendChild(regionSelect);
+    bar.appendChild(prefSelect);
+    syncAreaControls();
+  }
+
+  function setFiltersOpen(open) {
+    const bar = document.getElementById("filter-bar");
+    const toggle = document.getElementById("filter-toggle");
+    if (bar) bar.hidden = !open;
+    if (toggle) toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function setMode() {
+    mode = "explore";
     closeStage();
     closeWelcome();
     closeDestination();
     selection = null;
     document.body.classList.remove("overlay-open", "sheet-open");
-
-    document.querySelectorAll("[data-mode]").forEach((btn) => {
-      const on = btn.getAttribute("data-mode") === mode;
-      btn.classList.toggle("is-active", on);
-      btn.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-
-    const filterBar = document.getElementById("filter-bar");
-    if (filterBar) filterBar.hidden = mode !== "explore";
-
-    if (mode === "explore") {
-      map.setView(JAPAN_CENTER, JAPAN_ZOOM);
-      renderExplore();
-    } else {
-      renderTurbo();
-    }
+    showJapan();
   }
 
   function buildFilters() {
@@ -433,11 +574,13 @@
       label.className = "filter-chip";
       const input = document.createElement("input");
       input.type = "checkbox";
+      input.dataset.filter = f.key;
       input.checked = true;
       input.addEventListener("change", () => {
         if (input.checked) enabledFilters.add(f.key);
         else enabledFilters.delete(f.key);
-        if (mode === "explore") renderExplore();
+        renderExplore();
+        updateControlsSummary();
       });
       label.appendChild(input);
       label.append(` ${TURBO_I18N.t(f.labelKey)}`);
@@ -470,14 +613,45 @@
       attribution: "&copy; OpenStreetMap"
     }).addTo(map);
 
-    geoLayer = L.layerGroup().addTo(map);
-    turboLayer = L.featureGroup().addTo(map);
-
-    buildFilters();
-
-    document.querySelectorAll("[data-mode]").forEach((btn) => {
-      btn.addEventListener("click", () => setMode(btn.getAttribute("data-mode")));
+    geoLayer = L.markerClusterGroup({
+      disableClusteringAtZoom: 12,
+      spiderfyOnMaxZoom: true,
+      zoomToBoundsOnClick: true,
+      showCoverageOnHover: false,
+      maxClusterRadius: 56
     });
+    geoLayer.on("clusterclick", (event) => {
+      if (clusterClickZooms(event.layer)) pushView();
+    });
+    geoLayer.addTo(map);
+
+    buildAreaSelector();
+    wireMapHistory();
+    buildFilters();
+    setFiltersOpen(!controlsNarrow());
+    setControlsCollapsed(controlsNarrow());
+    const summary = document.getElementById("controls-summary");
+    if (summary) {
+      summary.addEventListener("click", () => {
+        const bar = document.querySelector(".top-bar");
+        const collapsed = !!(bar && bar.classList.contains("controls-collapsed"));
+        setControlsCollapsed(!collapsed);
+      });
+    }
+    if (typeof CONTROLS_MQ.addEventListener === "function") {
+      CONTROLS_MQ.addEventListener("change", () => {
+        setFiltersOpen(!controlsNarrow());
+        setControlsCollapsed(controlsNarrow());
+      });
+    }
+    const filterToggle = document.getElementById("filter-toggle");
+    if (filterToggle) {
+      filterToggle.textContent = TURBO_I18N.t("filterCategories");
+      filterToggle.addEventListener("click", () => {
+        const bar = document.getElementById("filter-bar");
+        setFiltersOpen(!!(bar && bar.hidden));
+      });
+    }
 
     els.sheetClose.addEventListener("click", closeDestination);
     els.sheetBackdrop.addEventListener("click", closeDestination);
@@ -489,7 +663,7 @@
 
     // Grand opening shows first; welcome.js calls setMode after curtains part.
     if (!document.body.classList.contains("is-welcome")) {
-      setMode("turbo");
+      setMode("explore");
     }
 
     window.TURBO_DISCOVERY_MAP = {

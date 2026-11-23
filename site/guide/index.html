@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ターボ・マイラーの遊び方。鉄道駅のGPSチェックインとモザイク（5・10・25・50）。ターボ・スポットのQRは準備中。" name="description"/>
+<title>ターボ・アドベンチャーズ｜遊び方</title>
+<style>
+:root{--ink:#173043;--muted:#526575;--aqua:#12b8b0;--line:#dce8ea;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:#edf7f6;color:var(--ink);font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+button{font:inherit;cursor:pointer}
+.shell{max-width:1000px;margin:auto;padding:24px 18px 70px}
+.hero{background:linear-gradient(130deg,#0e7884,#11b9ac);border-radius:28px;padding:40px 30px;color:white;position:relative;overflow:hidden;box-shadow:0 18px 40px #0c687326}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:900}
+.hero h1{font-size:clamp(2.4rem,7vw,4.2rem);line-height:1.05;margin:14px 0 12px;max-width:700px}
+.hero p{font-size:1.12rem;max-width:660px;margin:0}
+.turbo{position:absolute;right:24px;bottom:10px}
+.tabs{display:flex;gap:12px;margin:24px 0}
+.tab{flex:1;padding:15px 12px;border:2px solid #cae4e5;background:white;border-radius:14px;font-weight:800;color:#205667}
+.tab[aria-selected=true]{background:#183c50;color:white;border-color:#183c50}
+.panel[hidden]{display:none}
+.intro{font-size:1.12rem;margin:0 0 20px;color:var(--muted)}
+.sectiontitle{margin:32px 0 16px;font-size:1.55rem}
+.steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--white);padding:24px;border-radius:20px;box-shadow:0 5px 22px #0b59600b;border:1px solid var(--line)}
+.n{width:39px;height:39px;display:grid;place-items:center;background:#d8f8f1;border-radius:12px;color:#087e77;font-weight:900;margin-bottom:14px}
+.card h3{font-size:1.17rem;margin:0 0 7px}
+.card p{margin:0;color:var(--muted)}
+.card .symbol{font-size:1.75rem;float:right}
+.banner{margin:22px 0 0;padding:23px 25px;background:#fff2c8;border:1px solid #f2d783;border-radius:20px}
+.banner h3{margin:0 0 8px}
+.banner p{margin:0}
+.rulegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.rule{background:#173f50;color:white;border-radius:17px;padding:18px;min-height:128px}
+.rule strong{display:block;font-size:1.05rem;margin-bottom:7px}
+.rule span{font-size:.94rem;opacity:.9}
+.rule:nth-child(2){background:#087e7e}
+.rule:nth-child(3){background:#ae4f43}
+.merchant .n{background:#ffe9dc;color:#b44c27}
+.later .n{background:#eee7ff;color:#6747af}
+.later .banner{background:#eeeaff;border-color:#d3c5ff}
+.merchant .banner{background:#e5f7ff;border-color:#b7e2f8}
+.faq details{border:1px solid var(--line);border-radius:15px;background:white;padding:17px 20px;margin:10px 0}
+.faq summary{font-weight:800;cursor:pointer}
+.faq p{margin:10px 0 0;color:var(--muted)}
+.sample{margin-top:28px;background:#fff;border-radius:22px;padding:25px;border:1px dashed #a8cfd1}
+.sample h3{margin:0 0 9px}
+.sample ol{padding-left:20px;margin-bottom:0}
+.note{padding:15px 19px;border-left:4px solid var(--aqua);background:#e1f3f1;color:#355b62;margin:25px 0;border-radius:0 12px 12px 0}
+.foot{text-align:center;font-size:.88rem;color:#70848e;margin-top:35px}
+.foot a{color:#087a79}
+.lang{text-align:center;margin:0 0 16px}
+.lang a{display:inline-block;margin:0 4px;padding:7px 11px;border:1px solid #cbdfe1;border-radius:99px;background:#fff;color:#173043;text-decoration:none;font-size:.85rem;font-weight:800}
+.lang a[aria-current=true]{background:#0e7884;color:#fff;border-color:#0e7884}
+a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
+@media(max-width:640px){.hero{padding:30px 23px 36px}.turbo{position:static;display:block;margin-top:12px}.steps,.rulegrid{grid-template-columns:1fr}.rule{min-height:auto}.shell{padding:12px 12px 50px}.card{padding:21px}.tabs{flex-direction:column}}
+</style>
+</head>
+<body>
+<main class="shell">
+<p class="lang"><a aria-current="true" href="/guide/" lang="ja">日本語</a><a href="/en/guide/" lang="en">EN</a> · <a href="/about/">このサービスについて</a></p>
+<header class="hero">
+<div class="eyebrow">TURBO ADVENTURES · 遊び方</div>
+<h1>駅で集めよう。<br/>モザイクを完成させよう。</h1>
+<p>日本語が基本です。英語は同じ体験の言語切り替えです。遊ぶ人はターボ・マイラー。登録なし、無料です。</p>
+<div aria-hidden="true" class="turbo"><img src="/media/turbo/turbo-confident-hero.webp" alt="" width="420" height="525" style="height:160px;width:auto"></div>
+</header>
+<nav aria-label="説明の切り替え" class="tabs">
+<button aria-controls="player" aria-selected="true" class="tab" id="player-tab" role="tab" type="button">🎒 ターボ・マイラー</button>
+<button aria-controls="merchant" aria-selected="false" class="tab" id="merchant-tab" role="tab" type="button">🏪 ターボ・スポット（準備中）</button>
+<button aria-controls="later" aria-selected="false" class="tab" id="later-tab" role="tab" type="button">🎨 これから</button>
+</nav>
+<section aria-labelledby="player-tab" class="panel" id="player" role="tabpanel">
+<p class="intro">いま遊べるのは、鉄道駅でのGPSチェックインと、そこから進む鉄道モザイクです。</p>
+<p><small><strong>ちょっとひとこと 🐢</strong><br/>「マイラー」という名前には、旅や発見を楽しむ気持ちを込めています。でも、マイルやポイントは貯まりません。貯まるのは、思い出とターボのコレクションです！🚂</small></p>
+<p><small><strong>ターボからのお願い 🐢</strong><br/>冒険するときは、周りの人や地域の皆さんへの思いやりを忘れずに！駅やお店、神社やお寺など、それぞれの場所のルールを守って、安全に楽しくターボを探してくださいね。</small></p>
+<h2 class="sectiontitle">遊び方</h2>
+<div class="steps">
+<article class="card"><span class="symbol">🗺️</span><div class="n">01</div><h3>マップを見る</h3><p>マップで鉄道駅を探します。コレクションの画面で、これまでに集めた駅も見られます。</p></article>
+<article class="card"><span class="symbol">🚉</span><div class="n">02</div><h3>駅でGPSチェックイン</h3><p>駅に着いたらチェックインします。1駅につき、1台の端末で成功は1回です。保存したコレクションを消すまで、同じ駅はもう一度たまりません。</p></article>
+<article class="card"><span class="symbol">🧩</span><div class="n">03</div><h3>モザイクを進める</h3><p>集めた駅は鉄道モザイクのピースになります。レベルは5、次に10、25、そして50ピースです。</p></article>
+<article class="card"><span class="symbol">🔓</span><div class="n">04</div><h3>次のレベルへ</h3><p>レベルを完成すると次が開きます。数はまた1から数え直します。空港は別のコレクションで、鉄道モザイクのピースにはなりません。</p></article>
+</div>
+<div class="banner"><h3>ごほうびは別です</h3><p>鉄道モザイクのごほうびと、これからのお店QR（ターボ・スポット）のごほうびは別です。お店のQRは準備中です。</p></div>
+<h2 class="sectiontitle">3つのルール</h2>
+<div class="rulegrid">
+<div class="rule"><strong>1駅につき1回</strong><span>同じ端末では、保存したコレクションを消すまで、その駅はもう一度たまりません。1日ごとのやり直しではありません。</span></div>
+<div class="rule"><strong>無料、登録なし</strong><span>ターボ・マイラーは無料です。登録もお買い物もいりません。</span></div>
+<div class="rule"><strong>空港は別</strong><span>空港を集めても、鉄道モザイクのピースは増えません。</span></div>
+</div>
+<div class="faq"><h2 class="sectiontitle">よくある質問</h2>
+<details><summary>QRを読み取るのですか？</summary><p>鉄道駅の遊び方はGPSチェックインです。お店のQR発見は準備中で、いまの遊び方ではありません。</p></details>
+<details><summary>同じ駅にもう一度チェックインできますか？</summary><p>その端末に保存したコレクションを消すと、また集められます。消すまでは同じ駅は1回です。</p></details>
+<details><summary>画像を保存する機能はありますか？</summary><p>いま公開しているのはコレクションと鉄道モザイクです。画像づくりはこれからの話で、公開中の機能としては案内していません。</p></details>
+</div>
+</section>
+<section aria-labelledby="merchant-tab" class="panel merchant" hidden="" id="merchant" role="tabpanel">
+<p class="intro">お店はターボ・スポットです。お店のQR発見は準備中です。スキャナーはありません。</p>
+<h2 class="sectiontitle">予定している参加</h2>
+<div class="steps">
+<article class="card"><span class="symbol">🏪</span><div class="n">01</div><h3>準備中</h3><p>ターボ・スポットのQR発見は、これからの機能です。いまは駅のGPSチェックインが公開中です。</p></article>
+<article class="card"><span class="symbol">🆓</span><div class="n">02</div><h3>参加は無料の予定</h3><p>お店の参加は、後から無料で案内する予定です。サブスクリプションも、支払いもありません。</p></article>
+<article class="card"><span class="symbol">🎁</span><div class="n">03</div><h3>ごほうびは別</h3><p>これからのお店QRのごほうびは、鉄道モザイクのごほうびとは別です。</p></article>
+</div>
+<div class="banner"><h3>準備中</h3><p>掲示や読み取りの手順は、公開するときに案内します。このページでは申し込みを受け付けていません。</p></div>
+</section>
+<section aria-labelledby="later-tab" class="panel later" hidden="" id="later" role="tabpanel">
+<p class="intro">作品の投稿や共有は、いまの遊び方ではありません。</p>
+<div class="banner"><h3>これから</h3><p>コレクションと鉄道モザイクが、いま遊べる体験です。画像を作って公開する仕組みは、今後の話として残しています。</p></div>
+</section>
+<aside class="note">このページは遊び方の説明です。住所、電話、メール、プライバシーポリシー、利用規約は載せていません。</aside>
+<footer class="foot"><a href="/">ホーム</a> · <a href="/about/">このサービスについて</a> · <a href="/en/guide/" lang="en">English</a></footer>
+</main>
+<script>
+const ids=['player','merchant','later'];
+const tabs=ids.map(id=>document.getElementById(id+'-tab'));
+const panels=ids.map(id=>document.getElementById(id));
+function render(i){tabs.forEach((t,j)=>{t.setAttribute('aria-selected',String(i===j));panels[j].hidden=i!==j})}
+function show(i){render(i);location.hash=ids[i]}
+tabs.forEach((t,i)=>t.addEventListener('click',()=>show(i)));
+function fromHash(){const i=ids.indexOf(location.hash.slice(1));render(i<0?0:i)}
+fromHash();
+window.addEventListener('hashchange',fromHash);
+</script>
+<script src="/js/nav.js"></script>
+</body>
+</html>

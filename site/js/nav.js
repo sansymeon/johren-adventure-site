@@ -63,7 +63,8 @@
       ".turbo-lang a{display:inline-flex;align-items:center;justify-content:center;min-height:36px;box-sizing:border-box;background:#fff;color:#173043;border:1px solid #cbdfe1;border-radius:999px;padding:6px 11px;font-size:13px;font-weight:800;line-height:1;text-decoration:none}" +
       ".turbo-lang a[lang=en]{font-size:1.05rem;padding:6px 10px}" +
       ".turbo-lang a[aria-current=true]{background:#0e7884;color:#fff;border-color:#0e7884}" +
-      "@media (max-width:520px){.turbo-nav{gap:4px}.turbo-nav a{flex:1 1 0;padding:7px 4px;font-size:12px}}" +
+      "@media (max-width:520px){.turbo-nav{gap:3px}.turbo-nav a{flex:1 1 0;padding:6px 3px;font-size:11px}}" +
+      "@media (max-width:400px){.turbo-chrome{padding-left:6px;padding-right:6px}.turbo-nav{gap:2px}.turbo-nav a{padding:6px 2px;font-size:11px}}" +
       "@media (min-width:768px){.turbo-chrome{flex-direction:row;justify-content:center;gap:14px;padding-left:16px;padding-right:16px}}";
     document.head.appendChild(style);
     var chrome = document.createElement("header");
