@@ -53,7 +53,7 @@ In `js/config/locations.js`:
 
 `js/config/puzzle.js` lists the levels: 5, then 10, then 25, then 50. The same file sets the first-level picture (`firstLevel.image`).
 
-Each new railway station reveals one mosaic tile of the current level. A finished level opens the next at zero tiles. Stations already collected do not reveal another tile. The count is stored only as the station list in `localStorage` key `turbo.locationCollection.v1`. Which tiles are open is a shuffle saved once per level in `turbo.railwayMosaic.v1`. The picture is a temporary Turbo portrait until a puzzle illustration is assigned. The same picture is used for the 5, 10, 25, and 50 grids. `js/jigsaw.js` is a separate centre-last plan for a future character puzzle and is not tied to GPS.
+Each new railway station reveals one mosaic tile of the current level. A finished level opens the next at zero tiles. Stations already collected do not reveal another tile. The count is stored only as the station list in `localStorage` key `turbo.locationCollection.v1`. Which tiles are open is a shuffle saved once per level in `turbo.railwayMosaic.v1`. The picture is the Christmas village scene at `/media/scenes/christmas_in_the_village.webp`. The same picture is used for the 5, 10, 25, and 50 grids. `js/jigsaw.js` is a separate centre-last plan for a future character puzzle and is not tied to GPS.
 
 ## Reset test progress
 
