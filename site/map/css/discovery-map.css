@@ -15,8 +15,8 @@
   --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
     "Segoe UI", sans-serif;
   --z-ui: 1000;
-  /* Above the fixed site nav (.turbo-nav is 6000). Overlays stay above the sheet. */
-  --z-sheet: 6400;
+  /* Site nav is in normal flow above the map, so the sheet only stacks over the map. */
+  --z-sheet: 1200;
   --z-overlay: 7200;
 }
 
@@ -42,15 +42,26 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 body.sheet-open #map,
 body.overlay-open #map {
   pointer-events: none;
 }
 
 #map-app {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
   z-index: 0;
+}
+
+body.is-welcome #map-app {
+  display: none;
 }
 
 #map {
@@ -279,8 +290,7 @@ body.overlay-open .top-bar {
   right: 0;
   bottom: 0;
   z-index: var(--z-sheet);
-  max-height: 70vh;
-  max-height: calc(100dvh - 128px - var(--safe-top));
+  max-height: min(70vh, calc(100% - 8px));
   overflow: auto;
   background: var(--panel);
   border-radius: 22px 22px 0 0;
@@ -818,7 +828,7 @@ body.overlay-open .top-bar {
     right: 16px;
     bottom: 16px;
     width: min(420px, 92vw);
-    max-height: min(720px, calc(100dvh - 96px - var(--safe-top)));
+    max-height: min(720px, calc(100% - 16px));
     border-radius: 22px;
     padding-bottom: calc(16px + var(--safe-bottom));
   }
