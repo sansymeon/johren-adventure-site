@@ -1,0 +1,435 @@
+{
+  "kind": "destination-image-catalogue",
+  "notMapData": true,
+  "imageReferencesOnly": true,
+  "notCheckInLocations": true,
+  "disclaimer": "Image references only. proposedPlaceName values are guesses from filenames and a visual pass. They are not verified place pins, not check-in locations, and this file contains no GPS coordinates.",
+  "webCopies": [],
+  "webCopyNote": "No files were written under site/media/destinations/. Root location JPEGs already have a long edge of 1536 or less. img/oita.png is a large PNG of the same onsen scene as img/oita.jpg, so no second web copy was made.",
+  "images": [
+    {
+      "id": "oita_station",
+      "class": 1,
+      "originalFilename": "oita_station.jpg",
+      "sourcePath": "img/oita_station.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "大分駅", "en": "Oita Station", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Filename proposes Oita Station. The picture is a night rotenburo overlooking a lit city and a Ferris wheel, not a station building."
+    },
+    {
+      "id": "oita_png",
+      "class": 1,
+      "originalFilename": "oita.png",
+      "sourcePath": "img/oita.png",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "大分", "en": "Oita", "status": "proposed" },
+      "webCopy": null,
+      "notes": "1536x1024 PNG, about 3 MB. Same onsen scene as img/oita.jpg (different bytes). Use the JPEG as the display file; this PNG stays the source."
+    },
+    {
+      "id": "oita_jpg",
+      "class": 1,
+      "originalFilename": "oita.jpg",
+      "sourcePath": "img/oita.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "大分", "en": "Oita", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Open-air bath in a wooden bathhouse. City name only; the picture does not identify a specific facility."
+    },
+    {
+      "id": "ohori_park",
+      "class": 1,
+      "originalFilename": "ohori_park.jpg",
+      "sourcePath": "img/ohori_park.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "大濠公園", "en": "Ohori Park", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "ohori_coffee",
+      "class": 1,
+      "originalFilename": "ohori_coffee.jpg",
+      "sourcePath": "img/ohori_coffee.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "大濠のカフェ", "en": "Ohori coffee", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Filename suggests a cafe near Ohori. Not verified as a named business."
+    },
+    {
+      "id": "odo_park",
+      "class": 1,
+      "originalFilename": "odo_park.jpg",
+      "sourcePath": "img/odo_park.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "小戸公園", "en": "Odo Park", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "nokonoshima_view",
+      "class": 1,
+      "originalFilename": "nokonoshima_view.jpg",
+      "sourcePath": "img/nokonoshima_view.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "能古島", "en": "Nokonoshima", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Byte-identical to img/nokonoshima_spring.jpg (sha256 prefix 05cecd8ccaf87d06). Rapeseed field, cherry blossom, and an island offshore."
+    },
+    {
+      "id": "beppu_hotsprings",
+      "class": 1,
+      "originalFilename": "beppu_hotsprings.jpg",
+      "sourcePath": "img/beppu_hotsprings.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "別府温泉", "en": "Beppu hot springs", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "futamigaura",
+      "class": 1,
+      "originalFilename": "futamigaura.jpg",
+      "sourcePath": "img/futamigaura.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "二見ヶ浦", "en": "Futamigaura", "status": "proposed" },
+      "webCopy": null,
+      "notes": "More than one Futamigaura exists in Japan. Filename does not say which coast."
+    },
+    {
+      "id": "itoshima_sunrise",
+      "class": 1,
+      "originalFilename": "itoshima_sunrise.jpg",
+      "sourcePath": "img/itoshima_sunrise.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "糸島", "en": "Itoshima", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "atago_shrine",
+      "class": 1,
+      "originalFilename": "atago_shrine.jpg",
+      "sourcePath": "img/atago_shrine.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "愛宕神社", "en": "Atago Shrine", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Many shrines share this name. Not tied to one address."
+    },
+    {
+      "id": "gokoku_shrine",
+      "class": 1,
+      "originalFilename": "gokoku_shrine.jpg",
+      "sourcePath": "img/gokoku_shrine.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "護国神社", "en": "Gokoku Shrine", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Prefectural gokoku shrines share this name. Not tied to one address."
+    },
+    {
+      "id": "karatsu_castle",
+      "class": 1,
+      "originalFilename": "karatsu_castle.jpg",
+      "sourcePath": "img/karatsu_castle.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "唐津城", "en": "Karatsu Castle", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kinrin_lake",
+      "class": 1,
+      "originalFilename": "kinrin_lake.jpg",
+      "sourcePath": "img/kinrin_lake.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "金鱗湖", "en": "Lake Kinrin", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kyudai_tsutaya",
+      "class": 1,
+      "originalFilename": "kyudai_tsutaya_night.jpg",
+      "sourcePath": "img/kyudai_tsutaya_night.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "九大蔦屋", "en": "Kyudai Tsutaya", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Small file (505x548). Filename proposes the Kyushu University Tsutaya bookstore at night."
+    },
+    {
+      "id": "maebaru_ekipiano",
+      "class": 1,
+      "originalFilename": "maebaru_ekipiano.jpg",
+      "sourcePath": "img/maebaru_ekipiano.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "前原エキピアノ", "en": "Maebaru EkiPiano", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Filename proposes a piano or station-side spot in Maebaru. Not verified."
+    },
+    {
+      "id": "paypay_dome",
+      "class": 1,
+      "originalFilename": "paypay_dome.jpg",
+      "sourcePath": "img/paypay_dome.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "みずほPayPayドーム", "en": "Mizuho PayPay Dome", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "yufuin_station",
+      "class": 1,
+      "originalFilename": "yufuin_station.jpg",
+      "sourcePath": "img/yufuin_station.jpg",
+      "proposedUse": "destination-sheet",
+      "proposedPlaceName": { "ja": "由布院駅", "en": "Yufuin Station", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "itoshima_banner",
+      "class": 2,
+      "originalFilename": "itoshima_banner.jpg",
+      "sourcePath": "img/itoshima_banner.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "糸島", "en": "Itoshima", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Sunrise over fields and mountains. Filename says banner; usable as a scenic Itoshima image."
+    },
+    {
+      "id": "karatsu_kunchi",
+      "class": 2,
+      "originalFilename": "karatsu_kunchi.jpg",
+      "sourcePath": "img/karatsu_kunchi.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "唐津くんち", "en": "Karatsu Kunchi", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kk_coastline",
+      "class": 2,
+      "originalFilename": "kk_coastline.jpg",
+      "sourcePath": "img/kk_coastline.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "コタキナバル", "en": "Kota Kinabalu", "status": "proposed" },
+      "webCopy": null,
+      "notes": "kk_ prefix is read as Kota Kinabalu from the set of coastline, mosque, night market, seaview, sunset, and old Jesselton files. Not verified."
+    },
+    {
+      "id": "kk_mosque",
+      "class": 2,
+      "originalFilename": "kk_mosque.jpg",
+      "sourcePath": "img/kk_mosque.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "コタキナバルのモスク", "en": "Kota Kinabalu mosque", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kk_nightmarket",
+      "class": 2,
+      "originalFilename": "kk_nightmarket.jpg",
+      "sourcePath": "img/kk_nightmarket.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "コタキナバルのナイトマーケット", "en": "Kota Kinabalu night market", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kk_old_jesselton",
+      "class": 2,
+      "originalFilename": "kk_old_jesselton.jpg",
+      "sourcePath": "img/kk_old_jesselton.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "旧ジェッセルトン", "en": "Old Jesselton", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kk_seaview",
+      "class": 2,
+      "originalFilename": "kk_seaview.jpg",
+      "sourcePath": "img/kk_seaview.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "コタキナバルの海", "en": "Kota Kinabalu sea view", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "kk_sunset",
+      "class": 2,
+      "originalFilename": "kk_sunset.jpg",
+      "sourcePath": "img/kk_sunset.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "コタキナバルの夕日", "en": "Kota Kinabalu sunset", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "matsubara",
+      "class": 2,
+      "originalFilename": "matsubara.jpg",
+      "sourcePath": "img/matsubara.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "松原", "en": "Matsubara", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Common place name. Paired with matsubara_pines.jpg as a scenic pine-grove image."
+    },
+    {
+      "id": "matsubara_pines",
+      "class": 2,
+      "originalFilename": "matsubara_pines.jpg",
+      "sourcePath": "img/matsubara_pines.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "松原", "en": "Matsubara pines", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "muromigawa",
+      "class": 2,
+      "originalFilename": "muromigawa.jpg",
+      "sourcePath": "img/muromigawa.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "室見川", "en": "Muromi River", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "nishijin",
+      "class": 2,
+      "originalFilename": "nishijin.jpg",
+      "sourcePath": "img/nishijin.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "西新", "en": "Nishijin", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "nishikoen",
+      "class": 2,
+      "originalFilename": "nishikoen.jpg",
+      "sourcePath": "img/nishikoen.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "西公園", "en": "Nishi Park", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "nokonoshima_spring",
+      "class": 2,
+      "originalFilename": "nokonoshima_spring.jpg",
+      "sourcePath": "img/nokonoshima_spring.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "能古島", "en": "Nokonoshima", "status": "proposed" },
+      "webCopy": null,
+      "notes": "Byte-identical duplicate of img/nokonoshima_view.jpg."
+    },
+    {
+      "id": "yunotsubo_street",
+      "class": 2,
+      "originalFilename": "yunotsubo_street.jpg",
+      "sourcePath": "img/yunotsubo_street.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": "湯の坪街道", "en": "Yunotsubo Street", "status": "proposed" },
+      "webCopy": null
+    },
+    {
+      "id": "seahawk",
+      "class": 2,
+      "certainty": "uncertain",
+      "originalFilename": "seahawk.jpg",
+      "sourcePath": "img/seahawk.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": null, "en": null, "status": "proposed" },
+      "webCopy": null,
+      "notes": "Painted night waterfront. Filename does not name a place. Catalogued as uncertain. Not copied."
+    },
+    {
+      "id": "opt_in_hero",
+      "class": 2,
+      "certainty": "uncertain",
+      "originalFilename": "opt-in_hero_image.jpg",
+      "sourcePath": "img/opt-in_hero_image.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": null, "en": null, "status": "proposed" },
+      "webCopy": null,
+      "notes": "Bookstore-cafe interior used as a marketing hero. Place is not identifiable from the filename. Not copied."
+    },
+    {
+      "id": "qrlanding_page_image_jpg",
+      "class": 2,
+      "certainty": "uncertain",
+      "originalFilename": "qrlanding_page_image.jpg",
+      "sourcePath": "img/qrlanding_page_image.jpg",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": null, "en": null, "status": "proposed" },
+      "webCopy": null,
+      "notes": "Generic beach. Filename is a QR landing asset, not a place. Not copied."
+    },
+    {
+      "id": "qrlanding_page_image_png",
+      "class": 2,
+      "certainty": "uncertain",
+      "originalFilename": "qrlanding_page_image.png",
+      "sourcePath": "img/qrlanding_page_image.png",
+      "proposedUse": "scenic",
+      "proposedPlaceName": { "ja": null, "en": null, "status": "proposed" },
+      "webCopy": null,
+      "notes": "Larger PNG sibling of the QR landing beach image (1024x1536, about 1.5 MB). Place unknown. Not copied."
+    }
+  ],
+  "refused": [
+    {
+      "class": 3,
+      "reason": "Map pin masters still used as Turbo category-pin sources. Left in place. Not destination photos.",
+      "paths": [
+        "img/map/artisan.png",
+        "img/map/bath.png",
+        "img/map/bookstore.png",
+        "img/map/church.png",
+        "img/map/clinic.png",
+        "img/map/coffee.png",
+        "img/map/combini.png",
+        "img/map/drugs.png",
+        "img/map/hotel.png",
+        "img/map/landmark.png",
+        "img/map/mosque.png",
+        "img/map/museum.png",
+        "img/map/noodles.png",
+        "img/map/orthodox.png",
+        "img/map/pin-draft.png",
+        "img/map/pin.verified.png",
+        "img/map/pin_personal.png",
+        "img/map/restaurant.png",
+        "img/map/sample.png",
+        "img/map/shrine.png",
+        "img/map/station.png",
+        "img/map/station_gold.png",
+        "img/map/station_visited.png",
+        "img/map/supermarket.png",
+        "img/map/temple.png",
+        "img/map/therapy.png",
+        "img/map/therapy_jbs.png"
+      ]
+    },
+    {
+      "class": 3,
+      "reason": "Web map pins, including official Turbo pins. Not modified and not used as destination images.",
+      "paths": ["site/img/map/"]
+    },
+    {
+      "class": 4,
+      "reason": "Legacy Johren branding or root-level business pin icons. Do not use for Turbo destinations.",
+      "paths": [
+        "img/johren_crest_black.png",
+        "img/johren_crest_gold.png",
+        "img/johren-go.png",
+        "img/tanukicoon.png",
+        "img/placeholder_business.jpg",
+        "img/station.png",
+        "img/station_gold.png"
+      ]
+    },
+    {
+      "class": 5,
+      "reason": "QR codes, UI backgrounds, or generic placeholders. Not location photographs.",
+      "paths": [
+        "img/cashier_qrcode.jpg",
+        "img/cloud_background.jpg",
+        "img/ui/cloud_background.jpg",
+        "img/johren_line_qr.png",
+        "img/karatsukunchi_yama_qrcode.jpg",
+        "img/placeholder_kids.jpg",
+        "img/qr/johren-go.png",
+        "img/qr/johren-start-qr.png",
+        "img/qr/merchant-qr.png",
+        "img/qr/sample-qr.png"
+      ]
+    }
+  ]
+}
