@@ -37,6 +37,46 @@
     return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
   }
 
+  function frameVars(picture) {
+    var w = picture.imageWidth || 1600;
+    var h = picture.imageHeight || 900;
+    return "--scene-w:" + w + ";--scene-h:" + h + ";";
+  }
+
+  function coverSvg(picture, grid, state) {
+    var w = picture.imageWidth || 1600;
+    var h = picture.imageHeight || 900;
+    var holes = "";
+    var i;
+    for (i = 0; i < grid.size; i += 1) {
+      if (!state.open[i]) continue;
+      var col = i % grid.cols;
+      var row = Math.floor(i / grid.cols);
+      var x = (col * w / grid.cols).toFixed(3);
+      var y = (row * h / grid.rows).toFixed(3);
+      var tw = (w / grid.cols).toFixed(3);
+      var th = (h / grid.rows).toFixed(3);
+      holes += '<rect x="' + x + '" y="' + y + '" width="' + tw + '" height="' + th + '" fill="black"/>';
+    }
+    var sleepers = "";
+    for (i = 0; i < 18; i += 1) {
+      var sx = 40 + i * 90;
+      sleepers += '<line x1="' + sx + '" y1="' + (h * 0.78) + '" x2="' + (sx + 36) + '" y2="' + (h * 0.86) + '"/>';
+    }
+    return '<svg class="mosaic-cover" viewBox="0 0 ' + w + " " + h + '" preserveAspectRatio="xMidYMid slice" aria-hidden="true" font-family="Hiragino Sans, Noto Sans JP, Segoe UI, sans-serif">' +
+      "<defs><mask id=\"turbo-cover-mask\"><rect width=\"" + w + '" height="' + h + '" fill="white"/>' +
+      holes + "</mask></defs>" +
+      '<g mask="url(#turbo-cover-mask)">' +
+      '<rect width="' + w + '" height="' + h + '" fill="#123e3a"/>' +
+      '<g fill="none" stroke="#d7efe8" stroke-width="3" opacity="0.28">' +
+      '<path d="M0 ' + (h * 0.8) + " H" + w + '"/>' +
+      '<path d="M0 ' + (h * 0.84) + " H" + w + '"/>' +
+      sleepers + "</g>" +
+      '<text x="50%" y="44%" text-anchor="middle" fill="#f4fbf8" font-size="86" font-weight="800" letter-spacing="6">TURBO ADVENTURES</text>' +
+      '<text x="50%" y="56%" text-anchor="middle" fill="#f0d78c" font-size="52" font-weight="700" letter-spacing="1">Discover Your World</text>' +
+      "</g></svg>";
+  }
+
   function mosaic(size, openCount) {
     var picture = art();
     var grid = global.TURBO_RAILWAY_MOSAIC.layout(size);
@@ -46,23 +86,27 @@
     var i;
     for (i = 0; i < grid.size; i += 1) {
       var hidden = !state.open[i];
-      tiles += '<span class="mosaic-tile' + (hidden ? " is-hidden" : "") + '" data-tile="' + i + '"></span>';
+      tiles += '<span class="mosaic-tile' + (hidden ? " is-hidden" : " is-open") + '" data-tile="' + i + '"></span>';
     }
-    return '<div class="mosaic" data-level="' + size + '" data-open="' + state.count + '" style="--cols:' +
-      grid.cols + ";--rows:" + grid.rows + '">' +
-      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="420" height="525">' +
-      '<div class="mosaic-tiles">' + tiles + "</div></div>";
+    return '<div class="mosaic" data-level="' + size + '" data-open="' + state.count + '" style="' +
+      frameVars(picture) + "--cols:" + grid.cols + ";--rows:" + grid.rows + '">' +
+      '<img class="mosaic-scene" alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="' +
+      (picture.imageWidth || 1600) + '" height="' + (picture.imageHeight || 900) + '">' +
+      '<div class="mosaic-tiles">' + tiles + "</div>" +
+      coverSvg(picture, grid, state) +
+      "</div>";
   }
 
   function fullImage(size) {
     var picture = art();
     if (!picture) return "";
-    return '<div class="puzzle-complete" data-completed-level="' + size + '">' +
-      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="420" height="525">' +
+    return '<div class="puzzle-complete" data-completed-level="' + size + '" style="' + frameVars(picture) + '">' +
+      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="' +
+      (picture.imageWidth || 1600) + '" height="' + (picture.imageHeight || 900) + '">' +
       "</div>";
   }
 
-  function celebrate(frame) {
+  function celebrate(frame, size) {
     if (!frame || frame.getAttribute("data-celebrated") === "1") return;
     var burst = document.createElement("div");
     burst.className = "puzzle-confetti";
@@ -76,10 +120,24 @@
       bit.style.animationDelay = ((i % 6) * 0.04) + "s";
       burst.appendChild(bit);
     }
+    var cheer = document.createElement("p");
+    cheer.className = "mosaic-cheer";
+    cheer.textContent = t("mosaicCheer");
+    var victory = null;
+    if (size > 5) {
+      victory = document.createElement("img");
+      victory.className = "mosaic-victory";
+      victory.alt = "";
+      victory.src = "/media/turbo/poses/turbo_confident_transparent.webp";
+    }
     frame.setAttribute("data-celebrated", "1");
     frame.appendChild(burst);
+    if (victory) frame.appendChild(victory);
+    frame.appendChild(cheer);
     window.setTimeout(function () {
-      if (burst.parentNode) burst.parentNode.removeChild(burst);
+      [burst, cheer, victory].forEach(function (node) {
+        if (node && node.parentNode) node.parentNode.removeChild(node);
+      });
     }, 1700);
   }
 
@@ -119,7 +177,11 @@
       "<h2>" + t("airportHeading") + "</h2>" +
       "<p>" + t("airportProgress", { count: airports }) + "</p>" +
       names("airport");
-    if (done.length) celebrate(root.querySelector(".puzzle-complete"));
+    var justFinished = done.length && (progress.finished || progress.pieces === 0);
+    if (justFinished) {
+      var finishedSize = done[done.length - 1];
+      celebrate(root.querySelector('.puzzle-complete[data-completed-level="' + finishedSize + '"]'), finishedSize);
+    }
   }
 
   function show() {

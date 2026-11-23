@@ -9,6 +9,8 @@
      * Mosaic grids are rectangular tiles, not jigsaw pieces.
      */
     image: "/media/scenes/christmas_in_the_village.webp",
+    imageWidth: 1600,
+    imageHeight: 900,
     temporary: false,
     mosaic: {
       5: { cols: 5, rows: 1 },
