@@ -8,11 +8,17 @@
      * puzzle illustration. Replace image (and temporary: false) when art exists.
      * Path is from the site root. The GPS check-in code does not read this.
      */
-    firstLevel: {
-      id: "railway-5",
-      pieces: 5,
-      image: "/media/turbo/turbo-confident-hero.webp",
-      temporary: true
+    /**
+     * Same temporary portrait for every railway level until a scene exists.
+     * Mosaic grids are rectangular tiles, not jigsaw pieces.
+     */
+    image: "/media/turbo/turbo-confident-hero.webp",
+    temporary: true,
+    mosaic: {
+      5: { cols: 5, rows: 1 },
+      10: { cols: 5, rows: 2 },
+      25: { cols: 5, rows: 5 },
+      50: { cols: 10, rows: 5 }
     }
   };
 })(window);

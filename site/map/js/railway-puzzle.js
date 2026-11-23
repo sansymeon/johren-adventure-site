@@ -41,28 +41,6 @@
     };
   }
 
-  /**
-   * Five-piece layout from the Studio merchant sim: two top corners,
-   * a centre band, two bottom corners. Reveal order is fixed so a given
-   * piece count always uncovers the same regions. The centre is last.
-   * Region index 2 is the centre. This does not store progress.
-   */
-  var FIVE_REVEAL = [0, 1, 3, 4, 2];
-
-  function fivePieces(pieceCount) {
-    var n = pieceCount;
-    if (n < 0) n = 0;
-    if (n > FIVE_REVEAL.length) n = FIVE_REVEAL.length;
-    return FIVE_REVEAL.map(function (index, order) {
-      return {
-        index: index,
-        order: order,
-        centre: index === 2,
-        revealed: order < n
-      };
-    });
-  }
-
   function completedSizes(count) {
     var ladder = levels();
     var left = count;
@@ -79,7 +57,6 @@
   global.TURBO_RAILWAY_PUZZLE = {
     progress: progress,
     levels: levels,
-    fivePieces: fivePieces,
     completedSizes: completedSizes
   };
 })(window);

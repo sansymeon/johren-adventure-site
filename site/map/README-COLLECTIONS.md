@@ -53,11 +53,11 @@ In `js/config/locations.js`:
 
 `js/config/puzzle.js` lists the levels: 5, then 10, then 25, then 50. The same file sets the first-level picture (`firstLevel.image`).
 
-Each new railway station fills one piece of the current level. A finished level opens the next at zero pieces. Stations already collected do not fill another piece. The count is stored only as the station list in `localStorage` key `turbo.locationCollection.v1`. The five-piece board reads that derived count. Pieces uncover in a fixed order, centre last. The picture in use is a temporary Turbo portrait until a puzzle illustration is assigned. Levels 10, 25, and 50 do not have their own artwork yet.
+Each new railway station reveals one mosaic tile of the current level. A finished level opens the next at zero tiles. Stations already collected do not reveal another tile. The count is stored only as the station list in `localStorage` key `turbo.locationCollection.v1`. Which tiles are open is a shuffle saved once per level in `turbo.railwayMosaic.v1`. The picture is a temporary Turbo portrait until a puzzle illustration is assigned. The same picture is used for the 5, 10, 25, and 50 grids. `js/jigsaw.js` is a separate centre-last plan for a future character puzzle and is not tied to GPS.
 
 ## Reset test progress
 
-On the collection screen, **テストデータを消す** / **Clear test data** removes `turbo.locationCollection.v1`.
+On the collection screen, **テストデータを消す** / **Clear test data** removes `turbo.locationCollection.v1`. It leaves the mosaic tile order in `turbo.railwayMosaic.v1`.
 
 Or, in the phone's Safari settings, delete website data for the draft host.
 

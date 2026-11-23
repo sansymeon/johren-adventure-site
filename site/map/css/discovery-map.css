@@ -428,6 +428,30 @@ body.overlay-open .top-bar {
   font-size: 13px;
 }
 
+.mosaic,
+.puzzle-complete {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 8px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #d7cfc3;
+}
+
+.mosaic-tiles {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  grid-template-rows: repeat(var(--rows), minmax(0, 1fr));
+}
+
+.mosaic-tile.is-hidden {
+  background:
+    repeating-linear-gradient(135deg, rgba(28, 26, 23, 0.62) 0 8px, rgba(28, 26, 23, 0.82) 8px 16px);
+}
+
 .puzzle-board {
   position: relative;
   width: 100%;
@@ -438,6 +462,8 @@ body.overlay-open .top-bar {
   background: #d7cfc3;
 }
 
+.mosaic img,
+.puzzle-complete img,
 .puzzle-board img {
   display: block;
   width: 100%;

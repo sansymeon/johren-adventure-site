@@ -1,19 +1,12 @@
 /**
- * Collection screen. The five-piece railway picture follows
- * TURBO_RAILWAY_PUZZLE, which counts unique stations. No second score.
+ * Collection screen. Railway pictures are mosaics. How many tiles are
+ * open is TURBO_RAILWAY_PUZZLE.progress().pieces. Tile choice is the
+ * saved mosaic order. There is no second piece counter.
  */
 (function (global) {
   "use strict";
 
   var root = null;
-
-  var FIVE_BOXES = [
-    { index: 0, left: "0%", top: "0%", width: "50%", height: "34%" },
-    { index: 1, left: "50%", top: "0%", width: "50%", height: "34%" },
-    { index: 2, left: "0%", top: "34%", width: "100%", height: "33%" },
-    { index: 3, left: "0%", top: "67%", width: "50%", height: "33%" },
-    { index: 4, left: "50%", top: "67%", width: "50%", height: "33%" }
-  ];
 
   function t(key, vars) {
     return global.TURBO_I18N.t(key, vars);
@@ -34,8 +27,8 @@
     return pin.name;
   }
 
-  function firstArt() {
-    var config = global.TURBO_PUZZLE_CONFIG && global.TURBO_PUZZLE_CONFIG.firstLevel;
+  function art() {
+    var config = global.TURBO_PUZZLE_CONFIG;
     if (!config || !config.image) return null;
     return config;
   }
@@ -44,33 +37,29 @@
     return String(value).replace(/&/g, "&amp;").replace(/"/g, "&quot;");
   }
 
-  function fiveBoard(pieceCount, complete) {
-    var art = firstArt();
-    if (!art) return "";
-    var pieces = global.TURBO_RAILWAY_PUZZLE.fivePieces(complete ? 5 : pieceCount);
-    var byIndex = {};
-    pieces.forEach(function (piece) { byIndex[piece.index] = piece; });
-    var masks = FIVE_BOXES.map(function (box) {
-      var piece = byIndex[box.index];
-      var hidden = !(piece && piece.revealed);
-      return '<span class="puzzle-mask' + (hidden ? " is-hidden" : "") + (piece && piece.centre ? " is-centre" : "") +
-        '" data-piece="' + box.index + '" style="left:' + box.left + ";top:" + box.top +
-        ";width:" + box.width + ";height:" + box.height + '"></span>';
-    }).join("");
-    return '<div class="puzzle-board" data-complete="' + (complete ? "1" : "0") + '">' +
-      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(art.image) + '" width="420" height="525">' +
-      masks + "</div>";
+  function mosaic(size, openCount) {
+    var picture = art();
+    var grid = global.TURBO_RAILWAY_MOSAIC.layout(size);
+    if (!picture || !grid) return "";
+    var state = global.TURBO_RAILWAY_MOSAIC.revealedTiles(size, openCount);
+    var tiles = "";
+    var i;
+    for (i = 0; i < grid.size; i += 1) {
+      var hidden = !state.open[i];
+      tiles += '<span class="mosaic-tile' + (hidden ? " is-hidden" : "") + '" data-tile="' + i + '"></span>';
+    }
+    return '<div class="mosaic" data-level="' + size + '" data-open="' + state.count + '" style="--cols:' +
+      grid.cols + ";--rows:" + grid.rows + '">' +
+      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="420" height="525">' +
+      '<div class="mosaic-tiles">' + tiles + "</div></div>";
   }
 
-  function cells(progress) {
-    var html = "";
-    var i;
-    var cols = progress.needed > 10 ? 10 : 5;
-    for (i = 0; i < progress.needed; i += 1) {
-      var on = i < progress.pieces;
-      html += '<span class="puzzle-cell' + (on ? " is-on" : "") + '"></span>';
-    }
-    return '<div class="puzzle-grid" data-count="' + progress.needed + '" style="--puzzle-cols:' + cols + '">' + html + "</div>";
+  function fullImage(size) {
+    var picture = art();
+    if (!picture) return "";
+    return '<div class="puzzle-complete" data-completed-level="' + size + '">' +
+      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="420" height="525">' +
+      "</div>";
   }
 
   function celebrate(frame) {
@@ -109,17 +98,13 @@
     var airports = global.TURBO_COLLECTION.list("airport").length;
     var stations = global.TURBO_COLLECTION.list("railway").length;
     var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
-    var onFive = !progress.finished && progress.needed === 5;
-    var art = firstArt();
+    var picture = art();
     var completedHtml = "";
-    if (done.indexOf(5) !== -1 && art) {
-      completedHtml =
-        "<h2>" + t("completedHeading") + "</h2>" +
-        '<div class="puzzle-complete" data-completed-level="5">' + fiveBoard(5, true) + "</div>";
+    if (done.length && picture) {
+      completedHtml = "<h2>" + t("completedHeading") + "</h2>" +
+        done.map(function (size) { return fullImage(size); }).join("");
     }
-    var currentHtml = onFive
-      ? fiveBoard(progress.pieces, false)
-      : (progress.finished ? "" : "<p class=\"collection-note\">" + t("laterLevelNote") + "</p>" + cells(progress));
+    var currentHtml = progress.finished ? "" : mosaic(progress.needed, progress.pieces);
     root.querySelector("[data-collection-body]").innerHTML =
       "<h2>" + t("railwayHeading") + "</h2>" +
       '<p data-railway-progress>' + (progress.finished
@@ -128,15 +113,13 @@
       "</p>" +
       "<p>" + t("stationsCollected", { n: stations }) + "</p>" +
       currentHtml +
-      (art && art.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
+      (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
       completedHtml +
       names("railway") +
       "<h2>" + t("airportHeading") + "</h2>" +
       "<p>" + t("airportProgress", { count: airports }) + "</p>" +
       names("airport");
-    if (done.indexOf(5) !== -1) {
-      celebrate(root.querySelector(".puzzle-complete"));
-    }
+    if (done.length) celebrate(root.querySelector(".puzzle-complete"));
   }
 
   function show() {

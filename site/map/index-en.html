@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/>
+<title>TURBO ADVENTURES — Grand Opening</title>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
+<link href="./css/discovery-map.css" rel="stylesheet"/>
+<link href="./css/welcome.css" rel="stylesheet"/>
+<style>.site-links{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin:0 auto 18px;position:relative;z-index:5}.site-links a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;background:#fff;color:#173043;border-radius:999px;padding:8px 12px;font-size:14px;font-weight:700;line-height:1;text-decoration:none}.site-links a[lang="en"]{font-size:1.15rem}.site-links a[aria-current="true"]{background:#0e7884;color:#fff}</style></head>
+<body class="is-welcome">
+<!-- ========== GRAND OPENING ========== -->
+<section aria-label="Turbo Adventures grand opening" id="grand-opening">
+<div aria-hidden="true" class="go-stage">
+<div class="go-stage-photo"></div>
+<div class="go-lanterns">
+<span class="go-lantern"></span>
+<span class="go-lantern"></span>
+<span class="go-lantern"></span>
+<span class="go-lantern"></span>
+</div>
+<div aria-hidden="true" class="go-confetti">
+<span></span><span></span><span></span><span></span>
+<span></span><span></span><span></span><span></span>
+</div>
+<div class="go-valance"></div>
+<div class="go-curtain go-curtain-left"></div>
+<div class="go-curtain go-curtain-right"></div>
+</div>
+<div class="go-content">
+<header class="go-titles">
+<p class="go-kicker">Opening Night</p>
+<h1 class="go-title">TURBO<br/>ADVENTURES</h1>
+<p class="go-tagline">The World Is Your Playground!</p>
+</header>
+<div aria-label="Turbo Adventures ensemble cast" class="go-ensemble" role="img">
+<div class="go-poster">
+<div class="go-spot"></div>
+<!-- Rear accents -->
+<div class="go-cast go-cast-seagull">
+<img alt="Captain Seagull" decoding="async" height="298" src="./media/cast/captain_seagull.webp" width="700"/>
+</div>
+<div class="go-cast go-cast-nibbles">
+<img alt="Nibbles the Dragon" decoding="async" height="645" src="./media/cast/nibbles.webp" width="700"/>
+</div>
+<div class="go-cast go-cast-lola">
+<img alt="Madame Lola Flamingo" decoding="async" height="700" src="./media/cast/lola.webp" width="500"/>
+</div>
+<div class="go-cast go-cast-hooves">
+<img alt="Sergeant Hooves" decoding="async" height="720" src="./media/cast/sargeant_hooves.webp" width="587"/>
+</div>
+<div class="go-cast go-cast-penguin">
+<img alt="Emperor Penguin" decoding="async" height="645" src="./media/cast/emperor_penguin.webp" width="700"/>
+</div>
+<!-- Featured mid / sides -->
+<div class="go-cast go-cast-colonel">
+<img alt="Colonel Blunderbuss" decoding="async" height="820" src="./media/cast/colonel.webp" width="820"/>
+</div>
+<div class="go-cast go-cast-henrietta">
+<img alt="Dame Henrietta Cluckington" decoding="async" height="720" src="./media/cast/henrietta.webp" width="616"/>
+</div>
+<div class="go-cast go-cast-fifi">
+<img alt="Mademoiselle Fifi LaPlume" decoding="async" height="720" src="./media/cast/fifi.webp" width="657"/>
+</div>
+<div class="go-cast go-cast-humphrey">
+<img alt="Sir Humphrey Proboscis" decoding="async" height="900" src="./media/cast/humphrey.webp" width="506"/>
+</div>
+<!-- Foreground star + companion -->
+<div class="go-cast go-cast-bubbles">
+<img alt="Bubbles" decoding="async" height="680" src="./media/cast/bubbles.webp" width="623"/>
+</div>
+<div class="go-cast go-cast-turbo">
+<img alt="Turbo Turtle" decoding="async" fetchpriority="high" height="960" src="./media/cast/turbo_confident.webp" width="768"/>
+</div>
+<!-- NPC children — front row -->
+<div aria-hidden="true" class="go-npc-cluster">
+<div class="go-cast go-npc go-npc-jamie">
+<img alt="" decoding="async" height="420" src="./media/cast/npc_jamie.webp" width="280"/>
+</div>
+<div class="go-cast go-npc go-npc-elena">
+<img alt="" decoding="async" height="420" src="./media/cast/npc_elena.webp" width="280"/>
+</div>
+<div class="go-cast go-npc go-npc-rick">
+<img alt="" decoding="async" height="420" src="./media/cast/npc_rick.webp" width="383"/>
+</div>
+<div class="go-cast go-npc go-npc-mana">
+<img alt="" decoding="async" height="400" src="./media/cast/npc_mana.webp" width="266"/>
+</div>
+<div class="go-cast go-npc go-npc-margarite">
+<img alt="" decoding="async" height="400" src="./media/cast/npc_margarite.webp" width="266"/>
+</div>
+<div class="go-cast go-npc go-npc-jordan">
+<img alt="" decoding="async" height="400" src="./media/cast/npc_jordan.webp" width="266"/>
+</div>
+</div>
+</div>
+</div>
+<div class="go-actions"><div class="site-links"><a href="/map/" lang="ja">日本語</a><a aria-label="English" href="/en/" lang="en"><span aria-hidden="true">🇬🇧</span></a></div>
+<button class="go-find" id="btn-find-turbo" type="button"><img src="../media/turbo/turbo-standing-mark.webp" alt="" width="160" height="200" style="height:1.4em;width:auto;vertical-align:-0.3em"> FIND TURBO!</button>
+<button class="go-secondary" id="btn-explore-japan" type="button">Explore the Japan map</button>
+<p class="go-foot">Prototype · not public</p>
+</div>
+</div>
+</section>
+<!-- ========== CALM MAP ========== -->
+<div aria-hidden="true" id="map-app">
+<div aria-label="Where's Turbo discovery map" id="map" role="application"></div>
+<div class="top-bar">
+<div class="brand-row">
+<div class="brand" id="app-title"><img src="../media/turbo/turbo-standing-mark.webp" alt="" width="160" height="200" style="height:1.4em;width:auto;vertical-align:-0.3em" loading="lazy"> Where's Turbo?</div>
+</div>
+<div aria-label="Map view" class="mode-switch" role="group">
+<button aria-pressed="true" class="is-active" data-mode="turbo" type="button">
+        Turbo Discoveries
+      </button>
+<button aria-pressed="false" data-mode="explore" type="button">
+        Explore Japan
+      </button>
+</div>
+<div aria-label="Location filters" class="filter-bar" hidden="" id="filter-bar"></div>
+</div>
+<div class="bottom-bar">
+<button class="btn-theatre" id="btn-theatre" title="Return to grand opening" type="button">Theatre</button>
+</div>
+<div class="sheet-backdrop" hidden="" id="sheet-backdrop"></div>
+<aside aria-hidden="true" class="destination-sheet" hidden="" id="destination-sheet">
+<div aria-hidden="true" class="sheet-handle"></div>
+<button aria-label="Close" class="sheet-close" id="sheet-close" type="button">×</button>
+<div class="sheet-media">
+<img alt="" id="sheet-image"/>
+<span class="image-badge" hidden="" id="sheet-image-badge"></span>
+</div>
+<div class="sheet-body">
+<h2 class="sheet-name" id="sheet-name"></h2>
+<p class="sheet-name-en" id="sheet-name-en"></p>
+<p class="sheet-desc" id="sheet-desc"></p>
+<div class="sheet-actions">
+<button class="btn btn-primary" id="btn-view-stage" type="button">View Stage</button>
+<a class="btn btn-secondary" href="#" id="btn-directions" rel="noopener" target="_blank">Get Directions</a>
+<button class="btn btn-ghost" id="btn-preview-welcome" type="button">Preview Welcome Reward</button>
+</div>
+</div>
+</aside>
+<section aria-hidden="true" class="overlay-view" hidden="" id="stage-view">
+<header class="overlay-header">
+<button class="btn btn-back" id="stage-back" type="button">← Map</button>
+<h2 class="overlay-title" id="stage-view-title"></h2>
+</header>
+<div class="stage-frame">
+<img alt="" id="stage-view-image"/>
+<span class="image-badge" hidden="" id="stage-view-badge"></span>
+</div>
+<p class="overlay-caption" id="stage-view-caption"></p>
+</section>
+<section aria-hidden="true" class="overlay-view welcome-view" hidden="" id="welcome-view">
+<header class="overlay-header">
+<button class="btn btn-back" id="welcome-back" type="button">← Map</button>
+<span class="demo-chip">Demo only</span>
+</header>
+<div class="welcome-hero">
+<img alt="" id="welcome-image"/>
+<div class="welcome-hero-fade"></div>
+<div class="welcome-hero-text">
+<h2 id="welcome-title"></h2>
+<p id="welcome-message"></p>
+</div>
+</div>
+<div class="welcome-rewards">
+<div class="reward-card" id="reward-background">
+<div aria-hidden="true" class="reward-emoji">🎁</div>
+<div>
+<div class="reward-label">New background unlocked!</div>
+<div class="reward-name" id="reward-bg-name"></div>
+</div>
+</div>
+<div class="reward-card" id="reward-character">
+<div aria-hidden="true" class="reward-emoji"><img src="../media/turbo/turbo-confident-mark.webp" alt="" width="160" height="200" style="height:48px;width:auto" loading="lazy"></div>
+<div>
+<div class="reward-label">New character discovered!</div>
+<div class="reward-name" id="reward-char-name"></div>
+</div>
+</div>
+<p class="welcome-note">
+        Demonstration only — no ownership records are saved.
+      </p>
+<button class="btn btn-primary btn-block" id="welcome-return" type="button">Return to Map</button>
+</div>
+</section>
+</div><!-- /map-app -->
+<script src="/data/japan/map-data.js"></script>
+<script src="./js/config/locations.js"></script>
+<script src="./js/config/pins.js"></script>
+<script src="./js/config/puzzle.js"></script>
+<script src="./js/i18n.js"></script>
+<script src="./js/collection.js"></script>
+<script src="./js/railway-puzzle.js"></script>
+<script src="./js/railway-mosaic.js"></script>
+<script src="./js/jigsaw.js"></script>
+<script src="./js/geo-normalize.js"></script>
+<script src="./js/discoveries.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="./js/discovery-map.js"></script>
+<script src="./js/gps-checkin.js"></script>
+<script src="./js/collection-screen.js"></script>
+<script src="/js/nav.js"></script>
+<script src="./js/welcome.js"></script>
+</body>
+</html>
