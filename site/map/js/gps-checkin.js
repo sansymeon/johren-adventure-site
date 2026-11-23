@@ -9,22 +9,27 @@
 
   var GPS_UI = {
     showDiagnostics: true,
-    timeoutMs: 15000
+    timeoutMs: 18000
   };
 
   var button = null;
+  var retryBtn = null;
   var statusEl = null;
   var diagEl = null;
   var pending = false;
+  var watchId = null;
+  var timerId = null;
+  var session = 0;
+  var best = null;
 
   function t(key, vars) {
     return global.TURBO_I18N.t(key, vars);
   }
 
-  function metres(n) {
+  function formatSpan(n) {
     if (typeof n !== "number" || !isFinite(n)) return "—";
-    if (n >= 1000) return (n / 1000).toFixed(1) + " km";
-    return String(Math.round(n));
+    if (n >= 1000) return (Math.round((n / 1000) * 10) / 10).toFixed(1) + " km";
+    return Math.round(n) + " m";
   }
 
   function distanceMeters(lat1, lng1, lat2, lng2) {
@@ -63,6 +68,16 @@
       actions.appendChild(button);
     }
     button.textContent = t("gpsButton");
+    retryBtn = document.getElementById("btn-gps-retry");
+    if (!retryBtn) {
+      retryBtn = document.createElement("button");
+      retryBtn.type = "button";
+      retryBtn.className = "btn btn-primary";
+      retryBtn.id = "btn-gps-retry";
+      retryBtn.hidden = true;
+      actions.appendChild(retryBtn);
+    }
+    retryBtn.textContent = t("gpsRetry");
     statusEl = document.getElementById("gps-checkin-status");
     if (!statusEl) {
       statusEl = document.createElement("p");
@@ -103,11 +118,45 @@
     diagEl.hidden = false;
     diagEl.textContent =
       t("diagStation") + ": " + (name || "—") + "\n" +
-      t("diagDistance") + ": " + metres(distanceM) + " m\n" +
-      t("diagAccuracy") + ": " + metres(accuracyM) + " m\n" +
-      t("diagRadius") + ": " + radius + " m\n" +
+      t("diagDistance") + ": " + formatSpan(distanceM) + "\n" +
+      t("diagAccuracy") + ": " + formatSpan(accuracyM) + "\n" +
+      t("diagRadius") + ": " + formatSpan(radius) + "\n" +
       t("diagResult") + ": " + t(resultKey) + "\n" +
       t("diagCollected") + ": " + t(collected ? "diagYes" : "diagNo");
+  }
+
+  function showRetry(on) {
+    if (!retryBtn) return;
+    retryBtn.hidden = !on;
+    if (on) retryBtn.disabled = false;
+  }
+
+  function stopListening() {
+    if (watchId != null && global.navigator.geolocation && global.navigator.geolocation.clearWatch) {
+      global.navigator.geolocation.clearWatch(watchId);
+    }
+    watchId = null;
+    if (timerId != null) {
+      clearTimeout(timerId);
+      timerId = null;
+    }
+  }
+
+  function readingAccuracy(position) {
+    if (!position || !position.coords) return null;
+    var accuracy = position.coords.accuracy;
+    if (typeof accuracy !== "number" || !isFinite(accuracy)) return null;
+    return accuracy;
+  }
+
+  function noteProgress() {
+    var line = t("gpsMeasuring");
+    if (best && best.accuracy != null) {
+      line += "\n" + t("gpsBest", { n: formatSpan(best.accuracy) });
+    } else {
+      line += "\n" + t("gpsBestWait");
+    }
+    setStatus(line, "progress");
   }
 
   function displayName(target, pin) {
@@ -123,6 +172,7 @@
     var target = targetFor(pin);
     button.hidden = !target;
     button.disabled = false;
+    showRetry(false);
     if (!target) {
       setStatus("", "");
       hideDiag();
@@ -151,12 +201,14 @@
     var owned = global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId);
     if (typeof accuracy !== "number" || accuracy > target.spec.maxAccuracyMeters) {
       showDiag(name, distance, accuracy, radius, "resultUncertain", owned);
-      setStatus(t("gpsUncertain", { n: metres(accuracy) }), "warn");
+      showRetry(true);
+      setStatus(t("gpsUncertain", { n: formatSpan(accuracy) }), "warn");
       return;
     }
+    showRetry(false);
     if (distance > radius) {
       showDiag(name, distance, accuracy, radius, "resultFar", owned);
-      setStatus(t("gpsFar", { n: metres(distance) }), "warn");
+      setStatus(t("gpsFar", { n: formatSpan(distance) }), "warn");
       return;
     }
     if (owned) {
@@ -192,6 +244,7 @@
   function onError(error) {
     pending = false;
     if (button) button.disabled = false;
+    showRetry(true);
     if (error && error.code === 1) {
       setStatus(t("gpsDenied"), "warn");
       return;
@@ -214,26 +267,91 @@
       setStatus(t("gpsInsecure"), "warn");
       return;
     }
+    session += 1;
+    var token = session;
+    var settled = false;
+    var started = Date.now();
+    best = null;
     pending = true;
     button.disabled = true;
-    setStatus(t("gpsWorking"), "");
-    navigator.geolocation.getCurrentPosition(
-      function (position) { onPosition(pin, target, position); },
-      onError,
-      { enableHighAccuracy: true, timeout: GPS_UI.timeoutMs, maximumAge: 0 }
-    );
+    showRetry(false);
+    hideDiag();
+    noteProgress();
+
+    function finish() {
+      if (settled || token !== session) return;
+      settled = true;
+      stopListening();
+      if (!best) {
+        onError({ code: 3 });
+        return;
+      }
+      onPosition(pin, target, best.position);
+    }
+
+    function ingest(position) {
+      if (settled || token !== session) return;
+      var accuracy = readingAccuracy(position);
+      if (!best || (accuracy != null && (best.accuracy == null || accuracy < best.accuracy))) {
+        best = { position: position, accuracy: accuracy };
+      }
+      noteProgress();
+      if (accuracy != null && accuracy <= target.spec.maxAccuracyMeters) {
+        settled = true;
+        stopListening();
+        onPosition(pin, target, position);
+      }
+    }
+
+    function onWatchError(error) {
+      if (settled || token !== session) return;
+      if (error && error.code === 1) {
+        settled = true;
+        stopListening();
+        onError(error);
+      }
+    }
+
+    var geo = global.navigator.geolocation;
+    var options = { enableHighAccuracy: true, timeout: GPS_UI.timeoutMs, maximumAge: 0 };
+    if (typeof geo.watchPosition === "function") {
+      watchId = geo.watchPosition(ingest, onWatchError, options);
+    } else {
+      (function poll() {
+        if (settled || token !== session) return;
+        var remain = GPS_UI.timeoutMs - (Date.now() - started);
+        if (remain <= 200) return;
+        geo.getCurrentPosition(function (position) {
+          ingest(position);
+          if (!settled && token === session) poll();
+        }, function (error) {
+          onWatchError(error);
+          if (!settled && token === session) setTimeout(poll, 400);
+        }, {
+          enableHighAccuracy: true,
+          maximumAge: 0,
+          timeout: Math.min(5000, remain)
+        });
+      })();
+    }
+    timerId = setTimeout(finish, GPS_UI.timeoutMs);
   }
 
   function init() {
     ensureControls();
     if (!button || button.dataset.bound === "1") return;
     button.dataset.bound = "1";
-    button.addEventListener("click", function () {
+    function onCheckinClick() {
       var pin = global.TURBO_DISCOVERY_MAP && global.TURBO_DISCOVERY_MAP.selectedPin
         ? global.TURBO_DISCOVERY_MAP.selectedPin()
         : null;
       request(pin);
-    });
+    }
+    button.addEventListener("click", onCheckinClick);
+    if (retryBtn && retryBtn.dataset.bound !== "1") {
+      retryBtn.dataset.bound = "1";
+      retryBtn.addEventListener("click", onCheckinClick);
+    }
   }
 
   global.TURBO_GPS_CHECKIN = {
