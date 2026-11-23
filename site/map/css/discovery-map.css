@@ -413,7 +413,8 @@ body.overlay-open .top-bar {
 
 .collection-body {
   padding: 8px 16px 24px;
-  overflow: auto;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 .collection-body h2 {
@@ -427,11 +428,63 @@ body.overlay-open .top-bar {
   font-size: 13px;
 }
 
+.puzzle-board {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  margin: 8px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #d7cfc3;
+}
+
+.puzzle-board img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.puzzle-mask {
+  position: absolute;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  pointer-events: none;
+}
+
+.puzzle-mask.is-hidden {
+  background:
+    repeating-linear-gradient(135deg, rgba(28, 26, 23, 0.55) 0 8px, rgba(28, 26, 23, 0.72) 8px 16px);
+}
+
+.puzzle-complete {
+  position: relative;
+}
+
+.puzzle-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.puzzle-confetti i {
+  position: absolute;
+  top: -8%;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  animation: puzzle-confetti-fall 1.4s ease-in forwards;
+}
+
+@keyframes puzzle-confetti-fall {
+  to { transform: translateY(120%) rotate(80deg); opacity: 0.2; }
+}
+
 .puzzle-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(var(--puzzle-cols, 5), minmax(0, 1fr));
   gap: 6px;
   margin-top: 8px;
+  max-width: 100%;
 }
 
 .puzzle-cell {
@@ -518,6 +571,14 @@ body.overlay-open .top-bar {
   display: flex;
   flex-direction: column;
   color: #fff;
+}
+
+.collection-view.overlay-view {
+  top: 64px;
+  background: #f6f1e8;
+  color: var(--ink);
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .overlay-header {
