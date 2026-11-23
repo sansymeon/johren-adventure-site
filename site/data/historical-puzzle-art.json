@@ -1,0 +1,685 @@
+{
+  "kind": "historical-puzzle-art-catalogue",
+  "notHeroes": true,
+  "notMapData": true,
+  "notRewardData": true,
+  "imageChoiceStaysInConfig": true,
+  "disclaimer": "Catalogue only. These entries are not collectible heroes, not GPS locations, and not a reward. Puzzle image choice stays in config. No web copies were made for master-only files. oda_nobunaga.jpg is omitted because it is byte-identical to sakamoto_ryoma.jpg and is not a distinct Nobunaga illustration.",
+  "entries": [
+    {
+      "id": "sakamoto_ryoma",
+      "title": "Sakamoto Ryōma",
+      "sourcePath": "artwork/heroes/ivory/sakamoto_ryoma.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "tokugawa_ieyasu",
+      "title": "Tokugawa Ieyasu",
+      "sourcePath": "artwork/heroes/ivory/tokugawa_ieyasu.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "toyotomi_hideyoshi",
+      "title": "Toyotomi Hideyoshi",
+      "sourcePath": "artwork/heroes/ivory/toyotomi_hideyoshi.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "takeda_shingen",
+      "title": "Takeda Shingen",
+      "sourcePath": "artwork/heroes/ivory/takeda_shingen.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "uesugi_kenshin",
+      "title": "Uesugi Kenshin",
+      "sourcePath": "artwork/heroes/ivory/uesugi_kenshin.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "date_masamune",
+      "title": "Date Masamune",
+      "sourcePath": "artwork/heroes/ivory/date_masamune.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "miyamoto_musashi",
+      "title": "Miyamoto Musashi",
+      "sourcePath": "artwork/heroes/ivory/miyamoto_musashi.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "himiko",
+      "title": "Himiko",
+      "sourcePath": "artwork/heroes/ivory/himiko.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "saigo_takamori",
+      "title": "Saigō Takamori",
+      "sourcePath": "artwork/heroes/ivory/saigō_takamori.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "murasaki_shikibu",
+      "title": "Murasaki Shikibu",
+      "sourcePath": "artwork/heroes/ivory/murasaki_shikibu.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "sei_shonagon",
+      "title": "Sei Shōnagon",
+      "sourcePath": "artwork/heroes/ivory/sei_shōnagon.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "fukuzawa_yukichi",
+      "title": "Fukuzawa Yukichi",
+      "sourcePath": "artwork/heroes/ivory/fukuzawa_yukichi.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "katsushika_hokusai",
+      "title": "Katsushika Hokusai",
+      "sourcePath": "artwork/heroes/ivory/katsushika_hokusai.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "matsuo_basho",
+      "title": "Matsuo Bashō",
+      "sourcePath": "artwork/heroes/ivory/matsuo_bashō.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "sen_no_rikyu",
+      "title": "Sen no Rikyū",
+      "sourcePath": "artwork/heroes/ivory/sen_no_rikyu.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "natsume_soseki",
+      "title": "Natsume Sōseki",
+      "sourcePath": "artwork/heroes/ivory/natsume_soseki.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "railway-or-airport"
+    },
+    {
+      "id": "kuroda_kanbei",
+      "title": "Kuroda Kanbei",
+      "sourcePath": "artwork/heroes/ivory/kuroda_kanbei.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "kato_kiyomasa",
+      "title": "Katō Kiyomasa",
+      "sourcePath": "artwork/heroes/ivory/katō_kiyomasa.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "nabeshima_naomasa",
+      "title": "Nabeshima Naomasa",
+      "sourcePath": "artwork/heroes/ivory/nabeshima_naomasa.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "tachibana_muneshige",
+      "title": "Tachibana Muneshige",
+      "sourcePath": "artwork/heroes/ivory/tachibana_muneshige.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "amakusa_shiro",
+      "title": "Amakusa Shirō",
+      "sourcePath": "artwork/heroes/ivory/amakusa_shirō.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "uesugi_yozan",
+      "title": "Uesugi Yōzan",
+      "sourcePath": "artwork/heroes/ivory/uesugi_yōzan.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "shizuki_tadao",
+      "title": "Shizuki Tadao",
+      "sourcePath": "artwork/heroes/ivory/shizuki_tadao.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "ino_tadataka",
+      "title": "Inō Tadataka",
+      "sourcePath": "artwork/heroes/ivory/ino_tadataka.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "john_manjiro",
+      "title": "John Manjirō",
+      "sourcePath": "artwork/heroes/ivory/john_manjiro.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "francis_xavier",
+      "title": "Francis Xavier",
+      "sourcePath": "artwork/heroes/ivory/francis_xavier.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "philipp_franz_von_siebold",
+      "title": "Philipp Franz von Siebold",
+      "sourcePath": "artwork/heroes/ivory/philipp_franz von_siebold.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "thomas_blake_glover",
+      "title": "Thomas Blake Glover",
+      "sourcePath": "artwork/heroes/ivory/thomas_blake_glover.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "william_smith_clark",
+      "title": "William Smith Clark",
+      "sourcePath": "artwork/heroes/ivory/william_smith_clark.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "noguchi_hideyo",
+      "title": "Noguchi Hideyo",
+      "sourcePath": "artwork/heroes/ivory/noguchi_hideyo.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "shibusawa_eiichi",
+      "title": "Shibusawa Eiichi",
+      "sourcePath": "artwork/heroes/ivory/shibusawa_eiichi.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "okuma_shigenobu",
+      "title": "Ōkuma Shigenobu",
+      "sourcePath": "artwork/heroes/ivory/okuma_shigenobu.jpg",
+      "webPath": null,
+      "kind": "historical-animal",
+      "status": "master-only",
+      "proposedUse": "unassigned"
+    },
+    {
+      "id": "akizuki_castle",
+      "title": "Akizuki Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/akizuki_castle.png",
+      "webPath": "/img/map/castles/akizuki_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "bitchu_matsuyama_castle",
+      "title": "Bitchu Matsuyama Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/bitchu_matsuyama_castle.png",
+      "webPath": "/img/map/castles/bitchu_matsuyama_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "edo_castle",
+      "title": "Edo Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/edo_castle.png",
+      "webPath": "/img/map/castles/edo_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "fukuoka_castle",
+      "title": "Fukuoka Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/fukuoka_castle.png",
+      "webPath": "/img/map/castles/fukuoka_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "hachioji_castle",
+      "title": "Hachioji Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/hachioji_castle.png",
+      "webPath": "/img/map/castles/hachioji_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "hikone_castle",
+      "title": "Hikone Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/hikone_castle.png",
+      "webPath": "/img/map/castles/hikone_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "himeji_castle",
+      "title": "Himeji Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/himeji_castle.png",
+      "webPath": "/img/map/castles/himeji_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "hirado_castle",
+      "title": "Hirado Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/hirado_castle.png",
+      "webPath": "/img/map/castles/hirado_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "hirosaki_castle",
+      "title": "Hirosaki Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/hirosaki_castle.png",
+      "webPath": "/img/map/castles/hirosaki_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "imabari_castle",
+      "title": "Imabari Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/imabari_castle.png",
+      "webPath": "/img/map/castles/imabari_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "inuyama_castle",
+      "title": "Inuyama Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/inuyama_castle.png",
+      "webPath": "/img/map/castles/inuyama_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "karatsu_castle",
+      "title": "Karatsu Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/karatsu_castle.png",
+      "webPath": "/img/map/castles/karatsu_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kawagoe_castle",
+      "title": "Kawagoe Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kawagoe_castle.png",
+      "webPath": "/img/map/castles/kawagoe_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kawasarayama_castle",
+      "title": "Kawasarayama Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kawasarayama_castle.png",
+      "webPath": "/img/map/castles/kawasarayama_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kitsuki_castle",
+      "title": "Kitsuki Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kitsuki_castle.png",
+      "webPath": "/img/map/castles/kitsuki_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kochi_castle",
+      "title": "Kochi Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kochi_castle.png",
+      "webPath": "/img/map/castles/kochi_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kokura_castle",
+      "title": "Kokura Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kokura_castle.png",
+      "webPath": "/img/map/castles/kokura_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "kumamoto_castle",
+      "title": "Kumamoto Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/kumamoto_castle.png",
+      "webPath": "/img/map/castles/kumamoto_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "marugame_castle",
+      "title": "Marugame Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/marugame_castle.png",
+      "webPath": "/img/map/castles/marugame_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "maruoka_castle",
+      "title": "Maruoka Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/maruoka_castle.png",
+      "webPath": "/img/map/castles/maruoka_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "matsue_castle",
+      "title": "Matsue Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/matsue_castle.png",
+      "webPath": "/img/map/castles/matsue_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "matsumae_castle",
+      "title": "Matsumae Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/matsumae_castle.png",
+      "webPath": "/img/map/castles/matsumae_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "matsumoto_castle",
+      "title": "Matsumoto Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/matsumoto_castle.png",
+      "webPath": "/img/map/castles/matsumoto_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "minowa_castle",
+      "title": "Minowa Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/minowa_castle.png",
+      "webPath": "/img/map/castles/minowa_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "mito_castle",
+      "title": "Mito Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/mito_castle.png",
+      "webPath": "/img/map/castles/mito_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "nagoya_castle",
+      "title": "Nagoya Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/nagoya_castle.png",
+      "webPath": "/img/map/castles/nagoya_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "nakagusuku_castle_ruins",
+      "title": "Nakagusuku Castle Ruins",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/nakagusuku_castle_ruins.png",
+      "webPath": "/img/map/castles/nakagusuku_castle_ruins.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "obi_castle",
+      "title": "Obi Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/obi_castle.png",
+      "webPath": "/img/map/castles/obi_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "odawara_castle",
+      "title": "Odawara Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/odawara_castle.png",
+      "webPath": "/img/map/castles/odawara_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "osaka_castle",
+      "title": "Osaka Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/osaka_castle.png",
+      "webPath": "/img/map/castles/osaka_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "oshi_castle",
+      "title": "Oshi Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/oshi_castle.png",
+      "webPath": "/img/map/castles/oshi_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "ozu_castle",
+      "title": "Ozu Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/ozu_castle.png",
+      "webPath": "/img/map/castles/ozu_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "sakura_castle",
+      "title": "Sakura Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/sakura_castle.png",
+      "webPath": "/img/map/castles/sakura_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "shimabara_castle",
+      "title": "Shimabara Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/shimabara_castle.png",
+      "webPath": "/img/map/castles/shimabara_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "takamatsu_castle",
+      "title": "Takamatsu Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/takamatsu_castle.png",
+      "webPath": "/img/map/castles/takamatsu_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "takeda_castle",
+      "title": "Takeda Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/takeda_castle.png",
+      "webPath": "/img/map/castles/takeda_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "tsurugacho_castle",
+      "title": "Tsurugacho Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/tsurugacho_castle.png",
+      "webPath": "/img/map/castles/tsurugacho_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "tsuyama_castle",
+      "title": "Tsuyama Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/tsuyama_castle.png",
+      "webPath": "/img/map/castles/tsuyama_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "uwajima_castle",
+      "title": "Uwajima Castle",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/uwajima_castle.png",
+      "webPath": "/img/map/castles/uwajima_castle.webp",
+      "kind": "castle-illustration",
+      "status": "available",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "goryokaku_fort",
+      "title": "Goryokaku Fort",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/goryokaku_fort.png",
+      "webPath": null,
+      "kind": "castle-illustration",
+      "status": "master-only",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "katsuyama_date",
+      "title": "Katsuyama Date",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/katsuyama_date.png",
+      "webPath": null,
+      "kind": "castle-illustration",
+      "status": "master-only",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "nemuro_peninsula_chashi_sites",
+      "title": "Nemuro Peninsula Chashi Sites",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/nemuro_peninsula_chashi_sites.png",
+      "webPath": null,
+      "kind": "castle-illustration",
+      "status": "master-only",
+      "proposedUse": "castle-or-cultural"
+    },
+    {
+      "id": "shinori_date",
+      "title": "Shinori Date",
+      "sourcePath": "external:japanese.jp/turbo_adventure/japanese_castles/shinori_date.png",
+      "webPath": null,
+      "kind": "castle-illustration",
+      "status": "master-only",
+      "proposedUse": "castle-or-cultural"
+    }
+  ]
+}
