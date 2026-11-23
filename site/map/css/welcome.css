@@ -1,0 +1,674 @@
+/* Grand Opening — theatrical welcome (prototype only) */
+
+@import url("https://fonts.googleapis.com/css2?family=Limelight&family=Yusei+Magic&display=swap");
+
+:root {
+  --go-crimson: #8b1230;
+  --go-gold: #f0c14b;
+  --go-gold-deep: #c9922a;
+  --go-ink: #140a12;
+  --go-cream: #fff6e8;
+  --go-safe-top: env(safe-area-inset-top, 0px);
+  --go-safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+#grand-opening {
+  position: fixed;
+  inset: 0;
+  z-index: 5000;
+  overflow: hidden;
+  color: var(--go-cream);
+  background: var(--go-ink);
+  font-family: "Yusei Magic", "Hiragino Maru Gothic ProN", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+#grand-opening[hidden] {
+  display: none !important;
+}
+
+body.is-welcome #map-app {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body:not(.is-welcome) #grand-opening {
+  pointer-events: none;
+}
+
+/* Stage atmosphere */
+.go-stage {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 108%, rgba(240, 193, 75, 0.28), transparent 55%),
+    radial-gradient(ellipse 70% 40% at 50% -10%, rgba(255, 80, 120, 0.35), transparent 60%),
+    linear-gradient(180deg, #2a0a18 0%, #120810 45%, #1a0c14 100%);
+}
+
+.go-stage-photo {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(20, 8, 14, 0.55) 0%, rgba(20, 8, 14, 0.2) 35%, rgba(20, 8, 14, 0.75) 100%),
+    url("../media/cast/stage.webp") center / cover no-repeat;
+  opacity: 0.55;
+  filter: saturate(1.15) contrast(1.05);
+}
+
+.go-lanterns {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.go-lantern {
+  position: absolute;
+  width: 18px;
+  height: 26px;
+  border-radius: 40% 40% 45% 45%;
+  background: radial-gradient(circle at 40% 35%, #ffe7a0, #f0a020 55%, #c45c00);
+  box-shadow: 0 0 24px rgba(255, 180, 60, 0.65), 0 0 60px rgba(255, 120, 40, 0.25);
+  opacity: 0.85;
+  animation: lantern-sway 5.5s ease-in-out infinite;
+}
+
+.go-lantern:nth-child(1) { left: 8%; top: 12%; animation-delay: 0s; }
+.go-lantern:nth-child(2) { right: 10%; top: 16%; animation-delay: 1.2s; width: 14px; height: 20px; }
+.go-lantern:nth-child(3) { left: 18%; top: 22%; animation-delay: 2s; width: 12px; height: 18px; opacity: 0.6; }
+.go-lantern:nth-child(4) { right: 22%; top: 10%; animation-delay: 0.6s; width: 16px; height: 22px; }
+
+@keyframes lantern-sway {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(8px) rotate(5deg); }
+}
+
+/* Curtains */
+.go-curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: min(9vw, 56px);
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #6e0f28 0 10px,
+      #8b1230 10px 20px,
+      #a31838 20px 28px
+    );
+  box-shadow: inset -20px 0 40px rgba(0, 0, 0, 0.45);
+  z-index: 2;
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.go-curtain-left { left: 0; border-right: 3px solid var(--go-gold-deep); }
+.go-curtain-right { right: 0; border-left: 3px solid var(--go-gold-deep); transform: scaleX(-1); }
+
+body.is-entering .go-curtain-left { transform: translateX(-105%); }
+body.is-entering .go-curtain-right { transform: scaleX(-1) translateX(-105%); }
+
+.go-valance {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  z-index: 3;
+  background: linear-gradient(180deg, #7a1028, #4a0a18);
+  border-bottom: 3px solid var(--go-gold);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.go-valance::after {
+  content: "✦  ✦  ✦  ✦  ✦";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.45em;
+  color: var(--go-gold);
+  font-size: 11px;
+  opacity: 0.9;
+}
+
+/* Confetti */
+.go-confetti {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;
+  overflow: hidden;
+}
+
+.go-confetti span {
+  position: absolute;
+  top: -12px;
+  width: 8px;
+  height: 12px;
+  border-radius: 2px;
+  opacity: 0.85;
+  animation: confetti-fall linear infinite;
+}
+
+.go-confetti span:nth-child(odd) { background: var(--go-gold); }
+.go-confetti span:nth-child(even) { background: #ff5a7a; width: 6px; height: 6px; border-radius: 50%; }
+.go-confetti span:nth-child(3n) { background: #7ad7ff; }
+.go-confetti span:nth-child(1) { left: 8%; animation-duration: 7s; animation-delay: 0s; }
+.go-confetti span:nth-child(2) { left: 22%; animation-duration: 9s; animation-delay: 1s; }
+.go-confetti span:nth-child(3) { left: 38%; animation-duration: 6.5s; animation-delay: 0.4s; }
+.go-confetti span:nth-child(4) { left: 55%; animation-duration: 8s; animation-delay: 1.6s; }
+.go-confetti span:nth-child(5) { left: 70%; animation-duration: 7.5s; animation-delay: 0.8s; }
+.go-confetti span:nth-child(6) { left: 84%; animation-duration: 10s; animation-delay: 2s; }
+.go-confetti span:nth-child(7) { left: 45%; animation-duration: 8.5s; animation-delay: 2.4s; }
+.go-confetti span:nth-child(8) { left: 15%; animation-duration: 6.8s; animation-delay: 3s; }
+
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.9; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0.2; }
+}
+
+/* Content */
+.go-content {
+  position: relative;
+  z-index: 5;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: calc(56px + var(--go-safe-top)) max(18px, 11vw) calc(18px + var(--go-safe-bottom));
+  text-align: center;
+}
+
+.go-titles {
+  position: relative;
+  z-index: 40;
+  flex-shrink: 0;
+  animation: go-rise 0.8s ease-out both;
+}
+
+.go-kicker {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--go-gold);
+  text-shadow: 0 0 12px rgba(240, 193, 75, 0.45);
+}
+
+.go-title {
+  margin: 0;
+  font-family: Limelight, "Yusei Magic", serif;
+  font-size: clamp(2rem, 9vw, 3.6rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: var(--go-cream);
+  text-shadow:
+    0 2px 0 #5a1020,
+    0 6px 0 #3a0a14,
+    0 0 28px rgba(240, 193, 75, 0.35);
+}
+
+.go-tagline {
+  margin: 10px 0 0;
+  font-size: clamp(1rem, 3.8vw, 1.35rem);
+  color: var(--go-gold);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.55);
+}
+
+/* Ensemble cast photograph — dual compositions (portrait 5:6 / landscape 16:9) */
+.go-ensemble {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  animation: go-rise 1s 0.15s ease-out both;
+  overflow: hidden;
+  container-type: size;
+  container-name: ensemble;
+  width: 100%;
+  max-width: none;
+}
+
+/*
+  Shared rendering: one .go-poster, one cast DOM.
+  Default = portrait board. Wide screens override aspect + % positions.
+*/
+.go-poster {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  width: min(100%, 42rem, calc(100cqh * 5 / 6));
+  height: auto;
+  max-height: 100%;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+@supports not (width: 1cqh) {
+  .go-poster {
+    width: min(100%, 42rem, calc(55dvh * 5 / 6));
+    max-height: 55dvh;
+  }
+}
+
+.go-cast {
+  position: absolute;
+  bottom: 0;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.55));
+  user-select: none;
+  pointer-events: none;
+  transform-origin: bottom center;
+}
+
+.go-cast img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+.go-spot {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 78%;
+  height: 32%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(255, 220, 140, 0.4), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ========== PORTRAIT COMPOSITION (phone / iPad portrait) ========== */
+
+.go-cast-seagull {
+  left: 8%;
+  top: 2%;
+  bottom: auto;
+  width: 72%;
+  z-index: 8;
+  transform: none;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.4));
+}
+
+.go-cast-nibbles {
+  left: 18%;
+  bottom: 34%;
+  width: 40%;
+  z-index: 6;
+}
+
+.go-cast-lola {
+  right: 14%;
+  bottom: 32%;
+  width: 34%;
+  z-index: 7;
+}
+
+.go-cast-hooves {
+  left: 0%;
+  bottom: 28%;
+  width: 36%;
+  z-index: 5;
+}
+
+.go-cast-penguin {
+  right: 0%;
+  bottom: 28%;
+  width: 34%;
+  z-index: 5;
+}
+
+.go-cast-colonel {
+  left: -4%;
+  bottom: 10%;
+  width: 48%;
+  z-index: 20;
+}
+
+.go-cast-henrietta {
+  left: 12%;
+  bottom: 8%;
+  width: 46%;
+  z-index: 18;
+}
+
+.go-cast-fifi {
+  right: 6%;
+  bottom: 9%;
+  width: 44%;
+  z-index: 17;
+}
+
+.go-cast-humphrey {
+  right: -5%;
+  bottom: 7%;
+  width: 42%;
+  z-index: 21;
+}
+
+.go-cast-bubbles {
+  left: 58%;
+  bottom: 4%;
+  width: 28%;
+  z-index: 24;
+  transform: none;
+}
+
+.go-cast-turbo {
+  left: 50%;
+  bottom: 5%;
+  width: 58%;
+  z-index: 26;
+  transform: translateX(-50%);
+}
+
+.go-npc-cluster {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+}
+
+.go-npc {
+  opacity: 1;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+}
+
+.go-npc-jamie { left: 2%; bottom: 0%; width: 20%; z-index: 41; }
+.go-npc-elena { left: 16%; bottom: 0%; width: 18%; z-index: 42; }
+.go-npc-rick { left: 30%; bottom: 1%; width: 20%; z-index: 43; }
+.go-npc-mana { right: 30%; bottom: 0%; width: 18%; z-index: 42; }
+.go-npc-margarite { right: 16%; bottom: 0%; width: 18%; z-index: 43; }
+.go-npc-jordan { right: 2%; bottom: 1%; width: 18%; z-index: 41; }
+
+/* Phone portrait: fewer secondary figures for a cleaner curtain call */
+@media (orientation: portrait) and (max-width: 767px) {
+  .go-cast-lola,
+  .go-cast-hooves,
+  .go-cast-penguin,
+  .go-npc-mana,
+  .go-npc-jordan {
+    display: none;
+  }
+}
+
+/*
+  ========== WIDE THEATRICAL COMPOSITION ==========
+  Desktop + landscape iPad (and other wide landscape viewports).
+  Not bound to 5:6 or the old 920px ensemble cap.
+*/
+@media (orientation: landscape) and (min-width: 768px),
+       (min-width: 1200px) {
+  .go-ensemble {
+    max-width: none;
+    width: 100%;
+  }
+
+  .go-poster {
+    aspect-ratio: 16 / 9;
+    width: min(100%, 96rem, calc(100cqh * 16 / 9));
+    max-height: 100%;
+  }
+
+  @supports not (width: 1cqh) {
+    .go-poster {
+      width: min(100%, 96rem, calc(52dvh * 16 / 9));
+      max-height: 52dvh;
+    }
+  }
+
+  .go-spot {
+    width: 90%;
+    height: 40%;
+  }
+
+  /* Show all secondaries on the wide board */
+  .go-cast-lola,
+  .go-cast-hooves,
+  .go-cast-penguin,
+  .go-npc-mana,
+  .go-npc-jordan {
+    display: block;
+  }
+
+  .go-cast-seagull {
+    left: 22%;
+    top: -2%;
+    width: 56%;
+    z-index: 9;
+  }
+
+  .go-cast-hooves {
+    left: 1%;
+    bottom: 18%;
+    width: 18%;
+    z-index: 6;
+  }
+
+  .go-cast-nibbles {
+    left: 10%;
+    bottom: 26%;
+    width: 20%;
+    z-index: 7;
+  }
+
+  .go-cast-lola {
+    right: 11%;
+    bottom: 24%;
+    width: 15%;
+    z-index: 7;
+  }
+
+  .go-cast-penguin {
+    right: 1%;
+    bottom: 18%;
+    width: 16%;
+    z-index: 6;
+  }
+
+  .go-cast-colonel {
+    left: 4%;
+    bottom: 4%;
+    width: 26%;
+    z-index: 20;
+  }
+
+  .go-cast-henrietta {
+    left: 18%;
+    bottom: 3%;
+    width: 22%;
+    z-index: 18;
+  }
+
+  .go-cast-turbo {
+    left: 50%;
+    bottom: 1%;
+    width: 26%;
+    z-index: 30;
+    transform: translateX(-50%);
+  }
+
+  .go-cast-bubbles {
+    left: 54%;
+    bottom: 2%;
+    width: 12%;
+    z-index: 28;
+  }
+
+  .go-cast-fifi {
+    right: 16%;
+    bottom: 4%;
+    width: 20%;
+    z-index: 17;
+  }
+
+  .go-cast-humphrey {
+    right: 2%;
+    bottom: 2%;
+    width: 18%;
+    z-index: 21;
+  }
+
+  .go-npc-jamie { left: 3%; bottom: 0%; width: 9%; }
+  .go-npc-elena { left: 11%; bottom: 0%; width: 8%; }
+  .go-npc-rick { left: 19%; bottom: 0%; width: 9%; }
+  .go-npc-mana { left: 62%; right: auto; bottom: 0%; width: 8%; }
+  .go-npc-margarite { left: 72%; right: auto; bottom: 0%; width: 8%; }
+  .go-npc-jordan { left: 82%; right: auto; bottom: 0%; width: 8%; }
+}
+
+/* Actions */
+.go-actions {
+  position: relative;
+  z-index: 50;
+  flex-shrink: 0;
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+  animation: go-rise 0.9s 0.28s ease-out both;
+}
+
+.go-find {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  min-height: 56px;
+  min-width: min(92vw, 360px);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: Limelight, "Yusei Magic", serif;
+  font-size: clamp(1.15rem, 4.5vw, 1.55rem);
+  letter-spacing: 0.06em;
+  color: #1a0a10;
+  background: linear-gradient(180deg, #ffe08a, var(--go-gold) 45%, var(--go-gold-deep));
+  box-shadow:
+    0 0 0 3px rgba(255, 240, 200, 0.35),
+    0 10px 28px rgba(240, 193, 75, 0.45),
+    0 4px 0 #8a6010;
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.go-find:active {
+  transform: translateY(2px);
+  filter: brightness(0.96);
+}
+
+.go-secondary {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: rgba(255, 246, 232, 0.78);
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  padding: 8px 12px;
+  min-height: 40px;
+}
+
+.go-foot {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: rgba(255, 246, 232, 0.45);
+}
+
+@keyframes go-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Map return control */
+.btn-theatre {
+  appearance: none;
+  border: 1px solid rgba(28, 26, 23, 0.12);
+  background: rgba(255, 252, 247, 0.94);
+  color: #5c574f;
+  border-radius: 999px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(28, 26, 23, 0.14);
+  min-height: 36px;
+  white-space: nowrap;
+}
+
+/* Shared chrome tweaks (composition itself is dual-set above) */
+@media (min-width: 768px) {
+  .go-content {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .go-curtain {
+    width: min(10vw, 100px);
+  }
+}
+
+@media (min-width: 1100px) {
+  .go-title { font-size: 4.2rem; }
+
+  .go-content {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* Short phone landscape: keep title + CTA readable; use compact wide board */
+@media (orientation: landscape) and (max-height: 500px) {
+  .go-content {
+    padding-top: calc(36px + var(--go-safe-top));
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .go-titles {
+    flex: 0 0 32%;
+    text-align: left;
+  }
+
+  .go-titles .go-title {
+    font-size: 1.55rem;
+  }
+
+  .go-ensemble {
+    flex: 1 1 60%;
+    min-height: 0;
+    height: 72vh;
+    margin: 0;
+  }
+
+  .go-actions {
+    flex: 0 0 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .go-valance { height: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .go-lantern,
+  .go-confetti span,
+  .go-titles,
+  .go-ensemble,
+  .go-actions,
+  .go-curtain {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .go-confetti { display: none; }
+}
