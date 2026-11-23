@@ -1,8 +1,0 @@
-{
-  "name": "johrenadventure",
-  "private": true,
-  "dependencies": {
-    "@supabase/supabase-js": "^2.0.0",
-    "@netlify/blobs": "^7.0.0"
-  }
-}
