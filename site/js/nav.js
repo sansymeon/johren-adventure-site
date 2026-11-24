@@ -54,7 +54,30 @@
     if (path.indexOf("/cast") === 0 || path.indexOf("/en/cast") === 0) {
       return { ja: "/cast/", en: "/en/cast/" };
     }
+    var pairs = [
+      ["/about/", "/en/about/"],
+      ["/guide/", "/en/guide/"],
+      ["/shops/", "/en/shops/"],
+      ["/terms/", "/en/terms/"],
+      ["/privacy/", "/en/privacy/"]
+    ];
+    for (var i = 0; i < pairs.length; i++) {
+      if (path.indexOf(pairs[i][0]) === 0 || path.indexOf(pairs[i][1]) === 0) {
+        return { ja: pairs[i][0], en: pairs[i][1] };
+      }
+    }
     return { ja: "/", en: "/en/" };
+  }
+
+  function footerLinks() {
+    var en = english();
+    return [
+      { href: en ? "/en/about/" : "/about/", label: en ? "About" : "このサービスについて" },
+      { href: en ? "/en/about/#operator" : "/about/#operator", label: en ? "Operator" : "運営者情報" },
+      { href: en ? "/en/shops/" : "/shops/", label: en ? "For shops" : "お店の皆様へ" },
+      { href: en ? "/en/terms/" : "/terms/", label: en ? "Terms" : "利用規約" },
+      { href: en ? "/en/privacy/" : "/privacy/", label: en ? "Privacy" : "プライバシー" }
+    ];
   }
 
   function inject() {
@@ -71,7 +94,9 @@
       ".turbo-lang a[aria-current=true]{background:#0e7884;color:#fff;border-color:#0e7884}" +
       "@media (max-width:520px){.turbo-nav{gap:3px}.turbo-nav a{flex:1 1 0;padding:6px 3px;font-size:11px}}" +
       "@media (max-width:400px){.turbo-chrome{padding-left:6px;padding-right:6px}.turbo-nav{gap:2px}.turbo-nav a{padding:6px 2px;font-size:11px}}" +
-      "@media (min-width:768px){.turbo-chrome{flex-direction:row;justify-content:center;gap:14px;padding-left:16px;padding-right:16px}}";
+      ".turbo-legal{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 12px;width:100%;max-width:860px;margin:0;padding:0 8px 2px;font-size:12px;line-height:1.4}" +
+      ".turbo-legal a{color:#087a79;font-weight:700;text-decoration:none}" +
+      "@media (min-width:768px){.turbo-chrome{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:14px;padding-left:16px;padding-right:16px}.turbo-legal{flex-basis:100%}}";
     document.head.appendChild(style);
     var chrome = document.createElement("header");
     chrome.className = "turbo-chrome";
@@ -106,8 +131,18 @@
     if (english()) enLink.setAttribute("aria-current", "true");
     langNav.appendChild(ja);
     langNav.appendChild(enLink);
+    var legal = document.createElement("nav");
+    legal.className = "turbo-legal";
+    legal.setAttribute("aria-label", english() ? "Site information" : "サイト情報");
+    footerLinks().forEach(function (item) {
+      var a = document.createElement("a");
+      a.href = item.href;
+      a.textContent = item.label;
+      legal.appendChild(a);
+    });
     chrome.appendChild(nav);
     chrome.appendChild(langNav);
+    chrome.appendChild(legal);
     document.body.insertBefore(chrome, document.body.firstChild);
   }
 
