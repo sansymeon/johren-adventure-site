@@ -217,7 +217,8 @@
   function names(category) {
     var rows = global.TURBO_COLLECTION.list(category);
     if (!rows.length) {
-      return "<p>" + t(category === "airport" ? "airportEmpty" : "railwayEmpty") + "</p>";
+      var emptyKey = category === "airport" ? "airportEmpty" : category === "scenic" ? "scenicEmpty" : "railwayEmpty";
+      return "<p>" + t(emptyKey) + "</p>";
     }
     return "<ul>" + rows.map(function (row) {
       return "<li>" + placeName(category, row.id, row.detail) + "</li>";
@@ -249,7 +250,10 @@
       names("railway") +
       "<h2>" + t("airportHeading") + "</h2>" +
       "<p>" + t("airportProgress", { count: airports }) + "</p>" +
-      names("airport");
+      names("airport") +
+      "<h2>" + t("scenicHeading") + "</h2>" +
+      "<p>" + t("scenicProgress", { count: global.TURBO_COLLECTION.list("scenic").length }) + "</p>" +
+      names("scenic");
     var justFinished = done.length && (progress.finished || progress.pieces === 0);
     if (justFinished) {
       var finishedSize = done[done.length - 1];

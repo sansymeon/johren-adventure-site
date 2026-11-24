@@ -159,6 +159,12 @@
     setStatus(line, "progress");
   }
 
+  function ownedKey(category) {
+    if (category === "airport") return "airportOwned";
+    if (category === "scenic") return "scenicOwned";
+    return "stationOwned";
+  }
+
   function displayName(target, pin) {
     if (global.TURBO_I18N.lang() === "en") {
       return target.spec.placeNameEn || target.spec.nameEn || pin.nameEn || pin.name;
@@ -180,7 +186,7 @@
     }
     hideDiag();
     if (global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId)) {
-      setStatus(t(target.spec.category === "airport" ? "airportOwned" : "stationOwned"), "done");
+      setStatus(t(ownedKey(target.spec.category)), "done");
     } else {
       setStatus("", "");
     }
@@ -213,7 +219,7 @@
     }
     if (owned) {
       showDiag(name, distance, accuracy, radius, "resultOwned", true);
-      setStatus(t(target.spec.category === "airport" ? "airportOwned" : "stationOwned"), "done");
+      setStatus(t(ownedKey(target.spec.category)), "done");
       return;
     }
     global.TURBO_COLLECTION.record(target.spec.category, target.spec.placeId, {
@@ -222,10 +228,10 @@
       accuracyM: Math.round(accuracy)
     });
     showDiag(name, distance, accuracy, radius, "resultOk", true);
-    if (target.spec.category === "airport") {
-      setStatus(t("airportSuccess", {
+    if (target.spec.category === "airport" || target.spec.category === "scenic") {
+      setStatus(t(target.spec.category === "airport" ? "airportSuccess" : "scenicSuccess", {
         name: name,
-        count: global.TURBO_COLLECTION.list("airport").length
+        count: global.TURBO_COLLECTION.list(target.spec.category).length
       }), "ok");
     } else {
       var puzzle = global.TURBO_RAILWAY_PUZZLE.progress();

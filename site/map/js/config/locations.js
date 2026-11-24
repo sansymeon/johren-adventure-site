@@ -244,6 +244,48 @@
           points: [{ id: "yoron_airport", lat: 27.043899, lng: 128.401191 }]
         },
         {
+          id: "izumo_airport",
+          name: "出雲縁結び空港",
+          nameEn: "Izumo Enmusubi Airport",
+          points: [{ id: "izumo_airport", lat: 35.413143, lng: 132.887806 }]
+        },
+        {
+          id: "iwami_airport",
+          name: "萩・石見空港",
+          nameEn: "Hagi-Iwami Airport",
+          points: [{ id: "iwami_airport", lat: 34.678447, lng: 131.796732 }]
+        },
+        {
+          id: "oki_airport",
+          name: "隠岐世界ジオパーク空港",
+          nameEn: "Oki Global Geopark Airport",
+          points: [{ id: "oki_airport", lat: 36.178304, lng: 133.325086 }]
+        },
+        {
+          id: "tottori_airport",
+          name: "鳥取砂丘コナン空港",
+          nameEn: "Tottori Sand Dunes Conan Airport",
+          points: [{ id: "tottori_airport", lat: 35.526549, lng: 134.167707 }]
+        },
+        {
+          id: "yonago_airport",
+          name: "米子鬼太郎空港",
+          nameEn: "Yonago Kitaro Airport",
+          points: [{ id: "yonago_airport", lat: 35.492222, lng: 133.236389 }]
+        },
+        {
+          id: "hiroshima_airport",
+          name: "広島空港",
+          nameEn: "Hiroshima Airport",
+          points: [{ id: "hiroshima_airport", lat: 34.436111, lng: 132.919444 }]
+        },
+        {
+          id: "okayama_airport",
+          name: "岡山桃太郎空港",
+          nameEn: "Okayama Momotaro Airport",
+          points: [{ id: "okayama_airport", lat: 34.760348, lng: 133.853836 }]
+        },
+        {
           id: "takamatsu_airport",
           name: "高松空港",
           nameEn: "Takamatsu Airport",
@@ -279,6 +321,788 @@
           }]
         }
       ]
+    },
+    scenic: {
+      id: "scenic",
+      radiusMeters: 150,
+      maxAccuracyMeters: 150,
+      places: [
+        {
+          id: "tsunoshima_bridge",
+          name: "角島大橋",
+          nameEn: "Tsunoshima Bridge",
+          /* Island-side visitor spot. Not the bridge deck. */
+          points: [{ id: "tsunoshima_bridge", lat: 34.347823, lng: 130.895519 }]
+        },
+        {
+          id: "hinoyama_park",
+          name: "火の山公園",
+          nameEn: "Hinoyama Park",
+          points: [{ id: "hinoyama_park", lat: 33.972840, lng: 130.959417 }]
+        },
+        {
+          id: "bishagonohana",
+          name: "毘沙ノ鼻",
+          nameEn: "Bishagonohana",
+          /* Lookout on the cape, not the cliff edge in the water. */
+          points: [{ id: "bishagonohana", lat: 34.110090, lng: 130.862359 }]
+        },
+        {
+          id: "akiyoshidai",
+          name: "秋吉台",
+          nameEn: "Akiyoshidai",
+          /* Public car park at the karst lookout. */
+          points: [{ id: "akiyoshidai", lat: 34.234080, lng: 131.304827 }]
+        },
+        {
+          id: "akiyoshido",
+          name: "秋芳洞",
+          nameEn: "Akiyoshido Cave",
+          points: [{ id: "akiyoshido", lat: 34.228061, lng: 131.303411 }]
+        },
+        {
+          id: "beppu_benten_pond",
+          name: "別府弁天池",
+          nameEn: "Beppu Benten Pond",
+          points: [{ id: "beppu_benten_pond", lat: 34.255087, lng: 131.244876 }]
+        },
+        {
+          id: "omijima",
+          name: "青海島",
+          nameEn: "Omijima",
+          /* Sightseeing-boat landing, not the open water. */
+          points: [{ id: "omijima", lat: 34.388788, lng: 131.203122 }]
+        },
+        {
+          id: "senjojiki_nagato",
+          name: "千畳敷",
+          nameEn: "Senjojiki",
+          points: [{ id: "senjojiki_nagato", lat: 34.414398, lng: 131.090385 }]
+        },
+        {
+          id: "susa_hornfels",
+          name: "須佐ホルンフェルス",
+          nameEn: "Susa Hornfels",
+          points: [{ id: "susa_hornfels", lat: 34.647417, lng: 131.596111 }]
+        },
+        {
+          id: "mount_kasa",
+          name: "笠山",
+          nameEn: "Mount Kasa",
+          points: [{ id: "mount_kasa", lat: 34.449611, lng: 131.401861 }]
+        },
+        {
+          id: "nagasawa_pond",
+          name: "長沢池",
+          nameEn: "Nagasawa Pond",
+          /* Embankment by the road, not the water. */
+          points: [{ id: "nagasawa_pond", lat: 34.073634, lng: 131.462415 }]
+        },
+        {
+          id: "mount_ohira",
+          name: "大平山",
+          nameEn: "Mount Ohira",
+          points: [{ id: "mount_ohira", lat: 34.073330, lng: 131.630636 }]
+        },
+        {
+          id: "tokiwa_park",
+          name: "ときわ公園",
+          nameEn: "Tokiwa Park",
+          /* Park entrance, not the lake. */
+          points: [{ id: "tokiwa_park", lat: 33.943319, lng: 131.280896 }]
+        },
+        {
+          id: "mount_taika",
+          name: "太華山",
+          nameEn: "Mount Taika",
+          points: [{ id: "mount_taika", lat: 34.008611, lng: 131.819167 }]
+        },
+        {
+          id: "murozumi_coast",
+          name: "室積海岸",
+          nameEn: "Murozumi Coast",
+          points: [{ id: "murozumi_coast", lat: 33.940306, lng: 131.965972 }]
+        },
+        {
+          id: "chausuyama_kofun_park",
+          name: "茶臼山古墳公園",
+          nameEn: "Chausuyama Kofun Park",
+          points: [{ id: "chausuyama_kofun_park", lat: 33.965775, lng: 132.129050 }]
+        },
+        {
+          id: "katazoegahama",
+          name: "片添ヶ浜",
+          nameEn: "Katazoegahama",
+          /* Beach park on Suo-Oshima, not the swim area. */
+          points: [{ id: "katazoegahama", lat: 33.896329, lng: 132.360732 }]
+        },
+        {
+          id: "sandankyo",
+          name: "三段峡",
+          nameEn: "Sandankyo",
+          points: [{ id: "sandankyo", lat: 34.59959, lng: 132.208517 }]
+        },
+        {
+          id: "taishakukyo",
+          name: "帝釈峡",
+          nameEn: "Taishaku-kyo",
+          points: [{ id: "taishakukyo", lat: 34.846111, lng: 133.226111 }]
+        },
+        {
+          id: "misen",
+          name: "弥山",
+          nameEn: "Mount Misen",
+          points: [{ id: "misen", lat: 34.279722, lng: 132.319722 }]
+        },
+        {
+          id: "momijidani_park",
+          name: "紅葉谷公園",
+          nameEn: "Momijidani Park",
+          points: [{ id: "momijidani_park", lat: 34.293809, lng: 132.325038 }]
+        },
+        {
+          id: "tomonoura",
+          name: "鞆の浦",
+          nameEn: "Tomonoura",
+          points: [{ id: "tomonoura", lat: 34.380881, lng: 133.379688 }]
+        },
+        {
+          id: "sensuijima",
+          name: "仙酔島",
+          nameEn: "Sensui Island",
+          points: [{ id: "sensuijima", lat: 34.383117, lng: 133.397853 }]
+        },
+        {
+          id: "okunoshima",
+          name: "大久野島",
+          nameEn: "Okunoshima",
+          points: [{ id: "okunoshima", lat: 34.309167, lng: 132.993056 }]
+        },
+        {
+          id: "haigamine",
+          name: "灰ヶ峰",
+          nameEn: "Mount Haigamine",
+          points: [{ id: "haigamine", lat: 34.270139, lng: 132.593444 }]
+        },
+        {
+          id: "fudekageyama",
+          name: "筆影山",
+          nameEn: "Mount Fudekage",
+          points: [{ id: "fudekageyama", lat: 34.376056, lng: 133.081222 }]
+        },
+        {
+          id: "mominoki_forest_park",
+          name: "もみのき森林公園",
+          nameEn: "Mominoki Forest Park",
+          points: [{ id: "mominoki_forest_park", lat: 34.480461, lng: 132.178083 }]
+        },
+        {
+          id: "kiroyama_observatory",
+          name: "亀老山展望公園",
+          nameEn: "Kiroyama Observatory",
+          points: [{ id: "kiroyama_observatory", lat: 34.120278, lng: 133.033612 }]
+        },
+        {
+          id: "washuzan",
+          name: "鷲羽山",
+          nameEn: "Mount Washu",
+          points: [{ id: "washuzan", lat: 34.435478, lng: 133.812447 }]
+        },
+        {
+          id: "hiruzen",
+          name: "蒜山高原",
+          nameEn: "Hiruzen Highlands",
+          points: [{ id: "hiruzen", lat: 35.325, lng: 133.6636 }]
+        },
+        {
+          id: "kanba_falls",
+          name: "神庭の滝",
+          nameEn: "Kanba Falls",
+          points: [{ id: "kanba_falls", lat: 35.118611, lng: 133.678778 }]
+        },
+        {
+          id: "ikura_cave",
+          name: "井倉洞",
+          nameEn: "Ikura Cave",
+          points: [{ id: "ikura_cave", lat: 34.927494, lng: 133.524632 }]
+        },
+        {
+          id: "makido_cave",
+          name: "満奇洞",
+          nameEn: "Maki-do Cave",
+          points: [{ id: "makido_cave", lat: 34.97175, lng: 133.583417 }]
+        },
+        {
+          id: "okutsu_gorge",
+          name: "奥津渓",
+          nameEn: "Okutsu Gorge",
+          points: [{ id: "okutsu_gorge", lat: 35.213572, lng: 133.915097 }]
+        },
+        {
+          id: "gokei",
+          name: "豪渓",
+          nameEn: "Gokei",
+          points: [{ id: "gokei", lat: 34.760028, lng: 133.699222 }]
+        },
+        {
+          id: "ushimado_olive",
+          name: "牛窓オリーブ園",
+          nameEn: "Ushimado Olive Garden",
+          points: [{ id: "ushimado_olive", lat: 34.625694, lng: 134.15625 }]
+        },
+        {
+          id: "ojigatake",
+          name: "王子が岳",
+          nameEn: "Mount Ojigatake",
+          points: [{ id: "ojigatake", lat: 34.461944, lng: 133.882222 }]
+        },
+        {
+          id: "shibukawa_coast",
+          name: "渋川海岸",
+          nameEn: "Shibukawa Coast",
+          points: [{ id: "shibukawa_coast", lat: 34.453889, lng: 133.904722 }]
+        },
+        {
+          id: "bitchu_cave",
+          name: "備中鐘乳穴",
+          nameEn: "Bitchu Limestone Cave",
+          points: [{ id: "bitchu_cave", lat: 34.955494, lng: 133.679022 }]
+        },
+        {
+          id: "onbara_highlands",
+          name: "恩原高原",
+          nameEn: "Onbara Highlands",
+          points: [{ id: "onbara_highlands", lat: 35.305713, lng: 133.985298 }]
+        },
+        {
+          id: "daigo_zakura",
+          name: "醍醐桜",
+          nameEn: "Daigo Cherry Trees",
+          points: [{ id: "daigo_zakura", lat: 35.024, lng: 133.647194 }]
+        },
+        {
+          id: "shinji_sunset",
+          name: "宍道湖",
+          nameEn: "Shinji Lake",
+          points: [{ id: "shinji_sunset", lat: 35.459639, lng: 133.052583 }]
+        },
+        {
+          id: "inasa_beach",
+          name: "稲佐の浜",
+          nameEn: "Inasa Beach",
+          points: [{ id: "inasa_beach", lat: 35.400806, lng: 132.672139 }]
+        },
+        {
+          id: "hinomisaki_lighthouse",
+          name: "出雲日御碕灯台",
+          nameEn: "Izumo Hinomisaki Lighthouse",
+          points: [{ id: "hinomisaki_lighthouse", lat: 35.433743, lng: 132.629271 }]
+        },
+        {
+          id: "mount_sanbe",
+          name: "三瓶山",
+          nameEn: "Mount Sanbe",
+          points: [{ id: "mount_sanbe", lat: 35.140528, lng: 132.621528 }]
+        },
+        {
+          id: "tachikue_gorge",
+          name: "立久恵峡",
+          nameEn: "Tachikue Gorge",
+          points: [{ id: "tachikue_gorge", lat: 35.296267, lng: 132.737008 }]
+        },
+        {
+          id: "oninoshiburi",
+          name: "鬼の舌震",
+          nameEn: "Oninoshiburi",
+          points: [{ id: "oninoshiburi", lat: 35.168333, lng: 133.023333 }]
+        },
+        {
+          id: "ryuzu_falls_shimane",
+          name: "龍頭が滝",
+          nameEn: "Ryuzu Falls",
+          points: [{ id: "ryuzu_falls_shimane", lat: 35.195183, lng: 132.78467 }]
+        },
+        {
+          id: "mihoseki_lighthouse",
+          name: "美保関灯台",
+          nameEn: "Mihoseki Lighthouse",
+          points: [{ id: "mihoseki_lighthouse", lat: 35.5675, lng: 133.325278 }]
+        },
+        {
+          id: "iwami_seaside_park",
+          name: "石見海浜公園",
+          nameEn: "Iwami Seaside Park",
+          points: [{ id: "iwami_seaside_park", lat: 34.951133, lng: 132.118508 }]
+        },
+        {
+          id: "kuniga_coast",
+          name: "国賀海岸",
+          nameEn: "Kuniga Coast",
+          points: [{ id: "kuniga_coast", lat: 36.103333, lng: 132.967778 }]
+        },
+        {
+          id: "matengai_cliff",
+          name: "摩天崖",
+          nameEn: "Matengai Cliff",
+          points: [{ id: "matengai_cliff", lat: 36.106778, lng: 132.972945 }]
+        },
+        {
+          id: "sekiheki_cliff",
+          name: "赤壁",
+          nameEn: "Sekiheki",
+          points: [{ id: "sekiheki_cliff", lat: 36.009805, lng: 133.010148 }]
+        },
+        {
+          id: "akiya_coast",
+          name: "明屋海岸",
+          nameEn: "Akiya Coast",
+          points: [{ id: "akiya_coast", lat: 36.105749, lng: 133.125075 }]
+        },
+        {
+          id: "tottori_dunes",
+          name: "鳥取砂丘",
+          nameEn: "Tottori Sand Dunes",
+          points: [{ id: "tottori_dunes", lat: 35.5425, lng: 134.230278 }]
+        },
+        {
+          id: "uradome_coast",
+          name: "浦富海岸",
+          nameEn: "Uradome Coast",
+          points: [{ id: "uradome_coast", lat: 35.588056, lng: 134.293333 }]
+        },
+        {
+          id: "hakuto_beach",
+          name: "白兎海岸",
+          nameEn: "Hakuto Beach",
+          points: [{ id: "hakuto_beach", lat: 35.526002, lng: 134.116762 }]
+        },
+        {
+          id: "mount_daisen",
+          name: "大山",
+          nameEn: "Mount Daisen",
+          points: [{ id: "mount_daisen", lat: 35.3711, lng: 133.5464 }]
+        },
+        {
+          id: "kagikake_pass",
+          name: "鍵掛峠",
+          nameEn: "Kagikake Pass",
+          points: [{ id: "kagikake_pass", lat: 35.346111, lng: 133.549444 }]
+        },
+        {
+          id: "masumizu_highlands",
+          name: "桝水高原",
+          nameEn: "Masumizu Highlands",
+          points: [{ id: "masumizu_highlands", lat: 35.369658, lng: 133.518149 }]
+        },
+        {
+          id: "amataki_falls",
+          name: "雨滝",
+          nameEn: "Amataki Falls",
+          points: [{ id: "amataki_falls", lat: 35.478251, lng: 134.404591 }]
+        },
+        {
+          id: "mount_hyonosen",
+          name: "氷ノ山",
+          nameEn: "Mount Hyonosen",
+          points: [{ id: "mount_hyonosen", lat: 35.347259, lng: 134.489748 }]
+        },
+        {
+          id: "lake_togo",
+          name: "東郷湖",
+          nameEn: "Lake Togo",
+          points: [{ id: "lake_togo", lat: 35.468786, lng: 133.901989 }]
+        },
+        {
+          id: "lake_koyama",
+          name: "湖山池",
+          nameEn: "Lake Koyama",
+          points: [{ id: "lake_koyama", lat: 35.505288, lng: 134.173928 }]
+        },
+        {
+          id: "enchoen",
+          name: "燕趙園",
+          nameEn: "Encho-en",
+          points: [{ id: "enchoen", lat: 35.465889, lng: 133.893 }]
+        },
+        {
+          id: "kaike_beach",
+          name: "皆生温泉海岸",
+          nameEn: "Kaike Onsen Beach",
+          points: [{ id: "kaike_beach", lat: 35.456303, lng: 133.361803 }]
+        },
+        {
+          id: "yumigahama",
+          name: "弓ヶ浜",
+          nameEn: "Yumigahama",
+          points: [{ id: "yumigahama", lat: 35.467011, lng: 133.288361 }]
+        },
+        {
+          id: "sakurai_futamigaura",
+          name: "桜井二見ヶ浦",
+          nameEn: "Sakurai Futamigaura",
+          points: [{ id: "sakurai_futamigaura", lat: 33.640157, lng: 130.196691 }]
+        },
+        {
+          id: "keya_no_oto",
+          name: "芥屋の大門",
+          nameEn: "Keya no Oto",
+          points: [{ id: "keya_no_oto", lat: 33.596453, lng: 130.107597 }]
+        },
+        {
+          id: "itoshima_shiraito",
+          name: "白糸の滝",
+          nameEn: "Shiraito Falls",
+          points: [{ id: "itoshima_shiraito", lat: 33.480083, lng: 130.175488 }]
+        },
+        {
+          id: "uminonakamichi",
+          name: "海の中道海浜公園",
+          nameEn: "Uminonakamichi Seaside Park",
+          points: [{ id: "uminonakamichi", lat: 33.662627, lng: 130.355711 }]
+        },
+        {
+          id: "nokonoshima",
+          name: "能古島",
+          nameEn: "Nokonoshima",
+          points: [{ id: "nokonoshima", lat: 33.629578, lng: 130.307133 }]
+        },
+        {
+          id: "hiraodai",
+          name: "平尾台",
+          nameEn: "Hiraodai",
+          points: [{ id: "hiraodai", lat: 33.758637, lng: 130.890046 }]
+        },
+        {
+          id: "yanagawa_cruise",
+          name: "柳川川下り",
+          nameEn: "Yanagawa River Cruise",
+          points: [{ id: "yanagawa_cruise", lat: 33.158586, lng: 130.397235 }]
+        },
+        {
+          id: "furuyu_onsen",
+          name: "古湯温泉",
+          nameEn: "Furuyu Onsen",
+          points: [{ id: "furuyu_onsen", lat: 33.37194, lng: 130.20653 }]
+        },
+        {
+          id: "kumanokawa_onsen",
+          name: "熊の川温泉",
+          nameEn: "Kumanokawa Onsen",
+          points: [{ id: "kumanokawa_onsen", lat: 33.36556, lng: 130.24175 }]
+        },
+        {
+          id: "nijinomatsubara",
+          name: "虹の松原",
+          nameEn: "Nijinomatsubara",
+          points: [{ id: "nijinomatsubara", lat: 33.444056, lng: 130.013556 }]
+        },
+        {
+          id: "kagamiyama",
+          name: "鏡山展望台",
+          nameEn: "Mount Kagami Observatory",
+          points: [{ id: "kagamiyama", lat: 33.43076, lng: 130.017936 }]
+        },
+        {
+          id: "nanatsugama",
+          name: "七ツ釜",
+          nameEn: "Nanatsugama",
+          points: [{ id: "nanatsugama", lat: 33.548963, lng: 129.931958 }]
+        },
+        {
+          id: "yobuko_market",
+          name: "呼子朝市",
+          nameEn: "Yobuko Morning Market",
+          points: [{ id: "yobuko_market", lat: 33.53703, lng: 129.895091 }]
+        },
+        {
+          id: "hamanoura",
+          name: "浜野浦の棚田",
+          nameEn: "Hamanoura Rice Terraces",
+          points: [{ id: "hamanoura", lat: 33.489225, lng: 129.847369 }]
+        },
+        {
+          id: "mifuneyama",
+          name: "御船山楽園",
+          nameEn: "Mifuneyama Rakuen",
+          points: [{ id: "mifuneyama", lat: 33.181389, lng: 130.017222 }]
+        },
+        {
+          id: "ureshino_onsen",
+          name: "嬉野温泉",
+          nameEn: "Ureshino Onsen",
+          points: [{ id: "ureshino_onsen", lat: 33.106335, lng: 129.997338 }]
+        },
+        {
+          id: "takeo_onsen_town",
+          name: "武雄温泉",
+          nameEn: "Takeo Onsen",
+          points: [{ id: "takeo_onsen_town", lat: 33.196279, lng: 130.014693 }]
+        },
+        {
+          id: "mikaeri_falls",
+          name: "見帰りの滝",
+          nameEn: "Mikaeri Falls",
+          points: [{ id: "mikaeri_falls", lat: 33.367664, lng: 130.039531 }]
+        },
+        {
+          id: "inasayama",
+          name: "稲佐山展望台",
+          nameEn: "Mount Inasa Observatory",
+          points: [{ id: "inasayama", lat: 32.753361, lng: 129.849333 }]
+        },
+        {
+          id: "kujukushima",
+          name: "九十九島展望スポット",
+          nameEn: "Kujukushima Viewpoint",
+          points: [{ id: "kujukushima", lat: 33.132335, lng: 129.692917 }]
+        },
+        {
+          id: "unzen_jigoku",
+          name: "雲仙地獄",
+          nameEn: "Unzen Jigoku",
+          points: [{ id: "unzen_jigoku", lat: 32.740493, lng: 130.263388 }]
+        },
+        {
+          id: "obama_onsen",
+          name: "小浜温泉",
+          nameEn: "Obama Onsen",
+          points: [{ id: "obama_onsen", lat: 32.72822, lng: 130.20714 }]
+        },
+        {
+          id: "obae_lighthouse",
+          name: "大バエ灯台",
+          nameEn: "Obae Lighthouse",
+          points: [{ id: "obae_lighthouse", lat: 33.439803, lng: 129.43038 }]
+        },
+        {
+          id: "takahama_beach",
+          name: "高浜海水浴場",
+          nameEn: "Takahama Beach",
+          points: [{ id: "takahama_beach", lat: 32.708031, lng: 128.661606 }]
+        },
+        {
+          id: "kurokawa_onsen",
+          name: "黒川温泉",
+          nameEn: "Kurokawa Onsen",
+          points: [{ id: "kurokawa_onsen", lat: 33.078058, lng: 131.141715 }]
+        },
+        {
+          id: "kusasenri",
+          name: "阿蘇草千里ヶ浜",
+          nameEn: "Kusasenrigahama",
+          points: [{ id: "kusasenri", lat: 32.881466, lng: 131.053547 }]
+        },
+        {
+          id: "daikanbo",
+          name: "大観峰",
+          nameEn: "Daikanbo",
+          points: [{ id: "daikanbo", lat: 32.996389, lng: 131.067222 }]
+        },
+        {
+          id: "shirakawa_spring",
+          name: "白川水源",
+          nameEn: "Shirakawa Spring",
+          points: [{ id: "shirakawa_spring", lat: 32.824473, lng: 131.094531 }]
+        },
+        {
+          id: "nabegataki",
+          name: "鍋ヶ滝",
+          nameEn: "Nabegataki Falls",
+          points: [{ id: "nabegataki", lat: 33.137333, lng: 131.035694 }]
+        },
+        {
+          id: "kikuchi_gorge",
+          name: "菊池渓谷",
+          nameEn: "Kikuchi Gorge",
+          points: [{ id: "kikuchi_gorge", lat: 33.003156, lng: 130.946458 }]
+        },
+        {
+          id: "tsuetate_onsen",
+          name: "杖立温泉",
+          nameEn: "Tsuetate Onsen",
+          points: [{ id: "tsuetate_onsen", lat: 33.18256, lng: 131.03425 }]
+        },
+        {
+          id: "amakusa_gokyo",
+          name: "天草五橋",
+          nameEn: "Amakusa Five Bridges",
+          points: [{ id: "amakusa_gokyo", lat: 32.52265, lng: 130.419709 }]
+        },
+        {
+          id: "okoshiki_coast",
+          name: "御輿来海岸",
+          nameEn: "Okoshiki Coast",
+          points: [{ id: "okoshiki_coast", lat: 32.670937, lng: 130.543387 }]
+        },
+        {
+          id: "yufuin_onsen",
+          name: "由布院温泉",
+          nameEn: "Yufuin Onsen",
+          points: [{ id: "yufuin_onsen", lat: 33.26603, lng: 131.36861 }]
+        },
+        {
+          id: "kinrin_lake",
+          name: "金鱗湖",
+          nameEn: "Lake Kinrin",
+          points: [{ id: "kinrin_lake", lat: 33.26672, lng: 131.369039 }]
+        },
+        {
+          id: "beppu_jigoku",
+          name: "別府地獄めぐり",
+          nameEn: "Beppu Hells",
+          points: [{ id: "beppu_jigoku", lat: 33.315888, lng: 131.469683 }]
+        },
+        {
+          id: "myoban_onsen",
+          name: "明礬温泉",
+          nameEn: "Myoban Onsen",
+          points: [{ id: "myoban_onsen", lat: 33.318218, lng: 131.452596 }]
+        },
+        {
+          id: "kokonoe_bridge",
+          name: "九重“夢”大吊橋",
+          nameEn: "Kokonoe Yume Otsurihashi",
+          points: [{ id: "kokonoe_bridge", lat: 33.175483, lng: 131.229156 }]
+        },
+        {
+          id: "chojabaru",
+          name: "長者原",
+          nameEn: "Chojabaru",
+          points: [{ id: "chojabaru", lat: 33.123606, lng: 131.229757 }]
+        },
+        {
+          id: "tadewara",
+          name: "タデ原湿原",
+          nameEn: "Tadewara Marsh",
+          points: [{ id: "tadewara", lat: 33.117871, lng: 131.232272 }]
+        },
+        {
+          id: "harajiri_falls",
+          name: "原尻の滝",
+          nameEn: "Harajiri Falls",
+          points: [{ id: "harajiri_falls", lat: 32.963889, lng: 131.451111 }]
+        },
+        {
+          id: "yabakei",
+          name: "耶馬渓",
+          nameEn: "Yabakei",
+          points: [{ id: "yabakei", lat: 33.44, lng: 131.141389 }]
+        },
+        {
+          id: "matama_coast",
+          name: "真玉海岸",
+          nameEn: "Matama Coast",
+          points: [{ id: "matama_coast", lat: 33.622417, lng: 131.473056 }]
+        },
+        {
+          id: "kuju_flower_park",
+          name: "くじゅう花公園",
+          nameEn: "Kuju Flower Park",
+          points: [{ id: "kuju_flower_park", lat: 33.0483, lng: 131.2439 }]
+        },
+        {
+          id: "takachiho_gorge",
+          name: "高千穂峡",
+          nameEn: "Takachiho Gorge",
+          points: [{ id: "takachiho_gorge", lat: 32.708167, lng: 131.298944 }]
+        },
+        {
+          id: "aoshima_island",
+          name: "青島",
+          nameEn: "Aoshima",
+          points: [{ id: "aoshima_island", lat: 31.805222, lng: 131.475889 }]
+        },
+        {
+          id: "oni_no_sentakuita",
+          name: "鬼の洗濯板",
+          nameEn: "Oni no Sentakuita",
+          points: [{ id: "oni_no_sentakuita", lat: 31.805082, lng: 131.478465 }]
+        },
+        {
+          id: "horikiri_pass",
+          name: "堀切峠",
+          nameEn: "Horikiri Pass",
+          points: [{ id: "horikiri_pass", lat: 31.776825, lng: 131.482161 }]
+        },
+        {
+          id: "toi_cape",
+          name: "都井岬",
+          nameEn: "Cape Toi",
+          points: [{ id: "toi_cape", lat: 31.364556, lng: 131.347389 }]
+        },
+        {
+          id: "ebino_plateau",
+          name: "えびの高原",
+          nameEn: "Ebino Plateau",
+          points: [{ id: "ebino_plateau", lat: 31.943807, lng: 130.839043 }]
+        },
+        {
+          id: "umagase",
+          name: "馬ヶ背",
+          nameEn: "Umagase",
+          points: [{ id: "umagase", lat: 32.425389, lng: 131.68425 }]
+        },
+        {
+          id: "sunmesse_nichinan",
+          name: "サンメッセ日南",
+          nameEn: "Sun Messe Nichinan",
+          points: [{ id: "sunmesse_nichinan", lat: 31.663278, lng: 131.460957 }]
+        },
+        {
+          id: "yunohira",
+          name: "湯之平展望所",
+          nameEn: "Yunohira Observatory",
+          points: [{ id: "yunohira", lat: 31.591489, lng: 130.629976 }]
+        },
+        {
+          id: "shiroyama_kagoshima",
+          name: "城山展望台",
+          nameEn: "Shiroyama Observatory",
+          points: [{ id: "shiroyama_kagoshima", lat: 31.596265, lng: 130.550087 }]
+        },
+        {
+          id: "ibusuki_onsen",
+          name: "指宿温泉",
+          nameEn: "Ibusuki Onsen",
+          points: [{ id: "ibusuki_onsen", lat: 31.22314, lng: 130.65506 }]
+        },
+        {
+          id: "nagasakibana",
+          name: "長崎鼻",
+          nameEn: "Cape Nagasakibana",
+          points: [{ id: "nagasakibana", lat: 31.155767, lng: 130.586662 }]
+        },
+        {
+          id: "lake_ikeda",
+          name: "池田湖",
+          nameEn: "Lake Ikeda",
+          points: [{ id: "lake_ikeda", lat: 31.246606, lng: 130.545574 }]
+        },
+        {
+          id: "kirishima_onsen",
+          name: "霧島温泉郷",
+          nameEn: "Kirishima Onsen",
+          points: [{ id: "kirishima_onsen", lat: 31.893536, lng: 130.827611 }]
+        },
+        {
+          id: "ogawa_falls",
+          name: "雄川の滝",
+          nameEn: "Ogawa Falls",
+          points: [{ id: "ogawa_falls", lat: 31.200306, lng: 130.825278 }]
+        },
+        {
+          id: "shiratani",
+          name: "白谷雲水峡",
+          nameEn: "Shiratani Unsuikyo",
+          points: [{ id: "shiratani", lat: 30.380809, lng: 130.575023 }]
+        },
+        {
+          id: "ayamaru_cape",
+          name: "あやまる岬",
+          nameEn: "Cape Ayamaru",
+          points: [{ id: "ayamaru_cape", lat: 28.473038, lng: 129.716302 }]
+        },
+      ]
     }
   };
 
@@ -302,7 +1126,7 @@
   }
 
   function findPoint(pointId) {
-    var categories = [LOCATIONS.railway, LOCATIONS.airport];
+    var categories = [LOCATIONS.railway, LOCATIONS.airport, LOCATIONS.scenic];
     var c;
     var p;
     var i;
