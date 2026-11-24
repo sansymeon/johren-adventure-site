@@ -221,16 +221,8 @@
   }
 
   function init() {
-    var bar = document.querySelector(".bottom-bar");
-    if (!bar || document.getElementById("collection-view")) return;
-    var button = document.createElement("button");
-    button.type = "button";
-    button.className = "btn-theatre";
-    button.id = "btn-collection";
-    button.textContent = t("collectionButton");
-    var start = bar.querySelector(".bottom-bar-start");
-    if (start) start.appendChild(button);
-    else bar.appendChild(button);
+    var mapApp = document.getElementById("map-app");
+    if (!mapApp || document.getElementById("collection-view")) return;
 
     root = document.createElement("section");
     root.id = "collection-view";
@@ -242,9 +234,8 @@
       '<div class="collection-body" data-collection-body></div>' +
       '<p class="collection-reset"><button type="button" class="btn btn-ghost" data-collection-reset>' +
       t("resetTest") + "</button></p>";
-    document.getElementById("map-app").appendChild(root);
+    mapApp.appendChild(root);
 
-    button.addEventListener("click", open);
     root.querySelector("[data-collection-close]").addEventListener("click", close);
     document.addEventListener("turbo-route", sync);
     sync();

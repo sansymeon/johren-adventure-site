@@ -241,8 +241,7 @@ body.is-welcome #map-app {
   min-width: 0;
 }
 
-.btn-map-back,
-.btn-map-home {
+.btn-map-back {
   position: relative;
   z-index: 1;
   display: inline-flex;
@@ -252,6 +251,11 @@ body.is-welcome #map-app {
   opacity: 1;
   background: rgba(255, 252, 247, 0.96);
   color: #1c1a17;
+}
+
+/* Zoom sits bottom-right. Lift the opening button above the +/− stack. */
+#btn-theatre {
+  margin-bottom: 96px;
 }
 
 .btn-map-back {
@@ -266,11 +270,6 @@ body.is-welcome #map-app {
 .btn-map-back:disabled {
   opacity: 0.72;
   cursor: default;
-}
-
-.btn-map-home {
-  min-height: 44px;
-  text-decoration: none;
 }
 
 body.sheet-open .bottom-bar,

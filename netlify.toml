@@ -1,7 +1,10 @@
+# Public Turbo Adventures site only.
+# This file is local preparation. It has not been published.
+# The live johrenadventure.com deploy still uses the older site until an approved production publish.
+
 [build]
-  publish = "/"
-  command = "npm install"
-  functions = "netlify/functions"
+  publish = "site"
+  command = "echo static"
 
 [build.environment]
   NODE_VERSION = "18"

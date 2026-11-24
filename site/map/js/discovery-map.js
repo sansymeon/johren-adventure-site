@@ -376,11 +376,59 @@
     if (typeof bottom._zoom !== "number" || typeof bottom._childCount !== "number") {
       return true;
     }
+    const maxZoom = geoLayer._maxZoom;
     const spiderfy =
       geoLayer.options.spiderfyOnMaxZoom &&
-      bottom._zoom === geoLayer._maxZoom &&
+      bottom._zoom === maxZoom &&
       bottom._childCount === cluster._childCount;
     return !spiderfy;
+  }
+
+  // leaflet.markercluster 1.5.3 overrides listens(type, propagate) but Leaflet
+  // 1.9 calls listens(type, fn, context, propagate). A function in the second
+  // slot makes the "cluster" + type fallback look up the wrong event, so
+  // clusterclick never reaches listeners and the default zoom still runs.
+  function patchClusterListens() {
+    const proto = L.MarkerClusterGroup && L.MarkerClusterGroup.prototype;
+    if (!proto || proto.turboListensPatched) return;
+    proto.listens = function (type, fn, context, propagate) {
+      const featureListens = L.FeatureGroup.prototype.listens;
+      if (typeof fn !== "function") {
+        return (
+          featureListens.call(this, type, fn) ||
+          featureListens.call(this, "cluster" + type, fn)
+        );
+      }
+      return (
+        featureListens.call(this, type, fn, context, propagate) ||
+        featureListens.call(this, "cluster" + type, fn, context, propagate)
+      );
+    };
+    proto.turboListensPatched = true;
+  }
+
+  function installClusterHistory(group) {
+    let skipNextZoomRecord = false;
+    group.on("clusterclick", (event) => {
+      if (!clusterClickZooms(event.layer)) return;
+      pushView();
+      skipNextZoomRecord = true;
+      setTimeout(() => {
+        skipNextZoomRecord = false;
+      }, 0);
+    });
+
+    const proto = L.MarkerCluster.prototype;
+    if (!proto.turboZoomToBounds) {
+      proto.turboZoomToBounds = proto.zoomToBounds;
+      proto.zoomToBounds = function (fitBoundsOptions) {
+        if (this._group === group) {
+          if (skipNextZoomRecord) skipNextZoomRecord = false;
+          else pushView();
+        }
+        return proto.turboZoomToBounds.call(this, fitBoundsOptions);
+      };
+    }
   }
 
   function wireMapHistory() {
@@ -613,6 +661,7 @@
       attribution: "&copy; OpenStreetMap"
     }).addTo(map);
 
+    patchClusterListens();
     geoLayer = L.markerClusterGroup({
       disableClusteringAtZoom: 12,
       spiderfyOnMaxZoom: true,
@@ -620,9 +669,7 @@
       showCoverageOnHover: false,
       maxClusterRadius: 56
     });
-    geoLayer.on("clusterclick", (event) => {
-      if (clusterClickZooms(event.layer)) pushView();
-    });
+    installClusterHistory(geoLayer);
     geoLayer.addTo(map);
 
     buildAreaSelector();
