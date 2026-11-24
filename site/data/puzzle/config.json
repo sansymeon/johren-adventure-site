@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "activeId": "thatched_roof_christmas",
+  "image": "/media/puzzles/thatched_roof_christmas.jpg",
+  "imageWidth": 1672,
+  "imageHeight": 941,
+  "note": "One default railway puzzle image. Levels stay in site/map/js/config/puzzle.js."
+}
