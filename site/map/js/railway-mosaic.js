@@ -8,6 +8,42 @@
   "use strict";
 
   var KEY = "turbo.railwayMosaic.v1";
+  var ORIGINAL_SCENE = {
+    image: "/media/scenes/christmas_in_the_village.webp",
+    imageWidth: 1600,
+    imageHeight: 900
+  };
+
+  function withReveal(scene, source) {
+    if (source && source.revealImage) {
+      scene.revealImage = source.revealImage;
+      scene.revealImageWidth = source.revealImageWidth || scene.imageWidth;
+      scene.revealImageHeight = source.revealImageHeight || scene.imageHeight;
+    }
+    return scene;
+  }
+
+  function currentScene() {
+    var active = global.TURBO_PUZZLE_ACTIVE;
+    if (active && active.image) {
+      return withReveal({
+        image: active.image,
+        imageWidth: active.imageWidth || 1600,
+        imageHeight: active.imageHeight || 900
+      }, active);
+    }
+    var picture = config();
+    return withReveal({
+      image: picture.image || ORIGINAL_SCENE.image,
+      imageWidth: picture.imageWidth || 1600,
+      imageHeight: picture.imageHeight || 900
+    }, picture);
+  }
+
+  function scenes(data) {
+    if (!data.scenes || typeof data.scenes !== "object") data.scenes = {};
+    return data.scenes;
+  }
 
   function config() {
     return global.TURBO_PUZZLE_CONFIG || {};
@@ -68,8 +104,28 @@
     var key = String(size);
     if (valid(data.orders[key], size)) return data.orders[key].slice();
     data.orders[key] = permutation(size);
+    if (!scenes(data)[key]) scenes(data)[key] = currentScene();
     write(data);
     return data.orders[key].slice();
+  }
+
+  function pictureFor(size) {
+    var grid = layout(size);
+    if (!grid) return null;
+    var data = read();
+    var key = String(size);
+    var saved = scenes(data)[key];
+    if (saved && saved.image) return saved;
+    if (valid(data.orders[key], size)) {
+      scenes(data)[key] = {
+        image: ORIGINAL_SCENE.image,
+        imageWidth: ORIGINAL_SCENE.imageWidth,
+        imageHeight: ORIGINAL_SCENE.imageHeight
+      };
+      write(data);
+      return scenes(data)[key];
+    }
+    return null;
   }
 
   function revealedTiles(size, count) {
@@ -87,6 +143,7 @@
     key: KEY,
     layout: layout,
     orderFor: orderFor,
+    pictureFor: pictureFor,
     revealedTiles: revealedTiles
   };
 })(window);

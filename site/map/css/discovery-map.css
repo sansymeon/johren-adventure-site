@@ -623,6 +623,19 @@ body.overlay-open .top-bar {
   position: relative;
 }
 
+.reveal-final {
+  display: block;
+  min-height: 44px;
+  margin: 8px 0 14px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: #0e7884;
+  color: #fffaf4;
+  font: inherit;
+  font-weight: 700;
+}
+
 .puzzle-confetti {
   position: absolute;
   inset: 0;

@@ -1,0 +1,552 @@
+{
+  "status": "planned",
+  "note": "Pixels were not copied. Planned master paths only. Every sourcePath was listed from a file on disk. No image files were invented, copied, moved, or renamed. Stage 2 has not started.",
+  "catalogue": {
+    "path": "artwork/catalogue.json",
+    "trackedByGit": false,
+    "entryCount": 466,
+    "nishikiStemInCatalogue": false,
+    "stemsAbsentFromCatalogue": [
+      "nishiki_carp"
+    ]
+  },
+  "sets": [
+    {
+      "id": "japanese-animal-heroes-png",
+      "sourceDirectory": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png",
+      "fileCount": 19,
+      "category": "character-japanese",
+      "plannedFolder": "artwork/characters/transparent/",
+      "note": "19 PNG files on disk, including nishiki_carp.png. nishiki_carp is not in catalogue.json."
+    },
+    {
+      "id": "japanese-historical-heroes-png",
+      "sourceDirectory": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png",
+      "fileCount": 33,
+      "category": "puzzle-historical-japanese",
+      "plannedFolder": "artwork/puzzles/"
+    }
+  ],
+  "items": [
+    {
+      "id": "hokuma_bear",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/hokuma_bear.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/hokuma_bear.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "hokuto_fishowl",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/hokuto_fishowl.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/hokuto_fishowl.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "koharu_chan_shrinegirl",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/koharu_chan_shrinegirl.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/koharu_chan_shrinegirl.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "kumagoro",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/kumagoro.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/kumagoro.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "kumagoro_hokkaidobear",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/kumagoro_hokkaidobear.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/kumagoro_hokkaidobear.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "lord_saruyoshi_monkeyshogun",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/lord_saruyoshi_monkeyshogun.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/lord_saruyoshi_monkeyshogun.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "lord_shika_of_nara_shikadeer",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/lord_shika_of_nara_shikadeer.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/lord_shika_of_nara_shikadeer.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "lord_toramasa_shogun",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/lord_toramasa_shogun.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/lord_toramasa_shogun.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "matsukichi_festivalshiba",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/matsukichi_festivalshiba.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/matsukichi_festivalshiba.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "miyabi_the_kimono_fox",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/miyabi_the_kimono_fox.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/miyabi_the_kimono_fox.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "nishiki_carp",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/nishiki_carp.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/nishiki_carp.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied; this stem is absent from artwork/catalogue.json (466 entries). The other 18 Japanese animal heroes appear there as ivory JPEGs, not as these PNGs."
+    },
+    {
+      "id": "nyanja_the_ninja_cat",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/nyanja_the_ninja_cat.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/nyanja_the_ninja_cat.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "samurai_inosuke",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/samurai_inosuke.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/samurai_inosuke.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "shibata_bucho",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/shibata_bucho.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/shibata_bucho.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "sumo_tanuki",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/sumo_tanuki.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/sumo_tanuki.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "sushimaru",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/sushimaru.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/sushimaru.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "suzumaru_shrinedeer",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/suzumaru_shrinedeer.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/suzumaru_shrinedeer.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "tobimaru_flyingfox",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/tobimaru_flyingfox.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/tobimaru_flyingfox.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "yamabo_yamaboshi",
+      "category": "character-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/characters/transparent/yamabo_yamaboshi.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japanese_animal_heroes_png/yamabo_yamaboshi.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied"
+    },
+    {
+      "id": "amakusa_shirō",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/amakusa_shirō.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/amakusa_shirō.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "date_masamune",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/date_masamune.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/date_masamune.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "francis_xavier",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/francis_xavier.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/francis_xavier.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "fukuzawa_yukichi",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/fukuzawa_yukichi.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/fukuzawa_yukichi.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "himiko",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/himiko.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/himiko.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "ino_tadataka",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/ino_tadataka.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/ino_tadataka.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "john_manjiro",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/john_manjiro.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/john_manjiro.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "katsushika_hokusai",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/katsushika_hokusai.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/katsushika_hokusai.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "katō_kiyomasa",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/katō_kiyomasa.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/katō_kiyomasa.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "kuroda_kanbei",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/kuroda_kanbei.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/kuroda_kanbei.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "matsuo_bashō",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/matsuo_bashō.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/matsuo_bashō.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "miyamoto_musashi",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/miyamoto_musashi.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/miyamoto_musashi.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "murasaki_shikibu",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/murasaki_shikibu.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/murasaki_shikibu.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "nabeshima_naomasa",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/nabeshima_naomasa.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/nabeshima_naomasa.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "natsume_soseki",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/natsume_soseki.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/natsume_soseki.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "noguchi_hideyo",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/noguchi_hideyo.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/noguchi_hideyo.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "oda_nobunaga",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/oda_nobunaga.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/oda_nobunaga.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "okuma_shigenobu",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/okuma_shigenobu.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/okuma_shigenobu.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "philipp_franz von_siebold",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/philipp_franz von_siebold.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/philipp_franz von_siebold.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "saigō_takamori",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/saigō_takamori.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/saigō_takamori.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "sakamoto_ryoma",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/sakamoto_ryoma.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/sakamoto_ryoma.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "sei_shōnagon",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/sei_shōnagon.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/sei_shōnagon.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "sen_no_rikyu",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/sen_no_rikyu.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/sen_no_rikyu.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "shibusawa_eiichi",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/shibusawa_eiichi.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/shibusawa_eiichi.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "shizuki_tadao",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/shizuki_tadao.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/shizuki_tadao.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "tachibana_muneshige",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/tachibana_muneshige.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/tachibana_muneshige.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "takeda_shingen",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/takeda_shingen.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/takeda_shingen.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "thomas_blake_glover",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/thomas_blake_glover.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/thomas_blake_glover.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "tokugawa_ieyasu",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/tokugawa_ieyasu.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/tokugawa_ieyasu.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "toyotomi_hideyoshi",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/toyotomi_hideyoshi.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/toyotomi_hideyoshi.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "uesugi_kenshin",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/uesugi_kenshin.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/uesugi_kenshin.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "uesugi_yōzan",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/uesugi_yōzan.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/uesugi_yōzan.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    },
+    {
+      "id": "william_smith_clark",
+      "category": "puzzle-historical-japanese",
+      "role": "transparent-png",
+      "masterPath": "artwork/puzzles/william_smith_clark.png",
+      "sourcePath": "/home/sjnelson/japanese.jp/data/archive/japaneseheroes.png/william_smith_clark.png",
+      "sitePath": null,
+      "status": "planned",
+      "note": "planned; pixels were not copied. Full historical illustration (puzzle image), not one of the 19 transparent Japanese animal heroes."
+    }
+  ]
+}

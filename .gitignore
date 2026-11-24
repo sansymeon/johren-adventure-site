@@ -1,3 +1,8 @@
 # Local master artwork. Not part of the site and not deployed.
 # Public web images stay in site/ (including site/media, site/img/map, and pin/mascot WebP files).
 /artwork/
+/admin.secret
+/tools/puzzle-admin/backups/
+
+# Local Netlify folder
+.netlify

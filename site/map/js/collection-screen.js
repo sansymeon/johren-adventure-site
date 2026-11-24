@@ -7,6 +7,7 @@
   "use strict";
 
   var root = null;
+  var REVEAL_KEY = "turbo.finalReveal.v1";
 
   function t(key, vars) {
     return global.TURBO_I18N.t(key, vars);
@@ -27,7 +28,13 @@
     return pin.name;
   }
 
-  function art() {
+  function art(size) {
+    var locked = global.TURBO_RAILWAY_MOSAIC && global.TURBO_RAILWAY_MOSAIC.pictureFor
+      ? global.TURBO_RAILWAY_MOSAIC.pictureFor(size)
+      : null;
+    if (locked && locked.image) return locked;
+    var active = global.TURBO_PUZZLE_ACTIVE;
+    if (active && active.image) return active;
     var config = global.TURBO_PUZZLE_CONFIG;
     if (!config || !config.image) return null;
     return config;
@@ -78,7 +85,7 @@
   }
 
   function mosaic(size, openCount) {
-    var picture = art();
+    var picture = art(size);
     var grid = global.TURBO_RAILWAY_MOSAIC.layout(size);
     if (!picture || !grid) return "";
     var state = global.TURBO_RAILWAY_MOSAIC.revealedTiles(size, openCount);
@@ -97,13 +104,71 @@
       "</div>";
   }
 
+  function revealStore() {
+    try {
+      var data = JSON.parse(localStorage.getItem(REVEAL_KEY) || "");
+      if (!data || typeof data.seen !== "object") return { version: 1, seen: {} };
+      return data;
+    } catch (error) {
+      return { version: 1, seen: {} };
+    }
+  }
+
+  function savedReveal(base) {
+    var row = revealStore().seen[base];
+    return row && row.image ? row : null;
+  }
+
+  function rememberReveal(base, image, width, height) {
+    var data = revealStore();
+    data.seen[base] = {
+      image: image,
+      imageWidth: width || 1600,
+      imageHeight: height || 900
+    };
+    localStorage.setItem(REVEAL_KEY, JSON.stringify(data));
+  }
+
+  function offeredReveal(picture) {
+    if (!picture) return null;
+    var active = global.TURBO_PUZZLE_ACTIVE || {};
+    if (active.image && picture.image === active.image) {
+      if (!active.revealImage) return null;
+      return {
+        image: active.revealImage,
+        imageWidth: active.revealImageWidth || picture.imageWidth || 1600,
+        imageHeight: active.revealImageHeight || picture.imageHeight || 900
+      };
+    }
+    if (!picture.revealImage) return null;
+    return {
+      image: picture.revealImage,
+      imageWidth: picture.revealImageWidth || picture.imageWidth || 1600,
+      imageHeight: picture.revealImageHeight || picture.imageHeight || 900
+    };
+  }
+
   function fullImage(size) {
-    var picture = art();
+    var picture = art(size);
     if (!picture) return "";
-    return '<div class="puzzle-complete" data-completed-level="' + size + '" style="' + frameVars(picture) + '">' +
-      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="' +
-      (picture.imageWidth || 1600) + '" height="' + (picture.imageHeight || 900) + '">' +
-      "</div>";
+    var shown = picture;
+    var button = "";
+    if (size === 5) {
+      var saved = savedReveal(picture.image);
+      var offer = offeredReveal(picture);
+      if (saved) shown = saved;
+      else if (offer) {
+        button = '<button type="button" class="reveal-final" data-reveal-final data-base="' +
+          escapeAttr(picture.image) + '" data-reveal="' + escapeAttr(offer.image) +
+          '" data-width="' + offer.imageWidth + '" data-height="' + offer.imageHeight + '">' +
+          t("revealFinal") + "</button>";
+      }
+    }
+    return '<div class="puzzle-finished">' +
+      '<div class="puzzle-complete" data-completed-level="' + size + '" style="' + frameVars(shown) + '">' +
+      '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(shown.image) + '" width="' +
+      (shown.imageWidth || 1600) + '" height="' + (shown.imageHeight || 900) + '">' +
+      "</div>" + button + "</div>";
   }
 
   function celebrate(frame, size) {
@@ -156,7 +221,7 @@
     var airports = global.TURBO_COLLECTION.list("airport").length;
     var stations = global.TURBO_COLLECTION.list("railway").length;
     var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
-    var picture = art();
+    var picture = art(progress.needed);
     var completedHtml = "";
     if (done.length && picture) {
       completedHtml = "<h2>" + t("completedHeading") + "</h2>" +
@@ -180,7 +245,11 @@
     var justFinished = done.length && (progress.finished || progress.pieces === 0);
     if (justFinished) {
       var finishedSize = done[done.length - 1];
-      celebrate(root.querySelector('.puzzle-complete[data-completed-level="' + finishedSize + '"]'), finishedSize);
+      var finishedArt = art(finishedSize);
+      var alreadySeen = finishedSize === 5 && finishedArt && savedReveal(finishedArt.image);
+      if (!alreadySeen) {
+        celebrate(root.querySelector('.puzzle-complete[data-completed-level="' + finishedSize + '"]'), finishedSize);
+      }
     }
   }
 
@@ -237,10 +306,22 @@
     mapApp.appendChild(root);
 
     root.querySelector("[data-collection-close]").addEventListener("click", close);
+    root.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-reveal-final]");
+      if (!button || !root.contains(button)) return;
+      rememberReveal(
+        button.getAttribute("data-base"),
+        button.getAttribute("data-reveal"),
+        Number(button.getAttribute("data-width")),
+        Number(button.getAttribute("data-height"))
+      );
+      paint();
+    });
     document.addEventListener("turbo-route", sync);
     sync();
     root.querySelector("[data-collection-reset]").addEventListener("click", function () {
       global.TURBO_COLLECTION.clearAll();
+      localStorage.removeItem(REVEAL_KEY);
       paint();
       var status = document.getElementById("gps-checkin-status");
       if (status) {

@@ -1,0 +1,57 @@
+{
+  "title": "Artwork catalogue entry",
+  "description": "Fields a future import script will use. artwork/catalogue.json (466 entries, gitignored) is the current on-disk index and still uses dest, category, filename, source, thumb, and site_matches. Do not rewrite those source paths until files actually move. masterPath is a planned location, not a claim the file is already there. status is planned until a later stage copies pixels.",
+  "type": "object",
+  "required": ["id", "category", "role", "masterPath", "sourcePath", "sitePath", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Filename stem, without the extension."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "character-japanese",
+        "character-international",
+        "character-victorian",
+        "character-turbo",
+        "character-historical-japanese",
+        "background",
+        "puzzle",
+        "puzzle-historical-japanese",
+        "castle",
+        "pin"
+      ],
+      "description": "Japanese, international, and Victorian characters stay identifiable by category even when their transparent PNG masters share artwork/characters/transparent/. The 19 transparent Japanese animal heroes are character-japanese. International transparent heroes are character-international. The Victorian animal heroes set is character-victorian. Turbo the mascot is character-turbo. The 33 japaneseheroes.png historical illustrations are puzzle-historical-japanese (puzzle images, not the 19 collectible heroes). character-historical-japanese is reserved if a later set is a character rather than a full illustration."
+    },
+    "role": {
+      "type": "string",
+      "enum": ["transparent-png", "ivory-jpg", "web-webp"]
+    },
+    "masterPath": {
+      "type": "string",
+      "description": "Planned path under artwork/. Examples: artwork/characters/transparent/<file>, artwork/characters/ivory/<file>, artwork/backgrounds/<file>, artwork/puzzles/<file>, artwork/castles/<file>, artwork/pins/<file>. Not a claim the file is there yet while status is planned."
+    },
+    "sourcePath": {
+      "type": "string",
+      "description": "Absolute path where the file lives today. Leave unchanged until the file is moved."
+    },
+    "sitePath": {
+      "type": ["string", "null"],
+      "description": "Public web path under site/, or null when the website does not show this file."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["planned", "present"],
+      "description": "planned means the masterPath is a target only. present means the file is at masterPath."
+    }
+  },
+  "folders": {
+    "artwork/characters/transparent/": "Any character PNG (Japanese, international, Victorian, Turbo). Category distinguishes the set.",
+    "artwork/characters/ivory/": "Character JPEGs on an ivory ground.",
+    "artwork/backgrounds/": "Backgrounds.",
+    "artwork/puzzles/": "Puzzle images, including the 33 Japanese historical illustrations.",
+    "artwork/castles/": "Castle illustrations.",
+    "artwork/pins/": "Pin masters."
+  }
+}
