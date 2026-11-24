@@ -4591,7 +4591,7 @@ window.MAP_DATA = {
   id: "tokaido_odawara",
   line: "tokaido",
   area: "kanagawa",       
-  ame: "小田原",
+  name: "小田原",
   nameEn: "Odawara",
   type: "station",
   lat: 35.25618114388968,  
@@ -15594,7 +15594,7 @@ window.MAP_DATA = {
     },
     {
       id: "kiroyama_observatory",
-      area: "hiroshima",
+      area: "ehime",
       name: "亀老山展望公園",
       nameEn: "Kiroyama Observatory",
       type: "viewpoint",
@@ -18297,6 +18297,1806 @@ window.MAP_DATA = {
       pinType: "viewpoint",
       lat: 28.473038,
       lng: 129.716302
+    },
+    {
+      id: "tokaido_shin_osaka",
+      line: "tokaido_shinkansen",
+      area: "osaka",
+      name: "新大阪",
+      nameEn: "Shin-Osaka",
+      type: "station",
+      lat: 34.733483,
+      lng: 135.500114
+    },
+    {
+      id: "tokaido_maibara",
+      line: "tokaido_shinkansen",
+      area: "shiga",
+      name: "米原",
+      nameEn: "Maibara",
+      type: "station",
+      lat: 35.314722,
+      lng: 136.29
+    },
+    {
+      id: "tokaido_gifu_hashima",
+      line: "tokaido_shinkansen",
+      area: "gifu",
+      name: "岐阜羽島",
+      nameEn: "Gifu-Hashima",
+      type: "station",
+      lat: 35.315833,
+      lng: 136.685556
+    },
+    {
+      id: "tokaido_mikawa_anjo",
+      line: "tokaido_shinkansen",
+      area: "aichi",
+      name: "三河安城",
+      nameEn: "Mikawa-Anjo",
+      type: "station",
+      lat: 34.96897,
+      lng: 137.060662
+    },
+    {
+      id: "tokaido_toyohashi",
+      line: "tokaido_shinkansen",
+      area: "aichi",
+      name: "豊橋",
+      nameEn: "Toyohashi",
+      type: "station",
+      lat: 34.762811,
+      lng: 137.381651
+    },
+    {
+      id: "tokaido_hamamatsu",
+      line: "tokaido_shinkansen",
+      area: "shizuoka",
+      name: "浜松",
+      nameEn: "Hamamatsu",
+      type: "station",
+      lat: 34.703425,
+      lng: 137.734403
+    },
+    {
+      id: "tokaido_kakegawa",
+      line: "tokaido_shinkansen",
+      area: "shizuoka",
+      name: "掛川",
+      nameEn: "Kakegawa",
+      type: "station",
+      lat: 34.769742,
+      lng: 138.014839
+    },
+    {
+      id: "tokaido_shin_fuji",
+      line: "tokaido_shinkansen",
+      area: "shizuoka",
+      name: "新富士",
+      nameEn: "Shin-Fuji",
+      type: "station",
+      lat: 35.142,
+      lng: 138.663361
+    },
+    {
+      id: "tokaido_mishima",
+      line: "tokaido_shinkansen",
+      area: "shizuoka",
+      name: "三島",
+      nameEn: "Mishima",
+      type: "station",
+      lat: 35.126339,
+      lng: 138.911164
+    },
+    {
+      id: "tokaido_atami",
+      line: "tokaido_shinkansen",
+      area: "shizuoka",
+      name: "熱海",
+      nameEn: "Atami",
+      type: "station",
+      lat: 35.103608,
+      lng: 139.077444
+    },
+    {
+      id: "tokaido_shin_yokohama",
+      line: "tokaido_shinkansen",
+      area: "kanagawa",
+      name: "新横浜",
+      nameEn: "Shin-Yokohama",
+      type: "station",
+      lat: 35.506806,
+      lng: 139.616944
+    },
+    {
+      id: "jr_west_hikari",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "光",
+      nameEn: "Hikari",
+      type: "station",
+      lat: 33.973686,
+      lng: 131.914972
+    },
+    {
+      id: "jr_west_minami_iwakuni",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "南岩国",
+      nameEn: "Minami-Iwakuni",
+      type: "station",
+      lat: 34.135353,
+      lng: 132.205994
+    },
+    {
+      id: "jr_west_koto",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "厚東",
+      nameEn: "Koto",
+      type: "station",
+      lat: 34.038739,
+      lng: 131.267847
+    },
+    {
+      id: "jr_west_suo_takamori",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "周防高森",
+      nameEn: "Suo-Takamori",
+      type: "station",
+      lat: 34.090742,
+      lng: 132.046533
+    },
+    {
+      id: "jr_west_waki_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "和木",
+      nameEn: "Waki",
+      type: "station",
+      lat: 34.204136,
+      lng: 132.227636
+    },
+    {
+      id: "jr_west_kagawa_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "嘉川",
+      nameEn: "Kagawa (Yamaguchi)",
+      type: "station",
+      lat: 34.066194,
+      lng: 131.370075
+    },
+    {
+      id: "jr_west_yotsutsuji",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "四辻",
+      nameEn: "Yotsutsuji",
+      type: "station",
+      lat: 34.079889,
+      lng: 131.447922
+    },
+    {
+      id: "jr_west_habu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "埴生",
+      nameEn: "Habu",
+      type: "station",
+      lat: 34.049172,
+      lng: 131.086864
+    },
+    {
+      id: "jr_west_obatake",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "大畠",
+      nameEn: "Obatake",
+      type: "station",
+      lat: 33.962722,
+      lng: 132.182583
+    },
+    {
+      id: "jr_west_daido",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "大道",
+      nameEn: "Daido",
+      type: "station",
+      lat: 34.053256,
+      lng: 131.488467
+    },
+    {
+      id: "jr_west_ube",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇部",
+      nameEn: "Ube",
+      type: "station",
+      lat: 34,
+      lng: 131.22
+    },
+    {
+      id: "jr_west_tonomi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "富海",
+      nameEn: "Tonomi",
+      type: "station",
+      lat: 34.048508,
+      lng: 131.638986
+    },
+    {
+      id: "jr_west_ozuki",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "小月",
+      nameEn: "Ozuki",
+      type: "station",
+      lat: 34.068072,
+      lng: 131.032806
+    },
+    {
+      id: "jr_west_onoda",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "小野田",
+      nameEn: "Onoda",
+      type: "station",
+      lat: 34.007633,
+      lng: 131.185278
+    },
+    {
+      id: "jr_west_iwakuni",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "岩国",
+      nameEn: "Iwakuni",
+      type: "station",
+      lat: 34.1719,
+      lng: 132.2256
+    },
+    {
+      id: "jr_west_iwata_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "岩田",
+      nameEn: "Iwata (Yamaguchi)",
+      type: "station",
+      lat: 33.981625,
+      lng: 131.995286
+    },
+    {
+      id: "jr_west_hatabu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "幡生",
+      nameEn: "Hatabu",
+      type: "station",
+      lat: 33.980281,
+      lng: 130.926947
+    },
+    {
+      id: "jr_west_shin_nanyo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "新南陽",
+      nameEn: "Shin-Nanyo",
+      type: "station",
+      lat: 34.069772,
+      lng: 131.769247
+    },
+    {
+      id: "jr_west_hon_yura",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "本由良",
+      nameEn: "Hon-Yura",
+      type: "station",
+      lat: 34.032014,
+      lng: 131.343647
+    },
+    {
+      id: "jr_west_hashirano",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "柱野",
+      nameEn: "Hashirano",
+      type: "station",
+      lat: 34.143397,
+      lng: 132.154364
+    },
+    {
+      id: "jr_west_yanaiminato",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "柳井港",
+      nameEn: "Yanaiminato",
+      type: "station",
+      lat: 33.958139,
+      lng: 132.133889
+    },
+    {
+      id: "jr_west_yanai",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "柳井",
+      nameEn: "Yanai",
+      type: "station",
+      lat: 33.9659,
+      lng: 132.106169
+    },
+    {
+      id: "jr_west_kushigahama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "櫛ケ浜",
+      nameEn: "Kushigahama",
+      type: "station",
+      lat: 34.031203,
+      lng: 131.828675
+    },
+    {
+      id: "jr_west_kimmeiji",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "欽明路",
+      nameEn: "Kimmeiji",
+      type: "station",
+      lat: 34.104197,
+      lng: 132.101503
+    },
+    {
+      id: "jr_west_kuga",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "玖珂",
+      nameEn: "Kuga",
+      type: "station",
+      lat: 34.097075,
+      lng: 132.082175
+    },
+    {
+      id: "jr_west_tabuse",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "田布施",
+      nameEn: "Tabuse",
+      type: "station",
+      lat: 33.958683,
+      lng: 132.044173
+    },
+    {
+      id: "jr_west_yu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "由宇",
+      nameEn: "Yu",
+      type: "station",
+      lat: 34.043153,
+      lng: 132.213486
+    },
+    {
+      id: "jr_west_fukugawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "福川",
+      nameEn: "Fukugawa",
+      type: "station",
+      lat: 34.072189,
+      lng: 131.738317
+    },
+    {
+      id: "jr_west_yonekawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "米川",
+      nameEn: "Yonekawa",
+      type: "station",
+      lat: 34.074547,
+      lng: 132.014508
+    },
+    {
+      id: "jr_west_fuju",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "藤生",
+      nameEn: "Fuju",
+      type: "station",
+      lat: 34.112611,
+      lng: 132.1987
+    },
+    {
+      id: "jr_west_nishi_iwakuni",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "西岩国",
+      nameEn: "Nishi-Iwakuni",
+      type: "station",
+      lat: 34.162822,
+      lng: 132.195158
+    },
+    {
+      id: "jr_west_tsuzu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "通津",
+      nameEn: "Tsuzu",
+      type: "station",
+      lat: 34.068336,
+      lng: 132.205122
+    },
+    {
+      id: "jr_west_chofu_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長府",
+      nameEn: "Chofu (Yamaguchi)",
+      type: "station",
+      lat: 34.019672,
+      lng: 130.999931
+    },
+    {
+      id: "jr_west_hofu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "防府",
+      nameEn: "Hofu",
+      type: "station",
+      lat: 34.053436,
+      lng: 131.568969
+    },
+    {
+      id: "jr_west_takamizu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "高水",
+      nameEn: "Takamizu",
+      type: "station",
+      lat: 34.055411,
+      lng: 131.973056
+    },
+    {
+      id: "jr_west_kami_kagawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "上嘉川",
+      nameEn: "Kami-Kagawa",
+      type: "station",
+      lat: 34.073694,
+      lng: 131.379025
+    },
+    {
+      id: "jr_west_kami_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "上山口",
+      nameEn: "Kami-Yamaguchi",
+      type: "station",
+      lat: 34.182392,
+      lng: 131.484739
+    },
+    {
+      id: "jr_west_kamigo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "上郷",
+      nameEn: "Kamigo",
+      type: "station",
+      lat: 34.116328,
+      lng: 131.401819
+    },
+    {
+      id: "jr_west_maruo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "丸尾",
+      nameEn: "Maruo",
+      type: "station",
+      lat: 33.970261,
+      lng: 131.336739
+    },
+    {
+      id: "jr_west_nihozu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "仁保津",
+      nameEn: "Nihozu",
+      type: "station",
+      lat: 34.128844,
+      lng: 131.415372
+    },
+    {
+      id: "jr_west_niho",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "仁保",
+      nameEn: "Niho",
+      type: "station",
+      lat: 34.216689,
+      lng: 131.536297
+    },
+    {
+      id: "jr_west_katsuma",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "勝間",
+      nameEn: "Katsuma",
+      type: "station",
+      lat: 34.042025,
+      lng: 131.954008
+    },
+    {
+      id: "jr_west_minami_nakagawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "南中川",
+      nameEn: "Minami-Nakagawa",
+      type: "station",
+      lat: 33.986944,
+      lng: 131.178269
+    },
+    {
+      id: "jr_west_minami_onoda",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "南小野田",
+      nameEn: "Minami-Onoda",
+      type: "station",
+      lat: 33.977419,
+      lng: 131.175022
+    },
+    {
+      id: "jr_west_suo_shimogo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "周防下郷",
+      nameEn: "Suo-Shimogo",
+      type: "station",
+      lat: 34.101203,
+      lng: 131.401744
+    },
+    {
+      id: "jr_west_suo_kubo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "周防久保",
+      nameEn: "Suo-Kubo",
+      type: "station",
+      lat: 34.029172,
+      lng: 131.919103
+    },
+    {
+      id: "jr_west_suo_sayama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "周防佐山",
+      nameEn: "Suo-Sayama",
+      type: "station",
+      lat: 34.034906,
+      lng: 131.363669
+    },
+    {
+      id: "jr_west_suo_hanaoka",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "周防花岡",
+      nameEn: "Suo-Hanaoka",
+      type: "station",
+      lat: 34.036017,
+      lng: 131.867475
+    },
+    {
+      id: "jr_west_otoshi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "大歳",
+      nameEn: "Otoshi",
+      type: "station",
+      lat: 34.147294,
+      lng: 131.433064
+    },
+    {
+      id: "jr_west_okawachi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "大河内",
+      nameEn: "Okawachi",
+      type: "station",
+      lat: 34.030975,
+      lng: 131.934139
+    },
+    {
+      id: "jr_west_tsumazaki",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "妻崎",
+      nameEn: "Tsumazaki",
+      type: "station",
+      lat: 33.970486,
+      lng: 131.202586
+    },
+    {
+      id: "jr_west_ubemisaki",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇部岬",
+      nameEn: "Ubemisaki",
+      type: "station",
+      lat: 33.934667,
+      lng: 131.26215
+    },
+    {
+      id: "jr_west_ube_shinkawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇部新川",
+      nameEn: "Ube-Shinkawa",
+      type: "station",
+      lat: 33.958369,
+      lng: 131.242478
+    },
+    {
+      id: "jr_west_ubeminato",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇部港",
+      nameEn: "Ubeminato",
+      type: "station",
+      lat: 33.953056,
+      lng: 131.241111
+    },
+    {
+      id: "jr_west_miyano",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宮野",
+      nameEn: "Miyano",
+      type: "station",
+      lat: 34.191408,
+      lng: 131.498386
+    },
+    {
+      id: "jr_west_onodako",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "小野田港",
+      nameEn: "Onodako",
+      type: "station",
+      lat: 33.972,
+      lng: 131.175147
+    },
+    {
+      id: "jr_west_ino_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "居能",
+      nameEn: "Ino (Yamaguchi)",
+      type: "station",
+      lat: 33.967061,
+      lng: 131.228161
+    },
+    {
+      id: "jr_west_kiwa_yamaguchi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "岐波",
+      nameEn: "Kiwa (Yamaguchi)",
+      type: "station",
+      lat: 33.990239,
+      lng: 131.347925
+    },
+    {
+      id: "jr_west_iwahana",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "岩鼻",
+      nameEn: "Iwahana",
+      type: "station",
+      lat: 33.978614,
+      lng: 131.225414
+    },
+    {
+      id: "jr_west_tokonami",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "床波",
+      nameEn: "Tokonami",
+      type: "station",
+      lat: 33.952519,
+      lng: 131.305475
+    },
+    {
+      id: "jr_west_hamagochi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "浜河内",
+      nameEn: "Hamagochi",
+      type: "station",
+      lat: 33.950386,
+      lng: 131.179478
+    },
+    {
+      id: "jr_west_fukamizo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "深溝",
+      nameEn: "Fukamizo",
+      type: "station",
+      lat: 34.046989,
+      lng: 131.371314
+    },
+    {
+      id: "jr_west_yudaonsen",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "湯田温泉",
+      nameEn: "Yudaonsen",
+      type: "station",
+      lat: 34.159794,
+      lng: 131.460131
+    },
+    {
+      id: "jr_west_kotoshiba",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "琴芝",
+      nameEn: "Kotoshiba",
+      type: "station",
+      lat: 33.953008,
+      lng: 131.251881
+    },
+    {
+      id: "jr_west_ikunoya",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "生野屋",
+      nameEn: "Ikunoya",
+      type: "station",
+      lat: 34.035406,
+      lng: 131.887167
+    },
+    {
+      id: "jr_west_mede",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "目出",
+      nameEn: "Mede",
+      type: "station",
+      lat: 33.996661,
+      lng: 131.183536
+    },
+    {
+      id: "jr_west_yabara",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "矢原",
+      nameEn: "Yabara",
+      type: "station",
+      lat: 34.150436,
+      lng: 131.445694
+    },
+    {
+      id: "jr_west_kusae",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "草江",
+      nameEn: "Kusae",
+      type: "station",
+      lat: 33.936714,
+      lng: 131.274197
+    },
+    {
+      id: "jr_west_nagato_motoyama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門本山",
+      nameEn: "Nagato-Motoyama",
+      type: "station",
+      lat: 33.942822,
+      lng: 131.173339
+    },
+    {
+      id: "jr_west_nagato_nagasawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門長沢",
+      nameEn: "Nagato-Nagasawa",
+      type: "station",
+      lat: 33.966619,
+      lng: 131.196836
+    },
+    {
+      id: "jr_west_ajisu",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "阿知須",
+      nameEn: "Ajisu",
+      type: "station",
+      lat: 34.010794,
+      lng: 131.356825
+    },
+    {
+      id: "jr_west_suzumeda",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "雀田",
+      nameEn: "Suzumeda",
+      type: "station",
+      lat: 33.960372,
+      lng: 131.186481
+    },
+    {
+      id: "jr_west_sammi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "三見",
+      nameEn: "Sammi",
+      type: "station",
+      lat: 34.397406,
+      lng: 131.330128
+    },
+    {
+      id: "jr_west_hitomaru",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "人丸",
+      nameEn: "Hitomaru",
+      type: "station",
+      lat: 34.374336,
+      lng: 131.058047
+    },
+    {
+      id: "jr_west_senzaki",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "仙崎",
+      nameEn: "Senzaki",
+      type: "station",
+      lat: 34.387928,
+      lng: 131.198978
+    },
+    {
+      id: "jr_west_igami",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "伊上",
+      nameEn: "Igami",
+      type: "station",
+      lat: 34.370442,
+      lng: 131.011283
+    },
+    {
+      id: "jr_west_yoshimi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "吉見",
+      nameEn: "Yoshimi",
+      type: "station",
+      lat: 34.070164,
+      lng: 130.903322
+    },
+    {
+      id: "jr_west_nagusa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "名草",
+      nameEn: "Nagusa",
+      type: "station",
+      lat: 34.353775,
+      lng: 131.651317
+    },
+    {
+      id: "jr_west_jifuku",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "地福",
+      nameEn: "Jifuku",
+      type: "station",
+      lat: 34.362908,
+      lng: 131.674436
+    },
+    {
+      id: "jr_west_nago",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "奈古",
+      nameEn: "Nago",
+      type: "station",
+      lat: 34.503006,
+      lng: 131.472703
+    },
+    {
+      id: "jr_west_utago",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇田郷",
+      nameEn: "Utago",
+      type: "station",
+      lat: 34.571906,
+      lng: 131.548847
+    },
+    {
+      id: "jr_west_ukahongo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "宇賀本郷",
+      nameEn: "Ukahongo",
+      type: "station",
+      lat: 34.227425,
+      lng: 130.927558
+    },
+    {
+      id: "jr_west_kogushi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "小串",
+      nameEn: "Kogushi",
+      type: "station",
+      lat: 34.169703,
+      lng: 130.927967
+    },
+    {
+      id: "jr_west_kawatana_onsen",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "川棚温泉",
+      nameEn: "Kawatana-Onsen",
+      type: "station",
+      lat: 34.146406,
+      lng: 130.922419
+    },
+    {
+      id: "jr_west_tokusa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "徳佐",
+      nameEn: "Tokusa",
+      type: "station",
+      lat: 34.399964,
+      lng: 131.720419
+    },
+    {
+      id: "jr_west_kiyo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "木与",
+      nameEn: "Kiyo",
+      type: "station",
+      lat: 34.532886,
+      lng: 131.503411
+    },
+    {
+      id: "jr_west_higashi_hagi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "東萩",
+      nameEn: "Higashi-Hagi",
+      type: "station",
+      lat: 34.417219,
+      lng: 131.410308
+    },
+    {
+      id: "jr_west_umegato",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "梅ケ峠",
+      nameEn: "Umegato",
+      type: "station",
+      lat: 34.101689,
+      lng: 130.900272
+    },
+    {
+      id: "jr_west_esaki",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "江崎",
+      nameEn: "Esaki",
+      type: "station",
+      lat: 34.638147,
+      lng: 131.661906
+    },
+    {
+      id: "jr_west_watarigawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "渡川",
+      nameEn: "Watarigawa",
+      type: "station",
+      lat: 34.323042,
+      lng: 131.604281
+    },
+    {
+      id: "jr_west_yutama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "湯玉",
+      nameEn: "Yutama",
+      type: "station",
+      lat: 34.209061,
+      lng: 130.932411
+    },
+    {
+      id: "jr_west_takibe",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "滝部",
+      nameEn: "Takibe",
+      type: "station",
+      lat: 34.284044,
+      lng: 130.946672
+    },
+    {
+      id: "jr_west_kottoi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "特牛",
+      nameEn: "Kottoi",
+      type: "station",
+      lat: 34.305878,
+      lng: 130.918972
+    },
+    {
+      id: "jr_west_tamae",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "玉江",
+      nameEn: "Tamae",
+      type: "station",
+      lat: 34.40535,
+      lng: 131.380058
+    },
+    {
+      id: "jr_west_shinome",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "篠目",
+      nameEn: "Shinome",
+      type: "station",
+      lat: 34.279,
+      lng: 131.562181
+    },
+    {
+      id: "jr_west_funahirayama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "船平山",
+      nameEn: "Funahirayama",
+      type: "station",
+      lat: 34.421453,
+      lng: 131.734164
+    },
+    {
+      id: "jr_west_hagi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "萩",
+      nameEn: "Hagi",
+      type: "station",
+      lat: 34.393883,
+      lng: 131.401092
+    },
+    {
+      id: "jr_west_koshigahama",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "越ケ浜",
+      nameEn: "Koshigahama",
+      type: "station",
+      lat: 34.438986,
+      lng: 131.422528
+    },
+    {
+      id: "jr_west_nabekura",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "鍋倉",
+      nameEn: "Nabekura",
+      type: "station",
+      lat: 34.378322,
+      lng: 131.694353
+    },
+    {
+      id: "jr_west_nagato_misumi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門三隅",
+      nameEn: "Nagato-Misumi",
+      type: "station",
+      lat: 34.366536,
+      lng: 131.236181
+    },
+    {
+      id: "jr_west_nagato_futami",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門二見",
+      nameEn: "Nagato-Futami",
+      type: "station",
+      lat: 34.251711,
+      lng: 130.915003
+    },
+    {
+      id: "jr_west_nagato_furuichi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門古市",
+      nameEn: "Nagato-Furuichi",
+      type: "station",
+      lat: 34.3885,
+      lng: 131.102089
+    },
+    {
+      id: "jr_west_nagato_oi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門大井",
+      nameEn: "Nagato-Oi",
+      type: "station",
+      lat: 34.471078,
+      lng: 131.449806
+    },
+    {
+      id: "jr_west_chomonkyo",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門峡",
+      nameEn: "Chomonkyo",
+      type: "station",
+      lat: 34.304564,
+      lng: 131.578856
+    },
+    {
+      id: "jr_west_nagatoshi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門市",
+      nameEn: "Nagatoshi",
+      type: "station",
+      lat: 34.37525,
+      lng: 131.185028
+    },
+    {
+      id: "jr_west_nagato_awano",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "長門粟野",
+      nameEn: "Nagato-Awano",
+      type: "station",
+      lat: 34.357503,
+      lng: 130.970225
+    },
+    {
+      id: "jr_west_agawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "阿川",
+      nameEn: "Agawa",
+      type: "station",
+      lat: 34.335789,
+      lng: 130.925858
+    },
+    {
+      id: "jr_west_susa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "須佐",
+      nameEn: "Susa",
+      type: "station",
+      lat: 34.622019,
+      lng: 131.605608
+    },
+    {
+      id: "jr_west_ii",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "飯井",
+      nameEn: "Ii",
+      type: "station",
+      lat: 34.379131,
+      lng: 131.295014
+    },
+    {
+      id: "jr_west_kiwado",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "黄波戸",
+      nameEn: "Kiwado",
+      type: "station",
+      lat: 34.385297,
+      lng: 131.139806
+    },
+    {
+      id: "jr_west_kuroimura",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "黒井村",
+      nameEn: "Kuroimura",
+      type: "station",
+      lat: 34.127603,
+      lng: 130.912322
+    },
+    {
+      id: "jr_west_yasuoka",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "安岡",
+      nameEn: "Yasuoka",
+      type: "station",
+      lat: 34.024844,
+      lng: 130.916594
+    },
+    {
+      id: "jr_west_kajikuri_godaichi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "梶栗郷台地",
+      nameEn: "Kajikuri-Godaichi",
+      type: "station",
+      lat: 34.014058,
+      lng: 130.923583
+    },
+    {
+      id: "jr_west_fukue",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "福江",
+      nameEn: "Fukue",
+      type: "station",
+      lat: 34.047014,
+      lng: 130.915539
+    },
+    {
+      id: "jr_west_ayaragi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "綾羅木",
+      nameEn: "Ayaragi",
+      type: "station",
+      lat: 34.003847,
+      lng: 130.926633
+    },
+    {
+      id: "jr_west_",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "下松",
+      nameEn: "下松駅",
+      type: "station",
+      lat: 34.00875,
+      lng: 131.867972
+    },
+    {
+      id: "jr_west_shimada",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "島田",
+      nameEn: "Shimada",
+      type: "station",
+      lat: 33.990389,
+      lng: 131.960944
+    },
+    {
+      id: "jr_west_kawanishi",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "川西",
+      nameEn: "Kawanishi",
+      type: "station",
+      lat: 34.15663,
+      lng: 132.177333
+    },
+    {
+      id: "jr_west_toda",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "戸田",
+      nameEn: "Toda",
+      type: "station",
+      lat: 34.072486,
+      lng: 131.704269
+    },
+    {
+      id: "jr_west_kamishiro",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "神代",
+      nameEn: "Kamishiro",
+      type: "station",
+      lat: 33.998611,
+      lng: 132.208686
+    },
+    {
+      id: "jr_west_iwakura",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "岩倉",
+      nameEn: "Iwakura",
+      type: "station",
+      lat: 34.023431,
+      lng: 131.359978
+    },
+    {
+      id: "jr_west_tokiwa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "常盤",
+      nameEn: "Tokiwa",
+      type: "station",
+      lat: 33.940808,
+      lng: 131.29215
+    },
+    {
+      id: "jr_west_mitani",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "三谷",
+      nameEn: "Mitani",
+      type: "station",
+      lat: 34.341761,
+      lng: 131.624489
+    },
+    {
+      id: "jr_west_higashishinkawa",
+      line: "jr_west",
+      area: "yamaguchi",
+      name: "東新川",
+      nameEn: "Higashishinkawa",
+      type: "station",
+      lat: 33.948371,
+      lng: 131.256926
+    },
+    {
+      id: "karato_market",
+      area: "yamaguchi",
+      name: "唐戸市場",
+      nameEn: "Karato Market",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.956611,
+      lng: 130.945833
+    },
+    {
+      id: "kamon_wharf",
+      area: "yamaguchi",
+      name: "カモンワーフ",
+      nameEn: "Kamon Wharf",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.956287,
+      lng: 130.944123
+    },
+    {
+      id: "kaikyokan",
+      area: "yamaguchi",
+      name: "海響館",
+      nameEn: "Kaikyokan",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.954472,
+      lng: 130.942417
+    },
+    {
+      id: "tsunoshima_lighthouse",
+      area: "yamaguchi",
+      name: "角島灯台",
+      nameEn: "Tsunoshima Lighthouse",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.3525,
+      lng: 130.841111
+    },
+    {
+      id: "kawatana_onsen_town",
+      area: "yamaguchi",
+      name: "川棚温泉",
+      nameEn: "Kawatana Onsen",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.140679,
+      lng: 130.935872
+    },
+    {
+      id: "kanmon_walkway",
+      area: "yamaguchi",
+      name: "関門トンネル人道",
+      nameEn: "Kanmon Pedestrian Tunnel",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.965532,
+      lng: 130.955801
+    },
+    {
+      id: "mimosuso_park",
+      area: "yamaguchi",
+      name: "みもすそ川公園",
+      nameEn: "Mimosusogawa Park",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.966233,
+      lng: 130.957556
+    },
+    {
+      id: "akama_shrine",
+      area: "yamaguchi",
+      name: "赤間神宮",
+      nameEn: "Akama Shrine",
+      type: "shrine",
+      pinType: "shrine",
+      lat: 33.959722,
+      lng: 130.948472
+    },
+    {
+      id: "kozanji_shimonoseki",
+      area: "yamaguchi",
+      name: "功山寺",
+      nameEn: "Kozan-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.995889,
+      lng: 130.981917
+    },
+    {
+      id: "fukutoku_inari",
+      area: "yamaguchi",
+      name: "福徳稲荷神社",
+      nameEn: "Fukutoku Inari Shrine",
+      type: "shrine",
+      pinType: "shrine",
+      lat: 34.198167,
+      lng: 130.935333
+    },
+    {
+      id: "sumiyoshi_shimonoseki",
+      area: "yamaguchi",
+      name: "住吉神社",
+      nameEn: "Sumiyoshi Shrine",
+      type: "shrine",
+      pinType: "shrine",
+      lat: 33.999611,
+      lng: 130.956556
+    },
+    {
+      id: "chofu_town",
+      area: "yamaguchi",
+      name: "長府城下町",
+      nameEn: "Chofu Castle Town",
+      type: "historic",
+      pinType: "historic",
+      lat: 33.99729,
+      lng: 130.984298
+    },
+    {
+      id: "shimonoseki_history_museum",
+      area: "yamaguchi",
+      name: "下関市立歴史博物館",
+      nameEn: "Shimonoseki City Museum of History",
+      type: "museum",
+      pinType: "museum",
+      lat: 33.995917,
+      lng: 130.984028
+    },
+    {
+      id: "chichibugahama",
+      area: "kagawa",
+      name: "父母ヶ浜",
+      nameEn: "Chichibugahama",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.18831,
+      lng: 133.646831
+    },
+    {
+      id: "shiudeyama",
+      area: "kagawa",
+      name: "紫雲出山",
+      nameEn: "Mount Shiude",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.2447,
+      lng: 133.5956
+    },
+    {
+      id: "yashima_observatory",
+      area: "kagawa",
+      name: "屋島展望台",
+      nameEn: "Yashima Observatory",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.358105,
+      lng: 134.098629
+    },
+    {
+      id: "ritsurin_park",
+      area: "kagawa",
+      name: "栗林公園",
+      nameEn: "Ritsurin Garden",
+      type: "historic",
+      pinType: "historic",
+      lat: 34.32958,
+      lng: 134.04389
+    },
+    {
+      id: "kankakei",
+      area: "kagawa",
+      name: "寒霞渓",
+      nameEn: "Kankakei",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.515567,
+      lng: 134.300574
+    },
+    {
+      id: "angel_road",
+      area: "kagawa",
+      name: "エンジェルロード",
+      nameEn: "Angel Road",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.479802,
+      lng: 134.186478
+    },
+    {
+      id: "zenigata",
+      area: "kagawa",
+      name: "銭形砂絵",
+      nameEn: "Zenigata Sand Art",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.134142,
+      lng: 133.642281
+    },
+    {
+      id: "goshikidai",
+      area: "kagawa",
+      name: "五色台",
+      nameEn: "Goshikidai",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.35,
+      lng: 133.938889
+    },
+    {
+      id: "naruto_whirlpools",
+      area: "tokushima",
+      name: "鳴門の渦潮",
+      nameEn: "Naruto Whirlpools",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.237498,
+      lng: 134.646977
+    },
+    {
+      id: "oboke_gorge",
+      area: "tokushima",
+      name: "大歩危",
+      nameEn: "Oboke Gorge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.884574,
+      lng: 133.755902
+    },
+    {
+      id: "koboke_gorge",
+      area: "tokushima",
+      name: "小歩危",
+      nameEn: "Koboke Gorge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.930257,
+      lng: 133.761756
+    },
+    {
+      id: "kazurabashi",
+      area: "tokushima",
+      name: "祖谷のかずら橋",
+      nameEn: "Iya Vine Bridge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.875462,
+      lng: 133.833764
+    },
+    {
+      id: "iya_double_bridge",
+      area: "tokushima",
+      name: "奥祖谷二重かずら橋",
+      nameEn: "Iya Double Vine Bridge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.8535,
+      lng: 134.045722
+    },
+    {
+      id: "bizan",
+      area: "tokushima",
+      name: "眉山展望台",
+      nameEn: "Mount Bizan Observatory",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.066926,
+      lng: 134.537699
+    },
+    {
+      id: "mount_tsurugi",
+      area: "tokushima",
+      name: "剣山",
+      nameEn: "Mount Tsurugi",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.867284,
+      lng: 134.089727
+    },
+    {
+      id: "udatsu_town",
+      area: "tokushima",
+      name: "うだつの町並み",
+      nameEn: "Udatsu Townscape",
+      type: "historic",
+      pinType: "historic",
+      lat: 34.068053,
+      lng: 134.146592
+    },
+    {
+      id: "dogo_onsen",
+      area: "ehime",
+      name: "道後温泉",
+      nameEn: "Dogo Onsen",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.851944,
+      lng: 132.786389
+    },
+    {
+      id: "kurushima_observatory",
+      area: "ehime",
+      name: "来島海峡展望館",
+      nameEn: "Kurushima Kaikyo Observatory",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 34.114025,
+      lng: 132.977833
+    },
+    {
+      id: "himezurudaira",
+      area: "ehime",
+      name: "姫鶴平",
+      nameEn: "Himezurudaira",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.467498,
+      lng: 132.962504
+    },
+    {
+      id: "omogo_gorge",
+      area: "ehime",
+      name: "面河渓",
+      nameEn: "Omogo Gorge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.736239,
+      lng: 133.114961
+    },
+    {
+      id: "futami_seaside",
+      area: "ehime",
+      name: "双海シーサイド公園",
+      nameEn: "Futami Seaside Park",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.685222,
+      lng: 132.634222
+    },
+    {
+      id: "cape_sadamizaki",
+      area: "ehime",
+      name: "佐田岬",
+      nameEn: "Cape Sada",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.344,
+      lng: 132.012973
+    },
+    {
+      id: "yusu_terraces",
+      area: "ehime",
+      name: "遊子水荷浦の段畑",
+      nameEn: "Yusu Mizugaura Terraces",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.20675,
+      lng: 132.455417
+    },
+    {
+      id: "katsurahama",
+      area: "kochi",
+      name: "桂浜",
+      nameEn: "Katsurahama",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.495497,
+      lng: 133.573836
+    },
+    {
+      id: "sada_chinka",
+      area: "kochi",
+      name: "佐田沈下橋",
+      nameEn: "Sada Chinka Bridge",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.015432,
+      lng: 132.885949
+    },
+    {
+      id: "cape_ashizuri",
+      area: "kochi",
+      name: "足摺岬",
+      nameEn: "Cape Ashizuri",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 32.723333,
+      lng: 133.02
+    },
+    {
+      id: "cape_muroto",
+      area: "kochi",
+      name: "室戸岬",
+      nameEn: "Cape Muroto",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.242778,
+      lng: 134.176389
+    },
+    {
+      id: "kashima_island",
+      area: "kochi",
+      name: "柏島",
+      nameEn: "Kashima Island",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 32.769361,
+      lng: 132.621444
+    },
+    {
+      id: "nikobuchi",
+      area: "kochi",
+      name: "にこ淵",
+      nameEn: "Nikobuchi",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.705145,
+      lng: 133.341099
+    },
+    {
+      id: "ryuga_cave",
+      area: "kochi",
+      name: "龍河洞",
+      nameEn: "Ryuga Cave",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.603164,
+      lng: 133.745178
+    },
+    {
+      id: "tengu_plateau",
+      area: "kochi",
+      name: "天狗高原",
+      nameEn: "Tengu Plateau",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.474694,
+      lng: 132.994556
+    },
+    {
+      id: "monet_garden_kitagawa",
+      area: "kochi",
+      name: "モネの庭マルモッタン",
+      nameEn: "Monet's Garden Marmottan",
+      type: "viewpoint",
+      pinType: "viewpoint",
+      lat: 33.439809,
+      lng: 134.033601
     },
   ]
 };

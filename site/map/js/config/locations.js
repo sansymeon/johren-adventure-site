@@ -1102,6 +1102,228 @@
           nameEn: "Cape Ayamaru",
           points: [{ id: "ayamaru_cape", lat: 28.473038, lng: 129.716302 }]
         },
+        {
+          id: "karato_market",
+          name: "唐戸市場",
+          nameEn: "Karato Market",
+          points: [{ id: "karato_market", lat: 33.956611, lng: 130.945833 }]
+        },
+        {
+          id: "kamon_wharf",
+          name: "カモンワーフ",
+          nameEn: "Kamon Wharf",
+          points: [{ id: "kamon_wharf", lat: 33.956287, lng: 130.944123 }]
+        },
+        {
+          id: "kaikyokan",
+          name: "海響館",
+          nameEn: "Kaikyokan",
+          points: [{ id: "kaikyokan", lat: 33.954472, lng: 130.942417 }]
+        },
+        {
+          id: "tsunoshima_lighthouse",
+          name: "角島灯台",
+          nameEn: "Tsunoshima Lighthouse",
+          points: [{ id: "tsunoshima_lighthouse", lat: 34.3525, lng: 130.841111 }]
+        },
+        {
+          id: "kawatana_onsen_town",
+          name: "川棚温泉",
+          nameEn: "Kawatana Onsen",
+          points: [{ id: "kawatana_onsen_town", lat: 34.140679, lng: 130.935872 }]
+        },
+        {
+          id: "kanmon_walkway",
+          name: "関門トンネル人道",
+          nameEn: "Kanmon Pedestrian Tunnel",
+          points: [{ id: "kanmon_walkway", lat: 33.965532, lng: 130.955801 }]
+        },
+        {
+          id: "mimosuso_park",
+          name: "みもすそ川公園",
+          nameEn: "Mimosusogawa Park",
+          points: [{ id: "mimosuso_park", lat: 33.966233, lng: 130.957556 }]
+        },
+        {
+          id: "chichibugahama",
+          name: "父母ヶ浜",
+          nameEn: "Chichibugahama",
+          points: [{ id: "chichibugahama", lat: 34.18831, lng: 133.646831 }]
+        },
+        {
+          id: "shiudeyama",
+          name: "紫雲出山",
+          nameEn: "Mount Shiude",
+          points: [{ id: "shiudeyama", lat: 34.2447, lng: 133.5956 }]
+        },
+        {
+          id: "yashima_observatory",
+          name: "屋島展望台",
+          nameEn: "Yashima Observatory",
+          points: [{ id: "yashima_observatory", lat: 34.358105, lng: 134.098629 }]
+        },
+        {
+          id: "kankakei",
+          name: "寒霞渓",
+          nameEn: "Kankakei",
+          points: [{ id: "kankakei", lat: 34.515567, lng: 134.300574 }]
+        },
+        {
+          id: "angel_road",
+          name: "エンジェルロード",
+          nameEn: "Angel Road",
+          points: [{ id: "angel_road", lat: 34.479802, lng: 134.186478 }]
+        },
+        {
+          id: "zenigata",
+          name: "銭形砂絵",
+          nameEn: "Zenigata Sand Art",
+          points: [{ id: "zenigata", lat: 34.134142, lng: 133.642281 }]
+        },
+        {
+          id: "goshikidai",
+          name: "五色台",
+          nameEn: "Goshikidai",
+          points: [{ id: "goshikidai", lat: 34.35, lng: 133.938889 }]
+        },
+        {
+          id: "naruto_whirlpools",
+          name: "鳴門の渦潮",
+          nameEn: "Naruto Whirlpools",
+          points: [{ id: "naruto_whirlpools", lat: 34.237498, lng: 134.646977 }]
+        },
+        {
+          id: "oboke_gorge",
+          name: "大歩危",
+          nameEn: "Oboke Gorge",
+          points: [{ id: "oboke_gorge", lat: 33.884574, lng: 133.755902 }]
+        },
+        {
+          id: "koboke_gorge",
+          name: "小歩危",
+          nameEn: "Koboke Gorge",
+          points: [{ id: "koboke_gorge", lat: 33.930257, lng: 133.761756 }]
+        },
+        {
+          id: "kazurabashi",
+          name: "祖谷のかずら橋",
+          nameEn: "Iya Vine Bridge",
+          points: [{ id: "kazurabashi", lat: 33.875462, lng: 133.833764 }]
+        },
+        {
+          id: "iya_double_bridge",
+          name: "奥祖谷二重かずら橋",
+          nameEn: "Iya Double Vine Bridge",
+          points: [{ id: "iya_double_bridge", lat: 33.8535, lng: 134.045722 }]
+        },
+        {
+          id: "bizan",
+          name: "眉山展望台",
+          nameEn: "Mount Bizan Observatory",
+          points: [{ id: "bizan", lat: 34.066926, lng: 134.537699 }]
+        },
+        {
+          id: "mount_tsurugi",
+          name: "剣山",
+          nameEn: "Mount Tsurugi",
+          points: [{ id: "mount_tsurugi", lat: 33.867284, lng: 134.089727 }]
+        },
+        {
+          id: "dogo_onsen",
+          name: "道後温泉",
+          nameEn: "Dogo Onsen",
+          points: [{ id: "dogo_onsen", lat: 33.851944, lng: 132.786389 }]
+        },
+        {
+          id: "kurushima_observatory",
+          name: "来島海峡展望館",
+          nameEn: "Kurushima Kaikyo Observatory",
+          points: [{ id: "kurushima_observatory", lat: 34.114025, lng: 132.977833 }]
+        },
+        {
+          id: "himezurudaira",
+          name: "姫鶴平",
+          nameEn: "Himezurudaira",
+          points: [{ id: "himezurudaira", lat: 33.467498, lng: 132.962504 }]
+        },
+        {
+          id: "omogo_gorge",
+          name: "面河渓",
+          nameEn: "Omogo Gorge",
+          points: [{ id: "omogo_gorge", lat: 33.736239, lng: 133.114961 }]
+        },
+        {
+          id: "futami_seaside",
+          name: "双海シーサイド公園",
+          nameEn: "Futami Seaside Park",
+          points: [{ id: "futami_seaside", lat: 33.685222, lng: 132.634222 }]
+        },
+        {
+          id: "cape_sadamizaki",
+          name: "佐田岬",
+          nameEn: "Cape Sada",
+          points: [{ id: "cape_sadamizaki", lat: 33.344, lng: 132.012973 }]
+        },
+        {
+          id: "yusu_terraces",
+          name: "遊子水荷浦の段畑",
+          nameEn: "Yusu Mizugaura Terraces",
+          points: [{ id: "yusu_terraces", lat: 33.20675, lng: 132.455417 }]
+        },
+        {
+          id: "katsurahama",
+          name: "桂浜",
+          nameEn: "Katsurahama",
+          points: [{ id: "katsurahama", lat: 33.495497, lng: 133.573836 }]
+        },
+        {
+          id: "sada_chinka",
+          name: "佐田沈下橋",
+          nameEn: "Sada Chinka Bridge",
+          points: [{ id: "sada_chinka", lat: 33.015432, lng: 132.885949 }]
+        },
+        {
+          id: "cape_ashizuri",
+          name: "足摺岬",
+          nameEn: "Cape Ashizuri",
+          points: [{ id: "cape_ashizuri", lat: 32.723333, lng: 133.02 }]
+        },
+        {
+          id: "cape_muroto",
+          name: "室戸岬",
+          nameEn: "Cape Muroto",
+          points: [{ id: "cape_muroto", lat: 33.242778, lng: 134.176389 }]
+        },
+        {
+          id: "kashima_island",
+          name: "柏島",
+          nameEn: "Kashima Island",
+          points: [{ id: "kashima_island", lat: 32.769361, lng: 132.621444 }]
+        },
+        {
+          id: "nikobuchi",
+          name: "にこ淵",
+          nameEn: "Nikobuchi",
+          points: [{ id: "nikobuchi", lat: 33.705145, lng: 133.341099 }]
+        },
+        {
+          id: "ryuga_cave",
+          name: "龍河洞",
+          nameEn: "Ryuga Cave",
+          points: [{ id: "ryuga_cave", lat: 33.603164, lng: 133.745178 }]
+        },
+        {
+          id: "tengu_plateau",
+          name: "天狗高原",
+          nameEn: "Tengu Plateau",
+          points: [{ id: "tengu_plateau", lat: 33.474694, lng: 132.994556 }]
+        },
+        {
+          id: "monet_garden_kitagawa",
+          name: "モネの庭マルモッタン",
+          nameEn: "Monet's Garden Marmottan",
+          points: [{ id: "monet_garden_kitagawa", lat: 33.439809, lng: 134.033601 }]
+        },
       ]
     }
   };
