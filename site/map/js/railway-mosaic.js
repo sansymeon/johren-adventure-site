@@ -40,6 +40,19 @@
     }, picture);
   }
 
+  function sceneFor(size) {
+    var active = global.TURBO_PUZZLE_ACTIVE || {};
+    var level = active.levels && active.levels[String(size)];
+    if (level && level.image) {
+      return withReveal({
+        image: level.image,
+        imageWidth: level.imageWidth || 1600,
+        imageHeight: level.imageHeight || 900
+      }, level);
+    }
+    return currentScene();
+  }
+
   function scenes(data) {
     if (!data.scenes || typeof data.scenes !== "object") data.scenes = {};
     return data.scenes;
@@ -104,7 +117,7 @@
     var key = String(size);
     if (valid(data.orders[key], size)) return data.orders[key].slice();
     data.orders[key] = permutation(size);
-    if (!scenes(data)[key]) scenes(data)[key] = currentScene();
+    if (!scenes(data)[key]) scenes(data)[key] = sceneFor(size);
     write(data);
     return data.orders[key].slice();
   }

@@ -14,6 +14,7 @@
     var map = english() ? "/map/index-en.html" : "/map/";
     return {
       home: english() ? "/en/" : "/",
+      cast: english() ? "/en/cast/" : "/cast/",
       map: map + "?map=turbo",
       collection: map + "?map=turbo#collection",
       create: english() ? "/create/index-en.html" : "/create/"
@@ -25,6 +26,7 @@
     var link = urls();
     return [
       { id: "home", href: link.home, label: en ? "Home" : "ホーム" },
+      { id: "cast", href: link.cast, label: en ? "Cast" : "キャスト" },
       { id: "map", href: link.map, label: en ? "Map" : "マップ" },
       { id: "collection", href: link.collection, label: en ? "Collection" : "コレクション" },
       { id: "create", href: link.create, label: en ? "Create" : "つくる" }
@@ -36,6 +38,7 @@
     if (location.hash === "#collection") return "collection";
     if (path.indexOf("/create") === 0) return "create";
     if (path.indexOf("/map") === 0) return "map";
+    if (path.indexOf("/cast") === 0 || path.indexOf("/en/cast") === 0) return "cast";
     return "home";
   }
 
@@ -48,6 +51,9 @@
     if (path.indexOf("/create") === 0) {
       return { ja: "/create/", en: "/create/index-en.html" };
     }
+    if (path.indexOf("/cast") === 0 || path.indexOf("/en/cast") === 0) {
+      return { ja: "/cast/", en: "/en/cast/" };
+    }
     return { ja: "/", en: "/en/" };
   }
 
@@ -56,7 +62,7 @@
     var style = document.createElement("style");
     style.textContent =
       ".turbo-chrome{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:6px;box-sizing:border-box;width:100%;margin:0;padding:calc(8px + env(safe-area-inset-top)) 8px 8px;background:rgba(255,249,237,.94)}" +
-      ".turbo-nav{position:relative;display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:8px;width:100%;max-width:720px;min-width:0;margin:0}" +
+      ".turbo-nav{position:relative;display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:8px;width:100%;max-width:860px;min-width:0;margin:0}" +
       ".turbo-nav a{flex:0 1 auto;min-width:0;box-sizing:border-box;background:#fff;color:#173043;border-radius:999px;padding:8px 12px;font-size:14px;font-weight:700;line-height:1.2;text-align:center;text-decoration:none;white-space:nowrap}" +
       ".turbo-nav a[aria-current=page]{background:#0e7884;color:#fff}" +
       ".turbo-lang{display:flex;flex-wrap:nowrap;justify-content:center;align-items:center;gap:6px;margin:0}" +

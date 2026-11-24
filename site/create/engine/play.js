@@ -9,7 +9,12 @@
     window.TURBO_CREATOR_ASSET_BASE = "/masters/";
   }
   const creatorTest = !!window.TURBO_CREATOR_TEST;
-  const DRAFT_KEY = creatorTest ? "tas.creatorTestScene.v1" : "tas.playScene.v1";
+  const pageMode = creatorTest ? "studio" : (new URLSearchParams(location.search).get("mode") || "");
+  const demoMode = pageMode === "demo";
+  const collectionMode = pageMode === "collection";
+  const DRAFT_KEY = creatorTest ? "tas.creatorTestScene.v1" : (demoMode ? "turbo.demoScene.v1" : "tas.playScene.v1");
+  const demoArt = {};
+  const demoBg = {};
   const WELCOME_KEY = "tas.playWelcome.v1";
   const STARTER_BACKGROUND = "bg_performance_stage_wide";
   const STARTER_ARTWORK = ["turbo_selfie", "bubbles"];
@@ -81,7 +86,7 @@
       state.scene.layers = [];
       state.scene.background = null;
       const background = data.scene.background;
-      const backgroundAllowed = !!(background && (creatorTest || background.assetId === STARTER_BACKGROUND));
+      const backgroundAllowed = !!(background && allowedBackground(background.assetId));
       if (background && background.source === "catalogue" && backgroundAllowed && TAS.findBackground(background.assetId)) {
         state.scene.background = {
           source: "catalogue",
@@ -93,7 +98,7 @@
       }
       (data.scene.layers || []).forEach(function (layer) {
         const artworkId = TAS.resolveArtworkId ? TAS.resolveArtworkId(layer.artworkId) : layer.artworkId;
-        if (!creatorTest && STARTER_ARTWORK.indexOf(artworkId) === -1) return;
+        if (!allowedArtwork(artworkId)) return;
         const found = TAS.findArtwork(artworkId);
         if (!found || found.artwork.placeable === false) return;
         state.scene.layers.push({
@@ -231,6 +236,69 @@
     if (forward) forward.disabled = index < 0 || index >= state.scene.layers.length - 1;
   }
 
+  function ja() {
+    return (document.documentElement.lang || "ja").toLowerCase() !== "en";
+  }
+
+  function allowedArtwork(id) {
+    if (creatorTest) return true;
+    if (demoMode) return !!demoArt[id];
+    return ownedIds().indexOf(id) !== -1;
+  }
+
+  function allowedBackground(id) {
+    if (creatorTest) return true;
+    if (demoMode) return !!demoBg[id];
+    return ownedIds().indexOf(id) !== -1;
+  }
+
+  function installDemo(config) {
+    const originalUrl = TAS.fileUrl;
+    TAS.fileUrl = function (file) {
+      if (file && file.charAt(0) === "/") return file;
+      return originalUrl(file);
+    };
+    (config.characters || []).forEach(function (item) {
+      if (!item || !item.id || !item.file || item.file.indexOf("/media/create-demo/") !== 0) return;
+      const artwork = {
+        id: item.id,
+        label: ja() ? (item.label || item.name) : (item.labelEn || item.label || item.nameEn || item.name),
+        file: item.file,
+        width: item.width || 1024,
+        height: item.height || 1024,
+        placeable: true,
+        alpha: true
+      };
+      demoArt[item.id] = {
+        character: { id: item.id, name: ja() ? item.name : (item.nameEn || item.name) },
+        artwork: artwork
+      };
+    });
+    (config.backgrounds || []).forEach(function (item) {
+      if (!item || !item.id || !item.file || item.file.indexOf("/media/create-demo/") !== 0) return;
+      demoBg[item.id] = {
+        id: item.id,
+        name: ja() ? item.name : (item.nameEn || item.name),
+        file: item.file,
+        width: item.width || 1600,
+        height: item.height || 900,
+        format: item.format || "landscape"
+      };
+    });
+    const findArtwork = TAS.findArtwork;
+    const findBackground = TAS.findBackground;
+    TAS.findArtwork = function (id) {
+      if (demoArt[id]) return demoArt[id];
+      if (demoMode) return null;
+      return findArtwork(id);
+    };
+    TAS.findBackground = function (id) {
+      if (demoBg[id]) return demoBg[id];
+      if (demoMode) return null;
+      return findBackground(id);
+    };
+  }
+
   function ownedIds() {
     try {
       var data = JSON.parse(localStorage.getItem("turbo.playerInventory.v1") || "");
@@ -308,8 +376,8 @@
   function cardShell(item) {
     const action = item.kind === "background" ? "use-background" : "add-artwork";
     const actionLabel = item.kind === "background"
-      ? (item.current ? "Using this" : "Use this")
-      : "Add to Scene";
+      ? (item.current ? (ja() ? "使用中" : "Using this") : (ja() ? "この背景" : "Use this"))
+      : (ja() ? "加える" : "Add to Scene");
     const badge = item.added
       ? '<span class="play-badge">' + (item.count > 1 ? "Added ×" + item.count : "Added") + "</span>"
       : "";
@@ -320,7 +388,7 @@
       + '<button type="button" class="play-pick" data-action="' + action + '" data-id="' + TAS.esc(item.id) + '" aria-label="' + TAS.esc(item.name) + '">'
       + '<img alt="" loading="lazy" decoding="async" src="' + TAS.esc(thumb) + '" data-full="' + TAS.esc(full) + '">'
       + "</button>"
-      + '<button type="button" class="play-look" data-action="preview" data-kind="' + item.kind + '" data-id="' + TAS.esc(item.id) + '">See</button>'
+      + '<button type="button" class="play-look" data-action="preview" data-kind="' + item.kind + '" data-id="' + TAS.esc(item.id) + '">' + (ja() ? "見る" : "See") + "</button>"
       + badge
       + "</div>"
       + '<p class="play-name">' + TAS.esc(item.name) + "</p>"
@@ -329,8 +397,37 @@
       + "</article>";
   }
 
+  function demoCards() {
+    const cards = [];
+    Object.keys(demoBg).forEach(function (id) {
+      const background = demoBg[id];
+      cards.push({
+        kind: "background",
+        id: background.id,
+        file: background.file,
+        name: background.name,
+        pose: ja() ? "背景" : "Background",
+        current: !!(state.scene.background && state.scene.background.assetId === background.id)
+      });
+    });
+    Object.keys(demoArt).forEach(function (id) {
+      const found = demoArt[id];
+      cards.push({
+        kind: "character",
+        id: found.artwork.id,
+        file: found.artwork.file,
+        name: found.character.name,
+        pose: found.artwork.label,
+        current: false,
+        added: copiesOf(found.artwork.id) > 0,
+        count: copiesOf(found.artwork.id)
+      });
+    });
+    return cards;
+  }
+
   function paintGrid() {
-    const cards = creatorTest ? testCards() : playerCards();
+    const cards = demoMode ? demoCards() : (creatorTest ? testCards() : playerCards());
     var empty = document.documentElement.lang === "ja"
       ? "まだ集めている絵がありません。"
       : "You have not collected any pictures yet.";
@@ -362,7 +459,7 @@
   }
 
   function useBackground(id) {
-    if (!creatorTest && id !== STARTER_BACKGROUND) return;
+    if (!allowedBackground(id)) return;
     const background = TAS.findBackground(id);
     if (!background) return;
     const current = state.scene.background;
@@ -379,7 +476,7 @@
   }
 
   function addArtwork(id) {
-    if (!creatorTest && STARTER_ARTWORK.indexOf(id) === -1) return;
+    if (!allowedArtwork(id)) return;
     const found = TAS.findArtwork(id);
     if (!found || found.artwork.placeable === false) {
       notify("That picture cannot be added.");
@@ -580,11 +677,45 @@
   var port = document.getElementById("play-format-port");
   if (land) land.addEventListener("click", function () { applyFormat("landscape"); });
   if (port) port.addEventListener("click", function () { applyFormat("portrait"); });
-  const hadDraft = restoreDraft();
-  TASEditor.mountPlay(arrange, api);
-  if (creatorTest) applyFormat(state.scene.format || "landscape");
+  const gate = document.getElementById("play-gate");
+  function begin() {
+    if (gate) gate.hidden = true;
+    const hadDraft = restoreDraft();
+    TASEditor.mountPlay(arrange, api);
+    if (!creatorTest) TAS.exportJpegQuality = 0.92;
+    if (creatorTest) {
+      var saveButton = arrange.querySelector("[data-action='export-jpeg']");
+      if (saveButton && !arrange.querySelector("[data-action='export-png']")) {
+        var png = document.createElement("button");
+        png.type = "button";
+        png.className = "play-bar-btn";
+        png.dataset.action = "export-png";
+        png.textContent = "PNG";
+        saveButton.insertAdjacentElement("afterend", png);
+      }
+      applyFormat(state.scene.format || "landscape");
+    }
+    if (hadDraft) showArrange();
+    else showChoose();
+    paintFooter();
+  }
 
-  if (hadDraft) showArrange();
-  else showChoose();
-  paintFooter();
+  if (!creatorTest && !demoMode && !collectionMode) {
+    choose.hidden = true;
+    arrange.hidden = true;
+    if (welcome) welcome.hidden = true;
+  } else if (demoMode) {
+    fetch("/data/create/demo.json", { cache: "no-store" })
+      .then(function (response) { return response.ok ? response.json() : { characters: [], backgrounds: [] }; })
+      .then(function (config) {
+        installDemo(config);
+        begin();
+      })
+      .catch(function () {
+        installDemo({ characters: [], backgrounds: [] });
+        begin();
+      });
+  } else {
+    begin();
+  }
 })();

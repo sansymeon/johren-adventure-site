@@ -244,6 +244,30 @@
           points: [{ id: "yoron_airport", lat: 27.043899, lng: 128.401191 }]
         },
         {
+          id: "takamatsu_airport",
+          name: "高松空港",
+          nameEn: "Takamatsu Airport",
+          points: [{ id: "takamatsu_airport", lat: 34.215174, lng: 134.019401 }]
+        },
+        {
+          id: "tokushima_airport",
+          name: "徳島阿波おどり空港",
+          nameEn: "Tokushima Awaodori Airport",
+          points: [{ id: "tokushima_airport", lat: 34.132980, lng: 134.605373 }]
+        },
+        {
+          id: "matsuyama_airport",
+          name: "松山空港",
+          nameEn: "Matsuyama Airport",
+          points: [{ id: "matsuyama_airport", lat: 33.827314, lng: 132.701326 }]
+        },
+        {
+          id: "kochi_airport",
+          name: "高知龍馬空港",
+          nameEn: "Kochi Ryoma Airport",
+          points: [{ id: "kochi_airport", lat: 33.546340, lng: 133.671049 }]
+        },
+        {
           id: "naha_airport_terminal",
           name: "那覇空港",
           nameEn: "Naha Airport",

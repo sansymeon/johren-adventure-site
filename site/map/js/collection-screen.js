@@ -34,6 +34,8 @@
       : null;
     if (locked && locked.image) return locked;
     var active = global.TURBO_PUZZLE_ACTIVE;
+    var level = active && active.levels && active.levels[String(size)];
+    if (level && level.image) return level;
     if (active && active.image) return active;
     var config = global.TURBO_PUZZLE_CONFIG;
     if (!config || !config.image) return null;
@@ -114,14 +116,17 @@
     }
   }
 
-  function savedReveal(base) {
-    var row = revealStore().seen[base];
+  function savedReveal(size, picture) {
+    var seen = revealStore().seen;
+    var row = seen[String(size)];
+    if (row && row.image) return row;
+    row = picture && seen[picture.image];
     return row && row.image ? row : null;
   }
 
-  function rememberReveal(base, image, width, height) {
+  function rememberReveal(size, image, width, height) {
     var data = revealStore();
-    data.seen[base] = {
+    data.seen[String(size)] = {
       image: image,
       imageWidth: width || 1600,
       imageHeight: height || 900
@@ -131,7 +136,15 @@
 
   function offeredReveal(picture) {
     if (!picture) return null;
+    if (picture.revealImage) {
+      return {
+        image: picture.revealImage,
+        imageWidth: picture.revealImageWidth || picture.imageWidth || 1600,
+        imageHeight: picture.revealImageHeight || picture.imageHeight || 900
+      };
+    }
     var active = global.TURBO_PUZZLE_ACTIVE || {};
+    if (active.levels) return null;
     if (active.image && picture.image === active.image) {
       if (!active.revealImage) return null;
       return {
@@ -140,12 +153,7 @@
         imageHeight: active.revealImageHeight || picture.imageHeight || 900
       };
     }
-    if (!picture.revealImage) return null;
-    return {
-      image: picture.revealImage,
-      imageWidth: picture.revealImageWidth || picture.imageWidth || 1600,
-      imageHeight: picture.revealImageHeight || picture.imageHeight || 900
-    };
+    return null;
   }
 
   function fullImage(size) {
@@ -153,13 +161,13 @@
     if (!picture) return "";
     var shown = picture;
     var button = "";
-    if (size === 5) {
-      var saved = savedReveal(picture.image);
+    if (size) {
+      var saved = savedReveal(size, picture);
       var offer = offeredReveal(picture);
       if (saved) shown = saved;
       else if (offer) {
-        button = '<button type="button" class="reveal-final" data-reveal-final data-base="' +
-          escapeAttr(picture.image) + '" data-reveal="' + escapeAttr(offer.image) +
+        button = '<button type="button" class="reveal-final" data-reveal-final data-level="' +
+        size + '" data-base="' + escapeAttr(picture.image) + '" data-reveal="' + escapeAttr(offer.image) +
           '" data-width="' + offer.imageWidth + '" data-height="' + offer.imageHeight + '">' +
           t("revealFinal") + "</button>";
       }
@@ -246,7 +254,7 @@
     if (justFinished) {
       var finishedSize = done[done.length - 1];
       var finishedArt = art(finishedSize);
-      var alreadySeen = finishedSize === 5 && finishedArt && savedReveal(finishedArt.image);
+      var alreadySeen = finishedArt && savedReveal(finishedSize, finishedArt);
       if (!alreadySeen) {
         celebrate(root.querySelector('.puzzle-complete[data-completed-level="' + finishedSize + '"]'), finishedSize);
       }
@@ -310,7 +318,7 @@
       var button = event.target.closest("[data-reveal-final]");
       if (!button || !root.contains(button)) return;
       rememberReveal(
-        button.getAttribute("data-base"),
+        button.getAttribute("data-level"),
         button.getAttribute("data-reveal"),
         Number(button.getAttribute("data-width")),
         Number(button.getAttribute("data-height"))

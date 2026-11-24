@@ -10081,5 +10081,2627 @@ window.MAP_DATA = {
       lat: 33.219478,
       lng: 132.565236
     },
+
+    // Shikoku JR stations and pilgrimage temples. Coordinates from OpenStreetMap, November 2026.
+    {
+      id: "jr_shikoku_akaboshi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "赤星",
+      nameEn: "Akaboshi",
+      type: "station",
+      lat: 33.966724,
+      lng: 133.456171
+    },
+    {
+      id: "jr_shikoku_asanami",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "浅海",
+      nameEn: "Asanami",
+      type: "station",
+      lat: 34.009925,
+      lng: 132.802764
+    },
+    {
+      id: "jr_shikoku_awai",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "粟井",
+      nameEn: "Awai",
+      type: "station",
+      lat: 33.94273,
+      lng: 132.770535
+    },
+    {
+      id: "jr_shikoku_chikanaga",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "近永",
+      nameEn: "Chikanaga",
+      type: "station",
+      lat: 33.255626,
+      lng: 132.676551
+    },
+    {
+      id: "jr_shikoku_fukata",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "深田",
+      nameEn: "Fukata",
+      type: "station",
+      lat: 33.267664,
+      lng: 132.660371
+    },
+    {
+      id: "jr_shikoku_futaiwa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "双岩",
+      nameEn: "Futaiwa",
+      type: "station",
+      lat: 33.424647,
+      lng: 132.457808
+    },
+    {
+      id: "jr_shikoku_futana",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "二名",
+      nameEn: "Futana",
+      type: "station",
+      lat: 33.29153,
+      lng: 132.629075
+    },
+    {
+      id: "jr_shikoku_gor",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "五郎",
+      nameEn: "Gorō",
+      type: "station",
+      lat: 33.541689,
+      lng: 132.570427
+    },
+    {
+      id: "jr_shikoku_haruka",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "春賀",
+      nameEn: "Haruka",
+      type: "station",
+      lat: 33.555882,
+      lng: 132.555097
+    },
+    {
+      id: "jr_shikoku_hashihama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "波止浜",
+      nameEn: "Hashihama",
+      type: "station",
+      lat: 34.097981,
+      lng: 132.968735
+    },
+    {
+      id: "jr_shikoku_hataki",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "八多喜",
+      nameEn: "Hataki",
+      type: "station",
+      lat: 33.562771,
+      lng: 132.540697
+    },
+    {
+      id: "jr_shikoku_horie",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "堀江",
+      nameEn: "Horie",
+      type: "station",
+      lat: 33.905834,
+      lng: 132.753429
+    },
+    {
+      id: "jr_shikoku_ichitsubo",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "市坪",
+      nameEn: "Ichitsubo",
+      type: "station",
+      lat: 33.809512,
+      lng: 132.749285
+    },
+    {
+      id: "jr_shikoku_ikazaki",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "五十崎",
+      nameEn: "Ikazaki",
+      type: "station",
+      lat: 33.53794,
+      lng: 132.636045
+    },
+    {
+      id: "jr_shikoku_imabari",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "今治",
+      nameEn: "Imabari",
+      type: "station",
+      lat: 34.064185,
+      lng: 132.993672
+    },
+    {
+      id: "jr_shikoku_ishizuchiyama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "石鎚山",
+      nameEn: "Ishizuchiyama",
+      type: "station",
+      lat: 33.895862,
+      lng: 133.157245
+    },
+    {
+      id: "jr_shikoku_iyo_doi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予土居",
+      nameEn: "Iyo-Doi",
+      type: "station",
+      lat: 33.95914,
+      lng: 133.428189
+    },
+    {
+      id: "jr_shikoku_iyo_himi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予氷見",
+      nameEn: "Iyo-Himi",
+      type: "station",
+      lat: 33.896796,
+      lng: 133.130755
+    },
+    {
+      id: "jr_shikoku_iyo_hirano",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予平野",
+      nameEn: "Iyo-Hirano",
+      type: "station",
+      lat: 33.495711,
+      lng: 132.518125
+    },
+    {
+      id: "jr_shikoku_iyo_h_j",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予北条",
+      nameEn: "Iyo-Hōjō",
+      type: "station",
+      lat: 33.972556,
+      lng: 132.775213
+    },
+    {
+      id: "jr_shikoku_iyo_iwaki",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予石城",
+      nameEn: "Iyo-Iwaki",
+      type: "station",
+      lat: 33.391438,
+      lng: 132.473304
+    },
+    {
+      id: "jr_shikoku_iyo_izushi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予出石",
+      nameEn: "Iyo-Izushi",
+      type: "station",
+      lat: 33.596361,
+      lng: 132.499015
+    },
+    {
+      id: "jr_shikoku_iyo_kameoka",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予亀岡",
+      nameEn: "Iyo-Kameoka",
+      type: "station",
+      lat: 34.05383,
+      lng: 132.874169
+    },
+    {
+      id: "jr_shikoku_iyo_kaminada",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予上灘",
+      nameEn: "Iyo-Kaminada",
+      type: "station",
+      lat: 33.683786,
+      lng: 132.633262
+    },
+    {
+      id: "jr_shikoku_iyo_komatsu",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予小松",
+      nameEn: "Iyo-Komatsu",
+      type: "station",
+      lat: 33.897657,
+      lng: 133.116705
+    },
+    {
+      id: "jr_shikoku_iyo_mishima",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予三島",
+      nameEn: "Iyo-Mishima",
+      type: "station",
+      lat: 33.979587,
+      lng: 133.542325
+    },
+    {
+      id: "jr_shikoku_iyo_miyanoshita",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予宮野下",
+      nameEn: "Iyo-Miyanoshita",
+      type: "station",
+      lat: 33.288872,
+      lng: 132.605765
+    },
+    {
+      id: "jr_shikoku_iyo_miyoshi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予三芳",
+      nameEn: "Iyo-Miyoshi",
+      type: "station",
+      lat: 33.954354,
+      lng: 133.064331
+    },
+    {
+      id: "jr_shikoku_iyo_nagahama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予長浜",
+      nameEn: "Iyo-Nagahama",
+      type: "station",
+      lat: 33.615296,
+      lng: 132.486956
+    },
+    {
+      id: "jr_shikoku_iyo_nakayama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予中山",
+      nameEn: "Iyo-Nakayama",
+      type: "station",
+      lat: 33.649787,
+      lng: 132.711726
+    },
+    {
+      id: "jr_shikoku_iyo_saij",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予西条",
+      nameEn: "Iyo-Saijō",
+      type: "station",
+      lat: 33.912416,
+      lng: 133.187577
+    },
+    {
+      id: "jr_shikoku_iyo_sakurai",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予桜井",
+      nameEn: "Iyo-Sakurai",
+      type: "station",
+      lat: 34.011979,
+      lng: 133.035837
+    },
+    {
+      id: "jr_shikoku_iyo_sangawa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予寒川",
+      nameEn: "Iyo-Sangawa",
+      type: "station",
+      lat: 33.967913,
+      lng: 133.500121
+    },
+    {
+      id: "jr_shikoku_iyo_shirataki",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予白滝",
+      nameEn: "Iyo-Shirataki",
+      type: "station",
+      lat: 33.578548,
+      lng: 132.526583
+    },
+    {
+      id: "jr_shikoku_iyo_tachikawa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予立川",
+      nameEn: "Iyo-Tachikawa",
+      type: "station",
+      lat: 33.601555,
+      lng: 132.678168
+    },
+    {
+      id: "jr_shikoku_iyo_tomita",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予富田",
+      nameEn: "Iyo-Tomita",
+      type: "station",
+      lat: 34.036443,
+      lng: 133.00912
+    },
+    {
+      id: "jr_shikoku_iyo_wake",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予和気",
+      nameEn: "Iyo-Wake",
+      type: "station",
+      lat: 33.889631,
+      lng: 132.740715
+    },
+    {
+      id: "jr_shikoku_iyo_yokota",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予横田",
+      nameEn: "Iyo-Yokota",
+      type: "station",
+      lat: 33.77277,
+      lng: 132.726801
+    },
+    {
+      id: "jr_shikoku_iyo_yoshida",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予吉田",
+      nameEn: "Iyo-Yoshida",
+      type: "station",
+      lat: 33.273268,
+      lng: 132.544303
+    },
+    {
+      id: "jr_shikoku_iyo_hira",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予大平",
+      nameEn: "Iyo-Ōhira",
+      type: "station",
+      lat: 33.716003,
+      lng: 132.708563
+    },
+    {
+      id: "jr_shikoku_iyo_zu",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予大洲",
+      nameEn: "Iyo-Ōzu",
+      type: "station",
+      lat: 33.518643,
+      lng: 132.544755
+    },
+    {
+      id: "jr_shikoku_iyoshi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "伊予市",
+      nameEn: "Iyoshi",
+      type: "station",
+      lat: 33.75546,
+      lng: 132.702329
+    },
+    {
+      id: "jr_shikoku_izume",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "出目",
+      nameEn: "Izume",
+      type: "station",
+      lat: 33.251959,
+      lng: 132.691701
+    },
+    {
+      id: "jr_shikoku_kami_uwa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "上宇和",
+      nameEn: "Kami-Uwa",
+      type: "station",
+      lat: 33.379969,
+      lng: 132.501426
+    },
+    {
+      id: "jr_shikoku_kawanoe",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "川之江",
+      nameEn: "Kawanoe",
+      type: "station",
+      lat: 34.014356,
+      lng: 133.576064
+    },
+    {
+      id: "jr_shikoku_kikuma",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "菊間",
+      nameEn: "Kikuma",
+      type: "station",
+      lat: 34.03333,
+      lng: 132.840843
+    },
+    {
+      id: "jr_shikoku_kita_iyo",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "北伊予",
+      nameEn: "Kita-Iyo",
+      type: "station",
+      lat: 33.787706,
+      lng: 132.748953
+    },
+    {
+      id: "jr_shikoku_kita_uwajima",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "北宇和島",
+      nameEn: "Kita-Uwajima",
+      type: "station",
+      lat: 33.238624,
+      lng: 132.569788
+    },
+    {
+      id: "jr_shikoku_kitanada",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "喜多灘",
+      nameEn: "Kitanada",
+      type: "station",
+      lat: 33.637211,
+      lng: 132.531439
+    },
+    {
+      id: "jr_shikoku_kitayama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "喜多山",
+      nameEn: "Kitayama",
+      type: "station",
+      lat: 33.533273,
+      lng: 132.6111
+    },
+    {
+      id: "jr_shikoku_kushi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "串",
+      nameEn: "Kushi",
+      type: "station",
+      lat: 33.64727,
+      lng: 132.563403
+    },
+    {
+      id: "jr_shikoku_k_nokawa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "高野川",
+      nameEn: "Kōnokawa",
+      type: "station",
+      lat: 33.70188,
+      lng: 132.659048
+    },
+    {
+      id: "jr_shikoku_k_y_dai",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "光洋台",
+      nameEn: "Kōyōdai",
+      type: "station",
+      lat: 33.926978,
+      lng: 132.761095
+    },
+    {
+      id: "jr_shikoku_matsuchi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "真土",
+      nameEn: "Matsuchi",
+      type: "station",
+      lat: 33.224086,
+      lng: 132.745337
+    },
+    {
+      id: "jr_shikoku_matsumaru",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "松丸",
+      nameEn: "Matsumaru",
+      type: "station",
+      lat: 33.228436,
+      lng: 132.708574
+    },
+    {
+      id: "jr_shikoku_minami_iyo",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "南伊予",
+      nameEn: "Minami-Iyo",
+      type: "station",
+      lat: 33.777689,
+      lng: 132.738768
+    },
+    {
+      id: "jr_shikoku_mitsuhama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "三津浜",
+      nameEn: "Mitsuhama",
+      type: "station",
+      lat: 33.862469,
+      lng: 132.728775
+    },
+    {
+      id: "jr_shikoku_muden",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "務田",
+      nameEn: "Muden",
+      type: "station",
+      lat: 33.282824,
+      lng: 132.600214
+    },
+    {
+      id: "jr_shikoku_mukaibara",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "向井原",
+      nameEn: "Mukaibara",
+      type: "station",
+      lat: 33.736212,
+      lng: 132.695784
+    },
+    {
+      id: "jr_shikoku_nakahagi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "中萩",
+      nameEn: "Nakahagi",
+      type: "station",
+      lat: 33.926164,
+      lng: 133.253392
+    },
+    {
+      id: "jr_shikoku_namikata",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "波方",
+      nameEn: "Namikata",
+      type: "station",
+      lat: 34.095164,
+      lng: 132.942012
+    },
+    {
+      id: "jr_shikoku_niihama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "新居浜",
+      nameEn: "Niihama",
+      type: "station",
+      lat: 33.94798,
+      lng: 133.294334
+    },
+    {
+      id: "jr_shikoku_niiya",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "新谷",
+      nameEn: "Niiya",
+      type: "station",
+      lat: 33.534143,
+      lng: 132.599021
+    },
+    {
+      id: "jr_shikoku_nishi_zu",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "西大洲",
+      nameEn: "Nishi-Ōzu",
+      type: "station",
+      lat: 33.508223,
+      lng: 132.52699
+    },
+    {
+      id: "jr_shikoku_ny_gawa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "壬生川",
+      nameEn: "Nyūgawa",
+      type: "station",
+      lat: 33.929433,
+      lng: 133.085676
+    },
+    {
+      id: "jr_shikoku_sekigawa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "関川",
+      nameEn: "Sekigawa",
+      type: "station",
+      lat: 33.955698,
+      lng: 133.39322
+    },
+    {
+      id: "jr_shikoku_senj",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "千丈",
+      nameEn: "Senjō",
+      type: "station",
+      lat: 33.465278,
+      lng: 132.456971
+    },
+    {
+      id: "jr_shikoku_shimo_uwa",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "下宇和",
+      nameEn: "Shimo-Uwa",
+      type: "station",
+      lat: 33.349465,
+      lng: 132.531214
+    },
+    {
+      id: "jr_shikoku_shimonada",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "下灘",
+      nameEn: "Shimonada",
+      type: "station",
+      lat: 33.655417,
+      lng: 132.589412
+    },
+    {
+      id: "jr_shikoku_tachima",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "立間",
+      nameEn: "Tachima",
+      type: "station",
+      lat: 33.296664,
+      lng: 132.539563
+    },
+    {
+      id: "jr_shikoku_takamitsu",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "高光",
+      nameEn: "Takamitsu",
+      type: "station",
+      lat: 33.256177,
+      lng: 132.573469
+    },
+    {
+      id: "jr_shikoku_takihama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "多喜浜",
+      nameEn: "Takihama",
+      type: "station",
+      lat: 33.970469,
+      lng: 133.324429
+    },
+    {
+      id: "jr_shikoku_tamanoe",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "玉之江",
+      nameEn: "Tamanoe",
+      type: "station",
+      lat: 33.912563,
+      lng: 133.099032
+    },
+    {
+      id: "jr_shikoku_torinoki",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "鳥ノ木",
+      nameEn: "Torinoki",
+      type: "station",
+      lat: 33.76386,
+      lng: 132.711484
+    },
+    {
+      id: "jr_shikoku_uchiko",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "内子",
+      nameEn: "Uchiko",
+      type: "station",
+      lat: 33.549207,
+      lng: 132.646276
+    },
+    {
+      id: "jr_shikoku_unomachi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "卯之町",
+      nameEn: "Unomachi",
+      type: "station",
+      lat: 33.363051,
+      lng: 132.509928
+    },
+    {
+      id: "jr_shikoku_uwajima",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "宇和島",
+      nameEn: "Uwajima",
+      type: "station",
+      lat: 33.226047,
+      lng: 132.567504
+    },
+    {
+      id: "jr_shikoku_yanagihara",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "柳原",
+      nameEn: "Yanagihara",
+      type: "station",
+      lat: 33.953534,
+      lng: 132.773525
+    },
+    {
+      id: "jr_shikoku_yawatahama",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "八幡浜",
+      nameEn: "Yawatahama",
+      type: "station",
+      lat: 33.45817,
+      lng: 132.435998
+    },
+    {
+      id: "jr_shikoku_yoshinobu",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "吉野生",
+      nameEn: "Yoshinobu",
+      type: "station",
+      lat: 33.224572,
+      lng: 132.729061
+    },
+    {
+      id: "jr_shikoku_nishi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "大西",
+      nameEn: "Ōnishi",
+      type: "station",
+      lat: 34.066103,
+      lng: 132.92915
+    },
+    {
+      id: "jr_shikoku_uchi",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "大内",
+      nameEn: "Ōuchi",
+      type: "station",
+      lat: 33.286917,
+      lng: 132.642351
+    },
+    {
+      id: "jr_shikoku_ura",
+      line: "jr_shikoku",
+      area: "ehime",
+      name: "大浦",
+      nameEn: "Ōura",
+      type: "station",
+      lat: 33.999304,
+      lng: 132.775451
+    },
+    {
+      id: "jr_shikoku_furutakamatsu_minami",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "古高松南",
+      nameEn: "Furutakamatsu-Minami",
+      type: "station",
+      lat: 34.341164,
+      lng: 134.12124
+    },
+    {
+      id: "jr_shikoku_hashioka",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "端岡",
+      nameEn: "Hashioka",
+      type: "station",
+      lat: 34.304952,
+      lng: 133.967753
+    },
+    {
+      id: "jr_shikoku_hijidai",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "比地大",
+      nameEn: "Hijidai",
+      type: "station",
+      lat: 34.167169,
+      lng: 133.690312
+    },
+    {
+      id: "jr_shikoku_hiketa",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "引田",
+      nameEn: "Hiketa",
+      type: "station",
+      lat: 34.224406,
+      lng: 134.40201
+    },
+    {
+      id: "jr_shikoku_kaiganji",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "海岸寺",
+      nameEn: "Kaiganji",
+      type: "station",
+      lat: 34.25386,
+      lng: 133.729283
+    },
+    {
+      id: "jr_shikoku_kamogawa",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "鴨川",
+      nameEn: "Kamogawa",
+      type: "station",
+      lat: 34.306863,
+      lng: 133.90514
+    },
+    {
+      id: "jr_shikoku_kan_onji",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "観音寺",
+      nameEn: "Kan'onji",
+      type: "station",
+      lat: 34.124273,
+      lng: 133.655457
+    },
+    {
+      id: "jr_shikoku_kanzaki",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "神前",
+      nameEn: "Kanzaki",
+      type: "station",
+      lat: 34.282712,
+      lng: 134.209161
+    },
+    {
+      id: "jr_shikoku_kinashi",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "鬼無",
+      nameEn: "Kinashi",
+      type: "station",
+      lat: 34.325526,
+      lng: 133.993767
+    },
+    {
+      id: "jr_shikoku_kitacho",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "木太町",
+      nameEn: "Kitacho",
+      type: "station",
+      lat: 34.331894,
+      lng: 134.080023
+    },
+    {
+      id: "jr_shikoku_kokubu",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "国分",
+      nameEn: "Kokubu",
+      type: "station",
+      lat: 34.30057,
+      lng: 133.941703
+    },
+    {
+      id: "jr_shikoku_konzoji",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "金蔵寺",
+      nameEn: "Konzoji",
+      type: "station",
+      lat: 34.247948,
+      lng: 133.777627
+    },
+    {
+      id: "jr_shikoku_kotohira",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "琴平",
+      nameEn: "Kotohira",
+      type: "station",
+      lat: 34.192003,
+      lng: 133.821437
+    },
+    {
+      id: "jr_shikoku_kurokawa",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "黒川",
+      nameEn: "Kurokawa",
+      type: "station",
+      lat: 34.133199,
+      lng: 133.820015
+    },
+    {
+      id: "jr_shikoku_k_zai",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "香西",
+      nameEn: "Kōzai",
+      type: "station",
+      lat: 34.340975,
+      lng: 134.009682
+    },
+    {
+      id: "jr_shikoku_marugame",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "丸亀",
+      nameEn: "Marugame",
+      type: "station",
+      lat: 34.292037,
+      lng: 133.792953
+    },
+    {
+      id: "jr_shikoku_mino",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "みの",
+      nameEn: "Mino",
+      type: "station",
+      lat: 34.206155,
+      lng: 133.710414
+    },
+    {
+      id: "jr_shikoku_minoura",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "箕浦",
+      nameEn: "Minoura",
+      type: "station",
+      lat: 34.048039,
+      lng: 133.619104
+    },
+    {
+      id: "jr_shikoku_motoyama",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "本山",
+      nameEn: "Motoyama",
+      type: "station",
+      lat: 34.146048,
+      lng: 133.686308
+    },
+    {
+      id: "jr_shikoku_nibu",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "丹生",
+      nameEn: "Nibu",
+      type: "station",
+      lat: 34.254585,
+      lng: 134.301636
+    },
+    {
+      id: "jr_shikoku_orange_town",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "オレンジタウン",
+      nameEn: "Orange Town",
+      type: "station",
+      lat: 34.302267,
+      lng: 134.180919
+    },
+    {
+      id: "jr_shikoku_ritsurin",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "栗林",
+      nameEn: "Ritsurin",
+      type: "station",
+      lat: 34.332228,
+      lng: 134.053392
+    },
+    {
+      id: "jr_shikoku_ritsurink_en_kitaguchi",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "栗林公園北口",
+      nameEn: "Ritsurinkōen Kitaguchi",
+      type: "station",
+      lat: 34.334033,
+      lng: 134.041692
+    },
+    {
+      id: "jr_shikoku_sambommatsu",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "三本松",
+      nameEn: "Sambommatsu",
+      type: "station",
+      lat: 34.251636,
+      lng: 134.334252
+    },
+    {
+      id: "jr_shikoku_sanuki_aioi",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐相生",
+      nameEn: "Sanuki-Aioi",
+      type: "station",
+      lat: 34.211967,
+      lng: 134.424379
+    },
+    {
+      id: "jr_shikoku_sanuki_fuch",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐府中",
+      nameEn: "Sanuki-Fuchū",
+      type: "station",
+      lat: 34.29159,
+      lng: 133.923381
+    },
+    {
+      id: "jr_shikoku_sanuki_mure",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐牟礼",
+      nameEn: "Sanuki-Mure",
+      type: "station",
+      lat: 34.336519,
+      lng: 134.147526
+    },
+    {
+      id: "jr_shikoku_sanuki_saida",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐財田",
+      nameEn: "Sanuki-Saida",
+      type: "station",
+      lat: 34.117392,
+      lng: 133.814519
+    },
+    {
+      id: "jr_shikoku_sanuki_shioya",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐塩屋",
+      nameEn: "Sanuki-Shioya",
+      type: "station",
+      lat: 34.284966,
+      lng: 133.776895
+    },
+    {
+      id: "jr_shikoku_sanuki_shirotori",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐白鳥",
+      nameEn: "Sanuki-Shirotori",
+      type: "station",
+      lat: 34.243587,
+      lng: 134.366151
+    },
+    {
+      id: "jr_shikoku_sanuki_tsuda",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "讃岐津田",
+      nameEn: "Sanuki-Tsuda",
+      type: "station",
+      lat: 34.288338,
+      lng: 134.248057
+    },
+    {
+      id: "jr_shikoku_shido",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "志度",
+      nameEn: "Shido",
+      type: "station",
+      lat: 34.321528,
+      lng: 134.173113
+    },
+    {
+      id: "jr_shikoku_shioiri",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "塩入",
+      nameEn: "Shioiri",
+      type: "station",
+      lat: 34.156095,
+      lng: 133.849877
+    },
+    {
+      id: "jr_shikoku_showacho",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "昭和町",
+      nameEn: "Showacho",
+      type: "station",
+      lat: 34.344057,
+      lng: 134.032152
+    },
+    {
+      id: "jr_shikoku_tadotsu",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "多度津",
+      nameEn: "Tadotsu",
+      type: "station",
+      lat: 34.271119,
+      lng: 133.757012
+    },
+    {
+      id: "jr_shikoku_takase",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "高瀬",
+      nameEn: "Takase",
+      type: "station",
+      lat: 34.183891,
+      lng: 133.711072
+    },
+    {
+      id: "jr_shikoku_takuma",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "詫間",
+      nameEn: "Takuma",
+      type: "station",
+      lat: 34.221062,
+      lng: 133.692882
+    },
+    {
+      id: "jr_shikoku_toyohama",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "豊浜",
+      nameEn: "Toyohama",
+      type: "station",
+      lat: 34.07983,
+      lng: 133.644367
+    },
+    {
+      id: "jr_shikoku_tsuruwa",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "鶴羽",
+      nameEn: "Tsuruwa",
+      type: "station",
+      lat: 34.280047,
+      lng: 134.27394
+    },
+    {
+      id: "jr_shikoku_utazu",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "宇多津",
+      nameEn: "Utazu",
+      type: "station",
+      lat: 34.306438,
+      lng: 133.813883
+    },
+    {
+      id: "jr_shikoku_yakuriguchi",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "八栗口",
+      nameEn: "Yakuriguchi",
+      type: "station",
+      lat: 34.338876,
+      lng: 134.136921
+    },
+    {
+      id: "jr_shikoku_yashima",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "屋島",
+      nameEn: "Yashima",
+      type: "station",
+      lat: 34.336581,
+      lng: 134.109179
+    },
+    {
+      id: "jr_shikoku_yasoba",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "八十場",
+      nameEn: "Yasoba",
+      type: "station",
+      lat: 34.312917,
+      lng: 133.884904
+    },
+    {
+      id: "jr_shikoku_zentsuji",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "善通寺",
+      nameEn: "Zentsuji",
+      type: "station",
+      lat: 34.229992,
+      lng: 133.78922
+    },
+    {
+      id: "jr_shikoku_z_da",
+      line: "jr_shikoku",
+      area: "kagawa",
+      name: "造田",
+      nameEn: "Zōda",
+      type: "station",
+      lat: 34.282951,
+      lng: 134.185885
+    },
+    {
+      id: "jr_shikoku_asahi",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "旭",
+      nameEn: "Asahi",
+      type: "station",
+      lat: 33.558805,
+      lng: 133.508587
+    },
+    {
+      id: "jr_shikoku_asakura",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "朝倉",
+      nameEn: "Asakura",
+      type: "station",
+      lat: 33.551573,
+      lng: 133.485342
+    },
+    {
+      id: "jr_shikoku_as",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "吾桑",
+      nameEn: "Asō",
+      type: "station",
+      lat: 33.430087,
+      lng: 133.295789
+    },
+    {
+      id: "jr_shikoku_awa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "安和",
+      nameEn: "Awa",
+      type: "station",
+      lat: 33.366987,
+      lng: 133.258839
+    },
+    {
+      id: "jr_shikoku_az_no",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "薊野",
+      nameEn: "Azōno",
+      type: "station",
+      lat: 33.578535,
+      lng: 133.56067
+    },
+    {
+      id: "jr_shikoku_edagawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "枝川",
+      nameEn: "Edagawa",
+      type: "station",
+      lat: 33.550729,
+      lng: 133.448407
+    },
+    {
+      id: "jr_shikoku_ekawasaki",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "江川崎",
+      nameEn: "Ekawasaki",
+      type: "station",
+      lat: 33.178334,
+      lng: 132.783079
+    },
+    {
+      id: "jr_shikoku_engy_jiguchi",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "円行寺口",
+      nameEn: "Engyōjiguchi",
+      type: "station",
+      lat: 33.565791,
+      lng: 133.520874
+    },
+    {
+      id: "jr_shikoku_erinono",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "襟野々",
+      nameEn: "Erinono",
+      type: "station",
+      lat: 33.488569,
+      lng: 133.300483
+    },
+    {
+      id: "jr_shikoku_gomen",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "後免",
+      nameEn: "Gomen",
+      type: "station",
+      lat: 33.579233,
+      lng: 133.645326
+    },
+    {
+      id: "jr_shikoku_hage",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "半家",
+      nameEn: "Hage",
+      type: "station",
+      lat: 33.201536,
+      lng: 132.791531
+    },
+    {
+      id: "jr_shikoku_hakawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "波川",
+      nameEn: "Hakawa",
+      type: "station",
+      lat: 33.543706,
+      lng: 133.414215
+    },
+    {
+      id: "jr_shikoku_iejigawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "家地川",
+      nameEn: "Iejigawa",
+      type: "station",
+      lat: 33.161476,
+      lng: 133.074695
+    },
+    {
+      id: "jr_shikoku_ino",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "伊野",
+      nameEn: "Ino",
+      type: "station",
+      lat: 33.547411,
+      lng: 133.430488
+    },
+    {
+      id: "jr_shikoku_iriake",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "入明",
+      nameEn: "Iriake",
+      type: "station",
+      lat: 33.567223,
+      lng: 133.530099
+    },
+    {
+      id: "jr_shikoku_kageno",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "影野",
+      nameEn: "Kageno",
+      type: "station",
+      lat: 33.276498,
+      lng: 133.174126
+    },
+    {
+      id: "jr_shikoku_kakumodani",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "角茂谷",
+      nameEn: "Kakumodani",
+      type: "station",
+      lat: 33.696133,
+      lng: 133.692544
+    },
+    {
+      id: "jr_shikoku_kubokawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "窪川",
+      nameEn: "Kubokawa",
+      type: "station",
+      lat: 33.212426,
+      lng: 133.137357
+    },
+    {
+      id: "jr_shikoku_kusaka",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "日下",
+      nameEn: "Kusaka",
+      type: "station",
+      lat: 33.533505,
+      lng: 133.371322
+    },
+    {
+      id: "jr_shikoku_k_chi_sh_gy_mae",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "高知商業前",
+      nameEn: "Kōchi-Shōgyō-Mae",
+      type: "station",
+      lat: 33.558401,
+      lng: 133.49723
+    },
+    {
+      id: "jr_shikoku_niida",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "仁井田",
+      nameEn: "Niida",
+      type: "station",
+      lat: 33.244879,
+      lng: 133.161303
+    },
+    {
+      id: "jr_shikoku_nishi_sakawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "西佐川",
+      nameEn: "Nishi-Sakawa",
+      type: "station",
+      lat: 33.512623,
+      lng: 133.286766
+    },
+    {
+      id: "jr_shikoku_nishigah",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "西ヶ方",
+      nameEn: "Nishigahō",
+      type: "station",
+      lat: 33.187233,
+      lng: 132.767244
+    },
+    {
+      id: "jr_shikoku_nunoshida",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "布師田",
+      nameEn: "Nunoshida",
+      type: "station",
+      lat: 33.575766,
+      lng: 133.590219
+    },
+    {
+      id: "jr_shikoku_okabana",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "岡花",
+      nameEn: "Okabana",
+      type: "station",
+      lat: 33.529874,
+      lng: 133.350892
+    },
+    {
+      id: "jr_shikoku_omurajinjamae",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "小村神社前",
+      nameEn: "Omurajinjamae",
+      type: "station",
+      lat: 33.540069,
+      lng: 133.392874
+    },
+    {
+      id: "jr_shikoku_osugi",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "大杉",
+      nameEn: "Osugi",
+      type: "station",
+      lat: 33.761253,
+      lng: 133.664356
+    },
+    {
+      id: "jr_shikoku_otaguchi",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "大田口",
+      nameEn: "Otaguchi",
+      type: "station",
+      lat: 33.786336,
+      lng: 133.724982
+    },
+    {
+      id: "jr_shikoku_rokutanji",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "六反地",
+      nameEn: "Rokutanji",
+      type: "station",
+      lat: 33.261863,
+      lng: 133.169465
+    },
+    {
+      id: "jr_shikoku_sakawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "佐川",
+      nameEn: "Sakawa",
+      type: "station",
+      lat: 33.500198,
+      lng: 133.292517
+    },
+    {
+      id: "jr_shikoku_shiget",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "繁藤",
+      nameEn: "Shigetō",
+      type: "station",
+      lat: 33.68051,
+      lng: 133.689923
+    },
+    {
+      id: "jr_shikoku_shingai",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "新改",
+      nameEn: "Shingai",
+      type: "station",
+      lat: 33.649581,
+      lng: 133.695679
+    },
+    {
+      id: "jr_shikoku_susaki",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "須崎",
+      nameEn: "Susaki",
+      type: "station",
+      lat: 33.392632,
+      lng: 133.293168
+    },
+    {
+      id: "jr_shikoku_togano",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "斗賀野",
+      nameEn: "Togano",
+      type: "station",
+      lat: 33.475534,
+      lng: 133.286246
+    },
+    {
+      id: "jr_shikoku_tosa_ikku",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐一宮",
+      nameEn: "Tosa-Ikku",
+      type: "station",
+      lat: 33.579175,
+      lng: 133.576943
+    },
+    {
+      id: "jr_shikoku_tosa_kamo",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐加茂",
+      nameEn: "Tosa-Kamo",
+      type: "station",
+      lat: 33.523682,
+      lng: 133.321702
+    },
+    {
+      id: "jr_shikoku_tosa_kitagawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐北川",
+      nameEn: "Tosa-Kitagawa",
+      type: "station",
+      lat: 33.714746,
+      lng: 133.686289
+    },
+    {
+      id: "jr_shikoku_tosa_kure",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐久礼",
+      nameEn: "Tosa-Kure",
+      type: "station",
+      lat: 33.32904,
+      lng: 133.226692
+    },
+    {
+      id: "jr_shikoku_tosa_nagaoka",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐長岡",
+      nameEn: "Tosa-Nagaoka",
+      type: "station",
+      lat: 33.591521,
+      lng: 133.661979
+    },
+    {
+      id: "jr_shikoku_tosa_shinj",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐新荘",
+      nameEn: "Tosa-Shinjō",
+      type: "station",
+      lat: 33.386478,
+      lng: 133.27809
+    },
+    {
+      id: "jr_shikoku_tosa_sh_wa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐昭和",
+      nameEn: "Tosa-Shōwa",
+      type: "station",
+      lat: 33.220106,
+      lng: 132.89718
+    },
+    {
+      id: "jr_shikoku_tosa_taish",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐大正",
+      nameEn: "Tosa-Taishō",
+      type: "station",
+      lat: 33.194622,
+      lng: 132.975377
+    },
+    {
+      id: "jr_shikoku_tosa_yamada",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐山田",
+      nameEn: "Tosa-Yamada",
+      type: "station",
+      lat: 33.607148,
+      lng: 133.685011
+    },
+    {
+      id: "jr_shikoku_tosa_tsu",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐大津",
+      nameEn: "Tosa-Ōtsu",
+      type: "station",
+      lat: 33.576569,
+      lng: 133.611672
+    },
+    {
+      id: "jr_shikoku_tosaananai",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐穴内",
+      nameEn: "Tosaananai",
+      type: "station",
+      lat: 33.779279,
+      lng: 133.695769
+    },
+    {
+      id: "jr_shikoku_tosaiwahara",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "土佐岩原",
+      nameEn: "Tosaiwahara",
+      type: "station",
+      lat: 33.822175,
+      lng: 133.787412
+    },
+    {
+      id: "jr_shikoku_toyonaga",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "豊永",
+      nameEn: "Toyonaga",
+      type: "station",
+      lat: 33.796751,
+      lng: 133.759196
+    },
+    {
+      id: "jr_shikoku_t_kawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "十川",
+      nameEn: "Tōkawa",
+      type: "station",
+      lat: 33.23474,
+      lng: 132.855783
+    },
+    {
+      id: "jr_shikoku_utsuigawa",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "打井川",
+      nameEn: "Utsuigawa",
+      type: "station",
+      lat: 33.175552,
+      lng: 133.029459
+    },
+    {
+      id: "jr_shikoku_yamada_nishimachi",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "山田西町",
+      nameEn: "Yamada-Nishimachi",
+      type: "station",
+      lat: 33.604808,
+      lng: 133.677513
+    },
+    {
+      id: "jr_shikoku_ma",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "大間",
+      nameEn: "Ōma",
+      type: "station",
+      lat: 33.406834,
+      lng: 133.287592
+    },
+    {
+      id: "jr_shikoku_nog",
+      line: "jr_shikoku",
+      area: "kochi",
+      name: "多ノ郷",
+      nameEn: "Ōnogō",
+      type: "station",
+      lat: 33.410832,
+      lng: 133.294861
+    },
+    {
+      id: "jr_shikoku_akui",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "鮎喰",
+      nameEn: "Akui",
+      type: "station",
+      lat: 34.077462,
+      lng: 134.506451
+    },
+    {
+      id: "jr_shikoku_anabuki",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "穴吹",
+      nameEn: "Anabuki",
+      type: "station",
+      lat: 34.05601,
+      lng: 134.163482
+    },
+    {
+      id: "jr_shikoku_anan",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿南",
+      nameEn: "Anan",
+      type: "station",
+      lat: 33.918825,
+      lng: 134.662387
+    },
+    {
+      id: "jr_shikoku_aratano",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "新野",
+      nameEn: "Aratano",
+      type: "station",
+      lat: 33.846813,
+      lng: 134.600155
+    },
+    {
+      id: "jr_shikoku_asakawa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "浅川",
+      nameEn: "Asakawa",
+      type: "station",
+      lat: 33.626537,
+      lng: 134.35866
+    },
+    {
+      id: "jr_shikoku_awa_akaishi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波赤石",
+      nameEn: "Awa-Akaishi",
+      type: "station",
+      lat: 33.982114,
+      lng: 134.605739
+    },
+    {
+      id: "jr_shikoku_awa_fukui",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波福井",
+      nameEn: "Awa-Fukui",
+      type: "station",
+      lat: 33.824062,
+      lng: 134.605366
+    },
+    {
+      id: "jr_shikoku_awa_ikeda",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波池田",
+      nameEn: "Awa-Ikeda",
+      type: "station",
+      lat: 34.026924,
+      lng: 133.804587
+    },
+    {
+      id: "jr_shikoku_awa_kainan",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波海南",
+      nameEn: "Awa-Kainan",
+      type: "station",
+      lat: 33.606753,
+      lng: 134.351018
+    },
+    {
+      id: "jr_shikoku_awa_kawabata",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波川端",
+      nameEn: "Awa-Kawabata",
+      type: "station",
+      lat: 34.148877,
+      lng: 134.483741
+    },
+    {
+      id: "jr_shikoku_awa_kawashima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波川島",
+      nameEn: "Awa-Kawashima",
+      type: "station",
+      lat: 34.061777,
+      lng: 134.320899
+    },
+    {
+      id: "jr_shikoku_awa_nakashima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波中島",
+      nameEn: "Awa-Nakashima",
+      type: "station",
+      lat: 33.941196,
+      lng: 134.664986
+    },
+    {
+      id: "jr_shikoku_awa_tachibana",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波橘",
+      nameEn: "Awa-Tachibana",
+      type: "station",
+      lat: 33.888605,
+      lng: 134.651568
+    },
+    {
+      id: "jr_shikoku_awa_tomida",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波富田",
+      nameEn: "Awa-Tomida",
+      type: "station",
+      lat: 34.064133,
+      lng: 134.555732
+    },
+    {
+      id: "jr_shikoku_awa_yamakawa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波山川",
+      nameEn: "Awa-Yamakawa",
+      type: "station",
+      lat: 34.055191,
+      lng: 134.234018
+    },
+    {
+      id: "jr_shikoku_awa_handa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波半田",
+      nameEn: "Awa-handa",
+      type: "station",
+      lat: 34.040997,
+      lng: 134.036368
+    },
+    {
+      id: "jr_shikoku_awa_miya",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波大宮",
+      nameEn: "Awa-Ōmiya",
+      type: "station",
+      lat: 34.178563,
+      lng: 134.448795
+    },
+    {
+      id: "jr_shikoku_awa_tani",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波大谷",
+      nameEn: "Awa-Ōtani",
+      type: "station",
+      lat: 34.15802,
+      lng: 134.540453
+    },
+    {
+      id: "jr_shikoku_awakamo",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波加茂",
+      nameEn: "Awakamo",
+      type: "station",
+      lat: 34.036842,
+      lng: 133.926906
+    },
+    {
+      id: "jr_shikoku_awakawaguchi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "阿波川口",
+      nameEn: "Awakawaguchi",
+      type: "station",
+      lat: 33.963724,
+      lng: 133.754715
+    },
+    {
+      id: "jr_shikoku_bando",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "板東",
+      nameEn: "Bando",
+      type: "station",
+      lat: 34.155322,
+      lng: 134.50704
+    },
+    {
+      id: "jr_shikoku_bunkanomori",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "文化の森",
+      nameEn: "Bunkanomori",
+      type: "station",
+      lat: 34.044049,
+      lng: 134.543198
+    },
+    {
+      id: "jr_shikoku_ch_den",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "中田",
+      nameEn: "Chūden",
+      type: "station",
+      lat: 34.010385,
+      lng: 134.569601
+    },
+    {
+      id: "jr_shikoku_eguchi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "江口",
+      nameEn: "Eguchi",
+      type: "station",
+      lat: 34.03719,
+      lng: 133.973738
+    },
+    {
+      id: "jr_shikoku_gaku",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "学",
+      nameEn: "Gaku",
+      type: "station",
+      lat: 34.057671,
+      lng: 134.28629
+    },
+    {
+      id: "jr_shikoku_hanoura",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "羽ノ浦",
+      nameEn: "Hanoura",
+      type: "station",
+      lat: 33.957892,
+      lng: 134.625416
+    },
+    {
+      id: "jr_shikoku_hashikura",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "箸蔵",
+      nameEn: "Hashikura",
+      type: "station",
+      lat: 34.040494,
+      lng: 133.848896
+    },
+    {
+      id: "jr_shikoku_hegawa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "辺川",
+      nameEn: "Hegawa",
+      type: "station",
+      lat: 33.694962,
+      lng: 134.434902
+    },
+    {
+      id: "jr_shikoku_hiwasa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "日和佐",
+      nameEn: "Hiwasa",
+      type: "station",
+      lat: 33.729045,
+      lng: 134.530632
+    },
+    {
+      id: "jr_shikoku_ikenotani",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "池谷",
+      nameEn: "Ikenotani",
+      type: "station",
+      lat: 34.152665,
+      lng: 134.529021
+    },
+    {
+      id: "jr_shikoku_ishii",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "石井",
+      nameEn: "Ishii",
+      type: "station",
+      lat: 34.070253,
+      lng: 134.444161
+    },
+    {
+      id: "jr_shikoku_itano",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "板野",
+      nameEn: "Itano",
+      type: "station",
+      lat: 34.142059,
+      lng: 134.465768
+    },
+    {
+      id: "jr_shikoku_iyaguchi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "祖谷口",
+      nameEn: "Iyaguchi",
+      type: "station",
+      lat: 33.972503,
+      lng: 133.780354
+    },
+    {
+      id: "jr_shikoku_jiz_bashi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "地蔵橋",
+      nameEn: "Jizōbashi",
+      type: "station",
+      lat: 34.02674,
+      lng: 134.54704
+    },
+    {
+      id: "jr_shikoku_kaifu",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "海部",
+      nameEn: "Kaifu",
+      type: "station",
+      lat: 33.593773,
+      lng: 134.352086
+    },
+    {
+      id: "jr_shikoku_kamojima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "鴨島",
+      nameEn: "Kamojima",
+      type: "station",
+      lat: 34.073705,
+      lng: 134.35653
+    },
+    {
+      id: "jr_shikoku_kawata",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "川田",
+      nameEn: "Kawata",
+      type: "station",
+      lat: 34.061398,
+      lng: 134.204202
+    },
+    {
+      id: "jr_shikoku_kiki",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "木岐",
+      nameEn: "Kiki",
+      type: "station",
+      lat: 33.766516,
+      lng: 134.569447
+    },
+    {
+      id: "jr_shikoku_kitagawachi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "北河内",
+      nameEn: "Kitagawachi",
+      type: "station",
+      lat: 33.743314,
+      lng: 134.535385
+    },
+    {
+      id: "jr_shikoku_koboke",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "小歩危",
+      nameEn: "Koboke",
+      type: "station",
+      lat: 33.92345,
+      lng: 133.758823
+    },
+    {
+      id: "jr_shikoku_konpiramae",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "金比羅前",
+      nameEn: "Konpiramae",
+      type: "station",
+      lat: 34.169899,
+      lng: 134.585418
+    },
+    {
+      id: "jr_shikoku_kuramoto",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "蔵本",
+      nameEn: "Kuramoto",
+      type: "station",
+      lat: 34.079392,
+      lng: 134.518672
+    },
+    {
+      id: "jr_shikoku_kuwano",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "桑野",
+      nameEn: "Kuwano",
+      type: "station",
+      lat: 33.874709,
+      lng: 134.613182
+    },
+    {
+      id: "jr_shikoku_kyokaimae",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "教会前",
+      nameEn: "Kyokaimae",
+      type: "station",
+      lat: 34.167566,
+      lng: 134.577236
+    },
+    {
+      id: "jr_shikoku_k",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "府中",
+      nameEn: "Kō",
+      type: "station",
+      lat: 34.074219,
+      lng: 134.482936
+    },
+    {
+      id: "jr_shikoku_mikamo",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "三加茂",
+      nameEn: "Mikamo",
+      type: "station",
+      lat: 34.035842,
+      lng: 133.948701
+    },
+    {
+      id: "jr_shikoku_minami_komatsushima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "南小松島",
+      nameEn: "Minami-Komatsushima",
+      type: "station",
+      lat: 34.005731,
+      lng: 134.58693
+    },
+    {
+      id: "jr_shikoku_minawa",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "三縄",
+      nameEn: "Minawa",
+      type: "station",
+      lat: 34.006991,
+      lng: 133.787368
+    },
+    {
+      id: "jr_shikoku_minobayashi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "見能林",
+      nameEn: "Minobayashi",
+      type: "station",
+      lat: 33.903365,
+      lng: 134.667226
+    },
+    {
+      id: "jr_shikoku_mugi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "牟岐",
+      nameEn: "Mugi",
+      type: "station",
+      lat: 33.671947,
+      lng: 134.418064
+    },
+    {
+      id: "jr_shikoku_muya",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "撫養",
+      nameEn: "Muya",
+      type: "station",
+      lat: 34.173235,
+      lng: 134.600805
+    },
+    {
+      id: "jr_shikoku_naruto",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "鳴門",
+      nameEn: "Naruto",
+      type: "station",
+      lat: 34.178897,
+      lng: 134.608418
+    },
+    {
+      id: "jr_shikoku_nikenya",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "二軒屋",
+      nameEn: "Nikenya",
+      type: "station",
+      lat: 34.054565,
+      lng: 134.546704
+    },
+    {
+      id: "jr_shikoku_nishibara",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "西原",
+      nameEn: "Nishibara",
+      type: "station",
+      lat: 33.948319,
+      lng: 134.644836
+    },
+    {
+      id: "jr_shikoku_nishioe",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "西麻植",
+      nameEn: "Nishioe",
+      type: "station",
+      lat: 34.072509,
+      lng: 134.33668
+    },
+    {
+      id: "jr_shikoku_oboke",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "大歩危",
+      nameEn: "Oboke",
+      type: "station",
+      lat: 33.876537,
+      lng: 133.767206
+    },
+    {
+      id: "jr_shikoku_oezuka",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "麻植塚",
+      nameEn: "Oezuka",
+      type: "station",
+      lat: 34.075115,
+      lng: 134.376275
+    },
+    {
+      id: "jr_shikoku_oshima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "小島",
+      nameEn: "Oshima",
+      type: "station",
+      lat: 34.050377,
+      lng: 134.106827
+    },
+    {
+      id: "jr_shikoku_sabase",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "鯖瀬",
+      nameEn: "Sabase",
+      type: "station",
+      lat: 33.645953,
+      lng: 134.385259
+    },
+    {
+      id: "jr_shikoku_sadamitsu",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "貞光",
+      nameEn: "Sadamitsu",
+      type: "station",
+      lat: 34.03948,
+      lng: 134.058911
+    },
+    {
+      id: "jr_shikoku_sako",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "佐古",
+      nameEn: "Sako",
+      type: "station",
+      lat: 34.080564,
+      lng: 134.538676
+    },
+    {
+      id: "jr_shikoku_shimoura",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "下浦",
+      nameEn: "Shimoura",
+      type: "station",
+      lat: 34.067698,
+      lng: 134.421034
+    },
+    {
+      id: "jr_shikoku_sh_zui",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "勝瑞",
+      nameEn: "Shōzui",
+      type: "station",
+      lat: 34.128462,
+      lng: 134.528101
+    },
+    {
+      id: "jr_shikoku_tainohama",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "田井ノ浜",
+      nameEn: "Tainohama",
+      type: "station",
+      lat: 33.772771,
+      lng: 134.583838
+    },
+    {
+      id: "jr_shikoku_tatsue",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "立江",
+      nameEn: "Tatsue",
+      type: "station",
+      lat: 33.970186,
+      lng: 134.608729
+    },
+    {
+      id: "jr_shikoku_tatsumichi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "立道",
+      nameEn: "Tatsumichi",
+      type: "station",
+      lat: 34.161993,
+      lng: 134.557612
+    },
+    {
+      id: "jr_shikoku_tsubojiri",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "坪尻",
+      nameEn: "Tsubojiri",
+      type: "station",
+      lat: 34.053962,
+      lng: 133.823723
+    },
+    {
+      id: "jr_shikoku_tsuji",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "辻",
+      nameEn: "Tsuji",
+      type: "station",
+      lat: 34.029165,
+      lng: 133.873791
+    },
+    {
+      id: "jr_shikoku_tsukuda",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "佃",
+      nameEn: "Tsukuda",
+      type: "station",
+      lat: 34.03244,
+      lng: 133.857241
+    },
+    {
+      id: "jr_shikoku_ushinoshima",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "牛島",
+      nameEn: "Ushinoshima",
+      type: "station",
+      lat: 34.076789,
+      lng: 134.397374
+    },
+    {
+      id: "jr_shikoku_yamagawachi",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "山河内",
+      nameEn: "Yamagawachi",
+      type: "station",
+      lat: 33.715059,
+      lng: 134.485096
+    },
+    {
+      id: "jr_shikoku_yamase",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "山瀬",
+      nameEn: "Yamase",
+      type: "station",
+      lat: 34.060131,
+      lng: 134.256292
+    },
+    {
+      id: "jr_shikoku_yoshinari",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "吉成",
+      nameEn: "Yoshinari",
+      type: "station",
+      lat: 34.118515,
+      lng: 134.530841
+    },
+    {
+      id: "jr_shikoku_yuki",
+      line: "jr_shikoku",
+      area: "tokushima",
+      name: "由岐",
+      nameEn: "Yuki",
+      type: "station",
+      lat: 33.775804,
+      lng: 134.591636
+    },
+    {
+      id: "ryozenji",
+      area: "tokushima",
+      name: "霊山寺",
+      nameEn: "Ryozen-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 34.15944,
+      lng: 134.502797
+    },
+    {
+      id: "yakuoji",
+      area: "tokushima",
+      name: "薬王寺",
+      nameEn: "Yakuo-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.732297,
+      lng: 134.527592
+    },
+    {
+      id: "hotsumisakiji",
+      area: "kochi",
+      name: "最御崎寺",
+      nameEn: "Hotsumisaki-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.249085,
+      lng: 134.175944
+    },
+    {
+      id: "chikurinji",
+      area: "kochi",
+      name: "竹林寺",
+      nameEn: "Chikurin-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.546509,
+      lng: 133.576748
+    },
+    {
+      id: "ishiteji",
+      area: "ehime",
+      name: "石手寺",
+      nameEn: "Ishite-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.847577,
+      lng: 132.797129
+    },
+    {
+      id: "taisanji",
+      area: "ehime",
+      name: "太山寺",
+      nameEn: "Taisan-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 33.885004,
+      lng: 132.715021
+    },
+    {
+      id: "zentsuji_temple",
+      area: "kagawa",
+      name: "善通寺",
+      nameEn: "Zentsu-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 34.225012,
+      lng: 133.774334
+    },
+    {
+      id: "okuboji",
+      area: "kagawa",
+      name: "大窪寺",
+      nameEn: "Okubo-ji",
+      type: "temple",
+      pinType: "temple",
+      lat: 34.191364,
+      lng: 134.206873
+    },
   ]
 };

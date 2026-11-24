@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ターボ管理 · Puzzle</title>
+  <title>Turbo Admin · Puzzle</title>
   <style>
     :root { color-scheme: light; --ink:#16332f; --bar:#123e3a; --paper:#f6f3ec; --line:#d5d0c4; }
     * { box-sizing: border-box; }
-    body { margin: 0; font: 16px/1.5 "Hiragino Sans", "Noto Sans JP", sans-serif; color: var(--ink); background: var(--paper); }
+    body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: var(--ink); background: var(--paper); }
     header { background: var(--bar); color: #f4fbf8; padding: 16px 20px; }
     header p { margin: 4px 0 0; opacity: .85; }
     main { max-width: 960px; margin: 0 auto; padding: 20px; }
@@ -26,73 +26,106 @@
     label { display: block; margin: 8px 0; }
     .hidden { display: none; }
     code { font-size: 14px; }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0; }
+    .tabs button.is-on { outline: 3px solid #0e7884; }
+    .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 800px) { .panels { grid-template-columns: 1fr; } }
+    .panel { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
+    .panel img.preview { width: 100%; min-height: 220px; max-height: 360px; object-fit: contain; background: #123e3a; }
+    .panel .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    #picker { position: fixed; inset: 0; background: rgba(0,0,0,.45); }
+    #picker .sheet { max-width: 920px; margin: 40px auto; background: var(--paper); border-radius: 12px; padding: 16px; max-height: calc(100vh - 80px); overflow: auto; }
   </style>
 </head>
 <body>
 <header>
-  <strong>ターボ管理センター</strong>
+  <strong>Turbo Admin Centre</strong>
   <p>Local only. This page is not on johrenadventure.com.</p>
 </header>
 <main>
   <form id="login">
     <section>
-      <h1>管理ログイン</h1>
+      <h1>Admin sign-in</h1>
       <label>Password <input id="password" type="password" autocomplete="current-password"></label>
-      <button type="submit">入る</button>
+      <button type="submit">Sign in</button>
       <p id="login-error"></p>
     </section>
   </form>
   <div id="app" class="hidden">
     <nav>
-      <span class="soon">Map · 準備中</span>
-      <span class="soon">Merchant · 準備中</span>
-      <span class="soon">Asset Library · 準備中</span>
-      <span class="soon">Settings · 準備中</span>
-      <button type="button">Puzzle</button>
-      <a href="/creator/">Creator test</a>
-      <button type="button" class="ghost" id="logout">出る</button>
+      <a href="/studio/">Creator Studio</a>
+      <a href="#puzzle">Puzzle Manager</a>
+      <a href="/create-demo">Create Demo</a>
+      <a href="/artwork">Artwork Library</a>
+      <a href="/map">Map Manager</a>
+      <a href="/merchant">Merchant Manager</a>
+      <a href="/settings">Settings</a>
+      <a href="/backup">Backup / Restore</a>
+      <button type="button" class="ghost" id="logout">Sign out</button>
     </nav>
     <section>
-      <h1>パズル画像</h1>
-      <p>いまの既定画像です。プレイ中のパズルは、終わるまでこの変更の前の絵のままです。</p>
-      <img id="active-img" class="preview" alt="">
-      <p id="active-path"></p>
-      <h2>クリア後の画像</h2>
-      <p>任意です。5ピースが揃うと、まず今のパズル画像と紙吹雪が出ます。画像を設定したときだけ「クリア後の画像を見る」ボタンが出ます。</p>
-      <img id="reveal-img" class="preview" alt="">
-      <p id="reveal-path"></p>
-      <button type="button" class="ghost" id="clear-reveal">クリア後の画像を外す</button>
-      <label><input type="radio" name="mode" value="default" checked> Default · 今の既定を使う</label>
-      <label><input type="radio" name="mode" value="choose"> Choose Image · 別の絵を選ぶ</label>
+      <h1>Turbo Admin</h1>
+      <p>Everything for routine work is in this project folder. Master images are the local copy in <code>artwork/</code>, taken from <code>japanese.jp/turbo_adventure</code>. The originals were not deleted.</p>
+      <h2>Publish the public site</h2>
+      <p>This publishes only <code>site/</code>. Artwork, this admin, passwords, and backups stay on this computer.</p>
+      <label>Type PUBLISH to confirm <input id="publish-confirm" type="text" autocomplete="off"></label>
+      <button type="button" id="publish">Publish to johrenadventure.com</button>
+      <p id="publish-status"></p>
     </section>
-    <section id="chooser" class="hidden">
-      <h2>作品から選ぶ</h2>
-      <div id="library" class="grid"></div>
-      <h2>新しい画像</h2>
-      <p>通常は JPG。透明が必要なときだけ PNG。</p>
-      <input id="file" type="file" accept="image/jpeg,image/png">
-      <h2>プレビュー</h2>
-      <img id="choice-img" class="preview" alt="">
-      <p id="choice-path"></p>
-      <button type="button" id="activate">この画像を既定にする</button>
-      <button type="button" class="ghost" id="set-reveal">この画像をクリア後にする</button>
+    <section id="puzzle">
+      <h1>Puzzle Manager</h1>
+      <p>Each level has its own primary picture and an optional final reveal. Choosing one does not change the other. A puzzle already in progress keeps its picture until it is finished. Publishing stays on the Admin Centre publish control.</p>
+      <div class="tabs" id="level-tabs">
+        <button type="button" data-level="5">5 pieces</button>
+        <button type="button" data-level="10">10 pieces</button>
+        <button type="button" data-level="25">25 pieces</button>
+        <button type="button" data-level="50">50 pieces</button>
+      </div>
+      <div class="panels">
+        <div class="panel">
+          <h2>Primary Puzzle Image</h2>
+          <img id="primary-img" class="preview" alt="">
+          <p id="primary-path"></p>
+          <div class="actions">
+            <button type="button" id="choose-primary">Choose from Library</button>
+            <button type="button" class="ghost" id="upload-primary">Upload Image</button>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Final Reveal Image (optional)</h2>
+          <img id="reveal-img" class="preview" alt="">
+          <p id="reveal-path"></p>
+          <div class="actions">
+            <button type="button" id="choose-reveal">Choose from Library</button>
+            <button type="button" class="ghost" id="upload-reveal">Upload Image</button>
+            <button type="button" class="ghost" id="remove-reveal">Remove Image</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions" style="margin-top:16px">
+        <button type="button" id="save-level">Save Configuration</button>
+        <button type="button" class="ghost" id="test-level">Test Puzzle</button>
+      </div>
+      <p id="status"></p>
+      <input id="file-primary" type="file" accept="image/jpeg,image/png" hidden>
+      <input id="file-reveal" type="file" accept="image/jpeg,image/png" hidden>
     </section>
     <section>
-      <h2>保存と公開</h2>
-      <p>「既定にする」は <code>site/data/puzzle/</code> に保存します。公開は次のコマンドです。Cursor は要りません。</p>
-      <pre><code>git add site/data/puzzle site/media/puzzles
-git commit -m "Update the default puzzle image"
-git push
-netlify deploy --prod --no-build --dir=site</code></pre>
-      <p><code>netlify deploy</code> はリポジトリの外から <code>--dir=site</code> で実行します。</p>
-      <button type="button" class="ghost" id="backup">設定を書き出す</button>
-      <label>復元 <input id="restore" type="file" accept="application/json"></label>
-      <p id="status"></p>
+      <h2>Backup</h2>
+      <button type="button" class="ghost" id="backup">Export settings</button>
+      <label>Restore <input id="restore" type="file" accept="application/json"></label>
     </section>
+    <div id="picker" class="hidden">
+      <div class="sheet">
+        <h2 id="picker-title">Choose from Library</h2>
+        <div id="library" class="grid"></div>
+        <button type="button" class="ghost" id="picker-close">Close</button>
+      </div>
+    </div>
   </div>
 </main>
 <script>
-var state = { config: null, library: [], choice: null };
+var state = { config: null, library: [], level: "5", drafts: {}, target: "image" };
 
 function show(id, on) {
   document.getElementById(id).classList.toggle("hidden", !on);
@@ -105,35 +138,77 @@ async function api(path, options) {
   return body;
 }
 
+function copyLevel(row) {
+  var copy = {
+    image: row.image,
+    imageWidth: row.imageWidth,
+    imageHeight: row.imageHeight
+  };
+  if (row.revealImage) {
+    copy.revealImage = row.revealImage;
+    copy.revealImageWidth = row.revealImageWidth;
+    copy.revealImageHeight = row.revealImageHeight;
+  }
+  return copy;
+}
+
+function draft() {
+  return state.drafts[state.level];
+}
+
 function paint() {
-  var config = state.config;
-  document.getElementById("active-img").src = "/preview" + config.image + "?t=" + Date.now();
-  document.getElementById("active-path").textContent = config.image + " · " + config.imageWidth + "×" + config.imageHeight;
+  document.querySelectorAll("#level-tabs button").forEach(function (button) {
+    button.classList.toggle("is-on", button.getAttribute("data-level") === state.level);
+  });
+  var row = draft();
+  document.getElementById("primary-img").src = "/preview" + row.image + "?t=" + Date.now();
+  document.getElementById("primary-path").textContent = row.image + " · " + row.imageWidth + "×" + row.imageHeight;
   var reveal = document.getElementById("reveal-img");
-  if (config.revealImage) {
+  if (row.revealImage) {
     reveal.hidden = false;
-    reveal.src = "/preview" + config.revealImage + "?t=" + Date.now();
-    document.getElementById("reveal-path").textContent = config.revealImage + " · " + config.revealImageWidth + "×" + config.revealImageHeight;
+    reveal.src = "/preview" + row.revealImage + "?t=" + Date.now();
+    document.getElementById("reveal-path").textContent = row.revealImage + " · " + row.revealImageWidth + "×" + row.revealImageHeight;
   } else {
     reveal.hidden = true;
     reveal.removeAttribute("src");
-    document.getElementById("reveal-path").textContent = "なし";
+    document.getElementById("reveal-path").textContent = "No final reveal image";
   }
+}
+
+function openPicker(target) {
+  state.target = target;
+  document.getElementById("picker-title").textContent = target === "reveal"
+    ? "Final reveal image for the " + state.level + "-piece level"
+    : "Primary image for the " + state.level + "-piece level";
   var box = document.getElementById("library");
   box.innerHTML = "";
   state.library.forEach(function (item) {
     var card = document.createElement("button");
     card.type = "button";
-    card.className = "card" + (state.choice && state.choice.path === item.path ? " is-on" : "");
+    card.className = "card";
     card.innerHTML = '<img alt="" src="/preview' + item.path + '"><div>' + item.name + '</div>';
     card.addEventListener("click", function () {
-      state.choice = item;
-      document.getElementById("choice-img").src = "/preview" + item.path;
-      document.getElementById("choice-path").textContent = item.path;
-      paint();
+      applyImage(target, item);
+      show("picker", false);
     });
     box.appendChild(card);
   });
+  show("picker", true);
+}
+
+function applyImage(target, item) {
+  var row = draft();
+  if (target === "reveal") {
+    row.revealImage = item.path;
+    row.revealImageWidth = item.width;
+    row.revealImageHeight = item.height;
+  } else {
+    row.image = item.path;
+    row.imageWidth = item.width;
+    row.imageHeight = item.height;
+  }
+  document.getElementById("status").textContent = "Draft updated. Save Configuration to keep it.";
+  paint();
 }
 
 document.getElementById("login").addEventListener("submit", async function (event) {
@@ -154,22 +229,37 @@ async function openApp() {
   var data = await api("/api/puzzle");
   state.config = data.config;
   state.library = data.library;
+  ["5", "10", "25", "50"].forEach(function (level) {
+    state.drafts[level] = copyLevel(data.config.levels[level]);
+  });
   show("login", false);
   show("app", true);
   paint();
 }
 
-document.querySelectorAll('input[name=mode]').forEach(function (input) {
-  input.addEventListener("change", function () {
-    show("chooser", document.querySelector('input[name=mode]:checked').value === "choose");
+document.querySelectorAll("#level-tabs button").forEach(function (button) {
+  button.addEventListener("click", function () {
+    state.level = button.getAttribute("data-level");
+    document.getElementById("status").textContent = "";
+    paint();
   });
 });
 
-document.getElementById("file").addEventListener("change", async function () {
-  var file = this.files[0];
+document.getElementById("choose-primary").addEventListener("click", function () { openPicker("image"); });
+document.getElementById("choose-reveal").addEventListener("click", function () { openPicker("reveal"); });
+document.getElementById("picker-close").addEventListener("click", function () { show("picker", false); });
+
+document.getElementById("upload-primary").addEventListener("click", function () {
+  document.getElementById("file-primary").click();
+});
+document.getElementById("upload-reveal").addEventListener("click", function () {
+  document.getElementById("file-reveal").click();
+});
+
+async function uploadInto(input, target) {
+  var file = input.files[0];
+  input.value = "";
   if (!file) return;
-  var body = new FormData();
-  body.append("file", file);
   var raw = await fetch("/api/upload", {
     method: "POST",
     headers: { "Content-Type": "multipart/form-data; boundary=turboadmin" },
@@ -181,10 +271,43 @@ document.getElementById("file").addEventListener("change", async function () {
     return;
   }
   state.library.unshift(payload);
-  state.choice = payload;
-  document.getElementById("choice-img").src = "/preview" + payload.path;
-  document.getElementById("choice-path").textContent = payload.path;
+  applyImage(target, payload);
+}
+
+document.getElementById("file-primary").addEventListener("change", function () { uploadInto(this, "image"); });
+document.getElementById("file-reveal").addEventListener("change", function () { uploadInto(this, "reveal"); });
+
+document.getElementById("remove-reveal").addEventListener("click", function () {
+  delete draft().revealImage;
+  delete draft().revealImageWidth;
+  delete draft().revealImageHeight;
+  document.getElementById("status").textContent = "Final reveal removed from this draft. Save Configuration to apply it.";
   paint();
+});
+
+document.getElementById("save-level").addEventListener("click", async function () {
+  var row = draft();
+  var data = await api("/api/puzzle-level", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      level: state.level,
+      image: row.image,
+      revealImage: row.revealImage || ""
+    })
+  });
+  state.config = data.config;
+  state.drafts[state.level] = copyLevel(data.config.levels[state.level]);
+  document.getElementById("status").textContent = "Saved the " + state.level + "-piece level. Publish from Admin Centre when you want it on the public site.";
+  paint();
+});
+
+document.getElementById("test-level").addEventListener("click", function () {
+  var saved = state.config.levels[state.level];
+  var row = draft();
+  var dirty = saved.image !== row.image || (saved.revealImage || "") !== (row.revealImage || "");
+  if (dirty && !window.confirm("This level has unsaved changes. Test the saved pictures?")) return;
+  location.href = "/puzzle-test?level=" + state.level;
 });
 
 function fileForm(file) {
@@ -192,41 +315,6 @@ function fileForm(file) {
   var head = "--" + boundary + "\r\nContent-Disposition: form-data; name=\"file\"; filename=\"" + file.name + "\"\r\nContent-Type: " + file.type + "\r\n\r\n";
   return new Blob([head, file, "\r\n--" + boundary + "--\r\n"]);
 }
-
-document.getElementById("activate").addEventListener("click", async function () {
-  if (!state.choice) return;
-  var data = await api("/api/activate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ image: state.choice.path })
-  });
-  state.config = data.config;
-  document.getElementById("status").textContent = "保存しました。公開は下の Git と Netlify の手順です。";
-  paint();
-});
-
-document.getElementById("set-reveal").addEventListener("click", async function () {
-  if (!state.choice) return;
-  var data = await api("/api/reveal", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ image: state.choice.path })
-  });
-  state.config = data.config;
-  document.getElementById("status").textContent = "クリア後の画像を保存しました。";
-  paint();
-});
-
-document.getElementById("clear-reveal").addEventListener("click", async function () {
-  var data = await api("/api/reveal", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ image: "" })
-  });
-  state.config = data.config;
-  document.getElementById("status").textContent = "クリア後の画像を外しました。";
-  paint();
-});
 
 document.getElementById("backup").addEventListener("click", function () {
   var blob = new Blob([JSON.stringify(state.config, null, 2)], { type: "application/json" });
@@ -244,8 +332,31 @@ document.getElementById("restore").addEventListener("change", async function () 
     body: text
   });
   state.config = data.config;
-  document.getElementById("status").textContent = "復元しました。";
+  ["5", "10", "25", "50"].forEach(function (level) {
+    state.drafts[level] = copyLevel(data.config.levels[level]);
+  });
+  document.getElementById("status").textContent = "Restored.";
   paint();
+});
+
+document.getElementById("publish").addEventListener("click", async function () {
+  var word = document.getElementById("publish-confirm").value;
+  var status = document.getElementById("publish-status");
+  if (word !== "PUBLISH") {
+    status.textContent = "Type PUBLISH before deploying.";
+    return;
+  }
+  status.textContent = "Publishing site/ …";
+  try {
+    var data = await api("/api/publish", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ confirm: "PUBLISH" })
+    });
+    status.textContent = data.ok ? "Published." : "Publish failed. " + (data.output || "");
+  } catch (error) {
+    status.textContent = error.message;
+  }
 });
 
 document.getElementById("logout").addEventListener("click", async function () {

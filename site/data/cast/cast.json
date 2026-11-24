@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "groups": [
+    {
+      "id": "turbo-and-friends",
+      "image": "/media/cast/turbo_and_friends.jpg",
+      "width": 1672,
+      "height": 941,
+      "title": {
+        "ja": "ターボと仲間たち",
+        "en": "Turbo & Friends"
+      },
+      "text": {
+        "ja": "ターボが、かけがえのない仲間といっしょに、次の冒険を待っています。",
+        "en": "Turbo is waiting for the next adventure with some very dear friends."
+      }
+    },
+    {
+      "id": "friends-of-japan",
+      "image": "/media/cast/japanese_cast.jpg",
+      "width": 1672,
+      "height": 941,
+      "title": {
+        "ja": "日本の仲間たち",
+        "en": "Friends of Japan"
+      },
+      "text": {
+        "ja": "日本の物語からやってきた仲間たちです。旅の途中で会えるかもしれません。",
+        "en": "Friends from Japan’s stories. You may meet them somewhere along the way."
+      }
+    },
+    {
+      "id": "victorian-friends",
+      "image": "/media/cast/victorian_cast.jpg",
+      "width": 1672,
+      "height": 941,
+      "title": {
+        "ja": "ヴィクトリア時代の仲間たち",
+        "en": "Victorian Friends"
+      },
+      "text": {
+        "ja": "昔のイギリスから来た、個性ゆたかな仲間たちです。",
+        "en": "A colourful company of friends from Victorian Britain."
+      }
+    }
+  ]
+}

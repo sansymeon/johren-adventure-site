@@ -3,6 +3,16 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8"/>
+<script>
+(function () {
+  var direct = /(?:^|[?&])map=(?:turbo|explore|1)(?:&|$)/.test(location.search) || location.hash === "#collection";
+  if (direct) document.documentElement.classList.add("skip-welcome");
+})();
+</script>
+<style>
+html.skip-welcome #grand-opening{display:none!important}
+html.skip-welcome #map-app{display:block!important;visibility:visible!important;pointer-events:auto!important}
+</style>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>ターボ・アドベンチャーズ — オープニング</title>

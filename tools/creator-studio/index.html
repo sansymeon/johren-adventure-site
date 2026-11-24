@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Turbo Adventures Studio. Catalogue and scene editor for approved characters and photographs.">
+  <title>Turbo Adventures Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f3eee4' stroke='%23c83b32' stroke-width='4'/%3E%3Ctext x='32' y='40' text-anchor='middle' font-family='Georgia' font-size='22' font-weight='700' fill='%23171410'%3E32%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/studio.css?v=20261124manage">
+  <link rel="stylesheet" href="css/puzzle.css?v=20261102p1">
+</head>
+<body>
+  <header class="mast">
+    <button type="button" class="brand" data-view="catalogue">
+      <span class="mark" aria-hidden="true">32</span>
+      <span class="brand-text">
+        <span class="wordmark">Turbo Adventures</span>
+        <span class="presenter">Presented by Johren Adventure</span>
+      </span>
+    </button>
+    <nav class="mast-nav" id="nav" aria-label="Studio">
+      <button type="button" class="nav-btn" data-view="catalogue">Catalogue</button>
+      <button type="button" class="nav-btn" data-view="editor">Scene Editor</button>
+      <button type="button" class="nav-btn" data-view="scenes">My Scenes</button>
+      <button type="button" class="nav-btn" data-view="puzzle">Puzzle</button>
+    </nav>
+  </header>
+  <main id="main"></main>
+  <footer class="colophon">
+    <p>© SanSymeon Productions · Presented by Johren Adventure</p>
+  </footer>
+  <p id="status" class="status" role="status" hidden></p>
+  <dialog id="leave-dialog">
+    <p>Your scene has unsaved changes. Save before leaving?</p>
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" data-leave="save">Save and Leave</button>
+      <button type="button" class="btn" data-leave="keep">Leave Without Saving</button>
+      <button type="button" class="btn" data-leave="cancel">Cancel</button>
+    </div>
+  </dialog>
+  <script src="js/catalogue-data.js?v=20261124manage"></script>
+  <script src="js/cutout.js?v=20261102c"></script>
+  <script src="js/storage.js?v=20261102c"></script>
+  <script src="js/catalogue.js?v=20261124manage"></script>
+  <script src="js/editor.js?v=20261124png"></script>
+  <script src="js/puzzle.js?v=20261102p2"></script>
+  <script src="js/app.js?v=20261124png"></script>
+</body>
+</html>

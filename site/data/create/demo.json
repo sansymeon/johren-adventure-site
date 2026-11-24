@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "characters": [
+    {
+      "id": "turbo_selfie",
+      "name": "ターボ",
+      "nameEn": "Turbo",
+      "label": "自撮り",
+      "labelEn": "Selfie",
+      "file": "/media/create-demo/turbo_selfie.png",
+      "width": 1254,
+      "height": 1254
+    },
+    {
+      "id": "turbo_standing",
+      "name": "ターボ",
+      "nameEn": "Turbo",
+      "label": "立つ",
+      "labelEn": "Standing",
+      "file": "/media/create-demo/turbo_standing.png",
+      "width": 1122,
+      "height": 1402
+    },
+    {
+      "id": "bubbles",
+      "name": "バブルス",
+      "nameEn": "Bubbles",
+      "label": "立つ",
+      "labelEn": "Standing",
+      "file": "/media/create-demo/bubbles.png",
+      "width": 1201,
+      "height": 1310
+    }
+  ],
+  "backgrounds": [
+    {
+      "id": "bg_stage_wide",
+      "name": "ステージ",
+      "nameEn": "Stage",
+      "file": "/media/create-demo/stage.png",
+      "width": 1672,
+      "height": 941,
+      "format": "landscape"
+    },
+    {
+      "id": "bg_stage_portrait",
+      "name": "ステージ",
+      "nameEn": "Stage",
+      "file": "/media/create-demo/stage_portrait.png",
+      "width": 941,
+      "height": 1672,
+      "format": "portrait"
+    }
+  ]
+}

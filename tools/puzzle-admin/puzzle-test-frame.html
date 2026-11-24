@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Collection</title>
+  <link href="/player/map/css/discovery-map.css" rel="stylesheet">
+  <style>
+    html, body { margin: 0; height: 100%; background: #f6f1e8; }
+    #map-app { position: relative; min-height: 100%; }
+  </style>
+</head>
+<body>
+<div id="map-app"></div>
+<script>
+(function () {
+  var alias = {
+    "turbo.locationCollection.v1": "turbo.puzzleTest.locationCollection.v1",
+    "turbo.gpsCheckin.v1": "turbo.puzzleTest.gpsCheckin.v1",
+    "turbo.railwayMosaic.v1": "turbo.puzzleTest.railwayMosaic.v1",
+    "turbo.finalReveal.v1": "turbo.puzzleTest.finalReveal.v1"
+  };
+  var storageProto = Object.getPrototypeOf(localStorage);
+  ["getItem", "setItem", "removeItem"].forEach(function (name) {
+    var original = storageProto[name];
+    storageProto[name] = function (key) {
+      var args = Array.prototype.slice.call(arguments);
+      if (alias[args[0]]) args[0] = alias[args[0]];
+      return original.apply(this, args);
+    };
+  });
+})();
+</script>
+<script src="/player/map/js/config/puzzle.js"></script>
+<script src="/player/data/puzzle/active.js"></script>
+<script src="/player/map/js/i18n.js"></script>
+<script src="/player/map/js/config/locations.js"></script>
+<script src="/player/map/js/collection.js"></script>
+<script src="/player/map/js/railway-puzzle.js"></script>
+<script src="/player/map/js/railway-mosaic.js"></script>
+<script src="/player/map/js/collection-screen.js"></script>
+<script>
+(function () {
+  var seq = 0;
+
+  function clearTest() {
+    ["turbo.locationCollection.v1", "turbo.gpsCheckin.v1", "turbo.railwayMosaic.v1", "turbo.finalReveal.v1"].forEach(function (key) {
+      localStorage.removeItem(key);
+    });
+    seq = 0;
+  }
+
+  function seed(total) {
+    clearTest();
+    var i;
+    for (i = 1; i <= total; i += 1) {
+      window.TURBO_COLLECTION.record("railway", "puzzle-test-" + i, {
+        pointId: "puzzle-test-" + i,
+        distanceM: 0,
+        accuracyM: 1
+      });
+    }
+    seq = total;
+  }
+
+  function addOne() {
+    seq += 1;
+    var id = "puzzle-test-" + Date.now() + "-" + seq;
+    window.TURBO_COLLECTION.record("railway", id, { pointId: id, distanceM: 0, accuracyM: 1 });
+  }
+
+  function show() {
+    if (location.hash !== "#collection") location.hash = "#collection";
+    window.TURBO_COLLECTION_SCREEN.paint();
+    var progress = window.TURBO_RAILWAY_PUZZLE.progress();
+    parent.postMessage({ type: "turbo-puzzle-test-status", progress: progress }, location.origin);
+  }
+
+  var prior = { 5: 0, 10: 5, 25: 15, 50: 40 };
+
+  window.addEventListener("message", function (event) {
+    if (event.origin !== location.origin || !event.data || event.data.type !== "turbo-puzzle-test") return;
+    var action = event.data.action;
+    if (action === "reset") clearTest();
+    if (action === "level") seed(prior[event.data.level] || 0);
+    if (action === "checkin") addOne();
+    if (action === "complete") {
+      var progress = window.TURBO_RAILWAY_PUZZLE.progress();
+      if (!progress.finished) {
+        var left = progress.needed - progress.pieces;
+        var n;
+        for (n = 0; n < left; n += 1) addOne();
+      }
+    }
+    show();
+  });
+
+  show();
+})();
+</script>
+</body>
+</html>

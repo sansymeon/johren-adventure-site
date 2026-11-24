@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Puzzle Test Mode</title>
+  <style>
+    body { margin: 0; font: 16px/1.45 system-ui, sans-serif; color: #16332f; background: #f6f3ec; }
+    header, .bar { padding: 12px 16px; }
+    header { background: #123e3a; color: #f4fbf8; }
+    header a { color: #f4fbf8; }
+    .bar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    button { font: inherit; background: #0e7884; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; }
+    button.ghost { background: #fff; color: #16332f; border: 1px solid #d5d0c4; }
+    button.is-on { outline: 3px solid #0e7884; }
+    #stage { padding: 0 16px 24px; }
+    iframe { display: block; width: 100%; height: 780px; border: 1px solid #d5d0c4; background: #fff; }
+    iframe.phone { width: 390px; height: 844px; }
+    #status { margin: 0; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="/#puzzle">Puzzle Manager</a>
+  <strong> · Puzzle Test Mode</strong>
+  <p>Local admin only. These check-ins are not written to a player collection.</p>
+</header>
+<div class="bar">
+  <span>Level</span>
+  <button type="button" data-level="5">5</button>
+  <button type="button" data-level="10">10</button>
+  <button type="button" data-level="25">25</button>
+  <button type="button" data-level="50">50</button>
+  <button type="button" id="checkin">Check in one station</button>
+  <button type="button" id="complete">Complete this level</button>
+  <button type="button" class="ghost" id="reset">Reset test</button>
+  <button type="button" class="ghost" id="desktop">Desktop</button>
+  <button type="button" class="ghost" id="phone">Mobile</button>
+  <p id="status"></p>
+</div>
+<div id="stage">
+  <iframe id="frame" title="Public collection screen" src="/puzzle-test/frame#collection"></iframe>
+</div>
+<script>
+var frame = document.getElementById("frame");
+var status = document.getElementById("status");
+
+function send(action, level) {
+  frame.contentWindow.postMessage({ type: "turbo-puzzle-test", action: action, level: level }, location.origin);
+}
+
+document.querySelectorAll("[data-level]").forEach(function (button) {
+  button.addEventListener("click", function () {
+    document.querySelectorAll("[data-level]").forEach(function (other) {
+      other.classList.toggle("is-on", other === button);
+    });
+    send("level", Number(button.getAttribute("data-level")));
+  });
+});
+document.getElementById("checkin").addEventListener("click", function () { send("checkin"); });
+document.getElementById("complete").addEventListener("click", function () { send("complete"); });
+document.getElementById("reset").addEventListener("click", function () {
+  document.querySelectorAll("[data-level]").forEach(function (button) { button.classList.remove("is-on"); });
+  send("reset");
+});
+frame.addEventListener("load", function () {
+  var level = new URLSearchParams(location.search).get("level");
+  var button = level && document.querySelector('[data-level="' + level + '"]');
+  if (!button) return;
+  document.querySelectorAll("[data-level]").forEach(function (other) {
+    other.classList.toggle("is-on", other === button);
+  });
+  send("level", Number(level));
+});
+document.getElementById("desktop").addEventListener("click", function () { frame.classList.remove("phone"); });
+document.getElementById("phone").addEventListener("click", function () { frame.classList.add("phone"); });
+
+window.addEventListener("message", function (event) {
+  if (event.origin !== location.origin || !event.data || event.data.type !== "turbo-puzzle-test-status") return;
+  var progress = event.data.progress;
+  status.textContent = progress.finished
+    ? "All levels complete · " + progress.collected + " test stations"
+    : "Level " + progress.needed + " · " + progress.pieces + "/" + progress.needed + " · " + progress.collected + " test stations";
+});
+</script>
+</body>
+</html>

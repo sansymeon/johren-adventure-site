@@ -21,6 +21,28 @@ body.play-page {
 
 .play-welcome[hidden] { display: none !important; }
 
+.play-gate {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: calc(24px + env(safe-area-inset-top, 0px)) 16px calc(24px + env(safe-area-inset-bottom, 0px));
+  background: #efe6d8;
+  color: var(--ink);
+}
+.play-gate[hidden] { display: none !important; }
+.play-gate-card { width: min(420px, 100%); display: flex; flex-direction: column; gap: 12px; text-align: center; }
+.play-gate-card h1 { margin: 0 0 8px; font-size: 40px; }
+.play-go-second { background: #173043; }
+.play-more {
+  display: block;
+  margin: 8px 0 0;
+  color: #8b1230;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+}
+.play-bar .play-more { flex: 1 1 100%; color: #f0d78c; }
+
 .play-welcome-card {
   width: min(420px, 100%);
   display: flex;

@@ -12,6 +12,7 @@
   const btnTheatre = document.getElementById("btn-theatre");
 
   function showWelcome() {
+    document.documentElement.classList.remove("skip-welcome");
     document.body.classList.add("is-welcome");
     document.body.classList.remove("is-entering");
     if (opening) {
@@ -21,12 +22,17 @@
     if (mapApp) mapApp.setAttribute("aria-hidden", "true");
   }
 
+  let fromOpening = false;
+
   function enterMap(mode) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.body.classList.add("is-entering");
+    const immediate = reduce || !fromOpening;
+    fromOpening = false;
+    if (!immediate) document.body.classList.add("is-entering");
 
     const finish = () => {
       document.body.classList.remove("is-welcome", "is-entering");
+      document.documentElement.classList.remove("skip-welcome");
       if (opening) {
         opening.hidden = true;
         opening.setAttribute("aria-hidden", "true");
@@ -45,7 +51,7 @@
       }
     };
 
-    if (reduce) finish();
+    if (immediate) finish();
     else setTimeout(finish, 720);
   }
 
@@ -65,8 +71,8 @@
   }
 
   function bind() {
-    if (btnFind) btnFind.addEventListener("click", () => remember("turbo"));
-    if (btnExplore) btnExplore.addEventListener("click", () => remember("explore"));
+    if (btnFind) btnFind.addEventListener("click", () => { fromOpening = true; remember("turbo"); });
+    if (btnExplore) btnExplore.addEventListener("click", () => { fromOpening = true; remember("explore"); });
     if (btnTheatre) btnTheatre.addEventListener("click", () => remember(""));
     window.addEventListener("popstate", route);
     route();

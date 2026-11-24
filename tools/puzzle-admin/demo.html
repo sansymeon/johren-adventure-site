@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create Demo</title>
+  <style>
+    body { margin: 0; font: 16px/1.45 system-ui, sans-serif; color: #16332f; background: #f6f3ec; }
+    header, main { padding: 16px; }
+    header { background: #123e3a; color: #f4fbf8; }
+    header a { color: #f4fbf8; }
+    section { background: #fff; border: 1px solid #d5d0c4; border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    label { display: block; margin: 8px 0; }
+    input, select, button { font: inherit; }
+    button { background: #0e7884; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; }
+    button.ghost { background: #fff; color: #16332f; border: 1px solid #d5d0c4; }
+    li { margin: 6px 0; }
+  </style>
+</head>
+<body>
+<header>
+  <a href="/">Admin home</a>
+  <strong> · Public Create demo</strong>
+  <p>These pictures are the only ones visitors can use in Try It Now. They stay in site/media/create-demo and are not added to a player collection.</p>
+</header>
+<main>
+  <section>
+    <h1>Characters</h1>
+    <ul id="characters"></ul>
+    <h2>Add a character</h2>
+    <label>Name (Japanese) <input id="c-name"></label>
+    <label>Name (English) <input id="c-name-en"></label>
+    <label>Existing file <select id="c-file"></select></label>
+    <label>Or upload a PNG <input id="c-upload" type="file" accept="image/png"></label>
+    <button type="button" id="add-character">Add character</button>
+  </section>
+  <section>
+    <h1>Backgrounds</h1>
+    <ul id="backgrounds"></ul>
+    <h2>Add a background</h2>
+    <label>Name (Japanese) <input id="b-name"></label>
+    <label>Name (English) <input id="b-name-en"></label>
+    <label>Shape
+      <select id="b-format">
+        <option value="landscape">Landscape</option>
+        <option value="portrait">Portrait</option>
+      </select>
+    </label>
+    <label>Existing file <select id="b-file"></select></label>
+    <label>Or upload a JPG or PNG <input id="b-upload" type="file" accept="image/jpeg,image/png"></label>
+    <button type="button" id="add-background">Add background</button>
+  </section>
+  <button type="button" id="save">Save demo configuration</button>
+  <p id="status"></p>
+</main>
+<script>
+var state = { characters: [], backgrounds: [], files: [] };
+
+function api(path, options) {
+  return fetch(path, options).then(function (response) {
+    return response.json().then(function (body) {
+      if (!response.ok) throw new Error(body.error || "Error");
+      return body;
+    });
+  });
+}
+
+function paint() {
+  document.getElementById("characters").innerHTML = state.characters.map(function (item, index) {
+    return "<li>" + item.name + " / " + (item.nameEn || "") + " · " + item.file + " <button type=\"button\" class=\"ghost\" data-remove-character=\"" + index + "\">Remove</button></li>";
+  }).join("") || "<li>None</li>";
+  document.getElementById("backgrounds").innerHTML = state.backgrounds.map(function (item, index) {
+    return "<li>" + item.name + " / " + (item.nameEn || "") + " · " + item.format + " · " + item.file + " <button type=\"button\" class=\"ghost\" data-remove-background=\"" + index + "\">Remove</button></li>";
+  }).join("") || "<li>None</li>";
+  var options = state.files.map(function (file) {
+    return "<option value=\"" + file + "\">" + file + "</option>";
+  }).join("");
+  document.getElementById("c-file").innerHTML = options;
+  document.getElementById("b-file").innerHTML = options;
+}
+
+function slug(value) {
+  return String(value || "asset").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "").slice(0, 40) || "asset";
+}
+
+async function upload(input) {
+  var file = input.files && input.files[0];
+  input.value = "";
+  if (!file) return "";
+  var body = new FormData();
+  body.append("file", file);
+  var data = await api("/api/demo-upload", { method: "POST", body: body });
+  if (state.files.indexOf(data.path) === -1) state.files.push(data.path);
+  return data.path;
+}
+
+document.getElementById("add-character").addEventListener("click", async function () {
+  var path = await upload(document.getElementById("c-upload")) || document.getElementById("c-file").value;
+  if (!path) return;
+  state.characters.push({
+    id: slug(document.getElementById("c-name-en").value || document.getElementById("c-name").value),
+    name: document.getElementById("c-name").value || "キャラクター",
+    nameEn: document.getElementById("c-name-en").value || "Character",
+    label: "",
+    labelEn: "",
+    file: path,
+    width: 1024,
+    height: 1024
+  });
+  paint();
+});
+
+document.getElementById("add-background").addEventListener("click", async function () {
+  var path = await upload(document.getElementById("b-upload")) || document.getElementById("b-file").value;
+  if (!path) return;
+  state.backgrounds.push({
+    id: slug(document.getElementById("b-name-en").value || document.getElementById("b-name").value),
+    name: document.getElementById("b-name").value || "背景",
+    nameEn: document.getElementById("b-name-en").value || "Background",
+    file: path,
+    width: 1600,
+    height: 900,
+    format: document.getElementById("b-format").value
+  });
+  paint();
+});
+
+document.body.addEventListener("click", function (event) {
+  var character = event.target.getAttribute && event.target.getAttribute("data-remove-character");
+  var background = event.target.getAttribute && event.target.getAttribute("data-remove-background");
+  if (character != null) state.characters.splice(Number(character), 1);
+  if (background != null) state.backgrounds.splice(Number(background), 1);
+  if (character != null || background != null) paint();
+});
+
+document.getElementById("save").addEventListener("click", async function () {
+  var data = await api("/api/demo", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ version: 1, characters: state.characters, backgrounds: state.backgrounds })
+  });
+  state.characters = data.config.characters;
+  state.backgrounds = data.config.backgrounds;
+  document.getElementById("status").textContent = "Saved. The public demo reads this file. It is not published until you use Admin Centre Publish.";
+  paint();
+});
+
+api("/api/demo").then(function (data) {
+  state.characters = data.config.characters || [];
+  state.backgrounds = data.config.backgrounds || [];
+  state.files = data.files || [];
+  paint();
+}).catch(function (error) {
+  document.getElementById("status").textContent = error.message;
+});
+</script>
+</body>
+</html>

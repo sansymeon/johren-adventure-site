@@ -6,31 +6,35 @@ Stage 1 documents where full-resolution masters will live and the fields a futur
 
 ## Folders
 
-New folders sit next to the existing ones. They start empty apart from a one-line `README.txt` (`Full-resolution masters only. Not published.`). Git does not keep those READMEs, because `artwork/` is gitignored.
+The master library is the copy of `japanese.jp/turbo_adventure` inside `artwork/`. Local Creator Studio reads that copy. The original folder has not been changed. See `docs/artwork-audit.md` before removing any duplicate.
 
 ```
-artwork/characters/transparent/
-artwork/characters/ivory/
-artwork/backgrounds/
-artwork/puzzles/
-artwork/castles/
+artwork/turbo/                                  official Turbo cast
+artwork/npc/                                    child characters
+artwork/victorian_npc/                          Victorian characters
+artwork/heroes/japanese_heroes/                 Japanese historical heroes
+artwork/heroes/international_heroes/            international heroes
+artwork/heroes/victorian_celebrities/           Victorian celebrity heroes
+artwork/heroes/full_background_scenes/          full-background scenes
+artwork/backgrounds/                            photographs, including landscapes/
 artwork/pins/
+artwork/completed_scenes/
 ```
+
+`artwork/characters/transparent/` and `artwork/characters/ivory/` are notes only. Do not merge Turbo, historical heroes, and Victorian characters into one folder. Transparent, ivory, and full-background versions stay in the category folders above when their file hashes differ.
 
 Website images stay in `site/media` and `site/img/map`. Do not commit `artwork/`.
 
-Japanese historical characters, international characters, and Victorian characters stay identifiable by **category**, even when their transparent PNG masters share `artwork/characters/transparent/`.
+Japanese historical characters, international characters, Victorian characters, and Turbo stay in separate folders.
 
-| Set | Category | Planned master folder |
+| Set | Category | Master folder |
 | --- | --- | --- |
-| 19 transparent Japanese animal heroes | `character-japanese` | `artwork/characters/transparent/` |
-| International transparent heroes | `character-international` | `artwork/characters/transparent/` |
-| Victorian animal heroes | `character-victorian` | `artwork/characters/transparent/` |
-| Turbo mascot | `character-turbo` | `artwork/characters/transparent/` |
-| 33 `japaneseheroes.png` historical illustrations | `puzzle-historical-japanese` | `artwork/puzzles/` |
+| Official Turbo cast | `character-turbo` | `artwork/turbo/` |
+| Japanese historical heroes | `character-japanese` | `artwork/heroes/japanese_heroes/` |
+| International heroes | `character-international` | `artwork/heroes/international_heroes/` |
+| Victorian characters | `character-victorian` | `artwork/victorian_npc/` and `artwork/heroes/victorian_celebrities/` |
+| Full-background scenes | `scene-full` | `artwork/heroes/full_background_scenes/` |
 | Backgrounds | `background` | `artwork/backgrounds/` |
-| Other puzzle images | `puzzle` | `artwork/puzzles/` |
-| Castles | `castle` | `artwork/castles/` |
 | Pins | `pin` | `artwork/pins/` |
 
 `character-historical-japanese` is available if a later set is a character rather than a full illustration. The 33 historical scenes are puzzle images, not the 19 transparent collectible heroes.
