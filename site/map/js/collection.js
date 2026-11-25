@@ -1,6 +1,7 @@
 /**
- * Lifetime location collection. One record per place id, per device.
- * Railway stations and airports are separate lists.
+ * Lifetime location collection. One record per place id, per device, for
+ * public categories (railway, airport, scenic, cultural, sabah). Merchant
+ * places may record repeatable visits when the check-in target says so.
  *
  * Older daily GPS tests live in localStorage key turbo.gpsCheckin.v1.
  * The first time this module runs, those successful records are copied
@@ -70,13 +71,16 @@
 
   function record(category, placeId, detail) {
     var data = store();
+    var repeatable = !!(detail && detail.repeatable);
     if (!data[category]) data[category] = {};
-    if (data[category][placeId]) return data[category][placeId];
+    var existing = data[category][placeId];
+    if (existing && !repeatable) return existing;
     data[category][placeId] = {
       at: new Date().toISOString(),
       pointId: detail.pointId,
       distanceM: detail.distanceM,
-      accuracyM: detail.accuracyM
+      accuracyM: detail.accuracyM,
+      visitCount: (existing && existing.visitCount ? existing.visitCount : 0) + 1
     };
     write(data);
     return data[category][placeId];

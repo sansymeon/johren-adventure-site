@@ -171,12 +171,22 @@
         if (about) parts.push(about);
       }
       els.sheetDesc.textContent = parts.join("\n");
+    } else if (discovery && discovery.stage_description) {
+      els.sheetDesc.textContent = discovery.stage_description;
+    } else if (place && place.category === "airport") {
+      els.sheetDesc.textContent = TURBO_I18N.t("airportSheet");
+    } else if (place && place.category === "scenic") {
+      els.sheetDesc.textContent = TURBO_I18N.t("scenicSheet");
+    } else if (place && place.category === "sabah") {
+      els.sheetDesc.textContent = TURBO_I18N.t("sabahSheet");
+    } else if (place && place.category === "merchant") {
+      els.sheetDesc.textContent = TURBO_I18N.t("merchantSheet");
+    } else if (place && place.category === "cultural") {
+      els.sheetDesc.textContent = TURBO_I18N.t("culturalSheet");
     } else if (castle) {
-      els.sheetDesc.textContent = window.TURBO_I18N ? TURBO_I18N.t("filterCultural") : "";
+      els.sheetDesc.textContent = TURBO_I18N.t("culturalSheet");
     } else {
-      els.sheetDesc.textContent =
-        (discovery && discovery.stage_description) ||
-        (window.TURBO_I18N ? TURBO_I18N.t("airportSheet") : "");
+      els.sheetDesc.textContent = TURBO_I18N.t("discoverySheet");
     }
 
     const showArt = railway ? !!stageImage : castle ? !!castleImage : !!(discovery && discovery.stage_image);

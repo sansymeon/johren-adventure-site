@@ -1,15 +1,15 @@
 /**
- * Check-in places. Coordinates for stations come from data/japan/map-data.js.
- * Airport points are passenger terminals, not runway centres.
+ * Check-in places. Coordinates for stations and other discoveries come from
+ * the map data files. Explicit places below override a map pin when a place
+ * needs curated points (for example multi-door airport terminals).
  *
- * To add a station: append its map pin id to railway.places.
+ * Every discovery pin is GPS-checkable through findPoint → discoveryFromMap.
+ * Public categories are one check-in per place per device. Merchant places
+ * may set repeatable: true (also the merchant category default).
+ *
  * Ordinary stations have no artwork. A special station may set special: true
- * and, later, rewards: { stageImage, character, background }. Leave rewards
- * unset until the artwork exists. Every listed station still awards one puzzle piece.
- * To add an airport discovery: append one place. Its id is the lifetime
- * collection id. One place may list several points when those doors should
- * count as the same discovery. Separate terminals that each count once
- * are separate places, as with Fukuoka domestic and international.
+ * and, later, rewards. Every railway check-in still awards one railway puzzle
+ * piece. Cultural and scenic check-ins feed their own category puzzles.
  */
 (function (global) {
   "use strict";
@@ -321,6 +321,25 @@
           }]
         }
       ]
+    },
+    cultural: {
+      id: "cultural",
+      radiusMeters: 150,
+      maxAccuracyMeters: 150,
+      places: []
+    },
+    merchant: {
+      id: "merchant",
+      radiusMeters: 80,
+      maxAccuracyMeters: 150,
+      repeatable: true,
+      places: []
+    },
+    sabah: {
+      id: "sabah",
+      radiusMeters: 150,
+      maxAccuracyMeters: 150,
+      places: []
     },
     scenic: {
       id: "scenic",
@@ -1335,6 +1354,7 @@
       pointId: point.id,
       radiusMeters: place.radiusMeters || category.radiusMeters,
       maxAccuracyMeters: category.maxAccuracyMeters,
+      repeatable: place.repeatable === true || category.repeatable === true,
       name: point.name || place.name,
       nameEn: point.nameEn || place.nameEn || "",
       placeName: place.name,
@@ -1343,118 +1363,104 @@
       lng: point.lng,
       special: place.special === true,
       role: place.role || "",
-      rewards: place.rewards || null
+      rewards: place.rewards || null,
+      featured: place.featured || null
     };
   }
 
-  function findPoint(pointId) {
-    var categories = [LOCATIONS.railway, LOCATIONS.airport, LOCATIONS.scenic];
+  function categoryForPin(pin, source) {
+    var type = String((pin && (pin.type || pin.pinType)) || "").toLowerCase().trim();
+    if (source === "sabah") return "sabah";
+    if (type === "station") return "railway";
+    if (type === "airport") return "airport";
+    if (type === "merchant" || pin.merchant === true) return "merchant";
+    if (["church", "shrine", "temple", "museum", "castle", "castle_ruins", "historic", "mosque"].indexOf(type) !== -1) {
+      return "cultural";
+    }
+    if (["beach", "waterfall", "forest", "mountain", "viewpoint", "nature", "landmark"].indexOf(type) !== -1) {
+      return "scenic";
+    }
+    if (["coffee", "restaurant", "supermarket", "market"].indexOf(type) !== -1) {
+      return "cultural";
+    }
+    return "cultural";
+  }
+
+  function findConfiguredPoint(pointId) {
+    var categories = [
+      LOCATIONS.railway,
+      LOCATIONS.airport,
+      LOCATIONS.scenic,
+      LOCATIONS.cultural,
+      LOCATIONS.merchant,
+      LOCATIONS.sabah
+    ];
     var c;
     var p;
     var i;
-    var point;
     for (c = 0; c < categories.length; c += 1) {
+      if (!categories[c] || !categories[c].places) continue;
       for (p = 0; p < categories[c].places.length; p += 1) {
         var place = categories[c].places[p];
         var points = place.points || [{ id: place.id }];
         for (i = 0; i < points.length; i += 1) {
           if (points[i].id === pointId) {
-            point = points[i];
-            return pointRecord(categories[c], place, point);
+            return pointRecord(categories[c], place, points[i]);
           }
         }
       }
     }
-    return sabahFromMap(pointId) || airportFromMap(pointId) || stationById(pointId);
+    return null;
   }
 
-  function sabahFromMap(pointId) {
-    var pins = (global.SABAH_MAP_DATA && global.SABAH_MAP_DATA.pins) || [];
+  function pinFromList(pins, pointId) {
     var i;
     var pin;
     for (i = 0; i < pins.length; i += 1) {
       pin = pins[i];
-      if (pin.id !== pointId) continue;
-      if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
-      return {
-        category: "sabah",
-        placeId: pin.id,
-        pointId: pin.id,
-        radiusMeters: LOCATIONS.scenic.radiusMeters,
-        maxAccuracyMeters: LOCATIONS.scenic.maxAccuracyMeters,
-        name: pin.name,
-        nameEn: pin.nameEn || "",
-        placeName: pin.name,
-        placeNameEn: pin.nameEn || "",
-        lat: pin.lat,
-        lng: pin.lng,
-        special: false,
-        role: "",
-        rewards: null,
-        featured: null
-      };
+      if (pin.id === pointId) return pin;
     }
     return null;
   }
 
-  function airportFromMap(pointId) {
-    var pins = (global.MAP_DATA && global.MAP_DATA.pins) || [];
-    var i;
-    var pin;
-    for (i = 0; i < pins.length; i += 1) {
-      pin = pins[i];
-      if (pin.id !== pointId || String(pin.type || "").toLowerCase() !== "airport") continue;
-      if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
-      return {
-        category: "airport",
-        placeId: pin.id,
-        pointId: pin.id,
-        radiusMeters: LOCATIONS.airport.radiusMeters,
-        maxAccuracyMeters: LOCATIONS.airport.maxAccuracyMeters,
-        name: pin.name,
-        nameEn: pin.nameEn || "",
-        placeName: pin.name,
-        placeNameEn: pin.nameEn || "",
-        lat: pin.lat,
-        lng: pin.lng,
-        special: false,
-        role: "",
-        rewards: null,
-        featured: null
-      };
+  function discoveryFromMap(pointId) {
+    var pin = pinFromList((global.MAP_DATA && global.MAP_DATA.pins) || [], pointId);
+    var source = "japan";
+    if (!pin) {
+      pin = pinFromList((global.SABAH_MAP_DATA && global.SABAH_MAP_DATA.pins) || [], pointId);
+      source = "sabah";
     }
-    return null;
+    if (!pin) return null;
+    if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
+    var categoryId = categoryForPin(pin, source);
+    var defaults = LOCATIONS[categoryId] || LOCATIONS.cultural;
+    var feature = categoryId === "railway"
+      ? ((LOCATIONS.railway.featured || {})[pointId] || null)
+      : null;
+    return {
+      category: categoryId,
+      placeId: pin.id,
+      pointId: pin.id,
+      radiusMeters: typeof pin.radiusMeters === "number" ? pin.radiusMeters : defaults.radiusMeters,
+      maxAccuracyMeters: defaults.maxAccuracyMeters,
+      repeatable: pin.repeatable === true || defaults.repeatable === true,
+      name: pin.name,
+      nameEn: pin.nameEn || "",
+      placeName: pin.name,
+      placeNameEn: pin.nameEn || "",
+      lat: pin.lat,
+      lng: pin.lng,
+      special: !!(feature && feature.special) || pin.special === true,
+      role: (feature && feature.role) || pin.role || "",
+      rewards: feature && feature.image
+        ? { stageImage: feature.image }
+        : (pin.rewards || null),
+      featured: feature
+    };
   }
 
-  function stationById(id) {
-    var pins = (global.MAP_DATA && global.MAP_DATA.pins) || [];
-    var i;
-    var pin;
-    var feature;
-    for (i = 0; i < pins.length; i += 1) {
-      pin = pins[i];
-      if (pin.id !== id || String(pin.type || "").toLowerCase() !== "station") continue;
-      if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
-      feature = (LOCATIONS.railway.featured || {})[id] || null;
-      return {
-        category: "railway",
-        placeId: pin.id,
-        pointId: pin.id,
-        radiusMeters: LOCATIONS.railway.radiusMeters,
-        maxAccuracyMeters: LOCATIONS.railway.maxAccuracyMeters,
-        name: pin.name,
-        nameEn: pin.nameEn || "",
-        placeName: pin.name,
-        placeNameEn: pin.nameEn || "",
-        lat: pin.lat,
-        lng: pin.lng,
-        special: !!(feature && feature.special),
-        role: (feature && feature.role) || "",
-        rewards: feature && feature.image ? { stageImage: feature.image } : null,
-        featured: feature
-      };
-    }
-    return null;
+  function findPoint(pointId) {
+    return findConfiguredPoint(pointId) || discoveryFromMap(pointId);
   }
 
   function airportPins() {
@@ -1484,6 +1490,7 @@
   global.TURBO_LOCATIONS = {
     config: LOCATIONS,
     findPoint: findPoint,
+    categoryForPin: categoryForPin,
     airportPins: airportPins
   };
 })(window);

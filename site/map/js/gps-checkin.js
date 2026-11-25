@@ -162,8 +162,14 @@
   function ownedKey(category) {
     if (category === "airport") return "airportOwned";
     if (category === "scenic") return "scenicOwned";
+    if (category === "cultural") return "culturalOwned";
     if (category === "sabah") return "sabahOwned";
+    if (category === "merchant") return "merchantOwned";
     return "stationOwned";
+  }
+
+  function puzzleCategories() {
+    return { railway: true, cultural: true, scenic: true };
   }
 
   function displayName(target, pin) {
@@ -171,6 +177,39 @@
       return target.spec.placeNameEn || target.spec.nameEn || pin.nameEn || pin.name;
     }
     return target.spec.placeName || pin.name;
+  }
+
+  function puzzleApi() {
+    return global.TURBO_CATEGORY_PUZZLE || global.TURBO_RAILWAY_PUZZLE;
+  }
+
+  function successStatus(target, name) {
+    var category = target.spec.category;
+    if (category === "airport" || category === "sabah" || category === "merchant") {
+      var countKey = category === "airport"
+        ? "airportSuccess"
+        : category === "sabah"
+          ? "sabahSuccess"
+          : "merchantSuccess";
+      return t(countKey, {
+        name: name,
+        count: global.TURBO_COLLECTION.list(category).length
+      });
+    }
+    var puzzle = puzzleApi().progressFor(category);
+    if (puzzle.finished) return t("puzzleFinished", { name: name });
+    var successKey = category === "cultural"
+      ? "culturalSuccess"
+      : category === "scenic"
+        ? "scenicSuccess"
+        : "stationSuccess";
+    return t(successKey, {
+      name: name,
+      pieces: puzzle.pieces,
+      need: puzzle.needed,
+      level: puzzle.level,
+      count: puzzle.collected
+    });
   }
 
   function syncSheet(pin) {
@@ -186,7 +225,8 @@
       return;
     }
     hideDiag();
-    if (global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId)) {
+    var owned = global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId);
+    if (owned && !target.spec.repeatable) {
       setStatus(t(ownedKey(target.spec.category)), "done");
     } else {
       setStatus("", "");
@@ -206,6 +246,7 @@
     var radius = target.spec.radiusMeters;
     var name = displayName(target, pin);
     var owned = global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId);
+    var repeatable = !!target.spec.repeatable;
     if (typeof accuracy !== "number" || accuracy > target.spec.maxAccuracyMeters) {
       showDiag(name, distance, accuracy, radius, "resultUncertain", owned);
       showRetry(true);
@@ -218,51 +259,32 @@
       setStatus(t("gpsFar", { n: formatSpan(distance) }), "warn");
       return;
     }
-    if (owned) {
+    if (owned && !repeatable) {
       showDiag(name, distance, accuracy, radius, "resultOwned", true);
       setStatus(t(ownedKey(target.spec.category)), "done");
       return;
     }
-    var railwayBefore = target.spec.category === "railway"
-      ? global.TURBO_COLLECTION.list("railway").length
-      : 0;
-    global.TURBO_COLLECTION.record(target.spec.category, target.spec.placeId, {
+    var category = target.spec.category;
+    var beforeCount = global.TURBO_COLLECTION.list(category).length;
+    global.TURBO_COLLECTION.record(category, target.spec.placeId, {
       pointId: target.spec.pointId,
       distanceM: Math.round(distance),
-      accuracyM: Math.round(accuracy)
+      accuracyM: Math.round(accuracy),
+      repeatable: repeatable
     });
     showDiag(name, distance, accuracy, radius, "resultOk", true);
-    if (target.spec.category === "airport" || target.spec.category === "scenic" || target.spec.category === "sabah") {
-      var successKey = target.spec.category === "airport"
-        ? "airportSuccess"
-        : target.spec.category === "sabah"
-          ? "sabahSuccess"
-          : "scenicSuccess";
-      setStatus(t(successKey, {
-        name: name,
-        count: global.TURBO_COLLECTION.list(target.spec.category).length
-      }), "ok");
-    } else {
-      var puzzle = global.TURBO_RAILWAY_PUZZLE.progress();
-      setStatus(puzzle.finished
-        ? t("puzzleFinished", { name: name })
-        : t("stationSuccess", {
-          name: name,
-          pieces: puzzle.pieces,
-          need: puzzle.needed,
-          level: puzzle.level
-        }), "ok");
-    }
-    if (target.spec.category === "railway" && global.TURBO_RAILWAY_MOSAIC && global.TURBO_RAILWAY_PUZZLE) {
-      var started = global.TURBO_RAILWAY_PUZZLE.progress();
+    setStatus(successStatus(target, name), "ok");
+    if (category === "railway" && global.TURBO_RAILWAY_MOSAIC && puzzleApi()) {
+      var started = puzzleApi().progressFor("railway");
       if (!started.finished && started.pieces >= 1) {
         global.TURBO_RAILWAY_MOSAIC.assign(started.level);
       }
     }
-    if (target.spec.category === "railway" && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {
+    if (puzzleCategories()[category] && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {
       global.TURBO_COLLECTION_SCREEN.noteCompletion(
-        railwayBefore,
-        global.TURBO_COLLECTION.list("railway").length
+        beforeCount,
+        global.TURBO_COLLECTION.list(category).length,
+        category
       );
     }
     if (global.TURBO_COLLECTION_SCREEN) global.TURBO_COLLECTION_SCREEN.paint();

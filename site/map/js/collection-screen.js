@@ -182,16 +182,21 @@
       t("share") + "</button></div>";
   }
 
-  function noteCompletion(beforeCount, afterCount) {
+  function noteCompletion(beforeCount, afterCount, category) {
+    var cat = category || "railway";
     var reward = global.TURBO_PUZZLE_REWARD;
-    var mosaic = global.TURBO_RAILWAY_MOSAIC;
-    if (!reward || !mosaic) return;
-    var before = global.TURBO_RAILWAY_PUZZLE.completedSizes(beforeCount);
-    var after = global.TURBO_RAILWAY_PUZZLE.completedSizes(afterCount);
+    var mosaicApi = global.TURBO_RAILWAY_MOSAIC;
+    var puzzle = global.TURBO_CATEGORY_PUZZLE || global.TURBO_RAILWAY_PUZZLE;
+    if (!reward || !puzzle) return;
+    // Railway keeps the mosaic celebration. Other categories advance puzzle
+    // counts in the collection; their own mosaic art can plug in later.
+    if (cat !== "railway" || !mosaicApi) return;
+    var before = puzzle.completedSizes(beforeCount);
+    var after = puzzle.completedSizes(afterCount);
     after.forEach(function (size) {
       if (before.indexOf(size) !== -1) return;
-      if (!mosaic.pictureFor(size)) mosaic.assign(size);
-      var picture = mosaic.pictureFor(size);
+      if (!mosaicApi.pictureFor(size)) mosaicApi.assign(size);
+      var picture = mosaicApi.pictureFor(size);
       if (!picture) return;
       reward.enqueue({
         id: "railway-" + size,
@@ -208,12 +213,30 @@
   function names(category) {
     var rows = global.TURBO_COLLECTION.list(category);
     if (!rows.length) {
-      var emptyKey = category === "airport" ? "airportEmpty" : category === "scenic" ? "scenicEmpty" : "railwayEmpty";
+      var emptyKey = category === "airport"
+        ? "airportEmpty"
+        : category === "scenic"
+          ? "scenicEmpty"
+          : category === "cultural"
+            ? "culturalEmpty"
+            : "railwayEmpty";
       return "<p>" + t(emptyKey) + "</p>";
     }
     return "<ul>" + rows.map(function (row) {
       return "<li>" + placeName(category, row.id, row.detail) + "</li>";
     }).join("") + "</ul>";
+  }
+
+  function categoryProgressLine(category, headingKey, progressKey, emptyProgress) {
+    var puzzle = global.TURBO_CATEGORY_PUZZLE || global.TURBO_RAILWAY_PUZZLE;
+    var progress = puzzle.progressFor(category);
+    var count = global.TURBO_COLLECTION.list(category).length;
+    return "<h2>" + t(headingKey) + "</h2>" +
+      "<p>" + (progress.finished
+        ? t(emptyProgress)
+        : t(progressKey, { pieces: progress.pieces, need: progress.needed, count: count })) +
+      "</p>" +
+      names(category);
   }
 
   function paint() {
@@ -242,9 +265,8 @@
       "<h2>" + t("airportHeading") + "</h2>" +
       "<p>" + t("airportProgress", { count: airports }) + "</p>" +
       names("airport") +
-      "<h2>" + t("scenicHeading") + "</h2>" +
-      "<p>" + t("scenicProgress", { count: global.TURBO_COLLECTION.list("scenic").length }) + "</p>" +
-      names("scenic");
+      categoryProgressLine("cultural", "culturalHeading", "culturalProgress", "culturalDone") +
+      categoryProgressLine("scenic", "scenicHeading", "scenicProgress", "scenicDone");
   }
 
   function show() {
