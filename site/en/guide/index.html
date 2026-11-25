@@ -51,6 +51,14 @@ button{font:inherit;cursor:pointer}
 .lang a{display:inline-block;margin:0 4px;padding:7px 11px;border:1px solid #cbdfe1;border-radius:99px;background:#fff;color:#173043;text-decoration:none;font-size:.85rem;font-weight:800}
 .lang a[aria-current=true]{background:#0e7884;color:#fff;border-color:#0e7884}
 a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
+.puzzle-flow{display:grid;gap:14px;margin:8px 0 18px}
+@media(min-width:700px){.puzzle-flow{grid-template-columns:1fr 1fr}.puzzle-flow .puzzle-step:last-child{grid-column:1 / -1}}
+.puzzle-step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+.puzzle-step h3{margin:0 0 6px;font-size:1rem}
+.board{display:grid;aspect-ratio:3/2;background:#123e3a center/cover no-repeat;border-radius:10px;overflow:hidden}
+.board span{background:rgba(18,62,58,.78);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.board span.open{background:transparent}
+.puzzle-done{aspect-ratio:3/2;background:#123e3a center/cover no-repeat;border-radius:10px}
 @media(max-width:640px){.hero{padding:30px 23px 36px}.turbo{position:static;display:block;margin-top:12px}.steps,.rulegrid{grid-template-columns:1fr}.rule{min-height:auto}.shell{padding:12px 12px 50px}.card{padding:21px}.tabs{flex-direction:column}}
 </style>
 </head>
@@ -81,6 +89,12 @@ a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
 <article class="card"><span class="symbol">🎨</span><div class="n">05</div><h3>Collect characters and make a scene</h3><p><strong>Partly available.</strong> The cast page and arranging pictures on your device are available. Submitting or sharing a scene, and shop QR rewards, are not available yet.</p></article>
 </div>
 <div class="banner"><h3>Rewards stay separate</h3><p>Railway mosaic rewards stay separate from future merchant QR rewards. Merchant QR for Turbo Spots (ターボ・スポット) is Coming Soon.</p></div>
+<section id="puzzle">
+<h2 class="sectiontitle">How the puzzle grows</h2>
+<p>A railway station check-in opens one piece of the railway puzzle. Airports and scenic places are separate collections and do not add these pieces. The same picture is divided into 5, then 10, then 25, then 50 pieces. The grids match the live puzzle: 5 is one row of 5, 10 is 5 by 2, 25 is 5 by 5, and 50 is 10 by 5. When the count is full, the picture is complete and stays in the collection. The count starts again for the next size.</p>
+<div class="puzzle-flow" data-puzzle-demo data-image="/media/scenes/emperor_maximilian_and_empress_anastasia_frostbourne.webp"></div>
+<p>The sample picture is Emperor Maximilian and Empress Anastasia at Frostbourne. Every level uses that same picture. Dark tiles are pieces not yet earned by a visit.</p>
+</section>
 <h2 class="sectiontitle">Three rules</h2>
 <div class="rulegrid">
 <div class="rule"><strong>Once per station</strong><span>On one device, a station counts once until you clear saved collection data. It is not a daily rescan.</span></div>
@@ -120,6 +134,7 @@ function fromHash(){const i=ids.indexOf(location.hash.slice(1));render(i<0?0:i)}
 fromHash();
 window.addEventListener('hashchange',fromHash);
 </script>
+<script src="/guide/puzzle-demo.js"></script>
 <script src="/js/nav.js"></script>
 </body>
 </html>

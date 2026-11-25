@@ -121,12 +121,13 @@ html.skip-welcome #map-app{display:block!important;visibility:visible!important;
 <div aria-label="Where's Turbo discovery map" id="map" role="application"></div>
 <div class="top-bar">
 <div class="brand-row">
-<div class="brand" id="app-title"><img src="../media/turbo/turbo-standing-mark.webp" alt="" width="160" height="200" style="height:1.4em;width:auto;vertical-align:-0.3em" loading="lazy"> ターボはどこ？</div>
+<div class="brand" id="app-title"><img src="../media/turbo/turbo-standing-mark.webp" alt="" width="160" height="200" style="height:1.15em;width:auto;vertical-align:-0.25em" loading="lazy"> ターボはどこ？</div>
+<button aria-controls="map-filters" aria-expanded="false" class="controls-summary" id="controls-summary" type="button"><span id="controls-summary-text">地域・種類</span></button>
 </div>
-<button aria-controls="area-bar" aria-expanded="false" class="controls-summary" id="controls-summary" type="button"><span id="controls-summary-text">日本</span></button>
+<div class="map-filters" hidden="" id="map-filters">
 <div class="area-bar" id="area-bar"></div>
-<button aria-controls="filter-bar" aria-expanded="false" class="filter-toggle" id="filter-toggle" type="button">種類</button>
-<div aria-label="Location filters" class="filter-bar" hidden="" id="filter-bar"></div>
+<div aria-label="Location filters" class="filter-bar" id="filter-bar"></div>
+</div>
 </div>
 <div class="bottom-bar">
 <div class="bottom-bar-start">
@@ -219,6 +220,7 @@ html.skip-welcome #map-app{display:block!important;visibility:visible!important;
 <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <script src="./js/discovery-map.js"></script>
 <script src="./js/gps-checkin.js"></script>
+<script src="./js/puzzle-reward.js"></script>
 <script src="./js/collection-screen.js"></script>
 <script src="/js/nav.js"></script>
 <script src="./js/welcome.js"></script>

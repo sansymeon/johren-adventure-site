@@ -174,44 +174,35 @@
     }
     return '<div class="puzzle-finished">' +
       '<div class="puzzle-complete" data-completed-level="' + size + '" style="' + frameVars(shown) + '">' +
+      '<button type="button" class="puzzle-zoom" data-zoom="' + escapeAttr(shown.image) + '">' +
       '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(shown.image) + '" width="' +
-      (shown.imageWidth || 1600) + '" height="' + (shown.imageHeight || 900) + '">' +
-      "</div>" + button + "</div>";
+      (shown.imageWidth || 1600) + '" height="' + (shown.imageHeight || 900) + '"></button>' +
+      "</div>" + button +
+      '<button type="button" class="btn btn-ghost" data-share-image="' + escapeAttr(shown.image) + '">' +
+      t("share") + "</button></div>";
   }
 
-  function celebrate(frame, size) {
-    if (!frame || frame.getAttribute("data-celebrated") === "1") return;
-    var burst = document.createElement("div");
-    burst.className = "puzzle-confetti";
-    burst.setAttribute("aria-hidden", "true");
-    var colors = ["#c83b32", "#e7c27a", "#f3eee4", "#0e7884", "#fffaf4"];
-    var i;
-    for (i = 0; i < 24; i += 1) {
-      var bit = document.createElement("i");
-      bit.style.left = (8 + (i * 17) % 84) + "%";
-      bit.style.background = colors[i % colors.length];
-      bit.style.animationDelay = ((i % 6) * 0.04) + "s";
-      burst.appendChild(bit);
-    }
-    var cheer = document.createElement("p");
-    cheer.className = "mosaic-cheer";
-    cheer.textContent = t("mosaicCheer");
-    var victory = null;
-    if (size > 5) {
-      victory = document.createElement("img");
-      victory.className = "mosaic-victory";
-      victory.alt = "";
-      victory.src = "/media/turbo/poses/turbo_confident_transparent.webp";
-    }
-    frame.setAttribute("data-celebrated", "1");
-    frame.appendChild(burst);
-    if (victory) frame.appendChild(victory);
-    frame.appendChild(cheer);
-    window.setTimeout(function () {
-      [burst, cheer, victory].forEach(function (node) {
-        if (node && node.parentNode) node.parentNode.removeChild(node);
+  function noteCompletion(beforeCount, afterCount) {
+    var reward = global.TURBO_PUZZLE_REWARD;
+    var mosaic = global.TURBO_RAILWAY_MOSAIC;
+    if (!reward || !mosaic) return;
+    var before = global.TURBO_RAILWAY_PUZZLE.completedSizes(beforeCount);
+    var after = global.TURBO_RAILWAY_PUZZLE.completedSizes(afterCount);
+    after.forEach(function (size) {
+      if (before.indexOf(size) !== -1) return;
+      if (!mosaic.pictureFor(size)) mosaic.assign(size);
+      var picture = mosaic.pictureFor(size);
+      if (!picture) return;
+      reward.enqueue({
+        id: "railway-" + size,
+        category: "railway",
+        image: picture.image,
+        wallpaper: picture.wallpaper || "",
+        fireworks: picture.celebration === "fireworks" || picture.merchantSponsored === true,
+        merchantWebsite: picture.merchantWebsite || ""
       });
-    }, 1700);
+    });
+    if (root && !root.hidden) reward.present();
   }
 
   function names(category) {
@@ -254,15 +245,6 @@
       "<h2>" + t("scenicHeading") + "</h2>" +
       "<p>" + t("scenicProgress", { count: global.TURBO_COLLECTION.list("scenic").length }) + "</p>" +
       names("scenic");
-    var justFinished = done.length && (progress.finished || progress.pieces === 0);
-    if (justFinished) {
-      var finishedSize = done[done.length - 1];
-      var finishedArt = art(finishedSize);
-      var alreadySeen = finishedArt && savedReveal(finishedSize, finishedArt);
-      if (!alreadySeen) {
-        celebrate(root.querySelector('.puzzle-complete[data-completed-level="' + finishedSize + '"]'), finishedSize);
-      }
-    }
   }
 
   function show() {
@@ -270,6 +252,7 @@
     paint();
     root.hidden = false;
     document.body.classList.add("overlay-open");
+    if (global.TURBO_PUZZLE_REWARD) global.TURBO_PUZZLE_REWARD.present();
   }
 
   function hide() {
@@ -312,13 +295,40 @@
     root.innerHTML =
       '<header class="overlay-header"><button type="button" class="btn btn-back" data-collection-close>' +
       t("collectionClose") + '</button><h2 class="overlay-title">' + t("collectionTitle") + "</h2></header>" +
+      '<p class="collection-slogan">' + t("slogan") + "</p>" +
       '<div class="collection-body" data-collection-body></div>' +
-      '<p class="collection-reset"><button type="button" class="btn btn-ghost" data-collection-reset>' +
-      t("resetTest") + "</button></p>";
+      (location.search.indexOf("test=1") >= 0
+        ? '<p class="collection-reset"><button type="button" class="btn btn-ghost" data-collection-reset>' +
+          t("resetTest") + "</button></p>"
+        : "");
     mapApp.appendChild(root);
+    if (global.TURBO_PUZZLE_REWARD) global.TURBO_PUZZLE_REWARD.mount();
+    var viewer = document.createElement("section");
+    viewer.id = "image-view";
+    viewer.className = "image-view";
+    viewer.hidden = true;
+    document.body.appendChild(viewer);
 
     root.querySelector("[data-collection-close]").addEventListener("click", close);
     root.addEventListener("click", function (event) {
+      var zoom = event.target.closest("[data-zoom]");
+      if (zoom && root.contains(zoom)) {
+        var viewer = document.getElementById("image-view");
+        viewer.hidden = false;
+        viewer.innerHTML = '<button type="button" data-close-view>' + t("backCollection") +
+          '</button><img alt="" src="' + escapeAttr(zoom.getAttribute("data-zoom")) + '">';
+        viewer.querySelector("[data-close-view]").addEventListener("click", function () {
+          viewer.hidden = true;
+        });
+        return;
+      }
+      var share = event.target.closest("[data-share-image]");
+      if (share && root.contains(share)) {
+        if (global.TURBO_PUZZLE_REWARD) {
+          global.TURBO_PUZZLE_REWARD.share(share.getAttribute("data-share-image"), "turbo-puzzle.jpg");
+        }
+        return;
+      }
       var button = event.target.closest("[data-reveal-final]");
       if (!button || !root.contains(button)) return;
       rememberReveal(
@@ -331,9 +341,11 @@
     });
     document.addEventListener("turbo-route", sync);
     sync();
-    root.querySelector("[data-collection-reset]").addEventListener("click", function () {
+    var reset = root.querySelector("[data-collection-reset]");
+    if (reset) reset.addEventListener("click", function () {
       global.TURBO_COLLECTION.clearAll();
       localStorage.removeItem(REVEAL_KEY);
+      if (global.TURBO_PUZZLE_REWARD) localStorage.removeItem(global.TURBO_PUZZLE_REWARD.key);
       paint();
       var status = document.getElementById("gps-checkin-status");
       if (status) {
@@ -349,5 +361,5 @@
     init();
   }
 
-  global.TURBO_COLLECTION_SCREEN = { open: open, paint: paint };
+  global.TURBO_COLLECTION_SCREEN = { open: open, paint: paint, noteCompletion: noteCompletion };
 })(window);

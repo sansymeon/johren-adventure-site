@@ -1365,7 +1365,36 @@
         }
       }
     }
-    return stationById(pointId);
+    return airportFromMap(pointId) || stationById(pointId);
+  }
+
+  function airportFromMap(pointId) {
+    var pins = (global.MAP_DATA && global.MAP_DATA.pins) || [];
+    var i;
+    var pin;
+    for (i = 0; i < pins.length; i += 1) {
+      pin = pins[i];
+      if (pin.id !== pointId || String(pin.type || "").toLowerCase() !== "airport") continue;
+      if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
+      return {
+        category: "airport",
+        placeId: pin.id,
+        pointId: pin.id,
+        radiusMeters: LOCATIONS.airport.radiusMeters,
+        maxAccuracyMeters: LOCATIONS.airport.maxAccuracyMeters,
+        name: pin.name,
+        nameEn: pin.nameEn || "",
+        placeName: pin.name,
+        placeNameEn: pin.nameEn || "",
+        lat: pin.lat,
+        lng: pin.lng,
+        special: false,
+        role: "",
+        rewards: null,
+        featured: null
+      };
+    }
+    return null;
   }
 
   function stationById(id) {

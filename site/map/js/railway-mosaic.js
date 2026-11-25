@@ -2,6 +2,8 @@
  * Railway mosaic. Tile order is shuffled once per level and kept in
  * localStorage key turbo.railwayMosaic.v1. How many tiles are open
  * still comes only from TURBO_RAILWAY_PUZZLE (unique stations).
+ * assign(size) stores the picture and optional wallpaper on the first
+ * piece. An existing scene is never replaced.
  * This module never reads or writes turbo.locationCollection.v1.
  */
 (function (global) {
@@ -20,6 +22,14 @@
       scene.revealImageWidth = source.revealImageWidth || scene.imageWidth;
       scene.revealImageHeight = source.revealImageHeight || scene.imageHeight;
     }
+    if (source && source.wallpaper) {
+      scene.wallpaper = source.wallpaper;
+      scene.wallpaperWidth = source.wallpaperWidth || 1080;
+      scene.wallpaperHeight = source.wallpaperHeight || 1920;
+    }
+    if (source && source.celebration) scene.celebration = source.celebration;
+    if (source && source.merchantSponsored) scene.merchantSponsored = true;
+    if (source && source.merchantWebsite) scene.merchantWebsite = source.merchantWebsite;
     return scene;
   }
 
@@ -117,27 +127,27 @@
     var key = String(size);
     if (valid(data.orders[key], size)) return data.orders[key].slice();
     data.orders[key] = permutation(size);
-    if (!scenes(data)[key]) scenes(data)[key] = sceneFor(size);
     write(data);
     return data.orders[key].slice();
   }
 
-  function pictureFor(size) {
+  function assign(size) {
     var grid = layout(size);
     if (!grid) return null;
     var data = read();
     var key = String(size);
     var saved = scenes(data)[key];
     if (saved && saved.image) return saved;
-    if (valid(data.orders[key], size)) {
-      scenes(data)[key] = {
-        image: ORIGINAL_SCENE.image,
-        imageWidth: ORIGINAL_SCENE.imageWidth,
-        imageHeight: ORIGINAL_SCENE.imageHeight
-      };
-      write(data);
-      return scenes(data)[key];
-    }
+    scenes(data)[key] = sceneFor(size);
+    write(data);
+    return scenes(data)[key];
+  }
+
+  function pictureFor(size) {
+    var grid = layout(size);
+    if (!grid) return null;
+    var saved = scenes(read())[String(size)];
+    if (saved && saved.image) return saved;
     return null;
   }
 
@@ -156,6 +166,7 @@
     key: KEY,
     layout: layout,
     orderFor: orderFor,
+    assign: assign,
     pictureFor: pictureFor,
     revealedTiles: revealedTiles
   };

@@ -70,7 +70,8 @@
         lng: pin.lng,
         rawType: pin.type || pin.pinType || pin.pintype || "",
         image: typeof pin.image === "string" ? pin.image : "",
-        castleKind: pin.castleKind || ""
+        castleKind: pin.castleKind || "",
+        iata: pin.iata || ""
       };
 
       pins.push(entry);

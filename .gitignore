@@ -6,3 +6,7 @@
 
 # Local Netlify folder
 .netlify
+
+# Railway audit downloads and generated previews. Not part of the site.
+/tools/railway-import/cache/
+/tools/railway-import/preview/

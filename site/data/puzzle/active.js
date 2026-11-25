@@ -11,7 +11,10 @@ window.TURBO_PUZZLE_ACTIVE = {
       "imageHeight": 1080,
       "revealImage": "/media/puzzles/winter_village_scene_turbo_selfie-cd73c5.jpg",
       "revealImageWidth": 1920,
-      "revealImageHeight": 1080
+      "revealImageHeight": 1080,
+      "wallpaper": "/media/puzzles/5_piece_christmas_916.jpg",
+      "wallpaperWidth": 941,
+      "wallpaperHeight": 1672
     },
     "10": {
       "image": "/media/puzzles/10_piece_christmas.jpg",
@@ -19,7 +22,10 @@ window.TURBO_PUZZLE_ACTIVE = {
       "imageHeight": 941,
       "revealImage": "/media/puzzles/10_piece_christmas_final.jpg",
       "revealImageWidth": 1672,
-      "revealImageHeight": 941
+      "revealImageHeight": 941,
+      "wallpaper": "/media/puzzles/10_piece_christmas_916.jpg",
+      "wallpaperWidth": 941,
+      "wallpaperHeight": 1672
     },
     "25": {
       "image": "/media/puzzles/25_piece_christmas.jpg",
@@ -27,7 +33,10 @@ window.TURBO_PUZZLE_ACTIVE = {
       "imageHeight": 941,
       "revealImage": "/media/puzzles/25_piece_christmas_final.jpg",
       "revealImageWidth": 1672,
-      "revealImageHeight": 941
+      "revealImageHeight": 941,
+      "wallpaper": "/media/puzzles/25_piece_christmas_916.jpg",
+      "wallpaperWidth": 941,
+      "wallpaperHeight": 1671
     },
     "50": {
       "image": "/media/puzzles/50_piece_christmas.jpg",
@@ -35,7 +44,10 @@ window.TURBO_PUZZLE_ACTIVE = {
       "imageHeight": 941,
       "revealImage": "/media/puzzles/50_piece_christmas_final.jpg",
       "revealImageWidth": 1671,
-      "revealImageHeight": 941
+      "revealImageHeight": 941,
+      "wallpaper": "/media/puzzles/50_piece_christmas_916.jpg",
+      "wallpaperWidth": 941,
+      "wallpaperHeight": 1671
     }
   }
 };

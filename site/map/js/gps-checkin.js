@@ -222,6 +222,9 @@
       setStatus(t(ownedKey(target.spec.category)), "done");
       return;
     }
+    var railwayBefore = target.spec.category === "railway"
+      ? global.TURBO_COLLECTION.list("railway").length
+      : 0;
     global.TURBO_COLLECTION.record(target.spec.category, target.spec.placeId, {
       pointId: target.spec.pointId,
       distanceM: Math.round(distance),
@@ -244,6 +247,18 @@
           level: puzzle.level
         }), "ok");
     }
+    if (target.spec.category === "railway" && global.TURBO_RAILWAY_MOSAIC && global.TURBO_RAILWAY_PUZZLE) {
+      var started = global.TURBO_RAILWAY_PUZZLE.progress();
+      if (!started.finished && started.pieces >= 1) {
+        global.TURBO_RAILWAY_MOSAIC.assign(started.level);
+      }
+    }
+    if (target.spec.category === "railway" && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {
+      global.TURBO_COLLECTION_SCREEN.noteCompletion(
+        railwayBefore,
+        global.TURBO_COLLECTION.list("railway").length
+      );
+    }
     if (global.TURBO_COLLECTION_SCREEN) global.TURBO_COLLECTION_SCREEN.paint();
   }
 
@@ -251,12 +266,16 @@
     pending = false;
     if (button) button.disabled = false;
     showRetry(true);
+    if (global.navigator && global.navigator.onLine === false) {
+      setStatus(t("gpsOffline"), "warn");
+      return;
+    }
     if (error && error.code === 1) {
       setStatus(t("gpsDenied"), "warn");
       return;
     }
-    if (error && error.code === 3) {
-      setStatus(t("gpsTimeout"), "warn");
+    if (error && error.code === 2 || error && error.code === 3) {
+      setStatus(t("gpsFail"), "warn");
       return;
     }
     setStatus(t("gpsFail"), "warn");

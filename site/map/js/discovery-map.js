@@ -529,7 +529,8 @@
     const text = document.getElementById("controls-summary-text");
     const button = document.getElementById("controls-summary");
     if (button) button.setAttribute("aria-label", TURBO_I18N.t("controlsSummary"));
-    if (!text) return;
+    if (text) text.textContent = TURBO_I18N.t("filterPanel");
+    if (!button) return;
     const parts = [TURBO_I18N.t("areaJapan")];
     if (regionId && window.TURBO_REGIONS) {
       const region = TURBO_REGIONS.REGIONS.find((item) => item.id === regionId);
@@ -539,22 +540,19 @@
       parts.push(TURBO_REGIONS.label(TURBO_REGIONS.PREFECTURES[prefectureId]));
     }
     parts.push(categorySummary());
-    text.textContent = parts.join(" · ");
+    button.setAttribute("aria-label", TURBO_I18N.t("filterPanel") + " — " + parts.join(" · "));
   }
 
   function setControlsCollapsed(collapsed) {
-    const bar = document.querySelector(".top-bar");
+    const panel = document.getElementById("map-filters");
     const summary = document.getElementById("controls-summary");
-    const narrow = controlsNarrow();
-    const hideSelectors = collapsed && narrow;
-    if (bar) bar.classList.toggle("controls-collapsed", hideSelectors);
-    if (summary) summary.setAttribute("aria-expanded", hideSelectors ? "false" : "true");
-    if (narrow && !hideSelectors) setFiltersOpen(true);
+    if (panel) panel.hidden = !!collapsed;
+    if (summary) summary.setAttribute("aria-expanded", collapsed ? "false" : "true");
     updateControlsSummary();
   }
 
   function collapseControlsAfterChoice() {
-    if (controlsNarrow()) setControlsCollapsed(true);
+    setControlsCollapsed(true);
   }
 
   function buildAreaSelector() {
@@ -646,8 +644,9 @@
     geo = window.TURBO_GEO.normalizePins(window.MAP_DATA.pins);
     if (window.TURBO_LOCATIONS) {
       TURBO_LOCATIONS.airportPins().forEach((pin) => {
+        if (geo.byId.has(pin.id)) return;
         geo.pins.push(pin);
-        if (!geo.byId.has(pin.id)) geo.byId.set(pin.id, pin);
+        geo.byId.set(pin.id, pin);
       });
     }
 
@@ -675,28 +674,13 @@
     buildAreaSelector();
     wireMapHistory();
     buildFilters();
-    setFiltersOpen(!controlsNarrow());
-    setControlsCollapsed(controlsNarrow());
+    setFiltersOpen(true);
+    setControlsCollapsed(true);
     const summary = document.getElementById("controls-summary");
     if (summary) {
       summary.addEventListener("click", () => {
-        const bar = document.querySelector(".top-bar");
-        const collapsed = !!(bar && bar.classList.contains("controls-collapsed"));
-        setControlsCollapsed(!collapsed);
-      });
-    }
-    if (typeof CONTROLS_MQ.addEventListener === "function") {
-      CONTROLS_MQ.addEventListener("change", () => {
-        setFiltersOpen(!controlsNarrow());
-        setControlsCollapsed(controlsNarrow());
-      });
-    }
-    const filterToggle = document.getElementById("filter-toggle");
-    if (filterToggle) {
-      filterToggle.textContent = TURBO_I18N.t("filterCategories");
-      filterToggle.addEventListener("click", () => {
-        const bar = document.getElementById("filter-bar");
-        setFiltersOpen(!!(bar && bar.hidden));
+        const panel = document.getElementById("map-filters");
+        setControlsCollapsed(!(panel && panel.hidden));
       });
     }
 

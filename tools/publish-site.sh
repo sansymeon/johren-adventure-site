@@ -6,5 +6,10 @@ if ! command -v netlify >/dev/null 2>&1; then
   echo "Install the Netlify CLI and log in once. Then run this script again."
   exit 1
 fi
+echo "Checking player data persistence before deploy..."
+if ! node "$ROOT/tools/player-data/persistence-test.js"; then
+  echo "Player data persistence test failed. Deploy stopped. See docs/player-data.md."
+  exit 1
+fi
 cd /tmp
 exec netlify deploy --prod --no-build --site=71c8b581-dddf-4a87-9365-d84c37559d55 --dir="$ROOT/site"

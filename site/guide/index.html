@@ -45,6 +45,14 @@ button{font:inherit;cursor:pointer}
 .faq summary{font-weight:800;cursor:pointer}
 .faq p{margin:10px 0 0;color:var(--muted)}
 .sample{margin-top:28px;background:#fff;border-radius:22px;padding:25px;border:1px dashed #a8cfd1}
+.puzzle-flow{display:grid;gap:14px;margin:8px 0 18px}
+@media(min-width:700px){.puzzle-flow{grid-template-columns:1fr 1fr}.puzzle-flow .puzzle-step:last-child{grid-column:1 / -1}}
+.puzzle-step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px}
+.puzzle-step h3{margin:0 0 6px;font-size:1rem}
+.board{display:grid;aspect-ratio:3/2;background:#123e3a center/cover no-repeat;border-radius:10px;overflow:hidden}
+.board span{background:rgba(18,62,58,.78);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45)}
+.board span.open{background:transparent}
+.puzzle-done{aspect-ratio:3/2;background:#123e3a center/cover no-repeat;border-radius:10px}
 .sample h3{margin:0 0 9px}
 .sample ol{padding-left:20px;margin-bottom:0}
 .note{padding:15px 19px;border-left:4px solid var(--aqua);background:#e1f3f1;color:#355b62;margin:25px 0;border-radius:0 12px 12px 0}
@@ -84,6 +92,12 @@ a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
 <article class="card"><span class="symbol">🎨</span><div class="n">05</div><h3>キャラクターを集めて作品を作る</h3><p><strong>一部公開中。</strong> キャストの紹介と、端末の中で絵を並べて保存する体験は使えます。作品の投稿や共有、お店のQRごほうびは準備中です。</p></article>
 </div>
 <div class="banner"><h3>ごほうびは別です</h3><p>鉄道モザイクのごほうびと、これからのお店QR（ターボ・スポット）のごほうびは別です。お店のQRは準備中です。</p></div>
+<section id="puzzle">
+<h2 class="sectiontitle">パズルの進み方</h2>
+<p>鉄道の駅でチェックインすると、鉄道パズルのピースが1つ開きます。空港や絶景は別のコレクションで、このピースにはなりません。同じ絵を、5、10、25、50の順で分けます。マスの分け方は、公開中のパズルと同じです（5は横5、10は5×2、25は5×5、50は10×5）。数が揃うと絵が完成し、コレクションに残ります。数は1から数え直し、次の大きさに進みます。</p>
+<div class="puzzle-flow" data-puzzle-demo data-image="/media/scenes/emperor_maximilian_and_empress_anastasia_frostbourne.webp"></div>
+<p>見本の絵は、皇帝マクシミリアンと皇后アナスタシアのフロストボーンです。どのレベルも同じ絵を使っています。暗いマスは、まだ訪れていないピースです。</p>
+</section>
 <h2 class="sectiontitle">3つのルール</h2>
 <div class="rulegrid">
 <div class="rule"><strong>1駅につき1回</strong><span>同じ端末では、保存したコレクションを消すまで、その駅はもう一度たまりません。1日ごとのやり直しではありません。</span></div>
@@ -123,6 +137,7 @@ function fromHash(){const i=ids.indexOf(location.hash.slice(1));render(i<0?0:i)}
 fromHash();
 window.addEventListener('hashchange',fromHash);
 </script>
+<script src="/guide/puzzle-demo.js"></script>
 <script src="/js/nav.js"></script>
 </body>
 </html>

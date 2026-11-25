@@ -57,7 +57,7 @@ Each new railway station reveals one mosaic tile of the current level. A finishe
 
 ## Reset test progress
 
-On the collection screen, **テストデータを消す** / **Clear test data** removes `turbo.locationCollection.v1`. It leaves the mosaic tile order in `turbo.railwayMosaic.v1`.
+The collection screen shows **テストデータを消す** / **Clear test data** only when the map URL contains `test=1`. That button removes `turbo.locationCollection.v1`. A normal visit does not show it and does not clear the collection. The mosaic, assigned pictures, and other player keys are a separate store. See `docs/player-data.md`.
 
 Or, in the phone's Safari settings, delete website data for the draft host.
 
