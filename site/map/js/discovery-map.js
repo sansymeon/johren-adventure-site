@@ -466,6 +466,7 @@
     regionId = "";
     prefectureId = "";
     syncAreaControls();
+    syncSabahPrototypeNote();
     map.setView(JAPAN_CENTER, JAPAN_ZOOM);
     renderExplore();
   }
@@ -613,6 +614,11 @@
     });
   }
 
+  function syncSabahPrototypeNote() {
+    const note = document.getElementById("sabah-prototype-note");
+    if (note) note.hidden = countryId !== "malaysia";
+  }
+
   function showCountry(next) {
     countryId = next === "malaysia" ? "malaysia" : "japan";
     regionId = countryId === "malaysia" ? "sabah" : "";
@@ -621,6 +627,7 @@
     const regionSelect = document.getElementById("area-region");
     if (regionSelect) fillRegionSelect(regionSelect);
     syncAreaControls();
+    syncSabahPrototypeNote();
     if (countryId === "malaysia") fitPins(geo.pins, 15);
     else map.setView(JAPAN_CENTER, JAPAN_ZOOM);
     renderExplore();
