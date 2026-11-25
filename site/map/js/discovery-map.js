@@ -13,6 +13,7 @@
     { key: "airport", labelKey: "filterAirport" },
     { key: "cultural", labelKey: "filterCultural" },
     { key: "scenic", labelKey: "filterScenic" },
+    { key: "place", labelKey: "filterPlace" },
     { key: "merchant", labelKey: "filterMerchant" }
   ];
 
@@ -48,6 +49,7 @@
     airport: iconFromCategory("airport"),
     cultural: iconFromCategory("cultural"),
     scenic: iconFromCategory("scenic"),
+    place: iconFromCategory("cultural"),
     merchant: iconFromCategory("merchant")
   };
 
@@ -55,6 +57,8 @@
   let geoLayer;
   let geo;
   let mode = "explore";
+  let countryId = "japan";
+  const SABAH_CENTER = [5.98, 116.075];
   let regionId = "";
   let prefectureId = "";
   let enabledFilters = new Set(FILTERS.map((f) => f.key));
@@ -467,6 +471,14 @@
   }
 
   function showRegion(id) {
+    if (countryId === "malaysia") {
+      regionId = "sabah";
+      prefectureId = "";
+      syncAreaControls();
+      renderExplore();
+      fitPins(geo.pins, 15);
+      return;
+    }
     regionId = id;
     prefectureId = "";
     syncAreaControls();
@@ -496,8 +508,17 @@
     const prefSelect = document.getElementById("area-prefecture");
     if (!regionSelect || !prefSelect || !window.TURBO_REGIONS) return;
     regionSelect.value = regionId;
-    prefSelect.disabled = !regionId;
+    prefSelect.disabled = countryId === "malaysia" ? false : !regionId;
     prefSelect.innerHTML = "";
+    if (countryId === "malaysia") {
+      const kk = document.createElement("option");
+      kk.value = "";
+      kk.textContent = TURBO_I18N.t("areaKotaKinabalu");
+      prefSelect.appendChild(kk);
+      prefSelect.value = "";
+      updateControlsSummary();
+      return;
+    }
     const all = document.createElement("option");
     all.value = "";
     all.textContent = TURBO_I18N.t("areaAllPrefectures");
@@ -531,7 +552,8 @@
     if (button) button.setAttribute("aria-label", TURBO_I18N.t("controlsSummary"));
     if (text) text.textContent = TURBO_I18N.t("filterPanel");
     if (!button) return;
-    const parts = [TURBO_I18N.t("areaJapan")];
+    const parts = [TURBO_I18N.t(countryId === "malaysia" ? "countryMalaysia" : "areaJapan")];
+    if (countryId === "malaysia") parts.push(TURBO_I18N.t("regionSabah"));
     if (regionId && window.TURBO_REGIONS) {
       const region = TURBO_REGIONS.REGIONS.find((item) => item.id === regionId);
       if (region) parts.push(TURBO_REGIONS.label(region));
@@ -555,14 +577,30 @@
     setControlsCollapsed(true);
   }
 
-  function buildAreaSelector() {
-    const bar = document.getElementById("area-bar");
-    if (!bar || !window.TURBO_REGIONS) return;
-    bar.innerHTML = "";
+  function loadGeo() {
+    const raw = countryId === "malaysia"
+      ? ((window.SABAH_MAP_DATA && SABAH_MAP_DATA.pins) || [])
+      : window.MAP_DATA.pins;
+    geo = window.TURBO_GEO.normalizePins(raw);
+    if (countryId === "japan" && window.TURBO_LOCATIONS) {
+      TURBO_LOCATIONS.airportPins().forEach((pin) => {
+        if (geo.byId.has(pin.id)) return;
+        geo.pins.push(pin);
+        geo.byId.set(pin.id, pin);
+      });
+    }
+  }
 
-    const regionSelect = document.createElement("select");
-    regionSelect.id = "area-region";
-    regionSelect.setAttribute("aria-label", TURBO_I18N.t("areaRegion"));
+  function fillRegionSelect(regionSelect) {
+    regionSelect.innerHTML = "";
+    if (countryId === "malaysia") {
+      const sabah = document.createElement("option");
+      sabah.value = "sabah";
+      sabah.textContent = TURBO_I18N.t("regionSabah");
+      regionSelect.appendChild(sabah);
+      regionSelect.value = "sabah";
+      return;
+    }
     const japan = document.createElement("option");
     japan.value = "";
     japan.textContent = TURBO_I18N.t("areaJapan");
@@ -573,6 +611,49 @@
       option.textContent = TURBO_REGIONS.label(region);
       regionSelect.appendChild(option);
     });
+  }
+
+  function showCountry(next) {
+    countryId = next === "malaysia" ? "malaysia" : "japan";
+    regionId = countryId === "malaysia" ? "sabah" : "";
+    prefectureId = "";
+    loadGeo();
+    const regionSelect = document.getElementById("area-region");
+    if (regionSelect) fillRegionSelect(regionSelect);
+    syncAreaControls();
+    if (countryId === "malaysia") fitPins(geo.pins, 15);
+    else map.setView(JAPAN_CENTER, JAPAN_ZOOM);
+    renderExplore();
+  }
+
+  function buildAreaSelector() {
+    const bar = document.getElementById("area-bar");
+    if (!bar || !window.TURBO_REGIONS) return;
+    bar.innerHTML = "";
+
+    const countrySelect = document.createElement("select");
+    countrySelect.id = "area-country";
+    countrySelect.setAttribute("aria-label", TURBO_I18N.t("countryLabel"));
+    [
+      ["japan", "countryJapan"],
+      ["malaysia", "countryMalaysia"]
+    ].forEach((pair) => {
+      const option = document.createElement("option");
+      option.value = pair[0];
+      option.textContent = TURBO_I18N.t(pair[1]);
+      countrySelect.appendChild(option);
+    });
+    countrySelect.value = countryId;
+    countrySelect.addEventListener("change", () => {
+      pushView();
+      showCountry(countrySelect.value);
+      collapseControlsAfterChoice();
+    });
+
+    const regionSelect = document.createElement("select");
+    regionSelect.id = "area-region";
+    regionSelect.setAttribute("aria-label", TURBO_I18N.t("areaRegion"));
+    fillRegionSelect(regionSelect);
     regionSelect.addEventListener("change", () => {
       pushView();
       if (!regionSelect.value) showJapan();
@@ -589,6 +670,7 @@
       collapseControlsAfterChoice();
     });
 
+    bar.appendChild(countrySelect);
     bar.appendChild(regionSelect);
     bar.appendChild(prefSelect);
     syncAreaControls();
@@ -641,14 +723,7 @@
     }
 
     cacheEls();
-    geo = window.TURBO_GEO.normalizePins(window.MAP_DATA.pins);
-    if (window.TURBO_LOCATIONS) {
-      TURBO_LOCATIONS.airportPins().forEach((pin) => {
-        if (geo.byId.has(pin.id)) return;
-        geo.pins.push(pin);
-        geo.byId.set(pin.id, pin);
-      });
-    }
+    loadGeo();
 
     map = L.map("map", { zoomControl: false, attributionControl: true }).setView(
       JAPAN_CENTER,

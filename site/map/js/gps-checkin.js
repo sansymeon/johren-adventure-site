@@ -162,6 +162,7 @@
   function ownedKey(category) {
     if (category === "airport") return "airportOwned";
     if (category === "scenic") return "scenicOwned";
+    if (category === "sabah") return "sabahOwned";
     return "stationOwned";
   }
 
@@ -231,8 +232,13 @@
       accuracyM: Math.round(accuracy)
     });
     showDiag(name, distance, accuracy, radius, "resultOk", true);
-    if (target.spec.category === "airport" || target.spec.category === "scenic") {
-      setStatus(t(target.spec.category === "airport" ? "airportSuccess" : "scenicSuccess", {
+    if (target.spec.category === "airport" || target.spec.category === "scenic" || target.spec.category === "sabah") {
+      var successKey = target.spec.category === "airport"
+        ? "airportSuccess"
+        : target.spec.category === "sabah"
+          ? "sabahSuccess"
+          : "scenicSuccess";
+      setStatus(t(successKey, {
         name: name,
         count: global.TURBO_COLLECTION.list(target.spec.category).length
       }), "ok");

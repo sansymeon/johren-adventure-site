@@ -1365,7 +1365,36 @@
         }
       }
     }
-    return airportFromMap(pointId) || stationById(pointId);
+    return sabahFromMap(pointId) || airportFromMap(pointId) || stationById(pointId);
+  }
+
+  function sabahFromMap(pointId) {
+    var pins = (global.SABAH_MAP_DATA && global.SABAH_MAP_DATA.pins) || [];
+    var i;
+    var pin;
+    for (i = 0; i < pins.length; i += 1) {
+      pin = pins[i];
+      if (pin.id !== pointId) continue;
+      if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
+      return {
+        category: "sabah",
+        placeId: pin.id,
+        pointId: pin.id,
+        radiusMeters: LOCATIONS.scenic.radiusMeters,
+        maxAccuracyMeters: LOCATIONS.scenic.maxAccuracyMeters,
+        name: pin.name,
+        nameEn: pin.nameEn || "",
+        placeName: pin.name,
+        placeNameEn: pin.nameEn || "",
+        lat: pin.lat,
+        lng: pin.lng,
+        special: false,
+        role: "",
+        rewards: null,
+        featured: null
+      };
+    }
+    return null;
   }
 
   function airportFromMap(pointId) {

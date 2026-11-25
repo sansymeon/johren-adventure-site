@@ -23,6 +23,9 @@
     if (["beach", "waterfall", "forest", "mountain", "viewpoint", "nature", "landmark"].indexOf(normType) !== -1) {
       return "scenic";
     }
+    if (["coffee", "restaurant", "supermarket", "market"].indexOf(normType) !== -1) {
+      return "place";
+    }
     return "cultural";
   }
 
