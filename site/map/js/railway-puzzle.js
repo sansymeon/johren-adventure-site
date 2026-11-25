@@ -1,16 +1,21 @@
 /**
- * Category puzzle ladder. Piece count is the number of unique places
- * collected in that category since the previous level was completed.
- * A place already in the collection never awards another piece.
+ * Independent puzzle ladders for each public discovery category.
+ * Piece count is unique places collected in that category.
+ * A place already collected never awards another piece.
  *
- * Progress is derived from TURBO_COLLECTION, so it survives refresh.
- * Railway keeps TURBO_RAILWAY_PUZZLE for existing callers. Cultural and
- * scenic use progressFor with the same level sizes.
+ * Levels default to 5 → 10 → 25 → 50 from TURBO_PUZZLE_CONFIG /
+ * TURBO_DISCOVERY_CATEGORIES. Progress is derived from TURBO_COLLECTION.
+ *
+ * TURBO_RAILWAY_PUZZLE remains for existing callers and equals
+ * progressFor("railway").
  */
 (function (global) {
   "use strict";
 
   function levels() {
+    if (global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.levels) {
+      return TURBO_DISCOVERY_CATEGORIES.levels();
+    }
     var list = global.TURBO_PUZZLE_CONFIG && global.TURBO_PUZZLE_CONFIG.levels;
     return list && list.length ? list.slice() : [5, 10, 25, 50];
   }
@@ -62,10 +67,18 @@
     return done;
   }
 
+  function publicPuzzleIds() {
+    if (global.TURBO_DISCOVERY_CATEGORIES) {
+      return TURBO_DISCOVERY_CATEGORIES.publicPuzzleIds();
+    }
+    return ["railway", "airport", "cultural", "scenic"];
+  }
+
   global.TURBO_CATEGORY_PUZZLE = {
     progressFor: progressFor,
     levels: levels,
-    completedSizes: completedSizes
+    completedSizes: completedSizes,
+    publicPuzzleIds: publicPuzzleIds
   };
 
   global.TURBO_RAILWAY_PUZZLE = {

@@ -8,14 +8,16 @@
   const JAPAN_CENTER = [36.5, 138.0];
   const JAPAN_ZOOM = 5;
 
-  const FILTERS = [
-    { key: "railway", labelKey: "filterRailway" },
-    { key: "airport", labelKey: "filterAirport" },
-    { key: "cultural", labelKey: "filterCultural" },
-    { key: "scenic", labelKey: "filterScenic" },
-    { key: "place", labelKey: "filterPlace" },
-    { key: "merchant", labelKey: "filterMerchant" }
-  ];
+  const FILTERS = (window.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.mapFilters)
+    ? TURBO_DISCOVERY_CATEGORIES.mapFilters()
+    : [
+      { key: "railway", labelKey: "filterRailway" },
+      { key: "airport", labelKey: "filterAirport" },
+      { key: "cultural", labelKey: "filterCultural" },
+      { key: "scenic", labelKey: "filterScenic" },
+      { key: "place", labelKey: "filterPlace" },
+      { key: "merchant", labelKey: "filterMerchant" }
+    ];
 
   function icon(url, size) {
     return L.icon({
@@ -173,16 +175,9 @@
       els.sheetDesc.textContent = parts.join("\n");
     } else if (discovery && discovery.stage_description) {
       els.sheetDesc.textContent = discovery.stage_description;
-    } else if (place && place.category === "airport") {
-      els.sheetDesc.textContent = TURBO_I18N.t("airportSheet");
-    } else if (place && place.category === "scenic") {
-      els.sheetDesc.textContent = TURBO_I18N.t("scenicSheet");
-    } else if (place && place.category === "sabah") {
-      els.sheetDesc.textContent = TURBO_I18N.t("sabahSheet");
-    } else if (place && place.category === "merchant") {
-      els.sheetDesc.textContent = TURBO_I18N.t("merchantSheet");
-    } else if (place && place.category === "cultural") {
-      els.sheetDesc.textContent = TURBO_I18N.t("culturalSheet");
+    } else if (place && window.TURBO_DISCOVERY_CATEGORIES) {
+      const cat = TURBO_DISCOVERY_CATEGORIES.byId(place.category);
+      els.sheetDesc.textContent = TURBO_I18N.t((cat && cat.sheetKey) || "discoverySheet");
     } else if (castle) {
       els.sheetDesc.textContent = TURBO_I18N.t("culturalSheet");
     } else {

@@ -1,4 +1,8 @@
-/** Railway puzzle sizes and the first-level picture. Edit this file to swap art. */
+/**
+ * Shared public-discovery puzzle sizes and the railway first-level picture.
+ * Category rules live in config/categories.js. Levels here apply to all four
+ * public discovery puzzles: railway, airport, cultural, scenic.
+ */
 (function (global) {
   "use strict";
   global.TURBO_PUZZLE_CONFIG = {

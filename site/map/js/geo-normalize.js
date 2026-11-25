@@ -1,6 +1,7 @@
 /**
  * Normalize Johren MAP_DATA.pins for the prototype without mutating the source file.
  * Handles duplicate ids safely for display / lookup.
+ * Filter buckets come from TURBO_DISCOVERY_CATEGORIES when present.
  */
 (function (global) {
   "use strict";
@@ -15,9 +16,12 @@
 
   // Visitor filters. The pin's own type is kept on pin.type.
   function filterCategory(normType) {
+    if (global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.filterForType) {
+      return TURBO_DISCOVERY_CATEGORIES.filterForType(normType);
+    }
     if (normType === "station") return "railway";
     if (normType === "airport") return "airport";
-    if (["church", "shrine", "temple", "museum", "castle", "castle_ruins", "historic"].indexOf(normType) !== -1) {
+    if (["church", "shrine", "temple", "museum", "castle", "castle_ruins", "historic", "mosque"].indexOf(normType) !== -1) {
       return "cultural";
     }
     if (["beach", "waterfall", "forest", "mountain", "viewpoint", "nature", "landmark"].indexOf(normType) !== -1) {

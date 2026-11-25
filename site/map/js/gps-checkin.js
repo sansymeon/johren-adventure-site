@@ -159,17 +159,19 @@
     setStatus(line, "progress");
   }
 
-  function ownedKey(category) {
-    if (category === "airport") return "airportOwned";
-    if (category === "scenic") return "scenicOwned";
-    if (category === "cultural") return "culturalOwned";
-    if (category === "sabah") return "sabahOwned";
-    if (category === "merchant") return "merchantOwned";
-    return "stationOwned";
+  function categoryConfig(category) {
+    return global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.byId(category);
   }
 
-  function puzzleCategories() {
-    return { railway: true, cultural: true, scenic: true };
+  function ownedKey(category) {
+    var cat = categoryConfig(category);
+    return (cat && cat.ownedKey) || "stationOwned";
+  }
+
+  function isPublicPuzzle(category) {
+    var cat = categoryConfig(category);
+    if (cat) return !!(cat.publicDiscovery && cat.puzzle);
+    return category === "railway" || category === "airport" || category === "cultural" || category === "scenic";
   }
 
   function displayName(target, pin) {
@@ -185,25 +187,16 @@
 
   function successStatus(target, name) {
     var category = target.spec.category;
-    if (category === "airport" || category === "sabah" || category === "merchant") {
-      var countKey = category === "airport"
-        ? "airportSuccess"
-        : category === "sabah"
-          ? "sabahSuccess"
-          : "merchantSuccess";
-      return t(countKey, {
+    var cat = categoryConfig(category);
+    if (!isPublicPuzzle(category)) {
+      return t((cat && cat.successKey) || "merchantSuccess", {
         name: name,
         count: global.TURBO_COLLECTION.list(category).length
       });
     }
     var puzzle = puzzleApi().progressFor(category);
     if (puzzle.finished) return t("puzzleFinished", { name: name });
-    var successKey = category === "cultural"
-      ? "culturalSuccess"
-      : category === "scenic"
-        ? "scenicSuccess"
-        : "stationSuccess";
-    return t(successKey, {
+    return t((cat && cat.successKey) || "stationSuccess", {
       name: name,
       pieces: puzzle.pieces,
       need: puzzle.needed,
@@ -280,7 +273,7 @@
         global.TURBO_RAILWAY_MOSAIC.assign(started.level);
       }
     }
-    if (puzzleCategories()[category] && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {
+    if (isPublicPuzzle(category) && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {
       global.TURBO_COLLECTION_SCREEN.noteCompletion(
         beforeCount,
         global.TURBO_COLLECTION.list(category).length,

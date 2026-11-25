@@ -210,38 +210,44 @@
     if (root && !root.hidden) reward.present();
   }
 
-  function names(category) {
+  function names(category, emptyKey) {
     var rows = global.TURBO_COLLECTION.list(category);
     if (!rows.length) {
-      var emptyKey = category === "airport"
-        ? "airportEmpty"
-        : category === "scenic"
-          ? "scenicEmpty"
-          : category === "cultural"
-            ? "culturalEmpty"
-            : "railwayEmpty";
-      return "<p>" + t(emptyKey) + "</p>";
+      return "<p>" + t(emptyKey || "railwayEmpty") + "</p>";
     }
     return "<ul>" + rows.map(function (row) {
       return "<li>" + placeName(category, row.id, row.detail) + "</li>";
     }).join("") + "</ul>";
   }
 
-  function categoryProgressLine(category, headingKey, progressKey, emptyProgress) {
+  function categoryProgressLine(cat) {
     var puzzle = global.TURBO_CATEGORY_PUZZLE || global.TURBO_RAILWAY_PUZZLE;
-    var progress = puzzle.progressFor(category);
-    var count = global.TURBO_COLLECTION.list(category).length;
-    return "<h2>" + t(headingKey) + "</h2>" +
+    var progress = puzzle.progressFor(cat.id);
+    var count = global.TURBO_COLLECTION.list(cat.id).length;
+    return "<h2>" + t(cat.headingKey) + "</h2>" +
       "<p>" + (progress.finished
-        ? t(emptyProgress)
-        : t(progressKey, { pieces: progress.pieces, need: progress.needed, count: count })) +
+        ? t(cat.doneKey)
+        : t(cat.progressKey, { pieces: progress.pieces, need: progress.needed, count: count })) +
       "</p>" +
-      names(category);
+      names(cat.id, cat.emptyKey);
+  }
+
+  function publicCategories() {
+    if (global.TURBO_DISCOVERY_CATEGORIES) {
+      return TURBO_DISCOVERY_CATEGORIES.public.filter(function (cat) {
+        return cat.puzzle;
+      });
+    }
+    return [
+      { id: "railway", headingKey: "railwayHeading", progressKey: "railwayProgress", doneKey: "railwayDone", emptyKey: "railwayEmpty" },
+      { id: "airport", headingKey: "airportHeading", progressKey: "airportProgress", doneKey: "airportDone", emptyKey: "airportEmpty" },
+      { id: "cultural", headingKey: "culturalHeading", progressKey: "culturalProgress", doneKey: "culturalDone", emptyKey: "culturalEmpty" },
+      { id: "scenic", headingKey: "scenicHeading", progressKey: "scenicProgress", doneKey: "scenicDone", emptyKey: "scenicEmpty" }
+    ];
   }
 
   function paint() {
     var progress = global.TURBO_RAILWAY_PUZZLE.progress();
-    var airports = global.TURBO_COLLECTION.list("airport").length;
     var stations = global.TURBO_COLLECTION.list("railway").length;
     var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
     var picture = art(progress.needed);
@@ -251,22 +257,21 @@
         done.map(function (size) { return fullImage(size); }).join("");
     }
     var currentHtml = progress.finished ? "" : mosaic(progress.needed, progress.pieces);
+    var categories = publicCategories();
+    var railwayCat = categories[0];
+    var otherHtml = categories.slice(1).map(categoryProgressLine).join("");
     root.querySelector("[data-collection-body]").innerHTML =
-      "<h2>" + t("railwayHeading") + "</h2>" +
+      "<h2>" + t(railwayCat.headingKey) + "</h2>" +
       '<p data-railway-progress>' + (progress.finished
-        ? t("railwayDone")
-        : t("railwayProgress", { pieces: progress.pieces, need: progress.needed })) +
+        ? t(railwayCat.doneKey)
+        : t(railwayCat.progressKey, { pieces: progress.pieces, need: progress.needed, count: stations })) +
       "</p>" +
       "<p>" + t("stationsCollected", { n: stations }) + "</p>" +
       currentHtml +
       (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
       completedHtml +
-      names("railway") +
-      "<h2>" + t("airportHeading") + "</h2>" +
-      "<p>" + t("airportProgress", { count: airports }) + "</p>" +
-      names("airport") +
-      categoryProgressLine("cultural", "culturalHeading", "culturalProgress", "culturalDone") +
-      categoryProgressLine("scenic", "scenicHeading", "scenicProgress", "scenicDone");
+      names("railway", railwayCat.emptyKey) +
+      otherHtml;
   }
 
   function show() {

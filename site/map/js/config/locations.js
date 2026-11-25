@@ -3,13 +3,13 @@
  * the map data files. Explicit places below override a map pin when a place
  * needs curated points (for example multi-door airport terminals).
  *
- * Every discovery pin is GPS-checkable through findPoint → discoveryFromMap.
- * Public categories are one check-in per place per device. Merchant places
- * may set repeatable: true (also the merchant category default).
+ * Category rules (public puzzles, pin types, radii) live in
+ * config/categories.js as TURBO_DISCOVERY_CATEGORIES. This file keeps
+ * curated places and featured station notes.
  *
- * Ordinary stations have no artwork. A special station may set special: true
- * and, later, rewards. Every railway check-in still awards one railway puzzle
- * piece. Cultural and scenic check-ins feed their own category puzzles.
+ * Every discovery pin is GPS-checkable through findPoint → discoveryFromMap.
+ * Public discovery categories are one check-in per place per device.
+ * Merchant places stay outside those four puzzles and may be repeatable.
  */
 (function (global) {
   "use strict";
@@ -1347,14 +1347,28 @@
     }
   };
 
+  function categoryDefaults(id) {
+    var cat = global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.byId(id);
+    var local = LOCATIONS[id] || {};
+    return {
+      id: id,
+      radiusMeters: local.radiusMeters || (cat && cat.radiusMeters) || 150,
+      maxAccuracyMeters: local.maxAccuracyMeters || (cat && cat.maxAccuracyMeters) || 150,
+      repeatable: local.repeatable === true || !!(cat && cat.repeatable),
+      places: local.places || [],
+      featured: local.featured || null
+    };
+  }
+
   function pointRecord(category, place, point) {
+    var defaults = categoryDefaults(category.id);
     return {
       category: category.id,
       placeId: place.id,
       pointId: point.id,
-      radiusMeters: place.radiusMeters || category.radiusMeters,
-      maxAccuracyMeters: category.maxAccuracyMeters,
-      repeatable: place.repeatable === true || category.repeatable === true,
+      radiusMeters: place.radiusMeters || defaults.radiusMeters,
+      maxAccuracyMeters: defaults.maxAccuracyMeters,
+      repeatable: place.repeatable === true || defaults.repeatable === true,
       name: point.name || place.name,
       nameEn: point.nameEn || place.nameEn || "",
       placeName: place.name,
@@ -1369,43 +1383,28 @@
   }
 
   function categoryForPin(pin, source) {
-    var type = String((pin && (pin.type || pin.pinType)) || "").toLowerCase().trim();
-    if (source === "sabah") return "sabah";
-    if (type === "station") return "railway";
-    if (type === "airport") return "airport";
-    if (type === "merchant" || pin.merchant === true) return "merchant";
-    if (["church", "shrine", "temple", "museum", "castle", "castle_ruins", "historic", "mosque"].indexOf(type) !== -1) {
-      return "cultural";
-    }
-    if (["beach", "waterfall", "forest", "mountain", "viewpoint", "nature", "landmark"].indexOf(type) !== -1) {
-      return "scenic";
-    }
-    if (["coffee", "restaurant", "supermarket", "market"].indexOf(type) !== -1) {
-      return "cultural";
+    if (global.TURBO_DISCOVERY_CATEGORIES) {
+      return TURBO_DISCOVERY_CATEGORIES.categoryForPin(pin, source);
     }
     return "cultural";
   }
 
   function findConfiguredPoint(pointId) {
-    var categories = [
-      LOCATIONS.railway,
-      LOCATIONS.airport,
-      LOCATIONS.scenic,
-      LOCATIONS.cultural,
-      LOCATIONS.merchant,
-      LOCATIONS.sabah
-    ];
+    var ids = global.TURBO_DISCOVERY_CATEGORIES
+      ? TURBO_DISCOVERY_CATEGORIES.all().map(function (cat) { return cat.id; })
+      : ["railway", "airport", "scenic", "cultural", "merchant", "sabah"];
     var c;
     var p;
     var i;
-    for (c = 0; c < categories.length; c += 1) {
-      if (!categories[c] || !categories[c].places) continue;
-      for (p = 0; p < categories[c].places.length; p += 1) {
-        var place = categories[c].places[p];
+    for (c = 0; c < ids.length; c += 1) {
+      var category = LOCATIONS[ids[c]];
+      if (!category || !category.places) continue;
+      for (p = 0; p < category.places.length; p += 1) {
+        var place = category.places[p];
         var points = place.points || [{ id: place.id }];
         for (i = 0; i < points.length; i += 1) {
           if (points[i].id === pointId) {
-            return pointRecord(categories[c], place, points[i]);
+            return pointRecord(category, place, points[i]);
           }
         }
       }
@@ -1433,7 +1432,7 @@
     if (!pin) return null;
     if (typeof pin.lat !== "number" || typeof pin.lng !== "number") return null;
     var categoryId = categoryForPin(pin, source);
-    var defaults = LOCATIONS[categoryId] || LOCATIONS.cultural;
+    var defaults = categoryDefaults(categoryId);
     var feature = categoryId === "railway"
       ? ((LOCATIONS.railway.featured || {})[pointId] || null)
       : null;
