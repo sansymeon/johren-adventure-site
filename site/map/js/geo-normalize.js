@@ -16,8 +16,8 @@
 
   // Visitor filters. The pin's own type is kept on pin.type.
   function filterCategory(normType) {
-    if (global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.filterForType) {
-      return TURBO_DISCOVERY_CATEGORIES.filterForType(normType);
+    if (global.TURBO_DISCOVERY_CATEGORIES && global.TURBO_DISCOVERY_CATEGORIES.filterForType) {
+      return global.TURBO_DISCOVERY_CATEGORIES.filterForType(normType);
     }
     if (normType === "station") return "railway";
     if (normType === "airport") return "airport";

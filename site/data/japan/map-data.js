@@ -50480,5 +50480,23 @@ window.MAP_DATA = {
       lat: 35.616672,
       lng: 139.411622
     },
+
+    // Hokkaido scenic discoveries (first prefecture scenic batch).
+    // Coordinates are visitor viewpoints, entrances, or observation areas — not lake centres.
+    { id: "cape_soya", area: "hokkaido", name: "宗谷岬", nameEn: "Cape Soya", type: "viewpoint", lat: 45.521352, lng: 141.937293 },
+    { id: "cape_noshappu", area: "hokkaido", name: "ノシャップ岬", nameEn: "Cape Noshappu", type: "viewpoint", lat: 45.448684, lng: 141.643211 },
+    { id: "shiretoko_five_lakes", area: "hokkaido", name: "知床五湖", nameEn: "Shiretoko Five Lakes", type: "viewpoint", lat: 44.121763, lng: 145.080303 },
+    { id: "lake_mashu", area: "hokkaido", name: "摩周湖", nameEn: "Lake Mashu", type: "viewpoint", lat: 43.557000, lng: 144.507421 },
+    { id: "lake_kussharo", area: "hokkaido", name: "屈斜路湖", nameEn: "Lake Kussharo", type: "viewpoint", lat: 43.623887, lng: 144.359557 },
+    { id: "kushiro_marsh_observatory", area: "hokkaido", name: "釧路湿原展望台", nameEn: "Kushiro Marsh Observatory", type: "viewpoint", lat: 43.073896, lng: 144.320606 },
+    { id: "cape_erimo", area: "hokkaido", name: "襟裳岬", nameEn: "Cape Erimo", type: "viewpoint", lat: 41.926012, lng: 143.244624 },
+    { id: "shirogane_blue_pond", area: "hokkaido", name: "白金青い池", nameEn: "Shirogane Blue Pond", type: "viewpoint", lat: 43.492370, lng: 142.612645 },
+    { id: "shikisai_no_oka", area: "hokkaido", name: "四季彩の丘", nameEn: "Shikisai no Oka", type: "viewpoint", lat: 43.528087, lng: 142.466050 },
+    { id: "sounkyo", area: "hokkaido", name: "層雲峡", nameEn: "Sounkyo Gorge", type: "viewpoint", lat: 43.727881, lng: 142.951303 },
+    { id: "lake_shikotsu", area: "hokkaido", name: "支笏湖", nameEn: "Lake Shikotsu", type: "viewpoint", lat: 42.772742, lng: 141.404073 },
+    { id: "lake_toya", area: "hokkaido", name: "洞爺湖", nameEn: "Lake Toya", type: "viewpoint", lat: 42.625785, lng: 140.799680 },
+    { id: "noboribetsu_jigokudani", area: "hokkaido", name: "登別地獄谷", nameEn: "Noboribetsu Hell Valley", type: "viewpoint", lat: 42.497572, lng: 141.145335 },
+    { id: "cape_kamui", area: "hokkaido", name: "神威岬", nameEn: "Cape Kamui", type: "viewpoint", lat: 43.333570, lng: 140.346692 },
+    { id: "mount_hakodate_observatory", area: "hokkaido", name: "函館山展望台", nameEn: "Mount Hakodate Observatory", type: "viewpoint", lat: 41.759430, lng: 140.704641 },
   ]
 };

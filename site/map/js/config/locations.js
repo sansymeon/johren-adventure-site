@@ -1348,7 +1348,7 @@
   };
 
   function categoryDefaults(id) {
-    var cat = global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.byId(id);
+    var cat = global.TURBO_DISCOVERY_CATEGORIES && global.TURBO_DISCOVERY_CATEGORIES.byId(id);
     var local = LOCATIONS[id] || {};
     return {
       id: id,
@@ -1384,14 +1384,14 @@
 
   function categoryForPin(pin, source) {
     if (global.TURBO_DISCOVERY_CATEGORIES) {
-      return TURBO_DISCOVERY_CATEGORIES.categoryForPin(pin, source);
+      return global.TURBO_DISCOVERY_CATEGORIES.categoryForPin(pin, source);
     }
     return "cultural";
   }
 
   function findConfiguredPoint(pointId) {
     var ids = global.TURBO_DISCOVERY_CATEGORIES
-      ? TURBO_DISCOVERY_CATEGORIES.all().map(function (cat) { return cat.id; })
+      ? global.TURBO_DISCOVERY_CATEGORIES.all().map(function (cat) { return cat.id; })
       : ["railway", "airport", "scenic", "cultural", "merchant", "sabah"];
     var c;
     var p;

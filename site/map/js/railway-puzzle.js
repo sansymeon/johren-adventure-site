@@ -13,8 +13,8 @@
   "use strict";
 
   function levels() {
-    if (global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.levels) {
-      return TURBO_DISCOVERY_CATEGORIES.levels();
+    if (global.TURBO_DISCOVERY_CATEGORIES && global.TURBO_DISCOVERY_CATEGORIES.levels) {
+      return global.TURBO_DISCOVERY_CATEGORIES.levels();
     }
     var list = global.TURBO_PUZZLE_CONFIG && global.TURBO_PUZZLE_CONFIG.levels;
     return list && list.length ? list.slice() : [5, 10, 25, 50];
@@ -69,7 +69,7 @@
 
   function publicPuzzleIds() {
     if (global.TURBO_DISCOVERY_CATEGORIES) {
-      return TURBO_DISCOVERY_CATEGORIES.publicPuzzleIds();
+      return global.TURBO_DISCOVERY_CATEGORIES.publicPuzzleIds();
     }
     return ["railway", "airport", "cultural", "scenic"];
   }

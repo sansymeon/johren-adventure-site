@@ -160,7 +160,7 @@
   }
 
   function categoryConfig(category) {
-    return global.TURBO_DISCOVERY_CATEGORIES && TURBO_DISCOVERY_CATEGORIES.byId(category);
+    return global.TURBO_DISCOVERY_CATEGORIES && global.TURBO_DISCOVERY_CATEGORIES.byId(category);
   }
 
   function ownedKey(category) {
