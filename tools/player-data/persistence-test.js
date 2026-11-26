@@ -126,10 +126,53 @@ if (box.localStorage.getItem("turbo.pendingCelebrations.v1") !== seed["turbo.pen
 
 load(context, "site/map/js/collection.js");
 load(context, "site/map/js/railway-mosaic.js");
+load(context, "site/map/js/railway-puzzle.js");
 if (context.window.TURBO_COLLECTION.list("railway")[0].id !== "jr_east_niigata") {
   throw new Error("a second load lost the visited station");
 }
 if (box.removed.length) throw new Error("a second load removed player data");
+
+const puzzle = context.window.TURBO_CATEGORY_PUZZLE;
+const first = puzzle.progressFor("railway");
+if (first.pieces !== 1 || first.key !== "5" || first.finished !== false) {
+  throw new Error("one saved station did not stay on the 5-piece board");
+}
+function keysOf(count) {
+  return puzzle.completedSizes(count).map((record) => record.key).join(",");
+}
+if (keysOf(90) !== "5,10,25,50") throw new Error("the first ladder did not finish as 5, 10, 25, 50");
+if (keysOf(91) !== "5,10,25,50") throw new Error("the next 50-piece board was marked complete at one piece");
+if (keysOf(140) !== "5,10,25,50,50:2") throw new Error("the second 50-piece board did not get its own record");
+for (let i = 0; i < 139; i += 1) {
+  collection.record("railway", "extra-" + i, { pointId: "extra-" + i, distanceM: 1, accuracyM: 1 });
+}
+const third = puzzle.progressFor("railway");
+if (third.collected !== 140 || third.pieces !== 0 || third.key !== "50:3" || third.round !== 3) {
+  throw new Error("140 unique places did not open a new 50-piece board at zero: " + JSON.stringify(third));
+}
+if (collection.list("airport").length !== 1 || collection.list("scenic").length !== 1) {
+  throw new Error("another category was changed while adding railway places");
+}
+if (!collection.list("railway").some((row) => row.id === "jr_east_niigata")) {
+  throw new Error("the original station was dropped");
+}
+const storedMosaic = JSON.parse(box.localStorage.getItem("turbo.railwayMosaic.v1"));
+storedMosaic.scenes["50"] = {
+  image: "/media/puzzles/first-fifty.jpg",
+  imageWidth: 1600,
+  imageHeight: 900
+};
+box.localStorage.setItem("turbo.railwayMosaic.v1", JSON.stringify(storedMosaic));
+const secondBoard = mosaic.assign(50, "50:2");
+if (!secondBoard || secondBoard.image === "/media/puzzles/first-fifty.jpg") {
+  throw new Error("the second 50-piece board reused the first board's picture");
+}
+if (mosaic.pictureFor(50).image !== "/media/puzzles/first-fifty.jpg") {
+  throw new Error("assigning a later 50-piece board replaced the first completed picture");
+}
+if (mosaic.pictureFor(5).wallpaper.includes("assigned-wallpaper") !== true) {
+  throw new Error("the assigned 5-piece wallpaper was lost");
+}
 
 context.window.TURBO_COLLECTION.clearAll();
 if (box.removed.indexOf("turbo.locationCollection.v1") === -1) throw new Error("explicit clear did not remove the collection");

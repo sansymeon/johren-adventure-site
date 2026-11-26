@@ -18,7 +18,7 @@ There is no folder named `sansymeon.jp`. The related site is `/home/sjnelson/san
 
 ## What still depends on the old files
 
-Johren Creator Studio on port 8770 reads `/masters/`, which is `johren-adventure-site/artwork/`. The admin server does not open `japanese.jp`.
+Johren Creator Studio, served at `/studio/` by the local admin, reads `/masters/`, which is `johren-adventure-site/artwork/`. The permanent admin port is 8770. The admin server does not open `japanese.jp`.
 
 The old studio inside `japanese.jp/turbo-adventures-studio` still loads `../turbo_adventure/`. Its scripts `build_catalogue_thumbs.py` and `build_scene_previews.py` write into that folder. That studio is not used by the Johren admin.
 

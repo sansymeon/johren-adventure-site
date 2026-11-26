@@ -25,7 +25,15 @@ The public game at http://127.0.0.1:8765/ does not ask anyone to sign in.
 - That save writes `site/data/puzzle/config.json` and regenerates `site/data/puzzle/active.js`.
 - There is one active default. Puzzle sizes stay in `site/map/js/config/puzzle.js` (5, 10, 25, 50).
 
-A puzzle level that a player has already started keeps its picture until that level is finished. The picture is stored in the browser under `turbo.railwayMosaic.v1`. A newly started level uses the current default.
+A puzzle level keeps the picture that was current when the player collected its first piece. That record is stored in the browser under `turbo.railwayMosaic.v1`, in `scenes`, and it is not rewritten when the seasonal default changes. A level the player has not started still shows the current default. An existing saved scene is left as it is, including when it has no wallpaper.
+
+Each level has a 9:16 wallpaper reward (`wallpaper`, `wallpaperWidth`, `wallpaperHeight`). It is a separate portrait file, not a crop of the puzzle. Puzzle Manager uploads it with **Upload Image**, which writes the file into `site/media/puzzles/` and lists it in the image library. The preview is shown in a 9:16 frame with the filename and pixel size. Saving a level that has no wallpaper shows a warning and still saves, so older levels keep working. The wallpaper is copied into the same scene record on that first piece. A later change to the default wallpaper does not replace one already assigned.
+
+Puzzle Test uses the same celebration, final reveal, wallpaper, save, and share flow as the map. Its check-ins stay in separate test storage and are not written into a player collection.
+
+Completion and wallpaper viewing live in `site/map/js/puzzle-reward.js` (`TURBO_PUZZLE_REWARD`). Saving and sharing a picture go through `site/map/js/image-share.js` (`TURBO_IMAGE_SHARE`), which draws the brand line only on the exported file. Railway calls the reward module today. Airport, cultural, scenic, and merchant puzzles should call `enqueue`, `present`, `save`, and `share` with the picture already assigned to that player when that category has a completed image, instead of adding another share implementation. Pending celebrations are stored in `turbo.pendingCelebrations.v1` and are marked viewed when dismissed. The stored celebration copies the assigned picture and wallpaper. It does not read the current seasonal files again. If a completed level has no saved scene yet, that one completion writes the scene and then copies it. A scene that is already saved is not changed.
+
+Set `celebration` to `fireworks` or `merchantSponsored` to `true` for a merchant-sponsored puzzle. `merchantWebsite` is optional. When set, the completion screen shows it as a link that opens in a new tab. A value without `https://` is treated as an https address. The test-data reset appears only when the map URL contains `test=1`.
 
 ## Publish without Cursor
 
@@ -43,11 +51,7 @@ Then, from `/tmp` so Netlify does not pack anything outside `site/`:
 tools/publish-site.sh
 ```
 
-Or the same command the script runs:
-
-```sh
-netlify deploy --prod --no-build --site=71c8b581-dddf-4a87-9365-d84c37559d55 --dir=/absolute/path/to/site
-```
+That script runs `node tools/player-data/persistence-test.js` first. If the test fails, it does not deploy. The rules it protects are in `docs/player-data.md`. Do not call `netlify deploy` yourself. That would skip the check.
 
 ## Backup and restore
 

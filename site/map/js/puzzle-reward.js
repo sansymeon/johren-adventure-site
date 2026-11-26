@@ -56,28 +56,20 @@
     return site;
   }
 
-  function fileFrom(url, name) {
-    return fetch(url).then(function (response) { return response.blob(); }).then(function (blob) {
-      return new File([blob], name, { type: blob.type || "image/jpeg" });
-    });
+  function exporter() {
+    return global.TURBO_IMAGE_SHARE;
+  }
+
+  function save(url, name) {
+    var tool = exporter();
+    if (!tool) return;
+    tool.save(url, name);
   }
 
   function share(url, name) {
-    var message = t("shareMessage");
-    fileFrom(url, name).then(function (file) {
-      var payload = { text: message, files: [file] };
-      if (navigator.canShare && navigator.canShare(payload)) return navigator.share(payload);
-      if (navigator.share) return navigator.share({ text: message, url: "https://johrenadventure.com" });
-      var link = document.createElement("a");
-      link.href = URL.createObjectURL(file);
-      link.download = name;
-      link.click();
-    }).catch(function () {
-      var link = document.createElement("a");
-      link.href = url;
-      link.download = name;
-      link.click();
-    });
+    var tool = exporter();
+    if (!tool) return;
+    tool.share(url, name);
   }
 
   function burst(host, fireworks) {
@@ -106,10 +98,10 @@
       '<img alt="" src="' + escapeAttr(item.wallpaper) + '">' +
       '<div class="celebration-actions">' +
       '<button type="button" data-save>' + t("saveWallpaper") + "</button>" +
-      '<button type="button" data-share>' + t("share") + "</button>" +
+      '<button type="button" data-share>' + t("shareImage") + "</button>" +
       '<button type="button" data-back>' + t("backCollection") + "</button></div>";
     view.querySelector("[data-save]").addEventListener("click", function () {
-      share(item.wallpaper, "turbo-wallpaper.jpg");
+      save(item.wallpaper, "turbo-wallpaper.jpg");
     });
     view.querySelector("[data-share]").addEventListener("click", function () {
       share(item.wallpaper, "turbo-wallpaper.jpg");
@@ -140,11 +132,15 @@
       '<img alt="" src="' + escapeAttr(item.image) + '">' +
       '<div class="celebration-actions">' +
       (item.wallpaper ? '<button type="button" data-wall>' + t("viewWallpaper") + "</button>" : "") +
-      '<button type="button" data-share>' + t("share") + "</button>" +
+      '<button type="button" data-save-image>' + t("saveImage") + "</button>" +
+      '<button type="button" data-share>' + t("shareImage") + "</button>" +
       (href ? '<a href="' + escapeAttr(href) + '" target="_blank" rel="noopener noreferrer">' +
         escapeAttr(item.merchantWebsite) + "</a>" : "") +
       '<button type="button" data-done>' + t("backCollection") + "</button></div>";
     burst(celebration, item.fireworks);
+    celebration.querySelector("[data-save-image]").addEventListener("click", function () {
+      save(item.image, "turbo-puzzle.jpg");
+    });
     celebration.querySelector("[data-share]").addEventListener("click", function () {
       share(item.image, "turbo-puzzle.jpg");
     });
@@ -179,6 +175,7 @@
   global.TURBO_PUZZLE_REWARD = {
     key: KEY,
     mount: mount,
+    save: save,
     share: share,
     present: present,
     enqueue: enqueue

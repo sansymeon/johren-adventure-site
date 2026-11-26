@@ -141,6 +141,7 @@ button { cursor: pointer; }
   font-size: 14px;
 }
 
+a.back-admin { display: inline-flex; align-items: center; background: #f3eee4; color: #171410; text-decoration: none; font-weight: 700; white-space: nowrap; }
 .nav-btn[aria-current="page"] {
   background: var(--paper);
   color: var(--ink);

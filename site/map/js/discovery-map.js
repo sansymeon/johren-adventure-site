@@ -161,7 +161,9 @@
     els.sheetNameEn.hidden = !pin.nameEn;
 
     if (railway) {
-      const line = pin.line && pin.line !== "unknown" ? pin.line : "";
+      const line = window.TURBO_LINE_NAMES
+        ? TURBO_LINE_NAMES.lineName(pin.line, TURBO_I18N.lang())
+        : "";
       const parts = [];
       if (line) parts.push(TURBO_I18N.t("stationLine", { line: line }));
       const feature = place.featured;

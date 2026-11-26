@@ -1,0 +1,18 @@
+---
+description: Player collection and puzzle progress must survive deploys and content updates.
+alwaysApply: true
+---
+
+# Player data
+
+Do not reset player collections. Progress is localStorage on the device, not data in the deploy.
+
+Never clear or replace these keys from a page load, deploy, map edit, seasonal image, wallpaper change, language switch, or new puzzle category: `turbo.locationCollection.v1`, `turbo.gpsCheckin.v1`, `turbo.railwayMosaic.v1`, `turbo.finalReveal.v1`, `turbo.pendingCelebrations.v1`, `turbo.playerInventory.v1`, `tas.playScene.v1`.
+
+Keep existing location ids. Add a new id for a new place. If a stored shape must change, migrate the old records into it. Do not start from an empty store when the old value can be read.
+
+Assigned puzzle and wallpaper files inside `turbo.railwayMosaic.v1` scenes stay assigned when the seasonal default changes.
+
+The control that deletes a collection is only for a URL containing `test=1`, or the separate local Puzzle Test keys. Do not call it from ordinary startup.
+
+`docs/player-data.md` is the authority for this rule. Deploy only through `tools/publish-site.sh`. That script runs `node tools/player-data/persistence-test.js` and stops before Netlify if the test fails. Do not deploy with a direct `netlify deploy` command.

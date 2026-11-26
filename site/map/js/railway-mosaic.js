@@ -2,8 +2,10 @@
  * Railway mosaic. Tile order is shuffled once per level and kept in
  * localStorage key turbo.railwayMosaic.v1. How many tiles are open
  * still comes only from TURBO_RAILWAY_PUZZLE (unique stations).
- * assign(size) stores the picture and optional wallpaper on the first
- * piece. An existing scene is never replaced.
+ * assign(size, key) stores the picture and optional wallpaper on the first
+ * piece of that board. The first 5, 10, 25, and 50 keep keys "5", "10",
+ * "25", and "50". A later 50-piece board passes its own key, such as
+ * "50:2". An existing scene is never replaced.
  * This module never reads or writes turbo.locationCollection.v1.
  */
 (function (global) {
@@ -120,39 +122,43 @@
     return true;
   }
 
-  function orderFor(size) {
+  function storeKey(size, key) {
+    return key ? String(key) : String(size);
+  }
+
+  function orderFor(size, key) {
     var grid = layout(size);
     if (!grid || grid.size !== size) return [];
     var data = read();
-    var key = String(size);
-    if (valid(data.orders[key], size)) return data.orders[key].slice();
-    data.orders[key] = permutation(size);
+    var savedKey = storeKey(size, key);
+    if (valid(data.orders[savedKey], size)) return data.orders[savedKey].slice();
+    data.orders[savedKey] = permutation(size);
     write(data);
-    return data.orders[key].slice();
+    return data.orders[savedKey].slice();
   }
 
-  function assign(size) {
+  function assign(size, key) {
     var grid = layout(size);
     if (!grid) return null;
     var data = read();
-    var key = String(size);
-    var saved = scenes(data)[key];
+    var savedKey = storeKey(size, key);
+    var saved = scenes(data)[savedKey];
     if (saved && saved.image) return saved;
-    scenes(data)[key] = sceneFor(size);
+    scenes(data)[savedKey] = sceneFor(size);
     write(data);
-    return scenes(data)[key];
+    return scenes(data)[savedKey];
   }
 
-  function pictureFor(size) {
+  function pictureFor(size, key) {
     var grid = layout(size);
     if (!grid) return null;
-    var saved = scenes(read())[String(size)];
+    var saved = scenes(read())[storeKey(size, key)];
     if (saved && saved.image) return saved;
     return null;
   }
 
-  function revealedTiles(size, count) {
-    var order = orderFor(size);
+  function revealedTiles(size, count, key) {
+    var order = orderFor(size, key);
     var n = count;
     if (n < 0) n = 0;
     if (n > order.length) n = order.length;

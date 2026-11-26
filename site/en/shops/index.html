@@ -3,25 +3,166 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="For shops. Turbo Adventures is preparing map listings. Operated by SanSymeon Productions."/>
+<meta name="description" content="Welcome to Turbo Spots. Apply for a free map listing by LINE or by email."/>
 <title>For shops · Turbo Adventures</title>
-<link rel="stylesheet" href="/css/info.css"/>
+<link rel="stylesheet" href="/css/info.css?v=shops16"/>
 </head>
 <body>
-<main class="shell">
-<h1>For shops</h1>
-<p>ターボアドベンチャーズ（Turbo Adventures） helps people discover places across Japan. We are preparing to welcome shops and venues as destinations on the map.</p>
-<p class="note">Turbo Spots are being invited. Write to <a href="mailto:info@sansymeon.com">info@sansymeon.com</a> if you would like to take part.</p>
-<h2>In preparation</h2>
-<ul>
-<li>A free listing on the Turbo map（準備中）</li>
-<li>A QR visit experience（準備中）</li>
-<li>Sponsored puzzles and illustrations（準備中）</li>
+<main class="shell shops">
+<section class="band welcome">
+<div class="cast cast-left">
+<img src="/media/turbo/poses/turbo_confident_transparent.webp" width="880" height="1100" alt="Turbo">
+<div class="copy">
+<h1>Welcome to Turbo Spots!</h1>
+<p id="welcome-line">Shops and venues are welcome as stops on the Turbo map.</p>
+</div>
+</div>
+<p class="reassure">You can start with a free listing.<br>There is no need to apply for a paid service.</p>
+<img class="postcard" src="/media/shops/postcard-front.jpg" width="641" height="433" alt="The postcard you scanned">
+</section>
+<section class="band listing">
+<div class="cast">
+<div class="copy">
+<h2>Free listing</h2>
+<p>A place on the map is free. Apply by LINE or by email. We review the application before the listing appears. Following the LINE account is optional.</p>
+<div class="story">
+<p>Turbo Adventures is a way to travel around Japan while enjoying discovery, collecting, puzzles, and making pictures.</p>
+<p>Could your shop be a stop on that adventure?</p>
+<p><a href="/map/index-en.html">See Turbo’s map</a></p>
+</div>
+<div class="qr-note">
+<h3>This postcard’s QR code can become your shop’s own!</h3>
+<p>The QR code on the postcard you have can later be used as your shop’s own QR code, if you wish. It does not change unless you ask.</p>
+<p>Please start with the free listing, and join in your own time.</p>
+</div>
+<div class="fields" id="apply">
+<label>Postcard number <input id="card" name="card" type="text" inputmode="text" autocomplete="off"></label>
+<label>Business name <input id="shop" name="shop" type="text" autocomplete="organization"></label>
+<label>Business address <input id="place" name="place" type="text" autocomplete="street-address"></label>
+<label>Additional comments (optional) <textarea id="notes" name="notes"></textarea></label>
+</div>
+<div class="apply">
+<button type="button" class="line-apply" id="line">Apply via LINE</button>
+<a class="button" id="list" href="mailto:info@sansymeon.com">Apply via email</a>
+</div>
+<p class="line-hint">When LINE opens, please check the details and tap Send.</p>
+<p class="note" id="copy-note" hidden></p>
+</div>
+<img src="/media/heroes/transparent/colonel_blunderbuss_military.webp" width="1100" height="1100" alt="Colonel Blunderbuss" loading="lazy">
+</div>
+</section>
+<section class="band more">
+<div class="cast cast-left">
+<img src="/media/heroes/transparent/miyabi_the_kimono_fox.webp" width="619" height="1100" alt="Miyabi" loading="lazy">
+<div class="copy">
+<h2>More to enjoy</h2>
+<p>If you wish, we can also prepare these together.</p>
+<ul class="offer">
+<li>Original characters</li>
+<li>A QR code of your own</li>
+<li>A monthly calendar</li>
+<li>A sponsored puzzle</li>
 </ul>
-<p>Check-in that is live today uses GPS. When a shop experience begins, it will be introduced separately from the railway puzzle rewards.</p>
-<p>Operator: サンシメオン・プロダックション（個人事業）. Location: 福岡県糸島市. <a href="/en/about/#operator">Operator</a></p>
-<p><a href="/en/shops/demo/">Open the demo page</a> (fictional shop Bistro Turbo. Paid services are in preparation.)</p>
+<p><a class="demo-link" id="demo" href="/en/shops/demo/">See the Bistro Turbo demonstration</a></p>
+</div>
+</div>
+</section>
+<section class="band close">
+<div class="cast">
+<div class="copy">
+<p class="signoff">Start with the free listing.<br>Please just get in touch!</p>
+<p class="again"><a href="#apply">Back to the application</a><a href="#line">Apply via LINE</a></p>
+</div>
+<img src="/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp" width="942" height="1100" alt="Henrietta" loading="lazy">
+</div>
+</section>
 </main>
 <script src="/js/nav.js"></script>
+<script>
+(function () {
+  var found = (location.search || "").match(/[?&]card=(TA-\d{6})\b/);
+  var number = found ? found[1] : "";
+  var card = document.getElementById("card");
+  var welcome = document.getElementById("welcome-line");
+  if (number) {
+    card.value = number;
+    card.readOnly = true;
+    welcome.textContent = "Thank you for scanning the postcard QR code.";
+    document.getElementById("demo").href = "/en/shops/demo/?card=" + number;
+  }
+  function fields() {
+    return {
+      card: card.value.trim(),
+      shop: document.getElementById("shop").value.trim(),
+      place: document.getElementById("place").value.trim(),
+      notes: document.getElementById("notes").value.trim()
+    };
+  }
+  function message() {
+    var data = fields();
+    var lines = [
+      "Postcard: " + data.card,
+      "Business name: " + data.shop,
+      "Business address: " + data.place
+    ];
+    if (data.notes) lines.push("Additional comments: " + data.notes);
+    lines.push("Request for free map listing");
+    return lines.join("\n");
+  }
+  function lineMessage() {
+    var data = fields();
+    return [
+      "I would like a free listing on Turbo Spots.",
+      "",
+      "Postcard: " + data.card,
+      "Business name: " + data.shop,
+      "Business address: " + data.place,
+      "Additional comments: " + data.notes
+    ].join("\n");
+  }
+  var draftKey = "turbo.shopApply.v1";
+  function saveDraft() {
+    try { sessionStorage.setItem(draftKey, JSON.stringify(fields())); } catch (e) {}
+  }
+  function restoreDraft() {
+    var raw = "";
+    try { raw = sessionStorage.getItem(draftKey) || ""; } catch (e) { return; }
+    if (!raw) return;
+    var data = {};
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    if (!number && data.card && !card.value) card.value = data.card;
+    ["shop", "place", "notes"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el.value && data[id]) el.value = data[id];
+    });
+    if (sessionStorage.getItem(draftKey + ".tried") === "1") {
+      var note = document.getElementById("copy-note");
+      note.hidden = false;
+      note.textContent = "Your details are still here. If adding the account interrupted the message, tap Apply via LINE again to open the chat with the same details.";
+    }
+  }
+  restoreDraft();
+  function refreshMail() {
+    var subject = encodeURIComponent("Free map listing" + (number ? " " + number : ""));
+    document.getElementById("list").href = "mailto:info@sansymeon.com?subject=" + subject + "&body=" + encodeURIComponent(message());
+    var typed = card.value.trim();
+    document.getElementById("demo").href = /^TA-\d{6}$/.test(typed) ? "/en/shops/demo/?card=" + typed : "/en/shops/demo/";
+  }
+  ["shop", "place", "notes", "card"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      saveDraft();
+      refreshMail();
+    });
+  });
+  refreshMail();
+  document.getElementById("line").addEventListener("click", function () {
+    saveDraft();
+    try { sessionStorage.setItem(draftKey + ".tried", "1"); } catch (e) {}
+    refreshMail();
+    var url = "https://line.me/R/oaMessage/" + encodeURIComponent("@066ywqza") + "/?" + encodeURIComponent(lineMessage());
+    window.location.href = url;
+  });
+})();
+</script>
 </body>
 </html>

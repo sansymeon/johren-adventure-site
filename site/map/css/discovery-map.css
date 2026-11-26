@@ -761,17 +761,52 @@ body.overlay-open .top-bar {
   color: #fff;
 }
 
+.gps-checkin-hint {
+  margin: 8px 0 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #fff6e4;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.gps-checkin-hint p {
+  margin: 0 0 8px;
+}
+
+.gps-checkin-hint p:last-child {
+  margin-bottom: 0;
+}
+
+.gps-checkin-hint-title {
+  font-weight: 800;
+}
+
 .gps-checkin-diag {
+  margin: 8px 0 0;
+  color: var(--ink);
+  font-size: 14px;
+}
+
+.gps-checkin-diag summary {
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.gps-checkin-diag pre {
   margin: 0;
   padding: 12px 14px;
   border-radius: 12px;
   background: rgba(28, 26, 23, 0.06);
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.55;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  color: var(--ink);
 }
 
 .btn {

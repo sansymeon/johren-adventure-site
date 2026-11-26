@@ -8,6 +8,7 @@ import os
 import re
 import secrets
 import subprocess
+import sys
 import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -27,6 +28,10 @@ LIBRARY = MASTERS / "studio_library"
 LIBRARY_MANIFEST = LIBRARY / "manifest.json"
 HOST = "127.0.0.1"
 PORT = 8770
+POSTCARD = ROOT / "tools" / "postcard-studio"
+if str(POSTCARD) not in sys.path:
+    sys.path.insert(0, str(POSTCARD))
+import api as postcard_api
 COOKIE = "turbo_admin"
 MAX_UPLOAD = 15 * 1024 * 1024
 
@@ -122,6 +127,16 @@ def image_record(source, include_reveal=False):
         record["revealImage"] = source["revealImage"]
         record["revealImageWidth"] = int(source.get("revealImageWidth") or record["imageWidth"])
         record["revealImageHeight"] = int(source.get("revealImageHeight") or record["imageHeight"])
+    if source.get("wallpaper"):
+        record["wallpaper"] = source["wallpaper"]
+        record["wallpaperWidth"] = int(source.get("wallpaperWidth") or 1080)
+        record["wallpaperHeight"] = int(source.get("wallpaperHeight") or 1920)
+    if source.get("celebration"):
+        record["celebration"] = source["celebration"]
+    if source.get("merchantWebsite"):
+        record["merchantWebsite"] = source["merchantWebsite"]
+    if source.get("merchantSponsored") is True:
+        record["merchantSponsored"] = True
     return record
 
 
@@ -374,6 +389,8 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(data)
             return
+        if postcard_api.handle_get(self, path):
+            return
         self.send_json(404, {"error": "Not found"})
 
     def send_creator_file(self, path):
@@ -448,7 +465,7 @@ class Handler(BaseHTTPRequestHandler):
         pages = {
             "/artwork": ("Artwork Library", "Master files live in <code>artwork/</code>, copied from <code>japanese.jp/turbo_adventure</code>. The originals are still there. This folder is not on the public site and is not in Git."),
             "/map": ("Map Manager", "The player map is unchanged. Open the local site at <a href=\"http://127.0.0.1:8765/map/\">http://127.0.0.1:8765/map/</a>. Station data is <code>site/data/japan/map-data.js</code>."),
-            "/merchant": ("Merchant Manager", "Merchant QR discovery is not active. There is no scanner and no payment model on the public site."),
+            "/merchant": ("Merchant Manager", "Postcard designs and QR assignment stay on this computer. Open <a href=\"/postcards\">Postcard Studio</a> and the <a href=\"/postcards/registry\">QR registry</a>. Printed codes use https://johrenadventure.com/q/TA-######. The live site reads them only after the public registry file is written and the site is published. There is no scanner and no payment model."),
             "/settings": ("Settings", "Admin listens on 127.0.0.1:8770. The public site folder is <code>site/</code>. The password file is <code>admin.secret</code> and is not deployed."),
             "/backup": ("Backup and Restore", "Puzzle settings are copied into <code>tools/puzzle-admin/backups/</code> before each change. Restore from the Puzzle Manager. Backups are not deployed."),
         }
@@ -608,6 +625,23 @@ class Handler(BaseHTTPRequestHandler):
             row["revealImage"] = public_path(reveal_path)
             row["revealImageWidth"] = reveal_width
             row["revealImageHeight"] = reveal_height
+        wallpaper = body.get("wallpaper") or ""
+        if wallpaper:
+            wallpaper_path = media_file(wallpaper)
+            if wallpaper_path is None:
+                self.send_json(400, {"error": "Choose a wallpaper image inside site/media"})
+                return
+            wall_width, wall_height = image_size(wallpaper_path)
+            row["wallpaper"] = public_path(wallpaper_path)
+            row["wallpaperWidth"] = wall_width
+            row["wallpaperHeight"] = wall_height
+        previous = config["levels"].get(level) if isinstance(config["levels"].get(level), dict) else {}
+        if body.get("celebration") == "fireworks" or previous.get("celebration") == "fireworks":
+            row["celebration"] = "fireworks"
+        if body.get("merchantWebsite") or previous.get("merchantWebsite"):
+            row["merchantWebsite"] = str(body.get("merchantWebsite") or previous.get("merchantWebsite"))
+        if body.get("merchantSponsored") is True or previous.get("merchantSponsored") is True:
+            row["merchantSponsored"] = True
         config["levels"][level] = row
         config = write_config(config)
         self.send_json(200, {"config": config})
@@ -620,11 +654,13 @@ class Handler(BaseHTTPRequestHandler):
                 password = json.loads(raw.decode()).get("password", "")
             except json.JSONDecodeError:
                 password = ""
-            if not hmac.compare_digest(password, SECRET):
-                self.send_json(401, {"error": "Wrong password"})
+            password = str(password).strip()
+            expected = load_secret()
+            if not hmac.compare_digest(password, expected):
+                self.send_json(401, {"error": "Wrong password. The saved password is %s characters." % len(expected)})
                 return
             expiry = str(int(time.time()) + 12 * 3600)
-            cookie = COOKIE + "=" + sign(expiry) + "; HttpOnly; SameSite=Strict; Path=/"
+            cookie = COOKIE + "=" + sign(expiry) + "; HttpOnly; SameSite=Lax; Path=/"
             self.send_json(200, {"ok": True}, cookie)
             return
         if path == "/api/logout":
@@ -769,6 +805,8 @@ class Handler(BaseHTTPRequestHandler):
                     return
             config = write_config(config)
             self.send_json(200, {"config": config})
+            return
+        if postcard_api.handle_post(self, path):
             return
         self.send_json(404, {"error": "Not found"})
 

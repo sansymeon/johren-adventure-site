@@ -86,4 +86,4 @@ Do not delete `japanese.jp` or `artwork/heroes` until you have a verified backup
 
 ## Puzzle admin
 
-The puzzle admin is local only: `python3 tools/puzzle-admin/server.py`, then http://127.0.0.1:8770/. It is not in the Netlify site. Maintenance steps are in `docs/puzzle-admin.md`.
+The puzzle admin is local only: `python3 tools/puzzle-admin/server.py`, then http://127.0.0.1:8770/. It is not in the Netlify site. Maintenance steps are in `docs/puzzle-admin.md`. Postcard Studio and the QR registry are on that same admin. Their steps are in `docs/postcard-studio.md`.

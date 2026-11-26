@@ -32,6 +32,7 @@
     @media (max-width: 800px) { .panels { grid-template-columns: 1fr; } }
     .panel { border: 1px solid var(--line); border-radius: 12px; padding: 12px; background: #fff; }
     .panel img.preview { width: 100%; min-height: 220px; max-height: 360px; object-fit: contain; background: #123e3a; }
+    .panel img.preview.portrait { display: block; width: auto; max-width: 220px; min-height: 0; height: auto; max-height: 420px; aspect-ratio: 9 / 16; object-fit: contain; }
     .panel .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
     #picker { position: fixed; inset: 0; background: rgba(0,0,0,.45); }
     #picker .sheet { max-width: 920px; margin: 40px auto; background: var(--paper); border-radius: 12px; padding: 16px; max-height: calc(100vh - 80px); overflow: auto; }
@@ -46,7 +47,7 @@
   <form id="login">
     <section>
       <h1>Admin sign-in</h1>
-      <label>Password <input id="password" type="password" autocomplete="current-password"></label>
+      <label>Password <input id="password" name="password" type="password" autocomplete="current-password"></label>
       <button type="submit">Sign in</button>
       <p id="login-error"></p>
     </section>
@@ -58,6 +59,8 @@
       <a href="/create-demo">Create Demo</a>
       <a href="/artwork">Artwork Library</a>
       <a href="/map">Map Manager</a>
+      <a href="/postcards">Postcard Studio</a>
+      <a href="/postcards/registry">QR Registry</a>
       <a href="/merchant">Merchant Manager</a>
       <a href="/settings">Settings</a>
       <a href="/backup">Backup / Restore</a>
@@ -74,7 +77,7 @@
     </section>
     <section id="puzzle">
       <h1>Puzzle Manager</h1>
-      <p>Each level has its own primary picture and an optional final reveal. Choosing one does not change the other. A puzzle already in progress keeps its picture until it is finished. Publishing stays on the Admin Centre publish control.</p>
+      <p>Each level has a primary picture, a final reveal, and a 9:16 wallpaper reward. Choosing one does not change the other. A puzzle already in progress keeps the reward it was given. A level can still be saved without a wallpaper. Publishing stays on the Admin Centre publish control.</p>
       <div class="tabs" id="level-tabs">
         <button type="button" data-level="5">5 pieces</button>
         <button type="button" data-level="10">10 pieces</button>
@@ -101,6 +104,17 @@
             <button type="button" class="ghost" id="remove-reveal">Remove Image</button>
           </div>
         </div>
+        <div class="panel">
+          <h2>Wallpaper Reward (9:16)</h2>
+          <img id="wallpaper-img" class="preview portrait" alt="">
+          <p id="wallpaper-path"></p>
+          <p id="wallpaper-warning"></p>
+          <div class="actions">
+            <button type="button" id="choose-wallpaper">Choose from Library</button>
+            <button type="button" class="ghost" id="upload-wallpaper">Upload Image</button>
+            <button type="button" class="ghost" id="remove-wallpaper">Remove Image</button>
+          </div>
+        </div>
       </div>
       <div class="actions" style="margin-top:16px">
         <button type="button" id="save-level">Save Configuration</button>
@@ -109,6 +123,7 @@
       <p id="status"></p>
       <input id="file-primary" type="file" accept="image/jpeg,image/png" hidden>
       <input id="file-reveal" type="file" accept="image/jpeg,image/png" hidden>
+      <input id="file-wallpaper" type="file" accept="image/jpeg,image/png" hidden>
     </section>
     <section>
       <h2>Backup</h2>
@@ -132,6 +147,8 @@ function show(id, on) {
 }
 
 async function api(path, options) {
+  options = options || {};
+  options.credentials = "include";
   var response = await fetch(path, options);
   var body = await response.json();
   if (!response.ok) throw new Error(body.error || "Error");
@@ -148,6 +165,11 @@ function copyLevel(row) {
     copy.revealImage = row.revealImage;
     copy.revealImageWidth = row.revealImageWidth;
     copy.revealImageHeight = row.revealImageHeight;
+  }
+  if (row.wallpaper) {
+    copy.wallpaper = row.wallpaper;
+    copy.wallpaperWidth = row.wallpaperWidth;
+    copy.wallpaperHeight = row.wallpaperHeight;
   }
   return copy;
 }
@@ -173,13 +195,29 @@ function paint() {
     reveal.removeAttribute("src");
     document.getElementById("reveal-path").textContent = "No final reveal image";
   }
+  var wall = document.getElementById("wallpaper-img");
+  if (row.wallpaper) {
+    wall.hidden = false;
+    wall.src = "/preview" + row.wallpaper + "?t=" + Date.now();
+    document.getElementById("wallpaper-path").textContent = row.wallpaper + " · " + row.wallpaperWidth + "×" + row.wallpaperHeight;
+  } else {
+    wall.hidden = true;
+    wall.removeAttribute("src");
+    document.getElementById("wallpaper-path").textContent = "No wallpaper yet";
+  }
+  document.getElementById("wallpaper-warning").textContent = row.wallpaper
+    ? ""
+    : "This level has no wallpaper. Saving is still allowed, and a puzzle already started keeps its assigned reward.";
 }
 
 function openPicker(target) {
   state.target = target;
-  document.getElementById("picker-title").textContent = target === "reveal"
-    ? "Final reveal image for the " + state.level + "-piece level"
-    : "Primary image for the " + state.level + "-piece level";
+  var titles = {
+    reveal: "Final reveal image for the " + state.level + "-piece level",
+    wallpaper: "Wallpaper reward for the " + state.level + "-piece level"
+  };
+  document.getElementById("picker-title").textContent = titles[target]
+    || ("Primary image for the " + state.level + "-piece level");
   var box = document.getElementById("library");
   box.innerHTML = "";
   state.library.forEach(function (item) {
@@ -202,6 +240,10 @@ function applyImage(target, item) {
     row.revealImage = item.path;
     row.revealImageWidth = item.width;
     row.revealImageHeight = item.height;
+  } else if (target === "wallpaper") {
+    row.wallpaper = item.path;
+    row.wallpaperWidth = item.width;
+    row.wallpaperHeight = item.height;
   } else {
     row.image = item.path;
     row.imageWidth = item.width;
@@ -247,6 +289,7 @@ document.querySelectorAll("#level-tabs button").forEach(function (button) {
 
 document.getElementById("choose-primary").addEventListener("click", function () { openPicker("image"); });
 document.getElementById("choose-reveal").addEventListener("click", function () { openPicker("reveal"); });
+document.getElementById("choose-wallpaper").addEventListener("click", function () { openPicker("wallpaper"); });
 document.getElementById("picker-close").addEventListener("click", function () { show("picker", false); });
 
 document.getElementById("upload-primary").addEventListener("click", function () {
@@ -254,6 +297,9 @@ document.getElementById("upload-primary").addEventListener("click", function () 
 });
 document.getElementById("upload-reveal").addEventListener("click", function () {
   document.getElementById("file-reveal").click();
+});
+document.getElementById("upload-wallpaper").addEventListener("click", function () {
+  document.getElementById("file-wallpaper").click();
 });
 
 async function uploadInto(input, target) {
@@ -276,12 +322,20 @@ async function uploadInto(input, target) {
 
 document.getElementById("file-primary").addEventListener("change", function () { uploadInto(this, "image"); });
 document.getElementById("file-reveal").addEventListener("change", function () { uploadInto(this, "reveal"); });
+document.getElementById("file-wallpaper").addEventListener("change", function () { uploadInto(this, "wallpaper"); });
 
 document.getElementById("remove-reveal").addEventListener("click", function () {
   delete draft().revealImage;
   delete draft().revealImageWidth;
   delete draft().revealImageHeight;
   document.getElementById("status").textContent = "Final reveal removed from this draft. Save Configuration to apply it.";
+  paint();
+});
+document.getElementById("remove-wallpaper").addEventListener("click", function () {
+  delete draft().wallpaper;
+  delete draft().wallpaperWidth;
+  delete draft().wallpaperHeight;
+  document.getElementById("status").textContent = "Wallpaper removed from this draft. Save Configuration to apply it.";
   paint();
 });
 
@@ -293,19 +347,24 @@ document.getElementById("save-level").addEventListener("click", async function (
     body: JSON.stringify({
       level: state.level,
       image: row.image,
-      revealImage: row.revealImage || ""
+      revealImage: row.revealImage || "",
+      wallpaper: row.wallpaper || ""
     })
   });
   state.config = data.config;
   state.drafts[state.level] = copyLevel(data.config.levels[state.level]);
-  document.getElementById("status").textContent = "Saved the " + state.level + "-piece level. Publish from Admin Centre when you want it on the public site.";
+  document.getElementById("status").textContent = row.wallpaper
+    ? "Saved the " + state.level + "-piece level. Publish from Admin Centre when you want it on the public site."
+    : "Saved the " + state.level + "-piece level without a wallpaper. Add a 9:16 wallpaper when you have one. Publish from Admin Centre when you want it on the public site.";
   paint();
 });
 
 document.getElementById("test-level").addEventListener("click", function () {
   var saved = state.config.levels[state.level];
   var row = draft();
-  var dirty = saved.image !== row.image || (saved.revealImage || "") !== (row.revealImage || "");
+  var dirty = saved.image !== row.image ||
+    (saved.revealImage || "") !== (row.revealImage || "") ||
+    (saved.wallpaper || "") !== (row.wallpaper || "");
   if (dirty && !window.confirm("This level has unsaved changes. Test the saved pictures?")) return;
   location.href = "/puzzle-test?level=" + state.level;
 });

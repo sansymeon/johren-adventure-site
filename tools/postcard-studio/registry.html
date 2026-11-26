@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>QR registry</title>
+  <style>
+    body { margin: 0; font: 15px/1.45 system-ui, sans-serif; color: #17332f; background: #f6f3ec; }
+    header, main { padding: 16px 20px; }
+    header { background: #123e3a; color: #f4fbf8; }
+    header a { color: #f4fbf8; }
+    section { background: #fff; border: 1px solid #d5d0c4; border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; border-bottom: 1px solid #d5d0c4; padding: 6px; vertical-align: top; }
+    button, input, select { font: inherit; }
+    button { background: #0e7884; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; }
+    button.ghost { background: #fff; color: #17332f; border: 1px solid #d5d0c4; }
+    label { display: block; margin: 8px 0; }
+    input, select { width: 100%; max-width: 420px; }
+    input[type="checkbox"] { width: auto; }
+    .batch { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .batch label { display: flex; gap: 6px; align-items: center; margin: 0; }
+    .batch select { width: auto; }
+    .muted { color: #4d615c; }
+  </style>
+</head>
+<body>
+<header>
+  <strong>QR registry</strong>
+  <p>IDs are permanent. Assigning a merchant changes the destination file, not the printed code.</p>
+  <p><a href="/">Admin home</a> · <a href="/postcards">Postcard Studio</a></p>
+</header>
+<main>
+  <section>
+    <p class="muted">Unassigned and distributed codes open the merchant introduction at /shops/. Assigned codes open the destination you save here. Inactive codes open a short retired-card page. None of this reaches johrenadventure.com until you write the public file and then publish the site.</p>
+    <label>Search <input id="q" type="search" placeholder="ID, merchant, place, design"></label>
+    <div class="batch">
+      <button type="button" class="ghost" id="select-all">Select All</button>
+      <button type="button" class="ghost" id="select-none">Deselect All</button>
+      <label>Artwork
+        <select id="batch-scale">
+          <option value="0.9">90% — Extra margin</option>
+          <option value="0.92">92% — Wider margin</option>
+          <option value="0.95" selected>95% — Standard safe margin</option>
+          <option value="0.97">97% — Small margin</option>
+          <option value="1">100% — Original size</option>
+        </select>
+      </label>
+      <button type="button" id="export-batch">Export Selected to PDF</button>
+    </div>
+    <p id="batch-plan" class="muted">None selected.</p>
+    <table>
+      <thead><tr><th></th><th>ID</th><th>Status</th><th>Merchant</th><th>Place</th><th>Destination</th><th>Design</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </section>
+  <section id="editor" hidden>
+    <h2 id="edit-id"></h2>
+    <label>Status
+      <select id="status">
+        <option value="unassigned">unassigned</option>
+        <option value="distributed">distributed</option>
+        <option value="assigned">assigned</option>
+        <option value="inactive">inactive</option>
+      </select>
+    </label>
+    <label>Merchant <input id="merchant" type="text"></label>
+    <label>Distribution location <input id="location" type="text"></label>
+    <label>Destination for an assigned code <input id="destination" type="text" placeholder="/shops/ or https://example.com/"></label>
+    <label>Note <input id="note" type="text"></label>
+    <p>Created <span id="created"></span></p>
+    <button type="button" id="save">Save registry record</button>
+    <p id="status-line"></p>
+  </section>
+  <section>
+    <h2>Backup and the public file</h2>
+    <p><a href="/api/qr/backup">Download registry and designs JSON</a> · <a href="/api/postcards/backup.zip">Download image and design files</a></p>
+    <label>Restore a JSON backup <input id="restore" type="file" accept="application/json"></label>
+    <p><button type="button" id="publish-file">Write site/data/qr/destinations.json</button></p>
+    <p id="publish-line" class="muted">Writing that file does not update johrenadventure.com. Use Admin home and type PUBLISH when the local site is ready.</p>
+  </section>
+</main>
+<script>
+let registry = [];
+const selected = new Set();
+
+function visibleRows() {
+  const query = document.querySelector("#q").value.trim().toLowerCase();
+  return registry.filter(function (row) {
+    const hay = [row.id, row.status, row.merchant, row.location, row.destination, row.designId, row.note].join(" ").toLowerCase();
+    return !query || hay.includes(query);
+  });
+}
+
+function planText() {
+  const count = selected.size;
+  if (!count) return "None selected.";
+  const sheets = Math.ceil(count / 2);
+  const pages = sheets * 2;
+  return count + " selected · " + sheets + (sheets === 1 ? " A4 sheet" : " A4 sheets") + " · " + pages + " PDF pages.";
+}
+
+function draw() {
+  const body = document.querySelector("#rows");
+  body.innerHTML = "";
+  visibleRows().forEach(function (row) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = "<td><input type=\"checkbox\" aria-label=\"Select " + escapeHtml(row.id) + "\"></td><td>" + row.id +
+      "</td><td>" + row.status + "</td><td>" + escapeHtml(row.merchant) +
+      "</td><td>" + escapeHtml(row.location) + "</td><td>" + escapeHtml(row.destination || "(introduction page)") +
+      "</td><td>" + escapeHtml(row.designId || "") + "</td><td><button type=\"button\">Edit</button></td>";
+    const box = tr.querySelector("input");
+    box.checked = selected.has(row.id);
+    box.onchange = function () {
+      if (box.checked) selected.add(row.id);
+      else selected.delete(row.id);
+      document.querySelector("#batch-plan").textContent = planText();
+    };
+    tr.querySelector("button").onclick = function () { edit(row); };
+    body.appendChild(tr);
+  });
+  document.querySelector("#batch-plan").textContent = planText();
+}
+
+function escapeHtml(value) {
+  return String(value || "").replace(/[&<>"]/g, function (char) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[char];
+  });
+}
+
+function edit(row) {
+  document.querySelector("#editor").hidden = false;
+  document.querySelector("#edit-id").textContent = row.id;
+  document.querySelector("#status").value = row.status;
+  document.querySelector("#merchant").value = row.merchant || "";
+  document.querySelector("#location").value = row.location || "";
+  document.querySelector("#destination").value = row.destination || "";
+  document.querySelector("#note").value = row.note || "";
+  document.querySelector("#created").textContent = row.createdAt || "";
+  document.querySelector("#editor").dataset.id = row.id;
+}
+
+async function load() {
+  const data = await fetch("/api/qr").then(function (response) { return response.json(); });
+  registry = data.registry.codes || [];
+  draw();
+}
+
+document.querySelector("#q").addEventListener("input", draw);
+document.querySelector("#select-all").onclick = function () {
+  visibleRows().forEach(function (row) { selected.add(row.id); });
+  draw();
+};
+document.querySelector("#select-none").onclick = function () {
+  selected.clear();
+  draw();
+};
+document.querySelector("#export-batch").onclick = async function () {
+  const ids = registry.map(function (row) { return row.id; }).filter(function (id) { return selected.has(id); });
+  const plan = document.querySelector("#batch-plan");
+  if (!ids.length) {
+    plan.textContent = "None selected.";
+    return;
+  }
+  plan.textContent = planText() + " Preparing the PDF…";
+  const response = await fetch("/api/postcards/export-batch", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ ids: ids, scale: Number(document.querySelector("#batch-scale").value) })
+  });
+  if (!response.ok) {
+    const data = await response.json();
+    plan.textContent = data.error || "Export failed.";
+    return;
+  }
+  const blob = await response.blob();
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "postcards-a4-duplex.pdf";
+  link.click();
+  plan.textContent = planText() + " Downloaded.";
+};
+document.querySelector("#save").onclick = async function () {
+  const id = document.querySelector("#editor").dataset.id;
+  const response = await fetch("/api/qr/save", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: id,
+      status: document.querySelector("#status").value,
+      merchant: document.querySelector("#merchant").value,
+      location: document.querySelector("#location").value,
+      destination: document.querySelector("#destination").value,
+      note: document.querySelector("#note").value
+    })
+  });
+  const data = await response.json();
+  document.querySelector("#status-line").textContent = data.error || ("Saved " + data.code.id + ". The live site is unchanged until you write the public file and publish.");
+  if (response.ok) load();
+};
+document.querySelector("#publish-file").onclick = async function () {
+  const data = await fetch("/api/qr/publish-file", { method: "POST" }).then(function (response) { return response.json(); });
+  document.querySelector("#publish-line").textContent = data.message + " Codes in the file: " + data.count + ".";
+};
+document.querySelector("#restore").onchange = async function () {
+  const file = this.files[0];
+  if (!file) return;
+  const body = JSON.parse(await file.text());
+  const response = await fetch("/api/qr/restore", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
+  });
+  const data = await response.json();
+  document.querySelector("#publish-line").textContent = data.error || "Backup restored on this computer. Write the public file before the next site publish.";
+  if (response.ok) load();
+};
+load();
+</script>
+</body>
+</html>

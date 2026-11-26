@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Postcard Studio</title>
+  <style>
+    html, body { height: 100%; }
+    body { margin: 0; font: 13px/1.35 system-ui, sans-serif; color: #17332f; background: #f6f3ec; display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+    header { padding: 6px 14px; background: #123e3a; color: #f4fbf8; flex: none; }
+    header p { margin: 2px 0; }
+    header a { color: #f4fbf8; }
+    main { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px 12px; gap: 8px; }
+    details.settings { background: #fff; border: 1px solid #d5d0c4; border-radius: 8px; padding: 6px 10px; flex: none; }
+    details.settings summary { cursor: pointer; font-weight: 600; }
+    .settings-body { display: grid; grid-template-columns: auto 1fr 1fr auto; gap: 8px; align-items: end; margin-top: 8px; }
+    .workspace { flex: 1; min-height: 0; display: grid; grid-template-columns: minmax(220px, 38vw) minmax(300px, 1fr); gap: 12px; }
+    .preview-col, .editor { min-height: 0; background: #fff; border: 1px solid #d5d0c4; border-radius: 8px; }
+    .preview-col { display: flex; flex-direction: column; padding: 8px; }
+    .stage-fit { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
+    .stage { position: relative; height: 100%; width: fit-content; max-width: 100%; }
+    img.sheet { height: 100%; width: auto; max-width: 100%; display: block; background: #ddd; cursor: default; }
+    #selection { position: absolute; border: 2px solid #0e7884; box-shadow: 0 0 0 1px #fff; pointer-events: none; }
+    .editor { display: flex; flex-direction: column; }
+    .editor-bar, .nudge { padding: 8px; border-bottom: 1px solid #d5d0c4; flex: none; }
+    .editor-bar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .editor-bar label { display: flex; gap: 6px; align-items: center; }
+    .editor-bar select, .editor-bar input { width: auto; }
+    #pdf-preview-img { width: min(100%, 420px); height: auto; margin: 8px; background: #fff; }
+    #pdf-preview-img:not([hidden]) { display: block; }
+    .tabs { display: flex; gap: 4px; padding: 6px 8px 0; flex: none; }
+    .tabs button { background: #fff; color: #17332f; border: 1px solid #d5d0c4; }
+    .tabs button[aria-selected="true"] { background: #0e7884; color: #fff; }
+    .editor-scroll { overflow: auto; min-height: 0; padding: 8px; }
+    .tab-panel { display: none; }
+    .tab-panel.is-on { display: block; }
+    label { display: block; margin: 4px 0; }
+    input, select, textarea, button { font: inherit; }
+    input[type=text], input[type=number], select, textarea { max-width: 100%; }
+    input[type=number], select, input[type=text] { width: 12rem; }
+    textarea, #image, #artwork, #saved { width: 100%; }
+    button { background: #0e7884; color: #fff; border: 0; border-radius: 6px; padding: 4px 8px; margin: 2px 4px 2px 0; }
+    button.ghost { background: #fff; color: #17332f; border: 1px solid #d5d0c4; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: end; }
+    .row label { margin: 0; }
+    input[type=checkbox] { width: auto; }
+    .muted { color: #4d615c; }
+    h2 { font-size: 14px; margin: 0 0 6px; }
+    @media (max-width: 860px) {
+      body { height: auto; overflow: auto; }
+      .workspace { grid-template-columns: 1fr; }
+      .stage { height: 70vh; }
+      .settings-body { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <strong>Turbo Postcard Studio</strong>
+  <p>Local only. Printed QR codes open https://johrenadventure.com/q/TA-###### after the public registry is published.</p>
+  <p><a href="/">Admin home</a> · <a href="/postcards/registry">QR registry</a></p>
+</header>
+<main>
+  <details class="settings">
+    <summary>Postcard settings</summary>
+    <div class="settings-body">
+      <div class="row">
+        <button type="button" id="new">New postcard</button>
+        <button type="button" class="ghost" id="duplicate">Duplicate with a new QR</button>
+      </div>
+      <label>Saved designs
+        <select id="saved"></select>
+      </label>
+      <label>Title <input id="title" type="text"></label>
+      <label>Orientation
+        <select id="orientation">
+          <option value="portrait">Portrait 100 × 148 mm</option>
+          <option value="landscape">Landscape 148 × 100 mm</option>
+        </select>
+      </label>
+    </div>
+  </details>
+  <div class="workspace">
+    <div class="preview-col">
+      <div class="row">
+        <button type="button" class="ghost" id="side-front">Front</button>
+        <button type="button" class="ghost" id="side-back">Back</button>
+        <span class="muted">Selected: <span id="target-label">nothing</span></span>
+      </div>
+      <div class="stage-fit">
+        <div class="stage">
+          <img id="preview" class="sheet" alt="Postcard preview">
+          <div id="selection" hidden></div>
+        </div>
+      </div>
+    </div>
+    <div class="editor">
+      <div class="editor-bar">
+        <button type="button" id="save">Save design</button>
+        <button type="button" class="ghost" id="png">PNG</button>
+        <button type="button" class="ghost" id="jpeg">JPEG</button>
+        <label>PDF artwork
+          <select id="pdf-scale">
+            <option value="1">100% — Original size</option>
+            <option value="0.97">97% — Small margin</option>
+            <option value="0.95" selected>95% — Standard safe margin</option>
+            <option value="0.92">92% — Wider margin</option>
+            <option value="0.90">90% — Extra margin</option>
+          </select>
+        </label>
+        <button type="button" class="ghost" id="pdf-preview">Preview</button>
+        <button type="button" class="ghost" id="pdf">PDF</button>
+        <span id="status"></span>
+      </div>
+      <img id="pdf-preview-img" alt="Front and back preview at the selected size" hidden>
+      <div class="nudge">
+        <div class="row">
+          <label>Step
+            <select id="step">
+              <option value="1">1 mm</option>
+              <option value="5">5 mm</option>
+            </select>
+          </label>
+          <button type="button" class="ghost" id="nudge-up" aria-label="Up">Up</button>
+          <button type="button" class="ghost" id="nudge-down" aria-label="Down">Down</button>
+          <button type="button" class="ghost" id="nudge-left" aria-label="Left">Left</button>
+          <button type="button" class="ghost" id="nudge-right" aria-label="Right">Right</button>
+        </div>
+        <div class="row">
+          <label>From left mm <input id="pos-x" type="number" step="1"></label>
+          <label>From top mm <input id="pos-y" type="number" step="1"></label>
+        </div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button type="button" id="tab-background" role="tab" aria-selected="true" aria-controls="panel-background">Background</button>
+        <button type="button" id="tab-characters" role="tab" aria-selected="false" aria-controls="panel-characters">Characters</button>
+        <button type="button" id="tab-text" role="tab" aria-selected="false" aria-controls="panel-text">Text</button>
+        <button type="button" id="tab-qr" role="tab" aria-selected="false" aria-controls="panel-qr">QR code</button>
+      </div>
+      <div class="editor-scroll">
+        <div class="tab-panel is-on" id="panel-background" role="tabpanel">
+          <label>Background
+            <select id="image"></select>
+          </label>
+          <label>Upload JPG or PNG <input id="upload" type="file" accept="image/jpeg,image/png"></label>
+        </div>
+        <div class="tab-panel" id="panel-characters" role="tabpanel">
+          <p class="muted">Same artwork library as Creator Studio. Each figure stays its own layer.</p>
+          <label>Artwork
+            <select id="artwork"></select>
+          </label>
+          <button type="button" class="ghost" id="add-character">Add character</button>
+          <label>Upload a character JPG or PNG <input id="upload-character" type="file" accept="image/jpeg,image/png"></label>
+          <p class="muted">PNG keeps a transparent background.</p>
+          <label>On this side
+            <select id="character"></select>
+          </label>
+          <label>Height mm <input id="character-height" type="number" min="8" max="130" step="1"></label>
+          <label>Turn <input id="character-rotation" type="number" min="-18" max="18" step="1"></label>
+          <label><input id="character-flip" type="checkbox"> Flip</label>
+          <label><input id="character-shadow" type="checkbox"> Shadow</label>
+          <button type="button" class="ghost" id="character-forward">Bring forward</button>
+          <button type="button" class="ghost" id="character-back">Send backward</button>
+          <button type="button" class="ghost" id="remove-character">Remove character</button>
+        </div>
+        <div class="tab-panel" id="panel-text" role="tabpanel">
+          <p class="muted">Click an item to select it. Drag it while the button is held.</p>
+          <label>Block
+            <select id="block"></select>
+          </label>
+          <label>Language
+            <select id="lang"><option value="ja">Japanese</option><option value="en">English</option></select>
+          </label>
+          <label>Words <textarea id="words" rows="3"></textarea></label>
+          <label>Size mm <input id="size" type="number" min="3" max="24" step="0.5"></label>
+          <label>Alignment
+            <select id="align">
+              <option value="left">Left</option>
+              <option value="center">Centre</option>
+              <option value="right">Right</option>
+            </select>
+          </label>
+          <label>Block width mm <input id="text-width" type="number" min="8" max="148" step="1" placeholder="Auto"></label>
+          <label>Line spacing <input id="line-spacing" type="number" min="0.8" max="3" step="0.05"></label>
+          <label>Font
+            <select id="font"><option value="noto">Noto Sans CJK</option></select>
+          </label>
+          <label>Colour <input id="color" type="color"></label>
+          <label><input id="bold" type="checkbox"> Bold</label>
+          <label><input id="outline" type="checkbox"> Outline</label>
+          <label><input id="text-shadow" type="checkbox"> Shadow</label>
+          <button type="button" class="ghost" id="add-text">Add text</button>
+          <button type="button" class="ghost" id="remove-text">Remove text</button>
+        </div>
+        <div class="tab-panel" id="panel-qr" role="tabpanel">
+          <p>ID <strong id="qr-id"></strong></p>
+          <p class="muted">The printed address stays fixed. Assign the merchant in the registry. Error correction is M, with a quiet zone. Size stays between 18 and 48 mm.</p>
+          <p>Current public destination <span id="landing"></span></p>
+          <label>QR size mm <input id="qr-size" type="number" min="18" max="48" step="1"></label>
+          <label>Upload a card image JPG or PNG <input id="upload-qr" type="file" accept="image/jpeg,image/png"></label>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/studio/js/catalogue-data.js?v=20261126japanese"></script>
+<script>
+const state = { design: null, images: [], target: "text", block: 0, layer: 0, side: "front", textLayout: [] };
+
+function designPayload() {
+  return state.design;
+}
+
+async function api(url, options) {
+  const response = await fetch(url, options);
+  const type = response.headers.get("content-type") || "";
+  if (!response.ok) {
+    let message = response.statusText;
+    if (type.includes("json")) message = (await response.json()).error || message;
+    throw new Error(message);
+  }
+  if (type.includes("json")) return response.json();
+  return response.blob();
+}
+
+function ensure(design) {
+  if (!design.sides || !design.sides.front) {
+    design.sides = {
+      front: { image: design.image || "", texts: design.texts || [], layers: design.layers || [] },
+      back: { image: "", texts: [], layers: [] }
+    };
+  }
+  design.sides.back = design.sides.back || { image: "", texts: [], layers: [] };
+  ["front", "back"].forEach(function (name) {
+    const side = design.sides[name];
+    side.texts = side.texts || [];
+    side.layers = side.layers || [];
+    side.image = side.image || "";
+  });
+  design.image = design.sides.front.image;
+  design.texts = design.sides.front.texts;
+  design.layers = design.sides.front.layers;
+}
+
+function active() {
+  ensure(state.design);
+  return state.design.sides[state.side];
+}
+
+function fillImages() {
+  const backgrounds = (window.TAS && TAS.backgrounds || []).map(function (item) {
+    return '<option value="' + item.file + '">' + item.name + "</option>";
+  }).join("");
+  const uploads = state.images.map(function (item) {
+    return '<option value="' + item.ref + '">' + item.name + "</option>";
+  }).join("");
+  const select = document.querySelector("#image");
+  select.innerHTML = '<option value="">Plain card</option>' + backgrounds + uploads;
+  select.value = active().image || "";
+  const art = document.querySelector("#artwork");
+  const choices = [];
+  state.images.forEach(function (item) {
+    choices.push('<option value="' + item.ref + '">' + item.name + "</option>");
+  });
+  (window.TAS && TAS.characters || []).forEach(function (character) {
+    (character.artworks || []).forEach(function (piece) {
+      if (piece.placeable === false) return;
+      choices.push('<option value="' + String(piece.file).split("?")[0] + '">' + character.name + " · " + piece.label + "</option>");
+    });
+  });
+  const selected = art.value;
+  art.innerHTML = choices.join("");
+  if (selected) art.value = selected;
+}
+
+function fillCharacters() {
+  const select = document.querySelector("#character");
+  const layers = active().layers;
+  select.innerHTML = layers.map(function (layer, index) {
+    return '<option value="' + index + '">' + (index + 1) + ". " + layer.file.split("/").pop() + "</option>";
+  }).join("");
+  select.value = String(state.layer);
+  const layer = layers[state.layer];
+  document.querySelector("#character-height").disabled = !layer;
+  document.querySelector("#character-rotation").disabled = !layer;
+  if (!layer) return;
+  document.querySelector("#character-height").value = layer.heightMm;
+  document.querySelector("#character-rotation").value = layer.rotation || 0;
+  document.querySelector("#character-flip").checked = layer.flip === true;
+  document.querySelector("#character-shadow").checked = layer.shadow !== false;
+}
+
+function fillBlocks() {
+  const select = document.querySelector("#block");
+  select.innerHTML = (active().texts || []).map(function (block, index) {
+    const label = (block.text || "Empty text").slice(0, 32);
+    return '<option value="' + index + '">' + (index + 1) + ". " + label + "</option>";
+  }).join("");
+  select.value = String(state.block);
+}
+
+function readBlock() {
+  const block = active().texts[state.block];
+  if (!block) return;
+  document.querySelector("#lang").value = block.lang;
+  document.querySelector("#words").value = block.text;
+  document.querySelector("#size").value = block.sizeMm;
+  document.querySelector("#align").value = block.align || "center";
+  document.querySelector("#text-width").value = block.widthMm || "";
+  document.querySelector("#line-spacing").value = block.lineSpacing || 1.25;
+  document.querySelector("#color").value = block.color;
+  document.querySelector("#font").value = block.font || "noto";
+  document.querySelector("#bold").checked = block.bold === true;
+  document.querySelector("#outline").checked = block.outline === true;
+  document.querySelector("#text-shadow").checked = block.shadow === true;
+}
+
+function writeBlock() {
+  const block = active().texts[state.block];
+  if (!block) return;
+  block.lang = document.querySelector("#lang").value;
+  block.text = document.querySelector("#words").value;
+  block.sizeMm = Number(document.querySelector("#size").value);
+  block.color = document.querySelector("#color").value;
+  const align = document.querySelector("#align").value;
+  if (align === "left" || align === "right") block.align = align;
+  else delete block.align;
+  const widthMm = document.querySelector("#text-width").value;
+  if (widthMm === "") delete block.widthMm;
+  else block.widthMm = Number(widthMm);
+  const spacing = Number(document.querySelector("#line-spacing").value);
+  if (!spacing || spacing === 1.25) delete block.lineSpacing;
+  else block.lineSpacing = spacing;
+  block.font = "noto";
+  if (document.querySelector("#bold").checked) block.bold = true;
+  else delete block.bold;
+  if (document.querySelector("#outline").checked) block.outline = true;
+  else delete block.outline;
+  if (document.querySelector("#text-shadow").checked) block.shadow = true;
+  else delete block.shadow;
+}
+
+function writeCharacter() {
+  const layer = active().layers[state.layer];
+  if (!layer) return;
+  layer.heightMm = Number(document.querySelector("#character-height").value);
+  layer.rotation = Number(document.querySelector("#character-rotation").value);
+  layer.flip = document.querySelector("#character-flip").checked;
+  layer.shadow = document.querySelector("#character-shadow").checked;
+}
+
+function showDesign(design, landing) {
+  state.design = design;
+  state.block = 0;
+  document.querySelector("#title").value = design.title || "";
+  document.querySelector("#orientation").value = design.orientation;
+  document.querySelector("#qr-id").textContent = design.qr.id;
+  document.querySelector("#qr-size").value = design.qr.sizeMm;
+  document.querySelector("#landing").textContent = landing || "not loaded";
+  ensure(design);
+  fillImages();
+  fillCharacters();
+  fillBlocks();
+  readBlock();
+  readPosition();
+  refresh();
+}
+
+function cardMm() {
+  return state.design.orientation === "landscape" ? { w: 148, h: 100 } : { w: 100, h: 148 };
+}
+
+function clampQr() {
+  const card = cardMm();
+  const qr = state.design.qr;
+  const half = Number(qr.sizeMm) / 2;
+  const cx = Math.min(card.w - half, Math.max(half, Number(qr.x) * card.w));
+  const cy = Math.min(card.h - half, Math.max(half, Number(qr.y) * card.h));
+  qr.x = cx / card.w;
+  qr.y = cy / card.h;
+}
+
+function selectedItem() {
+  if (state.target === "qr") return state.side === "front" ? state.design.qr : null;
+  if (state.target === "character") return active().layers[state.layer] || null;
+  if (state.target === "text") return active().texts[state.block] || null;
+  return null;
+}
+
+function readPosition() {
+  const card = cardMm();
+  const item = selectedItem();
+  const x = document.querySelector("#pos-x");
+  const y = document.querySelector("#pos-y");
+  if (!item) {
+    x.value = "";
+    y.value = "";
+    return;
+  }
+  x.value = Math.round(Number(item.x) * card.w);
+  y.value = Math.round(Number(item.y) * card.h);
+}
+
+async function refresh() {
+  writeBlock();
+  writeCharacter();
+  active().image = document.querySelector("#image").value;
+  state.design.title = document.querySelector("#title").value;
+  state.design.orientation = document.querySelector("#orientation").value;
+  state.design.qr.sizeMm = Number(document.querySelector("#qr-size").value);
+  clampQr();
+  ensure(state.design);
+  state.design.side = state.side;
+  readPosition();
+  const response = await fetch("/api/postcards/preview", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(state.design)
+  });
+  if (!response.ok) {
+    let message = response.statusText;
+    try { message = (await response.json()).error || message; } catch (error) { /* keep status */ }
+    throw new Error(message);
+  }
+  try { state.textLayout = JSON.parse(response.headers.get("X-Postcard-Text") || "[]"); }
+  catch (error) { state.textLayout = []; }
+  const blob = await response.blob();
+  const previous = document.querySelector("#preview").src;
+  document.querySelector("#preview").src = URL.createObjectURL(blob);
+  if (previous.startsWith("blob:")) URL.revokeObjectURL(previous);
+  paintSelection();
+}
+
+async function loadList(selectId) {
+  const data = await api("/api/postcards");
+  state.images = data.images;
+  const select = document.querySelector("#saved");
+  select.innerHTML = data.designs.map(function (item) {
+    return '<option value="' + item.id + '">' + (item.title || item.id) + " · " + item.qrId + "</option>";
+  }).join("");
+  if (selectId) select.value = selectId;
+  return data;
+}
+
+function pointOnCard(event) {
+  const rect = document.querySelector("#preview").getBoundingClientRect();
+  return {
+    x: (event.clientX - rect.left) / rect.width,
+    y: (event.clientY - rect.top) / rect.height
+  };
+}
+
+function artworkRatio(file) {
+  let width = 1;
+  let height = 1;
+  state.images.forEach(function (item) {
+    if (item.ref === file && item.width && item.height) {
+      width = item.width;
+      height = item.height;
+    }
+  });
+  (window.TAS && TAS.characters || []).forEach(function (character) {
+    (character.artworks || []).forEach(function (piece) {
+      if (String(piece.file).split("?")[0] === file) {
+        width = piece.width || 1;
+        height = piece.height || 1;
+      }
+    });
+  });
+  return width / height;
+}
+
+function itemBox(kind, item) {
+  if (!item) return null;
+  const card = cardMm();
+  if (kind === "qr") {
+    return { x: Number(item.x), y: Number(item.y), w: Number(item.sizeMm) / card.w, h: Number(item.sizeMm) / card.h };
+  }
+  if (kind === "character") {
+    const height = Number(item.heightMm) / card.h;
+    const width = (Number(item.heightMm) * artworkRatio(item.file)) / card.w;
+    return { x: Number(item.x), y: Number(item.y), w: width, h: height };
+  }
+  const index = active().texts.indexOf(item);
+  const measured = index >= 0 ? (state.textLayout || [])[index] : null;
+  if (measured && measured.w && measured.h) {
+    return { x: Number(item.x), y: Number(item.y), w: measured.w / card.w, h: measured.h / card.h };
+  }
+  const lines = String(item.text || " ").split("\n");
+  const longest = lines.reduce(function (max, line) { return Math.max(max, line.length); }, 1);
+  return {
+    x: Number(item.x),
+    y: Number(item.y),
+    w: Math.max(0.08, (longest * Number(item.sizeMm) * 0.55) / card.w),
+    h: Math.max(0.04, (lines.length * Number(item.sizeMm) * (item.lineSpacing || 1.25)) / card.h)
+  };
+}
+
+function hitTest(fraction) {
+  const layers = active().layers;
+  for (let index = layers.length - 1; index >= 0; index -= 1) {
+    const box = itemBox("character", layers[index]);
+    if (inside(fraction, box)) return { kind: "character", index: index, item: layers[index] };
+  }
+  const texts = active().texts;
+  for (let index = texts.length - 1; index >= 0; index -= 1) {
+    if (!texts[index].text) continue;
+    const box = itemBox("text", texts[index]);
+    if (inside(fraction, box)) return { kind: "text", index: index, item: texts[index] };
+  }
+  if (state.side === "front") {
+    const box = itemBox("qr", state.design.qr);
+    if (inside(fraction, box)) return { kind: "qr", index: 0, item: state.design.qr };
+  }
+  return null;
+}
+
+function inside(fraction, box) {
+  if (!box) return false;
+  return Math.abs(fraction.x - box.x) <= box.w / 2 && Math.abs(fraction.y - box.y) <= box.h / 2;
+}
+
+function showTab(name) {
+  document.querySelectorAll(".tabs button").forEach(function (button) {
+    button.setAttribute("aria-selected", button.id === "tab-" + name ? "true" : "false");
+  });
+  document.querySelectorAll(".tab-panel").forEach(function (panel) {
+    panel.classList.toggle("is-on", panel.id === "panel-" + name);
+  });
+}
+
+document.querySelectorAll(".tabs button").forEach(function (button) {
+  button.onclick = function () { showTab(button.id.replace("tab-", "")); };
+});
+
+function selectHit(hit) {
+  if (!hit) {
+    state.target = "";
+    document.querySelector("#target-label").textContent = "nothing";
+    readPosition();
+    paintSelection();
+    return;
+  }
+  state.target = hit.kind === "text" ? "text" : hit.kind;
+  if (hit.kind === "text") {
+    writeBlock();
+    state.block = hit.index;
+    document.querySelector("#block").value = String(hit.index);
+    document.querySelector("#target-label").textContent = "text";
+    readBlock();
+    showTab("text");
+  } else if (hit.kind === "character") {
+    writeCharacter();
+    state.layer = hit.index;
+    document.querySelector("#character").value = String(hit.index);
+    document.querySelector("#target-label").textContent = "character";
+    fillCharacters();
+    showTab("characters");
+  } else {
+    document.querySelector("#target-label").textContent = "QR code";
+    showTab("qr");
+  }
+  readPosition();
+  paintSelection();
+}
+
+function paintSelection() {
+  const mark = document.querySelector("#selection");
+  const item = selectedItem();
+  const box = itemBox(state.target === "character" ? "character" : state.target, item);
+  if (!box) {
+    mark.hidden = true;
+    return;
+  }
+  mark.hidden = false;
+  mark.style.left = ((box.x - box.w / 2) * 100) + "%";
+  mark.style.top = ((box.y - box.h / 2) * 100) + "%";
+  mark.style.width = (box.w * 100) + "%";
+  mark.style.height = (box.h * 100) + "%";
+}
+
+function endDrag(commit) {
+  const drag = state.drag;
+  if (!drag) return;
+  state.drag = null;
+  clearTimeout(state.dragTimer);
+  if (!commit) {
+    drag.item.x = drag.originX;
+    drag.item.y = drag.originY;
+    if (drag.kind === "qr") clampQr();
+    refresh().catch(fail);
+    return;
+  }
+  if (drag.moved) refresh().catch(fail);
+  else paintSelection();
+}
+
+document.querySelector("#preview").addEventListener("pointerdown", function (event) {
+  if (event.button !== 0) return;
+  const fraction = pointOnCard(event);
+  const hit = hitTest(fraction);
+  selectHit(hit);
+  if (!hit) return;
+  state.drag = {
+    kind: hit.kind,
+    item: hit.item,
+    originX: Number(hit.item.x),
+    originY: Number(hit.item.y),
+    offsetX: fraction.x - Number(hit.item.x),
+    offsetY: fraction.y - Number(hit.item.y),
+    moved: false,
+    pointerId: event.pointerId
+  };
+  event.currentTarget.setPointerCapture(event.pointerId);
+});
+document.querySelector("#preview").addEventListener("pointermove", function (event) {
+  const drag = state.drag;
+  if (!drag || event.pointerId !== drag.pointerId) return;
+  if ((event.buttons & 1) === 0) {
+    endDrag(false);
+    return;
+  }
+  const fraction = pointOnCard(event);
+  const dx = fraction.x - (drag.originX + drag.offsetX);
+  const dy = fraction.y - (drag.originY + drag.offsetY);
+  const rect = document.querySelector("#preview").getBoundingClientRect();
+  if (!drag.moved && Math.hypot(dx * rect.width, dy * rect.height) < 5) return;
+  drag.moved = true;
+  drag.item.x = fraction.x - drag.offsetX;
+  drag.item.y = fraction.y - drag.offsetY;
+  if (drag.kind === "qr") clampQr();
+  readPosition();
+  paintSelection();
+  clearTimeout(state.dragTimer);
+  state.dragTimer = setTimeout(function () { refresh().catch(fail); }, 120);
+});
+document.querySelector("#preview").addEventListener("pointerup", function (event) {
+  if (!state.drag || event.pointerId !== state.drag.pointerId) return;
+  state.drag.released = true;
+  endDrag(true);
+});
+document.querySelector("#preview").addEventListener("pointercancel", function () { endDrag(false); });
+document.querySelector("#preview").addEventListener("lostpointercapture", function () {
+  if (state.drag && !state.drag.released) endDrag(false);
+});
+window.addEventListener("blur", function () { endDrag(false); });
+
+document.querySelector("#block").addEventListener("change", function () {
+  writeBlock();
+  state.block = Number(this.value);
+  state.target = "text";
+  document.querySelector("#target-label").textContent = "text";
+  readBlock();
+});
+function nudge(dxMm, dyMm) {
+  const card = cardMm();
+  const item = selectedItem();
+  if (!item) return;
+  item.x = Math.min(1, Math.max(0, Number(item.x) + dxMm / card.w));
+  item.y = Math.min(1, Math.max(0, Number(item.y) + dyMm / card.h));
+  if (state.target === "qr") clampQr();
+  refresh().catch(fail);
+}
+
+document.querySelector("#nudge-up").onclick = function () { nudge(0, -Number(document.querySelector("#step").value)); };
+document.querySelector("#nudge-down").onclick = function () { nudge(0, Number(document.querySelector("#step").value)); };
+document.querySelector("#nudge-left").onclick = function () { nudge(-Number(document.querySelector("#step").value), 0); };
+document.querySelector("#nudge-right").onclick = function () { nudge(Number(document.querySelector("#step").value), 0); };
+
+["#words", "#size", "#color", "#outline", "#bold", "#text-shadow", "#font", "#lang", "#align", "#text-width", "#line-spacing", "#title", "#orientation", "#image", "#qr-size", "#character-height", "#character-rotation", "#character-flip", "#character-shadow"].forEach(function (selector) {
+  document.querySelector(selector).addEventListener("change", function () {
+    refresh().catch(fail);
+  });
+});
+document.querySelector("#qr-size").addEventListener("focus", function () {
+  state.target = "qr";
+  document.querySelector("#target-label").textContent = "QR code";
+});
+document.querySelector("#words").addEventListener("focus", function () {
+  state.target = "text";
+  document.querySelector("#target-label").textContent = "text";
+});
+
+document.querySelector("#pos-x").addEventListener("change", function () {
+  const item = selectedItem();
+  if (!item) return;
+  item.x = Number(this.value) / cardMm().w;
+  if (state.target === "qr") clampQr();
+  refresh().catch(fail);
+});
+document.querySelector("#pos-y").addEventListener("change", function () {
+  const item = selectedItem();
+  if (!item) return;
+  item.y = Number(this.value) / cardMm().h;
+  if (state.target === "qr") clampQr();
+  refresh().catch(fail);
+});
+document.querySelector("#side-front").onclick = function () {
+  writeBlock();
+  writeCharacter();
+  state.side = "front";
+  state.block = 0;
+  state.layer = 0;
+  fillImages();
+  fillBlocks();
+  fillCharacters();
+  readBlock();
+  refresh().catch(fail);
+};
+document.querySelector("#side-back").onclick = function () {
+  writeBlock();
+  writeCharacter();
+  state.side = "back";
+  state.block = 0;
+  state.layer = 0;
+  if (state.target === "qr") {
+    state.target = "text";
+    document.querySelector("#target-label").textContent = "text";
+  }
+  fillImages();
+  fillBlocks();
+  fillCharacters();
+  readBlock();
+  refresh().catch(fail);
+};
+document.querySelector("#add-character").onclick = function () {
+  const file = document.querySelector("#artwork").value;
+  if (!file) return;
+  active().layers.push({ id: "ly" + Date.now(), file: file, x: 0.5, y: 0.55, heightMm: 55, rotation: 0, flip: false, shadow: true });
+  state.layer = active().layers.length - 1;
+  state.target = "character";
+  document.querySelector("#target-label").textContent = "character";
+  fillCharacters();
+  refresh().catch(fail);
+};
+document.querySelector("#character").addEventListener("change", function () {
+  writeCharacter();
+  state.layer = Number(this.value);
+  state.target = "character";
+  document.querySelector("#target-label").textContent = "character";
+  fillCharacters();
+  readPosition();
+});
+document.querySelector("#character-forward").onclick = function () {
+  const layers = active().layers;
+  if (state.layer >= layers.length - 1) return;
+  const next = layers[state.layer + 1];
+  layers[state.layer + 1] = layers[state.layer];
+  layers[state.layer] = next;
+  state.layer += 1;
+  fillCharacters();
+  refresh().catch(fail);
+};
+document.querySelector("#character-back").onclick = function () {
+  const layers = active().layers;
+  if (state.layer <= 0) return;
+  const previous = layers[state.layer - 1];
+  layers[state.layer - 1] = layers[state.layer];
+  layers[state.layer] = previous;
+  state.layer -= 1;
+  fillCharacters();
+  refresh().catch(fail);
+};
+document.querySelector("#remove-character").onclick = function () {
+  active().layers.splice(state.layer, 1);
+  state.layer = 0;
+  fillCharacters();
+  refresh().catch(fail);
+};
+document.querySelector("#add-text").onclick = function () {
+  writeBlock();
+  active().texts.push({ lang: "en", text: "", sizeMm: 6, color: "#ffffff", x: 0.5, y: 0.3, font: "noto", widthMm: 70 });
+  state.block = active().texts.length - 1;
+  fillBlocks();
+  readBlock();
+  refresh().catch(fail);
+};
+document.querySelector("#remove-text").onclick = function () {
+  active().texts.splice(state.block, 1);
+  state.block = 0;
+  fillBlocks();
+  readBlock();
+  refresh().catch(fail);
+};
+document.querySelector("#new").onclick = async function () {
+  const data = await api("/api/postcards/new", { method: "POST" });
+  await loadList(data.design.id);
+  showDesign(data.design, "/shops/");
+};
+document.querySelector("#duplicate").onclick = async function () {
+  const data = await api("/api/postcards/duplicate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ id: state.design.id })
+  });
+  await loadList(data.design.id);
+  showDesign(data.design, "/shops/");
+};
+document.querySelector("#saved").onchange = async function () {
+  const data = await api("/api/postcards/design?id=" + encodeURIComponent(this.value));
+  showDesign(data.design, data.landing);
+};
+document.querySelector("#save").onclick = async function () {
+  writeBlock();
+  const data = await api("/api/postcards/save", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(state.design)
+  });
+  state.design = data.design;
+  await loadList(data.design.id);
+  document.querySelector("#status").textContent = "Saved " + data.design.id;
+};
+async function uploadCardImage(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const body = new FormData();
+  body.append("image", file);
+  const data = await api("/api/postcards/upload", { method: "POST", body: body });
+  state.images.unshift({ ref: data.ref, name: data.name });
+  active().image = data.ref;
+  if (state.side === "front") state.design.image = data.ref;
+  fillImages();
+  input.value = "";
+  refresh().catch(fail);
+}
+document.querySelector("#upload").onchange = function () { uploadCardImage(this).catch(fail); };
+document.querySelector("#upload-qr").onchange = function () { uploadCardImage(this).catch(fail); };
+document.querySelector("#upload-character").onchange = async function () {
+  const file = this.files[0];
+  if (!file) return;
+  const body = new FormData();
+  body.append("image", file);
+  const data = await api("/api/postcards/upload", { method: "POST", body: body });
+  state.images.unshift({ ref: data.ref, name: data.name, width: data.width, height: data.height });
+  active().layers.push({ id: "ly" + Date.now(), file: data.ref, x: 0.5, y: 0.55, heightMm: 55, rotation: 0, flip: false, shadow: true });
+  state.layer = active().layers.length - 1;
+  state.target = "character";
+  document.querySelector("#target-label").textContent = "character";
+  this.value = "";
+  fillImages();
+  fillCharacters();
+  refresh().catch(fail);
+};
+async function download(format) {
+  writeBlock();
+  let query = "format=" + format;
+  if (format === "pdf" || format === "preview") query += "&scale=" + document.querySelector("#pdf-scale").value;
+  const blob = await api("/api/postcards/export?" + query, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(state.design)
+  });
+  if (format === "preview") {
+    const img = document.querySelector("#pdf-preview-img");
+    if (img.dataset.url) URL.revokeObjectURL(img.dataset.url);
+    img.dataset.url = URL.createObjectURL(blob);
+    img.src = img.dataset.url;
+    img.hidden = false;
+    document.querySelector("#status").textContent = "Preview: front above, back below. The page stays 148 × 100 mm.";
+    return;
+  }
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = state.design.qr.id + "." + (format === "jpeg" ? "jpg" : format);
+  link.click();
+}
+document.querySelector("#png").onclick = function () { download("png").catch(fail); };
+document.querySelector("#jpeg").onclick = function () { download("jpeg").catch(fail); };
+document.querySelector("#pdf-preview").onclick = function () { download("preview").catch(fail); };
+document.querySelector("#pdf").onclick = function () { download("pdf").catch(fail); };
+document.querySelector("#saved").addEventListener("focus", function () { writeBlock(); });
+
+function fail(error) {
+  document.querySelector("#status").textContent = error.message;
+}
+
+loadList().then(async function (data) {
+  if (!data.designs.length) {
+    const created = await api("/api/postcards/new", { method: "POST" });
+    await loadList(created.design.id);
+    showDesign(created.design, "/shops/");
+    return;
+  }
+  const first = await api("/api/postcards/design?id=" + encodeURIComponent(data.designs[0].id));
+  showDesign(first.design, first.landing);
+}).catch(fail);
+</script>
+</body>
+</html>

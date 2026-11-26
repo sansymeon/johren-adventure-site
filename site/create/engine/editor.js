@@ -28,7 +28,8 @@
       + '<div class="stage-save">'
       + '<button type="button" class="btn" data-action="save-scene">Save Scene</button>'
       + '<div class="stage-export">'
-      + '<button type="button" class="btn btn-primary" data-action="export-jpeg">Save Picture</button>'
+      + '<button type="button" class="btn btn-primary" data-action="export-jpeg">Save Image</button>'
+      + '<button type="button" class="btn" data-action="share-jpeg">Share Image</button>'
       + '<button type="button" class="btn" data-action="export-png">Save PNG</button>'
       + "</div>"
       + '<button type="button" class="btn btn-submit" data-action="open-submit">Submit for Approval</button>'
@@ -271,7 +272,8 @@
       + '<p class="layer-count" id="layer-count">' + app.state.scene.layers.length + (app.state.scene.layers.length === 1 ? " character" : " characters") + "</p></div>"
       + '<div class="btn-row"><button type="button" class="btn btn-primary" data-action="save-scene">Save</button>'
       + '<button type="button" class="btn" data-action="new-scene">New</button></div>'
-      + '<div class="btn-row"><button type="button" class="btn btn-primary" data-action="export-jpeg">Save Picture</button>'
+      + '<div class="btn-row"><button type="button" class="btn btn-primary" data-action="export-jpeg">Save Image</button>'
+      + '<button type="button" class="btn" data-action="share-jpeg">Share Image</button>'
       + '<button type="button" class="btn" data-action="export-png">Save PNG</button></div>'
       + '<div class="btn-row"><button type="button" class="btn" data-action="export-json">Export scene</button>'
       + '<label class="btn file-btn">Open file<input id="import-input" type="file" accept="application/json,.json" hidden></label></div>'
@@ -489,6 +491,7 @@
     if (action === "new-scene") app.newScene();
     if (action === "export-json") app.exportJson();
     if (action === "export-jpeg") exportPicture("jpeg");
+    if (action === "share-jpeg") sharePicture();
     if (action === "export-png") exportPicture("png");
     if (action === "open-submit") openSubmit();
     if (action === "close-submit") closeSubmit();
@@ -1226,23 +1229,35 @@
   }
 
   function savePictureFile(blob, filename, size) {
-    const file = new File([blob], filename, { type: blob.type || "image/jpeg" });
-    if (appleTouch() && navigator.share && navigator.canShare && navigator.canShare({ files: [file] })) {
-      navigator.share({ files: [file], title: filename }).then(function () {
-        app.notify("Picture ready at " + size.width + "×" + size.height + ". Save it from the share sheet.");
-      }).catch(function (error) {
-        if (error && error.name === "AbortError") return;
-        showPictureHold(blob, size);
-      });
-      return;
-    }
-    if (appleTouch()) {
-      showPictureHold(blob, size);
+    const tool = window.TURBO_IMAGE_SHARE;
+    const done = function () {
+      const kind = /\.png$/i.test(filename) ? "PNG" : "JPEG";
+      app.notify(kind + " exported at " + size.width + "×" + size.height + ".");
+    };
+    if (tool) {
+      tool.save(blob, filename).then(done).catch(function () { showPictureHold(blob, size); });
       return;
     }
     downloadBlob(blob, filename);
-    const kind = /\.png$/i.test(filename) ? "PNG" : "JPEG";
-    app.notify(kind + " exported at " + size.width + "×" + size.height + ".");
+    done();
+  }
+
+  function sharePicture() {
+    const picture = pictureBlob("jpeg");
+    if (!picture) {
+      app.notify("A drawing is still preparing. Export the picture again in a moment.");
+      return;
+    }
+    if (picture.error) {
+      app.notify("This browser blocked the picture export. Open the studio through the local server and try again.");
+      return;
+    }
+    const filename = fileSlug(app.state.scene.name) + ".jpg";
+    const tool = window.TURBO_IMAGE_SHARE;
+    if (!tool) return;
+    tool.share(picture.blob, filename).then(function () {
+      app.notify("Picture ready at " + picture.width + "×" + picture.height + ".");
+    });
   }
 
   function fileSlug(name) {

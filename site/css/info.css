@@ -10,5 +10,77 @@ h2 { font-size: 1.25rem; margin: 28px 0 8px; }
 p, li { margin: 0 0 12px; }
 ul { padding-left: 1.2em; }
 .note { background: #fff8e7; border: 1px solid #efdba7; border-radius: 14px; padding: 14px 16px; }
-.button { display: inline-block; background: var(--coral); color: #fff; text-decoration: none; border-radius: 999px; padding: 12px 18px; font-weight: 800; }
+.button, .line-apply { display: inline-block; background: var(--coral); color: #fff; text-decoration: none; border: 0; border-radius: 999px; padding: 12px 18px; font: inherit; font-weight: 800; cursor: pointer; }
+.line-apply { background: #06C755; }
+.apply { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 16px; }
+.apply .button, .apply .line-apply { min-height: 48px; text-align: center; }
+.welcome-row { display: flex; align-items: center; gap: 14px; margin: 0 0 8px; }
+.welcome-row img { width: 84px; height: auto; flex: 0 0 auto; }
+.welcome-row p { margin: 0; }
+.fields { display: grid; gap: 10px; margin: 0 0 12px; }
+.fields label { display: grid; gap: 4px; font-weight: 800; }
+.fields input, .fields textarea { width: 100%; max-width: 28rem; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; font: inherit; font-weight: 500; }
+.fields textarea { min-height: 4.5rem; }
+.demo-link { display: inline-block; margin: 4px 0 12px; padding: 10px 14px; border: 2px solid #0e7884; border-radius: 999px; font-weight: 800; text-decoration: none; }
+.shops { max-width: 920px; }
+.shops .band { margin: 0 0 18px; padding: 22px 18px 8px; border-radius: 28px; }
+.shops .welcome { background: #fff7ea; }
+.shops .listing { background: #e7f6f3; }
+.shops .more { background: #fffaf1; }
+.shops .close { background: #eef8f6; }
+.shops .cast { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 8px 18px; align-items: end; }
+.shops .welcome .cast { align-items: center; }
+.shops .listing .cast { grid-template-columns: minmax(0, 1fr) 250px; align-items: start; }
+.shops .cast > * { min-width: 0; }
+.shops .cast-left { grid-template-columns: 220px minmax(0, 1fr); }
+.shops .cast img { width: 100%; max-width: 100%; height: auto; display: block; }
+.shops .reassure { margin: 12px 0 0; padding: 10px 14px; background: #fff; border-radius: 16px; font-weight: 800; }
+.shops .keep { white-space: nowrap; }
+.shops .postcard { display: block; width: 100%; height: auto; margin: 10px 0 0; border-radius: 16px; }
+.shops h3 { margin: 0 0 6px; font-size: 1.15rem; line-height: 1.35; }
+.shops .qr-note { margin: 0 0 12px; }
+.shops .line-hint { margin: 0 0 12px; font-size: 0.95rem; }
+.shops .again { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.shops .again a { font-weight: 800; }
+.shops .offer { margin: 0 0 12px; padding-left: 1.2em; }
+.shops .offer li { margin: 0 0 4px; }
+.shops .close p:first-child { font-size: 1.25rem; font-weight: 800; line-height: 1.45; }
+@media (max-width: 640px) {
+  .welcome-row img { width: 72px; }
+  .shell.shops { padding: 12px 12px 36px; }
+  .shops .band { padding: 12px 12px 8px; margin-bottom: 10px; }
+  .shops .welcome .cast { grid-template-columns: 104px minmax(0, 1fr); gap: 6px 10px; align-items: center; }
+  .shops .more .cast { grid-template-columns: 92px minmax(0, 1fr); gap: 6px 10px; align-items: center; }
+  .shops .listing .cast { grid-template-columns: minmax(0, 1fr) 124px; gap: 6px 10px; align-items: center; }
+  .shops .close .cast { grid-template-columns: 1fr; gap: 4px; justify-items: center; }
+  .shops .copy { display: contents; }
+  .shops .cast img { width: 100%; max-width: none; height: auto; grid-row: 1; align-self: center; }
+  .shops .welcome img, .shops .more img { grid-column: 1; }
+  .shops .listing img { grid-column: 2; }
+  .shops .close img { grid-column: 1; grid-row: 1; width: 128px; }
+  .shops .more h2 { font-size: 1.08rem; white-space: nowrap; }
+  .shops .keep { white-space: nowrap; }
+  .shops h1, .shops h2, .shops .signoff, .shops p, .shops .offer, .shops .fields, .shops .apply, .shops .note { min-width: 0; }
+  .shops h1, .shops h2 { grid-row: 1; align-self: center; margin: 0; line-break: strict; }
+  .shops .welcome h1, .shops .more h2 { grid-column: 2; }
+  .shops .listing h2 { grid-column: 1; }
+  .shops .close p.signoff { grid-column: 1; grid-row: 2; margin: 0 0 8px; text-align: center; line-break: strict; font-size: 1rem; line-height: 1.45; }
+  .shops .close p:not(.signoff) { grid-row: 3; }
+  .shops h1 { font-size: 1.45rem; }
+  .shops p, .shops .offer, .shops .fields, .shops .apply, .shops .note, .shops .story, .shops .qr-note, .shops .again { grid-column: 1 / -1; }
+  .shops .postcard { grid-column: 1 / -1; }
+  .shops { line-height: 1.45; }
+  .shops p, .shops li, .shops h3, .shops .reassure { line-height: 1.45; }
+  .shops p { margin: 0 0 6px; line-break: strict; }
+  .shops .fields { margin: 0 0 8px; }
+  .shops .fields input, .shops .fields textarea { max-width: none; }
+  .shops .apply { display: grid; gap: 8px; margin: 0 0 4px; }
+  .shops .apply .button, .shops .apply .line-apply, .shops .demo-link { width: 100%; white-space: nowrap; font-size: 0.95rem; }
+  .shops .demo-link { display: flex; justify-content: center; margin: 0 0 4px; box-sizing: border-box; text-align: center; }
+  .shops .offer { margin: 0 0 8px; }
+}
+.facts { margin: 8px 0 24px; }
+.facts div { padding: 12px 0; border-top: 1px solid var(--line); }
+.facts dt { font-size: .8rem; font-weight: 800; letter-spacing: .04em; color: #54707a; }
+.facts dd { margin: 2px 0 0; font-size: 1.05rem; font-weight: 650; }
 @media (max-width: 640px) { .shell { padding: 16px 14px 56px; } }

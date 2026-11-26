@@ -63,6 +63,16 @@
 
   var text = copy();
   var current = tiers[0].id;
+  var cardMatch = (location.search || "").match(/[?&]card=(TA-\d{6})\b/);
+  if (cardMatch) {
+    try { sessionStorage.setItem("turbo.merchantCard", cardMatch[1]); } catch (error) { /* private mode */ }
+  }
+  var card = cardMatch ? cardMatch[1] : "";
+  if (!card) {
+    try { card = sessionStorage.getItem("turbo.merchantCard") || ""; } catch (error) { card = ""; }
+  }
+  if (!/^TA-\d{6}$/.test(card)) card = "";
+  window.TURBO_MERCHANT_CARD = card;
 
   function tierById(id) {
     for (var i = 0; i < tiers.length; i++) if (tiers[i].id === id) return tiers[i];
@@ -109,11 +119,7 @@
     if (f.calendar) html += block(text.calendarTitle, "<p>" + text.calendarBody + "</p><img class=\"compact\" src=\"" + merchant.artwork.calendar + "\" alt=\"\">");
     if (f.puzzle) html += block(text.puzzleTitle, "<p>" + text.puzzleBody + "</p><p class=\"soon\">" + text.recruiting + "</p><img class=\"natural\" src=\"" + merchant.artwork.puzzle + "\" alt=\"\"><p><a href=\"" + (lang === "en" ? "/en/guide/#puzzle" : "/guide/#puzzle") + "\">" + (lang === "en" ? "See how the 5, 10, 25 and 50 piece levels work" : "5・10・25・50ピースの進み方を見る") + "</a></p>");
     if (f.qrPoster) html += "<p class=\"note\">" + text.reference + "</p>";
-    html += "<div class=\"actions\">";
-    html += "<button type=\"button\" class=\"primary\" id=\"demo-list\">" + text.list + "</button>";
-    html += "<button type=\"button\" class=\"secondary\" id=\"demo-own\">" + text.own + "</button>";
-    html += "</div>";
-    html += "<p class=\"note\" id=\"demo-result\" hidden></p>";
+    if (card) html += "<p class=\"note\">" + (lang === "en" ? "Postcard " : "はがき ") + card + "</p>";
     html += "<p class=\"soon\">" + text.future + "</p>";
     root.innerHTML = html;
     root.querySelectorAll("[data-tier]").forEach(function (button) {
@@ -121,16 +127,6 @@
         current = button.getAttribute("data-tier");
         paint();
       });
-    });
-    root.querySelector("#demo-list").addEventListener("click", function () {
-      var node = root.querySelector("#demo-result");
-      node.hidden = false;
-      node.textContent = text.preparing + " — " + text.list;
-    });
-    root.querySelector("#demo-own").addEventListener("click", function () {
-      var node = root.querySelector("#demo-result");
-      node.hidden = false;
-      node.textContent = text.preparing + " — " + text.own;
     });
   }
 

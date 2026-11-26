@@ -2,7 +2,7 @@
    Paths are relative to TAS.assetRoot. Original files are never renamed or rewritten. */
 (function () {
   const TAS = {
-    assetRoot: "../turbo_adventure/",
+    assetRoot: "/masters/",
     product: "Turbo Adventures Studio",
     brand: "Turbo Adventures",
     tagline: "Discover. Collect. Explore.",
@@ -307,7 +307,178 @@
       pose("margarite_left_side", "Left side", "npc/margarite_left_side.png", 1024, 1536),
       pose("margarite_right_side", "Right side", "npc/margarite_right_side.png", 1024, 1536),
       pose("margarite_back", "Back", "npc/margarite_back.png", 1024, 1536)
-    ], "npc/composites/margarite.png", 1672, 941)
+    ], "npc/composites/margarite.png", 1672, 941),
+    record({
+      id: "hokuma-bear",
+      category: "featured",
+      name: "Hokuma",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "hokuma_bear",
+      artworks: [pose("hokuma_bear", "Reference", "characters/transparent/hokuma_bear.png", 1141, 1379)]
+    }),
+    record({
+      id: "hokuto-fishowl",
+      category: "featured",
+      name: "Hokuto",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "hokuto_fishowl",
+      artworks: [pose("hokuto_fishowl", "Reference", "characters/transparent/hokuto_fishowl.png", 1156, 1361)]
+    }),
+    record({
+      id: "koharu-chan-shrinegirl",
+      category: "featured",
+      name: "Koharu",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "koharu_chan_shrinegirl",
+      artworks: [pose("koharu_chan_shrinegirl", "Reference", "characters/transparent/koharu_chan_shrinegirl.png", 1199, 1312)]
+    }),
+    record({
+      id: "kumagoro",
+      category: "featured",
+      name: "Kumagoro",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "kumagoro",
+      artworks: [pose("kumagoro", "Reference", "characters/transparent/kumagoro.png", 1199, 1312)]
+    }),
+    record({
+      id: "kumagoro-hokkaidobear",
+      category: "featured",
+      name: "Kumagoro, Hokkaido",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "kumagoro_hokkaidobear",
+      artworks: [pose("kumagoro_hokkaidobear", "Reference", "characters/transparent/kumagoro_hokkaidobear.png", 1199, 1312)]
+    }),
+    record({
+      id: "lord-saruyoshi-monkeyshogun",
+      category: "featured",
+      name: "Lord Saruyoshi",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "lord_saruyoshi_monkeyshogun",
+      artworks: [pose("lord_saruyoshi_monkeyshogun", "Reference", "characters/transparent/lord_saruyoshi_monkeyshogun.png", 941, 1672)]
+    }),
+    record({
+      id: "lord-shika-of-nara-shikadeer",
+      category: "featured",
+      name: "Lord Shika of Nara",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "lord_shika_of_nara_shikadeer",
+      artworks: [pose("lord_shika_of_nara_shikadeer", "Reference", "characters/transparent/lord_shika_of_nara_shikadeer.png", 1105, 1423)]
+    }),
+    record({
+      id: "lord-toramasa-shogun",
+      category: "featured",
+      name: "Lord Toramasa",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "lord_toramasa_shogun",
+      artworks: [pose("lord_toramasa_shogun", "Reference", "characters/transparent/lord_toramasa_shogun.png", 1201, 1310)]
+    }),
+    record({
+      id: "matsukichi-festivalshiba",
+      category: "featured",
+      name: "Matsukichi",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "matsukichi_festivalshiba",
+      artworks: [pose("matsukichi_festivalshiba", "Reference", "characters/transparent/matsukichi_festivalshiba.png", 1199, 1312)]
+    }),
+    record({
+      id: "miyabi-the-kimono-fox",
+      category: "featured",
+      name: "Miyabi",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "miyabi_the_kimono_fox",
+      artworks: [pose("miyabi_the_kimono_fox", "Reference", "characters/transparent/miyabi_the_kimono_fox.png", 941, 1672)]
+    }),
+    record({
+      id: "nishiki-carp",
+      category: "featured",
+      name: "Nishiki",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "nishiki_carp",
+      artworks: [pose("nishiki_carp", "Reference", "characters/transparent/nishiki_carp.png", 1086, 1448)]
+    }),
+    record({
+      id: "nyanja-the-ninja-cat",
+      category: "featured",
+      name: "Nyanja",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "nyanja_the_ninja_cat",
+      artworks: [pose("nyanja_the_ninja_cat", "Reference", "characters/transparent/nyanja_the_ninja_cat.png", 1199, 1312)]
+    }),
+    record({
+      id: "samurai-inosuke",
+      category: "featured",
+      name: "Samurai Inosuke",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "samurai_inosuke",
+      artworks: [pose("samurai_inosuke", "Reference", "characters/transparent/samurai_inosuke.png", 1199, 1312)]
+    }),
+    record({
+      id: "shibata-bucho",
+      category: "featured",
+      name: "Shibata Bucho",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "shibata_bucho",
+      artworks: [pose("shibata_bucho", "Reference", "characters/transparent/shibata_bucho.png", 1147, 1371)]
+    }),
+    record({
+      id: "sumo-tanuki",
+      category: "featured",
+      name: "Sumo Tanuki",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "sumo_tanuki",
+      artworks: [pose("sumo_tanuki", "Reference", "characters/transparent/sumo_tanuki.png", 1199, 1312)]
+    }),
+    record({
+      id: "sushimaru",
+      category: "featured",
+      name: "Sushimaru",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "sushimaru",
+      artworks: [pose("sushimaru", "Reference", "characters/transparent/sushimaru.png", 1199, 1312)]
+    }),
+    record({
+      id: "suzumaru-shrinedeer",
+      category: "featured",
+      name: "Suzumaru",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "suzumaru_shrinedeer",
+      artworks: [pose("suzumaru_shrinedeer", "Reference", "characters/transparent/suzumaru_shrinedeer.png", 1105, 1423)]
+    }),
+    record({
+      id: "tobimaru-flyingfox",
+      category: "featured",
+      name: "Tobimaru",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "tobimaru_flyingfox",
+      artworks: [pose("tobimaru_flyingfox", "Reference", "characters/transparent/tobimaru_flyingfox.png", 1217, 1292)]
+    }),
+    record({
+      id: "yamabo-yamaboshi",
+      category: "featured",
+      name: "Yamabo",
+      description: "Japanese animal hero.",
+      license: mascotLicense,
+      referenceArtworkId: "yamabo_yamaboshi",
+      artworks: [pose("yamabo_yamaboshi", "Reference", "characters/transparent/yamabo_yamaboshi.png", 941, 1672)]
+    })
   ];
 
   function child(id, name, views, sheet, sheetWidth, sheetHeight, filesNote) {
@@ -405,10 +576,15 @@
   };
 
   TAS.fileUrl = function (file) {
-    if (location.port === "8770") return "/masters/" + file;
+    var clean = String(file == null ? "" : file).replace(/^\//, "");
     var path = location.pathname || "";
+    // The admin serves artwork/ at /masters/ on its permanent port and on any
+    // extra local port of the same server. Do not key this off the port number.
+    if (path === "/studio" || path.indexOf("/studio/") === 0 || path === "/creator" || path.indexOf("/creator/") === 0 || path === "/postcards" || path.indexOf("/postcards/") === 0) {
+      return "/masters/" + clean;
+    }
     var nested = path.indexOf("/turbo-adventures-studio/") !== -1 || /\/turbo-adventures-studio$/.test(path);
-    return (nested ? "../turbo_adventure/" : "turbo_adventure/") + file;
+    return (nested ? "../turbo_adventure/" : "turbo_adventure/") + clean;
   };
 
   TAS.esc = function (value) {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ターボアドベンチャーズ</title>
+  <style>
+    body { margin: 0; font: 17px/1.5 system-ui, sans-serif; background: #f6f3ec; color: #17332f; }
+    main { max-width: 36rem; margin: 0 auto; padding: 32px 20px; }
+    a { color: #0e7884; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>ターボアドベンチャーズ</h1>
+  <p id="message">カードを確認しています。</p>
+  <p><a id="shops" href="/shops/">お店の皆様へ</a></p>
+</main>
+<script>
+(function () {
+  var id = location.pathname.replace(/\/+$/, "").split("/").pop();
+  var message = document.getElementById("message");
+  if (!/^TA-\d{6}$/.test(id)) {
+    message.textContent = "このアドレスにはカード番号がありません。";
+    return;
+  }
+  var shops = document.getElementById("shops");
+  if (shops) shops.href = "/shops/?card=" + id;
+  fetch("/data/qr/destinations.json", { cache: "no-cache" })
+    .then(function (response) { return response.json(); })
+    .then(function (data) {
+      var entry = data.entries && data.entries[id];
+      if (!entry || !entry.path) {
+        message.textContent = id + " は、まだ公開名簿にありません。名簿の公開後に、もう一度読み取ってください。";
+        return;
+      }
+      if (entry.status === "inactive") {
+        location.replace("/q/inactive.html");
+        return;
+      }
+      var path = entry.path;
+      if (path.charAt(0) === "/" && path.indexOf("//") !== 0 && !/[?&]card=TA-\d{6}/.test(path)) {
+        path += (path.indexOf("?") >= 0 ? "&" : "?") + "card=" + id;
+      }
+      location.replace(path);
+    })
+    .catch(function () {
+      message.textContent = "名簿を読み込めませんでした。通信を確認して、もう一度開いてください。";
+    });
+})();
+</script>
+</body>
+</html>

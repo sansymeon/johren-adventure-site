@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "updated": "2026-11-26T13:45:37Z",
+  "defaultPath": "/shops/",
+  "note": "Printed QR codes use /q/TA-######. This file is what the public site reads after a site publish. Local admin edits are not live until then.",
+  "entries": {
+    "TA-000001": {
+      "status": "unassigned",
+      "path": "/shops/"
+    },
+    "TA-000010": {
+      "status": "unassigned",
+      "path": "/shops/"
+    }
+  }
+}

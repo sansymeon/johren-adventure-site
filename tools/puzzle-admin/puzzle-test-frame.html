@@ -18,7 +18,8 @@
     "turbo.locationCollection.v1": "turbo.puzzleTest.locationCollection.v1",
     "turbo.gpsCheckin.v1": "turbo.puzzleTest.gpsCheckin.v1",
     "turbo.railwayMosaic.v1": "turbo.puzzleTest.railwayMosaic.v1",
-    "turbo.finalReveal.v1": "turbo.puzzleTest.finalReveal.v1"
+    "turbo.finalReveal.v1": "turbo.puzzleTest.finalReveal.v1",
+    "turbo.pendingCelebrations.v1": "turbo.puzzleTest.pendingCelebrations.v1"
   };
   var storageProto = Object.getPrototypeOf(localStorage);
   ["getItem", "setItem", "removeItem"].forEach(function (name) {
@@ -38,13 +39,15 @@
 <script src="/player/map/js/collection.js"></script>
 <script src="/player/map/js/railway-puzzle.js"></script>
 <script src="/player/map/js/railway-mosaic.js"></script>
+<script src="/player/map/js/image-share.js"></script>
+<script src="/player/map/js/puzzle-reward.js"></script>
 <script src="/player/map/js/collection-screen.js"></script>
 <script>
 (function () {
   var seq = 0;
 
   function clearTest() {
-    ["turbo.locationCollection.v1", "turbo.gpsCheckin.v1", "turbo.railwayMosaic.v1", "turbo.finalReveal.v1"].forEach(function (key) {
+    ["turbo.locationCollection.v1", "turbo.gpsCheckin.v1", "turbo.railwayMosaic.v1", "turbo.finalReveal.v1", "turbo.pendingCelebrations.v1"].forEach(function (key) {
       localStorage.removeItem(key);
     });
     seq = 0;
@@ -64,9 +67,17 @@
   }
 
   function addOne() {
+    var before = window.TURBO_COLLECTION.list("railway").length;
     seq += 1;
     var id = "puzzle-test-" + Date.now() + "-" + seq;
     window.TURBO_COLLECTION.record("railway", id, { pointId: id, distanceM: 0, accuracyM: 1 });
+    var progress = window.TURBO_RAILWAY_PUZZLE.progress();
+    if (!progress.finished && progress.pieces >= 1 && window.TURBO_RAILWAY_MOSAIC) {
+      window.TURBO_RAILWAY_MOSAIC.assign(progress.level);
+    }
+    if (window.TURBO_COLLECTION_SCREEN) {
+      window.TURBO_COLLECTION_SCREEN.noteCompletion(before, window.TURBO_COLLECTION.list("railway").length);
+    }
   }
 
   function show() {

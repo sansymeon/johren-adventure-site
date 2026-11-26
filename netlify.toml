@@ -8,3 +8,19 @@
 
 [build.environment]
   NODE_VERSION = "18"
+
+# Printed postcard QR codes are /q/TA-######. The page looks up site/data/qr/destinations.json.
+[[redirects]]
+  from = "/q/*"
+  to = "/q/index.html"
+  status = 200
+
+[[headers]]
+  for = "/data/qr/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60"
+
+[[headers]]
+  for = "/q/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60"

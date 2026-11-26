@@ -28,9 +28,9 @@
     return pin.name;
   }
 
-  function art(size) {
+  function art(size, key) {
     var locked = global.TURBO_RAILWAY_MOSAIC && global.TURBO_RAILWAY_MOSAIC.pictureFor
-      ? global.TURBO_RAILWAY_MOSAIC.pictureFor(size)
+      ? global.TURBO_RAILWAY_MOSAIC.pictureFor(size, key)
       : null;
     if (locked && locked.image) return locked;
     var active = global.TURBO_PUZZLE_ACTIVE;
@@ -86,18 +86,18 @@
       "</g></svg>";
   }
 
-  function mosaic(size, openCount) {
-    var picture = art(size);
+  function mosaic(size, openCount, key) {
+    var picture = art(size, key);
     var grid = global.TURBO_RAILWAY_MOSAIC.layout(size);
     if (!picture || !grid) return "";
-    var state = global.TURBO_RAILWAY_MOSAIC.revealedTiles(size, openCount);
+    var state = global.TURBO_RAILWAY_MOSAIC.revealedTiles(size, openCount, key);
     var tiles = "";
     var i;
     for (i = 0; i < grid.size; i += 1) {
       var hidden = !state.open[i];
       tiles += '<span class="mosaic-tile' + (hidden ? " is-hidden" : " is-open") + '" data-tile="' + i + '"></span>';
     }
-    return '<div class="mosaic" data-level="' + size + '" data-open="' + state.count + '" style="' +
+    return '<div class="mosaic" data-level="' + size + '" data-board="' + escapeAttr(key || size) + '" data-open="' + state.count + '" style="' +
       frameVars(picture) + "--cols:" + grid.cols + ";--rows:" + grid.rows + '">' +
       '<img class="mosaic-scene" alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(picture.image) + '" width="' +
       (picture.imageWidth || 1600) + '" height="' + (picture.imageHeight || 900) + '">' +
@@ -156,30 +156,32 @@
     return null;
   }
 
-  function fullImage(size) {
-    var picture = art(size);
+  function fullImage(size, key) {
+    var picture = art(size, key);
     if (!picture) return "";
     var shown = picture;
     var button = "";
     if (size) {
-      var saved = savedReveal(size, picture);
+      var saved = savedReveal(key || size, picture);
       var offer = offeredReveal(picture);
       if (saved) shown = saved;
       else if (offer) {
         button = '<button type="button" class="reveal-final" data-reveal-final data-level="' +
-        size + '" data-base="' + escapeAttr(picture.image) + '" data-reveal="' + escapeAttr(offer.image) +
+        escapeAttr(key || size) + '" data-base="' + escapeAttr(picture.image) + '" data-reveal="' + escapeAttr(offer.image) +
           '" data-width="' + offer.imageWidth + '" data-height="' + offer.imageHeight + '">' +
           t("revealFinal") + "</button>";
       }
     }
     return '<div class="puzzle-finished">' +
-      '<div class="puzzle-complete" data-completed-level="' + size + '" style="' + frameVars(shown) + '">' +
+      '<div class="puzzle-complete" data-completed-level="' + escapeAttr(key || size) + '" style="' + frameVars(shown) + '">' +
       '<button type="button" class="puzzle-zoom" data-zoom="' + escapeAttr(shown.image) + '">' +
       '<img alt="' + escapeAttr(t("puzzleAlt")) + '" src="' + escapeAttr(shown.image) + '" width="' +
       (shown.imageWidth || 1600) + '" height="' + (shown.imageHeight || 900) + '"></button>' +
       "</div>" + button +
+      '<button type="button" class="btn btn-ghost" data-save-image="' + escapeAttr(shown.image) + '">' +
+      t("saveImage") + "</button>" +
       '<button type="button" class="btn btn-ghost" data-share-image="' + escapeAttr(shown.image) + '">' +
-      t("share") + "</button></div>";
+      t("shareImage") + "</button></div>";
   }
 
   function noteCompletion(beforeCount, afterCount, category) {
@@ -193,13 +195,19 @@
     if (cat !== "railway" || !mosaicApi) return;
     var before = puzzle.completedSizes(beforeCount);
     var after = puzzle.completedSizes(afterCount);
-    after.forEach(function (size) {
-      if (before.indexOf(size) !== -1) return;
-      if (!mosaicApi.pictureFor(size)) mosaicApi.assign(size);
-      var picture = mosaicApi.pictureFor(size);
+    var seen = {};
+    before.forEach(function (record) {
+      seen[record.key || String(record.size || record)] = true;
+    });
+    after.forEach(function (record) {
+      var size = record.size || record;
+      var key = record.key || String(size);
+      if (seen[key]) return;
+      if (!mosaicApi.pictureFor(size, key)) mosaicApi.assign(size, key);
+      var picture = mosaicApi.pictureFor(size, key);
       if (!picture) return;
       reward.enqueue({
-        id: "railway-" + size,
+        id: "railway-" + key,
         category: "railway",
         image: picture.image,
         wallpaper: picture.wallpaper || "",
@@ -250,22 +258,24 @@
     var progress = global.TURBO_RAILWAY_PUZZLE.progress();
     var stations = global.TURBO_COLLECTION.list("railway").length;
     var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
-    var picture = art(progress.needed);
-    var completedHtml = "";
-    if (done.length && picture) {
-      completedHtml = "<h2>" + t("completedHeading") + "</h2>" +
-        done.map(function (size) { return fullImage(size); }).join("");
-    }
-    var currentHtml = progress.finished ? "" : mosaic(progress.needed, progress.pieces);
+    var picture = art(progress.needed, progress.key);
+    var completedHtml = done.map(function (record) {
+      return fullImage(record.size || record, record.key);
+    }).join("");
+    if (completedHtml) completedHtml = "<h2>" + t("completedHeading") + "</h2>" + completedHtml;
+    var roundNote = progress.round > 1
+      ? "<p>" + t("puzzleRound", { round: progress.round, need: progress.needed }) + "</p>"
+      : "";
+    var currentHtml = mosaic(progress.needed, progress.pieces, progress.key);
     var categories = publicCategories();
     var railwayCat = categories[0];
     var otherHtml = categories.slice(1).map(categoryProgressLine).join("");
     root.querySelector("[data-collection-body]").innerHTML =
       "<h2>" + t(railwayCat.headingKey) + "</h2>" +
-      '<p data-railway-progress>' + (progress.finished
-        ? t(railwayCat.doneKey)
-        : t(railwayCat.progressKey, { pieces: progress.pieces, need: progress.needed, count: stations })) +
+      '<p data-railway-progress>' +
+        t(railwayCat.progressKey, { pieces: progress.pieces, need: progress.needed, count: stations }) +
       "</p>" +
+      roundNote +
       "<p>" + t("stationsCollected", { n: stations }) + "</p>" +
       currentHtml +
       (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
@@ -323,6 +333,7 @@
       '<header class="overlay-header"><button type="button" class="btn btn-back" data-collection-close>' +
       t("collectionClose") + '</button><h2 class="overlay-title">' + t("collectionTitle") + "</h2></header>" +
       '<p class="collection-slogan">' + t("slogan") + "</p>" +
+      '<p class="collection-note">' + t("deviceNote") + "</p>" +
       '<div class="collection-body" data-collection-body></div>' +
       (location.search.indexOf("test=1") >= 0
         ? '<p class="collection-reset"><button type="button" class="btn btn-ghost" data-collection-reset>' +
@@ -347,6 +358,13 @@
         viewer.querySelector("[data-close-view]").addEventListener("click", function () {
           viewer.hidden = true;
         });
+        return;
+      }
+      var saveImage = event.target.closest("[data-save-image]");
+      if (saveImage && root.contains(saveImage)) {
+        if (global.TURBO_PUZZLE_REWARD) {
+          global.TURBO_PUZZLE_REWARD.save(saveImage.getAttribute("data-save-image"), "turbo-puzzle.jpg");
+        }
         return;
       }
       var share = event.target.closest("[data-share-image]");

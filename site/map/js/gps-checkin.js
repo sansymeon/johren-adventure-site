@@ -15,7 +15,9 @@
   var button = null;
   var retryBtn = null;
   var statusEl = null;
+  var hintEl = null;
   var diagEl = null;
+  var diagText = null;
   var pending = false;
   var watchId = null;
   var timerId = null;
@@ -87,14 +89,30 @@
       statusEl.setAttribute("role", "status");
       actions.appendChild(statusEl);
     }
-    diagEl = document.getElementById("gps-checkin-diag");
-    if (!diagEl) {
-      diagEl = document.createElement("pre");
-      diagEl.id = "gps-checkin-diag";
-      diagEl.className = "gps-checkin-diag";
-      diagEl.hidden = true;
-      actions.appendChild(diagEl);
+    hintEl = document.getElementById("gps-checkin-hint");
+    if (!hintEl) {
+      hintEl = document.createElement("div");
+      hintEl.id = "gps-checkin-hint";
+      hintEl.className = "gps-checkin-hint";
+      hintEl.hidden = true;
+      if (statusEl) actions.insertBefore(hintEl, statusEl);
+      else actions.appendChild(hintEl);
     }
+    diagEl = document.getElementById("gps-checkin-diag");
+    if (!diagEl || diagEl.tagName !== "DETAILS") {
+      var details = document.createElement("details");
+      details.id = "gps-checkin-diag";
+      details.className = "gps-checkin-diag";
+      details.hidden = true;
+      var summary = document.createElement("summary");
+      var pre = document.createElement("pre");
+      details.appendChild(summary);
+      details.appendChild(pre);
+      if (diagEl && diagEl.parentNode) diagEl.parentNode.replaceChild(details, diagEl);
+      else actions.appendChild(details);
+      diagEl = details;
+    }
+    diagText = diagEl.querySelector("pre");
   }
 
   function setStatus(text, kind) {
@@ -104,19 +122,47 @@
     statusEl.className = "gps-checkin-status" + (kind ? " is-" + kind : "");
   }
 
+  function hideHint() {
+    if (!hintEl) return;
+    hintEl.hidden = true;
+    hintEl.textContent = "";
+  }
+
+  function showRailwayHint() {
+    if (!hintEl) return;
+    hintEl.hidden = false;
+    hintEl.textContent = "";
+    var title = document.createElement("p");
+    title.className = "gps-checkin-hint-title";
+    title.textContent = t("gpsExploreTitle");
+    var body = document.createElement("p");
+    body.textContent = t("gpsExploreBody");
+    hintEl.appendChild(title);
+    hintEl.appendChild(body);
+    var next = t("gpsExploreNext");
+    if (next) {
+      var more = document.createElement("p");
+      more.textContent = next;
+      hintEl.appendChild(more);
+    }
+  }
+
   function hideDiag() {
     if (!diagEl) return;
     diagEl.hidden = true;
-    diagEl.textContent = "";
+    diagEl.open = false;
+    if (diagText) diagText.textContent = "";
   }
 
   function showDiag(name, distanceM, accuracyM, radius, resultKey, collected) {
-    if (!diagEl || !GPS_UI.showDiagnostics) {
+    if (!diagEl || !diagText || !GPS_UI.showDiagnostics) {
       hideDiag();
       return;
     }
+    var summary = diagEl.querySelector("summary");
+    if (summary) summary.textContent = t("diagDetails");
     diagEl.hidden = false;
-    diagEl.textContent =
+    diagText.textContent =
       t("diagStation") + ": " + (name || "—") + "\n" +
       t("diagDistance") + ": " + formatSpan(distanceM) + "\n" +
       t("diagAccuracy") + ": " + formatSpan(accuracyM) + "\n" +
@@ -195,7 +241,6 @@
       });
     }
     var puzzle = puzzleApi().progressFor(category);
-    if (puzzle.finished) return t("puzzleFinished", { name: name });
     return t((cat && cat.successKey) || "stationSuccess", {
       name: name,
       pieces: puzzle.pieces,
@@ -214,9 +259,11 @@
     showRetry(false);
     if (!target) {
       setStatus("", "");
+      hideHint();
       hideDiag();
       return;
     }
+    hideHint();
     hideDiag();
     var owned = global.TURBO_COLLECTION.owns(target.spec.category, target.spec.placeId);
     if (owned && !target.spec.repeatable) {
@@ -244,14 +291,19 @@
       showDiag(name, distance, accuracy, radius, "resultUncertain", owned);
       showRetry(true);
       setStatus(t("gpsUncertain", { n: formatSpan(accuracy) }), "warn");
+      if (target.spec.category === "railway") showRailwayHint();
+      else hideHint();
       return;
     }
     showRetry(false);
     if (distance > radius) {
       showDiag(name, distance, accuracy, radius, "resultFar", owned);
       setStatus(t("gpsFar", { n: formatSpan(distance) }), "warn");
+      if (target.spec.category === "railway") showRailwayHint();
+      else hideHint();
       return;
     }
+    hideHint();
     if (owned && !repeatable) {
       showDiag(name, distance, accuracy, radius, "resultOwned", true);
       setStatus(t(ownedKey(target.spec.category)), "done");
@@ -269,8 +321,8 @@
     setStatus(successStatus(target, name), "ok");
     if (category === "railway" && global.TURBO_RAILWAY_MOSAIC && puzzleApi()) {
       var started = puzzleApi().progressFor("railway");
-      if (!started.finished && started.pieces >= 1) {
-        global.TURBO_RAILWAY_MOSAIC.assign(started.level);
+      if (started.pieces >= 1) {
+        global.TURBO_RAILWAY_MOSAIC.assign(started.level, started.key);
       }
     }
     if (isPublicPuzzle(category) && global.TURBO_COLLECTION_SCREEN && global.TURBO_COLLECTION_SCREEN.noteCompletion) {

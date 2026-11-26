@@ -3,25 +3,166 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<meta name="description" content="お店の皆様へ。ターボアドベンチャーズ（Turbo Adventures）のマップ掲載を準備しています。運営はサンシメオン・プロダックション（SanSymeon Productions）です。"/>
+<meta name="description" content="ターボスポットへようこそ。マップへの無料掲載は、LINEまたはメールで申し込めます。"/>
 <title>お店の皆様へ · ターボアドベンチャーズ</title>
-<link rel="stylesheet" href="/css/info.css"/>
+<link rel="stylesheet" href="/css/info.css?v=shops16"/>
 </head>
 <body>
-<main class="shell">
-<h1>お店の皆様へ</h1>
-<p>ターボアドベンチャーズ（Turbo Adventures）は、日本各地の魅力を見つけるおでかけサービスです。お店や施設の皆さまを、マップの行き先としてお迎えする準備を進めています。</p>
-<p class="note">ターボスポット募集中。ご関心は <a href="mailto:info@sansymeon.com">info@sansymeon.com</a> までお気軽にどうぞ。</p>
-<h2>ご一緒に準備していること</h2>
-<ul>
-<li>ターボマップへの無料掲載（準備中）</li>
-<li>QRを使った来店体験（準備中）</li>
-<li>パズルやイラストのスポンサー企画（準備中）</li>
+<main class="shell shops">
+<section class="band welcome">
+<div class="cast cast-left">
+<img src="/media/turbo/poses/turbo_confident_transparent.webp" width="880" height="1100" alt="ターボ">
+<div class="copy">
+<h1>ターボスポットへようこそ！</h1>
+<p id="welcome-line">お店や施設を、ターボのマップの立ち寄り先としてお迎えします。</p>
+</div>
+</div>
+<p class="reassure">無料掲載から始められます。<br>有料サービスへのお申し込みは必要ありません。</p>
+<img class="postcard" src="/media/shops/postcard-front.jpg" width="641" height="433" alt="お手元のはがき">
+</section>
+<section class="band listing">
+<div class="cast">
+<div class="copy">
+<h2>無料掲載</h2>
+<p>マップへの掲載は無料です。LINEでもメールでも申し込めます。掲載内容を確認してから、地図に追加します。LINE公式<span class="keep">アカウント</span>の友だち追加は任意です。</p>
+<div class="story">
+<p>ターボアドベンチャーズは、日本各地を巡りながら、発見・コレクション・パズル・作品づくりを楽しむサービスです。</p>
+<p>あなたのお店も、そんな冒険の立ち寄り先になりませんか？</p>
+<p><a href="/map/">ターボのマップを見る</a></p>
+</div>
+<div class="qr-note">
+<h3>このはがきのQRコードがお店専用に！</h3>
+<p>お手元のはがきのQRコードは、ご希望に応じて、後からお店専用のQRコードとしてご利用いただけます。</p>
+<p>まずは無料掲載から、お気軽にご参加ください。</p>
+</div>
+<div class="fields" id="apply">
+<label>はがき番号 <input id="card" name="card" type="text" inputmode="text" autocomplete="off"></label>
+<label>店舗名 <input id="shop" name="shop" type="text" autocomplete="organization"></label>
+<label>所在地 <input id="place" name="place" type="text" autocomplete="street-address"></label>
+<label>備考（任意） <textarea id="notes" name="notes"></textarea></label>
+</div>
+<div class="apply">
+<button type="button" class="line-apply" id="line">LINEで申し込む</button>
+<a class="button" id="list" href="mailto:info@sansymeon.com">メールで申し込む</a>
+</div>
+<p class="line-hint">LINEが開いたら、入力内容をご確認のうえ、送信ボタンを押してください。</p>
+<p class="note" id="copy-note" hidden></p>
+</div>
+<img src="/media/heroes/transparent/colonel_blunderbuss_military.webp" width="1100" height="1100" alt="カーネル・ブランダーバス" loading="lazy">
+</div>
+</section>
+<section class="band more">
+<div class="cast cast-left">
+<img src="/media/heroes/transparent/miyabi_the_kimono_fox.webp" width="619" height="1100" alt="雅" loading="lazy">
+<div class="copy">
+<h2>さらに広がる楽しみ</h2>
+<p>ご希望があれば、こんなこともご一緒できます。</p>
+<ul class="offer">
+<li>オリジナルキャラクター</li>
+<li>お店専用QRコード</li>
+<li>月替わりカレンダー</li>
+<li>スポンサーパズル</li>
 </ul>
-<p>いま公開しているチェックインはGPSです。お店向けの体験が始まっても、鉄道パズルのごほうびとは別にご案内します。</p>
-<p>運営：サンシメオン・プロダックション（個人事業）。所在地：福岡県糸島市。<a href="/about/#operator">運営者情報</a></p>
-<p><a href="/shops/demo/">デモページを見る</a>（架空のお店「ビストロ・ターボ」。有料の案内は準備中です。）</p>
+<p><a class="demo-link" id="demo" href="/shops/demo/">ビストロ・ターボの体験デモを見る</a></p>
+</div>
+</div>
+</section>
+<section class="band close">
+<div class="cast">
+<div class="copy">
+<p class="signoff">まずは無料掲載から。<br>お気軽にお問い合わせください！</p>
+<p class="again"><a href="#apply">申し込みへ戻る</a><a href="#line">LINEで申し込む</a></p>
+</div>
+<img src="/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp" width="942" height="1100" alt="ヘンリエッタ" loading="lazy">
+</div>
+</section>
 </main>
 <script src="/js/nav.js"></script>
+<script>
+(function () {
+  var found = (location.search || "").match(/[?&]card=(TA-\d{6})\b/);
+  var number = found ? found[1] : "";
+  var card = document.getElementById("card");
+  var welcome = document.getElementById("welcome-line");
+  if (number) {
+    card.value = number;
+    card.readOnly = true;
+    welcome.innerHTML = "はがきのQRコードを読み取って<span class=\"keep\">いただき</span>、ありがとうございます。";
+    document.getElementById("demo").href = "/shops/demo/?card=" + number;
+  }
+  function fields() {
+    return {
+      card: card.value.trim(),
+      shop: document.getElementById("shop").value.trim(),
+      place: document.getElementById("place").value.trim(),
+      notes: document.getElementById("notes").value.trim()
+    };
+  }
+  function message() {
+    var data = fields();
+    var lines = [
+      "はがき番号: " + data.card,
+      "店舗名: " + data.shop,
+      "所在地: " + data.place
+    ];
+    if (data.notes) lines.push("備考: " + data.notes);
+    lines.push("無料掲載希望");
+    return lines.join("\n");
+  }
+  function lineMessage() {
+    var data = fields();
+    return [
+      "ターボスポットへの無料掲載を希望します。",
+      "",
+      "はがき番号：" + data.card,
+      "店舗名：" + data.shop,
+      "所在地：" + data.place,
+      "備考：" + data.notes
+    ].join("\n");
+  }
+  var draftKey = "turbo.shopApply.v1";
+  function saveDraft() {
+    try { sessionStorage.setItem(draftKey, JSON.stringify(fields())); } catch (e) {}
+  }
+  function restoreDraft() {
+    var raw = "";
+    try { raw = sessionStorage.getItem(draftKey) || ""; } catch (e) { return; }
+    if (!raw) return;
+    var data = {};
+    try { data = JSON.parse(raw); } catch (e) { return; }
+    if (!number && data.card && !card.value) card.value = data.card;
+    ["shop", "place", "notes"].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (!el.value && data[id]) el.value = data[id];
+    });
+    if (sessionStorage.getItem(draftKey + ".tried") === "1") {
+      var note = document.getElementById("copy-note");
+      note.hidden = false;
+      note.textContent = "入力内容は残っています。友だち追加のあとで戻った場合は、もう一度「LINEで申し込む」を押すと、同じ内容でチャットを開けます。";
+    }
+  }
+  restoreDraft();
+  function refreshMail() {
+    var subject = encodeURIComponent("マップへの無料掲載" + (number ? " " + number : ""));
+    document.getElementById("list").href = "mailto:info@sansymeon.com?subject=" + subject + "&body=" + encodeURIComponent(message());
+    var typed = card.value.trim();
+    document.getElementById("demo").href = /^TA-\d{6}$/.test(typed) ? "/shops/demo/?card=" + typed : "/shops/demo/";
+  }
+  ["shop", "place", "notes", "card"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      saveDraft();
+      refreshMail();
+    });
+  });
+  refreshMail();
+  document.getElementById("line").addEventListener("click", function () {
+    saveDraft();
+    try { sessionStorage.setItem(draftKey + ".tried", "1"); } catch (e) {}
+    refreshMail();
+    var url = "https://line.me/R/oaMessage/" + encodeURIComponent("@066ywqza") + "/?" + encodeURIComponent(lineMessage());
+    window.location.href = url;
+  });
+})();
+</script>
 </body>
 </html>

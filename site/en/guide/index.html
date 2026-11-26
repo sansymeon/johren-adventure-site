@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="How Turbo Milers play: GPS check-in at railway stations and a mosaic of 5, 10, 25, then 50. Turbo Spot merchant QR is coming soon." name="description"/>
+<meta content="How to play Turbo Adventures. GPS check-in and puzzles of 5, 10, 25, then repeating 50-piece pictures. Shop listings appear after review." name="description"/>
 <title>Turbo Adventures — How to Play</title>
 <style>
 :root{--ink:#173043;--muted:#526575;--aqua:#12b8b0;--line:#dce8ea;--white:#fff}
@@ -73,7 +73,7 @@ a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
 </header>
 <nav aria-label="Guide selection" class="tabs">
 <button aria-controls="player" aria-selected="true" class="tab" id="player-tab" role="tab" type="button">🎒 Turbo Milers</button>
-<button aria-controls="merchant" aria-selected="false" class="tab" id="merchant-tab" role="tab" type="button">🏪 Turbo Spots (Coming Soon)</button>
+<button aria-controls="merchant" aria-selected="false" class="tab" id="merchant-tab" role="tab" type="button">🏪 Shop listings</button>
 <button aria-controls="later" aria-selected="false" class="tab" id="later-tab" role="tab" type="button">🎨 Later</button>
 </nav>
 <section aria-labelledby="player-tab" class="panel" id="player" role="tabpanel">
@@ -83,15 +83,15 @@ a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
 <h2 class="sectiontitle">How to play</h2>
 <div class="steps">
 <article class="card"><span class="symbol">🗺️</span><div class="n">01</div><h3>Find a place on the map</h3><p><strong>Available.</strong> Railway stations, airports, scenic places, and cultural sites share one map. Coverage is growing.</p></article>
-<article class="card"><span class="symbol">📍</span><div class="n">02</div><h3>Check in on site</h3><p><strong>Available.</strong> GPS check-in works once per place per device. Shop QR check-in is not available yet.</p></article>
+<article class="card"><span class="symbol">📍</span><div class="n">02</div><h3>Check in on site</h3><p><strong>Available.</strong> GPS check-in works once per place in this browser. QR check-in for collecting places is not available yet.</p></article>
 <article class="card"><span class="symbol">🧩</span><div class="n">03</div><h3>Collect puzzle pieces</h3><p><strong>Available for railway stations.</strong> A station check-in adds a railway puzzle piece. Airports and scenic places are separate collections and do not add those pieces.</p></article>
-<article class="card"><span class="symbol">🖼️</span><div class="n">04</div><h3>Complete the picture</h3><p><strong>Available.</strong> The railway puzzle advances through 5, 10, 25, and 50 pieces. Finishing a level opens the next and the count starts again.</p></article>
-<article class="card"><span class="symbol">🎨</span><div class="n">05</div><h3>Collect characters and make a scene</h3><p><strong>Partly available.</strong> The cast page and arranging pictures on your device are available. Submitting or sharing a scene, and shop QR rewards, are not available yet.</p></article>
+<article class="card"><span class="symbol">🖼️</span><div class="n">04</div><h3>Complete the picture</h3><p><strong>Available.</strong> Railway stations, airports, cultural and historic places, and scenic places are separate puzzles. The order is 5, 10, 25, then 50 pieces again and again. Finished pictures stay. Each new 50 starts at zero. A place already collected does not fill the next picture.</p></article>
+<article class="card"><span class="symbol">🎨</span><div class="n">05</div><h3>Collect characters and make a scene</h3><p><strong>Partly available.</strong> The cast page and arranging pictures on your device are available. Submitting a scene is not available yet, and neither is a QR reward for collecting places. A postcard QR is the shop enquiry.</p></article>
 </div>
-<div class="banner"><h3>Rewards stay separate</h3><p>Railway mosaic rewards stay separate from future merchant QR rewards. Merchant QR for Turbo Spots (ターボ・スポット) is Coming Soon.</p></div>
+<div class="banner"><h3>Rewards stay separate</h3><p>Discovery-puzzle pictures stay separate from shop listings. A postcard QR is an enquiry. The listing appears on the map after we review it.</p></div>
 <section id="puzzle">
 <h2 class="sectiontitle">How the puzzle grows</h2>
-<p>A railway station check-in opens one piece of the railway puzzle. Airports and scenic places are separate collections and do not add these pieces. The same picture is divided into 5, then 10, then 25, then 50 pieces. The grids match the live puzzle: 5 is one row of 5, 10 is 5 by 2, 25 is 5 by 5, and 50 is 10 by 5. When the count is full, the picture is complete and stays in the collection. The count starts again for the next size.</p>
+<p>A new place in a category opens one piece of that category’s current puzzle. Railway stations, airports, cultural and historic places, and scenic places do not fill one another. The grids are 5 (one row), 10 (5 by 2), 25 (5 by 5), and 50 (10 by 5). After the first 50, every later picture is another 50. The finished picture stays, and the next 50 starts at zero.</p>
 <div class="puzzle-flow" data-puzzle-demo data-image="/media/scenes/emperor_maximilian_and_empress_anastasia_frostbourne.webp"></div>
 <p>The sample picture is Emperor Maximilian and Empress Anastasia at Frostbourne. Every level uses that same picture. Dark tiles are pieces not yet earned by a visit.</p>
 </section>
@@ -102,20 +102,20 @@ a:focus-visible{outline:3px solid #f46d55;outline-offset:3px}
 <div class="rule"><strong>Airports are separate</strong><span>Airport collections do not add pieces to the railway mosaic.</span></div>
 </div>
 <div class="faq"><h2 class="sectiontitle">Questions</h2>
-<details><summary>Do I scan a QR code?</summary><p>Railway play is GPS check-in. Merchant QR discovery is Coming Soon. It is not how you play today.</p></details>
+<details><summary>Do I scan a QR code?</summary><p>Collecting places uses GPS check-in. A postcard QR opens the shop enquiry page. QR check-in for collecting places is not available yet.</p></details>
 <details><summary>Can I check in at the same station again?</summary><p>Clearing saved collection data on that device lets you collect again. Until then, one success per station.</p></details>
 <details><summary>Can I save pictures?</summary><p>Create lets you arrange a scene on the device and save a JPEG. The public screen does not send the scene to a Turbo Adventures server.</p></details>
 </div>
 </section>
 <section aria-labelledby="merchant-tab" class="panel merchant" hidden="" id="merchant" role="tabpanel">
-<p class="intro">Merchants are Turbo Spots (ターボ・スポット). Merchant QR discoveries are planned and marked Coming Soon. There is no scanner on this site.</p>
+<p class="intro">Shops can apply for a free listing. A postcard QR opens the enquiry. The pin is added to the map after the application is reviewed.</p>
 <h2 class="sectiontitle">Planned participation</h2>
 <div class="steps">
-<article class="card"><span class="symbol">🏪</span><div class="n">01</div><h3>Coming Soon</h3><p>Turbo Spot QR discovery is a later feature. GPS check-in at railway stations is what is live.</p></article>
+<article class="card"><span class="symbol">🏪</span><div class="n">01</div><h3>Apply</h3><p>Use the postcard QR or the shop page to write to us. After we review the application, the listing can appear on the map.</p></article>
 <article class="card"><span class="symbol">🆓</span><div class="n">02</div><h3>Free later</h3><p>Merchant participation is planned to be free. No subscriptions and no payment.</p></article>
 <article class="card"><span class="symbol">🎁</span><div class="n">03</div><h3>Separate rewards</h3><p>Future merchant QR rewards stay separate from railway mosaic rewards.</p></article>
 </div>
-<div class="banner"><h3>Turbo Spots are being invited</h3><p>A free map listing, QR, and sponsored work are in preparation. See <a href="/en/shops/">For shops</a>. Write to <a href="mailto:info@sansymeon.com">info@sansymeon.com</a>.</p></div>
+<div class="banner"><h3>Turbo Spots are being invited</h3><p>Free map listings are open for applications. Paid promotions are optional. See <a href="/en/shops/">For shops</a>. Write to <a href="mailto:info@sansymeon.com">info@sansymeon.com</a>.</p></div>
 </section>
 <section aria-labelledby="later-tab" class="panel later" hidden="" id="later" role="tabpanel">
 <p class="intro">Submitting or sharing pictures is not the current way to play.</p>
