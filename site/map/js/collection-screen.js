@@ -7,6 +7,7 @@
   "use strict";
 
   var root = null;
+  var openCategory = "";
   var REVEAL_KEY = "turbo.finalReveal.v1";
 
   function t(key, vars) {
@@ -232,8 +233,8 @@
     var puzzle = global.TURBO_CATEGORY_PUZZLE || global.TURBO_RAILWAY_PUZZLE;
     var progress = puzzle.progressFor(cat.id);
     var count = global.TURBO_COLLECTION.list(cat.id).length;
-    return "<h2>" + t(cat.headingKey) + "</h2>" +
-      "<p>" + (progress.finished
+    return "<p class=\"collection-line\"><strong>" + t(cat.headingKey) + "</strong> " +
+      (progress.finished
         ? t(cat.doneKey)
         : t(cat.progressKey, { pieces: progress.pieces, need: progress.needed, count: count })) +
       "</p>" +
@@ -270,43 +271,118 @@
     }).join("") + "</ul>";
   }
 
-  function paint() {
-    var progress = global.TURBO_RAILWAY_PUZZLE.progress();
+  function readJson(key) {
+    try { return JSON.parse(localStorage.getItem(key) || ""); } catch (error) { return null; }
+  }
+
+  function characterCount() {
+    var data = readJson("turbo.playerInventory.v1");
+    return data && data.ids ? data.ids.length : 0;
+  }
+
+  function creationCount() {
+    var data = readJson("tas.playScene.v1");
+    var layers = data && data.scene && data.scene.layers;
+    return layers && layers.length ? 1 : 0;
+  }
+
+  function puzzleCount() {
     var stations = global.TURBO_COLLECTION.list("railway").length;
-    var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
-    var picture = art(progress.needed, progress.key);
-    var completedHtml = done.map(function (record) {
-      return fullImage(record.size || record, record.key);
-    }).join("");
-    if (completedHtml) completedHtml = "<h2>" + t("completedHeading") + "</h2>" + completedHtml;
-    var roundNote = progress.round > 1
-      ? "<p>" + t("puzzleRound", { round: progress.round, need: progress.needed }) + "</p>"
-      : "";
-    var currentHtml = mosaic(progress.needed, progress.pieces, progress.key);
-    var categories = publicCategories();
-    var railwayCat = categories[0];
-    var otherHtml = categories.slice(1).map(categoryProgressLine).join("");
-    root.querySelector("[data-collection-body]").innerHTML =
-      "<h2>" + t(railwayCat.headingKey) + "</h2>" +
-      '<p data-railway-progress>' +
-        t(railwayCat.progressKey, { pieces: progress.pieces, need: progress.needed, count: stations }) +
-      "</p>" +
-      roundNote +
-      "<p>" + t("stationsCollected", { n: stations }) + "</p>" +
-      currentHtml +
-      (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
-      completedHtml +
-      names("railway", railwayCat.emptyKey) +
-      otherHtml +
-      "<div data-player-album></div>" +
-      "<div data-demo-album></div>";
-    if (global.TURBO_STICKER_ALBUM) {
-      global.TURBO_STICKER_ALBUM.render(root.querySelector("[data-player-album]"), { source: "player" });
-      var en = (document.documentElement.lang || "ja").toLowerCase() === "en";
-      global.TURBO_STICKER_ALBUM.render(root.querySelector("[data-demo-album]"), {
-        source: "demo",
-        heading: en ? "Demonstration visits" : "見本の来店"
-      });
+    return global.TURBO_RAILWAY_PUZZLE.completedSizes(stations).length;
+  }
+
+  function menuItems() {
+    var en = global.TURBO_I18N.lang() === "en";
+    return [
+      { id: "stations", icon: "🚉", label: en ? "Stations" : "駅コレクション", count: global.TURBO_COLLECTION.list("railway").length },
+      { id: "airports", icon: "✈️", label: en ? "Airports" : "空港コレクション", count: global.TURBO_COLLECTION.list("airport").length },
+      { id: "discoveries", icon: "🏞️", label: en ? "Discoveries" : "発見コレクション", count: global.TURBO_COLLECTION.list("scenic").length + global.TURBO_COLLECTION.list("cultural").length + global.TURBO_COLLECTION.list("sabah").length },
+      { id: "merchants", icon: "🏪", label: en ? "Merchants" : "お店コレクション", count: global.TURBO_COLLECTION.list("merchant").length },
+      { id: "characters", icon: "🐢", label: en ? "Characters" : "キャラクターコレクション", count: characterCount() },
+      { id: "puzzles", icon: "🧩", label: en ? "Puzzles" : "パズルコレクション", count: puzzleCount() },
+      { id: "creations", icon: "🎨", label: en ? "My Creations" : "マイ作品", count: creationCount() }
+    ];
+  }
+
+  function emptyLine(text) {
+    return "<p class=\"collection-empty\">" + text + "</p>";
+  }
+
+  function detailHtml(id) {
+    var en = global.TURBO_I18N.lang() === "en";
+    if (id === "stations") {
+      return global.TURBO_COLLECTION.list("railway").length
+        ? names("railway")
+        : emptyLine(en ? "No stations yet. Check in on the map and they will appear here." : "駅はまだありません。地図でチェックインすると、ここに並びます。");
+    }
+    if (id === "airports") {
+      return global.TURBO_COLLECTION.list("airport").length
+        ? names("airport")
+        : emptyLine(en ? "No airports yet. Check in at an airport and it will appear here." : "空港はまだありません。空港でチェックインすると、ここに並びます。");
+    }
+    if (id === "discoveries") {
+      var scenic = global.TURBO_COLLECTION.list("scenic");
+      var cultural = global.TURBO_COLLECTION.list("cultural");
+      var sabah = global.TURBO_COLLECTION.list("sabah");
+      if (!scenic.length && !cultural.length && !sabah.length) {
+        return emptyLine(en ? "No discoveries yet. Scenic and cultural places you check in will appear here." : "発見はまだありません。景勝地や文化・歴史の場所でチェックインすると、ここに並びます。");
+      }
+      return (scenic.length ? "<h2>" + t("scenicHeading") + "</h2>" + names("scenic") : "") +
+        (cultural.length ? "<h2>" + t("culturalHeading") + "</h2>" + names("cultural") : "") +
+        (sabah.length ? "<h2>Sabah</h2>" + names("sabah") : "");
+    }
+    if (id === "merchants") {
+      return global.TURBO_COLLECTION.list("merchant").length
+        ? names("merchant")
+        : emptyLine(en ? "No shops yet. A shop check-in will appear here." : "お店はまだありません。お店でチェックインすると、ここに並びます。");
+    }
+    if (id === "characters") {
+      return characterCount()
+        ? "<div data-player-album></div>"
+        : emptyLine(en ? "No characters yet. Characters you collect will appear here." : "キャラクターはまだありません。仲間が集まると、ここに並びます。");
+    }
+    if (id === "puzzles") {
+      var progress = global.TURBO_RAILWAY_PUZZLE.progress();
+      var stations = global.TURBO_COLLECTION.list("railway").length;
+      var done = global.TURBO_RAILWAY_PUZZLE.completedSizes(stations);
+      var picture = art(progress.needed, progress.key);
+      var completedHtml = done.map(function (record) {
+        return fullImage(record.size || record, record.key);
+      }).join("");
+      if (!progress.pieces && !completedHtml) {
+        return emptyLine(en ? "No puzzles yet. Station check-ins add pieces." : "パズルはまだありません。駅のチェックインでピースが増えます。");
+      }
+      return '<p class="collection-line">' + t("railwayProgress", { pieces: progress.pieces, need: progress.needed, count: stations }) + "</p>" +
+        mosaic(progress.needed, progress.pieces, progress.key) +
+        (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
+        (completedHtml ? "<h2>" + t("completedHeading") + "</h2>" + completedHtml : "");
+    }
+    var scene = readJson("tas.playScene.v1");
+    var layers = scene && scene.scene && scene.scene.layers;
+    if (!layers || !layers.length) {
+      return emptyLine(en ? "No pictures yet. A picture you make in Create will appear here." : "作品はまだありません。つくるページで作った絵が、ここに残ります。");
+    }
+    var title = scene.scene.name || (en ? "My picture" : "マイ作品");
+    return "<p class=\"collection-line\">" + escapeAttr(title) + "</p>" +
+      "<p><a class=\"collection-create\" href=\"/create/\">" + (en ? "Open in Create" : "つくるページで開く") + "</a></p>";
+  }
+
+  function paint() {
+    var body = root.querySelector("[data-collection-body]");
+    if (!openCategory) {
+      body.innerHTML = "<div class=\"collection-menu\">" + menuItems().map(function (item) {
+        return "<button type=\"button\" data-open-category=\"" + item.id + "\">" +
+          "<span>" + item.icon + " " + item.label + "</span><strong>" + item.count + "</strong></button>";
+      }).join("") + "</div>";
+      return;
+    }
+    var current = menuItems().filter(function (item) { return item.id === openCategory; })[0];
+    body.innerHTML = "<button type=\"button\" class=\"collection-back\" data-collection-menu>" +
+      (global.TURBO_I18N.lang() === "en" ? "← Back to My Collection" : "← マイコレクションに戻る") +
+      "</button><h2>" + current.icon + " " + current.label + "</h2>" + detailHtml(openCategory);
+    var album = body.querySelector("[data-player-album]");
+    if (album && global.TURBO_STICKER_ALBUM) {
+      global.TURBO_STICKER_ALBUM.render(album, { source: "player", heading: "", collectedOnly: true });
     }
   }
 
@@ -358,9 +434,6 @@
     root.innerHTML =
       '<header class="overlay-header"><button type="button" class="btn btn-back" data-collection-close>' +
       t("collectionClose") + '</button><h2 class="overlay-title">' + t("collectionTitle") + "</h2></header>" +
-      '<p class="collection-slogan">' + t("slogan") + "</p>" +
-      '<p class="collection-demo-link"><a href="' + (document.documentElement.lang === "en" ? "/en/collection-demo/" : "/collection-demo/") + '">' + t("demoAlbum") + "</a></p>" +
-      '<p class="collection-note">' + t("deviceNote") + "</p>" +
       '<div class="collection-body" data-collection-body></div>' +
       (location.search.indexOf("test=1") >= 0
         ? '<p class="collection-reset"><button type="button" class="btn btn-ghost" data-collection-reset>' +
@@ -376,6 +449,18 @@
 
     root.querySelector("[data-collection-close]").addEventListener("click", close);
     root.addEventListener("click", function (event) {
+      var menu = event.target.closest("[data-collection-menu]");
+      if (menu && root.contains(menu)) {
+        openCategory = "";
+        paint();
+        return;
+      }
+      var category = event.target.closest("[data-open-category]");
+      if (category && root.contains(category)) {
+        openCategory = category.getAttribute("data-open-category");
+        paint();
+        return;
+      }
       var zoom = event.target.closest("[data-zoom]");
       if (zoom && root.contains(zoom)) {
         var viewer = document.getElementById("image-view");

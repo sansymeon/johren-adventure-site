@@ -754,12 +754,12 @@ class Handler(BaseHTTPRequestHandler):
                 return
             try:
                 action = body.get("action") or "save"
-            if action == "create":
-                data = demo_merchants.create_merchant()
-            elif action == "add-qr":
-                data = demo_merchants.add_qr(body.get("id") or "")
-            else:
-                data = demo_merchants.update_merchant(body.get("id") or "", body)
+                if action == "create":
+                    data = demo_merchants.create_merchant()
+                elif action == "add-qr":
+                    data = demo_merchants.add_qr(body.get("id") or "")
+                else:
+                    data = demo_merchants.update_merchant(body.get("id") or "", body)
             except ValueError as error:
                 self.send_json(400, {"error": str(error)})
                 return
@@ -791,6 +791,16 @@ class Handler(BaseHTTPRequestHandler):
                 else:
                     postcard_store.write_public_registry()
                     result["postcard"] = destination
+            self.send_json(200, result)
+            return
+        if path == "/api/places/delete":
+            raw = self.read_body() or b""
+            body = json.loads(raw.decode() or "{}")
+            try:
+                result = placebook.delete_place(body.get("id") or "")
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+                return
             self.send_json(200, result)
             return
         if path == "/api/places/disable":

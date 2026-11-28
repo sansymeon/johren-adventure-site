@@ -371,6 +371,7 @@
           copy.collected = ids.indexOf(item.id) !== -1;
           return copy;
         });
+        if (options.collectedOnly) list = list.filter(function (item) { return item.collected && item.file; });
       }
       if (options.source === "show") {
         options.total = list.length;

@@ -572,16 +572,45 @@ body.overlay-open .top-bar {
   font-size: 14px;
 }
 
+.collection-view { overflow-x: hidden; max-width: 100%; }
 .collection-body {
-  padding: 8px 16px 24px;
+  padding: 0 12px 16px;
   overflow-x: hidden;
   max-width: 100%;
+  box-sizing: border-box;
 }
+.collection-menu { display: grid; gap: 10px; }
+.collection-menu button {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  width: 100%; min-height: 64px; padding: 14px 16px; box-sizing: border-box;
+  border: 1px solid #d7c7a2; border-radius: 16px; background: #fff; color: #173043;
+  font: inherit; font-size: 18px; font-weight: 800; text-align: left; cursor: pointer;
+}
+.collection-menu strong { font-size: 20px; color: #0e7884; }
+.collection-back {
+  display: block; width: 100%; margin: 0 0 12px; padding: 14px 16px; box-sizing: border-box;
+  border: 0; border-radius: 999px; background: #c4473a; color: #fff;
+  font: inherit; font-size: 17px; font-weight: 850; cursor: pointer;
+}
+.collection-empty { margin: 8px 0 16px; line-height: 1.55; }
+.collection-create { font-weight: 800; }
+.collection-detail-wide .puzzle-finished { width: 100%; }
 
 .collection-body h2 {
-  margin: 18px 0 6px;
-  font-size: 18px;
+  margin: 10px 0 4px;
+  font-size: 16px;
 }
+
+.collection-welcome { margin: 0 12px 6px; font-weight: 750; }
+.collection-help { margin: 0 12px 8px; }
+.collection-help summary { font-weight: 800; cursor: pointer; }
+.collection-help p { margin: 6px 0 0; }
+.collection-line { margin: 8px 0 4px; }
+.collection-body ul { margin: 4px 0 8px; padding-left: 1.1em; }
+.collection-body .puzzle-finished { display: block; width: 100%; max-width: 100%; margin: 0 0 16px; }
+.collection-body .puzzle-complete { max-height: none; }
+.collection-view .sticker-grid { grid-template-columns: repeat(3, 1fr); }
+.collection-view .sticker-card img { object-fit: contain; }
 
 .collection-note,
 .collection-reset {
@@ -619,7 +648,8 @@ body.overlay-open .top-bar {
   position: relative;
   width: 100%;
   max-width: 100%;
-  margin: 8px 0;
+  max-height: none;
+  margin: 4px 0;
   border-radius: 12px;
   overflow: hidden;
   background: #123e3a;

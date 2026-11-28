@@ -50498,5 +50498,627 @@ window.MAP_DATA = {
     { id: "noboribetsu_jigokudani", area: "hokkaido", name: "登別地獄谷", nameEn: "Noboribetsu Hell Valley", type: "viewpoint", lat: 42.497572, lng: 141.145335 },
     { id: "cape_kamui", area: "hokkaido", name: "神威岬", nameEn: "Cape Kamui", type: "viewpoint", lat: 43.333570, lng: 140.346692 },
     { id: "mount_hakodate_observatory", area: "hokkaido", name: "函館山展望台", nameEn: "Mount Hakodate Observatory", type: "viewpoint", lat: 41.759430, lng: 140.704641 },
+
+    // Keio stations in the Tokyo area. One pin per station. Shinjuku, Shibuya, Kichijoji, Takao, Hashimoto, and Bubaigawara were already on the map.
+    {
+      id: "keio_sasazuka",
+      line: "keio",
+      area: "tokyo",
+      name: "笹塚",
+      nameEn: "Sasazuka",
+      type: "station",
+      lat: 35.6737288,
+      lng: 139.6673643
+    },
+    {
+      id: "keio_daitabashi",
+      line: "keio",
+      area: "tokyo",
+      name: "代田橋",
+      nameEn: "Daitabashi",
+      type: "station",
+      lat: 35.670976,
+      lng: 139.6587625
+    },
+    {
+      id: "keio_meidaimae",
+      line: "keio",
+      area: "tokyo",
+      name: "明大前",
+      nameEn: "Meidaimae",
+      type: "station",
+      lat: 35.6683792,
+      lng: 139.6508853
+    },
+    {
+      id: "keio_shimo_takaido",
+      line: "keio",
+      area: "tokyo",
+      name: "下高井戸",
+      nameEn: "Shimo-Takaido",
+      type: "station",
+      lat: 35.6661855,
+      lng: 139.6408863
+    },
+    {
+      id: "keio_sakurajosui",
+      line: "keio",
+      area: "tokyo",
+      name: "桜上水",
+      nameEn: "Sakurajōsui",
+      type: "station",
+      lat: 35.6677174,
+      lng: 139.6319207
+    },
+    {
+      id: "keio_kami_kitazawa",
+      line: "keio",
+      area: "tokyo",
+      name: "上北沢",
+      nameEn: "Kami-Kitazawa",
+      type: "station",
+      lat: 35.668743,
+      lng: 139.623425
+    },
+    {
+      id: "keio_hachimanyama",
+      line: "keio",
+      area: "tokyo",
+      name: "八幡山",
+      nameEn: "Hachimanyama",
+      type: "station",
+      lat: 35.6695028,
+      lng: 139.6170707
+    },
+    {
+      id: "keio_roka_koen",
+      line: "keio",
+      area: "tokyo",
+      name: "芦花公園",
+      nameEn: "Roka-kōen",
+      type: "station",
+      lat: 35.6704668,
+      lng: 139.6077473
+    },
+    {
+      id: "keio_chitose_karasuyama",
+      line: "keio",
+      area: "tokyo",
+      name: "千歳烏山",
+      nameEn: "Chitose-Karasuyama",
+      type: "station",
+      lat: 35.6698016,
+      lng: 139.601214
+    },
+    {
+      id: "keio_sengawa",
+      line: "keio",
+      area: "tokyo",
+      name: "仙川",
+      nameEn: "Sengawa",
+      type: "station",
+      lat: 35.6622509,
+      lng: 139.585065
+    },
+    {
+      id: "keio_tsutsujigaoka",
+      line: "keio",
+      area: "tokyo",
+      name: "つつじヶ丘",
+      nameEn: "Tsutsujigaoka",
+      type: "station",
+      lat: 35.6580962,
+      lng: 139.575233
+    },
+    {
+      id: "keio_shibasaki",
+      line: "keio",
+      area: "tokyo",
+      name: "柴崎",
+      nameEn: "Shibasaki",
+      type: "station",
+      lat: 35.654083,
+      lng: 139.5665701
+    },
+    {
+      id: "keio_kokuryo",
+      line: "keio",
+      area: "tokyo",
+      name: "国領",
+      nameEn: "Kokuryō",
+      type: "station",
+      lat: 35.6502194,
+      lng: 139.5585084
+    },
+    {
+      id: "keio_fuda",
+      line: "keio",
+      area: "tokyo",
+      name: "布田",
+      nameEn: "Fuda",
+      type: "station",
+      lat: 35.6501984,
+      lng: 139.5512247
+    },
+    {
+      id: "keio_chofu",
+      line: "keio",
+      area: "tokyo",
+      name: "調布",
+      nameEn: "Chōfu",
+      type: "station",
+      lat: 35.6518545,
+      lng: 139.5444712
+    },
+    {
+      id: "keio_nishi_chofu",
+      line: "keio",
+      area: "tokyo",
+      name: "西調布",
+      nameEn: "Nishi-Chōfu",
+      type: "station",
+      lat: 35.6571484,
+      lng: 139.5303177
+    },
+    {
+      id: "keio_tobitakyu",
+      line: "keio",
+      area: "tokyo",
+      name: "飛田給",
+      nameEn: "Tobitakyū",
+      type: "station",
+      lat: 35.6602091,
+      lng: 139.5232193
+    },
+    {
+      id: "keio_musashinodai",
+      line: "keio",
+      area: "tokyo",
+      name: "武蔵野台",
+      nameEn: "Musashinodai",
+      type: "station",
+      lat: 35.6642284,
+      lng: 139.5109606
+    },
+    {
+      id: "keio_tama_reien",
+      line: "keio",
+      area: "tokyo",
+      name: "多磨霊園",
+      nameEn: "Tama-reien",
+      type: "station",
+      lat: 35.6660568,
+      lng: 139.5030633
+    },
+    {
+      id: "keio_higashi_fuchu",
+      line: "keio",
+      area: "tokyo",
+      name: "東府中",
+      nameEn: "Higashi-Fuchū",
+      type: "station",
+      lat: 35.6694035,
+      lng: 139.4961441
+    },
+    {
+      id: "keio_fuchu",
+      line: "keio",
+      area: "tokyo",
+      name: "府中",
+      nameEn: "Fuchū",
+      type: "station",
+      lat: 35.6723382,
+      lng: 139.4802363
+    },
+    {
+      id: "keio_nakagawara",
+      line: "keio",
+      area: "tokyo",
+      name: "中河原",
+      nameEn: "Nakagawara",
+      type: "station",
+      lat: 35.659855,
+      lng: 139.457956
+    },
+    {
+      id: "keio_seiseki_sakuragaoka",
+      line: "keio",
+      area: "tokyo",
+      name: "聖蹟桜ヶ丘",
+      nameEn: "Seiseki-Sakuragaoka",
+      type: "station",
+      lat: 35.6515468,
+      lng: 139.4471949
+    },
+    {
+      id: "keio_mogusaen",
+      line: "keio",
+      area: "tokyo",
+      name: "百草園",
+      nameEn: "Mogusaen",
+      type: "station",
+      lat: 35.65715,
+      lng: 139.430369
+    },
+    {
+      id: "keio_takahatafudo",
+      line: "keio",
+      area: "tokyo",
+      name: "高幡不動",
+      nameEn: "Takahatafudō",
+      type: "station",
+      lat: 35.6615023,
+      lng: 139.4152182
+    },
+    {
+      id: "keio_minamidaira",
+      line: "keio",
+      area: "tokyo",
+      name: "南平",
+      nameEn: "Minamidaira",
+      type: "station",
+      lat: 35.6549,
+      lng: 139.3913
+    },
+    {
+      id: "keio_hirayama_joshi_koen",
+      line: "keio",
+      area: "tokyo",
+      name: "平山城址公園",
+      nameEn: "Hirayamajōshi-kōen",
+      type: "station",
+      lat: 35.6462989,
+      lng: 139.3811067
+    },
+    {
+      id: "keio_naganuma",
+      line: "keio",
+      area: "tokyo",
+      name: "長沼",
+      nameEn: "Naganuma",
+      type: "station",
+      lat: 35.6429564,
+      lng: 139.3665175
+    },
+    {
+      id: "keio_kitano",
+      line: "keio",
+      area: "tokyo",
+      name: "北野",
+      nameEn: "Kitano",
+      type: "station",
+      lat: 35.6446036,
+      lng: 139.3540839
+    },
+    {
+      id: "keio_hachioji",
+      line: "keio",
+      area: "tokyo",
+      name: "京王八王子",
+      nameEn: "Keiō-Hachiōji",
+      type: "station",
+      lat: 35.6587441,
+      lng: 139.34231
+    },
+    {
+      id: "keio_hatsudai",
+      line: "keio_new",
+      area: "tokyo",
+      name: "初台",
+      nameEn: "Hatsudai",
+      type: "station",
+      lat: 35.680522,
+      lng: 139.6865186
+    },
+    {
+      id: "keio_hatagaya",
+      line: "keio_new",
+      area: "tokyo",
+      name: "幡ヶ谷",
+      nameEn: "Hatagaya",
+      type: "station",
+      lat: 35.6769485,
+      lng: 139.6768648
+    },
+    {
+      id: "keio_shinsen",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "神泉",
+      nameEn: "Shinsen",
+      type: "station",
+      lat: 35.6571089,
+      lng: 139.6935856
+    },
+    {
+      id: "keio_komaba_todaimae",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "駒場東大前",
+      nameEn: "Komaba-Tōdaimae",
+      type: "station",
+      lat: 35.6586714,
+      lng: 139.6844553
+    },
+    {
+      id: "keio_ikenoue",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "池ノ上",
+      nameEn: "Ikenoue",
+      type: "station",
+      lat: 35.6604542,
+      lng: 139.6728696
+    },
+    {
+      id: "keio_shindaita",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "新代田",
+      nameEn: "Shindaita",
+      type: "station",
+      lat: 35.6624255,
+      lng: 139.6602458
+    },
+    {
+      id: "keio_higashi_matsubara",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "東松原",
+      nameEn: "Higashi-Matsubara",
+      type: "station",
+      lat: 35.6626946,
+      lng: 139.6554229
+    },
+    {
+      id: "keio_eifukucho",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "永福町",
+      nameEn: "Eifukuchō",
+      type: "station",
+      lat: 35.6762576,
+      lng: 139.642645
+    },
+    {
+      id: "keio_nishi_eifuku",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "西永福",
+      nameEn: "Nishi-Eifuku",
+      type: "station",
+      lat: 35.6787507,
+      lng: 139.6354902
+    },
+    {
+      id: "keio_hamadayama",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "浜田山",
+      nameEn: "Hamadayama",
+      type: "station",
+      lat: 35.6818628,
+      lng: 139.6271555
+    },
+    {
+      id: "keio_takaido",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "高井戸",
+      nameEn: "Takaido",
+      type: "station",
+      lat: 35.6832128,
+      lng: 139.6147151
+    },
+    {
+      id: "keio_fujimigaoka",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "富士見ヶ丘",
+      nameEn: "Fujimigaoka",
+      type: "station",
+      lat: 35.684671,
+      lng: 139.6076113
+    },
+    {
+      id: "keio_kugayama",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "久我山",
+      nameEn: "Kugayama",
+      type: "station",
+      lat: 35.6875138,
+      lng: 139.5994348
+    },
+    {
+      id: "keio_mitakadai",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "三鷹台",
+      nameEn: "Mitakadai",
+      type: "station",
+      lat: 35.691718,
+      lng: 139.5885656
+    },
+    {
+      id: "keio_inokashira_koen",
+      line: "keio_inokashira",
+      area: "tokyo",
+      name: "井の頭公園",
+      nameEn: "Inokashira-kōen",
+      type: "station",
+      lat: 35.6975016,
+      lng: 139.5827278
+    },
+    {
+      id: "keio_tamagawa",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王多摩川",
+      nameEn: "Keiō-Tamagawa",
+      type: "station",
+      lat: 35.6449852,
+      lng: 139.5371578
+    },
+    {
+      id: "keio_inadazutsumi",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王稲田堤",
+      nameEn: "Keiō-Inadazutsumi",
+      type: "station",
+      lat: 35.6343347,
+      lng: 139.5324645
+    },
+    {
+      id: "keio_yomiuri_land",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王よみうりランド",
+      nameEn: "Keiō-Yomiuri-Land",
+      type: "station",
+      lat: 35.6329519,
+      lng: 139.516747
+    },
+    {
+      id: "keio_inagi",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "稲城",
+      nameEn: "Inagi",
+      type: "station",
+      lat: 35.636207,
+      lng: 139.4999111
+    },
+    {
+      id: "keio_wakabadai",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "若葉台",
+      nameEn: "Wakabadai",
+      type: "station",
+      lat: 35.6200669,
+      lng: 139.4724022
+    },
+    {
+      id: "keio_nagayama",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王永山",
+      nameEn: "Keiō-Nagayama",
+      type: "station",
+      lat: 35.6302581,
+      lng: 139.4483564
+    },
+    {
+      id: "keio_tama_center",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王多摩センター",
+      nameEn: "Keiō-Tama-Center",
+      type: "station",
+      lat: 35.6240666,
+      lng: 139.4249197
+    },
+    {
+      id: "keio_horinouchi",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "京王堀之内",
+      nameEn: "Keiō-Horinouchi",
+      type: "station",
+      lat: 35.6244618,
+      lng: 139.3999926
+    },
+    {
+      id: "keio_minami_osawa",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "南大沢",
+      nameEn: "Minami-Ōsawa",
+      type: "station",
+      lat: 35.6134961,
+      lng: 139.3808122
+    },
+    {
+      id: "keio_tamasakai",
+      line: "keio_sagamihara",
+      area: "tokyo",
+      name: "多摩境",
+      nameEn: "Tamasakai",
+      type: "station",
+      lat: 35.6022433,
+      lng: 139.3666997
+    },
+    {
+      id: "keio_katakura",
+      line: "keio_takao",
+      area: "tokyo",
+      name: "京王片倉",
+      nameEn: "Keiō-Katakura",
+      type: "station",
+      lat: 35.644255,
+      lng: 139.337794
+    },
+    {
+      id: "keio_yamada",
+      line: "keio_takao",
+      area: "tokyo",
+      name: "山田",
+      nameEn: "Yamada",
+      type: "station",
+      lat: 35.644481,
+      lng: 139.321601
+    },
+    {
+      id: "keio_mejirodai",
+      line: "keio_takao",
+      area: "tokyo",
+      name: "めじろ台",
+      nameEn: "Mejirodai",
+      type: "station",
+      lat: 35.6433956,
+      lng: 139.3070642
+    },
+    {
+      id: "keio_hazama",
+      line: "keio_takao",
+      area: "tokyo",
+      name: "狭間",
+      nameEn: "Hazama",
+      type: "station",
+      lat: 35.6397463,
+      lng: 139.2931436
+    },
+    {
+      id: "keio_takaosanguchi",
+      line: "keio_takao",
+      area: "tokyo",
+      name: "高尾山口",
+      nameEn: "Takaosanguchi",
+      type: "station",
+      lat: 35.6322938,
+      lng: 139.2699798
+    },
+    {
+      id: "keio_tama_dobutsu_koen",
+      line: "keio_dobutsuen",
+      area: "tokyo",
+      name: "多摩動物公園",
+      nameEn: "Tama-Dōbutsukōen",
+      type: "station",
+      lat: 35.6486656,
+      lng: 139.4037336
+    },
+    {
+      id: "keio_fuchu_keiba_seimon_mae",
+      line: "keio_keibajo",
+      area: "tokyo",
+      name: "府中競馬正門前",
+      nameEn: "Fuchū-Keiba-Seimon-mae",
+      type: "station",
+      lat: 35.6684223,
+      lng: 139.4847109
+    },
   ]
 };

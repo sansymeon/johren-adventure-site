@@ -22,6 +22,7 @@
   input, select, textarea { width: 100%; font: inherit; padding: 8px; }
   button { font: inherit; background: #0e7884; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; margin: 4px 4px 0 0; }
   button.ghost { background: #fff; color: #16332f; border: 1px solid #d5d0c4; }
+  button.danger { background: #9d1c2a; margin-left: 28px; }
   #map { height: 320px; border-radius: 12px; }
   li { margin: 4px 0; }
   .warn { background: #fff6e4; padding: 8px; border-radius: 8px; }
@@ -31,7 +32,7 @@
 <header>
   <p><a href="/">← Admin home</a></p>
   <h1>Map and merchant manager</h1>
-  <p>Edits are saved on this computer and appear on the local map at <a href="http://127.0.0.1:8765/map/">http://127.0.0.1:8765/map/</a>. They are not on johrenadventure.com until you publish from Admin home. The original map file is not rewritten. Undo restores the previous edit.</p>
+  <p>Edits are saved on this computer and appear on the local map at <a href="http://127.0.0.1:8765/map/">http://127.0.0.1:8765/map/</a>. They are not on johrenadventure.com until you publish from Admin home. Hide keeps the record so it can be shown again. Delete removes the location. The original map file is not rewritten. Undo restores the previous edit.</p>
 </header>
 <main>
 <div class="layout">
@@ -108,6 +109,7 @@
     <button type="button" class="ghost" id="disable">Hide from the map</button>
     <button type="button" class="ghost" id="enable">Show on the map</button>
     <button type="button" class="ghost" id="undo">Undo last edit</button>
+    <button type="button" class="danger" id="remove">Delete</button>
   </form>
 </section>
 </div>
@@ -415,6 +417,17 @@ document.getElementById("disable").onclick = async function () {
 document.getElementById("enable").onclick = async function () {
   var body = await api("/api/places/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: document.getElementById("id").value, disabled: false }) });
   say(body.error || "Shown on the local map.");
+};
+document.getElementById("remove").onclick = async function () {
+  var id = document.getElementById("id").value;
+  var name = document.getElementById("name").value || id;
+  if (!id) { say("Open a saved location before deleting it."); return; }
+  var confirmed = window.confirm("このスポットを完全に削除しますか？\nPermanently delete this location?\n\n" + name);
+  if (!confirmed) return;
+  var body = await api("/api/places/delete", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: id }) });
+  if (body.error) { say(body.error); return; }
+  say("Deleted locally. It leaves the public map after you publish from Admin home.");
+  document.getElementById("fresh").click();
 };
 document.getElementById("undo").onclick = async function () {
   var body = await api("/api/places/undo", { method: "POST" });

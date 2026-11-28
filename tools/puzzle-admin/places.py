@@ -206,10 +206,14 @@ def catalogue():
     store = load_store()["places"]
     rows = []
     for pid in order:
-        rows.append(_view(base[pid], store.get(pid)))
+        override = store.get(pid)
+        if override and override.get("deleted"):
+            continue
+        rows.append(_view(base[pid], override))
     for pid, override in store.items():
-        if pid not in base:
-            rows.append(_view({"id": pid, "country": override.get("country") or "japan"}, override))
+        if override.get("deleted") or pid in base:
+            continue
+        rows.append(_view({"id": pid, "country": override.get("country") or "japan"}, override))
     return rows
 
 
@@ -368,6 +372,27 @@ def save_place(body, confirm=False):
     save_provenance(record["id"], body)
     record.update(provenance_for(record["id"]))
     return {"ok": True, "place": record}
+
+
+def delete_place(place_id):
+    """Remove a place from the published map. A base pin keeps a deleted marker so the original file is not rewritten and the pin does not return. A place that exists only as an edit is dropped. Player collections are not read or written."""
+    place_id = (place_id or "").strip()
+    current = get_place(place_id)
+    if not current:
+        raise ValueError("Unknown place")
+    data = load_store()
+    base_ids = {pin.get("id") for pin in base_pins()}
+    if place_id in base_ids:
+        data["places"][place_id] = {
+            "id": place_id,
+            "country": current.get("country") or "japan",
+            "name": current.get("name") or place_id,
+            "deleted": True,
+        }
+    else:
+        data["places"].pop(place_id, None)
+    backup_and_write(data)
+    return {"ok": True, "id": place_id}
 
 
 def set_disabled(place_id, disabled):

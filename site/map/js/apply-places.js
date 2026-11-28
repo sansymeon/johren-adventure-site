@@ -1,6 +1,6 @@
 /**
  * Apply local admin edits on top of the shipped map files.
- * A disabled place is hidden. Its id stays in the override file.
+ * A disabled place is hidden and can be shown again. A deleted place is removed.
  * This does not read or write player collections.
  */
 (function (global) {
@@ -24,7 +24,7 @@
     Object.keys(places).forEach(function (id) {
       var row = places[id];
       if (!row || countryOf(row) !== country) return;
-      if (row.disabled) {
+      if (row.deleted || row.disabled) {
         if (index[id] != null) {
           bag.pins.splice(index[id], 1);
           index = {};

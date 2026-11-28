@@ -14,6 +14,8 @@
 .growing-sign { margin-top: 8px; font-weight: 850; color: #be523f; }
 .album { max-width: 760px; margin: 0 auto; padding: 12px 14px 48px; color: #173043; font: 16px/1.45 system-ui, sans-serif; background: #f7f1e6; }
 .album h1, .album h2 { color: #0e7884; }
+.own-collection { margin: 0 0 8px; }
+.own-collection a { color: #0e7884; font-weight: 850; text-decoration: none; }
 .welcome-theatre h2 { color: #8b1230; margin-bottom: 4px; }
 .welcome-theatre p { margin: 4px 0 8px; }
 #picture-view { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; align-content: center; gap: 12px; padding: 16px; background: rgba(20, 8, 14, .72); }
