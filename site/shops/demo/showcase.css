@@ -34,7 +34,21 @@
 .actions a, .actions button { display: block; text-align: center; text-decoration: none; border-radius: 999px; padding: 12px 16px; font-weight: 800; border: 0; font: inherit; }
 .primary { background: #e85f4d; color: #fff; }
 .secondary { background: #173043; color: #fff; }
+.story, .guarantee, .status, .plan { background: #fff; border: 1px solid #dce8ea; border-radius: 16px; padding: 14px; margin: 10px 0; }
+.story h2, .guarantee h2 { font-size: 1.2rem; line-height: 1.35; }
+.steps { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0; padding: 0; list-style: none; }
+.steps li { flex: 1 1 30%; background: #fff9ed; border: 1px solid #efd48a; border-radius: 12px; padding: 10px 6px; text-align: center; font-size: 0.85rem; font-weight: 800; }
+.steps li:not(:last-child)::after { content: "→"; display: block; margin-top: 4px; color: #8a6a22; }
+.easy { font-weight: 800; color: #087a79; }
+.offer { display: inline-block; margin: 8px 0; padding: 4px 10px; border-radius: 999px; background: #fff3c4; font-weight: 800; font-size: 0.85rem; }
+.plans { display: grid; gap: 8px; }
+.plan.is-on { border-color: #c6a15a; box-shadow: 0 0 0 2px #c6a15a; }
+.price { font-size: 1.15rem; font-weight: 800; }
+.plan ul, .status ul { margin: 0 0 8px; padding-left: 1.1em; }
+.choose { font-weight: 700; }
+.status { background: #f7fbfb; }
 .note { background: #fff8e7; border-radius: 12px; padding: 12px; }
+@media (min-width: 700px) { .plans { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 700px) {
   .selector { grid-template-columns: repeat(3, 1fr); }
   .row.two { grid-template-columns: 1fr 1fr; }

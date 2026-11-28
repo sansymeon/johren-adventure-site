@@ -1,6 +1,6 @@
 # Phase 2 — operational independence
 
-27 November 2026. Plan only. Not implemented. Phase 1 is the local puzzle and wording work described in `docs/player-data.md`. Do not start Phase 2 until Phase 1 has been reviewed and, if accepted, published.
+27 November 2026. Admin restart and the map and merchant manager are implemented locally and are not published. The later modules in this file are not started. Phase 1 is the local puzzle and wording work described in `docs/player-data.md`. Do not start Phase 2 until Phase 1 has been reviewed and, if accepted, published.
 
 The aim is that map pins, public Create assets, frequent page text, the local server, and a full backup can be handled without Cursor. Existing files stay the source of truth. No new hosted service.
 

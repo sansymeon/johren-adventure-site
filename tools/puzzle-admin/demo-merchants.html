@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merchants</title>
+<style>
+  body { margin: 0; font: 16px/1.45 system-ui, sans-serif; background: #f6f3ec; color: #173043; }
+  main { max-width: 800px; margin: 0 auto; padding: 16px; }
+  article { background: #fff; border-radius: 12px; padding: 12px; margin: 12px 0; }
+  label { display: block; margin: 8px 0; }
+  input, select { width: 100%; font: inherit; padding: 8px; }
+  button, a.btn { display: inline-block; margin: 6px 6px 0 0; padding: 8px 12px; border-radius: 8px; background: #0e7884; color: #fff; text-decoration: none; border: 0; font: inherit; }
+  img { width: 160px; height: auto; }
+</style>
+</head>
+<body>
+<main>
+<p><a href="/">← Admin home</a></p>
+<h1>Merchants</h1>
+<p>A new shop receives the next TS number. That number and its URL stay fixed. Demo shops also keep /shops/demo-a/, demo-b and demo-c.</p>
+<p><button type="button" id="create">New merchant</button></p>
+<div id="list"></div>
+</main>
+<script>
+async function api(url, options) {
+  var response = await fetch(url, options);
+  var body = await response.json();
+  if (response.status === 401) location.href = "/";
+  return body;
+}
+function field(label, value, key, mid) {
+  return "<label>" + label + "<input data-m=\"" + mid + "\" data-k=\"" + key + "\" value=\"" + String(value || "").replace(/"/g, "&quot;") + "\"></label>";
+}
+function paint(data) {
+  var box = document.getElementById("list");
+  box.innerHTML = "";
+  Object.keys(data.merchants).forEach(function (mid) {
+    var shop = data.merchants[mid];
+    var page = shop.demo && shop.alias ? "/shops/" + shop.alias + "/" : "/shops/" + shop.id + "/";
+    var plans = ["free", "standard", "premium"].map(function (plan) {
+      return "<option value=\"" + plan + "\"" + (shop.plan === plan ? " selected" : "") + ">" + plan + "</option>";
+    }).join("");
+    var characters = "<option value=\"\">Chosen at the visit for a free shop</option>" + data.characters.map(function (item) {
+      return "<option value=\"" + item.id + "\"" + (shop.character === item.id ? " selected" : "") + ">" + item.en + "</option>";
+    }).join("");
+    var puzzles = data.puzzles.map(function (file) {
+      return "<option value=\"" + file + "\"" + (shop.puzzle === file ? " selected" : "") + ">" + file.split("/").pop() + "</option>";
+    }).join("");
+    var card = document.createElement("article");
+    card.innerHTML = "<h2>" + shop.name.en + "</h2><p>" + shop.id + " · " + page + "</p><p>QR " + (shop.qrs || []).join(", ") + "</p>" +
+      (shop.qrs && shop.qrs.length ? "<img alt=\"\" src=\"/api/demo-merchants/qr.png?m=" + mid + "\">" : "") +
+      "<p><a class=\"btn\" href=\"http://127.0.0.1:8765" + page + "\">Preview customer page</a> " +
+      "<button type=\"button\" data-qr=\"" + mid + "\">Add a QR code</button></p>" +
+      "<label>Plan <select data-m=\"" + mid + "\" data-k=\"plan\">" + plans + "</select></label>" +
+      field("Japanese name", shop.name.ja, "ja", mid) +
+      field("English name", shop.name.en, "en", mid) +
+      field("Photograph", shop.photo, "photo", mid) +
+      "<label>Reward character <select data-m=\"" + mid + "\" data-k=\"character\">" + characters + "</select></label>" +
+      "<label>Sponsored puzzle <select data-m=\"" + mid + "\" data-k=\"puzzle\">" + puzzles + "</select></label>" +
+      field("Calendar image", shop.calendar, "calendar", mid) +
+      field("Website", shop.website, "website", mid) +
+      "<label><input data-m=\"" + mid + "\" data-k=\"enabled\" type=\"checkbox\"" + (shop.enabled ? " checked" : "") + "> Enabled</label>" +
+      "<button type=\"button\" data-save=\"" + mid + "\">Save</button>";
+    box.appendChild(card);
+  });
+  box.querySelectorAll("[data-save]").forEach(function (button) {
+    button.onclick = function () { save(button.getAttribute("data-save")); };
+  });
+  box.querySelectorAll("[data-qr]").forEach(function (button) {
+    button.onclick = async function () {
+      paint(await api("/api/demo-merchants", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "add-qr", id: button.getAttribute("data-qr") }) }));
+    };
+  });
+}
+async function save(mid) {
+  var body = { action: "save", id: mid, name: {}, enabled: false };
+  document.querySelectorAll("[data-m=\"" + mid + "\"]").forEach(function (input) {
+    var key = input.getAttribute("data-k");
+    if (key === "ja" || key === "en") body.name[key] = input.value;
+    else if (key === "enabled") body.enabled = input.checked;
+    else body[key] = input.value;
+  });
+  paint(await api("/api/demo-merchants", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body) }));
+}
+document.getElementById("create").onclick = async function () {
+  paint(await api("/api/demo-merchants", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "create" }) }));
+};
+api("/api/demo-merchants").then(paint);
+</script>
+</body>
+</html>

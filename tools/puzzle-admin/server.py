@@ -28,10 +28,22 @@ LIBRARY = MASTERS / "studio_library"
 LIBRARY_MANIFEST = LIBRARY / "manifest.json"
 HOST = "127.0.0.1"
 PORT = 8770
+STARTED = datetime_stamp = time.strftime("%Y-%m-%d %H:%M:%S")
+
+
+def admin_version():
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "--short", "HEAD"], cwd=str(ROOT), stderr=subprocess.DEVNULL
+        ).decode().strip()
+    except (OSError, subprocess.CalledProcessError):
+        return "uncommitted"
 POSTCARD = ROOT / "tools" / "postcard-studio"
 if str(POSTCARD) not in sys.path:
     sys.path.insert(0, str(POSTCARD))
 import api as postcard_api
+import places as placebook
+import store as postcard_store
 COOKIE = "turbo_admin"
 MAX_UPLOAD = 15 * 1024 * 1024
 
@@ -327,6 +339,13 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/session":
             self.send_json(200, {"ok": self.authed()})
             return
+        if path == "/api/status":
+            self.send_json(200, {
+                "address": "http://%s:%s/" % (HOST, PORT),
+                "started": STARTED,
+                "version": admin_version(),
+            })
+            return
         if not self.authed():
             self.send_json(401, {"error": "Sign in required"})
             return
@@ -351,7 +370,62 @@ class Handler(BaseHTTPRequestHandler):
             names = sorted(p.name for p in BACKUP_DIR.glob("*.json")) if BACKUP_DIR.exists() else []
             self.send_json(200, {"backups": names})
             return
-        if path in ("/artwork", "/map", "/merchant", "/settings", "/backup"):
+        if path in ("/demo-merchants", "/demo-merchants/"):
+            self.send_file(Path(__file__).resolve().parent / "demo-merchants.html", "text/html; charset=utf-8")
+            return
+        if path == "/api/demo-merchants":
+            import demo_merchants
+            self.send_json(200, demo_merchants.load())
+            return
+        if path == "/api/demo-merchants/qr.png":
+            import demo_merchants
+            mid = (parse_qs(urlparse(self.path).query).get("m") or [""])[0]
+            try:
+                png, _url = demo_merchants.qr_png(mid)
+            except ValueError as error:
+                self.send_json(404, {"error": str(error)})
+                return
+            self.send_response(200)
+            self.send_header("Content-Type", "image/png")
+            self.send_header("Cache-Control", "no-store")
+            self.send_header("Content-Length", str(len(png)))
+            self.end_headers()
+            self.wfile.write(png)
+            return
+        if path in ("/map", "/map/", "/merchant", "/merchant/"):
+            self.send_file(Path(__file__).resolve().parent / "places.html", "text/html; charset=utf-8")
+            return
+        if path == "/api/places":
+            qs = parse_qs(urlparse(self.path).query)
+            shown, total = placebook.search(
+                (qs.get("q") or [""])[0],
+                (qs.get("country") or [""])[0],
+                (qs.get("area") or [""])[0],
+                (qs.get("type") or [""])[0],
+                (qs.get("source") or [""])[0],
+            )
+            self.send_json(200, {"places": shown, "total": total})
+            return
+        if path.startswith("/api/places/"):
+            place_id = path.split("/", 3)[-1]
+            if place_id == "backups":
+                self.send_json(200, {"backups": placebook.list_backups()})
+                return
+            if place_id == "postcards":
+                codes = [{
+                    "id": row.get("id"),
+                    "status": row.get("status") or "",
+                    "merchant": row.get("merchant") or "",
+                } for row in postcard_store.load_registry().get("codes", [])]
+                self.send_json(200, {"codes": codes})
+                return
+            row = placebook.get_place(place_id)
+            if not row:
+                self.send_json(404, {"error": "Unknown place"})
+                return
+            self.send_json(200, {"place": row})
+            return
+        if path in ("/artwork", "/settings", "/backup"):
             self.send_page(path)
             return
         if path in ("/create-demo", "/create-demo/"):
@@ -369,7 +443,7 @@ class Handler(BaseHTTPRequestHandler):
         if path.startswith("/player/"):
             self.send_site_file(path[len("/player/"):])
             return
-        if path.startswith("/media/") or path.startswith("/data/"):
+        if path.startswith("/media/") or path.startswith("/data/") or path.startswith("/img/"):
             self.send_site_file(path.lstrip("/"))
             return
         if path.startswith("/preview/"):
@@ -669,6 +743,99 @@ class Handler(BaseHTTPRequestHandler):
             return
         if not self.authed():
             self.send_json(401, {"error": "Sign in required"})
+            return
+        if path == "/api/demo-merchants":
+            import demo_merchants
+            raw = self.read_body() or b""
+            try:
+                body = json.loads(raw.decode() or "{}")
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "Unreadable merchant"})
+                return
+            try:
+                action = body.get("action") or "save"
+            if action == "create":
+                data = demo_merchants.create_merchant()
+            elif action == "add-qr":
+                data = demo_merchants.add_qr(body.get("id") or "")
+            else:
+                data = demo_merchants.update_merchant(body.get("id") or "", body)
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+                return
+            self.send_json(200, data)
+            return
+        if path == "/api/places":
+            raw = self.read_body() or b""
+            try:
+                body = json.loads(raw.decode())
+            except json.JSONDecodeError:
+                self.send_json(400, {"error": "Unreadable place"})
+                return
+            try:
+                result = placebook.save_place(body, confirm=bool(body.get("confirm")))
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+                return
+            if body.get("assignPostcard") and result.get("ok") and result["place"].get("postcardId"):
+                code = result["place"]["postcardId"]
+                destination = "/map/?place=" + result["place"]["id"]
+                updated, message = postcard_store.update_code(code, {
+                    "status": "assigned",
+                    "merchant": result["place"].get("name") or "",
+                    "location": result["place"].get("area") or "",
+                    "destination": destination,
+                })
+                if updated is None:
+                    result["postcardWarning"] = message
+                else:
+                    postcard_store.write_public_registry()
+                    result["postcard"] = destination
+            self.send_json(200, result)
+            return
+        if path == "/api/places/disable":
+            raw = self.read_body() or b""
+            body = json.loads(raw.decode() or "{}")
+            try:
+                result = placebook.set_disabled(body.get("id") or "", bool(body.get("disabled")))
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+                return
+            self.send_json(200, result)
+            return
+        if path == "/api/places/undo":
+            try:
+                self.send_json(200, placebook.undo())
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+            return
+        if path == "/api/places/geocode":
+            raw = self.read_body() or b""
+            body = json.loads(raw.decode() or "{}")
+            try:
+                self.send_json(200, {"results": placebook.geocode(body.get("q") or "")})
+            except Exception:
+                self.send_json(200, {"results": [], "note": "Address search is unavailable. Place the marker or type coordinates."})
+            return
+        if path == "/api/places/photo":
+            content_type = self.headers.get("Content-Type", "")
+            raw = self.read_body()
+            if raw is None or "boundary=" not in content_type:
+                self.send_json(400, {"error": "Expected a photograph"})
+                return
+            boundary = content_type.split("boundary=")[-1].strip().encode()
+            name, blob = parse_upload(raw, boundary)
+            fields = upload_fields(raw, boundary)
+            ext = Path(name).suffix.lower()
+            if ext not in (".jpg", ".jpeg", ".png", ".webp"):
+                self.send_json(400, {"error": "Use a JPG, PNG, or WebP photograph."})
+                return
+            try:
+                public = placebook.save_photo(fields.get("id") or "", blob, ".jpg" if ext == ".jpeg" else ext)
+            except ValueError as error:
+                self.send_json(400, {"error": str(error)})
+                return
+            self.send_json(200, {"image": public})
             return
         if path == "/api/activate":
             raw = self.read_body() or b""

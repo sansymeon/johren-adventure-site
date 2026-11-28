@@ -77,6 +77,10 @@
         lng: pin.lng,
         rawType: pin.type || pin.pinType || pin.pintype || "",
         image: typeof pin.image === "string" ? pin.image : "",
+        description: pin.description || "",
+        descriptionEn: pin.descriptionEn || "",
+        website: pin.website || "",
+        serviceTier: pin.serviceTier || "",
         castleKind: pin.castleKind || "",
         iata: pin.iata || ""
       };

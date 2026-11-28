@@ -1,0 +1,5 @@
+/*.webmanifest
+  Content-Type: application/manifest+json
+
+/en/*.webmanifest
+  Content-Type: application/manifest+json

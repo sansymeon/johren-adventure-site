@@ -9,7 +9,15 @@ sh tools/start.sh
 ```
 
 - Player site: http://127.0.0.1:8765/
-- Admin: http://127.0.0.1:8770/
+- Admin: http://127.0.0.1:8770/ — this is the only Admin address
+
+If Admin is already open, the script leaves it running and does not start a second copy. After a code change, restart so the open process is not an old one:
+
+```sh
+sh tools/start.sh restart
+```
+
+That stops python listeners on 8765, 8770, and the old extra port 8791, then starts the site and Admin again. Do not open Admin on another port. A missing page after an update means the process is stale: restart it. The Admin home shows the address, the time that process started, and the code version.
 
 The admin password is `admin.secret` in the project root. It is not in Git and not on the public site.
 
@@ -40,7 +48,9 @@ New pictures are added in Creator Studio → Catalogue → Manage Images. That k
 
 ## Admin pages
 
-After sign-in, the home page links to Creator Studio, Puzzle Manager, Postcard Studio, the QR Registry, Artwork Library, Map Manager, Merchant Manager, Settings, and Backup / Restore.
+After sign-in, the home page links to Creator Studio, Puzzle Manager, Postcard Studio, the QR Registry, Artwork Library, Map and merchant manager, Settings, and Backup / Restore. Every one of those pages links back to Admin home.
+
+Map and merchant manager is http://127.0.0.1:8770/map . Search, edit, or add a place there. The permanent id does not change. Hiding a place keeps the record. Edits are stored in `site/data/places/overrides.json` and shown on the local map immediately. The original `site/data/japan/map-data.js` file is not rewritten. Undo on that page restores the previous edit. Publish from Admin home when the local map looks right. A baseline copy from 27 November 2026 is in `/home/sjnelson/johren-adventure-backups/2026-11-27-baseline`.
 
 Postcard designs and the QR registry stay in `tools/postcard-studio/data/`, which is not deployed. How a printed code reaches a merchant page is in `docs/postcard-studio.md`.
 

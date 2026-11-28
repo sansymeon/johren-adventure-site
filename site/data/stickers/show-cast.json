@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "demo": true,
+  "characters": [
+    {"number": "001", "id": "turbo", "file": "/media/turbo/poses/turbo_confident_transparent.webp", "ja": "ターボ", "en": "Turbo"},
+    {"number": "002", "id": "seagull", "file": "/media/heroes/transparent/captain_seagull_flying.webp", "ja": "キャプテン・シーガル", "en": "Captain Seagull"},
+    {"number": "003", "id": "nibbles", "file": "/media/heroes/transparent/nibbles_dragon.webp", "ja": "ニブルズ", "en": "Nibbles"},
+    {"number": "004", "id": "lola", "file": "/media/heroes/transparent/madame_lola_flamingo_moviestar.webp", "ja": "ローラ", "en": "Lola"},
+    {"number": "005", "id": "hooves", "file": "/media/heroes/transparent/sargeant_hooves_royalguard.webp", "ja": "フーズ軍曹", "en": "Sergeant Hooves"},
+    {"number": "006", "id": "henrietta", "file": "/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp", "ja": "アンリエッタ", "en": "Henrietta"},
+    {"number": "007", "id": "bubbles", "file": "/media/heroes/transparent/bubbles_babydragon.webp", "ja": "バブルス", "en": "Bubbles"},
+    {"number": "008", "id": "humphrey", "file": "/media/heroes/transparent/sir_humphrey_proboscis.webp", "ja": "ハンフリー", "en": "Humphrey"},
+    {"number": "009", "id": "blunderbuss", "file": "/media/heroes/transparent/colonel_blunderbuss_military.webp", "ja": "Colonel Blunderbuss", "en": "Colonel Blunderbuss"},
+    {"number": "010", "id": "reginald", "file": "/media/heroes/transparent/emperor_reginald_waddlebottom_iii.webp", "ja": "Emperor Reginald", "en": "Emperor Reginald"},
+    {"number": "011", "id": "fifi", "file": "/media/heroes/transparent/mademoiselle_fifi_laplume_cancan.webp", "ja": "Fifi LaPlume", "en": "Fifi LaPlume"},
+    {"number": "012", "id": "tsuru", "file": "/media/heroes/transparent/lady_tsuru.webp", "ja": "Lady Tsuru", "en": "Lady Tsuru"},
+    {"number": "013", "id": "felix", "file": "/media/heroes/transparent/sir_felix_furrington_pianist.webp", "ja": "Felix Furrington", "en": "Felix Furrington"},
+    {"number": "014", "id": "barkarotti", "file": "/media/heroes/transparent/signor_barkarotti_tenor.webp", "ja": "Signor Barkarotti", "en": "Signor Barkarotti"},
+    {"number": "015", "id": "ruby", "file": "/media/heroes/transparent/ruby_redbreast_singer.webp", "ja": "Ruby Redbreast", "en": "Ruby Redbreast"},
+    {"number": "016", "id": "barnaby", "file": "/media/heroes/transparent/lord_barnaby_lionheart_trumpet.webp", "ja": "Lord Barnaby", "en": "Lord Barnaby"},
+    {"number": "017", "id": "miyabi", "file": "/media/heroes/transparent/miyabi_the_kimono_fox.webp", "ja": "Miyabi", "en": "Miyabi"},
+    {"number": "018", "id": "inosuke", "file": "/media/heroes/transparent/samurai_inosuke.webp", "ja": "Inosuke", "en": "Inosuke"},
+    {"number": "019", "id": "petunia", "file": "/media/heroes/transparent/lady_petunia_flutterby_lady.webp", "ja": "Lady Petunia", "en": "Lady Petunia"},
+    {"number": "020", "id": "monty", "file": "/media/heroes/transparent/monty_swingbottom_gibbon.webp", "ja": "Monty Swingbottom", "en": "Monty Swingbottom"},
+    {"number": "021", "id": "slot-021"},
+    {"number": "022", "id": "slot-022"},
+    {"number": "023", "id": "slot-023"},
+    {"number": "024", "id": "slot-024"}
+  ]
+}

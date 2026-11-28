@@ -36,16 +36,23 @@
     <div class="batch">
       <button type="button" class="ghost" id="select-all">Select All</button>
       <button type="button" class="ghost" id="select-none">Deselect All</button>
-      <label>Artwork
-        <select id="batch-scale">
-          <option value="0.9">90% — Extra margin</option>
-          <option value="0.92">92% — Wider margin</option>
-          <option value="0.95" selected>95% — Standard safe margin</option>
-          <option value="0.97">97% — Small margin</option>
-          <option value="1">100% — Original size</option>
+      <label>Front
+        <select id="batch-scale-front">
+          <option value="1" selected>100% — Original</option>
+          <option value="0.95">95% — Standard safe margin</option>
+          <option value="0.90">90% — Extra safe margin</option>
+          <option value="0.85">85% — Wide margin</option>
         </select>
       </label>
-      <button type="button" id="export-batch">Export Selected to PDF</button>
+      <label>Back
+        <select id="batch-scale-back">
+          <option value="1">100% — Original</option>
+          <option value="0.95">95% — Standard safe margin</option>
+          <option value="0.90" selected>90% — Extra safe margin</option>
+          <option value="0.85">85% — Wide margin</option>
+        </select>
+      </label>
+      <button type="button" id="export-batch">Export A4 duplex PDF</button>
     </div>
     <p id="batch-plan" class="muted">None selected.</p>
     <table>
@@ -91,12 +98,31 @@ function visibleRows() {
   });
 }
 
+const PRINT_KEY = "turbo.admin.postcardPrint.v1";
 function planText() {
   const count = selected.size;
-  if (!count) return "None selected.";
+  const front = document.querySelector("#batch-scale-front").selectedOptions[0].textContent;
+  const back = document.querySelector("#batch-scale-back").selectedOptions[0].textContent;
+  if (!count) return "A4 long-edge duplex. Page 1 is Front/Front. Page 2 is Back/Back. Nothing is selected. Front " + front + ". Back " + back + ".";
+  if (count === 1) return "A4 long-edge duplex. One postcard, printed as two identical copies. Page 1: front, front. Page 2: back, back. Front " + front + ". Back " + back + ".";
   const sheets = Math.ceil(count / 2);
-  const pages = sheets * 2;
-  return count + " selected · " + sheets + (sheets === 1 ? " A4 sheet" : " A4 sheets") + " · " + pages + " PDF pages.";
+  return "A4 long-edge duplex. " + count + " postcards, two per sheet. Each front stays with its own back in the same top or bottom position. " + sheets + (sheets === 1 ? " sheet pair." : " sheet pairs.") + " Front " + front + ". Back " + back + ".";
+}
+function rememberPrint() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(PRINT_KEY) || "{}"); } catch (error) { saved = {}; }
+  saved.front = document.querySelector("#batch-scale-front").value;
+  saved.back = document.querySelector("#batch-scale-back").value;
+  if (!saved.layout) saved.layout = "duplex";
+  localStorage.setItem(PRINT_KEY, JSON.stringify(saved));
+  document.querySelector("#batch-plan").textContent = planText();
+}
+function restorePrint() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(PRINT_KEY) || "{}"); } catch (error) { saved = {}; }
+  if (saved.front) document.querySelector("#batch-scale-front").value = saved.front;
+  if (saved.back) document.querySelector("#batch-scale-back").value = saved.back;
+  document.querySelector("#batch-plan").textContent = planText();
 }
 
 function draw() {
@@ -165,7 +191,11 @@ document.querySelector("#export-batch").onclick = async function () {
   const response = await fetch("/api/postcards/export-batch", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ ids: ids, scale: Number(document.querySelector("#batch-scale").value) })
+    body: JSON.stringify({
+      ids: ids,
+      scaleFront: Number(document.querySelector("#batch-scale-front").value),
+      scaleBack: Number(document.querySelector("#batch-scale-back").value)
+    })
   });
   if (!response.ok) {
     const data = await response.json();
@@ -214,6 +244,10 @@ document.querySelector("#restore").onchange = async function () {
   document.querySelector("#publish-line").textContent = data.error || "Backup restored on this computer. Write the public file before the next site publish.";
   if (response.ok) load();
 };
+["#batch-scale-front", "#batch-scale-back"].forEach(function (selector) {
+  document.querySelector(selector).addEventListener("change", rememberPrint);
+});
+restorePrint();
 load();
 </script>
 </body>

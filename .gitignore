@@ -3,6 +3,7 @@
 /artwork/
 /admin.secret
 /tools/puzzle-admin/backups/
+/tools/puzzle-admin/data/
 /tools/postcard-studio/data/
 
 # Local Netlify folder

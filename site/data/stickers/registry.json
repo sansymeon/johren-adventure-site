@@ -1,0 +1,1301 @@
+{
+  "version": 1,
+  "characters": [
+    {
+      "number": "001",
+      "id": "admiral_cornelius_crabbington",
+      "ja": "Admiral Cornelius Crabbington",
+      "en": "Admiral Cornelius Crabbington",
+      "portrait": "/media/heroes/portraits/admiral_cornelius_crabbington.webp",
+      "file": "/media/heroes/transparent/admiral_cornelius_crabbington.webp",
+      "collected": false
+    },
+    {
+      "number": "002",
+      "id": "agatha_catsie_writer",
+      "ja": "Agatha Catsie Writer",
+      "en": "Agatha Catsie Writer",
+      "portrait": "/media/heroes/portraits/agatha_catsie_writer.webp",
+      "file": "/media/heroes/transparent/agatha_catsie_writer.webp",
+      "collected": false
+    },
+    {
+      "number": "003",
+      "id": "alexander_graham_bear_invertor",
+      "ja": "Alexander Graham Bear Invertor",
+      "en": "Alexander Graham Bear Invertor",
+      "portrait": "/media/heroes/portraits/alexander_graham_bear_invertor.webp",
+      "file": "/media/heroes/transparent/alexander_graham_bear_invertor.webp",
+      "collected": false
+    },
+    {
+      "number": "004",
+      "id": "alfie_haddock_fishmonger",
+      "ja": "Alfie Haddock Fishmonger",
+      "en": "Alfie Haddock Fishmonger",
+      "portrait": "/media/heroes/portraits/alfie_haddock_fishmonger.webp",
+      "file": "/media/heroes/transparent/alfie_haddock_fishmonger.webp",
+      "collected": false
+    },
+    {
+      "number": "005",
+      "id": "alfie_stirrup_jockey",
+      "ja": "Alfie Stirrup Jockey",
+      "en": "Alfie Stirrup Jockey",
+      "portrait": "/media/heroes/portraits/alfie_stirrup_jockey.webp",
+      "file": "/media/heroes/transparent/alfie_stirrup_jockey.webp",
+      "collected": false
+    },
+    {
+      "number": "006",
+      "id": "angus_mcmoo_highland_cow",
+      "ja": "Angus Mcmoo Highland Cow",
+      "en": "Angus Mcmoo Highland Cow",
+      "portrait": "/media/heroes/portraits/angus_mcmoo_highland_cow.webp",
+      "file": "/media/heroes/transparent/angus_mcmoo_highland_cow.webp",
+      "collected": false
+    },
+    {
+      "number": "007",
+      "id": "archibald_shutterworth_photographer",
+      "ja": "Archibald Shutterworth Photographer",
+      "en": "Archibald Shutterworth Photographer",
+      "portrait": "/media/heroes/portraits/archibald_shutterworth_photographer.webp",
+      "file": "/media/heroes/transparent/archibald_shutterworth_photographer.webp",
+      "collected": false
+    },
+    {
+      "number": "008",
+      "id": "baron_woolfgang_von_fleece_sheepwolf",
+      "ja": "Baron Woolfgang von Fleece Sheepwolf",
+      "en": "Baron Woolfgang von Fleece Sheepwolf",
+      "portrait": "/media/heroes/portraits/baron_woolfgang_von_fleece_sheepwolf.webp",
+      "file": "/media/heroes/transparent/baron_woolfgang_von_fleece_sheepwolf.webp",
+      "collected": false
+    },
+    {
+      "number": "009",
+      "id": "basil_buttercrust_baker",
+      "ja": "Basil Buttercrust Baker",
+      "en": "Basil Buttercrust Baker",
+      "portrait": "/media/heroes/portraits/basil_buttercrust_baker.webp",
+      "file": "/media/heroes/transparent/basil_buttercrust_baker.webp",
+      "collected": false
+    },
+    {
+      "number": "010",
+      "id": "baxter_bramble_sheepdog",
+      "ja": "Baxter Bramble Sheepdog",
+      "en": "Baxter Bramble Sheepdog",
+      "portrait": "/media/heroes/portraits/baxter_bramble_sheepdog.webp",
+      "file": "/media/heroes/transparent/baxter_bramble_sheepdog.webp",
+      "collected": false
+    },
+    {
+      "number": "011",
+      "id": "beatrix_otter",
+      "ja": "Beatrix Otter",
+      "en": "Beatrix Otter",
+      "portrait": "/media/heroes/portraits/beatrix_otter.webp",
+      "file": "/media/heroes/transparent/beatrix_otter.webp",
+      "collected": false
+    },
+    {
+      "number": "012",
+      "id": "benny_buttonsworth_poormouse",
+      "ja": "Benny Buttonsworth Poormouse",
+      "en": "Benny Buttonsworth Poormouse",
+      "portrait": "/media/heroes/portraits/benny_buttonsworth_poormouse.webp",
+      "file": "/media/heroes/transparent/benny_buttonsworth_poormouse.webp",
+      "collected": false
+    },
+    {
+      "number": "013",
+      "id": "bertie_crankshaft_mechanic",
+      "ja": "Bertie Crankshaft Mechanic",
+      "en": "Bertie Crankshaft Mechanic",
+      "portrait": "/media/heroes/portraits/bertie_crankshaft_mechanic.webp",
+      "file": "/media/heroes/transparent/bertie_crankshaft_mechanic.webp",
+      "collected": false
+    },
+    {
+      "number": "014",
+      "id": "bobby_bagsworth_bellboy",
+      "ja": "Bobby Bagsworth Bellboy",
+      "en": "Bobby Bagsworth Bellboy",
+      "portrait": "/media/heroes/portraits/bobby_bagsworth_bellboy.webp",
+      "file": "/media/heroes/transparent/bobby_bagsworth_bellboy.webp",
+      "collected": false
+    },
+    {
+      "number": "015",
+      "id": "borneo_bruno_orangutan",
+      "ja": "Borneo Bruno Orangutan",
+      "en": "Borneo Bruno Orangutan",
+      "portrait": "/media/heroes/portraits/borneo_bruno_orangutan.webp",
+      "file": "/media/heroes/transparent/borneo_bruno_orangutan.webp",
+      "collected": false
+    },
+    {
+      "number": "016",
+      "id": "boys_choir",
+      "ja": "Boys Choir",
+      "en": "Boys Choir",
+      "portrait": "/media/heroes/portraits/boys_choir.webp",
+      "file": "/media/heroes/transparent/boys_choir.webp",
+      "collected": false
+    },
+    {
+      "number": "017",
+      "id": "bubbles_babydragon",
+      "ja": "バブルス",
+      "en": "Bubbles",
+      "portrait": "/media/heroes/portraits/bubbles_babydragon.webp",
+      "file": "/media/heroes/transparent/bubbles_babydragon.webp",
+      "collected": true
+    },
+    {
+      "number": "018",
+      "id": "buster_bruiser_boxer",
+      "ja": "Buster Bruiser Boxer",
+      "en": "Buster Bruiser Boxer",
+      "portrait": "/media/heroes/portraits/buster_bruiser_boxer.webp",
+      "file": "/media/heroes/transparent/buster_bruiser_boxer.webp",
+      "collected": false
+    },
+    {
+      "number": "019",
+      "id": "buster_dogsworth_dogcatcher",
+      "ja": "Buster Dogsworth Dogcatcher",
+      "en": "Buster Dogsworth Dogcatcher",
+      "portrait": "/media/heroes/portraits/buster_dogsworth_dogcatcher.webp",
+      "file": "/media/heroes/transparent/buster_dogsworth_dogcatcher.webp",
+      "collected": false
+    },
+    {
+      "number": "020",
+      "id": "capitan_nekolas_cat",
+      "ja": "Capitan Nekolas Cat",
+      "en": "Capitan Nekolas Cat",
+      "portrait": "/media/heroes/portraits/capitan_nekolas_cat.webp",
+      "file": "/media/heroes/transparent/capitan_nekolas_cat.webp",
+      "collected": false
+    },
+    {
+      "number": "021",
+      "id": "captain_finley_fishwick_fisherman",
+      "ja": "Captain Finley Fishwick Fisherman",
+      "en": "Captain Finley Fishwick Fisherman",
+      "portrait": "/media/heroes/portraits/captain_finley_fishwick_fisherman.webp",
+      "file": "/media/heroes/transparent/captain_finley_fishwick_fisherman.webp",
+      "collected": false
+    },
+    {
+      "number": "022",
+      "id": "captain_horatio_oarsworth_rowing",
+      "ja": "Captain Horatio Oarsworth Rowing",
+      "en": "Captain Horatio Oarsworth Rowing",
+      "portrait": "/media/heroes/portraits/captain_horatio_oarsworth_rowing.webp",
+      "file": "/media/heroes/transparent/captain_horatio_oarsworth_rowing.webp",
+      "collected": false
+    },
+    {
+      "number": "023",
+      "id": "captain_seagull_standing_seagull",
+      "ja": "キャプテン・シーガル",
+      "en": "Captain Seagull",
+      "portrait": "/media/heroes/portraits/captain_seagull_standing_seagull.webp",
+      "file": "/media/heroes/transparent/captain_seagull_standing_seagull.webp",
+      "collected": true
+    },
+    {
+      "number": "024",
+      "id": "captain_squawkbeard_parrot",
+      "ja": "Captain Squawkbeard Parrot",
+      "en": "Captain Squawkbeard Parrot",
+      "portrait": "/media/heroes/portraits/captain_squawkbeard_parrot.webp",
+      "file": "/media/heroes/transparent/captain_squawkbeard_parrot.webp",
+      "collected": false
+    },
+    {
+      "number": "025",
+      "id": "cedric_ledgerton_accountant",
+      "ja": "Cedric Ledgerton Accountant",
+      "en": "Cedric Ledgerton Accountant",
+      "portrait": "/media/heroes/portraits/cedric_ledgerton_accountant.webp",
+      "file": "/media/heroes/transparent/cedric_ledgerton_accountant.webp",
+      "collected": false
+    },
+    {
+      "number": "026",
+      "id": "charles_chickens_writer",
+      "ja": "Charles Chickens Writer",
+      "en": "Charles Chickens Writer",
+      "portrait": "/media/heroes/portraits/charles_chickens_writer.webp",
+      "file": "/media/heroes/transparent/charles_chickens_writer.webp",
+      "collected": false
+    },
+    {
+      "number": "027",
+      "id": "charles_darwing_evolutionist",
+      "ja": "Charles Darwing Evolutionist",
+      "en": "Charles Darwing Evolutionist",
+      "portrait": "/media/heroes/portraits/charles_darwing_evolutionist.webp",
+      "file": "/media/heroes/transparent/charles_darwing_evolutionist.webp",
+      "collected": false
+    },
+    {
+      "number": "028",
+      "id": "charlie_cobblehoof_carriagedriver",
+      "ja": "Charlie Cobblehoof Carriagedriver",
+      "en": "Charlie Cobblehoof Carriagedriver",
+      "portrait": "/media/heroes/portraits/charlie_cobblehoof_carriagedriver.webp",
+      "file": "/media/heroes/transparent/charlie_cobblehoof_carriagedriver.webp",
+      "collected": false
+    },
+    {
+      "number": "029",
+      "id": "chef_marcel_meringue_frenchchef",
+      "ja": "Chef Marcel Meringue Frenchchef",
+      "en": "Chef Marcel Meringue Frenchchef",
+      "portrait": "/media/heroes/portraits/chef_marcel_meringue_frenchchef.webp",
+      "file": "/media/heroes/transparent/chef_marcel_meringue_frenchchef.webp",
+      "collected": false
+    },
+    {
+      "number": "030",
+      "id": "christmas_carolers",
+      "ja": "Christmas Carolers",
+      "en": "Christmas Carolers",
+      "portrait": "/media/heroes/portraits/christmas_carolers.webp",
+      "file": "/media/heroes/transparent/christmas_carolers.webp",
+      "collected": false
+    },
+    {
+      "number": "031",
+      "id": "colonel_blunderbuss_military",
+      "ja": "Colonel Blunderbuss Military",
+      "en": "Colonel Blunderbuss Military",
+      "portrait": "/media/heroes/portraits/colonel_blunderbuss_military.webp",
+      "file": "/media/heroes/transparent/colonel_blunderbuss_military.webp",
+      "collected": true
+    },
+    {
+      "number": "032",
+      "id": "constable_bertie_barker_constable",
+      "ja": "Constable Bertie Barker Constable",
+      "en": "Constable Bertie Barker Constable",
+      "portrait": "/media/heroes/portraits/constable_bertie_barker_constable.webp",
+      "file": "/media/heroes/transparent/constable_bertie_barker_constable.webp",
+      "collected": false
+    },
+    {
+      "number": "033",
+      "id": "cornelius_brassington",
+      "ja": "Cornelius Brassington",
+      "en": "Cornelius Brassington",
+      "portrait": "/media/heroes/portraits/cornelius_brassington.webp",
+      "file": "/media/heroes/transparent/cornelius_brassington.webp",
+      "collected": false
+    },
+    {
+      "number": "034",
+      "id": "crocodile_dudley",
+      "ja": "Crocodile Dudley",
+      "en": "Crocodile Dudley",
+      "portrait": "/media/heroes/portraits/crocodile_dudley.webp",
+      "file": "/media/heroes/transparent/crocodile_dudley.webp",
+      "collected": false
+    },
+    {
+      "number": "035",
+      "id": "daisy_butterworth_dairyfarmer",
+      "ja": "Daisy Butterworth Dairyfarmer",
+      "en": "Daisy Butterworth Dairyfarmer",
+      "portrait": "/media/heroes/portraits/daisy_butterworth_dairyfarmer.webp",
+      "file": "/media/heroes/transparent/daisy_butterworth_dairyfarmer.webp",
+      "collected": false
+    },
+    {
+      "number": "036",
+      "id": "dame_henrietta_cluckington_chicken",
+      "ja": "アンリエッタ",
+      "en": "Henrietta",
+      "portrait": "/media/heroes/portraits/dame_henrietta_cluckington_chicken.webp",
+      "file": "/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp",
+      "collected": true
+    },
+    {
+      "number": "037",
+      "id": "dame_penelope_peacock_diva",
+      "ja": "Dame Penelope Peacock Diva",
+      "en": "Dame Penelope Peacock Diva",
+      "portrait": "/media/heroes/portraits/dame_penelope_peacock_diva.webp",
+      "file": "/media/heroes/transparent/dame_penelope_peacock_diva.webp",
+      "collected": false
+    },
+    {
+      "number": "038",
+      "id": "dame_purrnelia_crescendo_soprano",
+      "ja": "Dame Purrnelia Crescendo Soprano",
+      "en": "Dame Purrnelia Crescendo Soprano",
+      "portrait": "/media/heroes/portraits/dame_purrnelia_crescendo_soprano.webp",
+      "file": "/media/heroes/transparent/dame_purrnelia_crescendo_soprano.webp",
+      "collected": true
+    },
+    {
+      "number": "039",
+      "id": "dodger_blackpaw_thief",
+      "ja": "Dodger Blackpaw Thief",
+      "en": "Dodger Blackpaw Thief",
+      "portrait": "/media/heroes/portraits/dodger_blackpaw_thief.webp",
+      "file": "/media/heroes/transparent/dodger_blackpaw_thief.webp",
+      "collected": false
+    },
+    {
+      "number": "040",
+      "id": "dr__quentin_quackworth_physician",
+      "ja": "Dr.  Quentin Quackworth Physician",
+      "en": "Dr.  Quentin Quackworth Physician",
+      "portrait": "/media/heroes/portraits/dr__quentin_quackworth_physician.webp",
+      "file": "/media/heroes/transparent/dr__quentin_quackworth_physician.webp",
+      "collected": false
+    },
+    {
+      "number": "041",
+      "id": "emperor_reginald_waddlebottom_iii",
+      "ja": "Emperor Reginald Waddlebottom III",
+      "en": "Emperor Reginald Waddlebottom III",
+      "portrait": "/media/heroes/portraits/emperor_reginald_waddlebottom_iii.webp",
+      "file": "/media/heroes/transparent/emperor_reginald_waddlebottom_iii.webp",
+      "collected": true
+    },
+    {
+      "number": "042",
+      "id": "florence_nightengale",
+      "ja": "Florence Nightengale",
+      "en": "Florence Nightengale",
+      "portrait": "/media/heroes/portraits/florence_nightengale.webp",
+      "file": "/media/heroes/transparent/florence_nightengale.webp",
+      "collected": false
+    },
+    {
+      "number": "043",
+      "id": "friar_benedict_badgerwick_friar",
+      "ja": "Friar Benedict Badgerwick Friar",
+      "en": "Friar Benedict Badgerwick Friar",
+      "portrait": "/media/heroes/portraits/friar_benedict_badgerwick_friar.webp",
+      "file": "/media/heroes/transparent/friar_benedict_badgerwick_friar.webp",
+      "collected": false
+    },
+    {
+      "number": "044",
+      "id": "gordon_greenfingers_florist",
+      "ja": "Gordon Greenfingers Florist",
+      "en": "Gordon Greenfingers Florist",
+      "portrait": "/media/heroes/portraits/gordon_greenfingers_florist.webp",
+      "file": "/media/heroes/transparent/gordon_greenfingers_florist.webp",
+      "collected": false
+    },
+    {
+      "number": "045",
+      "id": "hamish_mcwool_bagpipesheep",
+      "ja": "Hamish Mcwool Bagpipesheep",
+      "en": "Hamish Mcwool Bagpipesheep",
+      "portrait": "/media/heroes/portraits/hamish_mcwool_bagpipesheep.webp",
+      "file": "/media/heroes/transparent/hamish_mcwool_bagpipesheep.webp",
+      "collected": false
+    },
+    {
+      "number": "046",
+      "id": "hg_whales_writer",
+      "ja": "Hg Whales Writer",
+      "en": "Hg Whales Writer",
+      "portrait": "/media/heroes/portraits/hg_whales_writer.webp",
+      "file": "/media/heroes/transparent/hg_whales_writer.webp",
+      "collected": false
+    },
+    {
+      "number": "047",
+      "id": "his_eminence_cardinal_clement_redfeather_cardinal",
+      "ja": "His Eminence Cardinal Clement Redfeather Cardinal",
+      "en": "His Eminence Cardinal Clement Redfeather Cardinal",
+      "portrait": "/media/heroes/portraits/his_eminence_cardinal_clement_redfeather_cardinal.webp",
+      "file": "/media/heroes/transparent/his_eminence_cardinal_clement_redfeather_cardinal.webp",
+      "collected": false
+    },
+    {
+      "number": "048",
+      "id": "hokuma_bear",
+      "ja": "Hokuma Bear",
+      "en": "Hokuma Bear",
+      "portrait": "/media/heroes/portraits/hokuma_bear.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "049",
+      "id": "hokuto_fishowl",
+      "ja": "Hokuto Fishowl",
+      "en": "Hokuto Fishowl",
+      "portrait": "/media/heroes/portraits/hokuto_fishowl.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "050",
+      "id": "king_leopold_the_magnificent_lion",
+      "ja": "King Leopold the Magnificent Lion",
+      "en": "King Leopold the Magnificent Lion",
+      "portrait": "/media/heroes/portraits/king_leopold_the_magnificent_lion.webp",
+      "file": "/media/heroes/transparent/king_leopold_the_magnificent_lion.webp",
+      "collected": false
+    },
+    {
+      "number": "051",
+      "id": "kiwi_charlie_kiwi",
+      "ja": "Kiwi Charlie Kiwi",
+      "en": "Kiwi Charlie Kiwi",
+      "portrait": "/media/heroes/portraits/kiwi_charlie_kiwi.webp",
+      "file": "/media/heroes/transparent/kiwi_charlie_kiwi.webp",
+      "collected": false
+    },
+    {
+      "number": "052",
+      "id": "koharu_chan_shrinegirl",
+      "ja": "Koharu Chan Shrinegirl",
+      "en": "Koharu Chan Shrinegirl",
+      "portrait": "/media/heroes/portraits/koharu_chan_shrinegirl.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "053",
+      "id": "kumagoro",
+      "ja": "Kumagoro",
+      "en": "Kumagoro",
+      "portrait": "/media/heroes/portraits/kumagoro.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "054",
+      "id": "kumagoro_hokkaidobear",
+      "ja": "Kumagoro Hokkaidobear",
+      "en": "Kumagoro Hokkaidobear",
+      "portrait": "/media/heroes/portraits/kumagoro_hokkaidobear.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "055",
+      "id": "lady_clarabella_bullington_cow",
+      "ja": "Lady Clarabella Bullington Cow",
+      "en": "Lady Clarabella Bullington Cow",
+      "portrait": "/media/heroes/portraits/lady_clarabella_bullington_cow.webp",
+      "file": "/media/heroes/transparent/lady_clarabella_bullington_cow.webp",
+      "collected": false
+    },
+    {
+      "number": "056",
+      "id": "lady_hyacinth_higginbottom_hippo",
+      "ja": "Lady Hyacinth Higginbottom Hippo",
+      "en": "Lady Hyacinth Higginbottom Hippo",
+      "portrait": "/media/heroes/portraits/lady_hyacinth_higginbottom_hippo.webp",
+      "file": "/media/heroes/transparent/lady_hyacinth_higginbottom_hippo.webp",
+      "collected": false
+    },
+    {
+      "number": "057",
+      "id": "lady_lilibet_corgington_corgi",
+      "ja": "Lady Lilibet Corgington Corgi",
+      "en": "Lady Lilibet Corgington Corgi",
+      "portrait": "/media/heroes/portraits/lady_lilibet_corgington_corgi.webp",
+      "file": "/media/heroes/transparent/lady_lilibet_corgington_corgi.webp",
+      "collected": false
+    },
+    {
+      "number": "058",
+      "id": "lady_penelope_shuttleworth_tennis",
+      "ja": "Lady Penelope Shuttleworth Tennis",
+      "en": "Lady Penelope Shuttleworth Tennis",
+      "portrait": "/media/heroes/portraits/lady_penelope_shuttleworth_tennis.webp",
+      "file": "/media/heroes/transparent/lady_penelope_shuttleworth_tennis.webp",
+      "collected": false
+    },
+    {
+      "number": "059",
+      "id": "lady_petunia_flutterby_lady",
+      "ja": "Lady Petunia Flutterby Lady",
+      "en": "Lady Petunia Flutterby Lady",
+      "portrait": "/media/heroes/portraits/lady_petunia_flutterby_lady.webp",
+      "file": "/media/heroes/transparent/lady_petunia_flutterby_lady.webp",
+      "collected": false
+    },
+    {
+      "number": "060",
+      "id": "lady_pompington_lady",
+      "ja": "Lady Pompington Lady",
+      "en": "Lady Pompington Lady",
+      "portrait": "/media/heroes/portraits/lady_pompington_lady.webp",
+      "file": "/media/heroes/transparent/lady_pompington_lady.webp",
+      "collected": false
+    },
+    {
+      "number": "061",
+      "id": "lady_tsuru",
+      "ja": "Lady Tsuru",
+      "en": "Lady Tsuru",
+      "portrait": "/media/heroes/portraits/lady_tsuru.webp",
+      "file": "/media/heroes/transparent/lady_tsuru.webp",
+      "collected": true
+    },
+    {
+      "number": "062",
+      "id": "lord_algernon_pompington_lord",
+      "ja": "Lord Algernon Pompington Lord",
+      "en": "Lord Algernon Pompington Lord",
+      "portrait": "/media/heroes/portraits/lord_algernon_pompington_lord.webp",
+      "file": "/media/heroes/transparent/lord_algernon_pompington_lord.webp",
+      "collected": false
+    },
+    {
+      "number": "063",
+      "id": "lord_barnaby_lionheart_trumpet",
+      "ja": "Lord Barnaby Lionheart Trumpet",
+      "en": "Lord Barnaby Lionheart Trumpet",
+      "portrait": "/media/heroes/portraits/lord_barnaby_lionheart_trumpet.webp",
+      "file": "/media/heroes/transparent/lord_barnaby_lionheart_trumpet.webp",
+      "collected": true
+    },
+    {
+      "number": "064",
+      "id": "lord_hubert_houndsworth_foxhunter",
+      "ja": "Lord Hubert Houndsworth Foxhunter",
+      "en": "Lord Hubert Houndsworth Foxhunter",
+      "portrait": "/media/heroes/portraits/lord_hubert_houndsworth_foxhunter.webp",
+      "file": "/media/heroes/transparent/lord_hubert_houndsworth_foxhunter.webp",
+      "collected": false
+    },
+    {
+      "number": "065",
+      "id": "lord_lionel_lickspittle_judge",
+      "ja": "Lord Lionel Lickspittle Judge",
+      "en": "Lord Lionel Lickspittle Judge",
+      "portrait": "/media/heroes/portraits/lord_lionel_lickspittle_judge.webp",
+      "file": "/media/heroes/transparent/lord_lionel_lickspittle_judge.webp",
+      "collected": false
+    },
+    {
+      "number": "066",
+      "id": "lord_pompington_tophat",
+      "ja": "Lord Pompington Tophat",
+      "en": "Lord Pompington Tophat",
+      "portrait": "/media/heroes/portraits/lord_pompington_tophat.webp",
+      "file": "/media/heroes/transparent/lord_pompington_tophat.webp",
+      "collected": false
+    },
+    {
+      "number": "067",
+      "id": "lord_reginald_malletworth_croquet",
+      "ja": "Lord Reginald Malletworth Croquet",
+      "en": "Lord Reginald Malletworth Croquet",
+      "portrait": "/media/heroes/portraits/lord_reginald_malletworth_croquet.webp",
+      "file": "/media/heroes/transparent/lord_reginald_malletworth_croquet.webp",
+      "collected": false
+    },
+    {
+      "number": "068",
+      "id": "lord_rutherford_rhinestone_rhino",
+      "ja": "Lord Rutherford Rhinestone Rhino",
+      "en": "Lord Rutherford Rhinestone Rhino",
+      "portrait": "/media/heroes/portraits/lord_rutherford_rhinestone_rhino.webp",
+      "file": "/media/heroes/transparent/lord_rutherford_rhinestone_rhino.webp",
+      "collected": false
+    },
+    {
+      "number": "069",
+      "id": "lord_saruyoshi_monkeyshogun",
+      "ja": "Lord Saruyoshi Monkeyshogun",
+      "en": "Lord Saruyoshi Monkeyshogun",
+      "portrait": "/media/heroes/portraits/lord_saruyoshi_monkeyshogun.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "070",
+      "id": "lord_shika_of_nara_shikadeer",
+      "ja": "Lord Shika of Nara Shikadeer",
+      "en": "Lord Shika of Nara Shikadeer",
+      "portrait": "/media/heroes/portraits/lord_shika_of_nara_shikadeer.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "071",
+      "id": "lord_toramasa_shogun",
+      "ja": "Lord Toramasa Shogun",
+      "en": "Lord Toramasa Shogun",
+      "portrait": "/media/heroes/portraits/lord_toramasa_shogun.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "072",
+      "id": "madame_lola_flamingo_moviestar",
+      "ja": "ローラ",
+      "en": "Lola",
+      "portrait": "/media/heroes/portraits/madame_lola_flamingo_moviestar.webp",
+      "file": "/media/heroes/transparent/madame_lola_flamingo_moviestar.webp",
+      "collected": true
+    },
+    {
+      "number": "073",
+      "id": "madame_penelope_porkington_pig",
+      "ja": "Madame Penelope Porkington Pig",
+      "en": "Madame Penelope Porkington Pig",
+      "portrait": "/media/heroes/portraits/madame_penelope_porkington_pig.webp",
+      "file": "/media/heroes/transparent/madame_penelope_porkington_pig.webp",
+      "collected": false
+    },
+    {
+      "number": "074",
+      "id": "mademoiselle_fifi_laplume_cancan",
+      "ja": "Mademoiselle Fifi Laplume Cancan",
+      "en": "Mademoiselle Fifi Laplume Cancan",
+      "portrait": "/media/heroes/portraits/mademoiselle_fifi_laplume_cancan.webp",
+      "file": "/media/heroes/transparent/mademoiselle_fifi_laplume_cancan.webp",
+      "collected": true
+    },
+    {
+      "number": "075",
+      "id": "major_rupert_bearington_bearhunter",
+      "ja": "Major Rupert Bearington Bearhunter",
+      "en": "Major Rupert Bearington Bearhunter",
+      "portrait": "/media/heroes/portraits/major_rupert_bearington_bearhunter.webp",
+      "file": "/media/heroes/transparent/major_rupert_bearington_bearhunter.webp",
+      "collected": false
+    },
+    {
+      "number": "076",
+      "id": "matsukichi_festivalshiba",
+      "ja": "Matsukichi Festivalshiba",
+      "en": "Matsukichi Festivalshiba",
+      "portrait": "/media/heroes/portraits/matsukichi_festivalshiba.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "077",
+      "id": "miss__prudence_primfeather_headmistress",
+      "ja": "Miss  Prudence Primfeather Headmistress",
+      "en": "Miss  Prudence Primfeather Headmistress",
+      "portrait": "/media/heroes/portraits/miss__prudence_primfeather_headmistress.webp",
+      "file": "/media/heroes/transparent/miss__prudence_primfeather_headmistress.webp",
+      "collected": false
+    },
+    {
+      "number": "078",
+      "id": "miss_daisy_butterchurn_milkmaid",
+      "ja": "Miss Daisy Butterchurn Milkmaid",
+      "en": "Miss Daisy Butterchurn Milkmaid",
+      "portrait": "/media/heroes/portraits/miss_daisy_butterchurn_milkmaid.webp",
+      "file": "/media/heroes/transparent/miss_daisy_butterchurn_milkmaid.webp",
+      "collected": false
+    },
+    {
+      "number": "079",
+      "id": "miyabi_the_kimono_fox",
+      "ja": "Miyabi the Kimono Fox",
+      "en": "Miyabi the Kimono Fox",
+      "portrait": "/media/heroes/portraits/miyabi_the_kimono_fox.webp",
+      "file": "/media/heroes/transparent/miyabi_the_kimono_fox.webp",
+      "collected": true
+    },
+    {
+      "number": "080",
+      "id": "montgomery_moneybags_tycoon",
+      "ja": "Montgomery Moneybags Tycoon",
+      "en": "Montgomery Moneybags Tycoon",
+      "portrait": "/media/heroes/portraits/montgomery_moneybags_tycoon.webp",
+      "file": "/media/heroes/transparent/montgomery_moneybags_tycoon.webp",
+      "collected": false
+    },
+    {
+      "number": "081",
+      "id": "monty_mcmop_janitor",
+      "ja": "Monty Mcmop Janitor",
+      "en": "Monty Mcmop Janitor",
+      "portrait": "/media/heroes/portraits/monty_mcmop_janitor.webp",
+      "file": "/media/heroes/transparent/monty_mcmop_janitor.webp",
+      "collected": false
+    },
+    {
+      "number": "082",
+      "id": "monty_mcpuck_canadamoose",
+      "ja": "Monty Mcpuck Canadamoose",
+      "en": "Monty Mcpuck Canadamoose",
+      "portrait": "/media/heroes/portraits/monty_mcpuck_canadamoose.webp",
+      "file": "/media/heroes/transparent/monty_mcpuck_canadamoose.webp",
+      "collected": false
+    },
+    {
+      "number": "083",
+      "id": "monty_silverfox_salesman",
+      "ja": "Monty Silverfox Salesman",
+      "en": "Monty Silverfox Salesman",
+      "portrait": "/media/heroes/portraits/monty_silverfox_salesman.webp",
+      "file": "/media/heroes/transparent/monty_silverfox_salesman.webp",
+      "collected": false
+    },
+    {
+      "number": "084",
+      "id": "monty_swingbottom_gibbon",
+      "ja": "Monty Swingbottom Gibbon",
+      "en": "Monty Swingbottom Gibbon",
+      "portrait": "/media/heroes/portraits/monty_swingbottom_gibbon.webp",
+      "file": "/media/heroes/transparent/monty_swingbottom_gibbon.webp",
+      "collected": true
+    },
+    {
+      "number": "085",
+      "id": "mr__edgar_blackfeather_buttler",
+      "ja": "Mr.  Edgar Blackfeather Buttler",
+      "en": "Mr.  Edgar Blackfeather Buttler",
+      "portrait": "/media/heroes/portraits/mr__edgar_blackfeather_buttler.webp",
+      "file": "/media/heroes/transparent/mr__edgar_blackfeather_buttler.webp",
+      "collected": false
+    },
+    {
+      "number": "086",
+      "id": "mr_barnaby_bramblebottom_shopkeeper",
+      "ja": "Mr. Barnaby Bramblebottom Shopkeeper",
+      "en": "Mr. Barnaby Bramblebottom Shopkeeper",
+      "portrait": "/media/heroes/portraits/mr_barnaby_bramblebottom_shopkeeper.webp",
+      "file": "/media/heroes/transparent/mr_barnaby_bramblebottom_shopkeeper.webp",
+      "collected": false
+    },
+    {
+      "number": "087",
+      "id": "mr_wilfred_weasleton_solicitor-at-law",
+      "ja": "Mr. Wilfred Weasleton Solicitor At Law",
+      "en": "Mr. Wilfred Weasleton Solicitor At Law",
+      "portrait": "/media/heroes/portraits/mr_wilfred_weasleton_solicitor-at-law.webp",
+      "file": "/media/heroes/transparent/mr_wilfred_weasleton_solicitor-at-law.webp",
+      "collected": false
+    },
+    {
+      "number": "088",
+      "id": "nibbles_dragon",
+      "ja": "ニブルズ",
+      "en": "Nibbles",
+      "portrait": "/media/heroes/portraits/nibbles_dragon.webp",
+      "file": "/media/heroes/transparent/nibbles_dragon.webp",
+      "collected": true
+    },
+    {
+      "number": "089",
+      "id": "nurse_florence_nightinghare_nurse",
+      "ja": "Nurse Florence Nightinghare Nurse",
+      "en": "Nurse Florence Nightinghare Nurse",
+      "portrait": "/media/heroes/portraits/nurse_florence_nightinghare_nurse.webp",
+      "file": "/media/heroes/transparent/nurse_florence_nightinghare_nurse.webp",
+      "collected": false
+    },
+    {
+      "number": "090",
+      "id": "nyanja_the_ninja_cat",
+      "ja": "Nyanja the Ninja Cat",
+      "en": "Nyanja the Ninja Cat",
+      "portrait": "/media/heroes/portraits/nyanja_the_ninja_cat.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "091",
+      "id": "octavious_octopus",
+      "ja": "Octavious Octopus",
+      "en": "Octavious Octopus",
+      "portrait": "/media/heroes/portraits/octavious_octopus.webp",
+      "file": "/media/heroes/transparent/octavious_octopus.webp",
+      "collected": false
+    },
+    {
+      "number": "092",
+      "id": "oliver_oilsworth_painter",
+      "ja": "Oliver Oilsworth Painter",
+      "en": "Oliver Oilsworth Painter",
+      "portrait": "/media/heroes/portraits/oliver_oilsworth_painter.webp",
+      "file": "/media/heroes/transparent/oliver_oilsworth_painter.webp",
+      "collected": false
+    },
+    {
+      "number": "093",
+      "id": "orson_crumble_pastry_chef",
+      "ja": "Orson Crumble Pastry Chef",
+      "en": "Orson Crumble Pastry Chef",
+      "portrait": "/media/heroes/portraits/orson_crumble_pastry_chef.webp",
+      "file": "/media/heroes/transparent/orson_crumble_pastry_chef.webp",
+      "collected": false
+    },
+    {
+      "number": "094",
+      "id": "oscar_wild_boar_writer",
+      "ja": "Oscar Wild Boar Writer",
+      "en": "Oscar Wild Boar Writer",
+      "portrait": "/media/heroes/portraits/oscar_wild_boar_writer.webp",
+      "file": "/media/heroes/transparent/oscar_wild_boar_writer.webp",
+      "collected": false
+    },
+    {
+      "number": "095",
+      "id": "percival_quill_owl",
+      "ja": "Percival Quill Owl",
+      "en": "Percival Quill Owl",
+      "portrait": "/media/heroes/portraits/percival_quill_owl.webp",
+      "file": "/media/heroes/transparent/percival_quill_owl.webp",
+      "collected": false
+    },
+    {
+      "number": "096",
+      "id": "pip_pickles_urchin",
+      "ja": "Pip Pickles Urchin",
+      "en": "Pip Pickles Urchin",
+      "portrait": "/media/heroes/portraits/pip_pickles_urchin.webp",
+      "file": "/media/heroes/transparent/pip_pickles_urchin.webp",
+      "collected": false
+    },
+    {
+      "number": "097",
+      "id": "porky_cutterplug_butcher",
+      "ja": "Porky Cutterplug Butcher",
+      "en": "Porky Cutterplug Butcher",
+      "portrait": "/media/heroes/portraits/porky_cutterplug_butcher.webp",
+      "file": "/media/heroes/transparent/porky_cutterplug_butcher.webp",
+      "collected": false
+    },
+    {
+      "number": "098",
+      "id": "prince_ferdinand_frogwick_prince",
+      "ja": "Prince Ferdinand Frogwick Prince",
+      "en": "Prince Ferdinand Frogwick Prince",
+      "portrait": "/media/heroes/portraits/prince_ferdinand_frogwick_prince.webp",
+      "file": "/media/heroes/transparent/prince_ferdinand_frogwick_prince.webp",
+      "collected": false
+    },
+    {
+      "number": "099",
+      "id": "professor_cornelius_cluckworthy",
+      "ja": "Professor Cornelius Cluckworthy",
+      "en": "Professor Cornelius Cluckworthy",
+      "portrait": "/media/heroes/portraits/professor_cornelius_cluckworthy.webp",
+      "file": "/media/heroes/transparent/professor_cornelius_cluckworthy.webp",
+      "collected": false
+    },
+    {
+      "number": "100",
+      "id": "professor_oliver_hootsworth_professor",
+      "ja": "Professor Oliver Hootsworth Professor",
+      "en": "Professor Oliver Hootsworth Professor",
+      "portrait": "/media/heroes/portraits/professor_oliver_hootsworth_professor.webp",
+      "file": "/media/heroes/transparent/professor_oliver_hootsworth_professor.webp",
+      "collected": false
+    },
+    {
+      "number": "101",
+      "id": "professor_pennyfarthing_cycling",
+      "ja": "Professor Pennyfarthing Cycling",
+      "en": "Professor Pennyfarthing Cycling",
+      "portrait": "/media/heroes/portraits/professor_pennyfarthing_cycling.webp",
+      "file": "/media/heroes/transparent/professor_pennyfarthing_cycling.webp",
+      "collected": false
+    },
+    {
+      "number": "102",
+      "id": "professor_puddles_owl",
+      "ja": "Professor Puddles Owl",
+      "en": "Professor Puddles Owl",
+      "portrait": "/media/heroes/portraits/professor_puddles_owl.webp",
+      "file": "/media/heroes/transparent/professor_puddles_owl.webp",
+      "collected": false
+    },
+    {
+      "number": "103",
+      "id": "reverend_bartholomew_badgerby_parson",
+      "ja": "Reverend Bartholomew Badgerby Parson",
+      "en": "Reverend Bartholomew Badgerby Parson",
+      "portrait": "/media/heroes/portraits/reverend_bartholomew_badgerby_parson.webp",
+      "file": "/media/heroes/transparent/reverend_bartholomew_badgerby_parson.webp",
+      "collected": false
+    },
+    {
+      "number": "104",
+      "id": "robin_crusoe_survivalist",
+      "ja": "Robin Crusoe Survivalist",
+      "en": "Robin Crusoe Survivalist",
+      "portrait": "/media/heroes/portraits/robin_crusoe_survivalist.webp",
+      "file": "/media/heroes/transparent/robin_crusoe_survivalist.webp",
+      "collected": false
+    },
+    {
+      "number": "105",
+      "id": "robin_robber",
+      "ja": "Robin Robber",
+      "en": "Robin Robber",
+      "portrait": "/media/heroes/portraits/robin_robber.webp",
+      "file": "/media/heroes/transparent/robin_robber.webp",
+      "collected": false
+    },
+    {
+      "number": "106",
+      "id": "ruby_redbreast_singer",
+      "ja": "Ruby Redbreast Singer",
+      "en": "Ruby Redbreast Singer",
+      "portrait": "/media/heroes/portraits/ruby_redbreast_singer.webp",
+      "file": "/media/heroes/transparent/ruby_redbreast_singer.webp",
+      "collected": true
+    },
+    {
+      "number": "107",
+      "id": "samurai_inosuke",
+      "ja": "Samurai Inosuke",
+      "en": "Samurai Inosuke",
+      "portrait": "/media/heroes/portraits/samurai_inosuke.webp",
+      "file": "/media/heroes/transparent/samurai_inosuke.webp",
+      "collected": true
+    },
+    {
+      "number": "108",
+      "id": "santa_claus",
+      "ja": "Santa Claus",
+      "en": "Santa Claus",
+      "portrait": "/media/heroes/portraits/santa_claus.webp",
+      "file": "/media/heroes/transparent/santa_claus.webp",
+      "collected": false
+    },
+    {
+      "number": "109",
+      "id": "sargeant_hooves_royalguard",
+      "ja": "フーズ軍曹",
+      "en": "Sergeant Hooves",
+      "portrait": "/media/heroes/portraits/sargeant_hooves_royalguard.webp",
+      "file": "/media/heroes/transparent/sargeant_hooves_royalguard.webp",
+      "collected": true
+    },
+    {
+      "number": "110",
+      "id": "sharky_hawaiianshark",
+      "ja": "Sharky Hawaiianshark",
+      "en": "Sharky Hawaiianshark",
+      "portrait": "/media/heroes/portraits/sharky_hawaiianshark.webp",
+      "file": "/media/heroes/transparent/sharky_hawaiianshark.webp",
+      "collected": false
+    },
+    {
+      "number": "111",
+      "id": "sherlock_homing_pigeon",
+      "ja": "Sherlock Homing Pigeon",
+      "en": "Sherlock Homing Pigeon",
+      "portrait": "/media/heroes/portraits/sherlock_homing_pigeon.webp",
+      "file": "/media/heroes/transparent/sherlock_homing_pigeon.webp",
+      "collected": false
+    },
+    {
+      "number": "112",
+      "id": "shibata_bucho",
+      "ja": "Shibata Bucho",
+      "en": "Shibata Bucho",
+      "portrait": "/media/heroes/portraits/shibata_bucho.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "113",
+      "id": "sid_slowlane_taxi",
+      "ja": "Sid Slowlane Taxi",
+      "en": "Sid Slowlane Taxi",
+      "portrait": "/media/heroes/portraits/sid_slowlane_taxi.webp",
+      "file": "/media/heroes/transparent/sid_slowlane_taxi.webp",
+      "collected": false
+    },
+    {
+      "number": "114",
+      "id": "signor_barkarotti_tenor",
+      "ja": "Signor Barkarotti Tenor",
+      "en": "Signor Barkarotti Tenor",
+      "portrait": "/media/heroes/portraits/signor_barkarotti_tenor.webp",
+      "file": "/media/heroes/transparent/signor_barkarotti_tenor.webp",
+      "collected": true
+    },
+    {
+      "number": "115",
+      "id": "sir_archibald_chirpington",
+      "ja": "Sir Archibald Chirpington",
+      "en": "Sir Archibald Chirpington",
+      "portrait": "/media/heroes/portraits/sir_archibald_chirpington.webp",
+      "file": "/media/heroes/transparent/sir_archibald_chirpington.webp",
+      "collected": false
+    },
+    {
+      "number": "116",
+      "id": "sir_arthur_conan_doylehound",
+      "ja": "Sir Arthur Conan Doylehound",
+      "en": "Sir Arthur Conan Doylehound",
+      "portrait": "/media/heroes/portraits/sir_arthur_conan_doylehound.webp",
+      "file": "/media/heroes/transparent/sir_arthur_conan_doylehound.webp",
+      "collected": false
+    },
+    {
+      "number": "117",
+      "id": "sir_barnabas_bullington_bull",
+      "ja": "Sir Barnabas Bullington Bull",
+      "en": "Sir Barnabas Bullington Bull",
+      "portrait": "/media/heroes/portraits/sir_barnabas_bullington_bull.webp",
+      "file": "/media/heroes/transparent/sir_barnabas_bullington_bull.webp",
+      "collected": false
+    },
+    {
+      "number": "118",
+      "id": "sir_bartholomew_beaverworth_banker",
+      "ja": "Sir Bartholomew Beaverworth Banker",
+      "en": "Sir Bartholomew Beaverworth Banker",
+      "portrait": "/media/heroes/portraits/sir_bartholomew_beaverworth_banker.webp",
+      "file": "/media/heroes/transparent/sir_bartholomew_beaverworth_banker.webp",
+      "collected": false
+    },
+    {
+      "number": "119",
+      "id": "sir_basil_ratcliffe_rat",
+      "ja": "Sir Basil Ratcliffe Rat",
+      "en": "Sir Basil Ratcliffe Rat",
+      "portrait": "/media/heroes/portraits/sir_basil_ratcliffe_rat.webp",
+      "file": "/media/heroes/transparent/sir_basil_ratcliffe_rat.webp",
+      "collected": false
+    },
+    {
+      "number": "120",
+      "id": "sir_boris_bristlewick_boar",
+      "ja": "Sir Boris Bristlewick Boar",
+      "en": "Sir Boris Bristlewick Boar",
+      "portrait": "/media/heroes/portraits/sir_boris_bristlewick_boar.webp",
+      "file": "/media/heroes/transparent/sir_boris_bristlewick_boar.webp",
+      "collected": false
+    },
+    {
+      "number": "121",
+      "id": "sir_buckley_brackenridge_deerhunter",
+      "ja": "Sir Buckley Brackenridge Deerhunter",
+      "en": "Sir Buckley Brackenridge Deerhunter",
+      "portrait": "/media/heroes/portraits/sir_buckley_brackenridge_deerhunter.webp",
+      "file": "/media/heroes/transparent/sir_buckley_brackenridge_deerhunter.webp",
+      "collected": false
+    },
+    {
+      "number": "122",
+      "id": "sir_cedric_wickets_cricketgame",
+      "ja": "Sir Cedric Wickets Cricketgame",
+      "en": "Sir Cedric Wickets Cricketgame",
+      "portrait": "/media/heroes/portraits/sir_cedric_wickets_cricketgame.webp",
+      "file": "/media/heroes/transparent/sir_cedric_wickets_cricketgame.webp",
+      "collected": false
+    },
+    {
+      "number": "123",
+      "id": "sir_felix_furrington_pianist",
+      "ja": "Sir Felix Furrington Pianist",
+      "en": "Sir Felix Furrington Pianist",
+      "portrait": "/media/heroes/portraits/sir_felix_furrington_pianist.webp",
+      "file": "/media/heroes/transparent/sir_felix_furrington_pianist.webp",
+      "collected": true
+    },
+    {
+      "number": "124",
+      "id": "sir_galahad_gallopington_horse",
+      "ja": "Sir Galahad Gallopington Horse",
+      "en": "Sir Galahad Gallopington Horse",
+      "portrait": "/media/heroes/portraits/sir_galahad_gallopington_horse.webp",
+      "file": "/media/heroes/transparent/sir_galahad_gallopington_horse.webp",
+      "collected": false
+    },
+    {
+      "number": "125",
+      "id": "sir_horatio_hoppington_rabbit",
+      "ja": "Sir Horatio Hoppington Rabbit",
+      "en": "Sir Horatio Hoppington Rabbit",
+      "portrait": "/media/heroes/portraits/sir_horatio_hoppington_rabbit.webp",
+      "file": "/media/heroes/transparent/sir_horatio_hoppington_rabbit.webp",
+      "collected": false
+    },
+    {
+      "number": "126",
+      "id": "sir_humphrey_hedgehog_postmaster",
+      "ja": "Sir Humphrey Hedgehog Postmaster",
+      "en": "Sir Humphrey Hedgehog Postmaster",
+      "portrait": "/media/heroes/portraits/sir_humphrey_hedgehog_postmaster.webp",
+      "file": "/media/heroes/transparent/sir_humphrey_hedgehog_postmaster.webp",
+      "collected": false
+    },
+    {
+      "number": "127",
+      "id": "sir_humphrey_proboscis",
+      "ja": "ハンフリー",
+      "en": "Humphrey",
+      "portrait": "/media/heroes/portraits/sir_humphrey_proboscis.webp",
+      "file": "/media/heroes/transparent/sir_humphrey_proboscis.webp",
+      "collected": true
+    },
+    {
+      "number": "128",
+      "id": "sir_humphrey_trunkworth_elephant",
+      "ja": "Sir Humphrey Trunkworth Elephant",
+      "en": "Sir Humphrey Trunkworth Elephant",
+      "portrait": "/media/heroes/portraits/sir_humphrey_trunkworth_elephant.webp",
+      "file": "/media/heroes/transparent/sir_humphrey_trunkworth_elephant.webp",
+      "collected": false
+    },
+    {
+      "number": "129",
+      "id": "sir_mallard_waddleworth_duckhunter",
+      "ja": "Sir Mallard Waddleworth Duckhunter",
+      "en": "Sir Mallard Waddleworth Duckhunter",
+      "portrait": "/media/heroes/portraits/sir_mallard_waddleworth_duckhunter.webp",
+      "file": "/media/heroes/transparent/sir_mallard_waddleworth_duckhunter.webp",
+      "collected": false
+    },
+    {
+      "number": "130",
+      "id": "sir_reginald_century_mc",
+      "ja": "Sir Reginald Century Mc",
+      "en": "Sir Reginald Century Mc",
+      "portrait": "/media/heroes/portraits/sir_reginald_century_mc.webp",
+      "file": "/media/heroes/transparent/sir_reginald_century_mc.webp",
+      "collected": false
+    },
+    {
+      "number": "131",
+      "id": "sir_reginald_foxworth_fox",
+      "ja": "Sir Reginald Foxworth Fox",
+      "en": "Sir Reginald Foxworth Fox",
+      "portrait": "/media/heroes/portraits/sir_reginald_foxworth_fox.webp",
+      "file": "/media/heroes/transparent/sir_reginald_foxworth_fox.webp",
+      "collected": false
+    },
+    {
+      "number": "132",
+      "id": "sir_reginald_walrus",
+      "ja": "Sir Reginald Walrus",
+      "en": "Sir Reginald Walrus",
+      "portrait": "/media/heroes/portraits/sir_reginald_walrus.webp",
+      "file": "/media/heroes/transparent/sir_reginald_walrus.webp",
+      "collected": false
+    },
+    {
+      "number": "133",
+      "id": "sir_snooze_sleepy",
+      "ja": "Sir Snooze Sleepy",
+      "en": "Sir Snooze Sleepy",
+      "portrait": "/media/heroes/portraits/sir_snooze_sleepy.webp",
+      "file": "/media/heroes/transparent/sir_snooze_sleepy.webp",
+      "collected": false
+    },
+    {
+      "number": "134",
+      "id": "sir_tewksbury_turtlington_judge",
+      "ja": "Sir Tewksbury Turtlington Judge",
+      "en": "Sir Tewksbury Turtlington Judge",
+      "portrait": "/media/heroes/portraits/sir_tewksbury_turtlington_judge.webp",
+      "file": "/media/heroes/transparent/sir_tewksbury_turtlington_judge.webp",
+      "collected": false
+    },
+    {
+      "number": "135",
+      "id": "sir_winston_whiskerton_cat",
+      "ja": "Sir Winston Whiskerton Cat",
+      "en": "Sir Winston Whiskerton Cat",
+      "portrait": "/media/heroes/portraits/sir_winston_whiskerton_cat.webp",
+      "file": "/media/heroes/transparent/sir_winston_whiskerton_cat.webp",
+      "collected": false
+    },
+    {
+      "number": "136",
+      "id": "sir_winston_woofington_beefeater",
+      "ja": "Sir Winston Woofington Beefeater",
+      "en": "Sir Winston Woofington Beefeater",
+      "portrait": "/media/heroes/portraits/sir_winston_woofington_beefeater.webp",
+      "file": "/media/heroes/transparent/sir_winston_woofington_beefeater.webp",
+      "collected": false
+    },
+    {
+      "number": "137",
+      "id": "stanley_scrubbs_dishwasher",
+      "ja": "Stanley Scrubbs Dishwasher",
+      "en": "Stanley Scrubbs Dishwasher",
+      "portrait": "/media/heroes/portraits/stanley_scrubbs_dishwasher.webp",
+      "file": "/media/heroes/transparent/stanley_scrubbs_dishwasher.webp",
+      "collected": false
+    },
+    {
+      "number": "138",
+      "id": "sumo_tanuki",
+      "ja": "Sumo Tanuki",
+      "en": "Sumo Tanuki",
+      "portrait": "/media/heroes/portraits/sumo_tanuki.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "139",
+      "id": "sushimaru",
+      "ja": "Sushimaru",
+      "en": "Sushimaru",
+      "portrait": "/media/heroes/portraits/sushimaru.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "140",
+      "id": "suzumaru_shrinedeer",
+      "ja": "Suzumaru Shrinedeer",
+      "en": "Suzumaru Shrinedeer",
+      "portrait": "/media/heroes/portraits/suzumaru_shrinedeer.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "141",
+      "id": "the_right_honourable_sir_winston_cluckhill",
+      "ja": "The Right Honourable Sir Winston Cluckhill",
+      "en": "The Right Honourable Sir Winston Cluckhill",
+      "portrait": "/media/heroes/portraits/the_right_honourable_sir_winston_cluckhill.webp",
+      "file": "/media/heroes/transparent/the_right_honourable_sir_winston_cluckhill.webp",
+      "collected": false
+    },
+    {
+      "number": "142",
+      "id": "tobimaru_flyingfox",
+      "ja": "Tobimaru Flyingfox",
+      "en": "Tobimaru Flyingfox",
+      "portrait": "/media/heroes/portraits/tobimaru_flyingfox.webp",
+      "file": "",
+      "collected": false
+    },
+    {
+      "number": "143",
+      "id": "turbo",
+      "ja": "ターボ",
+      "en": "Turbo",
+      "portrait": "",
+      "file": "/media/turbo/poses/turbo_confident_transparent.webp",
+      "collected": true
+    },
+    {
+      "number": "144",
+      "id": "yamabo_yamaboshi",
+      "ja": "Yamabo Yamaboshi",
+      "en": "Yamabo Yamaboshi",
+      "portrait": "/media/heroes/portraits/yamabo_yamaboshi.webp",
+      "file": "",
+      "collected": false
+    }
+  ]
+}

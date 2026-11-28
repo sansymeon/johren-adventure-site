@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "characters": [
+    {"number": "001", "id": "turbo", "file": "/media/turbo/poses/turbo_confident_transparent.webp", "ja": "ターボ", "en": "Turbo"},
+    {"number": "002", "id": "seagull", "file": "/media/heroes/transparent/captain_seagull_flying.webp", "ja": "キャプテン・シーガル", "en": "Captain Seagull"},
+    {"number": "003", "id": "nibbles", "file": "/media/heroes/transparent/nibbles_dragon.webp", "ja": "ニブルズ", "en": "Nibbles"},
+    {"number": "004", "id": "lola", "file": "/media/heroes/transparent/madame_lola_flamingo_moviestar.webp", "ja": "ローラ", "en": "Lola"},
+    {"number": "005", "id": "hooves", "file": "/media/heroes/transparent/sargeant_hooves_royalguard.webp", "ja": "フーズ軍曹", "en": "Sergeant Hooves"},
+    {"number": "006", "id": "henrietta", "file": "/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp", "ja": "アンリエッタ", "en": "Henrietta"},
+    {"number": "007", "id": "bubbles", "file": "/media/heroes/transparent/bubbles_babydragon.webp", "ja": "バブルス", "en": "Bubbles"},
+    {"number": "008", "id": "humphrey", "file": "/media/heroes/transparent/sir_humphrey_proboscis.webp", "ja": "ハンフリー", "en": "Humphrey"},
+    {"number": "009", "id": "blunderbuss"},
+    {"number": "010", "id": "reginald"},
+    {"number": "011", "id": "fifi"},
+    {"number": "012", "id": "tsuru"}
+  ]
+}

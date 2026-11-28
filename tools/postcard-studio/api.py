@@ -35,6 +35,18 @@ def _design_from_body(body, existing=None):
     return design, ""
 
 
+def _margin_scale(values, fallback):
+    raw = values[0] if values else fallback
+    try:
+        value = round(float(raw), 2)
+    except (TypeError, ValueError):
+        value = None
+    allowed = {round(item, 2): item for item in render.MARGIN_SCALES}
+    if value in allowed:
+        return allowed[value]
+    return allowed.get(round(float(fallback), 2), 1)
+
+
 def _send_file(handler, data, kind, filename=None):
     handler.send_response(200)
     handler.send_header("Content-Type", kind)
@@ -127,8 +139,20 @@ def handle_post(handler, path):
         store.save_design(design)
         handler.send_json(200, {"design": design})
         return True
-    if path == "/api/postcards/new":
+    if path == "/api/postcards/assign-qr":
         row = store.new_code()
+        handler.send_json(200, {"id": row["id"], "url": "https://johrenadventure.com/q/" + row["id"]})
+        return True
+    if path == "/api/postcards/new":
+        body = _json_body(handler) or {}
+        qr_kind = body.get("kind") if body.get("kind") in ("general", "none") else "merchant"
+        if qr_kind == "merchant":
+            row = store.new_code()
+            qr = {"kind": "merchant", "id": row["id"], "url": "https://johrenadventure.com/q/" + row["id"], "sizeMm": 22, "x": 0.78, "y": 0.82}
+        elif qr_kind == "general":
+            qr = {"kind": "general", "id": "", "url": "https://johrenadventure.com/", "sizeMm": 22, "x": 0.78, "y": 0.82}
+        else:
+            qr = {"kind": "none", "id": "", "url": "", "sizeMm": 22, "x": 0.78, "y": 0.82}
         design = {
             "id": "pc-" + secrets.token_hex(4),
             "title": "",
@@ -140,7 +164,7 @@ def handle_post(handler, path):
                 "front": {"image": "", "texts": [{"lang": "ja", "text": "", "sizeMm": 8, "color": "#ffffff", "x": 0.5, "y": 0.18, "font": "noto"}], "layers": []},
                 "back": {"image": "", "texts": [], "layers": []},
             },
-            "qr": {"id": row["id"], "url": "https://johrenadventure.com/q/" + row["id"], "sizeMm": 22, "x": 0.78, "y": 0.82},
+            "qr": qr,
             "createdAt": store.now(),
         }
         store.save_design(design)
@@ -152,12 +176,22 @@ def handle_post(handler, path):
         if source is None:
             handler.send_json(404, {"error": "Unknown design"})
             return True
-        row = store.new_code()
         copy = json.loads(json.dumps(source))
         copy["id"] = "pc-" + secrets.token_hex(4)
         copy["title"] = (source.get("title") or "Postcard") + " copy"
-        copy["qr"]["id"] = row["id"]
-        copy["qr"]["url"] = "https://johrenadventure.com/q/" + row["id"]
+        qr_kind = (copy.get("qr") or {}).get("kind") or "merchant"
+        if qr_kind == "merchant":
+            row = store.new_code()
+            copy["qr"]["kind"] = "merchant"
+            copy["qr"]["id"] = row["id"]
+            copy["qr"]["url"] = "https://johrenadventure.com/q/" + row["id"]
+        elif qr_kind == "general":
+            copy["qr"]["id"] = ""
+            copy["qr"]["url"] = "https://johrenadventure.com/"
+        else:
+            copy["qr"]["kind"] = "none"
+            copy["qr"]["id"] = ""
+            copy["qr"]["url"] = ""
         copy["createdAt"] = store.now()
         store.save_design(copy)
         handler.send_json(200, {"design": copy})
@@ -172,7 +206,7 @@ def handle_post(handler, path):
             return True
         query = parse_qs(urlparse(handler.path).query)
         kind = query.get("format", ["png"])[0]
-        if kind not in ("png", "jpeg", "pdf", "preview"):
+        if kind not in ("png", "jpeg", "pdf", "preview", "duplex"):
             handler.send_json(400, {"error": "Use png, jpeg, or pdf"})
             return True
         existing = store.read_design(body.get("id") or "")
@@ -180,30 +214,25 @@ def handle_post(handler, path):
         if error:
             handler.send_json(400, {"error": error})
             return True
-        try:
-            scale = float(query.get("scale", ["1"])[0])
-        except ValueError:
-            scale = 1
-        if scale not in render.MARGIN_SCALES:
-            scale = 1
+        scale = _margin_scale(query.get("scaleFront", query.get("scale", ["1"])), 1)
+        back_scale = _margin_scale(query.get("scaleBack", query.get("scale", [str(scale)])), scale)
         if kind == "preview":
-            _send_file(handler, render.preview_scaled(design, scale), "image/jpeg", None)
+            _send_file(handler, render.preview_scaled(design, scale, back_scale), "image/jpeg", None)
+            return True
+        if kind == "duplex":
+            _send_file(handler, render.pdf_a4_copies(design, scale, back_scale), "application/pdf", "postcard-duplex.pdf")
             return True
         side = body.get("side") if body.get("side") in ("front", "back") else "front"
-        layout = "margin" if kind == "pdf" and scale < 1 else "standard"
-        data, mime, ext = render.export_bytes(design, kind, side, layout, scale)
+        layout = "margin" if kind == "pdf" else "standard"
+        data, mime, ext = render.export_bytes(design, kind, side, layout, scale, back_scale)
         filename = "%s-%s.%s" % (design["qr"]["id"], design["id"], ext)
         _send_file(handler, data, mime, filename)
         return True
     if path == "/api/postcards/export-batch":
         body = _json_body(handler) or {}
         ids = body.get("ids") if isinstance(body.get("ids"), list) else []
-        try:
-            scale = float(body.get("scale") if body.get("scale") is not None else 0.95)
-        except (TypeError, ValueError):
-            scale = 0.95
-        if scale not in render.MARGIN_SCALES:
-            scale = 0.95
+        scale = _margin_scale([body.get("scaleFront", body.get("scale", 1))], 1)
+        back_scale = _margin_scale([body.get("scaleBack", body.get("scale", scale))], scale)
         designs = []
         missing = []
         for code_id in ids:
@@ -216,7 +245,7 @@ def handle_post(handler, path):
         if missing or not designs:
             handler.send_json(400, {"error": "No saved design for " + ", ".join(missing or ["the selection"])})
             return True
-        data = render.pdf_a4_batch(designs, scale)
+        data = render.pdf_a4_batch(designs, scale, back_scale)
         _send_file(handler, data, "application/pdf", "postcards-a4-duplex.pdf")
         return True
     if path == "/api/qr/save":

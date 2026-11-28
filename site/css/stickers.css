@@ -1,0 +1,100 @@
+.sticker-showcase { margin: 8px 0 22px; }
+.sticker-showcase h2 { text-align: center; font-size: 1.2rem; margin: 0 0 6px; }
+.sticker-showcase > p { text-align: center; margin: 0 0 10px; font-weight: 700; }
+.sticker-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.sticker-row li { background: #fff; border: 1px solid #efd48a; border-radius: 14px; padding: 8px 6px; text-align: center; }
+.sticker-row img { width: 100%; height: 132px; object-fit: contain; }
+.sticker-row span { display: block; margin-top: 4px; font-size: .78rem; font-weight: 800; line-height: 1.25; white-space: nowrap; }
+@media (max-width: 520px) { .sticker-row { grid-template-columns: repeat(2, 1fr); gap: 8px; } .sticker-row img { height: 150px; } }
+.stage-invite, .growing { text-align: center; max-width: 570px; margin: 6px auto 26px; }
+.stage-invite h2, .growing h2 { margin: 0 0 6px; font-size: 1.12rem; color: #304b60; }
+.stage-invite p, .growing p { margin: 0; }
+.stage-invite a { display: inline-block; margin-top: 12px; padding: 10px 18px; border-radius: 999px; background: #0e7884; color: #fff; font-weight: 850; text-decoration: none; }
+.growing { background: #fff; border: 1px solid #f1dfc7; border-radius: 18px; padding: 16px 18px; }
+.growing-sign { margin-top: 8px; font-weight: 850; color: #be523f; }
+.album { max-width: 760px; margin: 0 auto; padding: 12px 14px 48px; color: #173043; font: 16px/1.45 system-ui, sans-serif; background: #f7f1e6; }
+.album h1, .album h2 { color: #0e7884; }
+.welcome-theatre h2 { color: #8b1230; margin-bottom: 4px; }
+.welcome-theatre p { margin: 4px 0 8px; }
+#picture-view { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; align-content: center; gap: 12px; padding: 16px; background: rgba(20, 8, 14, .72); }
+#picture-view[hidden] { display: none; }
+#picture-view img { width: min(920px, 100%); height: auto; border-radius: 12px; }
+#sticker-detail .playbill.theatre { width: min(1100px, 100%); }
+#sticker-detail .theatre .stage { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.album h1 { font-size: 1.45rem; margin: 8px 0; }
+.album h2 { font-size: 1.05rem; margin: 16px 0 8px; }
+.badge { display: inline-block; background: #fff3c4; border-radius: 999px; padding: 4px 10px; font-weight: 800; }
+.return { display: inline-block; margin: 8px 0; background: #fff; border: 1px solid #c9e0e2; border-radius: 999px; padding: 10px 14px; font-weight: 800; text-decoration: none; color: #173043; }
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.slot { background: #fff; border: 1px solid #dce8ea; border-radius: 14px; padding: 6px; text-align: center; }
+.slot img { width: 100%; height: 78px; object-fit: contain; }
+.slot.locked img { filter: brightness(0); opacity: .35; }
+.slot span, .slot small { display: block; font-size: .72rem; font-weight: 800; }
+.progress { height: 10px; background: #e7eef0; border-radius: 999px; overflow: hidden; }
+.progress i { display: block; height: 100%; width: 62%; background: #0e7884; }
+.pictures { display: grid; gap: 10px; }
+.pictures figure { margin: 0; background: #fff; border-radius: 14px; padding: 8px; }
+.pictures img { width: 100%; height: auto; border-radius: 10px; }
+.board { position: relative; margin-top: 8px; }
+.board img { width: 100%; height: auto; border-radius: 12px; display: block; }
+.mosaic { position: relative; }
+.mosaic span { position: absolute; background: rgba(23, 48, 67, .82); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.actions a, .actions button { border: 0; border-radius: 999px; background: #0e7884; color: #fff; font: inherit; font-weight: 800; padding: 10px 14px; text-decoration: none; }
+.sticker-album { position: relative; background: #fff6e8; color: #3a1420; border-radius: 18px; padding: 12px; box-shadow: inset 0 0 0 3px #8b1230, inset 0 0 0 6px #f0c14b; }
+.sticker-album h2 { color: #8b1230; margin: 0 0 4px; letter-spacing: .04em; }
+.sticker-progress { margin: 0 0 8px; font-weight: 800; }
+.sticker-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.sticker-card { position: relative; display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 4px; border: 0; background: transparent; color: #3a1420; font: inherit; }
+.sticker-card .frame { display: grid; place-items: center; width: 100%; aspect-ratio: 3 / 4; padding: 4px; border: 2px solid #c9922a; border-radius: 8px; background: #fff6e8; box-shadow: inset 0 0 0 1px #f0c14b; }
+.album .sticker-grid { grid-template-columns: repeat(3, 1fr); }
+.sticker-card img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.sticker-card .mystery { color: #c9922a; font-size: 1.4rem; font-weight: 800; }
+.sticker-card .no, .sticker-card .who { font-size: .62rem; font-weight: 800; line-height: 1.15; }
+.sticker-card.is-empty .frame { background: #f7f1e6; }
+.sticker-card.is-new .frame { box-shadow: 0 0 0 2px #f0c14b; }
+.sticker-card .fresh { position: absolute; top: 6px; right: 6px; z-index: 3; background: #8b1230; color: #f0c14b; border-radius: 999px; padding: 1px 6px; font-size: .65rem; }
+.act-pager { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.act-pager button { border: 0; border-radius: 999px; background: #8b1230; color: #f0c14b; font: inherit; font-weight: 800; padding: 8px 12px; }
+.act-pager button:disabled { opacity: .35; }
+.pictures { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pictures button { padding: 0; border: 2px solid #c9922a; border-radius: 10px; background: #fff; }
+.pictures img { width: 100%; height: 92px; object-fit: cover; display: block; }
+.board { max-width: 100%; }
+.board img { width: 100%; height: auto; display: block; border-radius: 10px; }
+@keyframes sticker-part { from { width: 50%; } to { width: 16%; } }
+@keyframes sticker-spot { from { box-shadow: inset 0 0 0 40px rgba(240, 193, 75, .8); } to { box-shadow: inset 0 0 18px rgba(240, 193, 75, .45); } }
+.sticker-confetti { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.sticker-confetti i { position: absolute; top: -8px; width: 8px; height: 12px; border-radius: 2px; animation: sticker-fall 1.4s ease-in forwards; }
+@keyframes sticker-fall { to { transform: translateY(280px) rotate(160deg); opacity: 0; } }
+#sticker-album-view { position: fixed; inset: 0; z-index: 50; overflow: auto; background: radial-gradient(circle at 50% 0, #fff6e8, #f3d7c4 70%); }
+.sticker-album-sheet { max-width: 760px; margin: 0 auto; padding: 12px 14px 32px; }
+.sticker-close, #sticker-detail button { border: 0; border-radius: 999px; background: #0e7884; color: #fff; font: inherit; font-weight: 800; padding: 10px 16px; }
+#sticker-detail { position: fixed; inset: 0; z-index: 60; overflow: auto; overscroll-behavior: none; touch-action: manipulation; display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 8px; background: rgba(20, 8, 14, .55); }
+#sticker-detail .theatre-return { position: sticky; top: 0; z-index: 4; align-self: flex-start; margin: 0; border: 0; border-radius: 999px; background: #f0c14b; color: #4a0a18; font: inherit; font-weight: 800; font-size: .85rem; padding: 6px 10px; }
+#sticker-detail .playbill.theatre { padding: 8px 10px; }
+#sticker-detail .playbill.theatre h3 { margin: 0 0 6px; font-size: 1rem; }
+#sticker-detail .theatre-actions { margin: 6px 0 0; }
+#sticker-detail .show-begin, #sticker-detail .show-stop, #sticker-detail .theatre-actions button { font-size: .85rem; padding: 6px 10px; }
+#sticker-detail .playbill { width: min(420px, 100%); background: #fff6e8; border: 4px solid #c9922a; border-radius: 22px; padding: 0 16px 16px; text-align: center; color: #3a1420; overflow: hidden; }
+#sticker-detail .valance { height: 28px; margin: 0 -16px 10px; background: linear-gradient(180deg, #7a1028, #4a0a18); border-bottom: 3px solid #f0c14b; }
+#sticker-detail .playbill.theatre { width: min(720px, 100%); box-sizing: border-box; overflow: visible; }
+#sticker-detail .theatre .stage { position: relative; width: min(100%, calc((100dvh - 168px) * 16 / 9)); max-height: calc(100dvh - 168px); height: auto; aspect-ratio: 16 / 9; margin-inline: auto; }
+#sticker-detail .stage img { -webkit-touch-callout: default; touch-action: auto; }
+#sticker-detail .stage { position: relative; overflow: hidden; border-radius: 12px; background: #1a0c14 url("/map/media/cast/stage.webp") center / 100% 100% no-repeat; }
+#sticker-detail .stage img { position: absolute; z-index: 1; width: auto; max-width: 34%; height: 42%; transform: translateX(-50%); object-fit: contain; object-position: center bottom; filter: drop-shadow(0 8px 10px rgba(0,0,0,.35)); }
+#sticker-detail .stage img.star { max-width: 46%; height: 88%; }
+#sticker-detail .stage img.cast-member { max-width: 26%; height: 36%; }
+.act-label { margin: 8px 0; font-weight: 800; color: #8b1230; }
+.finale-open, .theatre-actions button { border: 0; border-radius: 999px; background: #8b1230; color: #f0c14b; font: inherit; font-weight: 800; padding: 8px 12px; margin: 2px; }
+#sticker-detail .wing { position: absolute; top: 0; bottom: 0; width: 14%; z-index: 2; background: repeating-linear-gradient(90deg, #6e0f28 0 8px, #8b1230 8px 16px, #a31838 16px 22px); }
+#sticker-detail .stage.is-waiting .wing { width: 51%; }
+#sticker-detail .stage.is-waiting img { visibility: hidden; }
+#sticker-detail .stage.is-playing .wing { animation: sticker-reveal 1.2s ease forwards; }
+.show-begin { border: 0; border-radius: 999px; background: #f0c14b; color: #4a0a18; font: inherit; font-weight: 800; padding: 10px 16px; }
+.show-stop, .show-sound { border: 0; border-radius: 999px; background: transparent; color: #8b1230; font: inherit; font-weight: 800; padding: 6px 8px; }
+#sticker-detail .wing.left { left: 0; border-right: 3px solid #c9922a; transform-origin: left center; }
+#sticker-detail .wing.right { right: 0; border-left: 3px solid #c9922a; transform-origin: right center; }
+#sticker-detail h2 { color: #8b1230; margin: 8px 0; }
+@keyframes sticker-reveal { from { width: 52%; } to { width: 14%; } }
+@media (min-width: 800px) { .sticker-grid { grid-template-columns: repeat(4, 1fr); } .album .sticker-grid { grid-template-columns: repeat(3, 1fr); } }

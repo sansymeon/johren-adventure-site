@@ -160,6 +160,9 @@
     els.sheetNameEn.textContent = pin.nameEn || "";
     els.sheetNameEn.hidden = !pin.nameEn;
 
+    const written = TURBO_I18N.lang() === "en"
+      ? (pin.descriptionEn || pin.description || "")
+      : (pin.description || pin.descriptionEn || "");
     if (railway) {
       const line = window.TURBO_LINE_NAMES
         ? TURBO_LINE_NAMES.lineName(pin.line, TURBO_I18N.lang())
@@ -174,7 +177,11 @@
         if (attraction) parts.push(attraction);
         if (about) parts.push(about);
       }
+      if (written) parts.push(written);
+      if (pin.website) parts.push(pin.website);
       els.sheetDesc.textContent = parts.join("\n");
+    } else if (written) {
+      els.sheetDesc.textContent = pin.website ? written + "\n" + pin.website : written;
     } else if (discovery && discovery.stage_description) {
       els.sheetDesc.textContent = discovery.stage_description;
     } else if (place && window.TURBO_DISCOVERY_CATEGORIES) {

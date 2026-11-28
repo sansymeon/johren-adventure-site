@@ -254,6 +254,22 @@
     ];
   }
 
+  function demoVisits() {
+    var data;
+    try { data = JSON.parse(localStorage.getItem("turbo.demoMerchantRewards.v1") || ""); } catch (error) { data = null; }
+    var visits = data && data.visits ? data.visits : {};
+    var ids = Object.keys(visits).filter(function (id) { return visits[id] && visits[id].character; });
+    if (!ids.length) return "";
+    var en = (document.documentElement.lang || "ja").toLowerCase() === "en";
+    return "<h2>" + (en ? "Demonstration visits" : "見本の来店") + "</h2><ul>" + ids.map(function (id) {
+      var visit = visits[id];
+      var name = visit.name ? (en ? visit.name.en : visit.name.ja) : visit.character;
+      var shop = visit.shop ? (en ? visit.shop.en : visit.shop.ja) : "";
+      return "<li><img alt=\"\" src=\"" + visit.file + "\" style=\"width:48px;height:48px;object-fit:contain;vertical-align:middle\"> " +
+        name + (shop ? " · " + shop : "") + (en ? " · demo visit" : " · 見本の来店") + "</li>";
+    }).join("") + "</ul>";
+  }
+
   function paint() {
     var progress = global.TURBO_RAILWAY_PUZZLE.progress();
     var stations = global.TURBO_COLLECTION.list("railway").length;
@@ -281,7 +297,17 @@
       (picture && picture.temporary ? "<p class=\"collection-note\">" + t("placeholderNote") + "</p>" : "") +
       completedHtml +
       names("railway", railwayCat.emptyKey) +
-      otherHtml;
+      otherHtml +
+      "<div data-player-album></div>" +
+      "<div data-demo-album></div>";
+    if (global.TURBO_STICKER_ALBUM) {
+      global.TURBO_STICKER_ALBUM.render(root.querySelector("[data-player-album]"), { source: "player" });
+      var en = (document.documentElement.lang || "ja").toLowerCase() === "en";
+      global.TURBO_STICKER_ALBUM.render(root.querySelector("[data-demo-album]"), {
+        source: "demo",
+        heading: en ? "Demonstration visits" : "見本の来店"
+      });
+    }
   }
 
   function show() {
@@ -333,6 +359,7 @@
       '<header class="overlay-header"><button type="button" class="btn btn-back" data-collection-close>' +
       t("collectionClose") + '</button><h2 class="overlay-title">' + t("collectionTitle") + "</h2></header>" +
       '<p class="collection-slogan">' + t("slogan") + "</p>" +
+      '<p class="collection-demo-link"><a href="' + (document.documentElement.lang === "en" ? "/en/collection-demo/" : "/collection-demo/") + '">' + t("demoAlbum") + "</a></p>" +
       '<p class="collection-note">' + t("deviceNote") + "</p>" +
       '<div class="collection-body" data-collection-body></div>' +
       (location.search.indexOf("test=1") >= 0

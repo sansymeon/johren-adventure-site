@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<title>店舗体験デモ</title>
+<style>
+  :root { --ink: #173043; --teal: #0e7884; --gold: #c9922a; --line: #e4ddd0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #f7f1e6; color: var(--ink); font: 16px/1.45 system-ui, sans-serif; }
+  main { max-width: 1080px; margin: 0 auto; padding: 20px 16px 36px; }
+  .brand { margin: 0; letter-spacing: .16em; font-size: .78rem; font-weight: 800; color: var(--teal); }
+  .intro { display: flex; align-items: center; gap: 14px; margin: 8px 0 18px; }
+  .intro img { width: 72px; height: 72px; object-fit: contain; }
+  h1 { margin: 0; color: var(--teal); font-size: clamp(1.6rem, 4vw, 2.1rem); }
+  .intro p { margin: 4px 0 0; }
+  .cards { display: grid; gap: 16px; }
+  article { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px 16px 18px; text-align: center; }
+  article.premium { border-color: #e7c56a; box-shadow: inset 0 4px 0 var(--gold); }
+  h2 { margin: 0; color: var(--teal); font-size: 1.25rem; }
+  .plan { display: inline-block; margin: 8px 0 12px; padding: 3px 10px; border-radius: 999px; background: #e7f4f5; color: var(--teal); font-size: .85rem; font-weight: 800; }
+  article.premium .plan { background: #fff4d4; color: #8a6414; }
+  .code { background: #fff; border-radius: 12px; padding: 12px; }
+  img.qr { width: min(280px, 72vw); height: auto; }
+  a.try { display: inline-block; margin-top: 12px; padding: 10px 18px; border-radius: 999px; background: var(--teal); color: #fff; font-weight: 800; text-decoration: none; }
+  article.premium a.try { background: var(--gold); }
+  @media (min-width: 860px) {
+    .cards { grid-template-columns: repeat(3, 1fr); align-items: start; }
+    img.qr { width: 100%; max-width: 240px; }
+  }
+  @page { size: A4; margin: 10mm; }
+  @media print {
+    body { background: #fff; }
+    main { max-width: none; padding: 0; }
+    .intro img { width: 48px; height: 48px; }
+    .cards { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    article { break-inside: avoid; padding: 8px; }
+    img.qr { width: 52mm; }
+    a.try { display: none; }
+  }
+</style>
+</head>
+<body>
+<main>
+<p class="brand">TURBO ADVENTURES</p>
+<div class="intro">
+  <img src="/media/turbo/poses/turbo_confident_transparent.webp" alt="">
+  <div>
+    <h1>店舗体験デモ</h1>
+    <p>QRコードを読み取って、体験してみよう！</p>
+  </div>
+</div>
+<div class="cards" id="codes"></div>
+</main>
+<script>
+var labels = {
+  free: "無料掲載 / Free",
+  standard: "スタンダード / Standard",
+  premium: "プレミアム / Premium"
+};
+function text(value) {
+  return String(value || "").replace(/[&<>"]/g, function (ch) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", "\"": "&quot;" }[ch];
+  });
+}
+fetch("/data/merchants/merchants.json", { cache: "no-store" })
+  .then(function (response) { return response.json(); })
+  .then(function (data) {
+    var box = document.getElementById("codes");
+    ["demo-a", "demo-b", "demo-c"].forEach(function (alias) {
+      var shop = null;
+      Object.keys(data.merchants).forEach(function (id) {
+        if (data.merchants[id].alias === alias) shop = data.merchants[id];
+      });
+      if (!shop || !shop.qrs || !shop.qrs[0]) return;
+      var card = document.createElement("article");
+      if (shop.plan === "premium") card.className = "premium";
+      card.innerHTML = "<h2>" + text(shop.name.ja) + "</h2><p class=\"plan\">" + labels[shop.plan] + "</p>" +
+        "<div class=\"code\"><img class=\"qr\" alt=\"" + text(shop.name.ja) + "\" src=\"/demo/merchant-qr/" + shop.qrs[0] + ".svg\"></div>" +
+        "<a class=\"try\" href=\"/shops/" + alias + "/\">体験する / Try Demo</a>";
+      box.appendChild(card);
+    });
+  });
+</script>
+</body>
+</html>

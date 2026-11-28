@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Map and merchants · Turbo Admin</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+  body { margin: 0; font: 16px/1.45 system-ui, sans-serif; color: #16332f; background: #f6f3ec; }
+  header, main { max-width: 1100px; margin: 0 auto; padding: 16px; }
+  a { color: #0e7884; }
+  .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 860px) { .layout { grid-template-columns: 1fr; } }
+  section { background: #fff; border: 1px solid #d5d0c4; border-radius: 12px; padding: 12px; }
+  label { display: block; margin: 8px 0; }
+  .pin-types { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 10px; }
+  .pin-types label { display: flex; align-items: center; gap: 6px; margin: 0; padding: 6px 8px; border: 1px solid #d5d0c4; border-radius: 999px; background: #fff; }
+  .pin-types input { width: auto; }
+  .pin-types img { width: 22px; height: 22px; object-fit: contain; }
+  .airport-mark { width: 22px; text-align: center; font-size: 16px; }
+  .airport-pin { background: transparent; border: 0; font-size: 22px; text-align: center; }
+  input, select, textarea { width: 100%; font: inherit; padding: 8px; }
+  button { font: inherit; background: #0e7884; color: #fff; border: 0; border-radius: 8px; padding: 8px 12px; margin: 4px 4px 0 0; }
+  button.ghost { background: #fff; color: #16332f; border: 1px solid #d5d0c4; }
+  #map { height: 320px; border-radius: 12px; }
+  li { margin: 4px 0; }
+  .warn { background: #fff6e4; padding: 8px; border-radius: 8px; }
+</style>
+</head>
+<body>
+<header>
+  <p><a href="/">← Admin home</a></p>
+  <h1>Map and merchant manager</h1>
+  <p>Edits are saved on this computer and appear on the local map at <a href="http://127.0.0.1:8765/map/">http://127.0.0.1:8765/map/</a>. They are not on johrenadventure.com until you publish from Admin home. The original map file is not rewritten. Undo restores the previous edit.</p>
+</header>
+<main>
+<div class="layout">
+<section>
+  <h2>Search existing Turbo locations</h2>
+  <p>This looks only at places already on the Turbo map.</p>
+  <label>Name or id <input id="q" placeholder="駅名、店名、または id"></label>
+  <label>Country
+    <select id="country"><option value="">Any</option><option value="japan">Japan</option><option value="malaysia">Malaysia</option></select>
+  </label>
+  <label>Prefecture or area
+    <select id="area"><option value="">Any</option></select>
+  </label>
+  <p>Pin type</p>
+  <div class="pin-types" id="type"></div>
+  <button type="button" id="find">Search existing</button>
+  <button type="button" class="ghost" id="fresh">New place</button>
+  <label>Data source（データの出典）
+    <select id="source">
+      <option value="">Any</option>
+      <option value="merchant">Merchant supplied（店舗提供）</option>
+      <option value="admin">Admin supplied（管理者入力）</option>
+      <option value="online">Online data（オンライン情報）</option>
+      <option value="legacy">Legacy / Unknown（既存データ・出典不明）</option>
+    </select>
+  </label>
+  <p id="found"></p>
+  <ul id="results"></ul>
+  <h2>Find a new geographical location</h2>
+  <p>This searches the map for a place that is not yet a Turbo location. Choosing a result fills the form. You can still type coordinates or drag the marker.</p>
+  <label>Place, business, or address <input id="address" placeholder="十条銀座商店街"></label>
+  <button type="button" id="lookup">Search the map</button>
+  <p id="geo-status"></p>
+  <div id="address-results"></div>
+</section>
+<section>
+  <h2 id="form-title">Place</h2>
+  <form id="place">
+    <label>Permanent id <input id="id" readonly placeholder="Assigned when this place is saved"></label>
+    <label>Country <select id="f-country"><option value="japan">Japan</option><option value="malaysia">Malaysia</option></select></label>
+    <label>Prefecture or area <select id="f-area"><option value="">Not supplied</option></select></label>
+    <p>Pin type</p>
+    <div class="pin-types" id="f-type"></div>
+    <label>Name <input id="name" required></label>
+    <label>English name <input id="nameEn"></label>
+    <label>Address <input id="address"></label>
+    <label>Japanese description <textarea id="description" rows="3"></textarea></label>
+    <label>English description <textarea id="descriptionEn" rows="3"></textarea></label>
+    <label>Website <input id="website" placeholder="https://"></label>
+    <label>Service <select id="serviceTier"><option value="">Not a shop listing</option><option value="free">Free listing</option><option value="optional">Optional paid service</option></select></label>
+    <label>Railway line id, if this is a station <input id="line"></label>
+    <label>GPS radius in metres, optional <input id="radiusMeters" inputmode="numeric"></label>
+    <label>Latitude <input id="lat" required></label>
+    <label>Longitude <input id="lng" required></label>
+    <div id="map"></div>
+    <label>Photograph <input id="photo" type="file" accept="image/*"></label>
+    <h3>Data source（データの出典）</h3>
+    <label>Source
+      <select id="data-source">
+        <option value="merchant">Merchant supplied（店舗提供）</option>
+        <option value="admin">Admin supplied（管理者入力）</option>
+        <option value="online">Online data（オンライン情報）</option>
+        <option value="legacy">Legacy / Unknown（既存データ・出典不明）</option>
+      </select>
+    </label>
+    <label>Source details <input id="sourceDetails" placeholder="Supplier, reference URL, or original provider"></label>
+    <label>Last verified <input id="verified" type="date"></label>
+    <label>Internal notes <textarea id="notes" rows="2"></textarea></label>
+    <label>Postcard <select id="postcardId"><option value="">None</option></select></label>
+    <label><input id="assignPostcard" type="checkbox"> Point this postcard’s QR at the map pin</label>
+    <p id="message"></p>
+    <div id="dupes" class="warn" hidden></div>
+    <button type="submit" id="save">Save locally</button>
+    <button type="button" class="ghost" id="disable">Hide from the map</button>
+    <button type="button" class="ghost" id="enable">Show on the map</button>
+    <button type="button" class="ghost" id="undo">Undo last edit</button>
+  </form>
+</section>
+</div>
+</main>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+var areas = ["hokkaido","aomori","iwate","miyagi","akita","yamagata","fukushima","ibaraki","tochigi","gunma","saitama","chiba","tokyo","kanagawa","niigata","toyama","ishikawa","fukui","yamanashi","nagano","gifu","shizuoka","aichi","mie","shiga","kyoto","osaka","hyogo","nara","wakayama","tottori","shimane","okayama","hiroshima","yamaguchi","tokushima","kagawa","ehime","kochi","fukuoka","saga","nagasaki","kumamoto","oita","miyazaki","kagoshima","okinawa","gaya_street"];
+var pinGroups = [
+  { id: "discovery", label: "Blue — Discovery", icon: "/img/map/turbo/turbo_blue_pin.webp", types: ["beach","waterfall","forest","mountain","viewpoint","nature","landmark","coffee","restaurant","supermarket","market","shop"], store: "landmark" },
+  { id: "cultural", label: "Green — Cultural", icon: "/img/map/turbo/turbo_green_pin.webp", types: ["church","shrine","temple","museum","castle","castle_ruins","historic","mosque"], store: "historic" },
+  { id: "merchant", label: "Gold — Merchant", icon: "/img/map/turbo/turbo_gold_pin.webp", types: ["merchant"], store: "merchant" },
+  { id: "railway", label: "Railway Station", icon: "/img/map/station.webp", types: ["station"], store: "station" },
+  { id: "airport", label: "Airport", mark: "✈", types: ["airport"], store: "airport" }
+];
+function groupFor(type) {
+  var i;
+  for (i = 0; i < pinGroups.length; i += 1) {
+    if (pinGroups[i].types.indexOf(type) !== -1) return pinGroups[i].id;
+  }
+  return "cultural";
+}
+function renderPinTypes(box, name, includeAll) {
+  box.innerHTML = "";
+  if (includeAll) {
+    box.insertAdjacentHTML("beforeend", '<label><input type="radio" name="' + name + '" value="" checked> All pin types</label>');
+  }
+  pinGroups.forEach(function (group, index) {
+    var mark = group.icon
+      ? '<img src="' + group.icon + '" alt="">'
+      : '<span class="airport-mark" aria-hidden="true">' + group.mark + '</span>';
+    box.insertAdjacentHTML("beforeend", '<label>' + mark + '<input type="radio" name="' + name + '" value="' + group.id + '"' + (!includeAll && index === 0 ? " checked" : "") + '> ' + group.label + '</label>');
+  });
+}
+function selectedPin(name) {
+  var chosen = document.querySelector('input[name="' + name + '"]:checked');
+  return chosen ? chosen.value : "";
+}
+function selectPin(name, value) {
+  var input = document.querySelector('input[name="' + name + '"][value="' + value + '"]');
+  if (input) input.checked = true;
+}
+function fill(select, values, any) {
+  select.innerHTML = any ? '<option value="">Any</option>' : "";
+  values.forEach(function (value) {
+    var option = document.createElement("option");
+    option.value = value;
+    option.textContent = value;
+    select.appendChild(option);
+  });
+}
+fill(document.getElementById("area"), areas, true);
+renderPinTypes(document.getElementById("type"), "filter-type", true);
+fill(document.getElementById("f-area"), areas, false);
+document.getElementById("f-area").insertAdjacentHTML("afterbegin", '<option value="">Not supplied</option>');
+document.getElementById("f-area").value = "";
+renderPinTypes(document.getElementById("f-type"), "place-type", false);
+selectPin("place-type", "discovery");
+var map = L.map("map").setView([36.2, 138.2], 5);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: "&copy; OpenStreetMap" }).addTo(map);
+var pinImages = {
+  discovery: "/img/map/turbo/turbo_blue_pin.webp",
+  cultural: "/img/map/turbo/turbo_green_pin.webp",
+  merchant: "/img/map/turbo/turbo_gold_pin.webp",
+  railway: "/img/map/station.webp"
+};
+function pinIcon() {
+  var group = selectedPin("place-type") || "discovery";
+  if (group === "airport") {
+    return L.divIcon({ className: "airport-pin", html: "<span>✈</span>", iconSize: [28, 28], iconAnchor: [14, 14] });
+  }
+  return L.icon({
+    iconUrl: pinImages[group] || pinImages.discovery,
+    iconSize: [32, 32],
+    iconAnchor: [16, 32]
+  });
+}
+var marker = L.marker([36.2, 138.2], { draggable: true, icon: pinIcon() }).addTo(map);
+function readMarker() {
+  var at = marker.getLatLng();
+  document.getElementById("lat").value = at.lat.toFixed(6);
+  document.getElementById("lng").value = at.lng.toFixed(6);
+}
+marker.on("drag", readMarker);
+marker.on("dragend", readMarker);
+function moveMarker(lat, lng) {
+  lat = Number(lat);
+  lng = Number(lng);
+  if (!Number.isFinite(lat) || !Number.isFinite(lng)) return;
+  marker.setLatLng([lat, lng]);
+  map.invalidateSize();
+  map.setView([lat, lng], 17, { animate: false });
+  readMarker();
+}
+function syncFromFields() {
+  moveMarker(document.getElementById("lat").value, document.getElementById("lng").value);
+}
+document.getElementById("lat").addEventListener("change", syncFromFields);
+document.getElementById("lng").addEventListener("change", syncFromFields);
+document.getElementById("f-type").addEventListener("change", function () {
+  marker.setIcon(pinIcon());
+});
+window.addEventListener("load", function () { map.invalidateSize(); });
+function say(text) { document.getElementById("message").textContent = text; }
+async function api(url, options) {
+  var response = await fetch(url, options);
+  var body = await response.json();
+  if (response.status === 401) { location.href = "/"; return body; }
+  return body;
+}
+function markNew() {
+  document.getElementById("id").value = "";
+  document.getElementById("id").readOnly = true;
+  document.getElementById("place").dataset.storedType = "";
+  document.getElementById("place").dataset.new = "1";
+  document.getElementById("form-title").textContent = "New place";
+}
+document.getElementById("find").onclick = async function () {
+  var status = document.getElementById("found");
+  var list = document.getElementById("results");
+  status.textContent = "Searching existing locations…";
+  list.innerHTML = "";
+  var params = new URLSearchParams({
+    q: document.getElementById("q").value,
+    country: document.getElementById("country").value,
+    area: document.getElementById("area").value,
+    type: selectedPin("filter-type"),
+    source: document.getElementById("source").value
+  });
+  try {
+    var body = await api("/api/places?" + params.toString());
+    var places = body.places || [];
+    var total = typeof body.total === "number" ? body.total : places.length;
+    places.forEach(function (place) {
+      var item = document.createElement("li");
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "ghost";
+      button.textContent = (place.disabled ? "Hidden · " : "") + place.name + (place.nameEn ? " / " + place.nameEn : "") + " · " + place.type + " (" + place.id + ")";
+      button.onclick = function () { openPlace(place.id); };
+      item.appendChild(button);
+      list.appendChild(item);
+    });
+    if (!total) status.textContent = "No existing Turbo locations match. Use “Find a new geographical location” below to add one.";
+    else status.textContent = total + " existing location" + (total === 1 ? "" : "s") + " match." + (total > places.length ? " Showing the first " + places.length + "." : "");
+  } catch (error) {
+    status.textContent = "The existing-location search did not finish. Reload Admin and try again.";
+  }
+};
+async function openPlace(id) {
+  var body = await api("/api/places/" + encodeURIComponent(id));
+  var place = body.place;
+  if (!place) return;
+  ["id","name","nameEn","address","description","descriptionEn","website","line","lat","lng","radiusMeters"].forEach(function (key) {
+    document.getElementById(key).value = place[key] == null ? "" : place[key];
+  });
+  document.getElementById("f-country").value = place.country || "japan";
+  document.getElementById("f-area").value = place.area || "fukuoka";
+  selectPin("place-type", groupFor(place.type));
+  document.getElementById("place").dataset.storedType = place.type || "";
+  document.getElementById("serviceTier").value = place.serviceTier || "";
+  document.getElementById("postcardId").value = place.postcardId || "";
+  document.getElementById("data-source").value = place.source || "legacy";
+  document.getElementById("sourceDetails").value = place.sourceDetails || "";
+  document.getElementById("verified").value = place.verified || "";
+  document.getElementById("notes").value = place.notes || "";
+  document.getElementById("id").readOnly = true;
+  document.getElementById("form-title").textContent = place.name;
+  document.getElementById("place").dataset.new = "";
+  marker.setIcon(pinIcon());
+  if (place.lat != null && place.lng != null && place.lat !== "" && place.lng !== "") moveMarker(place.lat, place.lng);
+  say(place.disabled ? "This place is hidden. Show it to put it back on the map." : "Loaded. The id stays the same when you save.");
+}
+document.getElementById("fresh").onclick = function () {
+  ["name","nameEn","address","description","descriptionEn","website","line","lat","lng","radiusMeters","sourceDetails","verified","notes"].forEach(function (key) {
+    document.getElementById(key).value = "";
+  });
+  document.getElementById("data-source").value = "admin";
+  markNew();
+  say("Search for a place, choose a result, then pick the pin type and save.");
+};
+function applyGeo(hit) {
+  markNew();
+  document.getElementById("name").value = hit.name || "";
+  document.getElementById("nameEn").value = hit.nameEn || "";
+  if (hit.country) document.getElementById("f-country").value = hit.country;
+  document.getElementById("f-area").value = hit.area || "";
+  document.getElementById("address").value = hit.address || "";
+  document.getElementById("data-source").value = "online";
+  document.getElementById("sourceDetails").value = hit.sourceDetails || "";
+  document.getElementById("verified").value = "";
+  document.getElementById("notes").value = "";
+  marker.setIcon(pinIcon());
+  if (hit.lat != null && hit.lng != null) {
+    moveMarker(hit.lat, hit.lng);
+    document.getElementById("map").scrollIntoView({ block: "center" });
+  }
+  say("Review the filled fields, choose the pin type, then save. The permanent id is assigned when you save.");
+}
+document.getElementById("lookup").onclick = async function () {
+  var status = document.getElementById("geo-status");
+  var box = document.getElementById("address-results");
+  var query = document.getElementById("address").value.trim();
+  box.innerHTML = "";
+  if (query.length < 3) {
+    status.textContent = "Enter at least three characters.";
+    return;
+  }
+  status.textContent = "Searching the map…";
+  try {
+    var body = await api("/api/places/geocode", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: query }) });
+    var hits = body.results || [];
+    if (body.note) {
+      status.textContent = body.note;
+      return;
+    }
+    if (!hits.length) {
+      status.textContent = "No geographical match for “" + query + "”. Type the latitude and longitude, or drag the marker.";
+      return;
+    }
+    status.textContent = hits.length + " geographical match" + (hits.length === 1 ? "" : "es") + ". Choose one to fill the new place.";
+    hits.forEach(function (hit) {
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "ghost";
+      button.textContent = hit.label;
+      button.onclick = function () { applyGeo(hit); };
+      box.appendChild(button);
+    });
+  } catch (error) {
+    status.textContent = "The geographical search failed. Type the coordinates or drag the marker.";
+  }
+};
+async function save(confirm) {
+  syncFromFields();
+  var form = document.getElementById("place");
+  var payload = {
+    new: form.dataset.new === "1",
+    confirm: !!confirm,
+    assignPostcard: document.getElementById("assignPostcard").checked,
+    id: document.getElementById("id").value.trim(),
+    country: document.getElementById("f-country").value,
+    area: document.getElementById("f-area").value,
+    type: (function () {
+      var group = pinGroups.filter(function (item) { return item.id === selectedPin("place-type"); })[0];
+      var stored = document.getElementById("place").dataset.storedType || "";
+      if (group && stored && group.types.indexOf(stored) !== -1) return stored;
+      return group ? group.store : stored;
+    })(),
+    name: document.getElementById("name").value,
+    nameEn: document.getElementById("nameEn").value,
+    address: document.getElementById("address").value,
+    description: document.getElementById("description").value,
+    descriptionEn: document.getElementById("descriptionEn").value,
+    website: document.getElementById("website").value,
+    serviceTier: document.getElementById("serviceTier").value,
+    line: document.getElementById("line").value,
+    radiusMeters: document.getElementById("radiusMeters").value,
+    lat: document.getElementById("lat").value,
+    lng: document.getElementById("lng").value,
+    postcardId: document.getElementById("postcardId").value,
+    source: document.getElementById("data-source").value,
+    sourceDetails: document.getElementById("sourceDetails").value,
+    verified: document.getElementById("verified").value,
+    notes: document.getElementById("notes").value
+  };
+  var body = await api("/api/places", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+  var dupes = document.getElementById("dupes");
+  if (body.duplicates) {
+    if (body.place && body.place.id) document.getElementById("id").value = body.place.id;
+    dupes.hidden = false;
+    dupes.textContent = "Possible duplicate: " + body.duplicates.map(function (row) { return row.name + " (" + row.meters + " m)"; }).join(", ") + ". Save again to keep this place anyway.";
+    document.getElementById("save").dataset.confirm = "1";
+    return;
+  }
+  dupes.hidden = true;
+  document.getElementById("save").dataset.confirm = "";
+  if (body.error) { say(body.error); return; }
+  form.dataset.new = "";
+  if (body.place && body.place.id) document.getElementById("id").value = body.place.id;
+  document.getElementById("id").readOnly = true;
+  var photo = document.getElementById("photo").files[0];
+  if (photo && body.place && body.place.id) {
+    var data = new FormData();
+    data.append("id", body.place.id);
+    data.append("file", photo);
+    var uploaded = await api("/api/places/photo", { method: "POST", body: data });
+    if (!uploaded.image) { say(uploaded.error || "The place was saved, but the photograph was not."); return; }
+    payload.id = body.place.id;
+    payload.new = false;
+    payload.confirm = true;
+    payload.image = uploaded.image;
+    body = await api("/api/places", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) });
+    if (body.error) { say(body.error); return; }
+  }
+  say("Saved locally. Preview the map, then publish from Admin home when you are ready." + (body.postcard ? " Postcard now opens " + body.postcard + " after the next publish." : ""));
+}
+document.getElementById("place").onsubmit = function (event) {
+  event.preventDefault();
+  save(document.getElementById("save").dataset.confirm === "1");
+};
+document.getElementById("disable").onclick = async function () {
+  var body = await api("/api/places/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: document.getElementById("id").value, disabled: true }) });
+  say(body.error || "Hidden on the local map. The record and its id are kept.");
+};
+document.getElementById("enable").onclick = async function () {
+  var body = await api("/api/places/disable", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: document.getElementById("id").value, disabled: false }) });
+  say(body.error || "Shown on the local map.");
+};
+document.getElementById("undo").onclick = async function () {
+  var body = await api("/api/places/undo", { method: "POST" });
+  say(body.error || "Restored the previous map edits. Reload the local map to see them.");
+};
+api("/api/places/postcards").then(function (body) {
+  var select = document.getElementById("postcardId");
+  (body.codes || []).forEach(function (code) {
+    var option = document.createElement("option");
+    option.value = code.id;
+    option.textContent = code.id + (code.merchant ? " · " + code.merchant : "") + " · " + code.status;
+    select.appendChild(option);
+  });
+});
+</script>
+</body>
+</html>

@@ -65,7 +65,14 @@
     <div class="settings-body">
       <div class="row">
         <button type="button" id="new">New postcard</button>
-        <button type="button" class="ghost" id="duplicate">Duplicate with a new QR</button>
+        <label>New card
+          <select id="new-kind">
+            <option value="merchant">Merchant QR</option>
+            <option value="general">General QR</option>
+            <option value="none">No QR code</option>
+          </select>
+        </label>
+        <button type="button" class="ghost" id="duplicate">Duplicate</button>
       </div>
       <label>Saved designs
         <select id="saved"></select>
@@ -98,19 +105,33 @@
         <button type="button" id="save">Save design</button>
         <button type="button" class="ghost" id="png">PNG</button>
         <button type="button" class="ghost" id="jpeg">JPEG</button>
-        <label>PDF artwork
-          <select id="pdf-scale">
-            <option value="1">100% — Original size</option>
-            <option value="0.97">97% — Small margin</option>
-            <option value="0.95" selected>95% — Standard safe margin</option>
-            <option value="0.92">92% — Wider margin</option>
-            <option value="0.90">90% — Extra margin</option>
+        <label>Front
+          <select id="pdf-scale-front">
+            <option value="1" selected>100% — Original</option>
+            <option value="0.95">95% — Standard safe margin</option>
+            <option value="0.90">90% — Extra safe margin</option>
+            <option value="0.85">85% — Wide margin</option>
+          </select>
+        </label>
+        <label>Back
+          <select id="pdf-scale-back">
+            <option value="1">100% — Original</option>
+            <option value="0.95">95% — Standard safe margin</option>
+            <option value="0.90" selected>90% — Extra safe margin</option>
+            <option value="0.85">85% — Wide margin</option>
+          </select>
+        </label>
+        <label>Print layout
+          <select id="print-layout">
+            <option value="duplex" selected>A4 duplex — Front/Front, then Back/Back</option>
+            <option value="card">Postcard size — one front, then one back</option>
           </select>
         </label>
         <button type="button" class="ghost" id="pdf-preview">Preview</button>
-        <button type="button" class="ghost" id="pdf">PDF</button>
+        <button type="button" id="pdf">Export PDF</button>
         <span id="status"></span>
       </div>
+      <p id="print-plan"></p>
       <img id="pdf-preview-img" alt="Front and back preview at the selected size" hidden>
       <div class="nudge">
         <div class="row">
@@ -192,8 +213,15 @@
           <button type="button" class="ghost" id="remove-text">Remove text</button>
         </div>
         <div class="tab-panel" id="panel-qr" role="tabpanel">
-          <p>ID <strong id="qr-id"></strong></p>
-          <p class="muted">The printed address stays fixed. Assign the merchant in the registry. Error correction is M, with a quiet zone. Size stays between 18 and 48 mm.</p>
+          <label>QR type
+            <select id="qr-kind">
+              <option value="merchant">Merchant QR</option>
+              <option value="general">General QR</option>
+              <option value="none">No QR code</option>
+            </select>
+          </label>
+          <p id="qr-id-line">ID <strong id="qr-id"></strong></p>
+          <p class="muted" id="qr-note">Merchant QR uses one TA-###### number. General QR always opens https://johrenadventure.com/ and does not use a registry number. No QR code leaves the card blank.</p>
           <p>Current public destination <span id="landing"></span></p>
           <label>QR size mm <input id="qr-size" type="number" min="18" max="48" step="1"></label>
           <label>Upload a card image JPG or PNG <input id="upload-qr" type="file" accept="image/jpeg,image/png"></label>
@@ -353,15 +381,18 @@ function showDesign(design, landing) {
   state.block = 0;
   document.querySelector("#title").value = design.title || "";
   document.querySelector("#orientation").value = design.orientation;
-  document.querySelector("#qr-id").textContent = design.qr.id;
+  document.querySelector("#qr-kind").value = design.qr.kind || "merchant";
+  document.querySelector("#qr-id").textContent = design.qr.id || "—";
+  document.querySelector("#qr-id-line").hidden = (design.qr.kind || "merchant") !== "merchant";
   document.querySelector("#qr-size").value = design.qr.sizeMm;
-  document.querySelector("#landing").textContent = landing || "not loaded";
+  document.querySelector("#landing").textContent = landing || (design.qr.kind === "general" ? "https://johrenadventure.com/" : design.qr.kind === "none" ? "No QR code" : "not loaded");
   ensure(design);
   fillImages();
   fillCharacters();
   fillBlocks();
   readBlock();
   readPosition();
+  if (typeof showPrintPlan === "function") showPrintPlan();
   refresh();
 }
 
@@ -781,10 +812,32 @@ document.querySelector("#remove-text").onclick = function () {
   readBlock();
   refresh().catch(fail);
 };
+document.querySelector("#qr-kind").onchange = async function () {
+  const kind = document.querySelector("#qr-kind").value;
+  state.design.qr.kind = kind;
+  if (kind === "merchant" && !state.design.qr.id) {
+    const assigned = await api("/api/postcards/assign-qr", { method: "POST" });
+    state.design.qr.id = assigned.id;
+    state.design.qr.url = assigned.url;
+  }
+  if (kind === "general") {
+    state.design.qr.url = "https://johrenadventure.com/";
+  }
+  if (kind === "none") state.design.qr.url = "";
+  document.querySelector("#qr-id").textContent = state.design.qr.id || "—";
+  document.querySelector("#qr-id-line").hidden = kind !== "merchant";
+  document.querySelector("#landing").textContent = kind === "general" ? "https://johrenadventure.com/" : kind === "none" ? "No QR code" : document.querySelector("#landing").textContent;
+  refresh().catch(fail);
+};
 document.querySelector("#new").onclick = async function () {
-  const data = await api("/api/postcards/new", { method: "POST" });
+  const data = await api("/api/postcards/new", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ kind: document.querySelector("#new-kind").value })
+  });
   await loadList(data.design.id);
-  showDesign(data.design, "/shops/");
+  const kind = data.design.qr.kind;
+  showDesign(data.design, kind === "general" ? "https://johrenadventure.com/" : kind === "none" ? "No QR code" : "/shops/");
 };
 document.querySelector("#duplicate").onclick = async function () {
   const data = await api("/api/postcards/duplicate", {
@@ -841,10 +894,48 @@ document.querySelector("#upload-character").onchange = async function () {
   fillCharacters();
   refresh().catch(fail);
 };
+const PRINT_KEY = "turbo.admin.postcardPrint.v1";
+function printSettings() {
+  return {
+    front: document.querySelector("#pdf-scale-front").value,
+    back: document.querySelector("#pdf-scale-back").value,
+    layout: document.querySelector("#print-layout").value
+  };
+}
+function printPlan() {
+  const settings = printSettings();
+  const front = document.querySelector("#pdf-scale-front").selectedOptions[0].textContent;
+  const back = document.querySelector("#pdf-scale-back").selectedOptions[0].textContent;
+  if (settings.layout === "card") {
+    return "Postcard-size PDF. Page 1 is the front. Page 2 is the back. Front " + front + ". Back " + back + ".";
+  }
+  const same = !state.design || (state.design.qr.kind || "merchant") !== "merchant"
+    ? "Both copies use this design."
+    : "Both copies use this merchant’s QR and its matching back.";
+  return "A4 long-edge duplex. Page 1: front, front. Page 2: back, back, in the same top and bottom positions. " + same + " Front " + front + ". Back " + back + ".";
+}
+function showPrintPlan() {
+  document.querySelector("#print-plan").textContent = printPlan();
+}
+function rememberPrint() {
+  localStorage.setItem(PRINT_KEY, JSON.stringify(printSettings()));
+  showPrintPlan();
+}
+function restorePrint() {
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem(PRINT_KEY) || "{}"); } catch (error) { saved = {}; }
+  if (saved.front) document.querySelector("#pdf-scale-front").value = saved.front;
+  if (saved.back) document.querySelector("#pdf-scale-back").value = saved.back;
+  if (saved.layout === "card" || saved.layout === "duplex") document.querySelector("#print-layout").value = saved.layout;
+  showPrintPlan();
+}
 async function download(format) {
   writeBlock();
   let query = "format=" + format;
-  if (format === "pdf" || format === "preview") query += "&scale=" + document.querySelector("#pdf-scale").value;
+  if (format === "pdf" || format === "preview" || format === "duplex") {
+    query += "&scaleFront=" + document.querySelector("#pdf-scale-front").value;
+    query += "&scaleBack=" + document.querySelector("#pdf-scale-back").value;
+  }
   const blob = await api("/api/postcards/export?" + query, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -856,18 +947,25 @@ async function download(format) {
     img.dataset.url = URL.createObjectURL(blob);
     img.src = img.dataset.url;
     img.hidden = false;
-    document.querySelector("#status").textContent = "Preview: front above, back below. The page stays 148 × 100 mm.";
+    document.querySelector("#status").textContent = printPlan();
     return;
   }
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
-  link.download = state.design.qr.id + "." + (format === "jpeg" ? "jpg" : format);
+  const stem = format === "duplex" ? "postcard-duplex" : (state.design.qr.id || state.design.id);
+  link.download = stem + "." + (format === "jpeg" ? "jpg" : format === "duplex" ? "pdf" : format);
   link.click();
 }
 document.querySelector("#png").onclick = function () { download("png").catch(fail); };
 document.querySelector("#jpeg").onclick = function () { download("jpeg").catch(fail); };
 document.querySelector("#pdf-preview").onclick = function () { download("preview").catch(fail); };
-document.querySelector("#pdf").onclick = function () { download("pdf").catch(fail); };
+document.querySelector("#pdf").onclick = function () {
+  download(document.querySelector("#print-layout").value === "card" ? "pdf" : "duplex").catch(fail);
+};
+["#pdf-scale-front", "#pdf-scale-back", "#print-layout"].forEach(function (selector) {
+  document.querySelector(selector).addEventListener("change", rememberPrint);
+});
+restorePrint();
 document.querySelector("#saved").addEventListener("focus", function () { writeBlock(); });
 
 function fail(error) {

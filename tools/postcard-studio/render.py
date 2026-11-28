@@ -318,10 +318,13 @@ def render(design, dpi, which="front", include_qr=True):
         card = cover(Image.open(source), width, height)
     card = draw_characters(card, side.get("layers") or [], dpi)
     draw_texts(card, side.get("texts") or [], dpi, orientation)
-    if which != "back" and include_qr:
-        qr = design.get("qr") or {}
-        code_id = qr.get("id") or ""
-        url = "https://johrenadventure.com/q/" + code_id
+    qr = design.get("qr") or {}
+    kind = qr.get("kind") if qr.get("kind") in ("merchant", "general", "none") else "merchant"
+    if which != "back" and include_qr and kind != "none":
+        if kind == "general":
+            url = "https://johrenadventure.com/"
+        else:
+            url = "https://johrenadventure.com/q/" + (qr.get("id") or "")
         size_mm = min(MAX_QR_MM, max(MIN_QR_MM, float(qr.get("sizeMm") or 22)))
         placed_x, placed_y = clamp_center(qr.get("x") if qr.get("x") is not None else 0.78, qr.get("y") if qr.get("y") is not None else 0.8, size_mm, orientation)
         mark = qr_image(url, mm_to_px(size_mm, dpi))
@@ -334,7 +337,7 @@ def render(design, dpi, which="front", include_qr=True):
 
 
 A4_MM = (210, 297)
-MARGIN_SCALES = (0.90, 0.92, 0.95, 0.97, 1.0)
+MARGIN_SCALES = (0.85, 0.90, 0.95, 1.0)
 
 
 def pdf_bytes(pages):
@@ -349,7 +352,7 @@ def side_image(design, which):
 
 def contain(image, box_w, box_h, scale):
     """Scale artwork to fit inside the finished card. Never crop it."""
-    scale = min(1.0, max(0.90, float(scale)))
+    scale = min(1.0, max(0.85, float(scale)))
     if image.size == (box_w, box_h) and abs(scale - 1) < 0.001:
         return image.copy()
     fit = min(box_w / image.width, box_h / image.height) * scale
@@ -400,12 +403,14 @@ def pdf_standard(design):
     return pdf_bytes([side_image(design, "front"), side_image(design, "back")])
 
 
-def pdf_margin(design, scale):
+def pdf_margin(design, front_scale, back_scale=None):
+    if back_scale is None:
+        back_scale = front_scale
     front = side_image(design, "front")
     back = side_image(design, "back")
     return pdf_bytes([
-        contain(front, front.width, front.height, scale),
-        contain(back, back.width, back.height, scale),
+        contain(front, front.width, front.height, front_scale),
+        contain(back, back.width, back.height, back_scale),
     ])
 
 
@@ -416,13 +421,17 @@ def pdf_a4_proof(design):
     return pdf_bytes([a4_sheet(front, back)])
 
 
-def pdf_a4_batch(designs, scale):
+def pdf_a4_batch(designs, front_scale, back_scale=None):
+    if back_scale is None:
+        back_scale = front_scale
+    if len(designs) == 1:
+        return pdf_a4_copies(designs[0], front_scale, back_scale)
     slot_w, slot_h = card_px("landscape", PRINT_DPI)
     pages = []
     for index in range(0, len(designs), 2):
         pair = designs[index:index + 2]
-        fronts = [contain(side_image(design, "front"), slot_w, slot_h, scale) for design in pair]
-        backs = [contain(side_image(design, "back"), slot_w, slot_h, scale) for design in pair]
+        fronts = [contain(side_image(design, "front"), slot_w, slot_h, front_scale) for design in pair]
+        backs = [contain(side_image(design, "back"), slot_w, slot_h, back_scale) for design in pair]
         while len(fronts) < 2:
             fronts.append(None)
             backs.append(None)
@@ -431,12 +440,22 @@ def pdf_a4_batch(designs, scale):
     return pdf_bytes(pages)
 
 
-def export_bytes(design, kind, which="front", layout="standard", scale=0.95):
+def pdf_a4_copies(design, front_scale, back_scale=None):
+    """Two identical fronts, then two identical backs, on the existing duplex sheets."""
+    if back_scale is None:
+        back_scale = front_scale
+    slot_w, slot_h = card_px("landscape", PRINT_DPI)
+    front = contain(side_image(design, "front"), slot_w, slot_h, front_scale)
+    back = contain(side_image(design, "back"), slot_w, slot_h, back_scale)
+    return pdf_bytes([a4_sheet(front, front), a4_sheet(back, back)])
+
+
+def export_bytes(design, kind, which="front", layout="standard", scale=0.95, back_scale=None):
     which = which if which in ("front", "back") else "front"
     buffer = io.BytesIO()
     if kind == "pdf":
         if layout == "margin":
-            data = pdf_margin(design, scale)
+            data = pdf_margin(design, scale, back_scale)
         elif layout == "a4":
             data = pdf_a4_proof(design)
         else:
@@ -450,12 +469,14 @@ def export_bytes(design, kind, which="front", layout="standard", scale=0.95):
     return buffer.getvalue(), "image/png", "png"
 
 
-def preview_scaled(design, scale):
+def preview_scaled(design, front_scale, back_scale=None):
     """Front above back, each centred inside the unchanged postcard boundary."""
+    if back_scale is None:
+        back_scale = front_scale
     front = render(design, PREVIEW_DPI, "front").convert("RGB")
     back = render(design, PREVIEW_DPI, "back").convert("RGB")
-    front = contain(front, front.width, front.height, scale)
-    back = contain(back, back.width, back.height, scale)
+    front = contain(front, front.width, front.height, front_scale)
+    back = contain(back, back.width, back.height, back_scale)
     gap = 10
     sheet = Image.new("RGB", (front.width, front.height + gap + back.height), "white")
     sheet.paste(front, (0, 0))
@@ -577,10 +598,19 @@ def clean_design(body, existing=None):
     """Return a design dict or an error string."""
     orientation = body.get("orientation") if body.get("orientation") in ("portrait", "landscape") else "portrait"
     qr = body.get("qr") if isinstance(body.get("qr"), dict) else {}
-    code_id = str(qr.get("id") or (existing or {}).get("qr", {}).get("id") or "")
-    row = find_code(code_id)
-    if row is None:
-        return None, "QR id is not in the registry"
+    previous = (existing or {}).get("qr") if isinstance((existing or {}).get("qr"), dict) else {}
+    kind = qr.get("kind") if qr.get("kind") in ("merchant", "general", "none") else previous.get("kind") or "merchant"
+    code_id = str(qr.get("id") or previous.get("id") or "")
+    if kind == "merchant":
+        if find_code(code_id) is None:
+            return None, "QR id is not in the registry"
+        qr_url = "https://johrenadventure.com/q/" + code_id
+    elif kind == "general":
+        code_id = ""
+        qr_url = "https://johrenadventure.com/"
+    else:
+        code_id = ""
+        qr_url = ""
     incoming = body.get("sides") if isinstance(body.get("sides"), dict) else {}
     front, error = clean_side(incoming.get("front"), {"image": body.get("image"), "texts": body.get("texts"), "layers": body.get("layers")}, orientation)
     if error:
@@ -604,8 +634,9 @@ def clean_design(body, existing=None):
         "layers": front["layers"],
         "sides": {"front": front, "back": back},
         "qr": {
+            "kind": kind,
             "id": code_id,
-            "url": "https://johrenadventure.com/q/" + code_id,
+            "url": qr_url,
             "sizeMm": qr_size,
             "x": qr_x,
             "y": qr_y,

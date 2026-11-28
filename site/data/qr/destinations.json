@@ -11,6 +11,18 @@
     "TA-000010": {
       "status": "unassigned",
       "path": "/shops/"
+    },
+    "TA-000011": {
+      "status": "assigned",
+      "path": "/shops/demo-a/"
+    },
+    "TA-000012": {
+      "status": "assigned",
+      "path": "/shops/demo-b/"
+    },
+    "TA-000013": {
+      "status": "assigned",
+      "path": "/shops/demo-c/"
     }
   }
 }

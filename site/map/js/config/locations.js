@@ -1453,7 +1453,7 @@
       role: (feature && feature.role) || pin.role || "",
       rewards: feature && feature.image
         ? { stageImage: feature.image }
-        : (pin.rewards || null),
+        : (pin.image ? { stageImage: pin.image } : (pin.rewards || null)),
       featured: feature
     };
   }

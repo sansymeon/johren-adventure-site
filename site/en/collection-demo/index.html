@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/media/icons/apple-touch-icon.png" sizes="180x180">
+<meta name="theme-color" content="#0e7884">
+<meta name="robots" content="noindex">
+<title>My Collection</title>
+<link rel="stylesheet" href="/css/stickers.css?v=20261128h2">
+</head>
+<body>
+<main class="album">
+<h1>My Collection</h1>
+<section class="welcome-theatre">
+<h2>My Turbo Theatre</h2>
+<p>Collect delightful characters as you explore!<br>Your collected characters become the cast of your very own theatre.<br>Tap your favourite character and let the show begin!</p>
+<p><button type="button" id="finale" class="show-begin">🎭 Grand Finale!</button></p>
+</section>
+<div id="sample-album"></div>
+<h2>Completed Pictures</h2>
+<div class="pictures">
+<button type="button" data-picture="/media/puzzles/5_piece_christmas_916.jpg"><img src="/media/puzzles/5_piece_christmas_916.jpg" alt="5 pieces"></button>
+<button type="button" data-picture="/media/puzzles/10_piece_christmas.jpg"><img src="/media/puzzles/10_piece_christmas.jpg" alt="10 pieces"></button>
+</div>
+<h2>Puzzle in Progress</h2>
+<p>3 / 5</p>
+<div class="board mosaic">
+<img src="/media/puzzles/5_piece_winter_villaga_carolers.jpg" alt="">
+<span style="left:40%;width:20%"></span>
+<span style="left:80%;width:20%"></span>
+</div>
+</main>
+<div id="picture-view" hidden>
+<img alt="">
+<p class="theatre-actions"><button type="button" id="save-picture">Save Picture</button> <button type="button" id="share-picture">Share Picture</button> <button type="button" id="close-picture">Back</button></p>
+</div>
+<script src="/js/sticker-album.js?v=20261128h2"></script>
+<script src="/map/js/image-share.js"></script>
+<script>
+TURBO_STICKER_ALBUM.render(document.getElementById("sample-album"), { source: "show", heading: "" });
+document.getElementById("finale").onclick = function () { TURBO_STICKER_ALBUM.openShow("finale"); };
+var view = document.getElementById("picture-view");
+var current = "";
+document.querySelectorAll("[data-picture]").forEach(function (button) {
+  button.onclick = function () {
+    current = button.getAttribute("data-picture");
+    view.querySelector("img").src = current;
+    view.hidden = false;
+  };
+});
+document.getElementById("close-picture").onclick = function () { view.hidden = true; };
+document.getElementById("save-picture").onclick = function () { if (current) TURBO_IMAGE_SHARE.save(current, "turbo-picture.jpg"); };
+document.getElementById("share-picture").onclick = function () { if (current) TURBO_IMAGE_SHARE.share(current, "turbo-picture.jpg"); };
+</script>
+<script src="/js/nav.js"></script>
+</body>
+</html>

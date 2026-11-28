@@ -62,12 +62,15 @@
       <a href="/postcards">Postcard Studio</a>
       <a href="/postcards/registry">QR Registry</a>
       <a href="/merchant">Merchant Manager</a>
+      <a href="/demo-merchants">Reward demonstrations</a>
+      <a href="http://127.0.0.1:8765/demo/merchant-qr/">Demonstration QR sheet</a>
       <a href="/settings">Settings</a>
       <a href="/backup">Backup / Restore</a>
       <button type="button" class="ghost" id="logout">Sign out</button>
     </nav>
     <section>
       <h1>Turbo Admin</h1>
+      <p id="admin-status">Loading server status…</p>
       <p>Everything for routine work is in this project folder. Master images are the local copy in <code>artwork/</code>, taken from <code>japanese.jp/turbo_adventure</code>. The originals were not deleted.</p>
       <h2>Publish the public site</h2>
       <p>This publishes only <code>site/</code>. Artwork, this admin, passwords, and backups stay on this computer.</p>
@@ -426,6 +429,10 @@ document.getElementById("logout").addEventListener("click", async function () {
 
 api("/api/session").then(function (data) {
   if (data.ok) openApp();
+}).catch(function () {});
+fetch("/api/status").then(function (response) { return response.json(); }).then(function (data) {
+  var line = document.getElementById("admin-status");
+  if (line) line.textContent = data.address + " · started " + data.started + " · code " + data.version;
 }).catch(function () {});
 </script>
 </body>

@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "fictional": true,
+  "characters": [
+    {
+      "id": "turbo",
+      "file": "/media/turbo/poses/turbo_confident_transparent.webp",
+      "ja": "ターボ",
+      "en": "Turbo"
+    },
+    {
+      "id": "seagull",
+      "file": "/media/heroes/transparent/captain_seagull_flying.webp",
+      "ja": "キャプテン・シーガル",
+      "en": "Captain Seagull"
+    },
+    {
+      "id": "nibbles",
+      "file": "/media/heroes/transparent/nibbles_dragon.webp",
+      "ja": "ニブルズ",
+      "en": "Nibbles"
+    },
+    {
+      "id": "lola",
+      "file": "/media/heroes/transparent/madame_lola_flamingo_moviestar.webp",
+      "ja": "ローラ",
+      "en": "Lola"
+    },
+    {
+      "id": "hooves",
+      "file": "/media/heroes/transparent/sargeant_hooves_royalguard.webp",
+      "ja": "フーズ軍曹",
+      "en": "Sergeant Hooves"
+    },
+    {
+      "id": "henrietta",
+      "file": "/media/heroes/transparent/dame_henrietta_cluckington_chicken.webp",
+      "ja": "アンリエッタ",
+      "en": "Henrietta"
+    },
+    {
+      "id": "bubbles",
+      "file": "/media/heroes/transparent/bubbles_babydragon.webp",
+      "ja": "バブルス",
+      "en": "Bubbles"
+    },
+    {
+      "id": "humphrey",
+      "file": "/media/heroes/transparent/sir_humphrey_proboscis.webp",
+      "ja": "ハンフリー",
+      "en": "Humphrey"
+    }
+  ],
+  "puzzles": [
+    "/media/puzzles/5_piece_christmas_916.jpg",
+    "/media/puzzles/5_piece_winter_villaga_carolers.jpg"
+  ],
+  "merchants": {
+    "bistro-a": {
+      "id": "bistro-a",
+      "plan": "free",
+      "name": {
+        "ja": "ビストロ・ターボA",
+        "en": "Bistro Turbo A"
+      },
+      "welcome": {
+        "ja": "いらっしゃいませ。今日のご来店の記念に、店のステッカーをお受け取りください。",
+        "en": "Welcome in. Please take a sticker as a memento of your visit today."
+      },
+      "about": {
+        "ja": "糸島の海岸沿いにある、小さなビストロです。昼はテラス、夜は静かな席で過ごせます。",
+        "en": "A small bistro along the Itoshima coast. A terrace at lunch, and a quiet table in the evening."
+      },
+      "address": {
+        "ja": "福岡県糸島市",
+        "en": "Itoshima, Fukuoka"
+      },
+      "hours": {
+        "ja": "11:30–15:00、18:00–21:00（火曜定休）",
+        "en": "11:30–15:00 and 18:00–21:00. Closed Tuesday."
+      },
+      "photo": "/shops/demo/bistro-turbo-cafe.jpg",
+      "character": "",
+      "puzzle": "",
+      "calendar": "",
+      "website": "",
+      "qr": "TA-000011",
+      "enabled": true,
+      "fictional": true
+    },
+    "bistro-b": {
+      "id": "bistro-b",
+      "plan": "standard",
+      "name": {
+        "ja": "ビストロ・ターボB",
+        "en": "Bistro Turbo B"
+      },
+      "welcome": {
+        "ja": "いらっしゃいませ。今日のご来店の記念に、店のステッカーをお受け取りください。",
+        "en": "Welcome in. Please take a sticker as a memento of your visit today."
+      },
+      "about": {
+        "ja": "糸島の海岸沿いにある、小さなビストロです。昼はテラス、夜は静かな席で過ごせます。",
+        "en": "A small bistro along the Itoshima coast. A terrace at lunch, and a quiet table in the evening."
+      },
+      "address": {
+        "ja": "福岡県糸島市",
+        "en": "Itoshima, Fukuoka"
+      },
+      "hours": {
+        "ja": "11:30–15:00、18:00–21:00（火曜定休）",
+        "en": "11:30–15:00 and 18:00–21:00. Closed Tuesday."
+      },
+      "photo": "/shops/demo/bistro-turbo-cafe.jpg",
+      "character": "lola",
+      "puzzle": "",
+      "calendar": "",
+      "website": "",
+      "qr": "TA-000012",
+      "enabled": true,
+      "fictional": true
+    },
+    "bistro-c": {
+      "id": "bistro-c",
+      "plan": "premium",
+      "name": {
+        "ja": "ビストロ・ターボC",
+        "en": "Bistro Turbo C"
+      },
+      "welcome": {
+        "ja": "いらっしゃいませ。今日のご来店の記念に、店のステッカーをお受け取りください。",
+        "en": "Welcome in. Please take a sticker as a memento of your visit today."
+      },
+      "about": {
+        "ja": "糸島の海岸沿いにある、小さなビストロです。昼はテラス、夜は静かな席で過ごせます。",
+        "en": "A small bistro along the Itoshima coast. A terrace at lunch, and a quiet table in the evening."
+      },
+      "address": {
+        "ja": "福岡県糸島市",
+        "en": "Itoshima, Fukuoka"
+      },
+      "hours": {
+        "ja": "11:30–15:00、18:00–21:00（火曜定休）",
+        "en": "11:30–15:00 and 18:00–21:00. Closed Tuesday."
+      },
+      "photo": "/shops/demo/bistro-turbo-cafe.jpg",
+      "character": "turbo",
+      "puzzle": "/media/puzzles/5_piece_christmas_916.jpg",
+      "calendar": "/shops/demo/bistro-turbo-january.jpg",
+      "website": "https://example.com",
+      "qr": "TA-000013",
+      "enabled": true,
+      "fictional": true
+    }
+  }
+}
